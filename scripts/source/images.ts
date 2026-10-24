@@ -67,6 +67,15 @@ export async function processProductImages(products: Product[], opts: ImageStepO
   const withCutout = new Set<string>();
   await mapLimit(products, 2, async (p) => {
     const out = localImagePath(p.id);
+    const plan = photoPlans[p.id];
+    if (plan?.reviewedCutout) {
+      await normalizeProductImage(path.resolve(plan.reviewedCutout), out, { skipRembg: true, cutoutPath: cutoutPath(p.id) });
+      await publishCutout(p);
+      p.image = `/products/${p.id}.jpg`;
+      withCutout.add(p.id);
+      opts.log(`  reviewed cutout: ${p.id}`);
+      return;
+    }
     if (!opts.force && existsSync(out) && (existsSync(cutoutPath(p.id)) || existsSync(publishedCutoutPath(p.id)))) {
       if (!existsSync(cutoutPath(p.id))) {
         await mkdir(path.dirname(cutoutPath(p.id)), { recursive: true });
@@ -77,7 +86,6 @@ export async function processProductImages(products: Product[], opts: ImageStepO
       withCutout.add(p.id);
       return;
     }
-    const plan = photoPlans[p.id];
     const sources = plan ? [plan.sourceUrl] : p.sourceImages.slice(0, 3);
     if (plan && !p.sourceImages.includes(plan.sourceUrl)) p.sourceImages.unshift(plan.sourceUrl);
     let lastErr: unknown = new Error("no source images");
