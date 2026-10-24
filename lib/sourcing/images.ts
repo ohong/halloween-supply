@@ -131,6 +131,8 @@ export interface FlatlayOptions {
   margin?: number;
   /** Gap between cells as a fraction of width. Default 0.04. */
   gap?: number;
+  /** Relative size within each cell, in source order. */
+  scales?: number[];
 }
 
 /**
@@ -169,7 +171,8 @@ export async function composeFlatlay(imagePaths: string[], outPath: string, opts
     const y0 = margin + row * (ch + gap);
     const src = await sharp(imagePaths[i]).ensureAlpha().png().toBuffer();
     const trimmed = await trimTransparent(src);
-    const fitted = await sharp(trimmed).resize({ width: cw, height: ch, fit: "inside" }).png().toBuffer();
+    const scale = opts.scales?.[i] ?? 1;
+    const fitted = await sharp(trimmed).resize({ width: Math.round(cw * scale), height: Math.round(ch * scale), fit: "inside" }).png().toBuffer();
     const meta = await sharp(fitted).metadata();
     layers.push({
       input: fitted,

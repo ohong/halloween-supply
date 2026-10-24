@@ -1,6 +1,7 @@
 // Precomputed sourcing pipeline: bun run source <costume-slug> [--dry-run] [--skip-images] [--only=<pieceId>]
 //   [--allow-partial] [--force-images]
 import { resetGraph } from "../../lib/graph/client";
+import { flatlayScale } from "../../lib/products/flatlay";
 import { costumes } from "../../lib/costumes";
 import { buildFlatlay, applyExistingTiles, processProductImages } from "./images";
 import type { Costume, CostumeSnapshot, Piece } from "../../lib/types";
@@ -140,7 +141,7 @@ async function main() {
     const withCutout = await processProductImages(touched, { force: args.forceImages, log });
     applyExistingTiles(snapshot.products);
     const defaults = snapshot.pieces.map((p) => p.matches.find((m) => m.rank === 0)?.productId).filter((x): x is string => !!x);
-    if (await buildFlatlay(costume.slug, defaults, withCutout, log)) {
+    if (await buildFlatlay(costume.slug, defaults, withCutout, log, snapshot.pieces.map(flatlayScale))) {
       snapshot.costume.image = `/products/${costume.slug}-flatlay.jpg`;
       snapshot.costume.alt = `${costume.name}: ${snapshot.pieces.map((piece) => piece.name.toLowerCase()).join(", ")}, arranged on pale grey.`;
     }

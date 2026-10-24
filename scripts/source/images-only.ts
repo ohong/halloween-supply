@@ -2,6 +2,7 @@
 // bun --env-file=.env.local scripts/source/images-only.ts cosmic-cowboy [--force] [--defaults]
 import { applyExistingTiles, buildFlatlay, processProductImages } from "./images";
 import { loadExisting, upsertToGraph, writeSnapshotFile } from "./write";
+import { flatlayScale } from "../../lib/products/flatlay";
 
 const slug = process.argv[2] ?? "cosmic-cowboy";
 const snapshot = await loadExisting(slug);
@@ -11,7 +12,7 @@ const touched = process.argv.includes("--defaults") ? snapshot.products.filter((
 const cutouts = await processProductImages(touched, { force: process.argv.includes("--force"), log: console.log });
 applyExistingTiles(snapshot.products);
 const defaults = snapshot.pieces.map((p) => p.matches.find((m) => m.rank === 0)?.productId).filter((id): id is string => !!id);
-if (await buildFlatlay(slug, defaults, cutouts, console.log)) {
+if (await buildFlatlay(slug, defaults, cutouts, console.log, snapshot.pieces.map(flatlayScale))) {
   snapshot.costume.image = `/products/${slug}-flatlay.jpg`;
   snapshot.costume.alt = `${snapshot.costume.name}: ${snapshot.pieces.map((piece) => piece.name.toLowerCase()).join(", ")}, arranged on pale grey.`;
 }

@@ -11,6 +11,7 @@ import { Carousel, type Slide } from "./carousel";
 import { suggestConsolidation } from "./consolidate";
 import { ProductImage } from "./product-image";
 import { ShopForMe } from "./shop-for-me";
+import { flatlayScale } from "@/lib/products/flatlay";
 
 export function CostumeExperience({ costume, editorial }: { costume: CostumeView; editorial?: { image: string; alt: string } }) {
   const cart = useCart();
@@ -37,7 +38,7 @@ export function CostumeExperience({ costume, editorial }: { costume: CostumeView
 
   const flatlayItems = pieces.flatMap((view) => {
     const option = picked.get(view.piece.id);
-    return option?.product.cutout ? [{ key: view.piece.id, src: option.product.cutout, alt: `${view.piece.name}: ${option.product.title}` }] : [];
+    return option?.product.cutout ? [{ key: view.piece.id, src: option.product.cutout, alt: `${view.piece.name}: ${option.product.title}`, scale: flatlayScale(view.piece) }] : [];
   });
 
   const slides: Slide[] = [

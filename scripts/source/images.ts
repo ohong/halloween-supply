@@ -107,13 +107,13 @@ export async function processProductImages(products: Product[], opts: ImageStepO
   return withCutout;
 }
 
-export async function buildFlatlay(slug: string, defaultProductIds: string[], withCutout: Set<string>, log: (m: string) => void): Promise<boolean> {
+export async function buildFlatlay(slug: string, defaultProductIds: string[], withCutout: Set<string>, log: (m: string) => void, scales?: number[]): Promise<boolean> {
   const inputs = defaultProductIds.filter((id) => withCutout.has(id) || existsSync(cutoutPath(id)) || existsSync(publishedCutoutPath(id)))
     .map((id) => existsSync(publishedCutoutPath(id)) ? publishedCutoutPath(id) : cutoutPath(id));
   if (inputs.length < 2 || inputs.length !== defaultProductIds.length) {
     log(`  flat-lay skipped: ${inputs.length}/${defaultProductIds.length} default cutouts available`);
     return false;
   }
-  await composeFlatlay(inputs, path.join(PRODUCTS_DIR, `${slug}-flatlay.jpg`));
+  await composeFlatlay(inputs, path.join(PRODUCTS_DIR, `${slug}-flatlay.jpg`), { scales });
   return true;
 }
