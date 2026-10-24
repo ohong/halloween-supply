@@ -1,0 +1,863 @@
+{
+  "costume": {
+    "slug": "velvet-vampire",
+    "name": "Velvet Vampire",
+    "description": "A black velvet cape with oxblood lining, a ruffled shirt, and a tailored waistcoat.",
+    "image": "/products/velvet-vampire-flatlay.jpg",
+    "alt": "Velvet Vampire: black velvet cape, white ruffled shirt, black waistcoat — wear with your own black trousers, black tall boots, silver brooch, arranged on pale grey.",
+    "status": "live"
+  },
+  "pieces": [
+    {
+      "id": "vampire-cape",
+      "name": "Black velvet cape",
+      "category": "Outerwear",
+      "required": true,
+      "order": 1,
+      "styleNotes": "Floor-grazing black crushed velvet cape with a deep oxblood satin lining and a high collar for a dramatic Gothic silhouette. Look for handmade or vintage-inspired ties at the neck.",
+      "queries": [
+        "handmade black velvet cape oxblood red satin lining Etsy",
+        "vintage gothic black crushed velvet cloak high collar",
+        "handmade long velvet vampire cape burgundy lined"
+      ],
+      "sizeKind": "one_size",
+      "matches": [
+        {
+          "productId": "p-610c2db658",
+          "rank": 0,
+          "reason": "Full-length black velvet cape with embossed red satin lining and a hood, matching the oxblood-lined look, though it is a mass-market Underwraps piece with a hood rather than a high collar."
+        },
+        {
+          "productId": "p-c5ec6e089b",
+          "rank": 1,
+          "reason": "Full-length hooded velvet cloak with red lining, which fits the black-and-red palette, but the listing gives few details and it is a generic Underwraps item."
+        },
+        {
+          "productId": "p-a0fb2218d3",
+          "rank": 2,
+          "reason": "63-inch black velvet hooded cape with black satin flocked lining is a dramatic floor-length option, but the lining is black rather than oxblood and it is sized for female adults."
+        }
+      ]
+    },
+    {
+      "id": "ruffled-shirt",
+      "name": "White ruffled shirt",
+      "category": "Tops",
+      "required": true,
+      "order": 2,
+      "styleNotes": "Crisp white cotton or poly-cotton shirt with a frothy jabot front and ruffled cuffs, in a Victorian or 1970s romantic style.",
+      "queries": [
+        "vintage white ruffled jabot shirt cotton Victorian",
+        "handmade white cotton pirate ruffle shirt Etsy",
+        "vintage 1970s white ruffle front tuxedo shirt"
+      ],
+      "sizeKind": "apparel",
+      "matches": [
+        {
+          "productId": "p-5c022ff1b4",
+          "rank": 0,
+          "reason": "White men's dress shirt with a three-tiered oversized jabot ruffle front, ruffled 1½-inch cuffs, and a full button front with a 2½-inch collar, made from 100% rayon rather than cotton."
+        },
+        {
+          "productId": "p-a4b60bb169",
+          "rank": 1,
+          "reason": "White 100% cotton blouse with a ruffled stand collar, ruffled button cuffs, and larger ruffles flanking the full button front in a Victorian-inspired style."
+        },
+        {
+          "productId": "p-9403dfcef1",
+          "rank": 2,
+          "reason": "Victorian-style women's blouse with a ruffled band collar, full button front, and four-button cuffs, with ruffles on the yoke and back rather than a frothy jabot front."
+        }
+      ]
+    },
+    {
+      "id": "black-waistcoat",
+      "name": "Black waistcoat — wear with your own black trousers",
+      "category": "Tailoring",
+      "required": true,
+      "order": 3,
+      "styleNotes": "Fitted black waistcoat in velvet, brocade or wool with a V-neck and small buttons for a tailored Victorian look. Worn over the ruffled shirt with your own black trousers.",
+      "queries": [
+        "vintage black brocade waistcoat Victorian fitted",
+        "handmade black velvet vest men's gothic Etsy",
+        "vintage black wool waistcoat tailored button front"
+      ],
+      "sizeKind": "apparel",
+      "matches": [
+        {
+          "productId": "p-6b969bd8b3",
+          "rank": 0,
+          "reason": "Black velvet waistcoat with a satin back, satin accent trim and silver-tone metal buttons, in a plush acetate-nylon blend; the velvet matches the cape, though the double-breasted silver buttons are less fitted-Victorian than small buttons."
+        },
+        {
+          "productId": "p-68a970eac8",
+          "rank": 1,
+          "reason": "Black single-breasted Regency-style waistcoat with a seven-button front, stand-up collar with fold-down lapel, inset pockets and a lace-up adjustable back; the early 19th-century cut is a bit earlier than Victorian and the description does not state a V-neck or fabric."
+        },
+        {
+          "productId": "p-f79e1da1ae",
+          "rank": 2,
+          "reason": "Double-breasted waistcoat in satin with a tone-on-tone floral brocade, notched lapels and antiqued silver-tone buttons, showing late 19th-century details; the description mentions bright white tones, so the colorway is unclear against the black request."
+        }
+      ]
+    },
+    {
+      "id": "vampire-boots",
+      "name": "Black tall boots",
+      "category": "Footwear",
+      "required": true,
+      "order": 4,
+      "styleNotes": "Knee-high black leather boots with a low heel and a slightly worn finish, evoking riding boots from the Victorian or equestrian tradition.",
+      "queries": [
+        "vintage black leather knee high riding boots",
+        "handmade black leather tall boots Etsy",
+        "vintage western wear black tall leather boots"
+      ],
+      "sizeKind": "shoe",
+      "matches": [
+        {
+          "productId": "p-0969c0dcdf",
+          "rank": 0,
+          "reason": "Black leather boots with a 15-inch shaft plus a 3-inch front rise, low heel, square toe, and pull-on loops give a knee-high cavalry and equestrian look."
+        },
+        {
+          "productId": "p-078c2bb11e",
+          "rank": 1,
+          "reason": "Made of 100% top grain leather with a low heel, leather pull-on loops, and a wood-construction sole with leather outsole, though the 12-inch shaft sits at mid-calf rather than knee-high."
+        },
+        {
+          "productId": "p-91556ae8e5",
+          "rank": 2,
+          "reason": "Faux leather boots with a distressed black finish and 16-17 inch shaft are tall, but the steampunk lacing, buttons, rubber lug sole and inner zipper depart from a Victorian riding boot and the material is not real leather."
+        }
+      ]
+    },
+    {
+      "id": "silver-brooch",
+      "name": "Silver brooch",
+      "category": "Accessories",
+      "required": true,
+      "order": 5,
+      "styleNotes": "Antique-style silver brooch with ornate filigree or a dark gemstone, pinned at the cape collar or the shirt's jabot.",
+      "queries": [
+        "vintage sterling silver filigree brooch Victorian",
+        "handmade gothic silver brooch dark gemstone Etsy",
+        "antique silver tone cameo brooch pin"
+      ],
+      "sizeKind": "one_size",
+      "matches": [
+        {
+          "productId": "p-30d3ca8ec8",
+          "rank": 0,
+          "reason": "Sterling silver Celtic knotwork and marcasite frame a green agate cabochon in a cape-ready brooch."
+        },
+        {
+          "productId": "p-544196a3b1",
+          "rank": 1,
+          "reason": "Solid sterling silver brooch with detailed Celtic knotwork, marcasite and agate cabochons in a vintage style finish, with a 3/4 inch pin intended for capes."
+        },
+        {
+          "productId": "p-f6b66c527c",
+          "rank": 2,
+          "reason": "A silver-tone sunburst magnetic brooch listed at about 2.5 inches, sold by a costume and historical accessories retailer, so it has no filigree or dark gemstone and reads as generic glamour rather than antique style."
+        }
+      ]
+    }
+  ],
+  "products": [
+    {
+      "id": "p-610c2db658",
+      "title": "Velvet Cape with Embossed Red Lining",
+      "url": "https://www.mostlydead.com/products/velvet-cape-with-embossed-red-lining?variant=33034954276917",
+      "priceCents": 4520,
+      "currency": "USD",
+      "image": "/products/p-610c2db658.jpg",
+      "sourceImages": [
+        "https://www.mostlydead.com/cdn/shop/products/29292-Full.jpg?v=1601956507&width=1000",
+        "https://www.mostlydead.com/cdn/shop/products/29292-Main.jpg?v=1617383818&width=1000",
+        "http://www.mostlydead.com/cdn/shop/products/29292-Full_1024x1024.jpg?v=1601956507",
+        "http://www.mostlydead.com/cdn/shop/products/29292-Main_1024x1024.jpg?v=1617383818",
+        "https://www.mostlydead.com/cdn/shop/products/29292-Full_1024x1024.jpg?v=1601956507",
+        "https://www.mostlydead.com/cdn/shop/products/29292-Main_1024x1024.jpg?v=1617383818"
+      ],
+      "availability": "in_stock",
+      "sizes": [
+        "Default Title"
+      ],
+      "merchantId": "mostlydead-com",
+      "tagSlugs": [
+        "velvet",
+        "satin-lining",
+        "full-length",
+        "hooded",
+        "costume-cape"
+      ],
+      "description": "Full length black velvet cape with embossed red satin lining. One size fits most. We considered many suppliers searching for a good balance between price and quality and this is what we found. We believe that you won’t find better quality at this price without sewing it yourself. This product does NOT include costume dress. Costume accessories are NOT included. This product includes: Hooded cape ORDERS OUTSIDE OF THE US MUST READ AND UNDERSTAND THIS NOTICE: CLICK HERE",
+      "checkedAt": "2026-10-24T23:09:24.123Z",
+      "cutout": "/products/p-610c2db658-cutout.png"
+    },
+    {
+      "id": "p-c5ec6e089b",
+      "title": "Hooded Velvet Cape with Red Lining",
+      "url": "https://caufields.com/products/hooded-velvet-cape-with-red-lining?variant=43261659316477",
+      "priceCents": 4299,
+      "currency": "USD",
+      "image": "/products/p-c5ec6e089b.jpg",
+      "sourceImages": [
+        "https://caufields.com/cdn/shop/products/28654_Hooded_Velvet_Cape_Lining_Red_1200x.webp?v=1661455810",
+        "http://caufields.com/cdn/shop/products/28654_Hooded_Velvet_Cape_Lining_Red.webp?v=1661455810",
+        "https://caufields.com/cdn/shop/products/28654_Hooded_Velvet_Cape_Lining_Red.webp?v=1661455810",
+        "https://cdn.shopify.com/s/files/1/0524/6392/7479/products/28654_Hooded_Velvet_Cape_Lining_Red.webp?v=1661455810"
+      ],
+      "availability": "in_stock",
+      "sizes": [
+        "Default Title"
+      ],
+      "merchantId": "caufields-com",
+      "tagSlugs": [
+        "velvet",
+        "red-lining",
+        "hooded",
+        "full-length"
+      ],
+      "description": "Full-Length Hooded Velvet Cloak with red Lining. One Size. Deluxe quality.",
+      "checkedAt": "2026-10-24T23:09:24.123Z",
+      "cutout": "/products/p-c5ec6e089b-cutout.png"
+    },
+    {
+      "id": "p-a0fb2218d3",
+      "title": "63\" Deluxe Velvet & Satin Hooded Cape - Red/Black",
+      "url": "https://caufields.com/products/63-deluxe-velvet-satin-hooded-cape-red-black?variant=43416197005565",
+      "priceCents": 5299,
+      "currency": "USD",
+      "image": "/products/p-a0fb2218d3.jpg",
+      "sourceImages": [
+        "https://caufields.com/cdn/shop/products/deluxe-velvet-cape-with-red-satin-lining_1_1750x.jpg?v=1664398219",
+        "http://caufields.com/cdn/shop/products/deluxe-velvet-cape-with-red-satin-lining_1.jpg?v=1664398219",
+        "https://caufields.com/cdn/shop/products/deluxe-velvet-cape-with-red-satin-lining_1.jpg?v=1664398219",
+        "https://cdn.shopify.com/s/files/1/0524/6392/7479/products/deluxe-velvet-cape-with-red-satin-lining_1.jpg?v=1664398219"
+      ],
+      "availability": "in_stock",
+      "sizes": [
+        "Default Title"
+      ],
+      "merchantId": "caufields-com",
+      "tagSlugs": [
+        "velvet",
+        "satin",
+        "hooded",
+        "black-lining",
+        "full-length"
+      ],
+      "description": "One of the most beautiful capes you will ever see. Very versatile, great for many uses and characters. Includes: Deluxe black velvet cape with black satin flocked lining. Available Sizes: One size fits most female Adults. Black dress is not included.",
+      "checkedAt": "2026-10-24T23:09:24.123Z",
+      "cutout": "/products/p-a0fb2218d3-cutout.png"
+    },
+    {
+      "id": "p-5c022ff1b4",
+      "title": "Bard Ruffled Shirt - White",
+      "url": "https://historicalemporium.com/products/bard-shirt-white?variant=51717516263718",
+      "priceCents": 6995,
+      "currency": "USD",
+      "image": "/products/p-5c022ff1b4.jpg",
+      "sourceImages": [
+        "https://historicalemporium.com/cdn/shop/files/003972_01_3133988b-9bdb-4519-a9fa-c3d54881f664.jpg?v=1769539508&width=1200",
+        "https://cdn.shopify.com/s/files/1/0980/0974/3654/files/003972_01_3133988b-9bdb-4519-a9fa-c3d54881f664.jpg?v=1769539508",
+        "https://cdn.shopify.com/s/files/1/0980/0974/3654/files/003972_02.jpg?v=1769539508",
+        "https://cdn.shopify.com/s/files/1/0980/0974/3654/files/003972_03.jpg?v=1769539508",
+        "https://cdn.shopify.com/s/files/1/0980/0974/3654/files/003972_04.jpg?v=1769539508"
+      ],
+      "availability": "in_stock",
+      "sizes": [
+        "L"
+      ],
+      "merchantId": "historicalemporium-com",
+      "tagSlugs": [
+        "white",
+        "jabot",
+        "ruffled",
+        "rayon",
+        "pirate"
+      ],
+      "description": "Festoon yourself in this fiercely frilly version of a men’s dress shirt. Seen on the backs of many a pirate, poet, and professional artist throughout the centuries, it’s a versatile piece guaranteed to catch the eye of your Lady Fair.A three-tiered waterfall of ruffles cascades down the front in the style of an oversized jabot. The sleeves puff with several rows of elastic, ending in 1½-inch ruffled cuffs. The shirt fastens fully up the front with buttons, finishing at a 2½-inch tall collar.Fashioned from 100% rayon. Imported. Hand wash cold and line dry or dry clean.",
+      "checkedAt": "2026-10-24T23:09:24.123Z",
+      "cutout": "/products/p-5c022ff1b4-cutout.png"
+    },
+    {
+      "id": "p-a4b60bb169",
+      "title": "Emmeline Ruffle Blouse - White",
+      "url": "https://historicalemporium.com/products/emmeline-ruffle-blouse-white?variant=51717610668326",
+      "priceCents": 6795,
+      "currency": "USD",
+      "image": "/products/p-a4b60bb169.jpg",
+      "sourceImages": [
+        "https://historicalemporium.com/cdn/shop/files/007745_01_5d38a6a3-67d4-490d-b0a2-c10bf11b5c03.jpg?v=1769541963&width=1200",
+        "https://cdn.shopify.com/s/files/1/0980/0974/3654/files/007745_01_5d38a6a3-67d4-490d-b0a2-c10bf11b5c03.jpg?v=1769541963",
+        "https://cdn.shopify.com/s/files/1/0980/0974/3654/files/007745_02.jpg?v=1769541963",
+        "https://cdn.shopify.com/s/files/1/0980/0974/3654/files/007745_03.jpg?v=1769541963",
+        "https://cdn.shopify.com/s/files/1/0980/0974/3654/files/007745_04.jpg?v=1769541962",
+        "https://cdn.shopify.com/s/files/1/0980/0974/3654/files/007745_05.jpg?v=1769541963"
+      ],
+      "availability": "in_stock",
+      "sizes": [
+        "S",
+        "XL",
+        "3X"
+      ],
+      "merchantId": "historicalemporium-com",
+      "tagSlugs": [
+        "white",
+        "cotton",
+        "victorian",
+        "ruffled",
+        "blouse"
+      ],
+      "description": "She’d much rather pass the afternoon in the machine shop, puttering about, than within the stuffy confines of the drawing room. Practical yet striking, the Emmeline Ruffle Blouse stands up to the workday while still delivering unmistakable period style.Feminine and feisty, this blouse features abundant ruffle detailing. Small ruffles trim the stand collar and button cuffs, while larger ruffles flank the full button front for a bold, Victorian-inspired look.Fashioned from 100% cotton. Imported.Care instructions: Machine wash cold; line dry.Offered in several styles.",
+      "checkedAt": "2026-10-24T23:09:24.123Z",
+      "cutout": "/products/p-a4b60bb169-cutout.png"
+    },
+    {
+      "id": "p-9403dfcef1",
+      "title": "Selma Ruffle Blouse - White",
+      "url": "https://historicalemporium.com/products/selma-ruffle-blouse-white?variant=51717806260518",
+      "priceCents": 6795,
+      "currency": "USD",
+      "image": "/products/p-9403dfcef1.jpg",
+      "sourceImages": [
+        "https://historicalemporium.com/cdn/shop/files/008717_01_b4a866ff-7e63-4cc5-8840-4ff607d8a51a.jpg?v=1769542373&width=1200",
+        "https://cdn.shopify.com/s/files/1/0980/0974/3654/files/008717_01_b4a866ff-7e63-4cc5-8840-4ff607d8a51a.jpg?v=1769542373",
+        "https://cdn.shopify.com/s/files/1/0980/0974/3654/files/008717_02.jpg?v=1769542373",
+        "https://cdn.shopify.com/s/files/1/0980/0974/3654/files/008717_03.jpg?v=1769542373",
+        "https://cdn.shopify.com/s/files/1/0980/0974/3654/files/008717_04.jpg?v=1769542373",
+        "https://cdn.shopify.com/s/files/1/0980/0974/3654/files/008717_05.jpg?v=1769542373"
+      ],
+      "availability": "in_stock",
+      "sizes": [
+        "XL",
+        "2X"
+      ],
+      "merchantId": "historicalemporium-com",
+      "tagSlugs": [
+        "white",
+        "victorian",
+        "ruffled",
+        "blouse",
+        "button-front"
+      ],
+      "description": "Prepared for the morning’s agenda, our Selma Ruffle Blouse offers the wearer the utmost in comfort and casual dressing. Rest assured that you’ll look anything but run of the mill for your daily work and relaxation, whether folding the laundry or unfurling a picnic blanket. A most practical and pretty Victorian blouse!This feminine blouse features a band collar adorned with ruffles, a full button front, and elongated four-button cuffs. Additional ruffles line the front yoke over the shoulders and extend across the back. Pair with a walking skirt for a classic 19th-century on-the-go look.Fashio…",
+      "checkedAt": "2026-10-24T23:09:24.123Z",
+      "cutout": "/products/p-9403dfcef1-cutout.png"
+    },
+    {
+      "id": "p-6b969bd8b3",
+      "title": "Gramercy Velvet Vest - Black",
+      "url": "https://historicalemporium.com/products/gramercy-velvet-vest-black?variant=52047707439398",
+      "priceCents": 8695,
+      "currency": "USD",
+      "image": "/products/p-6b969bd8b3.jpg",
+      "sourceImages": [
+        "https://historicalemporium.com/cdn/shop/files/006674_01_386c4496-1afe-4d01-8d81-7e56e39cdfb1.jpg?v=1769539840&width=1200",
+        "https://cdn.shopify.com/s/files/1/0980/0974/3654/files/006674_01_386c4496-1afe-4d01-8d81-7e56e39cdfb1.jpg?v=1769539840",
+        "https://cdn.shopify.com/s/files/1/0980/0974/3654/files/006674_02.jpg?v=1769539840",
+        "https://cdn.shopify.com/s/files/1/0980/0974/3654/files/006674_03.jpg?v=1769539840",
+        "https://cdn.shopify.com/s/files/1/0980/0974/3654/files/006674_04.jpg?v=1769539840"
+      ],
+      "availability": "in_stock",
+      "sizes": [
+        "S",
+        "2X",
+        "3X"
+      ],
+      "merchantId": "historicalemporium-com",
+      "tagSlugs": [
+        "velvet",
+        "black",
+        "double-breasted",
+        "satin",
+        "historical"
+      ],
+      "description": "He was the life of every soiree! In our festive Gramercy Velvet Vest, his perennial party charm and cultivated good-looks seemed never to fade.His vest was soft and velvety to the touch and featured a black satin back with adjuster buckle and black satin accent trim. This style is double-breasted, and punctuated with two rows of silver-tone metal buttons and two handy inset pockets at the waist.Made from a plush blend of 65% acetate and 35% nylon. Imported. Dry clean only.",
+      "checkedAt": "2026-10-24T23:09:24.123Z",
+      "cutout": "/products/p-6b969bd8b3-cutout.png"
+    },
+    {
+      "id": "p-68a970eac8",
+      "title": "Fairfax Regency Vest - Black",
+      "url": "https://historicalemporium.com/products/fairfax-regency-vest-black?variant=51717614960934",
+      "priceCents": 8695,
+      "currency": "USD",
+      "image": "/products/p-68a970eac8.jpg",
+      "sourceImages": [
+        "https://historicalemporium.com/cdn/shop/files/009062_01_36d3a351-24e7-4807-87ca-ea739734c254.jpg?v=1769542555&width=1200",
+        "https://cdn.shopify.com/s/files/1/0980/0974/3654/files/009062_01_36d3a351-24e7-4807-87ca-ea739734c254.jpg?v=1769542555",
+        "https://cdn.shopify.com/s/files/1/0980/0974/3654/files/009062_02.jpg?v=1769542555",
+        "https://cdn.shopify.com/s/files/1/0980/0974/3654/files/009062_03.jpg?v=1769542555",
+        "https://cdn.shopify.com/s/files/1/0980/0974/3654/files/009062_04.jpg?v=1769542555",
+        "https://cdn.shopify.com/s/files/1/0980/0974/3654/files/009062_05.jpg?v=1769542555"
+      ],
+      "availability": "in_stock",
+      "sizes": [
+        "M",
+        "L",
+        "XL",
+        "2X",
+        "3X"
+      ],
+      "merchantId": "historicalemporium-com",
+      "tagSlugs": [
+        "regency",
+        "waistcoat",
+        "black",
+        "historical",
+        "adjustable"
+      ],
+      "description": "A Historical Emporium Exclusive. Step into the elegant world of Regency society with our exclusive Fairfax Vest, a garment worthy of any gentleman’s wardrobe from Bath to London’s finest drawing rooms. This exquisitely crafted waistcoat captures the refined sensibilities of the early 19th century, when a gentleman’s dress spoke volumes about his taste and breeding.Designed with classic Regency detailing, this single-breasted vest features a seven-button front, a 2½-inch stand-up collar with fold-down lapel, and two front inset pockets. An adjustable lace-up back ensures a precise fit, while f…",
+      "checkedAt": "2026-10-24T23:09:24.123Z",
+      "cutout": "/products/p-68a970eac8-cutout.png"
+    },
+    {
+      "id": "p-f79e1da1ae",
+      "title": "Godfrey Double Breasted Vest - Black Brocade",
+      "url": "https://historicalemporium.com/products/godfrey-double-breasted-vest-black-brocade?variant=52047706423590",
+      "priceCents": 8495,
+      "currency": "USD",
+      "image": "/products/p-f79e1da1ae.jpg",
+      "sourceImages": [
+        "https://historicalemporium.com/cdn/shop/files/007595_01_4536f24b-ab82-49bc-87cd-3747568cca7a.jpg?v=1769541893&width=1200",
+        "https://cdn.shopify.com/s/files/1/0980/0974/3654/files/007595_01_4536f24b-ab82-49bc-87cd-3747568cca7a.jpg?v=1769541893",
+        "https://cdn.shopify.com/s/files/1/0980/0974/3654/files/007595_02.jpg?v=1769541892",
+        "https://cdn.shopify.com/s/files/1/0980/0974/3654/files/007595_03.jpg?v=1769541892",
+        "https://cdn.shopify.com/s/files/1/0980/0974/3654/files/007595_04.jpg?v=1769541892"
+      ],
+      "availability": "in_stock",
+      "sizes": [
+        "S",
+        "3X"
+      ],
+      "merchantId": "historicalemporium-com",
+      "tagSlugs": [
+        "brocade",
+        "double-breasted",
+        "satin",
+        "victorian",
+        "floral"
+      ],
+      "description": "From a storybook wedding to a fantasy adventure, a man will always appear gallant and good-mannered dressed in our Godfrey Double Breasted Vest. Whipped up with a floral brocade in tones of crisp, bright white, this men’s waistcoat is a handsome addition to a formal suit, tuxedo or even casual pair of jeans.Fashioned from a rich satin fabric with a tone-on-tone floral brocade pattern, this men’s vest showcases signature elements from the late 19th century including a double breasted silhouette, notched lapels, and a straight bottom hem. Two inset pockets sit at the waist and antiqued silver-l…",
+      "checkedAt": "2026-10-24T23:09:24.123Z",
+      "cutout": "/products/p-f79e1da1ae-cutout.png"
+    },
+    {
+      "id": "p-0969c0dcdf",
+      "title": "Long Leather Cavalry Boots - Black",
+      "url": "https://historicalemporium.com/products/long-leather-cavalry-boots-black?variant=51717700813094",
+      "priceCents": 26995,
+      "currency": "USD",
+      "image": "/products/p-0969c0dcdf.jpg",
+      "sourceImages": [
+        "https://historicalemporium.com/cdn/shop/files/006560_01_b92ad657-0bbc-43e4-8301-c833d954a5df.jpg?v=1769539795&width=1200",
+        "https://cdn.shopify.com/s/files/1/0980/0974/3654/files/006560_01_b92ad657-0bbc-43e4-8301-c833d954a5df.jpg?v=1769539795",
+        "https://cdn.shopify.com/s/files/1/0980/0974/3654/files/006560_02.jpg?v=1769539795",
+        "https://cdn.shopify.com/s/files/1/0980/0974/3654/files/006560_03.jpg?v=1769539795",
+        "https://cdn.shopify.com/s/files/1/0980/0974/3654/files/006560_04.jpg?v=1769539795",
+        "https://cdn.shopify.com/s/files/1/0980/0974/3654/files/006560_05.jpg?v=1769539795"
+      ],
+      "availability": "in_stock",
+      "sizes": [
+        "7",
+        "8",
+        "9",
+        "10"
+      ],
+      "merchantId": "historicalemporium-com",
+      "tagSlugs": [
+        "leather",
+        "cavalry",
+        "knee-high",
+        "historical",
+        "black"
+      ],
+      "description": "Life is a battlefield and our Long Cavalry Boots keep you winning day after day. Perfect for a historically-inspired outfit or just everyday stomping around. Made from 100-percent black leather with a simple profile, our low heeled boots have a 15-inch shaft from sole to top back edge (not including heel) with an additional three inch rise in the front. Circumference at the top of boot shaft is approximately 17 inches at its widest point. Other details include an authentic square toe, leather pull-on loops, and contrast top-stitching at the sole.Imported. The calf circumference measures appro…",
+      "checkedAt": "2026-10-24T23:09:24.123Z",
+      "cutout": "/products/p-0969c0dcdf-cutout.png"
+    },
+    {
+      "id": "p-078c2bb11e",
+      "title": "Mid-Calf Riding Boots - Black",
+      "url": "https://historicalemporium.com/products/mid-calf-riding-boots-black?variant=51717732794662",
+      "priceCents": 19695,
+      "currency": "USD",
+      "image": "/products/p-078c2bb11e.jpg",
+      "sourceImages": [
+        "https://historicalemporium.com/cdn/shop/files/008847_01_6aafb3c3-05b7-4b57-ba98-bb2ba5e6af65.jpg?v=1769542442&width=1200",
+        "https://cdn.shopify.com/s/files/1/0980/0974/3654/files/008847_01_6aafb3c3-05b7-4b57-ba98-bb2ba5e6af65.jpg?v=1769542442",
+        "https://cdn.shopify.com/s/files/1/0980/0974/3654/files/008847_02.jpg?v=1769542443",
+        "https://cdn.shopify.com/s/files/1/0980/0974/3654/files/008847_03.jpg?v=1769542443",
+        "https://cdn.shopify.com/s/files/1/0980/0974/3654/files/008847_04.jpg?v=1769542443",
+        "https://cdn.shopify.com/s/files/1/0980/0974/3654/files/008847_05.jpg?v=1769542442"
+      ],
+      "availability": "in_stock",
+      "sizes": [
+        "8",
+        "9"
+      ],
+      "merchantId": "historicalemporium-com",
+      "tagSlugs": [
+        "leather",
+        "riding-boots",
+        "low-heel",
+        "historical",
+        "black"
+      ],
+      "description": "Get your gallop on in a pair of these sharp Mid-Calf Riding Boots Straightforward form and unwavering function necessitate a pair of your own.Made of 100% top grain leather with a simple profile, our low heeled boots have a 12-inch shaft from sole to top back edge (not including heel). Other details include an authentic square toe, leather pull-on loops, and contrast top-stitching at the sole. Sole is a sturdy wood construction, with leather outsole for long life. Imported.The mid-calf circumference measures approximately 17 inches around on a size 7 and gradually increases to an 19 inch circ…",
+      "checkedAt": "2026-10-24T23:09:24.123Z",
+      "cutout": "/products/p-078c2bb11e-cutout.png"
+    },
+    {
+      "id": "p-91556ae8e5",
+      "title": "Sky Pilot Faux Leather Boots - Black",
+      "url": "https://historicalemporium.com/products/mens-faux-leather-sky-pilot-boots-black?variant=51717725913382",
+      "priceCents": 12095,
+      "currency": "USD",
+      "image": "/products/p-91556ae8e5.jpg",
+      "sourceImages": [
+        "https://historicalemporium.com/cdn/shop/files/006564_01_2b95236b-324e-4978-8373-e0a04ae81a5c.jpg?v=1769539801&width=1200",
+        "https://cdn.shopify.com/s/files/1/0980/0974/3654/files/006564_01_2b95236b-324e-4978-8373-e0a04ae81a5c.jpg?v=1769539801",
+        "https://cdn.shopify.com/s/files/1/0980/0974/3654/files/006564_02.jpg?v=1769539801",
+        "https://cdn.shopify.com/s/files/1/0980/0974/3654/files/006564_03.jpg?v=1769539801",
+        "https://cdn.shopify.com/s/files/1/0980/0974/3654/files/006564_04.jpg?v=1769539801",
+        "https://cdn.shopify.com/s/files/1/0980/0974/3654/files/006564_05.jpg?v=1769539802"
+      ],
+      "availability": "in_stock",
+      "sizes": [
+        "S",
+        "M",
+        "L",
+        "XL"
+      ],
+      "merchantId": "historicalemporium-com",
+      "tagSlugs": [
+        "faux-leather",
+        "distressed",
+        "steampunk",
+        "black",
+        "zipper"
+      ],
+      "description": "Up, up and away! Our Sky Pilot Boots add full throttle style to your next airship adventure. A commanding yet comfortable choice! Featuring a 1½ inch flat heel with rugged rubber lug sole, boots feature a full inner zipper for entry with elaborate lacing and buttons for decorative effect. Depending on size, boot shaft measures 16-17 inches exclusive of heel and calf circumference measures 16½-19 inches. Fashioned from faux leather with a distressed black finish. Imported. Available in sizes S-XL. Don’t forget your stockings!",
+      "checkedAt": "2026-10-24T23:09:24.123Z",
+      "cutout": "/products/p-91556ae8e5-cutout.png"
+    },
+    {
+      "id": "p-30d3ca8ec8",
+      "title": "Antheia Celtic Marcasite Brooch",
+      "url": "https://celticcrystaldesign.com/products/antheia-celtic-marcasite-brooch?variant=46731623235842",
+      "priceCents": 11000,
+      "currency": "USD",
+      "image": "/products/p-30d3ca8ec8.jpg",
+      "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/0416/1146/0774/files/IMG-1850.heic?v=1757367549",
+        "https://www.celticcrystaldesign.com/cdn/shop/files/IMG-1850.heic?v=1757367549&width=1920",
+        "https://www.celticcrystaldesign.com/cdn/shop/files/IMG-1856.heic?v=1757367549&width=1920",
+        "https://www.celticcrystaldesign.com/cdn/shop/files/IMG-1854.heic?v=1757367549&width=1920",
+        "http://www.celticcrystaldesign.com/cdn/shop/files/IMG-1849.heic?v=1777226114",
+        "https://www.celticcrystaldesign.com/cdn/shop/files/IMG-1849.heic?v=1777226114"
+      ],
+      "availability": "in_stock",
+      "sizes": [
+        "Green Agate",
+        "Red Agate",
+        "Mother of Pearl"
+      ],
+      "merchantId": "celticcrystaldesign-com",
+      "tagSlugs": [
+        "sterling-silver",
+        "marcasite",
+        "black-onyx",
+        "vintage-style",
+        "celtic"
+      ],
+      "description": "Solid Sterling Silver Celtic Brooch with detailed Celtic knotwork and authentic green agate or black onyx cabochons and sparkling marcasite gemstones. A beautiful vintage style finish that is perfect for any lover of Celtic culture! This 1 1/2\" x 1\" brooch has a sturdy 3/4\" pin to adorn any cape, wrap, kilt or decorate a coat or jacket. Center gemstone measures 1/2\" long. The back of the brooch also has a bale so the piece can be worn as a pendant as well. The elegant marcasite gemstones bring out the beautiful lines of the Celtic knotwork. A beautiful pin that will get attention and become y…",
+      "checkedAt": "2026-10-24T23:09:24.123Z",
+      "cutout": "/products/p-30d3ca8ec8-cutout.png"
+    },
+    {
+      "id": "p-544196a3b1",
+      "title": "Vintage Style Celtic Brooch in Sterling Silver",
+      "url": "https://celticcrystaldesign.com/products/vintage-sytle-celtic-brooch?variant=46729007988994",
+      "priceCents": 9800,
+      "currency": "USD",
+      "image": "/products/p-544196a3b1.jpg",
+      "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/0416/1146/0774/files/IMG-1726_512cd456-5dcb-4381-a6fa-be35c60c9fc9.heic?v=1757244769",
+        "https://www.celticcrystaldesign.com/cdn/shop/files/IMG-1726_512cd456-5dcb-4381-a6fa-be35c60c9fc9.heic?v=1757244769&width=1920",
+        "https://www.celticcrystaldesign.com/cdn/shop/files/IMG-1720_2a06b668-4805-4468-9a6a-27e7d6f07df9.heic?v=1777226201&width=1920",
+        "http://www.celticcrystaldesign.com/cdn/shop/files/IMG-1720_2a06b668-4805-4468-9a6a-27e7d6f07df9.heic?v=1777226201",
+        "https://www.celticcrystaldesign.com/cdn/shop/files/IMG-1720_2a06b668-4805-4468-9a6a-27e7d6f07df9.heic?v=1777226201",
+        "https://cdn.shopify.com/s/files/1/0416/1146/0774/files/IMG-1720_2a06b668-4805-4468-9a6a-27e7d6f07df9.heic?v=1777226201"
+      ],
+      "availability": "in_stock",
+      "sizes": [
+        "Green Agate",
+        "Red Agate"
+      ],
+      "merchantId": "celticcrystaldesign-com",
+      "tagSlugs": [
+        "sterling-silver",
+        "marcasite",
+        "agate",
+        "vintage-style",
+        "celtic"
+      ],
+      "description": "Solid Sterling Silver Celtic Brooch with detailed Celtic knotwork and authentic red and green agate cabochons and sparkling marcasite gemstones. A beautiful vintage style finish that is perfect for any lover of Celtic culture! This 1 1/4\" x 1\" brooch has a sturdy 3/4\" pin to adorn any cape, wrap, kilt or decorate a coat or jacket. Center gemstone measures 3/4\" long. The back of the brooch also has a bale so the piece can be worn as a pendant as well. The elegant marcasite gemstones bring out the beautiful lines of the Celtic knotwork. A beautiful pin that will get attention and become your fa…",
+      "checkedAt": "2026-10-24T23:09:24.123Z",
+      "cutout": "/products/p-544196a3b1-cutout.png"
+    },
+    {
+      "id": "p-f6b66c527c",
+      "title": "Sunburst Magnetic Brooch - Silver",
+      "url": "https://historicalemporium.com/products/sunburst-magnetic-brooch-silver?variant=51717835391270",
+      "priceCents": 2195,
+      "currency": "USD",
+      "image": "/products/p-f6b66c527c.jpg",
+      "sourceImages": [
+        "https://historicalemporium.com/cdn/shop/files/008688_01.jpg?v=1769542356&width=1200",
+        "https://cdn.shopify.com/s/files/1/0980/0974/3654/files/008688_01.jpg?v=1769542356",
+        "https://cdn.shopify.com/s/files/1/0980/0974/3654/files/008688_02.jpg?v=1769542356",
+        "https://cdn.shopify.com/s/files/1/0980/0974/3654/files/008688_03.jpg?v=1769542356",
+        "https://cdn.shopify.com/s/files/1/0980/0974/3654/files/008688_04.jpg?v=1769542356",
+        "https://cdn.shopify.com/s/files/1/0980/0974/3654/files/008688_06.jpg?v=1769542356"
+      ],
+      "availability": "in_stock",
+      "sizes": [
+        "Default Title"
+      ],
+      "merchantId": "historicalemporium-com",
+      "tagSlugs": [
+        "magnetic",
+        "silver-tone",
+        "sunburst",
+        "costume-accessory"
+      ],
+      "description": "Instantly elevate your outfit with this stunning and sparkling Sunburst Magnetic Brooch. Adding a touch of glamour to your attire has never been simpler. The powerful magnet securely adheres to various fabrics, ensuring a secure hold without causing any damage to your beloved garments. Effortlessly infuse your ensemble with a flash of style and flair.Can be used in a variety of ways to add some flash to your outfit. These small but powerful magnets are strong enough to hold through hats, blouses, belts, and more. You'll be surprised at how well these magnets stay put.Approx. 2.5\" x 2.5\" with…",
+      "checkedAt": "2026-10-24T23:09:24.123Z",
+      "cutout": "/products/p-f6b66c527c-cutout.png"
+    }
+  ],
+  "merchants": [
+    {
+      "id": "mostlydead-com",
+      "name": "MostlyDead.com",
+      "domain": "mostlydead.com",
+      "url": "https://www.mostlydead.com",
+      "kind": "dtc",
+      "neighborhoodId": null
+    },
+    {
+      "id": "caufields-com",
+      "name": "Caufield's Novelty",
+      "domain": "caufields.com",
+      "url": "https://caufields.com",
+      "kind": "dtc",
+      "neighborhoodId": null
+    },
+    {
+      "id": "historicalemporium-com",
+      "name": "Historical Emporium",
+      "domain": "historicalemporium.com",
+      "url": "https://historicalemporium.com",
+      "kind": "dtc",
+      "neighborhoodId": null
+    },
+    {
+      "id": "celticcrystaldesign-com",
+      "name": "Celtic Crystal Design Jewelry",
+      "domain": "celticcrystaldesign.com",
+      "url": "https://celticcrystaldesign.com",
+      "kind": "dtc",
+      "neighborhoodId": null
+    }
+  ],
+  "neighborhoods": [],
+  "tags": [
+    {
+      "slug": "velvet",
+      "label": "Velvet"
+    },
+    {
+      "slug": "satin-lining",
+      "label": "Satin Lining"
+    },
+    {
+      "slug": "full-length",
+      "label": "Full Length"
+    },
+    {
+      "slug": "hooded",
+      "label": "Hooded"
+    },
+    {
+      "slug": "costume-cape",
+      "label": "Costume Cape"
+    },
+    {
+      "slug": "red-lining",
+      "label": "Red Lining"
+    },
+    {
+      "slug": "satin",
+      "label": "Satin"
+    },
+    {
+      "slug": "black-lining",
+      "label": "Black Lining"
+    },
+    {
+      "slug": "white",
+      "label": "White"
+    },
+    {
+      "slug": "jabot",
+      "label": "Jabot"
+    },
+    {
+      "slug": "ruffled",
+      "label": "Ruffled"
+    },
+    {
+      "slug": "rayon",
+      "label": "Rayon"
+    },
+    {
+      "slug": "pirate",
+      "label": "Pirate"
+    },
+    {
+      "slug": "cotton",
+      "label": "Cotton"
+    },
+    {
+      "slug": "victorian",
+      "label": "Victorian"
+    },
+    {
+      "slug": "blouse",
+      "label": "Blouse"
+    },
+    {
+      "slug": "button-front",
+      "label": "Button Front"
+    },
+    {
+      "slug": "black",
+      "label": "Black"
+    },
+    {
+      "slug": "double-breasted",
+      "label": "Double Breasted"
+    },
+    {
+      "slug": "historical",
+      "label": "Historical"
+    },
+    {
+      "slug": "regency",
+      "label": "Regency"
+    },
+    {
+      "slug": "waistcoat",
+      "label": "Waistcoat"
+    },
+    {
+      "slug": "adjustable",
+      "label": "Adjustable"
+    },
+    {
+      "slug": "brocade",
+      "label": "Brocade"
+    },
+    {
+      "slug": "floral",
+      "label": "Floral"
+    },
+    {
+      "slug": "leather",
+      "label": "Leather"
+    },
+    {
+      "slug": "cavalry",
+      "label": "Cavalry"
+    },
+    {
+      "slug": "knee-high",
+      "label": "Knee High"
+    },
+    {
+      "slug": "riding-boots",
+      "label": "Riding Boots"
+    },
+    {
+      "slug": "low-heel",
+      "label": "Low Heel"
+    },
+    {
+      "slug": "faux-leather",
+      "label": "Faux Leather"
+    },
+    {
+      "slug": "distressed",
+      "label": "Distressed"
+    },
+    {
+      "slug": "steampunk",
+      "label": "Steampunk"
+    },
+    {
+      "slug": "zipper",
+      "label": "Zipper"
+    },
+    {
+      "slug": "sterling-silver",
+      "label": "Sterling Silver"
+    },
+    {
+      "slug": "marcasite",
+      "label": "Marcasite"
+    },
+    {
+      "slug": "black-onyx",
+      "label": "Black Onyx"
+    },
+    {
+      "slug": "vintage-style",
+      "label": "Vintage Style"
+    },
+    {
+      "slug": "celtic",
+      "label": "Celtic"
+    },
+    {
+      "slug": "agate",
+      "label": "Agate"
+    },
+    {
+      "slug": "magnetic",
+      "label": "Magnetic"
+    },
+    {
+      "slug": "silver-tone",
+      "label": "Silver Tone"
+    },
+    {
+      "slug": "sunburst",
+      "label": "Sunburst"
+    },
+    {
+      "slug": "costume-accessory",
+      "label": "Costume Accessory"
+    }
+  ],
+  "provenance": {
+    "method": "pipeline",
+    "generatedAt": "2026-10-24T23:09:24.123Z",
+    "notes": "Bright Data SERP and Web Unlocker, with direct public merchant pages and Shopify variant feeds when Shopping links or Unlocker were unusable; Claude decomposition and ranking. Only verified in-stock USD variants are included. Bay Area boost +1.5/10. Nine cape, shirt, and waistcoat photographs received product-preserving AI cleanup to remove people, mannequins, and extra garments; original merchant images remain in sourceImages."
+  }
+}

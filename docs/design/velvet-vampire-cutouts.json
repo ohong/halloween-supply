@@ -1,0 +1,105 @@
+{
+  "costume": "velvet-vampire",
+  "method": "AI cleanup of merchant product photographs; product facts and original source images remain from merchant pages.",
+  "edits": [
+    {
+      "productId": "p-610c2db658",
+      "title": "Velvet Cape with Embossed Red Lining",
+      "merchantUrl": "https://www.mostlydead.com/products/velvet-cape-with-embossed-red-lining?variant=33034954276917",
+      "sourceImage": "https://www.mostlydead.com/cdn/shop/products/29292-Full.jpg?v=1601956507&width=1000",
+      "generatedFile": "exec-f322de28-9a09-41ac-bcf2-3a7ab65ef447.png",
+      "output": "public/products/p-610c2db658-cutout.png",
+      "mode": "built-in image_gen",
+      "transparentBackground": true,
+      "prompt": "Use case: background-extraction. Black velvet cape with embossed red lining: remove person and extra clothes; preserve embossed red pattern, hood, proportions and velvet. Produce a precise product-only cutout on a genuinely transparent background. Preserve the same purchasable product, color, material, stitching, design and silhouette. No people, mannequin, hanger, extra garments, crop, added ornament, glow, shadows or text."
+    },
+    {
+      "productId": "p-c5ec6e089b",
+      "title": "Hooded Velvet Cape with Red Lining",
+      "merchantUrl": "https://caufields.com/products/hooded-velvet-cape-with-red-lining?variant=43261659316477",
+      "sourceImage": "https://caufields.com/cdn/shop/products/28654_Hooded_Velvet_Cape_Lining_Red_1200x.webp?v=1661455810",
+      "generatedFile": "exec-77b60bd8-1328-447d-8916-ecb44fa2e73d.png",
+      "output": "public/products/p-c5ec6e089b-cutout.png",
+      "mode": "built-in image_gen",
+      "transparentBackground": true,
+      "prompt": "Use case: background-extraction. Crushed black velvet hooded cape with plain red satin lining: remove model, dress and background; preserve cape design and show whole empty garment. Produce a precise product-only cutout on a genuinely transparent background. Preserve the same purchasable product, color, material, stitching, design and silhouette. No people, mannequin, hanger, extra garments, crop, added ornament, glow, shadows or text."
+    },
+    {
+      "productId": "p-a0fb2218d3",
+      "title": "63\" Deluxe Velvet & Satin Hooded Cape - Red/Black",
+      "merchantUrl": "https://caufields.com/products/63-deluxe-velvet-satin-hooded-cape-red-black?variant=43416197005565",
+      "sourceImage": "https://caufields.com/cdn/shop/products/deluxe-velvet-cape-with-red-satin-lining_1_1750x.jpg?v=1664398219",
+      "generatedFile": "exec-ac94c361-ab6b-42ba-bb05-39e3daa44d5b.png",
+      "output": "public/products/p-a0fb2218d3-cutout.png",
+      "mode": "built-in image_gen",
+      "transparentBackground": true,
+      "prompt": "Use case: background-extraction. Smooth black velvet hooded cape with plain red satin lining: remove model, dress, jewelry and background; preserve pointed hood, neck tie and floor length. Produce a precise product-only cutout on a genuinely transparent background. Preserve the same purchasable product, color, material, stitching, design and silhouette. No people, mannequin, hanger, extra garments, crop, added ornament, glow, shadows or text."
+    },
+    {
+      "productId": "p-5c022ff1b4",
+      "title": "Bard Ruffled Shirt - White",
+      "merchantUrl": "https://historicalemporium.com/products/bard-shirt-white?variant=51717516263718",
+      "sourceImage": "https://historicalemporium.com/cdn/shop/files/003972_01_3133988b-9bdb-4519-a9fa-c3d54881f664.jpg?v=1769539508&width=1200",
+      "generatedFile": "exec-dcff47f2-7d04-46c3-9081-dc5a90ed64e1.png",
+      "output": "public/products/p-5c022ff1b4-cutout.png",
+      "mode": "built-in image_gen",
+      "transparentBackground": true,
+      "prompt": "Use case: background-extraction. White Bard ruffled shirt: remove trousers and mannequin; preserve three horizontal waterfall ruffle tiers, gathered sleeves, standing collar and ruffled cuffs. Show complete short untucked hem. Produce a precise product-only cutout on a genuinely transparent background. Preserve the same purchasable product, color, material, stitching, design and silhouette. No people, mannequin, hanger, extra garments, crop, added ornament, glow, shadows or text."
+    },
+    {
+      "productId": "p-a4b60bb169",
+      "title": "Emmeline Ruffle Blouse - White",
+      "merchantUrl": "https://historicalemporium.com/products/emmeline-ruffle-blouse-white?variant=51717610668326",
+      "sourceImage": "https://historicalemporium.com/cdn/shop/files/007745_01_5d38a6a3-67d4-490d-b0a2-c10bf11b5c03.jpg?v=1769541963&width=1200",
+      "generatedFile": "exec-40427988-1ea4-4f46-ac07-6dac67836e92.png",
+      "output": "public/products/p-a4b60bb169-cutout.png",
+      "mode": "built-in image_gen",
+      "transparentBackground": true,
+      "prompt": "Use case: background-extraction. White Emmeline blouse: remove skirt and mannequin; preserve vertical front ruffles, ruffled stand collar, buttons, full sleeves and double ruffle cuffs. Show complete short untucked hem. Produce a precise product-only cutout on a genuinely transparent background. Preserve the same purchasable product, color, material, stitching, design and silhouette. No people, mannequin, hanger, extra garments, crop, added ornament, glow, shadows or text."
+    },
+    {
+      "productId": "p-9403dfcef1",
+      "title": "Selma Ruffle Blouse - White",
+      "merchantUrl": "https://historicalemporium.com/products/selma-ruffle-blouse-white?variant=51717806260518",
+      "sourceImage": "https://historicalemporium.com/cdn/shop/files/008717_01_b4a866ff-7e63-4cc5-8840-4ff607d8a51a.jpg?v=1769542373&width=1200",
+      "generatedFile": "exec-956bfac5-5135-4101-a013-ce38c3fc2a73.png",
+      "output": "public/products/p-9403dfcef1-cutout.png",
+      "mode": "built-in image_gen",
+      "transparentBackground": true,
+      "prompt": "Use case: background-extraction. White Selma blouse: remove trousers and mannequin; preserve horizontal curved ruffle yoke, shoulder caps, band collar, button placket and tall straight cuffs. Show complete short untucked hem. Produce a precise product-only cutout on a genuinely transparent background. Preserve the same purchasable product, color, material, stitching, design and silhouette. No people, mannequin, hanger, extra garments, crop, added ornament, glow, shadows or text."
+    },
+    {
+      "productId": "p-68a970eac8",
+      "title": "Fairfax Regency Vest - Black",
+      "merchantUrl": "https://historicalemporium.com/products/fairfax-regency-vest-black?variant=51717614960934",
+      "sourceImage": "https://historicalemporium.com/cdn/shop/files/009062_01_36d3a351-24e7-4807-87ca-ea739734c254.jpg?v=1769542555&width=1200",
+      "generatedFile": "exec-b602ba26-ed52-462f-94b5-fafa3b397f69.png",
+      "output": "public/products/p-68a970eac8-cutout.png",
+      "mode": "built-in image_gen",
+      "transparentBackground": true,
+      "prompt": "Use case: background-extraction. Black Fairfax waistcoat: remove shirt, cravat, trousers and mannequin; preserve single silver button row, standing/notched collar, welt pockets, fabric and hem. Produce a precise product-only cutout on a genuinely transparent background. Preserve the same purchasable product, color, material, stitching, design and silhouette. No people, mannequin, hanger, extra garments, crop, added ornament, glow, shadows or text."
+    },
+    {
+      "productId": "p-6b969bd8b3",
+      "title": "Gramercy Velvet Vest - Black",
+      "merchantUrl": "https://historicalemporium.com/products/gramercy-velvet-vest-black?variant=52047707439398",
+      "sourceImage": "https://historicalemporium.com/cdn/shop/files/006674_01_386c4496-1afe-4d01-8d81-7e56e39cdfb1.jpg?v=1769539840&width=1200",
+      "generatedFile": "exec-c82034cc-df96-4957-a206-67b28c71eb23.png",
+      "output": "public/products/p-6b969bd8b3-cutout.png",
+      "mode": "built-in image_gen",
+      "transparentBackground": true,
+      "prompt": "Use case: background-extraction. Black Gramercy velvet waistcoat: remove shirt, trousers and mannequin; preserve asymmetric double-breasted front, ten silver buttons in two rows of five, gray lapel piping and velvet. Produce a precise product-only cutout on a genuinely transparent background. Preserve the same purchasable product, color, material, stitching, design and silhouette. No people, mannequin, hanger, extra garments, crop, added ornament, glow, shadows or text."
+    },
+    {
+      "productId": "p-f79e1da1ae",
+      "title": "Godfrey Double Breasted Vest - Black Brocade",
+      "merchantUrl": "https://historicalemporium.com/products/godfrey-double-breasted-vest-black-brocade?variant=52047706423590",
+      "sourceImage": "https://historicalemporium.com/cdn/shop/files/007595_01_4536f24b-ab82-49bc-87cd-3747568cca7a.jpg?v=1769541893&width=1200",
+      "generatedFile": "exec-7eeeb2a8-58c0-4f17-8852-2c2034bb80cd.png",
+      "output": "public/products/p-f79e1da1ae-cutout.png",
+      "mode": "built-in image_gen",
+      "transparentBackground": true,
+      "prompt": "Use case: background-extraction. Black Godfrey brocade waistcoat: remove shirt, tie, trousers, watch chain and mannequin; preserve paisley brocade, shawl lapels, eight buttons in two rows of four and hem. Produce a precise product-only cutout on a genuinely transparent background. Preserve the same purchasable product, color, material, stitching, design and silhouette. No people, mannequin, hanger, extra garments, crop, added ornament, glow, shadows or text."
+    }
+  ]
+}
