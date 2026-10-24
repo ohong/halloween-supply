@@ -6,12 +6,26 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "typecheck": "tsc --noEmit",
+    "seed": "bun scripts/seed.ts",
+    "warm": "bun scripts/warm.ts",
+    "source": "bun scripts/source/index.ts"
   },
   "dependencies": {
+    "@ai-sdk/anthropic": "^4.0.88",
+    "@ai-sdk/react": "^4.0.157",
+    "ai": "^7.0.153",
+    "class-variance-authority": "^0.7.1",
+    "clsx": "^2.1.1",
+    "falkordb": "^6.9.2",
     "next": "16.4.3",
     "react": "19.3.0",
-    "react-dom": "19.3.0"
+    "react-dom": "19.3.0",
+    "sharp": "^0.35.5",
+    "stripe": "^23.0.1",
+    "tailwind-merge": "^3.7.0",
+    "zod": "^4.6.7"
   },
   "devDependencies": {
     "@tailwindcss/turbopack": "^4",

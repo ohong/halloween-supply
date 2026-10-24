@@ -53,3 +53,6 @@ next-env.d.ts
 .claude/
 .agents/
 .cursor/
+
+# pipeline cache
+/data/cache/
