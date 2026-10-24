@@ -73,7 +73,7 @@ function warnOnce(reason: string) {
 /**
  * The costume page: every piece in NEEDS.order with its default pick (rank 0) and
  * two alternatives, each joined to merchant, neighborhood, tags and pick reason.
- * Returns null for unknown or not-live slugs.
+ * Returns null for unknown, not-live, or incomplete catalogs.
  */
 export async function getCostume(slug: string): Promise<CostumeView | null> {
   return read(() => graphImpl.getCostume(slug), () => snapshotImpl.getCostume(slug), (v) => v === null);

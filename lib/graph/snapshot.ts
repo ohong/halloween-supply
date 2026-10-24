@@ -13,6 +13,7 @@ import type {
 } from "../types";
 import {
   buildOption,
+  hasCompletePicks,
   consolidate,
   lowestRank,
   sortCheapest,
@@ -88,6 +89,7 @@ export async function getCostume(slug: string): Promise<CostumeView | null> {
     })
     .filter((x): x is NonNullable<typeof x> => x !== null)
     .sort((a, b) => a.piece.order - b.piece.order);
+  if (pieces.length !== s.pieces.length || pieces.some(({ options }) => !hasCompletePicks(options))) return null;
   return { costume: s.costume, pieces };
 }
 

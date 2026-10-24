@@ -72,6 +72,13 @@ export function buildOption(raw: RawMatch): ProductOption {
   };
 }
 
+/** A live piece must retain its default and both distinct swap choices. */
+export function hasCompletePicks(options: ProductOption[]): boolean {
+  return options.length === 3 &&
+    new Set(options.map((option) => option.product.id)).size === 3 &&
+    options.every((option, rank) => option.pick.rank === rank);
+}
+
 /** Cheapest first, ties by rank then id. Dedupes a product matched by several costumes. */
 export function sortCheapest(options: ProductOption[]): ProductOption[] {
   const best = new Map<string, ProductOption>();

@@ -15,6 +15,7 @@ import type {
 } from "../types";
 import {
   buildOption,
+  hasCompletePicks,
   consolidate,
   lowestRank,
   sortCheapest,
@@ -129,11 +130,14 @@ export async function getCostume(slug: string): Promise<CostumeView | null> {
   // free-tier graph has no matches and returns null, allowing snapshot fallback.
   const rows = await read(
     optionQuery(
-      `MATCH (c:Costume {slug: $slug})-[nd:NEEDS]->(pc:Piece)-[m:MATCHED_BY]->(p:Product)
-       WHERE c.status = 'live' AND m.costume = $slug`,
+      `MATCH (c:Costume {slug: $slug})-[:NEEDS]->(needed:Piece)
+       WHERE c.status = 'live'
+       WITH c, count(needed) AS expectedPieces
+       MATCH (c)-[nd:NEEDS]->(pc:Piece)-[m:MATCHED_BY]->(p:Product)
+       WHERE m.costume = $slug`,
       "true",
       "",
-      ["c", "nd"],
+      ["c", "nd", "expectedPieces"],
     ),
     { slug },
   );
@@ -164,6 +168,8 @@ export async function getCostume(slug: string): Promise<CostumeView | null> {
   const pieces: CostumeView["pieces"] = [...byPiece.values()]
     .map(({ piece, raws }) => ({ piece, options: raws.sort((a, b) => a.rank - b.rank).map(buildOption) }))
     .sort((a, b) => a.piece.order - b.piece.order);
+  // A partial pipeline write must not appear as a complete, smaller costume.
+  if (pieces.length !== Number(rows[0].expectedPieces) || pieces.some(({ options }) => !hasCompletePicks(options))) return null;
   return { costume, pieces };
 }
 
