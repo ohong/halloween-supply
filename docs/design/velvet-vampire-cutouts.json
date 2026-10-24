@@ -11,7 +11,7 @@
       "output": "public/products/p-610c2db658-cutout.png",
       "mode": "built-in image_gen",
       "transparentBackground": true,
-      "prompt": "Use case: background-extraction. Black velvet cape with embossed red lining: remove person and extra clothes; preserve embossed red pattern, hood, proportions and velvet. Produce a precise product-only cutout on a genuinely transparent background. Preserve the same purchasable product, color, material, stitching, design and silhouette. No people, mannequin, hanger, extra garments, crop, added ornament, glow, shadows or text."
+      "prompt": "Use case: background-extraction. Edit target: the supplied merchant photograph of the black velvet cape with embossed red lining. Create a precise product-only isolated catalog cutout of THIS EXACT CAPE, on a genuinely transparent background. Remove the person, face, hair, hands, black dress, shoes, and original burgundy backdrop. Preserve the cape's actual black velvet outer fabric, red satin lining with its embossed geometric star/diamond pattern, black hood/neck construction, length, stitching, and proportions. Present the complete cape front-on with the front opening slightly spread so both black outer cape and distinctive red patterned lining are visible. The cape is empty, with no mannequin, skin, body, hanger, or extra garments. Keep the full cape inside the canvas with clear margins, no crop. Do not invent ornament, change fabric pattern, add clasps, or add text. Product identity must remain faithful to the reference."
     },
     {
       "productId": "p-c5ec6e089b",
@@ -22,7 +22,7 @@
       "output": "public/products/p-c5ec6e089b-cutout.png",
       "mode": "built-in image_gen",
       "transparentBackground": true,
-      "prompt": "Use case: background-extraction. Crushed black velvet hooded cape with plain red satin lining: remove model, dress and background; preserve cape design and show whole empty garment. Produce a precise product-only cutout on a genuinely transparent background. Preserve the same purchasable product, color, material, stitching, design and silhouette. No people, mannequin, hanger, extra garments, crop, added ornament, glow, shadows or text."
+      "prompt": "Use case: background-extraction. Edit target: the supplied merchant cape photograph. Isolate only the cape as a complete product-only catalog cutout on a genuinely transparent background. THIS EXACT crushed black velvet hooded full-length cape with plain shiny red satin lining, tied at the neck. Preserve the crushed velvet texture, modest hood, red satin color and folds. Keep it ankle length, empty and slightly spread to reveal the red lining. This version has plain red lining, no embossed pattern. Remove the person, face, hair, hands, shoes, separate black dress, jewelry, cross necklace, and white backdrop. No mannequin, body parts, hanger, or extra garments. Keep all cape edges and hem inside the canvas with margins. Preserve product identity, existing design, textile and proportions. Do not add ornament, hardware, patterns, or text."
     },
     {
       "productId": "p-a0fb2218d3",
@@ -33,7 +33,7 @@
       "output": "public/products/p-a0fb2218d3-cutout.png",
       "mode": "built-in image_gen",
       "transparentBackground": true,
-      "prompt": "Use case: background-extraction. Smooth black velvet hooded cape with plain red satin lining: remove model, dress, jewelry and background; preserve pointed hood, neck tie and floor length. Produce a precise product-only cutout on a genuinely transparent background. Preserve the same purchasable product, color, material, stitching, design and silhouette. No people, mannequin, hanger, extra garments, crop, added ornament, glow, shadows or text."
+      "prompt": "Use case: background-extraction. Edit target: the supplied merchant cape photograph. Isolate only the cape as a complete product-only catalog cutout on a genuinely transparent background. THIS EXACT smooth black velvet full-length hooded cape with plain shiny red satin lining and a pointed hood. Preserve the smooth black velvet texture, pointed hood, long floor-length body, red satin lining color, and tiny neck tie closure. Spread the empty cape slightly so red lining is visible. This version has smooth black outer velvet and plain red lining. Remove the person, face, hair, hands, shoes, separate black dress, jewelry, cross necklace, and white backdrop. No mannequin, body parts, hanger, or extra garments. Keep all cape edges and hem inside the canvas with margins. Preserve product identity, existing design, textile and proportions. Do not add ornament, hardware, patterns, or text."
     },
     {
       "productId": "p-5c022ff1b4",
@@ -44,7 +44,7 @@
       "output": "public/products/p-5c022ff1b4-cutout.png",
       "mode": "built-in image_gen",
       "transparentBackground": true,
-      "prompt": "Use case: background-extraction. White Bard ruffled shirt: remove trousers and mannequin; preserve three horizontal waterfall ruffle tiers, gathered sleeves, standing collar and ruffled cuffs. Show complete short untucked hem. Produce a precise product-only cutout on a genuinely transparent background. Preserve the same purchasable product, color, material, stitching, design and silhouette. No people, mannequin, hanger, extra garments, crop, added ornament, glow, shadows or text."
+      "prompt": "Use case: background-extraction. Edit target: merchant photograph of THIS EXACT white rayon men's Bard shirt; THREE horizontal tiers of wide waterfall jabot ruffles across the chest, standing button collar, full front buttons, voluminous long sleeves with elastic gathered bands at mid-arm and elbow, ruffled cuffs. Preserve all of those distinctive horizontal ruffle tiers and sleeve gathers. Produce a clean complete front-on product-only cutout of the shirt on a genuinely transparent background, with a natural short untucked shirt hem. Remove trousers/skirt, belt, mannequin, body, skin, hanger, and backdrop. Retain the original shirt design, fabric, white color, proportions and all seams/buttons/ruffles. The garment is empty with no person or mannequin visible. Show the complete shirt, sleeves and cuffs, all within canvas margins. No other clothing, shadows, glow, text, decorations, or added design details. This must remain the same purchasable shirt."
     },
     {
       "productId": "p-a4b60bb169",
@@ -55,7 +55,7 @@
       "output": "public/products/p-a4b60bb169-cutout.png",
       "mode": "built-in image_gen",
       "transparentBackground": true,
-      "prompt": "Use case: background-extraction. White Emmeline blouse: remove skirt and mannequin; preserve vertical front ruffles, ruffled stand collar, buttons, full sleeves and double ruffle cuffs. Show complete short untucked hem. Produce a precise product-only cutout on a genuinely transparent background. Preserve the same purchasable product, color, material, stitching, design and silhouette. No people, mannequin, hanger, extra garments, crop, added ornament, glow, shadows or text."
+      "prompt": "Use case: background-extraction. Edit target: merchant photograph of THIS EXACT white cotton Emmeline blouse; tall ruffled stand collar, paired VERTICAL ruffles framing the button placket, smooth upper chest, full front button closure, long sleeves with softly puffed wrists and flared double ruffle cuffs. Preserve the vertical ruffles, collar and cuff shape. Produce a clean complete front-on product-only cutout of the shirt on a genuinely transparent background, with a natural short untucked shirt hem. Remove trousers/skirt, belt, mannequin, body, skin, hanger, and backdrop. Retain the original shirt design, fabric, white color, proportions and all seams/buttons/ruffles. The garment is empty with no person or mannequin visible. Show the complete shirt, sleeves and cuffs, all within canvas margins. No other clothing, shadows, glow, text, decorations, or added design details. This must remain the same purchasable shirt."
     },
     {
       "productId": "p-9403dfcef1",
@@ -66,7 +66,7 @@
       "output": "public/products/p-9403dfcef1-cutout.png",
       "mode": "built-in image_gen",
       "transparentBackground": true,
-      "prompt": "Use case: background-extraction. White Selma blouse: remove trousers and mannequin; preserve horizontal curved ruffle yoke, shoulder caps, band collar, button placket and tall straight cuffs. Show complete short untucked hem. Produce a precise product-only cutout on a genuinely transparent background. Preserve the same purchasable product, color, material, stitching, design and silhouette. No people, mannequin, hanger, extra garments, crop, added ornament, glow, shadows or text."
+      "prompt": "Use case: background-extraction. Edit target: merchant photograph of THIS EXACT white Selma Victorian blouse; narrow band collar with a small ruffle at its upper edge, a visible row of front buttons, a single curved HORIZONTAL ruffled yoke across the upper chest with shoulder ruffle caps, long plain sleeves, and tall straight button cuffs. Preserve the chest yoke shape, shoulder ruffles, button row and straight cuffs. Do not turn it into a jabot shirt. Produce a clean complete front-on product-only cutout of the shirt on a genuinely transparent background, with a natural short untucked shirt hem. Remove trousers/skirt, belt, mannequin, body, skin, hanger, and backdrop. Retain the original shirt design, fabric, white color, proportions and all seams/buttons/ruffles. The garment is empty with no person or mannequin visible. Show the complete shirt, sleeves and cuffs, all within canvas margins. No other clothing, shadows, glow, text, decorations, or added design details. This must remain the same purchasable shirt."
     },
     {
       "productId": "p-68a970eac8",
@@ -77,7 +77,7 @@
       "output": "public/products/p-68a970eac8-cutout.png",
       "mode": "built-in image_gen",
       "transparentBackground": true,
-      "prompt": "Use case: background-extraction. Black Fairfax waistcoat: remove shirt, cravat, trousers and mannequin; preserve single silver button row, standing/notched collar, welt pockets, fabric and hem. Produce a precise product-only cutout on a genuinely transparent background. Preserve the same purchasable product, color, material, stitching, design and silhouette. No people, mannequin, hanger, extra garments, crop, added ornament, glow, shadows or text."
+      "prompt": "Use case: background-extraction. Edit target: the supplied merchant photograph. Extract ONLY THIS EXACT black Fairfax Regency waistcoat, smooth matte black fabric, standing collar that turns into short notched lapels, single center row of round silver buttons, two horizontal welt pockets, and a nearly straight gently curved lower hem. as a clean empty front-facing product cutout on a genuinely transparent background. Remove white shirt, sleeves, cravat/tie, trousers, mannequin, backdrop and every other styling item. Keep this exact garment, original color, textile, lapel cut, pocket placement, button arrangement and silhouette. Its armholes and neck opening must show transparency, with natural black inner lining at edges. No human or mannequin, no added fabric panels, hanger, shadows, glow, text or extra ornament. Keep the complete waistcoat fully within canvas with a clear margin. This is the same purchasable waistcoat, not a new design."
     },
     {
       "productId": "p-6b969bd8b3",
@@ -88,7 +88,7 @@
       "output": "public/products/p-6b969bd8b3-cutout.png",
       "mode": "built-in image_gen",
       "transparentBackground": true,
-      "prompt": "Use case: background-extraction. Black Gramercy velvet waistcoat: remove shirt, trousers and mannequin; preserve asymmetric double-breasted front, ten silver buttons in two rows of five, gray lapel piping and velvet. Produce a precise product-only cutout on a genuinely transparent background. Preserve the same purchasable product, color, material, stitching, design and silhouette. No people, mannequin, hanger, extra garments, crop, added ornament, glow, shadows or text."
+      "prompt": "Use case: background-extraction. Edit target: the supplied merchant photograph. Extract ONLY THIS EXACT black Gramercy velvet waistcoat, notched black lapels edged in subtle dark gray piping, asymmetric overlapping double-breasted front, TEN visible round silver buttons in two rows of five, two small horizontal welt pockets, and a nearly straight lower hem. as a clean empty front-facing product cutout on a genuinely transparent background. Remove white shirt, sleeves, cravat/tie, trousers, mannequin, backdrop and every other styling item. Keep this exact garment, original color, textile, lapel cut, pocket placement, button arrangement and silhouette. Its armholes and neck opening must show transparency, with natural black inner lining at edges. No human or mannequin, no added fabric panels, hanger, shadows, glow, text or extra ornament. Keep the complete waistcoat fully within canvas with a clear margin. This is the same purchasable waistcoat, not a new design."
     },
     {
       "productId": "p-f79e1da1ae",
@@ -99,7 +99,7 @@
       "output": "public/products/p-f79e1da1ae-cutout.png",
       "mode": "built-in image_gen",
       "transparentBackground": true,
-      "prompt": "Use case: background-extraction. Black Godfrey brocade waistcoat: remove shirt, tie, trousers, watch chain and mannequin; preserve paisley brocade, shawl lapels, eight buttons in two rows of four and hem. Produce a precise product-only cutout on a genuinely transparent background. Preserve the same purchasable product, color, material, stitching, design and silhouette. No people, mannequin, hanger, extra garments, crop, added ornament, glow, shadows or text."
+      "prompt": "Use case: background-extraction. Edit target: the supplied merchant photograph. Extract ONLY THIS EXACT black Godfrey waistcoat with subtle dark paisley brocade pattern, broad shawl lapels, EIGHT round silver buttons in two rows of four, and two welt pockets. Preserve the dark brocade pattern, shawl lapels, double-breasted front and exact hem shape. The dangling silver pocket watch chain is a styling accessory: remove the chain. as a clean empty front-facing product cutout on a genuinely transparent background. Remove white shirt, sleeves, cravat/tie, trousers, mannequin, backdrop and every other styling item. Keep this exact garment, original color, textile, lapel cut, pocket placement, button arrangement and silhouette. Its armholes and neck opening must show transparency, with natural black inner lining at edges. No human or mannequin, no added fabric panels, hanger, shadows, glow, text or extra ornament. Keep the complete waistcoat fully within canvas with a clear margin. This is the same purchasable waistcoat, not a new design."
     }
   ]
 }
