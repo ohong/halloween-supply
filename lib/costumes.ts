@@ -1,6 +1,10 @@
+/** The one live costume. The cart holds a single costume's pieces, so checkout sends this slug. */
+export const liveCostumeSlug = "cosmic-cowboy";
+
 export const costumes = [
   {
     slug: "velvet-vampire",
+    status: "coming_soon",
     name: "Velvet Vampire",
     description: "A black velvet cape with oxblood lining, a ruffled shirt, and a tailored waistcoat.",
     image: "/costumes/velvet-vampire.png",
@@ -10,6 +14,7 @@ export const costumes = [
   },
   {
     slug: "cosmic-cowboy",
+    status: "live",
     name: "Cosmic Cowboy",
     description: "Silver western wear with fringe, pointed boots, and a blue neckerchief.",
     image: "/costumes/cosmic-cowboy.png",
@@ -19,6 +24,7 @@ export const costumes = [
   },
   {
     slug: "moon-moth",
+    status: "coming_soon",
     name: "Moon Moth",
     description: "A sage and cream wing cape over a dark jumpsuit, with a soft collar and antennae.",
     image: "/costumes/moon-moth.png",
@@ -28,6 +34,7 @@ export const costumes = [
   },
   {
     slug: "linen-ghost",
+    status: "coming_soon",
     name: "Linen Ghost",
     description: "An off-white linen sheet with two eye openings and brown lace-up boots.",
     image: "/costumes/linen-ghost.png",
@@ -37,6 +44,7 @@ export const costumes = [
   },
   {
     slug: "woodland-mushroom",
+    status: "coming_soon",
     name: "Woodland Mushroom",
     description: "A red felt mushroom cap, cream blouse, and brown corduroy overalls.",
     image: "/costumes/woodland-mushroom.png",

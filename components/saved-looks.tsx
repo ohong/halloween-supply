@@ -41,5 +41,5 @@ export function useSavedLooks() {
 export function SaveLook({ slug, name, showLabel = false }: { slug: string; name: string; showLabel?: boolean }) {
   const { saved, toggle } = useSavedLooks();
   const isSaved = saved.includes(slug);
-  return <button className={`save-look ${showLabel ? "save-look-labeled" : ""} ${isSaved ? "is-saved" : ""}`} aria-label={`${isSaved ? "Unsave" : "Save"} ${name}`} aria-pressed={isSaved} onClick={() => toggle(slug)}><Heart filled={isSaved} />{showLabel && (isSaved ? "Look saved" : "Save this look")}</button>;
+  return <button type="button" className={`save-look ${showLabel ? "save-look-labeled" : ""} ${isSaved ? "is-saved" : ""}`} aria-label={`${isSaved ? "Unsave" : "Save"} ${name}`} aria-pressed={isSaved} onClick={() => toggle(slug)}><Heart filled={isSaved} />{showLabel && (isSaved ? "Look saved" : "Save this look")}</button>;
 }

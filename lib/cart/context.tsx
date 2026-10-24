@@ -6,6 +6,7 @@ import type { CartItem } from "../types";
 // Client-side cart: React context persisted to localStorage. One line per piece.
 
 const storageKey = "halloween-supply-cart-v1";
+export const sizesStorageKey = "halloween-supply-sizes-v1";
 
 export interface CartApi {
   items: CartItem[];
@@ -25,21 +26,40 @@ export interface CartApi {
 
 const CartContext = createContext<CartApi | null>(null);
 
+function isCartItem(value: unknown): value is CartItem {
+  if (!value || typeof value !== "object") return false;
+  const item = value as Record<string, unknown>;
+  const textFields = ["pieceId", "pieceName", "productId", "title", "productUrl", "image", "merchantId", "merchantName"];
+  return textFields.every((key) => typeof item[key] === "string" && item[key].length > 0)
+    && ["apparel", "pants", "shoe", "hat", "one_size"].includes(String(item.sizeKind))
+    && typeof item.priceCents === "number" && Number.isSafeInteger(item.priceCents) && item.priceCents >= 0
+    && (item.size === null || typeof item.size === "string" && item.size.length <= 120)
+    && /^https?:\/\//.test(String(item.productUrl))
+    && /^(\/|https?:\/\/)/.test(String(item.image));
+}
+
 function readStored(): CartItem[] {
   try {
     const value: unknown = JSON.parse(localStorage.getItem(storageKey) ?? "[]");
-    return Array.isArray(value) ? (value as CartItem[]).filter((item) => item && typeof item.pieceId === "string") : [];
+    return Array.isArray(value) ? [...new Map(value.filter(isCartItem).slice(0, 30).map((item) => [item.pieceId, item])).values()] : [];
   } catch {
     return [];
   }
 }
 
 function merge(current: CartItem[], incoming: CartItem[]): CartItem[] {
+  let savedSizes: Record<string, unknown> = {};
+  try {
+    const value: unknown = JSON.parse(localStorage.getItem(sizesStorageKey) ?? "{}");
+    if (value && typeof value === "object") savedSizes = value as Record<string, unknown>;
+  } catch { /* Sizes remain optional until the assistant records them. */ }
   const next = [...current];
   for (const item of incoming) {
     const index = next.findIndex((line) => line.pieceId === item.pieceId);
-    if (index === -1) next.push(item);
-    else next[index] = { ...item, size: item.size ?? next[index].size };
+    const saved = savedSizes[item.sizeKind];
+    const size = item.size ?? (index >= 0 ? next[index].size : null) ?? (typeof saved === "string" ? saved : null);
+    if (index === -1) next.push({ ...item, size });
+    else next[index] = { ...item, size };
   }
   return next;
 }
