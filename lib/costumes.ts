@@ -46,10 +46,10 @@ export const costumes = [
     slug: "woodland-mushroom",
     status: "live",
     name: "Woodland Mushroom",
-    description: "A red felt mushroom cap, cream blouse, and brown corduroy overalls.",
+    description: "A red spotted mushroom hat, cream blouse, and brown corduroy overalls.",
     image: "/costumes/woodland-mushroom.png",
     alt: "A rust-red spotted mushroom cap hat with cream blouse, brown corduroy overalls, cream tights, and leather boots",
     pieces: ["A red spotted mushroom cap hat", "A cream puff-sleeve blouse", "Brown corduroy overalls", "Cream tights", "Brown boots"],
-    tip: "Build a lightweight cap around a comfortable hat. Felt spots and pleated cream fabric underneath add the finishing detail.",
+    tip: "Let the spotted hat lead the look. A cream blouse and brown corduroy keep the rest soft and earthy.",
   },
 ] as const;
