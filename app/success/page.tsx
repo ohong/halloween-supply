@@ -1,31 +1,43 @@
 import Link from "next/link";
+import { Suspense } from "react";
 import { getStripe } from "@/lib/checkout/stripe";
 
 export const metadata = { title: "Order received — Halloween Supply" };
 
 const money = (cents: number | null) => `$${((cents ?? 0) / 100).toFixed(2)}`;
 
-export default async function SuccessPage({ searchParams }: { searchParams: Promise<{ session_id?: string | string[] }> }) {
+type SuccessProps = { searchParams: Promise<{ session_id?: string | string[] }> };
+
+export default function SuccessPage(props: SuccessProps) {
+  return <Suspense fallback={<main id="main" className="px-5 py-20 text-center text-sm text-[#666]">Checking your payment…</main>}><OrderDetails {...props} /></Suspense>;
+}
+
+async function OrderDetails({ searchParams }: SuccessProps) {
   const { session_id } = await searchParams;
   const id = Array.isArray(session_id) ? session_id[0] : session_id;
 
   let session = null;
   let error: string | null = null;
-  if (!id) {
+  if (!id || !/^cs_(?:test|live)_[A-Za-z0-9]{10,200}$/.test(id)) {
     error = "No order was specified.";
   } else {
     try {
       session = await getStripe().checkout.sessions.retrieve(id, {
         expand: ["line_items.data.price.product"],
       });
-    } catch (e) {
-      console.error("[success] could not retrieve session", e);
+      if (session.metadata?.costume === undefined) {
+        session = null;
+        error = "We could not find that order.";
+      }
+    } catch {
+      console.error("[success] could not retrieve the checkout session");
       error = "We could not find that order.";
     }
   }
 
   const shipping = session?.collected_information?.shipping_details;
   const addr = shipping?.address;
+  const paid = session?.status === "complete" && session.payment_status === "paid";
 
   return (
     <main id="main" style={{ background: "#FFF", color: "#333", minHeight: "100vh" }}>
@@ -35,12 +47,19 @@ export default async function SuccessPage({ searchParams }: { searchParams: Prom
             <h1 style={{ fontSize: 28, fontWeight: 300, letterSpacing: "0.01em", margin: 0 }}>Order not found</h1>
             <p style={{ color: "#666", marginTop: 12 }}>{error}</p>
           </>
+        ) : !paid ? (
+          <>
+            <h1 style={{ fontSize: 28, fontWeight: 300, letterSpacing: "0.01em", margin: 0 }}>Payment not completed</h1>
+            <p style={{ color: "#666", marginTop: 12 }}>
+              {session.status === "complete" ? "Your payment is still processing. Check this page again shortly." : "This checkout has not been paid. Return to your costume to continue."}
+            </p>
+          </>
         ) : (
           <>
             <h1 style={{ fontSize: 28, fontWeight: 300, letterSpacing: "0.01em", margin: 0 }}>Order received</h1>
             <p style={{ color: "#666", marginTop: 12 }}>
-              Thanks{session.customer_details?.name ? `, ${session.customer_details.name}` : ""}. A receipt is on its way
-              to {session.customer_details?.email ?? "your email"}.
+              Thanks{session.customer_details?.name ? `, ${session.customer_details.name}` : ""}. Your payment is confirmed.
+              {session.customer_details?.email ? ` Your order email is ${session.customer_details.email}.` : ""}
             </p>
 
             <ul style={{ listStyle: "none", padding: 0, margin: "40px 0 0", borderTop: "1px solid #CCC" }}>
@@ -81,7 +100,7 @@ export default async function SuccessPage({ searchParams }: { searchParams: Prom
             ) : null}
 
             <p style={{ color: "#666", marginTop: 32, lineHeight: 1.5 }}>
-              Each piece ships from its own shop, so your costume may arrive in separate packages on different days.
+              Our concierge will order each piece from its shop. Pieces may arrive separately. Delivery by October 31 is not guaranteed.
             </p>
           </>
         )}
