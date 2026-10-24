@@ -80,7 +80,7 @@ export async function gatherCandidates(candidates: Candidate[], opts: GatherOpti
       opts.log?.(`  skip ${c.url}: stock is ${parsed.availability}`);
       return null;
     }
-    if (priceCents < 200 || !parsed.images.length) return null;
+    if (!Number.isSafeInteger(priceCents) || priceCents <= 0 || !parsed.images.length) return null;
     const hints = extractMerchantHints(page.html, finalUrl);
     const researched = researchedMerchantLocation(finalUrl);
     if (researched) {
