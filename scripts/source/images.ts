@@ -5,6 +5,7 @@ import path from "node:path";
 import { cacheDir } from "../../lib/sourcing/cache";
 import { composeFlatlay, normalizeProductImage } from "../../lib/sourcing/images";
 import { mapLimit } from "../../lib/sourcing/pool";
+import { photoPlans } from "./photo-plans";
 import type { Product } from "../../lib/types";
 
 export const PRODUCTS_DIR = path.join(process.cwd(), "public", "products");
@@ -59,11 +60,14 @@ export async function processProductImages(products: Product[], opts: ImageStepO
       withCutout.add(p.id);
       return;
     }
+    const plan = photoPlans[p.id];
+    const sources = plan ? [plan.sourceUrl] : p.sourceImages.slice(0, 3);
+    if (plan && !p.sourceImages.includes(plan.sourceUrl)) p.sourceImages.unshift(plan.sourceUrl);
     let lastErr: unknown = new Error("no source images");
-    for (const src of p.sourceImages.slice(0, 3)) {
+    for (const src of sources) {
       try {
         const file = await downloadImage(src, p.id);
-        await normalizeProductImage(file, out, { cutoutPath: cutoutPath(p.id) });
+        await normalizeProductImage(file, out, { cutoutPath: cutoutPath(p.id), ...plan });
         p.image = `/products/${p.id}.jpg`;
         withCutout.add(p.id);
         opts.log(`  image ok: ${p.id}`);
@@ -79,11 +83,10 @@ export async function processProductImages(products: Product[], opts: ImageStepO
 
 export async function buildFlatlay(slug: string, defaultProductIds: string[], withCutout: Set<string>, log: (m: string) => void): Promise<boolean> {
   const inputs = defaultProductIds.filter((id) => withCutout.has(id) || existsSync(cutoutPath(id))).map(cutoutPath);
-  if (inputs.length < 2) {
-    log(`  flat-lay skipped: only ${inputs.length} cutouts available`);
+  if (inputs.length < 2 || inputs.length !== defaultProductIds.length) {
+    log(`  flat-lay skipped: ${inputs.length}/${defaultProductIds.length} default cutouts available`);
     return false;
   }
-  if (inputs.length < defaultProductIds.length) log(`  flat-lay built from ${inputs.length}/${defaultProductIds.length} default picks`);
   await composeFlatlay(inputs, path.join(PRODUCTS_DIR, `${slug}-flatlay.jpg`));
   return true;
 }

@@ -20,13 +20,20 @@ export interface NormalizeOptions {
   fill?: number;
   /** Skip rembg and use the image as-is (already transparent or pre-cut). */
   skipRembg?: boolean;
+  /** Reviewed crop, expressed as fractions of the original image dimensions. */
+  crop?: { left: number; top: number; width: number; height: number };
+  /** Reviewed exterior silhouette. Coordinates are fractions of the source image. */
+  polygon?: Array<[number, number]>;
+  /** Remove exposed upper legs in the reviewed silver boot photograph only. */
+  removeUpperSkin?: boolean;
 }
 
 /** Run rembg on a PNG. Throws with the tool's stderr when it fails. */
 export async function removeBackground(inPng: string, outPng: string): Promise<void> {
   try {
-    await run("uvx", ["--from", "rembg[cli,cpu]", "rembg", "i", inPng, outPng], {
-      timeout: 5 * 60_000,
+    await run("uvx", ["--from", "rembg[cli,cpu]==2.0.86", "rembg", "i", "-m", "u2net", inPng, outPng], {
+      timeout: 2 * 60_000,
+      env: { ...process.env, OMP_NUM_THREADS: "1" },
       maxBuffer: 16 * 1024 * 1024,
     });
   } catch (e) {
@@ -65,11 +72,28 @@ export async function normalizeProductImage(inPath: string, outPath: string, opt
   try {
     const inPng = path.join(tmp, "in.png");
     const cutPng = path.join(tmp, "out.png");
-    await sharp(inPath).rotate().flatten({ background: "#ffffff" }).png().toFile(inPng);
+    let source = sharp(inPath).rotate();
+    if (opts.crop) {
+      const rotated = await source.toBuffer();
+      const { width = 1, height = 1 } = await sharp(rotated).metadata();
+      source = sharp(rotated).extract({
+        left: Math.round(width * opts.crop.left), top: Math.round(height * opts.crop.top),
+        width: Math.round(width * opts.crop.width), height: Math.round(height * opts.crop.height),
+      });
+    }
+    await source.flatten({ background: "#ffffff" }).png().toFile(inPng);
     if (opts.skipRembg) await sharp(inPath).rotate().ensureAlpha().png().toFile(cutPng);
     else await removeBackground(inPng, cutPng);
 
-    const trimmed = await trimTransparent(await sharp(cutPng).png().toBuffer());
+    let cutout: Buffer = await sharp(cutPng).ensureAlpha().png().toBuffer();
+    if (opts.polygon) {
+      const { width = 1, height = 1 } = await sharp(cutout).metadata();
+      const points = opts.polygon.map(([x, y]) => `${x * width},${y * height}`).join(" ");
+      const silhouette = Buffer.from(`<svg width="${width}" height="${height}"><polygon points="${points}" fill="white"/></svg>`);
+      cutout = await sharp(cutout).composite([{ input: silhouette, blend: "dest-in" }]).png().toBuffer();
+    }
+    if (opts.removeUpperSkin) cutout = await removeReviewedUpperSkin(cutout);
+    const trimmed = await trimTransparent(cutout);
     if (opts.cutoutPath) {
       await mkdir(path.dirname(opts.cutoutPath), { recursive: true });
       await sharp(trimmed).toFile(opts.cutoutPath);
@@ -87,6 +111,17 @@ export async function normalizeProductImage(inPath: string, outPath: string, opt
   } finally {
     await rm(tmp, { recursive: true, force: true });
   }
+}
+
+/** Only upper skin is removed; the silver leather and brown heels keep their pixels. */
+async function removeReviewedUpperSkin(png: Buffer): Promise<Buffer> {
+  const { data, info } = await sharp(png).ensureAlpha().raw().toBuffer({ resolveWithObject: true });
+  for (let y = 0; y < info.height * 0.4; y++) for (let x = 0; x < info.width; x++) {
+    const offset = (y * info.width + x) * 4;
+    const [r, g, b] = [data[offset], data[offset + 1], data[offset + 2]];
+    if (r > 60 && r > g * 1.12 && g > b * 1.1) data[offset + 3] = 0;
+  }
+  return sharp(data, { raw: { width: info.width, height: info.height, channels: 4 } }).png().toBuffer();
 }
 
 export interface FlatlayOptions {
