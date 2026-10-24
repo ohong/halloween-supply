@@ -1,6 +1,7 @@
 // bun scripts/graph-check.ts — run every catalog query and print results.
 // Uses the graph when FALKORDB_URL is set (and also compares it with the snapshot
 // implementation), the snapshot otherwise.
+import { isDeepStrictEqual } from "node:util";
 
 // lib/catalog.ts imports "server-only", which only Next resolves; stub it for bun.
 type BunLike = { plugin(p: { name: string; setup(b: { module(n: string, f: () => unknown): void }): void }): void };
@@ -16,7 +17,7 @@ const catalog = await import("../lib/catalog");
 const graphImpl = await import("../lib/graph/queries");
 const snap = await import("../lib/graph/snapshot");
 
-const SLUG = "cosmic-cowboy";
+const SLUG = process.argv[2] ?? "cosmic-cowboy";
 const slim = (o: { product: { id: string; title: string; priceCents: number }; merchant: { id: string }; pick: { rank: number; isLocal: boolean; isCheapest: boolean; path: Array<{ kind: string; label: string }> } }) =>
   `${o.product.id} $${(o.product.priceCents / 100).toFixed(2)} ${o.merchant.id} rank=${o.pick.rank} local=${o.pick.isLocal} cheapest=${o.pick.isCheapest}`;
 let failures = 0;
@@ -93,7 +94,7 @@ try {
   check("getFewestShops single item is empty", (await catalog.getFewestShops([defaultIds[0]])).length === 0);
 
   if (isGraphConfigured()) {
-    const eq = (a: unknown, b: unknown) => JSON.stringify(a) === JSON.stringify(b);
+    const eq = isDeepStrictEqual;
     check("graph == snapshot: getCostume", eq(await graphImpl.getCostume(SLUG), await snap.getCostume(SLUG)));
     check("graph == snapshot: getAlternatives", eq(await graphImpl.getAlternatives(first.piece.id), await snap.getAlternatives(first.piece.id)));
     for (const { piece } of view.pieces) {

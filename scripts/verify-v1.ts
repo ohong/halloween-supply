@@ -40,8 +40,8 @@ async function main() {
   const homeResponse = await fetch(base, { signal: AbortSignal.timeout(30_000) });
   assert.equal(homeResponse.status, 200);
   const home = await homeResponse.text();
-  assert(home.includes("cosmic-cowboy") && /coming soon/i.test(home));
-  pass("home renders live cowboy and coming-soon costumes");
+  assert(home.includes("cosmic-cowboy") && !/coming soon/i.test(home));
+  pass("home renders the live demo costumes");
 
   const costumeResponse = await fetch(new URL(`/costumes/${snapshot.costume.slug}`, base), { signal: AbortSignal.timeout(30_000) });
   assert.equal(costumeResponse.status, 200);
