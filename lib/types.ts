@@ -164,6 +164,24 @@ export interface SharedMerchant {
   productIds: string[];
 }
 
+/** Filters shared by the graph, snapshot, and assistant catalog queries. */
+export interface AlternativeFilters {
+  localOnly?: boolean;
+  /** Inclusive limit in integer US cents. */
+  maxPriceCents?: Cents;
+  costumeSlug?: string;
+}
+
+/** Server catalog contract. Implementations return checked merchant products only. */
+export interface Catalog {
+  getCostume(slug: string): Promise<CostumeView | null>;
+  getAlternatives(pieceId: string, filters?: AlternativeFilters): Promise<ProductOption[]>;
+  getMerchantCatalog(merchantId: string, costumeSlug: string): Promise<ProductOption[]>;
+  getFewestShops(productIds: string[]): Promise<SharedMerchant[]>;
+  getPickPath(productId: string, pieceId: string): Promise<PickReason | null>;
+  getProductOption(productId: string, pieceId: string): Promise<ProductOption | null>;
+}
+
 export interface CartItem {
   /** One cart line per piece; adding another product for the same piece replaces it. */
   pieceId: string;

@@ -3,7 +3,7 @@ import "server-only";
 import { isGraphConfigured, resetGraph } from "./graph/client";
 import * as graphImpl from "./graph/queries";
 import * as snapshotImpl from "./graph/snapshot";
-import type { CostumeView, PickReason, ProductOption, SharedMerchant } from "./types";
+import type { AlternativeFilters, CostumeView, PickReason, ProductOption, SharedMerchant } from "./types";
 
 // The one data-access surface for pages, the assistant's server tools and checkout.
 // Reads FalkorDB (lib/graph) when FALKORDB_URL is set and reachable, and falls back
@@ -80,7 +80,7 @@ export async function getCostume(slug: string): Promise<CostumeView | null> {
  */
 export async function getAlternatives(
   pieceId: string,
-  opts: { localOnly?: boolean; maxPriceCents?: number; costumeSlug?: string } = {},
+  opts: AlternativeFilters = {},
 ): Promise<ProductOption[]> {
   return read(
     () => graphImpl.getAlternatives(pieceId, opts),
