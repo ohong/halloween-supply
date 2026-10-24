@@ -14,7 +14,7 @@ Open http://localhost:3000. For a production build, run `bun run build`, then `b
 ## Included
 
 - Five original costume concepts and transparent PNG cutouts in `public/costumes/`.
-- Category filters, alphabetical sorting, and browser-local saved looks.
+- Browser-local saved looks.
 - A page for each costume with outfit pieces and styling notes.
 - Responsive layouts, keyboard focus states, and reduced-motion support.
 
@@ -36,6 +36,6 @@ Vercel project `halloween-supply` in the Pacific Systems team uses the GitHub in
 Each push to `main` creates a production deployment automatically.
 Other branches create preview deployments using Vercel's project defaults.
 
-Production URL: https://halloween-supply.vercel.app
+Production URL: https://halloween.supply
 
 Local environment files, Stripe state, and generated agent integrations are excluded from Git.

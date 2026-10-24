@@ -9,9 +9,9 @@ const geistSans = Geist({
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://halloween.supply"),
-  title: "Halloween Supply — A little strange. Very well dressed.",
+  title: "Halloween costume ideas — Halloween Supply",
   description: "Five original Halloween costume ideas. Explore the looks, save your favorites, and make your own entrance.",
-  openGraph: { title: "Halloween Supply", description: "A little strange. Very well dressed. Five costume ideas for your annual identity crisis.", type: "website" },
+  openGraph: { title: "Halloween Supply", description: "Five Halloween costume ideas.", type: "website" },
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
