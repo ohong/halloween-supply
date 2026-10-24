@@ -81,6 +81,36 @@ export async function GET(request: Request) {
     });
   }
 
+  if (mode === "shopify") {
+    // Search independent Shopify stores; returns compact, real listing data.
+    const domains = params.getAll("domain").slice(0, 10);
+    const q = params.get("q") ?? "";
+    const limit = Number(params.get("n") ?? 6);
+    const results = await Promise.all(domains.map(async (domain) => {
+      const r = await timed(async () => {
+        const res = await fetch(`https://${domain}/search/suggest.json?q=${encodeURIComponent(q)}&resources[type]=product&resources[limit]=${limit}`, { headers: { "User-Agent": UA }, signal: AbortSignal.timeout(15000) });
+        if (!res.ok) return { status: res.status };
+        const body = await res.json() as { resources?: { results?: { products?: { handle: string }[] } } };
+        const handles = (body.resources?.results?.products ?? []).map((p) => p.handle).slice(0, limit);
+        const products = await Promise.all(handles.map(async (handle) => {
+          const pr = await fetch(`https://${domain}/products/${handle}.js`, { headers: { "User-Agent": UA }, signal: AbortSignal.timeout(15000) });
+          if (!pr.ok) return { handle, status: pr.status };
+          const p = await pr.json() as { title: string; price: number; available: boolean; vendor: string; type: string; tags: string[]; images: string[]; options: { name: string; values: string[] }[]; variants: { title: string; available: boolean; price: number }[]; description: string };
+          return {
+            url: `https://${domain}/products/${handle}`, title: p.title, priceCents: p.price, available: p.available, vendor: p.vendor, type: p.type,
+            tags: p.tags?.slice(0, 12), images: p.images?.slice(0, 3).map((src) => src.startsWith("//") ? `https:${src}` : src),
+            options: p.options?.map((o) => ({ name: o.name, values: o.values })),
+            variants: p.variants?.slice(0, 12).map((v) => ({ title: v.title, available: v.available, price: v.price })),
+            description: p.description?.replace(/<[^>]+>/g, " ").replace(/\s+/g, " ").trim().slice(0, 400),
+          };
+        }));
+        return { status: res.status, products };
+      });
+      return { domain, ...r };
+    }));
+    return Response.json(results);
+  }
+
   if (mode === "fetch") {
     const urls = params.getAll("url").slice(0, 8);
     const via = params.get("via") ?? "direct";
@@ -88,11 +118,11 @@ export async function GET(request: Request) {
       const r = await timed(async () => {
         if (via === "unlocker") {
           const res = await brightData(process.env.BRIGHTDATA_UNLOCKER_ZONE ?? "", url);
-          return { status: res.status, ...summarize(res.text), json: url.endsWith(".js") || url.endsWith(".json") ? res.text.slice(0, 6000) : undefined };
+          return { status: res.status, ...summarize(res.text), json: /\.(js|json)(\?|$)/.test(url) ? res.text.slice(0, 6000) : undefined };
         }
         const res = await fetch(url, { headers: { "User-Agent": UA, Accept: "text/html,application/json" }, signal: AbortSignal.timeout(20000) });
         const text = await res.text();
-        return { status: res.status, finalUrl: res.url, ...(url.endsWith(".js") || url.endsWith(".json") ? { json: text.slice(0, 6000) } : summarize(text)) };
+        return { status: res.status, finalUrl: res.url, ...(/\.(js|json)(\?|$)/.test(url) ? { json: text.slice(0, 6000) } : summarize(text)) };
       });
       return { url, ...r };
     }));
