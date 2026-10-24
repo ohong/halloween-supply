@@ -73,6 +73,9 @@ try {
     for (const b of view.pieces) {
       if (a === b) continue;
       const m = a.options[0].merchant.id;
+      // If the cart already uses this merchant for the piece, consolidation
+      // correctly retains that product rather than selecting another option.
+      if (b.options[0].merchant.id === m) continue;
       const other = b.options.find((o) => o.merchant.id === m && o.pick.rank > 0);
       if (!other) continue;
       const hit = base.find((s) => s.merchant.id === m);
