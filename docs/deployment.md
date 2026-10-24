@@ -29,8 +29,7 @@ vercel env ls --environment production --scope ohong-projects --project hallowee
 ```
 
 Do not pull environment files over `.env.local` or print credentials.
-The production Stripe credential was a test key during the initial inspection.
-Real payments require a live Stripe key before accepting customer orders.
+Stripe remains in test mode for the five-costume demo. Do not replace the production credential with a live key without a new user instruction.
 
 ## Daily catalog refresh
 
@@ -51,14 +50,15 @@ Never place the secret in the URL or paste it into logs.
 ## Release verification
 
 1. Run `bun run lint` and `bun run build`.
-2. Verify the local checkout and assistant with real provider calls.
+2. Run `bun scripts/verify-costumes.ts LOCAL_URL --checkout --all-options --chat` against the local production server.
 3. Push the reviewed commits to `main`.
 4. Inspect the resulting Vercel deployment and confirm the commit and `READY` state.
 5. Check `https://halloween.supply/api/health`.
-6. Confirm the home page, costume page, assistant and checkout against production.
+6. Seed any updated live graph catalogs after their image assets resolve on the production host.
+7. Run `bun scripts/verify-costumes.ts https://halloween.supply --checkout --all-options --chat`. Every verification session is test-only and expires unpaid.
 
 `/api/health` returns names and booleans for environment variables, graph counts,
-catalog completeness, catalog source, and the deployed Git commit.
+completeness and source for each of the five catalogs, and the deployed Git commit.
 It returns HTTP 503 when the served catalog lacks a default and two alternatives per piece.
 An available snapshot with an unreachable graph reports `degraded` instead of claiming graph success.
 
