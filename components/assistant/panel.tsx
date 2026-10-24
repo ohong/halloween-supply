@@ -76,6 +76,11 @@ export function AssistantPanel({ costume, onChoose }: { costume: CostumeView; on
     if (!piece || !option || option.product.availability === "out_of_stock") throw new Error("That product is not available for this piece.");
     const size = sizesRef.current[piece.piece.sizeKind] ?? null;
     cartRef.current.add(toCartItem(piece.piece, option, size));
+    const previous = contextRef.current.cart.find((line) => line.pieceId === pieceId);
+    contextRef.current = {
+      ...contextRef.current,
+      cart: [...contextRef.current.cart.filter((line) => line.pieceId !== pieceId), { pieceId, productId, size: size ?? previous?.size ?? null }],
+    };
     onChooseRef.current?.(pieceId, productId);
     return { ok: true, title: option.product.title, pieceId, productId, size };
   }, []);
@@ -85,14 +90,23 @@ export function AssistantPanel({ costume, onChoose }: { costume: CostumeView; on
     const updated = new Set<string>();
     for (const { sizeKind, size } of entries) {
       next[sizeKind] = size;
-      for (const line of cartRef.current.items) {
-        if (line.sizeKind === sizeKind) {
+      for (const line of contextRef.current.cart) {
+        const piece = costumeRef.current.pieces.find(({ piece }) => piece.id === line.pieceId);
+        if (piece?.piece.sizeKind === sizeKind) {
           cartRef.current.setSize(line.pieceId, size);
           updated.add(line.pieceId);
         }
       }
     }
     sizesRef.current = next;
+    contextRef.current = {
+      ...contextRef.current,
+      sizes: next,
+      cart: contextRef.current.cart.map((line) => {
+        const sizeKind = costumeRef.current.pieces.find(({ piece }) => piece.id === line.pieceId)?.piece.sizeKind;
+        return sizeKind && next[sizeKind] ? { ...line, size: next[sizeKind]! } : line;
+      }),
+    };
     setSizes(next);
     try { localStorage.setItem(sizesStorageKey, JSON.stringify(next)); }
     catch { /* Sizes remain in the current conversation if storage is blocked. */ }
