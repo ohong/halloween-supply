@@ -3,20 +3,918 @@
     "slug": "cosmic-cowboy",
     "name": "Cosmic Cowboy",
     "description": "Silver western wear with fringe, pointed boots, and a blue neckerchief.",
-    "image": "/costumes/cosmic-cowboy.png",
-    "alt": "Metallic silver cowboy hat, fringed western jacket, silver trousers and boots with a blue neckerchief",
+    "image": "/products/cosmic-cowboy-flatlay.jpg",
+    "alt": "A composition of the sourced cowboy pieces on pale grey: cowboy hat, a detail of the fringe jacket, trousers, western boots and blue neckerchief.",
     "status": "live"
   },
   "pieces": [
-    { "id": "cowboy-hat", "name": "Silver cowboy hat", "category": "Headwear", "required": true, "order": 1, "styleNotes": "Metallic or pale silver western hat with a pinched crown.", "queries": ["silver metallic cowboy hat", "vintage silver western hat"], "sizeKind": "hat", "matches": [] },
-    { "id": "fringe-jacket", "name": "Fringed western jacket", "category": "Outerwear", "required": true, "order": 2, "styleNotes": "Metallic, sequined or suede western jacket with fringe.", "queries": ["metallic fringe western jacket", "vintage fringe jacket"], "sizeKind": "apparel", "matches": [] },
-    { "id": "silver-trousers", "name": "Silver trousers", "category": "Bottoms", "required": true, "order": 3, "styleNotes": "Metallic silver pants or flares.", "queries": ["metallic silver pants", "silver flare trousers"], "sizeKind": "pants", "matches": [] },
-    { "id": "western-boots", "name": "Pointed western boots", "category": "Footwear", "required": true, "order": 4, "styleNotes": "Pointed-toe cowboy boots, silver, white or metallic.", "queries": ["silver cowboy boots", "vintage pointed western boots"], "sizeKind": "shoe", "matches": [] },
-    { "id": "neckerchief", "name": "Blue neckerchief", "category": "Accessories", "required": false, "order": 5, "styleNotes": "Bright blue bandana or silk neck scarf.", "queries": ["blue silk neckerchief", "vintage blue bandana"], "sizeKind": "one_size", "matches": [] }
+    {
+      "id": "cowboy-hat",
+      "name": "Silver cowboy hat",
+      "category": "Headwear",
+      "required": true,
+      "order": 1,
+      "styleNotes": "A shiny metallic silver cowboy hat with a wide curved brim brings a space-age shimmer to a classic western crown. Holographic or sequin finishes add to the cosmic effect.",
+      "queries": [
+        "handmade silver metallic cowboy hat Etsy",
+        "vintage style silver sequin cowboy hat western wear",
+        "holographic silver space cowboy hat handmade"
+      ],
+      "sizeKind": "hat",
+      "matches": [
+        {
+          "productId": "p-4b2c550c26",
+          "rank": 0,
+          "reason": "Metallic silver cowboy hat with a crystal star detail (removable on request) and an elastic insert for fit, made to order in a Costa Mesa studio, matching the shiny space-age silver look."
+        },
+        {
+          "productId": "p-bbebd49e6b",
+          "rank": 1,
+          "reason": "Stetson 4X wool cowboy hat in Stone with a gus crown and 2-ply ribbon hat band; a classic western shape, but the neutral stone color has no metallic or silver shimmer for the cosmic look."
+        },
+        {
+          "productId": "p-5159210de3",
+          "rank": 2,
+          "reason": "White cowboy hat embellished with gold and silver western charms, made to order in a Costa Mesa studio; the white base is a compatible neutral, and the silver charms give a hint of sparkle but it is not an all-silver hat."
+        }
+      ]
+    },
+    {
+      "id": "fringe-jacket",
+      "name": "Metallic or sequined fringed jacket",
+      "category": "Outerwear",
+      "required": true,
+      "order": 2,
+      "styleNotes": "A thrifted 70s-style western jacket in silver lamé, metallic leather or sequins, with long swinging fringe across the chest and sleeves. The classic yoke silhouette keeps it western while the shine makes it otherworldly.",
+      "queries": [
+        "vintage silver metallic fringe western jacket",
+        "handmade sequin fringe cowboy jacket Etsy",
+        "vintage 70s western fringe jacket silver lamé"
+      ],
+      "sizeKind": "apparel",
+      "matches": [
+        {
+          "productId": "p-864df416a3",
+          "rank": 0,
+          "reason": "Black and white faux leather moto jacket with bold stars across the shoulders and dramatic fringe; the western and star details suit the theme, though it is black rather than silver and has no metallic finish."
+        },
+        {
+          "productId": "p-fac2225e1f",
+          "rank": 1,
+          "reason": "Faux suede fringe moto jacket in beige; it has fringe but no metallic or sequin finish, so it misses the silver shine of the cosmic look."
+        },
+        {
+          "productId": "p-bc8f5c1ddb",
+          "rank": 2,
+          "reason": "Black faux suede jacket with fringe down the front and back, giving a western twist, but it has no metallic or sequin element for a silver look."
+        }
+      ]
+    },
+    {
+      "id": "silver-trousers",
+      "name": "Silver trousers",
+      "category": "Bottoms",
+      "required": true,
+      "order": 3,
+      "styleNotes": "Shiny silver metallic trousers with a slight flare or bootcut that sits well over pointed boots. Look for foil-coated denim, lamé or disco-era fabric.",
+      "queries": [
+        "vintage silver metallic bootcut pants",
+        "handmade silver lamé flare trousers Etsy",
+        "silver foil coated western bootcut jeans"
+      ],
+      "sizeKind": "pants",
+      "matches": [
+        {
+          "productId": "p-001ca783f4",
+          "rank": 0,
+          "reason": "High-shine silver-black foil-coated denim bell bottoms made in the USA match the flared, disco-era western look and sit well over pointed boots, though the black-leaning foil is darker than pure silver."
+        },
+        {
+          "productId": "p-bf85954bb6",
+          "rank": 1,
+          "reason": "Judy Blue metallic silver pants in a luxe metallic fabric give the shiny silver look, though the straight leg is less flared than ideal and would need to be worn over or tucked into pointed boots."
+        },
+        {
+          "productId": "p-ba3ef9a46e",
+          "rank": 2,
+          "reason": "Fluid silver satin wide-leg trouser has a cosmic, disco-glam sheen that reads well over pointed boots, but it is satin rather than foil denim or lamé and lacks a western feel."
+        }
+      ]
+    },
+    {
+      "id": "western-boots",
+      "name": "Pointed western boots",
+      "category": "Footwear",
+      "required": true,
+      "order": 4,
+      "styleNotes": "Pointed-toe leather cowboy boots with a stacked heel in white, silver or black to anchor the outfit. Vintage boots with tooling or stitched shafts add authentic western character.",
+      "queries": [
+        "vintage pointed toe leather western boots",
+        "silver metallic cowboy boots handmade",
+        "vintage women's or men's snip toe cowboy boots secondhand"
+      ],
+      "sizeKind": "shoe",
+      "matches": [
+        {
+          "productId": "p-db9dc722b0",
+          "rank": 0,
+          "reason": "Metallic silver cowgirl boots with a 3.75-inch heel and decorative stitching directly echo the silver western look and anchor the outfit, though the boutique material is not specified and it is priced low."
+        },
+        {
+          "productId": "p-fdcac24cb5",
+          "rank": 1,
+          "reason": "Silver embroidered calf-high western boots with a block heel and pull tabs match the silver cosmic palette, though the block heel and likely synthetic upper are less authentic than a stacked-heel leather boot."
+        },
+        {
+          "productId": "p-bc746b747a",
+          "rank": 2,
+          "reason": "Black pointed-toe cowboy boots with star studs and fringe fit the western and cosmic theme and the black color is a compatible neutral, though the chunky heel and festival styling are a bit more fashion than traditional."
+        }
+      ]
+    },
+    {
+      "id": "neckerchief",
+      "name": "Bright blue neckerchief",
+      "category": "Accessories",
+      "required": false,
+      "order": 5,
+      "styleNotes": "A vivid cobalt or electric blue cotton or silk bandana knotted at the neck gives a pop of colour against the silver. Choose a plain or lightly patterned vintage-style square.",
+      "queries": [
+        "vintage bright blue silk western neckerchief",
+        "handmade cobalt blue cotton bandana neck scarf Etsy",
+        "electric blue western wild rag scarf"
+      ],
+      "sizeKind": "one_size",
+      "matches": [
+        {
+          "productId": "p-0a49fa4bf2",
+          "rank": 0,
+          "reason": "A solid 100% silk, 19mm wild rag in a Caribbean blue with a touch of teal, so it leans slightly toward teal rather than pure cobalt, with a slight sheen on the topside."
+        },
+        {
+          "productId": "p-dd6cb1a575",
+          "rank": 1,
+          "reason": "A 100% cotton, discharge-printed selvedge bandanna in a soft poplin weave from Omoto Denim; it is listed simply as blue, so the shade may be less vivid than a bright cobalt."
+        },
+        {
+          "productId": "p-8df245a09b",
+          "rank": 2,
+          "reason": "A 28x28 royal blue paisley bandana is a classic western square that can be knotted at the neck for a blue accent; no fabric is stated in the listing."
+        }
+      ]
+    }
   ],
-  "products": [],
-  "merchants": [],
-  "neighborhoods": [],
-  "tags": [],
-  "provenance": { "method": "manual-research", "generatedAt": "2026-10-24T22:00:00Z", "notes": "Skeleton: pieces only, products pending sourcing." }
+  "products": [
+    {
+      "id": "p-4b2c550c26",
+      "title": "Metallic Cowboy Hat — Silver",
+      "url": "https://eastnwestlabel.com/products/metallic-cowboy-hat?variant=40304078225431",
+      "priceCents": 14000,
+      "currency": "USD",
+      "image": "/products/p-4b2c550c26.jpg",
+      "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/0579/7072/0791/products/ScreenShot2022-09-12at1.46.15PM.png?v=1663015669",
+        "https://eastnwestlabel.com/cdn/shop/products/ScreenShot2022-09-12at1.46.15PM.png?v=1663015669&width=2804",
+        "http://eastnwestlabel.com/cdn/shop/products/ScreenShot2022-09-12at1.46.26PM.png?crop=center&height=1200&v=1663015669&width=1200",
+        "https://eastnwestlabel.com/cdn/shop/products/ScreenShot2022-09-12at1.46.26PM.png?crop=center&height=1200&v=1663015669&width=1200",
+        "https://cdn.shopify.com/s/files/1/0579/7072/0791/products/ScreenShot2022-09-12at1.46.26PM.png?v=1663015669",
+        "https://cdn.shopify.com/s/files/1/0579/7072/0791/products/ScreenShot2022-09-12at1.46.20PM.png?v=1663015669"
+      ],
+      "availability": "in_stock",
+      "sizes": [
+        "Silver / S/M",
+        "Silver / L/XL"
+      ],
+      "merchantId": "eastnwestlabel-com",
+      "tagSlugs": [
+        "metallic",
+        "silver",
+        "cowboy-hat",
+        "made-to-order",
+        "western-wear"
+      ],
+      "description": "YEEHAW! Our most popular blinged out Cowboy hats are here in perfect metallics! Want it without crystal star? Write \"NO STAR\" in the notes section! Super limited quantities! Size chart S/M - Has elastic insert making it fit snuggly - fits around 20-22.5\" L/XL - Has elastic insert making it fit snuggly - fits around 23-24.5\" This item is made to order in our Costa Mesa Studio!",
+      "checkedAt": "2026-10-24T22:34:50.850Z"
+    },
+    {
+      "id": "p-5159210de3",
+      "title": "Charmed Cowboy Hat — White",
+      "url": "https://eastnwestlabel.com/products/charmed-cowboy-hat-copy?variant=44731148664855",
+      "priceCents": 21000,
+      "currency": "USD",
+      "image": "/products/p-5159210de3.jpg",
+      "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/0579/7072/0791/files/Screenshot2026-03-18at2.14.23PM.png?v=1773868568",
+        "https://eastnwestlabel.com/cdn/shop/files/Screenshot2026-03-16at9.55.06AM.png?v=1773680143&width=1100",
+        "http://eastnwestlabel.com/cdn/shop/files/Screenshot2026-03-16at9.55.06AM.png?crop=center&height=1200&v=1773680143&width=1200",
+        "https://eastnwestlabel.com/cdn/shop/files/Screenshot2026-03-16at9.55.06AM.png?crop=center&height=1200&v=1773680143&width=1200",
+        "https://cdn.shopify.com/s/files/1/0579/7072/0791/files/Screenshot2026-03-16at9.55.06AM.png?v=1773680143",
+        "https://cdn.shopify.com/s/files/1/0579/7072/0791/files/Screenshot2026-03-18at2.14.32PM.png?v=1773868568"
+      ],
+      "availability": "in_stock",
+      "sizes": [
+        "White / S/M",
+        "White / L/XL"
+      ],
+      "merchantId": "eastnwestlabel-com",
+      "tagSlugs": [
+        "white",
+        "charms",
+        "made-to-order",
+        "western-wear",
+        "cowboy-hat"
+      ],
+      "description": "Super limited quantities! The most fun sun friendly cowboy hat. It'll give you all the shade you need while keeping your head breezy cool. Embellished with gold and silver western charms. Size chart S/M - Has elastic insert making it fit snuggly - fits around 20-22.5\" L/XL - Has elastic insert making it fit snuggly - fits around 23-24.5\" This item is made to order in our Costa Mesa Studio! We are sister owned and operated and do not mass produce our clothing. We've worked with the same small family owned factory since the conception of EastnWest. Each piece is truly one-of-kind and made with…",
+      "checkedAt": "2026-10-24T22:34:50.850Z"
+    },
+    {
+      "id": "p-864df416a3",
+      "title": "Black Star Faux Leather Fringe Moto Jacket",
+      "url": "https://shopcindyjane.com/products/black-star-faux-leather-fringe-moto-jacket?variant=45797547212834",
+      "priceCents": 11800,
+      "currency": "USD",
+      "image": "/products/p-864df416a3.jpg",
+      "sourceImages": [
+        "http://shopcindyjane.com/cdn/shop/files/black-star-faux-leather-fringe-moto-jacket-6582134.jpg?v=1789743869",
+        "https://shopcindyjane.com/cdn/shop/files/black-star-faux-leather-fringe-moto-jacket-6582134.jpg?v=1789743869",
+        "https://cdn.shopify.com/s/files/1/0693/8794/3970/files/black-star-faux-leather-fringe-moto-jacket-6582134.jpg?v=1789743869",
+        "https://cdn.shopify.com/s/files/1/0693/8794/3970/files/black-star-faux-leather-fringe-moto-jacket-8848119.jpg?v=1789743870",
+        "https://cdn.shopify.com/s/files/1/0693/8794/3970/files/black-star-faux-leather-fringe-moto-jacket-9544206.jpg?v=1789743869",
+        "https://cdn.shopify.com/s/files/1/0693/8794/3970/files/black-star-faux-leather-fringe-moto-jacket-3358699.jpg?v=1789743870"
+      ],
+      "availability": "in_stock",
+      "sizes": [
+        "S / Black And White",
+        "M / Black And White",
+        "L / Black And White"
+      ],
+      "merchantId": "shopcindyjane-com",
+      "tagSlugs": [
+        "fringe",
+        "faux-leather",
+        "stars",
+        "western-wear",
+        "moto"
+      ],
+      "description": "Our Black Star Faux Leather Fringe Moto Jacket: for the folks who collect motel matchbooks, know every word to the jukebox songs & never quite learned how to leave before closing time. Finished with bold stars across the shoulders and dramatic fringe, this is the faux leather jacket made for chasing horizons, missi",
+      "checkedAt": "2026-10-24T22:39:09.593Z"
+    },
+    {
+      "id": "p-fac2225e1f",
+      "title": "Beige Faux Suede Fringe Jacket",
+      "url": "https://pretty-attitude.com/products/beige-faux-suede-fringe-jacket?variant=39626614308899",
+      "priceCents": 5990,
+      "currency": "USD",
+      "image": "/products/p-fac2225e1f.jpg",
+      "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/0940/5210/products/white-fringe-jacket_5e938087-3890-4994-a7c8-7a8714aec9ae.jpg?v=1664649219",
+        "https://cdn.shopify.com/s/files/1/0940/5210/products/suede-fringe-jacket.jpg?v=1664649219",
+        "https://cdn.shopify.com/s/files/1/0940/5210/products/beige-fringe-jacket.jpg?v=1664649219",
+        "https://cdn.shopify.com/s/files/1/0940/5210/products/beige-suede-fringe-jacket.jpg?v=1664649219"
+      ],
+      "availability": "in_stock",
+      "sizes": [
+        "S / Beige",
+        "M / Beige",
+        "L / Beige",
+        "XL / Beige"
+      ],
+      "merchantId": "pretty-attitude-com",
+      "tagSlugs": [
+        "fringe",
+        "faux-suede",
+        "western-wear",
+        "beige"
+      ],
+      "description": "A little fringe goes a long way! This faux suede moto jacket gives your outfit that stylish kick as you take on the day. a cute fringe jacket",
+      "checkedAt": "2026-10-24T22:39:09.593Z"
+    },
+    {
+      "id": "p-001ca783f4",
+      "title": "Metallic Bell Bottom Jean in Black Denim",
+      "url": "https://pretty-attitude.com/products/metallic-bell-bottom-jean-in-black-denim?variant=42453163933731",
+      "priceCents": 12000,
+      "currency": "USD",
+      "image": "/products/p-001ca783f4.jpg",
+      "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/0940/5210/files/metallic-bell-bottoms-liv.jpg?v=1756259622",
+        "https://cdn.shopify.com/s/files/1/0940/5210/files/24355708_439897ca-46d3-4044-a1e7-9aaccadb7351.jpg?v=1756259622",
+        "https://cdn.shopify.com/s/files/1/0940/5210/files/47505f55-0e9c-4eb8-b1d3-74ca0ade1781.png?v=1780643460",
+        "https://cdn.shopify.com/s/files/1/0940/5210/files/647a1473-9182-4b72-890f-f01428503b8a.png?v=1780643460",
+        "https://cdn.shopify.com/s/files/1/0940/5210/files/e2d1ea3a-001f-482b-9f91-a4b5d8a9204f.png?v=1780643460"
+      ],
+      "availability": "in_stock",
+      "sizes": [
+        "Short Inseam 30\" / 3",
+        "Short Inseam 30\" / 5",
+        "Short Inseam 30\" / 7",
+        "Short Inseam 30\" / 9",
+        "Short Inseam 30\" / 11",
+        "Short Inseam 30\" / 13",
+        "Short Inseam 30\" / 15",
+        "Regular Inseam 32\" / 3",
+        "Regular Inseam 32\" / 5",
+        "Regular Inseam 32\" / 7",
+        "Regular Inseam 32\" / 9",
+        "Regular Inseam 32\" / 11",
+        "Regular Inseam 32\" / 13",
+        "Regular Inseam 32\" / 15",
+        "Long Inseam 34\" / 3",
+        "Long Inseam 34\" / 5",
+        "Long Inseam 34\" / 7",
+        "Long Inseam 34\" / 9",
+        "Long Inseam 34\" / 11",
+        "Long Inseam 34\" / 13",
+        "Long Inseam 34\" / 15"
+      ],
+      "merchantId": "pretty-attitude-com",
+      "tagSlugs": [
+        "foil-denim",
+        "bell-bottom",
+        "made-in-usa",
+        "metallic",
+        "flare"
+      ],
+      "description": "Shop the Metallic Bell Bottom Jean in Black Denim — high-shine silver-black foil flare jeans made in the USA. Perfect for concerts, nights out.",
+      "checkedAt": "2026-10-24T22:33:56.181Z"
+    },
+    {
+      "id": "p-bf85954bb6",
+      "title": "Final Sale | Metallic Silver Straight",
+      "url": "https://shaynagibbonskeeley.com/products/metallic-silver-straight?variant=49639959134401",
+      "priceCents": 4900,
+      "currency": "USD",
+      "image": "/products/p-bf85954bb6.jpg",
+      "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/0794/5139/0145/files/METALLIC.webp?v=1762198226",
+        "https://shaynagibbonskeeley.com/cdn/shop/files/METALLICFRONTJEANS_1024x1024.png?v=1762198226",
+        "http://shaynagibbonskeeley.com/cdn/shop/files/METALLICFRONTJEANS.png?v=1762198226",
+        "https://shaynagibbonskeeley.com/cdn/shop/files/METALLICFRONTJEANS.png?v=1762198226",
+        "https://cdn.shopify.com/s/files/1/0794/5139/0145/files/METALLICFRONTJEANS.png?v=1762198226",
+        "https://cdn.shopify.com/s/files/1/0794/5139/0145/files/METALLICBACK.webp?v=1762198226"
+      ],
+      "availability": "in_stock",
+      "sizes": [
+        "1 (25)",
+        "9 (29)"
+      ],
+      "merchantId": "shaynagibbonskeeley-com",
+      "tagSlugs": [
+        "metallic",
+        "silver",
+        "denim",
+        "straight-leg",
+        "boutique"
+      ],
+      "description": "Turn heads this season in our Metallic Silver Straight Pants a stunning statement piece designed to bring a touch of glam to your holiday wardrobe. Crafted from a luxe metallic fabric with a sleek straight-leg silhouette, these pants deliver both style and comfort in one show-stopping look. Perfectly structured with a mid-rise waist and subtle stretch, they move with you while maintaining their polished shape. KEY ELEMENTS: Eye-catching metallic silver finish Straight-leg silhouette for a modern fit Mid-rise waist with zip-fly closure Slight stretch for all-day comfort Lightweight, fully line…",
+      "checkedAt": "2026-10-24T22:33:56.181Z"
+    },
+    {
+      "id": "p-ba3ef9a46e",
+      "title": "Metallic Muse Satin Trouser in Silver",
+      "url": "https://thelocalgroup.shop/products/metallic-muse-satin-trouser-in-silver?variant=47754806853856",
+      "priceCents": 3900,
+      "currency": "USD",
+      "image": "/products/p-ba3ef9a46e.jpg",
+      "sourceImages": [
+        "https://thelocalgroup.shop/cdn/shop/files/Screenshot_2025-10-11_at_10.55.58_PM.png?v=1780688888&width=1920",
+        "http://thelocalgroup.shop/cdn/shop/files/Screenshot_2025-10-11_at_10.55.58_PM.png?v=1780688888",
+        "https://thelocalgroup.shop/cdn/shop/files/Screenshot_2025-10-11_at_10.55.58_PM.png?v=1780688888",
+        "https://cdn.shopify.com/s/files/1/0757/5483/2096/files/Screenshot_2025-10-11_at_10.55.58_PM.png?v=1780688888",
+        "https://cdn.shopify.com/s/files/1/0757/5483/2096/files/Screenshot_2025-10-11_at_10.56.20_PM.png?v=1780688905",
+        "https://cdn.shopify.com/s/files/1/0757/5483/2096/files/Screenshot2025-09-10at12.06.01AM.png?v=1780688922"
+      ],
+      "availability": "in_stock",
+      "sizes": [
+        "S",
+        "M",
+        "L",
+        "XL"
+      ],
+      "merchantId": "thelocalgroup-shop",
+      "tagSlugs": [
+        "satin",
+        "silver",
+        "wide-leg",
+        "disco",
+        "cosmic"
+      ],
+      "description": "Shine on style star... Comfort meets cosmic glam. Crafted in a fluid silver satin with a wide-leg cut, these pants move with effortless ease while catching every glimmer of light. Dress them up with heels or down with sneakers—either way, you’ll be the main attraction. Luxe satin feel. Dreamy fit. Ready for work or play. 100% polyester. Button/zip fly. Front pleats. Kris is size 4 and is wearing size small.",
+      "checkedAt": "2026-10-24T22:33:56.181Z"
+    },
+    {
+      "id": "p-db9dc722b0",
+      "title": "Metallic Silver Cowgirl Boots",
+      "url": "https://shopcindyjane.com/products/metallic-silver-cowgirl-boots?variant=41635064905762",
+      "priceCents": 2000,
+      "currency": "USD",
+      "image": "/products/p-db9dc722b0.jpg",
+      "sourceImages": [
+        "https://shopcindyjane.com/cdn/shop/products/metallic-silver-cowgirl-boots-103386.jpg?v=1710262433&width=1920",
+        "http://shopcindyjane.com/cdn/shop/products/metallic-silver-cowgirl-boots-103386.jpg?v=1710262433",
+        "https://shopcindyjane.com/cdn/shop/products/metallic-silver-cowgirl-boots-103386.jpg?v=1710262433",
+        "https://cdn.shopify.com/s/files/1/0693/8794/3970/products/metallic-silver-cowgirl-boots-103386.jpg?v=1710262433",
+        "https://cdn.shopify.com/s/files/1/0693/8794/3970/products/metallic-silver-cowgirl-boots-201533.jpg?v=1710262433",
+        "https://cdn.shopify.com/s/files/1/0693/8794/3970/products/metallic-silver-cowgirl-boots-314882.jpg?v=1710262433"
+      ],
+      "availability": "in_stock",
+      "sizes": [
+        "5.5 / Metallic Silver"
+      ],
+      "merchantId": "shopcindyjane-com",
+      "tagSlugs": [
+        "silver",
+        "metallic",
+        "western-wear",
+        "stitched",
+        "cowgirl"
+      ],
+      "description": "The statement-maker you've been looking for: our Metallic Silver Cowgirl Boots! These cute silver cowgirl boots pair great with any outfit. This boot's 3.75\" heel makes it sleek yet comfy for dancing all night long, plus this design's intricate stitching gives it subtle detail to stand out. Wear these showstoppers to your next concert, rodeo or music festival!",
+      "checkedAt": "2026-10-24T22:33:56.181Z"
+    },
+    {
+      "id": "p-fdcac24cb5",
+      "title": "Ponsies Embroidered Cowboy Calf Boots — Silver",
+      "url": "https://pretty-attitude.com/products/ponsies-boot?variant=42456681512995",
+      "priceCents": 5199,
+      "currency": "USD",
+      "image": "/products/p-fdcac24cb5.jpg",
+      "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/0940/5210/files/ponsiesembroideredcowboyboots-SH3950_Silver_1.jpg?v=1780919714",
+        "https://cdn.shopify.com/s/files/1/0940/5210/files/embroidered_cowboy_boots.jpg?v=1780932667",
+        "https://cdn.shopify.com/s/files/1/0940/5210/files/ponsiesembroideredcowboyboots-SH3950_Black_2.jpg?v=1780919714",
+        "https://cdn.shopify.com/s/files/1/0940/5210/files/ponsiesembroideredcowboyboots-SH3950_Black_5.jpg?v=1780919714",
+        "https://cdn.shopify.com/s/files/1/0940/5210/files/ponsiesembroideredcowboyboots-SH3950_Black_7.jpg?v=1780919714",
+        "https://cdn.shopify.com/s/files/1/0940/5210/files/ponsiesembroideredcowboyboots-SH3950_Black_8.jpg?v=1780919714"
+      ],
+      "availability": "in_stock",
+      "sizes": [
+        "Silver / US-5 / UK-3 / EU-36",
+        "Silver / US-6 / UK-4 / EU-37"
+      ],
+      "merchantId": "pretty-attitude-com",
+      "tagSlugs": [
+        "silver",
+        "embroidered",
+        "western-wear",
+        "block-heel",
+        "boho"
+      ],
+      "description": "Shop Ponsies embroidered cowboy calf boots with block heel & pull tabs. Boho western style in Ecru, Black, Silver, Red & Burgundy. Sizes US 5–10.",
+      "checkedAt": "2026-10-24T22:33:56.181Z"
+    },
+    {
+      "id": "p-bc746b747a",
+      "title": "Dolly Black Fringe Cowboy Boots",
+      "url": "https://www.pretty-attitude.com/products/dolly-black-fringe-cowboy-boots?variant=43863591616547",
+      "priceCents": 5990,
+      "currency": "USD",
+      "image": "/products/p-bc746b747a.jpg",
+      "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/0940/5210/files/western-fringe-boots_1.png?v=1788425397",
+        "https://cdn.shopify.com/s/files/1/0940/5210/files/western-fringe-boots.png?v=1788425397",
+        "https://cdn.shopify.com/s/files/1/0940/5210/files/western-fringe-boots_2.png?v=1788425397"
+      ],
+      "availability": "in_stock",
+      "sizes": [
+        "Black / 6",
+        "Black / 7",
+        "Black / 8",
+        "Black / 9",
+        "Black / 10",
+        "Black / 11"
+      ],
+      "merchantId": "pretty-attitude-com",
+      "tagSlugs": [
+        "black",
+        "fringe",
+        "star-studs",
+        "pointed-toe",
+        "western-wear"
+      ],
+      "description": "Shop black fringe cowboy boots with star studs, pointed toe and chunky heel. Mid-calf cowgirl boots perfect for festivals and country music events. Sizes 6-11.",
+      "checkedAt": "2026-10-24T22:33:56.181Z"
+    },
+    {
+      "id": "p-0a49fa4bf2",
+      "title": "Buckaroo Blue | Silk Wild Rag | 19mm Solid Western Scarf",
+      "url": "https://cowtownwildrags.com/products/solid-buckaroo-blue-wild-rag?variant=47759561425061",
+      "priceCents": 7800,
+      "currency": "USD",
+      "image": "/products/p-0a49fa4bf2.jpg",
+      "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/0595/2490/7173/files/Caribbean_Blue_Wild_Rag.png?v=1781368858",
+        "https://cowtownwildrags.com/cdn/shop/files/Caribbean_Blue_Wild_Rag_1024x1024.png?v=1781368858",
+        "http://cowtownwildrags.com/cdn/shop/files/Caribbean_Blue_Wild_Rag_600x.png?v=1781368858",
+        "https://cowtownwildrags.com/cdn/shop/files/Caribbean_Blue_Wild_Rag_600x.png?v=1781368858",
+        "http://cowtownwildrags.com/cdn/shop/files/CaribbeanBlueWildRagSilkScarf_600x.png?v=1781368835",
+        "https://cowtownwildrags.com/cdn/shop/files/CaribbeanBlueWildRagSilkScarf_600x.png?v=1781368835"
+      ],
+      "availability": "in_stock",
+      "sizes": [
+        "36\" Buckaroo Blue - Solid Silk Wild Rag"
+      ],
+      "merchantId": "cowtownwildrags-com",
+      "tagSlugs": [
+        "silk",
+        "wild-rag",
+        "western-wear",
+        "solid",
+        "blue"
+      ],
+      "description": "Premium 100% Silk Wild Rags for Men & Women This is not your average solid silk scarf ! Our solid Caribbean blue silk wild rag is pure luxury! A timeless blue with a touch of teal silk scarf that is more weighty than our traditional printed scarf. Heavier-weight silk at 19mm makes this premium silk scarf stand out with its supreme quality. With its slight sheen on the topside, it creates a superior look; the matted backside matches the topside color. This wild rag is built to wear...and born to shine! ✅ Vibrant solid, luxury silk wild rags ✅ Premium 100% silk wild rags for men and women ✅ Sub…",
+      "checkedAt": "2026-10-24T22:35:39.124Z"
+    },
+    {
+      "id": "p-dd6cb1a575",
+      "title": "Reveal Kojima Bandanna - Blue",
+      "url": "https://standardandstrange.com/products/reveal-kojima-bandanna-blue?variant=46119804108973",
+      "priceCents": 2500,
+      "currency": "USD",
+      "image": "/products/p-dd6cb1a575.jpg",
+      "sourceImages": [
+        "https://standardandstrange.com/cdn/shop/files/omotodenim-RevealKojimaBandanna-Blue-Flat-07.jpg?v=1785450722&width=1920",
+        "http://standardandstrange.com/cdn/shop/files/omotodenim-RevealKojimaBandanna-Blue-Flat-07.jpg?v=1785450722",
+        "https://standardandstrange.com/cdn/shop/files/omotodenim-RevealKojimaBandanna-Blue-Flat-07.jpg?v=1785450722",
+        "https://cdn.shopify.com/s/files/1/0352/5633/files/omotodenim-RevealKojimaBandanna-Blue-Flat-07.jpg?v=1785450722",
+        "https://cdn.shopify.com/s/files/1/0352/5633/files/omotodenim-RevealKojimaBandanna-Blue-Flat-09.jpg?v=1785450722",
+        "https://cdn.shopify.com/s/files/1/0352/5633/files/omotodenim-RevealKojimaBandannas-Flat-19_5ef9c94e-a2d6-4557-8419-a0d51db9d331.jpg?v=1785450738"
+      ],
+      "availability": "in_stock",
+      "sizes": [
+        "Default Title"
+      ],
+      "merchantId": "standardandstrange-com",
+      "tagSlugs": [
+        "bandana",
+        "cotton",
+        "japanese-denim",
+        "printed",
+        "blue",
+        "local"
+      ],
+      "description": "A new arrival to the Japanese denim \"scene\", Omoto was launched in 2025 by industry veteran Hiroki Kishimoto, who first began working at Collect Mills in Kojima during the early 90s. His experience producing and selling denim has informed every aspect of Omoto's lineup — from custom fits to custom fabrics, all designed to wear comfortably and age beautifully, highlighting the quality of the materials & workmanship throughout. The Reveal Kojima Bandanna is a high quality, 100% cotton, discharge-printed selvedge bandanna with a custom design and a soft, lightweight poplin weave. Depicting diffe…",
+      "checkedAt": "2026-10-24T22:35:39.124Z"
+    },
+    {
+      "id": "p-bbebd49e6b",
+      "title": "Stetson John Wayne Peacemaker - (4X) Wool Cowboy Hat — Stone",
+      "url": "https://wilderwest.com/products/stetson-john-wayne-peacemaker-4x-wool-cowboy-hat?variant=39379153649742",
+      "priceCents": 20300,
+      "currency": "USD",
+      "image": "/products/p-bbebd49e6b.jpg",
+      "sourceImages": [
+        "http://wilderwest.com/cdn/shop/products/W49440-RWPMKR-634020-PEACEMAKER_grande.jpg?v=1621736000",
+        "https://wilderwest.com/cdn/shop/products/W49440-RWPMKR-634020-PEACEMAKER_grande.jpg?v=1621736000",
+        "https://wilderwest.com/cdn/shop/products/W49440-RWPMKR-634020-PEACEMAKER_medium.jpg?v=1621736000",
+        "https://cdn.shopify.com/s/files/1/0254/0447/3422/products/W49440-RWPMKR-634020-PEACEMAKER.jpg?v=1621736000"
+      ],
+      "availability": "in_stock",
+      "sizes": [
+        "Stone / 7 1/4",
+        "Stone / 7 1/2",
+        "Stone / 7 5/8",
+        "Stone / 7 3/8"
+      ],
+      "merchantId": "wilderwest-com",
+      "tagSlugs": [
+        "stetson",
+        "wool",
+        "western-wear",
+        "classic",
+        "cowboy-hat",
+        "local"
+      ],
+      "description": "The Peacemaker 4X cowboy hat will help you relive the old west in a John Wayne classic. This hat will make you feel like you’re right next to the Duke himself. This simple yet rugged classic style features a gus crown and a 2-ply ribbon hat band.",
+      "checkedAt": "2026-10-24T22:34:50.850Z"
+    },
+    {
+      "id": "p-8df245a09b",
+      "title": "28x28 PAISLEY BANDANA — ROYAL BLUE",
+      "url": "https://wilderwest.com/products/white-paisley-bandana?variant=44866105245996",
+      "priceCents": 800,
+      "currency": "USD",
+      "image": "/products/p-8df245a09b.jpg",
+      "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/0254/0447/3422/files/71mjwKTwMmL._AC_UX569.jpg?v=1687447576",
+        "http://wilderwest.com/cdn/shop/files/img97943_austin-accent-paisley-print-bandana_600x_33aaac99-b126-470c-bdeb-16af25dbde9b_grande.webp?v=1687447457",
+        "https://wilderwest.com/cdn/shop/files/img97943_austin-accent-paisley-print-bandana_600x_33aaac99-b126-470c-bdeb-16af25dbde9b_grande.webp?v=1687447457",
+        "http://wilderwest.com/cdn/shop/files/img83366_austin-accent-paisley-print-bandana_600x_467488c1-2be6-4baf-ac94-24fa1ea57557_grande.webp?v=1687447466",
+        "https://wilderwest.com/cdn/shop/files/img83366_austin-accent-paisley-print-bandana_600x_467488c1-2be6-4baf-ac94-24fa1ea57557_grande.webp?v=1687447466",
+        "http://wilderwest.com/cdn/shop/files/austin-accent-paisley-print-bandana_600x_840404a9-0c0a-4735-bfef-86dc57f156d6_grande.webp?v=1687447493"
+      ],
+      "availability": "in_stock",
+      "sizes": [
+        "ROYAL BLUE"
+      ],
+      "merchantId": "wilderwest-com",
+      "tagSlugs": [
+        "bandana",
+        "paisley",
+        "western-wear",
+        "blue",
+        "local"
+      ],
+      "description": "",
+      "checkedAt": "2026-10-24T22:35:39.124Z"
+    },
+    {
+      "id": "p-bc8f5c1ddb",
+      "title": "Black Faux Suede Moto Jacket with Fringe",
+      "url": "https://pretty-attitude.com/products/black-jacket-with-fringe?variant=39540972257315",
+      "priceCents": 4990,
+      "currency": "USD",
+      "image": "/products/p-bc8f5c1ddb.jpg",
+      "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/0940/5210/products/black-fringe-jacket_6ba8a471-aa85-46c4-b849-b4914ad6f189.jpg?v=1737969048",
+        "https://cdn.shopify.com/s/files/1/0940/5210/products/black-suede-fringe-jacket.jpg?v=1737969048",
+        "https://cdn.shopify.com/s/files/1/0940/5210/products/BlackSuedeJacket_Front.jpg?v=1737969048",
+        "https://cdn.shopify.com/s/files/1/0940/5210/products/BlackSuedeJacket_Back.jpg?v=1737969048"
+      ],
+      "availability": "in_stock",
+      "sizes": [
+        "S / Black",
+        "M / Black",
+        "L / Black",
+        "XL / Black"
+      ],
+      "merchantId": "pretty-attitude-com",
+      "tagSlugs": [
+        "fringe",
+        "faux-suede",
+        "western-wear",
+        "black",
+        "moto"
+      ],
+      "description": "Classic biker style is updated with a western twist with swishy fringe that cascades down the front and back of this faux suede jacket.",
+      "checkedAt": "2026-10-24T22:39:09.593Z"
+    }
+  ],
+  "merchants": [
+    {
+      "id": "eastnwestlabel-com",
+      "name": "eastnwest label",
+      "domain": "eastnwestlabel.com",
+      "url": "https://eastnwestlabel.com",
+      "kind": "boutique",
+      "neighborhoodId": null
+    },
+    {
+      "id": "shopcindyjane-com",
+      "name": "Cindy Jane Boutique",
+      "domain": "shopcindyjane.com",
+      "url": "https://shopcindyjane.com",
+      "kind": "boutique",
+      "neighborhoodId": null
+    },
+    {
+      "id": "pretty-attitude-com",
+      "name": "Pretty Attitude",
+      "domain": "pretty-attitude.com",
+      "url": "https://pretty-attitude.com",
+      "kind": "dtc",
+      "neighborhoodId": null
+    },
+    {
+      "id": "shaynagibbonskeeley-com",
+      "name": "Shayna Gibbons Keeley Boutique",
+      "domain": "shaynagibbonskeeley.com",
+      "url": "https://shaynagibbonskeeley.com",
+      "kind": "boutique",
+      "neighborhoodId": null
+    },
+    {
+      "id": "thelocalgroup-shop",
+      "name": "The Local Group Apparel",
+      "domain": "thelocalgroup.shop",
+      "url": "https://thelocalgroup.shop",
+      "kind": "boutique",
+      "neighborhoodId": null
+    },
+    {
+      "id": "cowtownwildrags-com",
+      "name": "Cowtown Wild Rags",
+      "domain": "cowtownwildrags.com",
+      "url": "https://cowtownwildrags.com",
+      "kind": "dtc",
+      "neighborhoodId": null
+    },
+    {
+      "id": "standardandstrange-com",
+      "name": "Standard & Strange",
+      "domain": "standardandstrange.com",
+      "url": "https://standardandstrange.com",
+      "kind": "boutique",
+      "neighborhoodId": "berk-west-berkeley"
+    },
+    {
+      "id": "wilderwest-com",
+      "name": "Wilder West",
+      "domain": "wilderwest.com",
+      "url": "https://wilderwest.com",
+      "kind": "boutique",
+      "neighborhoodId": "sf-fisherman-s-wharf"
+    }
+  ],
+  "neighborhoods": [
+    {
+      "id": "sf-fisherman-s-wharf",
+      "name": "Fisherman's Wharf",
+      "city": "San Francisco",
+      "region": "Bay Area"
+    },
+    {
+      "id": "berk-west-berkeley",
+      "name": "West Berkeley",
+      "city": "Berkeley",
+      "region": "Bay Area"
+    }
+  ],
+  "tags": [
+    {
+      "slug": "silver",
+      "label": "Silver"
+    },
+    {
+      "slug": "metallic",
+      "label": "Metallic"
+    },
+    {
+      "slug": "cowboy-hat",
+      "label": "Cowboy Hat"
+    },
+    {
+      "slug": "western-wear",
+      "label": "Western Wear"
+    },
+    {
+      "slug": "white",
+      "label": "White"
+    },
+    {
+      "slug": "charms",
+      "label": "Charms"
+    },
+    {
+      "slug": "classic",
+      "label": "Classic"
+    },
+    {
+      "slug": "fringe",
+      "label": "Fringe"
+    },
+    {
+      "slug": "denim",
+      "label": "Denim"
+    },
+    {
+      "slug": "faux-leather",
+      "label": "Faux Leather"
+    },
+    {
+      "slug": "moto",
+      "label": "Moto"
+    },
+    {
+      "slug": "faux-suede",
+      "label": "Faux Suede"
+    },
+    {
+      "slug": "beige",
+      "label": "Beige"
+    },
+    {
+      "slug": "foil-denim",
+      "label": "Foil Denim"
+    },
+    {
+      "slug": "bell-bottom",
+      "label": "Bell Bottom"
+    },
+    {
+      "slug": "made-in-usa",
+      "label": "Made In Usa"
+    },
+    {
+      "slug": "flare",
+      "label": "Flare"
+    },
+    {
+      "slug": "straight-leg",
+      "label": "Straight Leg"
+    },
+    {
+      "slug": "boutique",
+      "label": "Boutique"
+    },
+    {
+      "slug": "satin",
+      "label": "Satin"
+    },
+    {
+      "slug": "wide-leg",
+      "label": "Wide Leg"
+    },
+    {
+      "slug": "disco",
+      "label": "Disco"
+    },
+    {
+      "slug": "cosmic",
+      "label": "Cosmic"
+    },
+    {
+      "slug": "stitched",
+      "label": "Stitched"
+    },
+    {
+      "slug": "cowgirl",
+      "label": "Cowgirl"
+    },
+    {
+      "slug": "embroidered",
+      "label": "Embroidered"
+    },
+    {
+      "slug": "block-heel",
+      "label": "Block Heel"
+    },
+    {
+      "slug": "boho",
+      "label": "Boho"
+    },
+    {
+      "slug": "black",
+      "label": "Black"
+    },
+    {
+      "slug": "star-studs",
+      "label": "Star Studs"
+    },
+    {
+      "slug": "pointed-toe",
+      "label": "Pointed Toe"
+    },
+    {
+      "slug": "silk",
+      "label": "Silk"
+    },
+    {
+      "slug": "wild-rag",
+      "label": "Wild Rag"
+    },
+    {
+      "slug": "solid",
+      "label": "Solid"
+    },
+    {
+      "slug": "blue",
+      "label": "Blue"
+    },
+    {
+      "slug": "paisley",
+      "label": "Paisley"
+    },
+    {
+      "slug": "bandana",
+      "label": "Bandana"
+    },
+    {
+      "slug": "cotton",
+      "label": "Cotton"
+    },
+    {
+      "slug": "japanese-denim",
+      "label": "Japanese Denim"
+    },
+    {
+      "slug": "made-to-order",
+      "label": "Made To Order"
+    },
+    {
+      "slug": "stetson",
+      "label": "Stetson"
+    },
+    {
+      "slug": "wool",
+      "label": "Wool"
+    },
+    {
+      "slug": "local",
+      "label": "Local"
+    },
+    {
+      "slug": "printed",
+      "label": "Printed"
+    },
+    {
+      "slug": "stars",
+      "label": "Stars"
+    }
+  ],
+  "provenance": {
+    "method": "pipeline",
+    "generatedAt": "2026-10-24T22:39:09.593Z",
+    "notes": "Bright Data SERP and Web Unlocker, with direct public merchant pages and Shopify variant feeds when Shopping links or Unlocker were unusable; Claude decomposition and ranking. Only verified in-stock USD variants are included."
+  }
 }
