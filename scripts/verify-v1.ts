@@ -1,5 +1,5 @@
 // Run against a running production build or the deployed site. No payment is made.
-// bun scripts/verify-v1.ts https://halloween.supply [--checkout]
+// bun scripts/verify-v1.ts https://halloween.supply [--checkout] [--all-options]
 import assert from "node:assert/strict";
 import { access } from "node:fs/promises";
 import path from "node:path";
@@ -88,50 +88,53 @@ async function main() {
   if (process.argv.includes("--checkout")) {
     const key = process.env.STRIPE_SECRET_KEY;
     assert(key, "STRIPE_SECRET_KEY required to inspect the real unpaid session");
-    const sized = items.map((item) => {
-      const product = snapshot.products.find((candidate) => candidate.id === item.productId)!;
-      const piece = snapshot.pieces.find((candidate) => candidate.id === item.pieceId)!;
-      return { ...item, size: piece.sizeKind === "one_size" ? null : product.sizes[0] ?? "M" };
-    });
-    const expectedPrices = new Map(sized.map((item) => [item.pieceId, snapshot.products.find((product) => product.id === item.productId)!.priceCents]));
-    let result = await jsonPost("/api/checkout", { costumeSlug: snapshot.costume.slug, items: sized });
-    if (result.body.status === "price_changed") {
-      for (const change of result.body.priceChanges) expectedPrices.set(change.pieceId, change.newCents);
-      result = await jsonPost("/api/checkout", {
-        costumeSlug: snapshot.costume.slug, items: sized,
-        acceptedPrices: result.body.priceChanges.map((change: { pieceId: string; productId: string; newCents: number }) => ({ pieceId: change.pieceId, productId: change.productId, priceCents: change.newCents })),
+    for (const rank of process.argv.includes("--all-options") ? [0, 1, 2] : [0]) {
+      const selected = snapshot.pieces.map((piece) => ({ pieceId: piece.id, productId: piece.matches.find((match) => match.rank === rank)!.productId }));
+      const sized = selected.map((item) => {
+        const product = snapshot.products.find((candidate) => candidate.id === item.productId)!;
+        const piece = snapshot.pieces.find((candidate) => candidate.id === item.pieceId)!;
+        return { ...item, size: piece.sizeKind === "one_size" ? null : product.sizes[0] ?? "M" };
       });
-    }
-    assert.equal(result.body.status, "ok", `Live checkout blocked: ${result.body.message ?? result.body.status}`);
-    const stripe = new Stripe(key);
-    const session = await stripe.checkout.sessions.retrieve(result.body.sessionId);
-    try {
-      const lineItems = await stripe.checkout.sessions.listLineItems(session.id, { expand: ["data.price.product"], limit: 100 });
-      assert.equal(lineItems.data.length, sized.length);
-      assert.equal(session.amount_total, lineItems.data.reduce((sum, line) => sum + line.amount_total, 0));
-      assert.deepEqual(session.shipping_address_collection?.allowed_countries, ["US"]);
-      assert.equal(session.mode, "payment");
-      assert.equal(session.payment_status, "unpaid");
-      assert.equal(session.metadata?.costume, snapshot.costume.slug);
-      for (const line of lineItems.data) {
-        const product = line.price?.product as Stripe.Product;
-        const item = sized.find((candidate) => candidate.pieceId === product.metadata.piece_id);
-        assert(item, "Missing piece metadata");
-        const original = snapshot.products.find((candidate) => candidate.id === item.productId)!;
-        const merchant = snapshot.merchants.find((candidate) => candidate.id === original.merchantId)!;
-        assert.equal(product.metadata.merchant, merchant.name);
-        assert.equal(product.metadata.product_url, original.url);
-        assert.equal(product.metadata.size, item.size ?? "one size");
-        assert.equal(line.quantity, 1);
-        assert.equal(line.currency, "usd");
-        assert.equal(line.amount_total, line.price?.unit_amount);
-        assert.equal(line.price?.unit_amount, expectedPrices.get(item.pieceId));
-        assert(!product.metadata.price_unverified || product.metadata.price_unverified === "false");
+      const expectedPrices = new Map(sized.map((item) => [item.pieceId, snapshot.products.find((product) => product.id === item.productId)!.priceCents]));
+      let result = await jsonPost("/api/checkout", { costumeSlug: snapshot.costume.slug, items: sized });
+      if (result.body.status === "price_changed") {
+        for (const change of result.body.priceChanges) expectedPrices.set(change.pieceId, change.newCents);
+        result = await jsonPost("/api/checkout", {
+          costumeSlug: snapshot.costume.slug, items: sized,
+          acceptedPrices: result.body.priceChanges.map((change: { pieceId: string; productId: string; newCents: number }) => ({ pieceId: change.pieceId, productId: change.productId, priceCents: change.newCents })),
+        });
       }
-      pass(`real Stripe session: ${sized.length} exact merchant-price lines, fulfillment metadata, US shipping, sum ${session.amount_total} cents`);
-    } finally {
-      await stripe.checkout.sessions.expire(session.id);
-      pass("verification session expired unpaid; no charge made");
+      assert.equal(result.body.status, "ok", `Live checkout blocked: ${result.body.message ?? result.body.status}`);
+      const stripe: Stripe = new Stripe(key);
+      const session = await stripe.checkout.sessions.retrieve(result.body.sessionId);
+      try {
+        const lineItems = await stripe.checkout.sessions.listLineItems(session.id, { expand: ["data.price.product"], limit: 100 });
+        assert.equal(lineItems.data.length, sized.length);
+        assert.equal(session.amount_total, lineItems.data.reduce((sum, line) => sum + line.amount_total, 0));
+        assert.deepEqual(session.shipping_address_collection?.allowed_countries, ["US"]);
+        assert.equal(session.mode, "payment");
+        assert.equal(session.payment_status, "unpaid");
+        assert.equal(session.metadata?.costume, snapshot.costume.slug);
+        for (const line of lineItems.data) {
+          const product = line.price?.product as Stripe.Product;
+          const item = sized.find((candidate) => candidate.pieceId === product.metadata.piece_id);
+          assert(item, "Missing piece metadata");
+          const original = snapshot.products.find((candidate) => candidate.id === item.productId)!;
+          const merchant = snapshot.merchants.find((candidate) => candidate.id === original.merchantId)!;
+          assert.equal(product.metadata.merchant, merchant.name);
+          assert.equal(product.metadata.product_url, original.url);
+          assert.equal(product.metadata.size, item.size ?? "one size");
+          assert.equal(line.quantity, 1);
+          assert.equal(line.currency, "usd");
+          assert.equal(line.amount_total, line.price?.unit_amount);
+          assert.equal(line.price?.unit_amount, expectedPrices.get(item.pieceId));
+          assert(!product.metadata.price_unverified || product.metadata.price_unverified === "false");
+        }
+        pass(`real Stripe session, option set ${rank}: ${sized.length} exact merchant-price lines, fulfillment metadata, US shipping, sum ${session.amount_total} cents`);
+      } finally {
+        await stripe.checkout.sessions.expire(session.id);
+        pass("verification session expired unpaid; no charge made");
+      }
     }
   }
   console.log(`${checks.length} checks passed against ${new URL(base).origin}`);
