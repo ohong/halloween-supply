@@ -1,0 +1,50 @@
+.carousel-frame {
+  position: relative;
+}
+
+.carousel .slide-costume img {
+  padding: 32px;
+}
+
+.carousel .carousel-controls {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 16px;
+  padding-top: 12px;
+}
+
+.carousel-caption {
+  font-size: 12px;
+  line-height: 1.5;
+  color: var(--mid);
+}
+
+.carousel .carousel-count {
+  flex-shrink: 0;
+  font-size: 12px;
+  color: var(--mid);
+  font-variant-numeric: tabular-nums;
+}
+
+.carousel-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  border: 1px solid rgb(17 17 17 / .12);
+  border-radius: 50%;
+  background: var(--bg);
+  color: var(--ink);
+}
+
+.carousel-arrow-prev { left: 12px; }
+.carousel-arrow-next { right: 12px; }
+.carousel-arrow:disabled { opacity: .3; }
+
+@media (hover: hover) and (pointer: fine) {
+  .carousel-arrow:hover:not(:disabled) { background: var(--grey); }
+}

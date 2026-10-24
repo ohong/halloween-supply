@@ -10,14 +10,18 @@ import { SaveLook } from "@/components/saved-looks";
 import { Carousel, type Slide } from "./carousel";
 import { suggestConsolidation } from "./consolidate";
 import { ProductImage } from "./product-image";
+import { ShopForMe } from "./shop-for-me";
 
-export function CostumeExperience({ costume }: { costume: CostumeView }) {
+export function CostumeExperience({ costume, editorial }: { costume: CostumeView; editorial?: { image: string; alt: string } }) {
   const cart = useCart();
   const costumeSlug = costume.costume.slug;
   const ownsCart = cart.costumeSlug === costumeSlug;
   const pieces = useMemo(() => [...costume.pieces].sort((a, b) => a.piece.order - b.piece.order), [costume.pieces]);
   // Chosen option index per piece; 0 is the default pick.
   const [chosen, setChosen] = useState<Record<string, number>>({});
+  const sourcingPieces = useMemo(() => pieces.map(({ piece, options }) => ({
+    id: piece.id, name: piece.name, queries: piece.queries, options,
+  })), [pieces]);
 
   function selectedIndex(view: PieceView) {
     const selected = chosen[view.piece.id];
@@ -44,6 +48,7 @@ export function CostumeExperience({ costume }: { costume: CostumeView }) {
       const option = picked.get(view.piece.id);
       return option ? [{ kind: "image" as const, key: `${view.piece.id}:${option.product.id}`, src: option.product.image, alt: option.product.title, caption: `${view.piece.name} · ${option.merchant.name}` }] : [];
     }),
+    ...(editorial ? [{ kind: "image" as const, key: "editorial-reference", src: editorial.image, alt: editorial.alt, caption: `${costume.costume.name} · editorial reference`, local: editorial.image.startsWith("/"), editorial: true }] : []),
   ];
 
   const pickedOptions = pieces.flatMap((view) => {
@@ -73,6 +78,13 @@ export function CostumeExperience({ costume }: { costume: CostumeView }) {
       <Link href="/" className="back-link">All costumes</Link>
       <h1 className="costume-title">{costume.costume.name}</h1>
       <p className="costume-description">{costume.costume.description}</p>
+
+      <ShopForMe pieces={sourcingPieces} onComplete={(choices) => {
+        for (const view of pieces) {
+          const index = choices[view.piece.id];
+          if (index !== undefined) choose(view, index);
+        }
+      }} />
 
       {pickedOptions.length > 0
         ? <div className="whole-costume">
