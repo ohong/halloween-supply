@@ -58,6 +58,12 @@ async function shopifyProduct(url: URL): Promise<{ product: RecordValue; currenc
   const cart = new URL(url);
   cart.pathname = `${url.pathname.split("/products/")[0]}/cart.js`;
   cart.search = "";
+  // Preserve an explicit USD presentment selection on both independent checks.
+  // Otherwise an overseas shop can return its native currency for the Ajax API.
+  if (url.searchParams.get("currency") === "USD") {
+    endpoint.searchParams.set("currency", "USD");
+    cart.searchParams.set("currency", "USD");
+  }
   try {
     const [value, currency] = await Promise.all([
       merchantFetch(endpoint.toString()).then((response) => response.json() as Promise<unknown>),
