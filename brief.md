@@ -85,7 +85,7 @@ At checkout we re-fetch each product page once to confirm price and stock before
 ## Stack
 
 - **App.** Next.js 16 (App Router) with React 19, TypeScript and bun, deployed on Vercel on the Node runtime. This Next.js version has breaking changes, so read `node_modules/next/dist/docs/` before writing code.
-- **AI.** AI SDK with the direct Anthropic provider (`@ai-sdk/anthropic`), authenticated with `ANTHROPIC_API_KEY`, using Claude Sonnet 5.5 for decomposition, ranking, extraction and the assistant. The model ID lives in one place so we can swap it.
+- **AI.** AI SDK with the direct Anthropic provider (`@ai-sdk/anthropic`), authenticated with `ANTHROPIC_API_KEY`, using Claude Sonnet 5.5 (`claude-sonnet-5-5`) for decomposition, ranking, extraction and the assistant. The model ID lives in one place so we can swap it.
 - **Chat UI.** Vercel AI Elements for the assistant panel, product-card responses and tool-call display.
 - **Components.** shadcn/ui on Tailwind 4.
 - **Graph.** FalkorDB Cloud through the `falkordb` npm client, with one connection cached per server instance.
@@ -133,7 +133,7 @@ Bright Data's free tier has 5,000 credits a month, and the hackathon adds $50. T
 - **Halloween timing.** An order placed in late October from several merchants may not arrive by Oct 31. Bay Area pieces could be picked up locally, which is another reason to show the support-local badge.
 - **Price drift and stock-outs.** The checkout re-check catches most of them. For the rest, the concierge absorbs small differences and refunds any piece that sells out.
 - **FalkorDB free tier.** It stops after a day idle, is deleted after 7 days, and has no TLS. Before the demo we run a warm-up (and re-seed if needed), or move to a paid tier.
-- **Bright Data Shopping output.** Unverified: does a Shopping-type SERP query (`udm=28` / `tbm=shop`) return a populated `shopping` array? Test it with one call as soon as the key is in. If it doesn't, fall back to parsing organic results.
+- **Bright Data Shopping output.** Verified on October 24, 2026: one `udm=28` call returned 40 Shopping results, all with parseable prices. Many links lead to Google Shopping rather than merchant pages, so the pipeline also uses organic results and researched merchant catalogs to find direct product URLs.
 - **Hackathon rules.** The event page doesn't say whether code written before the event is allowed. Check the full rules before we build ahead of the day. Also, every track's criteria mention "solves a real conference problem," which this product doesn't target, and we've chosen not to bend the product to fit.
 
 ## Later
