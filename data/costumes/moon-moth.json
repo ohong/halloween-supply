@@ -1,0 +1,931 @@
+{
+  "costume": {
+    "slug": "moon-moth",
+    "name": "Moon Moth",
+    "description": "A sage and cream wing cape over a dark jumpsuit, with a soft collar and antennae.",
+    "image": "/products/moon-moth-flatlay.jpg",
+    "alt": "Moon Moth: moth wing cape, dark fitted unitard, soft ivory faux fur collar, insect antenna headband, dark ankle boots, arranged on pale grey.",
+    "status": "live"
+  },
+  "pieces": [
+    {
+      "id": "moon-wing-cape",
+      "name": "Moth wing cape",
+      "category": "Outerwear",
+      "required": true,
+      "order": 1,
+      "styleNotes": "A sage green and cream semi-circle or batwing-shaped cape in flowing chiffon or soft cotton, with painted or appliqued eye spots and long tapered tails like a luna moth. Wide wingspan so it flares when arms are raised.",
+      "queries": [
+        "handmade luna moth wing cape sage green cream chiffon Etsy",
+        "moth wings cape adult sage green cream eye spots handmade",
+        "fairy butterfly wing cape green chiffon festival handmade"
+      ],
+      "sizeKind": "one_size",
+      "matches": [
+        {
+          "productId": "p-6969a5c537",
+          "rank": 0,
+          "reason": "Luna moth wing cape in a lightweight, silky synthetic chiffon with a wing silhouette modeled on a real moth. This is the shorter small version meant to be worn over dresses and corsets, so the tails may be shorter than the style notes call for."
+        },
+        {
+          "productId": "p-fda8cff285",
+          "rank": 1,
+          "reason": "Cecropia moth wing cape in soft, silky synthetic chiffon in the shorter small version. The cecropia species pattern differs from the sage and cream luna moth look, so the color match needs checking."
+        },
+        {
+          "productId": "p-0d0f5afedb",
+          "rank": 2,
+          "reason": "Emperor moth wing cape in light silky synthetic chiffon, the shorter small version. The emperor moth design departs from the sage and cream luna moth palette, and the listing says colors may vary."
+        }
+      ]
+    },
+    {
+      "id": "moon-unitard",
+      "name": "Dark fitted unitard",
+      "category": "Clothing",
+      "required": true,
+      "order": 2,
+      "styleNotes": "A simple, close-fitting long-sleeve unitard or jumpsuit in black or deep charcoal, matte stretch cotton or jersey. It acts as a quiet base so the pale wings stand out.",
+      "queries": [
+        "black long sleeve unitard cotton spandex dancewear small brand",
+        "vintage black stretch jumpsuit fitted long sleeve secondhand",
+        "charcoal fitted bodysuit jumpsuit matte jersey handmade"
+      ],
+      "sizeKind": "apparel",
+      "matches": [
+        {
+          "productId": "p-33ba42bb05",
+          "rank": 0,
+          "reason": "Black long-sleeve fitted unitard in heavyweight cotton spandex with a garment-dyed, enzyme-washed finish, a scoop neck and full range of sizes XS-XL."
+        },
+        {
+          "productId": "p-45928ddd7f",
+          "rank": 1,
+          "reason": "Charcoal long-sleeve fitted catsuit with full-length legs in velvet, though the shine departs from the matte jersey base and only XS and L are available."
+        },
+        {
+          "productId": "p-76e3d4dc61",
+          "rank": 2,
+          "reason": "Black full-length scoop-neck unitard in recycled tricot, but it has no sleeves listed, is final sale, and is only offered in size 5X."
+        }
+      ]
+    },
+    {
+      "id": "moon-fur-collar",
+      "name": "Soft ivory faux fur collar",
+      "category": "Accessories",
+      "required": true,
+      "order": 3,
+      "styleNotes": "A fluffy ivory or cream faux fur collar or shrug, meant to mimic the furry thorax of a moth. Soft, plush and slightly shaggy, with a hook-and-eye or tie closure.",
+      "queries": [
+        "handmade ivory faux fur collar neck wrap cream Etsy",
+        "vintage cream faux fur collar stole detachable",
+        "white fluffy faux fur shrug collar handmade costume"
+      ],
+      "sizeKind": "one_size",
+      "matches": [
+        {
+          "productId": "p-3850171d93",
+          "rank": 0,
+          "reason": "Handmade in Sweden from acrylic faux fur with a cotton lining and polyester ribbon, in a beige and ivory colorway that gives a soft cream ruff for the moth thorax."
+        },
+        {
+          "productId": "p-3afdfbc4a6",
+          "rank": 1,
+          "reason": "Ivory faux fur collar about 24 inches long and 6 inches wide that layers over sweaters or jackets, giving a plush, shaggy thorax-style ruff; the description does not state a closure type."
+        },
+        {
+          "productId": "p-e83266cff0",
+          "rank": 2,
+          "reason": "Soft faux fur neck wrap in warm ivory tones with satin ribbon ties, which matches the tie closure in the brief and can drape over the shoulders; listed under the color name Sand."
+        }
+      ]
+    },
+    {
+      "id": "moon-antennae",
+      "name": "Insect antenna headband",
+      "category": "Headwear",
+      "required": true,
+      "order": 4,
+      "styleNotes": "Feathery plumed moth antennae on a slim headband, in cream, ivory or pale sage. Feather or wire construction with a delicate, curved shape.",
+      "queries": [
+        "handmade feather moth antennae headband cream ivory Etsy",
+        "luna moth antenna headband sage green feather handmade",
+        "feathered insect antennae headband fairy costume small shop"
+      ],
+      "sizeKind": "one_size",
+      "matches": [
+        {
+          "productId": "p-3cdde2812f",
+          "rank": 0,
+          "reason": "Black marabou feather antennae with silver lurex add a soft insect shape; this ready-made headband is darker than the pale moth palette."
+        },
+        {
+          "productId": "p-0c2cadf99d",
+          "rank": 1,
+          "reason": "A mass-market Forum Novelties butterfly antenna headband sold as a basic bug costume finishing touch, with no feathered plume or pale color stated in the listing."
+        },
+        {
+          "productId": "p-54e817742a",
+          "rank": 2,
+          "reason": "A generic bopper-style antenna headband for ladybug, bee or ant looks, sized for ages 12 and up, with no feathered plume or cream and sage coloring described."
+        }
+      ]
+    },
+    {
+      "id": "moon-boots",
+      "name": "Dark ankle boots",
+      "category": "Footwear",
+      "required": true,
+      "order": 5,
+      "styleNotes": "Black or dark brown leather ankle boots with a low block heel or flat sole, slightly worn in. Vintage or witchy styling like lace-up or Chelsea boots keeps the base look grounded.",
+      "queries": [
+        "vintage black leather ankle boots lace up women's",
+        "secondhand black Chelsea ankle boots leather vintage",
+        "handmade black leather lace-up ankle boots small brand"
+      ],
+      "sizeKind": "shoe",
+      "matches": [
+        {
+          "productId": "p-fede61aff7",
+          "rank": 0,
+          "reason": "Black ankle boot with a genuine leather upper, western toe stitching and a pull-on shaft with vertical seam detailing, set on a chunky ribbed Mondo creeper sole with a bone motif and skull logo."
+        },
+        {
+          "productId": "p-b5d5883bd9",
+          "rank": 1,
+          "reason": "All-black lace-up brogue ankle boot with wingtip perforations, 8 eyelets and silver D-ring hardware, though the 2.5\" platform sole is chunkier than a low block heel and the upper is polishable synthetic TUKskin faux leather."
+        },
+        {
+          "productId": "p-df0dff8ba0",
+          "rank": 2,
+          "reason": "Knee-high pointed creeper boot with a sheer floral lace shaft, corset back lacing and side zip on a synthetic TUKskin toe, so it is a dramatic punk piece rather than a grounded dark ankle boot."
+        }
+      ]
+    }
+  ],
+  "products": [
+    {
+      "id": "p-6969a5c537",
+      "title": "Capa Alas de Polilla Luna · Pequeñas",
+      "url": "https://www.costureroreal.es/products/luna-moth-wings-cape-adult-costume-chiffon-dance-shawl?currency=USD&variant=54691929555285",
+      "priceCents": 6100,
+      "currency": "USD",
+      "image": "/products/p-6969a5c537.jpg",
+      "sourceImages": [
+        "https://www.costureroreal.es/cdn/shop/files/il_fullxfull.985642364_byqp.jpg?v=1787136353&width=1920",
+        "http://www.costureroreal.es/cdn/shop/files/il_fullxfull.985642364_byqp.jpg?v=1787136353",
+        "https://www.costureroreal.es/cdn/shop/files/il_fullxfull.985642364_byqp.jpg?v=1787136353",
+        "https://cdn.shopify.com/s/files/1/0883/3630/2421/files/il_fullxfull.985642364_byqp.jpg?v=1787136353",
+        "https://cdn.shopify.com/s/files/1/0883/3630/2421/files/il_fullxfull.1996150184_grqn.jpg?v=1787136353",
+        "https://cdn.shopify.com/s/files/1/0883/3630/2421/files/il_fullxfull.985642352_rcbm.jpg?v=1787136353"
+      ],
+      "availability": "in_stock",
+      "sizes": [
+        "Default Title"
+      ],
+      "merchantId": "costureroreal-es",
+      "tagSlugs": [
+        "chiffon",
+        "luna-moth",
+        "handmade",
+        "wing-cape",
+        "one-size"
+      ],
+      "description": "Talla: Única La versión pequeña de nuestras alas de mariposa. Inspirada en una mariposa real, esta capa reproduce sus alas en un tejido ligero y suave de efecto seda. Su tamaño más corto está pensado para llevarla cómodamente sobre vestidos, corsés o conjuntos de fantasía, manteniendo la silueta característica de nuestras alas. ✦ Talla única✦ Versión pequeña de nuestras alas✦ Inspirada en una mariposa real✦ Tejido efecto seda vegana, suave y ligero✦ Diseño original de Costurero Real Tejido: Silky, gasa sintética de alta calidad con tacto suave y efecto similar a la seda. Los colores pueden va…",
+      "checkedAt": "2026-10-24T23:11:18.502Z",
+      "cutout": "/products/p-6969a5c537-cutout.png"
+    },
+    {
+      "id": "p-fda8cff285",
+      "title": "Capa Alas de Polilla Cecropia · Pequeñas",
+      "url": "https://www.costureroreal.es/products/cecropia-moth-butterfly-cape-chiffon-cloak-dance-wings-costume-short-small-fairy?currency=USD&variant=54691914023253",
+      "priceCents": 4600,
+      "currency": "USD",
+      "image": "/products/p-fda8cff285.jpg",
+      "sourceImages": [
+        "https://www.costureroreal.es/cdn/shop/files/il_fullxfull.1119080995_5170.jpg?v=1787136215&width=1920",
+        "http://www.costureroreal.es/cdn/shop/files/il_fullxfull.1119080995_5170.jpg?v=1787136215",
+        "https://www.costureroreal.es/cdn/shop/files/il_fullxfull.1119080995_5170.jpg?v=1787136215",
+        "https://cdn.shopify.com/s/files/1/0883/3630/2421/files/il_fullxfull.1119080995_5170.jpg?v=1787136215",
+        "https://cdn.shopify.com/s/files/1/0883/3630/2421/files/il_fullxfull.1505465859_izrv.jpg?v=1787136215",
+        "https://cdn.shopify.com/s/files/1/0883/3630/2421/files/il_fullxfull.1072494476_tb8k.jpg?v=1787136215"
+      ],
+      "availability": "in_stock",
+      "sizes": [
+        "Default Title"
+      ],
+      "merchantId": "costureroreal-es",
+      "tagSlugs": [
+        "chiffon",
+        "cecropia-moth",
+        "wing-cape",
+        "one-size",
+        "synthetic"
+      ],
+      "description": "Talla: Única La versión pequeña de nuestras alas de mariposa. Inspirada en una mariposa real, esta capa reproduce sus alas en un tejido ligero y suave de efecto seda. Su tamaño más corto está pensado para llevarla cómodamente sobre vestidos, corsés o conjuntos de fantasía, manteniendo la silueta característica de nuestras alas. ✦ Talla única✦ Versión pequeña de nuestras alas✦ Inspirada en una mariposa real✦ Tejido efecto seda vegana, suave y ligero✦ Diseño original de Costurero Real Tejido: Silky, gasa sintética de alta calidad con tacto suave y efecto similar a la seda. Los colores pueden va…",
+      "checkedAt": "2026-10-24T23:11:18.502Z",
+      "cutout": "/products/p-fda8cff285-cutout.png"
+    },
+    {
+      "id": "p-0d0f5afedb",
+      "title": "Capa Alas de Polilla Emperador · Pequeñas",
+      "url": "https://costureroreal.es/products/moth-butterfly-cape-emperor-moth-cloak-dance-wings-costume-short-small-fairy?currency=USD&variant=54691826598229",
+      "priceCents": 4600,
+      "currency": "USD",
+      "image": "/products/p-0d0f5afedb.jpg",
+      "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/0883/3630/2421/files/il_fullxfull.1265651515_2te0.jpg?v=1787135266",
+        "https://www.costureroreal.es/cdn/shop/files/il_fullxfull.6244837244_axxf.jpg?v=1787135266&width=1920",
+        "http://www.costureroreal.es/cdn/shop/files/il_fullxfull.6244837244_axxf.jpg?v=1787135266",
+        "https://www.costureroreal.es/cdn/shop/files/il_fullxfull.6244837244_axxf.jpg?v=1787135266",
+        "https://cdn.shopify.com/s/files/1/0883/3630/2421/files/il_fullxfull.6244837244_axxf.jpg?v=1787135266",
+        "https://cdn.shopify.com/s/files/1/0883/3630/2421/files/il_fullxfull.2255154665_sd55.jpg?v=1787135268",
+        "https://cdn.shopify.com/s/files/1/0883/3630/2421/files/il_fullxfull.2255154169_o7l4.jpg?v=1787135267"
+      ],
+      "availability": "in_stock",
+      "sizes": [
+        "Default Title"
+      ],
+      "merchantId": "costureroreal-es",
+      "tagSlugs": [
+        "chiffon",
+        "emperor-moth",
+        "wing-cape",
+        "one-size",
+        "synthetic"
+      ],
+      "description": "Talla: Única La versión pequeña de nuestras alas de mariposa. Inspirada en una mariposa real, esta capa reproduce sus alas en un tejido ligero y suave de efecto seda. Su tamaño más corto está pensado para llevarla cómodamente sobre vestidos, corsés o conjuntos de fantasía, manteniendo la silueta característica de nuestras alas. ✦ Talla única✦ Versión pequeña de nuestras alas✦ Inspirada en una mariposa real✦ Tejido efecto seda vegana, suave y ligero✦ Diseño original de Costurero Real Tejido: Silky, gasa sintética de alta calidad con tacto suave y efecto similar a la seda. Los colores pueden va…",
+      "checkedAt": "2026-10-24T23:11:18.502Z",
+      "cutout": "/products/p-0d0f5afedb-cutout.png"
+    },
+    {
+      "id": "p-33ba42bb05",
+      "title": "83028GD - Garment Dye Long Sleeve Unitard — Black",
+      "url": "https://losangelesapparel.net/products/83028gd-garment-dye-long-sleeve-unitard?variant=37888203161779",
+      "priceCents": 7000,
+      "currency": "USD",
+      "image": "/products/p-33ba42bb05.jpg",
+      "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/2152/0639/products/black2_1.jpg?v=1721953708",
+        "https://cdn.shopify.com/s/files/1/2152/0639/products/black1_1_4984a0ae-5411-4aea-a78b-eb4b02ab8afa.jpg?v=1721953708",
+        "https://losangelesapparel.net/cdn/shop/products/black1_1_4984a0ae-5411-4aea-a78b-eb4b02ab8afa_1500x.jpg?v=1721953708",
+        "http://losangelesapparel.net/cdn/shop/products/port1_1.jpg?v=1657034664",
+        "https://losangelesapparel.net/cdn/shop/products/port1_1.jpg?v=1657034664",
+        "https://cdn.shopify.com/s/files/1/2152/0639/products/port1_1.jpg?v=1657034664",
+        "https://cdn.shopify.com/s/files/1/2152/0639/files/83028GD-web-crop.jpg?v=1721953694"
+      ],
+      "availability": "in_stock",
+      "sizes": [
+        "Black / XS",
+        "Black / S",
+        "Black / M",
+        "Black / L",
+        "Black / XL"
+      ],
+      "merchantId": "losangelesapparel-net",
+      "tagSlugs": [
+        "cotton",
+        "unitard",
+        "black",
+        "long-sleeve",
+        "garment-dyed"
+      ],
+      "description": "The Garment Dye Long Sleeve Unitard is made for movement. This essential one piece features long sleeves and a classic scoop neck with scoop back. Wear this fitted style alone for a flattering look that showcases your body or layer with jeans or sweats for extra warmth in the winter. This unitard is made of a heavyweight cotton spandex with extra compression and as been garment dyed and enzyme washed providing unique colorways and rich texture. This style can be worn effortlessly on its own or paired with a crewneck sweatshirt for colder days. Our experienced sewers earn up to $25 an hour and…",
+      "checkedAt": "2026-10-24T23:11:18.502Z",
+      "cutout": "/products/p-33ba42bb05-cutout.png"
+    },
+    {
+      "id": "p-45928ddd7f",
+      "title": "VVT228 - Velvet Long Sleeve Unitard — Charcoal",
+      "url": "https://losangelesapparel.net/products/vvt228-velvet-long-sleeve-unitard?variant=37888298287283",
+      "priceCents": 7200,
+      "currency": "USD",
+      "image": "/products/p-45928ddd7f.jpg",
+      "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/2152/0639/products/charcoal1.jpg?v=1757539542",
+        "https://losangelesapparel.net/cdn/shop/files/1Q6A0504_3000x.jpg?v=1757539542",
+        "http://losangelesapparel.net/cdn/shop/files/1Q6A0504.jpg?v=1757539542",
+        "https://losangelesapparel.net/cdn/shop/files/1Q6A0504.jpg?v=1757539542",
+        "https://cdn.shopify.com/s/files/1/2152/0639/files/1Q6A0504.jpg?v=1757539542",
+        "https://cdn.shopify.com/s/files/1/2152/0639/files/1Q6A0505.jpg?v=1757539542"
+      ],
+      "availability": "in_stock",
+      "sizes": [
+        "Charcoal / XS",
+        "Charcoal / L"
+      ],
+      "merchantId": "losangelesapparel-net",
+      "tagSlugs": [
+        "velvet",
+        "charcoal",
+        "catsuit",
+        "long-sleeve",
+        "fitted"
+      ],
+      "description": "Our Velvet Long Sleeve Unitard is a sexy one-piece that makes high impact with luxurious shine while keeping you warm in cooler temperatures. This fitted catsuit features long sleeves and full length legs. The scoop neckline and low back show just enough skin while the velvet highlights and contours your curves. Pair with a coat and heels for an easy, yet statement-making night out. Made in Los Angeles, Calif. Our experienced sewers earn up to $25 an hour and no less than $18.42; additionally workers have healthcare benefits for less than $15 per week, a 401k plan, paid sick days, subsidized…",
+      "checkedAt": "2026-10-24T23:11:18.502Z",
+      "cutout": "/products/p-45928ddd7f-cutout.png"
+    },
+    {
+      "id": "p-76e3d4dc61",
+      "title": "Unitard Black Activewear — Black",
+      "url": "https://nooworks.com/products/unitard-black?variant=43206993379459",
+      "priceCents": 4000,
+      "currency": "USD",
+      "image": "/products/p-76e3d4dc61.jpg",
+      "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/0163/5048/files/IMG_7363_1.jpg?v=1684989770",
+        "https://nooworks.com/cdn/shop/files/IMG_7573.jpg?v=1684989805&width=1920",
+        "http://nooworks.com/cdn/shop/files/IMG_7573.jpg?v=1684989805",
+        "https://nooworks.com/cdn/shop/files/IMG_7573.jpg?v=1684989805",
+        "https://cdn.shopify.com/s/files/1/0163/5048/files/IMG_7573.jpg?v=1684989805",
+        "https://cdn.shopify.com/s/files/1/0163/5048/files/IMG_7578.jpg?v=1684989805",
+        "https://cdn.shopify.com/s/files/1/0163/5048/files/IMG_7582.jpg?v=1684989805"
+      ],
+      "availability": "in_stock",
+      "sizes": [
+        "5X / Black"
+      ],
+      "merchantId": "nooworks-com",
+      "tagSlugs": [
+        "recycled",
+        "unitard",
+        "black",
+        "activewear",
+        "final-sale"
+      ],
+      "description": "FINAL SALE We're pretty sure the scoop neck unitard will be your newest super stretchy BFF! Made from our 100% recycled tricot, this pull on, all-in-one look makes getting dressed a breeze. The unitard has full length legs, a scoop neck and back, and all the stretch you need for a perfect form fitting jumpsuit that can take you from yoga to a night out on the town.🤸♀️",
+      "checkedAt": "2026-10-24T23:11:18.502Z",
+      "cutout": "/products/p-76e3d4dc61-cutout.png"
+    },
+    {
+      "id": "p-3850171d93",
+      "title": "Faux Fur Collar — Beige & Ivory",
+      "url": "https://dejmo.com/products/fur-collar?currency=USD&variant=32744541454463",
+      "priceCents": 2900,
+      "currency": "USD",
+      "image": "/products/p-3850171d93.jpg",
+      "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/0070/3833/7151/products/Ergi_FurCollar_Cream_Ivory.jpg?v=1599837590",
+        "https://dejmo.com/cdn/shop/products/Ergi_FurCollar_Cream_Ivory.jpg?v=1599837590&width=1920",
+        "https://dejmo.com/cdn/shop/products/Dejmo_FurCollar_LightBrown_Ivory.jpg?v=1602166202&width=1920",
+        "http://dejmo.com/cdn/shop/products/Dejmo_FurCollar_LightBrown_Ivory.jpg?v=1602166202",
+        "https://dejmo.com/cdn/shop/products/Dejmo_FurCollar_LightBrown_Ivory.jpg?v=1602166202",
+        "https://cdn.shopify.com/s/files/1/0070/3833/7151/products/Dejmo_FurCollar_LightBrown_Ivory.jpg?v=1602166202"
+      ],
+      "availability": "in_stock",
+      "sizes": [
+        "Beige & Ivory"
+      ],
+      "merchantId": "dejmo-com",
+      "tagSlugs": [
+        "handmade",
+        "faux-fur",
+        "beige",
+        "ivory",
+        "ribbon"
+      ],
+      "description": "Cozy collar made from high quality faux fur.Perfect to complement your fall outfit or winter coat! Hand made in Sweden. Ready to ship. The design of the cotton lining varies, depending on which smaller pieces we have left over from other production. Some of the fur collars are from our previous brand Ergi by Piratessan. The product is the same for both brands! Material: Acrylic faux fur, cotton lining, polyester ribbon",
+      "checkedAt": "2026-10-24T23:11:18.502Z",
+      "cutout": "/products/p-3850171d93-cutout.png"
+    },
+    {
+      "id": "p-3afdfbc4a6",
+      "title": "Penny Blanc Ivory Faux Fur Collar",
+      "url": "https://jennafergracecollection.com/products/penny-blanc-faux-fur-collar?currency=USD&variant=43246681686265",
+      "priceCents": 5800,
+      "currency": "USD",
+      "image": "/products/p-3afdfbc4a6.jpg",
+      "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/0658/3425/4585/files/DSC02205.jpg?v=1762654297",
+        "https://jennafergracecollection.com/cdn/shop/files/Faux-Fur-Collar-Penny-Blanc-Fleur-De-Peche-Flutter-Wrap-Dress-002.jpg?v=1762654297&width=1920",
+        "http://jennafergracecollection.com/cdn/shop/files/Faux-Fur-Collar-Penny-Blanc-Fleur-De-Peche-Flutter-Wrap-Dress-002.jpg?v=1762654297",
+        "https://jennafergracecollection.com/cdn/shop/files/Faux-Fur-Collar-Penny-Blanc-Fleur-De-Peche-Flutter-Wrap-Dress-002.jpg?v=1762654297",
+        "https://cdn.shopify.com/s/files/1/0658/3425/4585/files/Faux-Fur-Collar-Penny-Blanc-Fleur-De-Peche-Flutter-Wrap-Dress-002.jpg?v=1762654297",
+        "https://cdn.shopify.com/s/files/1/0658/3425/4585/files/Faux-Fur-Collar-Penny-Blanc-Fleur-De-Peche-Flutter-Wrap-Dress-008.jpg?v=1762654297",
+        "https://cdn.shopify.com/s/files/1/0658/3425/4585/files/Faux-Fur-Collar-Penny-Blanc-Fleur-De-Peche-Flutter-Wrap-Dress-004.jpg?v=1762654297"
+      ],
+      "availability": "in_stock",
+      "sizes": [
+        "Default Title"
+      ],
+      "merchantId": "jennafergracecollection-com",
+      "tagSlugs": [
+        "faux-fur",
+        "ivory",
+        "collar",
+        "boho",
+        "layering"
+      ],
+      "description": "This faux fur collar instantly turns any sweater into a boho luxe Penny Lane coat! Add to a moto jacket for extra sweet style, and another layer of warmth! Cozy and a perfect gift. Machine wash cold, gentle cycle, and lay flat to dry. Approximately 24\" long from center back to tip; 6\" wide.",
+      "checkedAt": "2026-10-24T23:11:18.502Z",
+      "cutout": "/products/p-3afdfbc4a6-cutout.png"
+    },
+    {
+      "id": "p-e83266cff0",
+      "title": "FAUX FUR COLLAR — Sand",
+      "url": "https://fashionwearcanada.com/products/faux-fur-collar?currency=USD&variant=43820051660835",
+      "priceCents": 3600,
+      "currency": "USD",
+      "image": "/products/p-e83266cff0.jpg",
+      "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/1225/8300/files/faux-fur-collar-accessories-cream-os-sand-452687.webp?v=1787263555",
+        "http://fashionwearcanada.com/cdn/shop/files/faux-fur-collar-accessories-cream-os-sand-452687_1200x1200.webp?v=1787263555",
+        "http://fashionwearcanada.com/cdn/shop/files/faux-fur-collar-accessories-cream-711152_1200x1200.webp?v=1787263520",
+        "http://fashionwearcanada.com/cdn/shop/files/faux-fur-collar-accessories-cream-288438_1200x1200.webp?v=1787263560",
+        "https://fashionwearcanada.com/cdn/shop/files/faux-fur-collar-accessories-cream-os-sand-452687_1200x1200.webp?v=1787263555",
+        "https://fashionwearcanada.com/cdn/shop/files/faux-fur-collar-accessories-cream-711152_1200x1200.webp?v=1787263520"
+      ],
+      "availability": "in_stock",
+      "sizes": [
+        "O/S / Sand"
+      ],
+      "merchantId": "fashionwearcanada-com",
+      "tagSlugs": [
+        "faux-fur",
+        "ivory",
+        "ribbon-tie",
+        "neck-wrap",
+        "collar"
+      ],
+      "description": "Wrap yourself in luxury with this soft faux fur collar, designed as a versatile neck wrap that adds instant elegance to any outfit. Featuring warm ivory tones and delicate satin ribbon ties, it secures comfortably around your neck or drapes beautifully over shoulders. Perfect for layering over coats, sweaters, or dress",
+      "checkedAt": "2026-10-24T23:11:18.502Z",
+      "cutout": "/products/p-e83266cff0-cutout.png"
+    },
+    {
+      "id": "p-0c2cadf99d",
+      "title": "Butterfly Antenna Headband",
+      "url": "https://purecostumes.com/products/fm78998-butterfly-antenna-headband?variant=47637894234326",
+      "priceCents": 795,
+      "currency": "USD",
+      "image": "/products/p-0c2cadf99d.jpg",
+      "sourceImages": [
+        "https://www.purecostumes.com/cdn/shop/files/FM78998_full_1.jpg?v=1766708466&width=1920",
+        "http://www.purecostumes.com/cdn/shop/files/FM78998_full_1.jpg?v=1766708466",
+        "https://www.purecostumes.com/cdn/shop/files/FM78998_full_1.jpg?v=1766708466",
+        "https://cdn.shopify.com/s/files/1/0792/4950/6518/files/FM78998_full_1.jpg?v=1766708466"
+      ],
+      "availability": "in_stock",
+      "sizes": [
+        "Standard"
+      ],
+      "merchantId": "purecostumes-com",
+      "tagSlugs": [
+        "mass-market",
+        "antenna",
+        "headband"
+      ],
+      "description": "You cant be a butterfly or a bee without proper antennae. If you're planning on dressing like a bug, you need antennae as a finishing touch, with this Butterfly Antenna Headband your bug costume will be complete.",
+      "checkedAt": "2026-10-24T23:11:18.502Z",
+      "cutout": "/products/p-0c2cadf99d-cutout.png"
+    },
+    {
+      "id": "p-54e817742a",
+      "title": "Antenna Headband",
+      "url": "https://costume-shop.com/products/antenna-headband-1?variant=45406946951401",
+      "priceCents": 1785,
+      "currency": "USD",
+      "image": "/products/p-54e817742a.jpg",
+      "sourceImages": [
+        "https://www.costume-shop.com/cdn/shop/products/antenna_20headband_mr158041_1024x1024.jpg?v=1692789874",
+        "https://www.costume-shop.com/cdn/shop/products/antenna_20headband_mr158041_1200x1200.jpg?v=1692789874",
+        "https://www.costume-shop.com/cdn/shop/products/antenna_20headband_mr158041_1200x1200_crop_center.jpg?v=1692789874",
+        "https://cdn.shopify.com/s/files/1/0084/9113/9138/products/antenna_20headband_mr158041.jpg?v=1692789874"
+      ],
+      "availability": "in_stock",
+      "sizes": [
+        "Default Title"
+      ],
+      "merchantId": "costume-shop-com",
+      "tagSlugs": [
+        "bopper",
+        "antenna",
+        "mass-market"
+      ],
+      "description": "Transform your look into a buzzing, crawling, or flying insect with our versatile Antenna Headband. Whether you are dressing up as a ladybug, fly, bee, ant, or caterpillar, this accessory adds the perfect finishing touch to your ensemble. Featuring playful bopper antennae, this headband brings an authentic and whimsical flair to any costume, ensuring you stand out at your next event. It is designed to fit comfortably on individuals aged 12 and up, making it an ideal choice for teens and adults alike. What’s Included (1) Antenna Headband with bopper antennae Materials and Construction Crafted…",
+      "checkedAt": "2026-10-24T23:11:18.502Z",
+      "cutout": "/products/p-54e817742a-cutout.png"
+    },
+    {
+      "id": "p-fede61aff7",
+      "title": "Black Leather Pull on Western Pointed Mondo Creeper Boot",
+      "url": "https://tukshoes.com/products/black-leather-pull-on-western-pointed-mondo-creeper-boot?variant=44092177547351",
+      "priceCents": 14000,
+      "currency": "USD",
+      "image": "/products/p-fede61aff7.jpg",
+      "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/1210/8810/files/black-leather-pull-on-western-pointed-mondo-creeper-boot-5922190.jpg?v=1785552548",
+        "https://www.tukshoes.com/cdn/shop/files/black-leather-pull-on-western-pointed-mondo-creeper-boot-2577076_large.jpg?v=1785552548",
+        "https://cdn.shopify.com/s/files/1/1210/8810/files/black-leather-pull-on-western-pointed-mondo-creeper-boot-2577076.jpg?v=1785552548",
+        "https://cdn.shopify.com/s/files/1/1210/8810/files/black-leather-pull-on-western-pointed-mondo-creeper-boot-2402627.jpg?v=1785552548",
+        "https://cdn.shopify.com/s/files/1/1210/8810/files/black-leather-pull-on-western-pointed-mondo-creeper-boot-9792923.jpg?v=1785552548"
+      ],
+      "availability": "in_stock",
+      "sizes": [
+        "3 / Black",
+        "4 / Black",
+        "5 / Black",
+        "6 / Black",
+        "7 / Black",
+        "8 / Black",
+        "9 / Black",
+        "10 / Black",
+        "11 / Black",
+        "12 / Black",
+        "13 / Black"
+      ],
+      "merchantId": "tukshoes-com",
+      "tagSlugs": [
+        "leather",
+        "western",
+        "pull-on",
+        "creeper",
+        "black"
+      ],
+      "description": "Black Leather Pull-On Western Pointed Mondo Creeper BootThe west was never this dark. This ankle boot fuses western heritage with punk rebellion — a smooth black leather upper, sharp pointed toe, and a pull-on shaft with vertical seam detailing that means business. Underneath, the chunky ribbed Mondo sole carries T.U.K.'s signature bone motif and skull logo, because every step should leave an impression. Genuine black leather upper — smooth finish with western-inspired toe stitching Pull-on design — no laces, no buckles, effortless on and off Sharp pointed western toe for a sleek, elongated s…",
+      "checkedAt": "2026-10-24T23:11:18.502Z",
+      "cutout": "/products/p-fede61aff7-cutout.png"
+    },
+    {
+      "id": "p-b5d5883bd9",
+      "title": "Black Brogue Airship Boot",
+      "url": "https://tukshoes.com/products/black-brogue-airship-boot?variant=44154484490327",
+      "priceCents": 14000,
+      "currency": "USD",
+      "image": "/products/p-b5d5883bd9.jpg",
+      "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/1210/8810/files/black-brogue-airship-boot-7976667.jpg?v=1786629671",
+        "https://www.tukshoes.com/cdn/shop/files/black-brogue-airship-boot-5731764_large.jpg?v=1786629671",
+        "https://cdn.shopify.com/s/files/1/1210/8810/files/black-brogue-airship-boot-5731764.jpg?v=1786629671",
+        "https://cdn.shopify.com/s/files/1/1210/8810/files/black-brogue-airship-boot-4946823.jpg?v=1786629671",
+        "https://cdn.shopify.com/s/files/1/1210/8810/files/black-brogue-airship-boot-5902266.jpg?v=1786629671"
+      ],
+      "availability": "in_stock",
+      "sizes": [
+        "6 / Black",
+        "8 / Black",
+        "9 / Black",
+        "10 / Black",
+        "11 / Black",
+        "12 / Black",
+        "13 / Black"
+      ],
+      "merchantId": "tukshoes-com",
+      "tagSlugs": [
+        "lace-up",
+        "brogue",
+        "platform",
+        "vegan-leather",
+        "black"
+      ],
+      "description": "Black Brogue Airship BootCombat-ready. Brogue-refined. The Black Brogue Airship Boot pairs the structure of a classic lace-up ankle boot with T.U.K.'s signature brogue wingtip detailing and the brand's most imposing platform sole. Eight eyelets of silver D-ring hardware, a T.U.K. woven pull tab at the collar, and 2.5\" of chunky ribbed Airship sole beneath your feet. This is the boot that means business. All-black TUKskin™ upper — polishable synthetic faux leather, soft and breathable Brogue wingtip perforations with tonal stitching throughout 8-eyelet lace-up fastening with silver D-ring hard…",
+      "checkedAt": "2026-10-24T23:11:18.502Z",
+      "cutout": "/products/p-b5d5883bd9-cutout.png"
+    },
+    {
+      "id": "p-df0dff8ba0",
+      "title": "Black TUKskin Lace Corset Pointed Creeper Boot",
+      "url": "https://tukshoes.com/products/black-tukskin-lace-corset-pointed-creeper-boot?variant=44234513547351",
+      "priceCents": 16000,
+      "currency": "USD",
+      "image": "/products/p-df0dff8ba0.jpg",
+      "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/1210/8810/files/black-tukskin-lace-corset-pointed-creeper-boot-2990214.jpg?v=1788618430",
+        "https://www.tukshoes.com/cdn/shop/files/black-tukskin-lace-corset-pointed-creeper-boot-7462226_large.jpg?v=1788618430",
+        "https://cdn.shopify.com/s/files/1/1210/8810/files/black-tukskin-lace-corset-pointed-creeper-boot-7462226.jpg?v=1788618430",
+        "https://cdn.shopify.com/s/files/1/1210/8810/files/black-tukskin-lace-corset-pointed-creeper-boot-4882948.jpg?v=1788618430",
+        "https://cdn.shopify.com/s/files/1/1210/8810/files/black-tukskin-lace-corset-pointed-creeper-boot-2336245.jpg?v=1788618430"
+      ],
+      "availability": "in_stock",
+      "sizes": [
+        "5",
+        "6",
+        "7",
+        "8",
+        "9",
+        "10",
+        "11"
+      ],
+      "merchantId": "tukshoes-com",
+      "tagSlugs": [
+        "lace",
+        "corset",
+        "creeper",
+        "vegan-leather",
+        "knee-high"
+      ],
+      "description": "Black TUKskin™ Lace Corset Pointed Creeper BootDelicate on the surface. Punk at the sole. This knee-high creeper boot wraps a dramatic floral lace shaft around a black TUKskin™ pointed toe, cinched at the back with corset-style D-ring lacing and finished with a side zip for easy entry. It’s the kind of boot that stops a room — and then walks right through it. Black TUKskin™ pointed toe cap and collar — polishable vegan synthetic, soft and durable Floral lace shaft panel — sheer black lace with rose and vine detailing Corset-style back lacing through silver D-ring hardware Side zip fastening f…",
+      "checkedAt": "2026-10-24T23:11:18.502Z",
+      "cutout": "/products/p-df0dff8ba0-cutout.png"
+    },
+    {
+      "id": "p-3cdde2812f",
+      "title": "Marabou Antenna Headband w/Lurex Black/Silver",
+      "url": "https://zuckerfeather.com/products/marabou-antenna-headband-w-lurex-black-silver-hbd-a-bl-ls-hbd-a-bl-ls?variant=44155422212347",
+      "priceCents": 199,
+      "currency": "USD",
+      "image": "/products/p-3cdde2812f.jpg",
+      "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/0630/5605/2475/files/marabou-antenna-headband-w-lurex-black-silver-feathers-613.jpg?v=1723028023",
+        "http://zuckerfeather.com/cdn/shop/files/marabou-antenna-headband-w-lurex-black-silver-feathers-613.jpg?v=1723028023",
+        "https://zuckerfeather.com/cdn/shop/files/marabou-antenna-headband-w-lurex-black-silver-feathers-613.jpg?v=1723028023",
+        "https://cdn.shopify.com/s/files/1/0630/5605/2475/files/marabou-antenna-headband-w-lurex-black-silver-feathers-898.jpg?v=1723028026",
+        "https://cdn.shopify.com/s/files/1/0630/5605/2475/files/marabou-antenna-headband-w-lurex-black-silver-feathers-819.jpg?v=1723028030",
+        "https://cdn.shopify.com/s/files/1/0630/5605/2475/files/marabou-antenna-headband-w-lurex-black-silver-feathers-277.jpg?v=1723028034"
+      ],
+      "availability": "in_stock",
+      "sizes": [
+        "Default Title"
+      ],
+      "merchantId": "zuckerfeather-com",
+      "tagSlugs": [
+        "feather",
+        "insect",
+        "black",
+        "silver"
+      ],
+      "description": "Mysterious black and silver marabou antenna headband with lurex for otherworldly Halloween costumes. Ideal for dark aliens, cosmic beings, or enigmatic character ensembles.",
+      "checkedAt": "2026-10-24T23:15:28.874Z",
+      "cutout": "/products/p-3cdde2812f-cutout.png"
+    }
+  ],
+  "merchants": [
+    {
+      "id": "costureroreal-es",
+      "name": "Costurero Real",
+      "domain": "costureroreal.es",
+      "url": "https://www.costureroreal.es",
+      "kind": "etsy",
+      "neighborhoodId": null
+    },
+    {
+      "id": "losangelesapparel-net",
+      "name": "Los Angeles Apparel",
+      "domain": "losangelesapparel.net",
+      "url": "https://losangelesapparel.net",
+      "kind": "dtc",
+      "neighborhoodId": null
+    },
+    {
+      "id": "nooworks-com",
+      "name": "NOOWORKS",
+      "domain": "nooworks.com",
+      "url": "https://nooworks.com",
+      "kind": "dtc",
+      "neighborhoodId": null
+    },
+    {
+      "id": "dejmo-com",
+      "name": "Dejmo (Ergi by Piratessan)",
+      "domain": "dejmo.com",
+      "url": "https://dejmo.com",
+      "kind": "dtc",
+      "neighborhoodId": null
+    },
+    {
+      "id": "jennafergracecollection-com",
+      "name": "Jennafer Grace",
+      "domain": "jennafergracecollection.com",
+      "url": "https://jennafergracecollection.com",
+      "kind": "boutique",
+      "neighborhoodId": null
+    },
+    {
+      "id": "fashionwearcanada-com",
+      "name": "FashionWear Canada",
+      "domain": "fashionwearcanada.com",
+      "url": "https://fashionwearcanada.com",
+      "kind": "boutique",
+      "neighborhoodId": null
+    },
+    {
+      "id": "purecostumes-com",
+      "name": "Pure Costumes",
+      "domain": "purecostumes.com",
+      "url": "https://purecostumes.com",
+      "kind": "dtc",
+      "neighborhoodId": null
+    },
+    {
+      "id": "costume-shop-com",
+      "name": "The Costume Shop (Morris Costumes)",
+      "domain": "costume-shop.com",
+      "url": "https://costume-shop.com",
+      "kind": "dtc",
+      "neighborhoodId": null
+    },
+    {
+      "id": "tukshoes-com",
+      "name": "T.U.K.",
+      "domain": "tukshoes.com",
+      "url": "https://tukshoes.com",
+      "kind": "dtc",
+      "neighborhoodId": null
+    },
+    {
+      "id": "zuckerfeather-com",
+      "name": "Zucker Feather Products",
+      "domain": "zuckerfeather.com",
+      "url": "https://zuckerfeather.com",
+      "kind": "dtc",
+      "neighborhoodId": null
+    }
+  ],
+  "neighborhoods": [],
+  "tags": [
+    {
+      "slug": "chiffon",
+      "label": "Chiffon"
+    },
+    {
+      "slug": "luna-moth",
+      "label": "Luna Moth"
+    },
+    {
+      "slug": "handmade",
+      "label": "Handmade"
+    },
+    {
+      "slug": "wing-cape",
+      "label": "Wing Cape"
+    },
+    {
+      "slug": "one-size",
+      "label": "One Size"
+    },
+    {
+      "slug": "cecropia-moth",
+      "label": "Cecropia Moth"
+    },
+    {
+      "slug": "synthetic",
+      "label": "Synthetic"
+    },
+    {
+      "slug": "emperor-moth",
+      "label": "Emperor Moth"
+    },
+    {
+      "slug": "cotton",
+      "label": "Cotton"
+    },
+    {
+      "slug": "unitard",
+      "label": "Unitard"
+    },
+    {
+      "slug": "black",
+      "label": "Black"
+    },
+    {
+      "slug": "long-sleeve",
+      "label": "Long Sleeve"
+    },
+    {
+      "slug": "garment-dyed",
+      "label": "Garment Dyed"
+    },
+    {
+      "slug": "velvet",
+      "label": "Velvet"
+    },
+    {
+      "slug": "charcoal",
+      "label": "Charcoal"
+    },
+    {
+      "slug": "catsuit",
+      "label": "Catsuit"
+    },
+    {
+      "slug": "fitted",
+      "label": "Fitted"
+    },
+    {
+      "slug": "recycled",
+      "label": "Recycled"
+    },
+    {
+      "slug": "activewear",
+      "label": "Activewear"
+    },
+    {
+      "slug": "final-sale",
+      "label": "Final Sale"
+    },
+    {
+      "slug": "faux-fur",
+      "label": "Faux Fur"
+    },
+    {
+      "slug": "beige",
+      "label": "Beige"
+    },
+    {
+      "slug": "ivory",
+      "label": "Ivory"
+    },
+    {
+      "slug": "ribbon",
+      "label": "Ribbon"
+    },
+    {
+      "slug": "collar",
+      "label": "Collar"
+    },
+    {
+      "slug": "boho",
+      "label": "Boho"
+    },
+    {
+      "slug": "layering",
+      "label": "Layering"
+    },
+    {
+      "slug": "ribbon-tie",
+      "label": "Ribbon Tie"
+    },
+    {
+      "slug": "neck-wrap",
+      "label": "Neck Wrap"
+    },
+    {
+      "slug": "leather",
+      "label": "Leather"
+    },
+    {
+      "slug": "mass-market",
+      "label": "Mass Market"
+    },
+    {
+      "slug": "antenna",
+      "label": "Antenna"
+    },
+    {
+      "slug": "headband",
+      "label": "Headband"
+    },
+    {
+      "slug": "bopper",
+      "label": "Bopper"
+    },
+    {
+      "slug": "western",
+      "label": "Western"
+    },
+    {
+      "slug": "pull-on",
+      "label": "Pull On"
+    },
+    {
+      "slug": "creeper",
+      "label": "Creeper"
+    },
+    {
+      "slug": "lace-up",
+      "label": "Lace Up"
+    },
+    {
+      "slug": "brogue",
+      "label": "Brogue"
+    },
+    {
+      "slug": "platform",
+      "label": "Platform"
+    },
+    {
+      "slug": "vegan-leather",
+      "label": "Vegan Leather"
+    },
+    {
+      "slug": "lace",
+      "label": "Lace"
+    },
+    {
+      "slug": "corset",
+      "label": "Corset"
+    },
+    {
+      "slug": "knee-high",
+      "label": "Knee High"
+    },
+    {
+      "slug": "feather",
+      "label": "Feather"
+    },
+    {
+      "slug": "insect",
+      "label": "Insect"
+    },
+    {
+      "slug": "silver",
+      "label": "Silver"
+    }
+  ],
+  "provenance": {
+    "method": "pipeline",
+    "generatedAt": "2026-10-24T23:15:28.874Z",
+    "notes": "Bright Data SERP and Web Unlocker, with direct public merchant pages and Shopify variant feeds when Shopping links or Unlocker were unusable; Claude decomposition and ranking. Only verified in-stock USD variants are included."
+  }
+}

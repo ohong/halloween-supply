@@ -1,0 +1,186 @@
+{
+  "generatedAt": "2026-10-24T23:20:04.663Z",
+  "purpose": "Reviewed product-only cutouts for fifteen verified Moon Moth products. Original merchant photos remain in catalog sourceImages.",
+  "assets": [
+    {
+      "name": "luna",
+      "output": "public/products/p-6969a5c537-cutout.png",
+      "merchant": "Costurero Real",
+      "productUrl": "https://www.costureroreal.es/products/luna-moth-wings-cape-adult-costume-chiffon-dance-shawl?currency=USD",
+      "sourceFiles": [
+        "data/cache/moon-photo-sources/luna-spread.jpg",
+        "data/cache/moon-photo-sources/luna-front.jpg"
+      ],
+      "generatedOriginal": "/Users/ohong/.codex/generated_images/01a17027-29ab-7d62-a9f1-44d779dba205/exec-743c2fe8-5baa-483c-8603-5eed92d5ff3b.png",
+      "prompt": "Use case: background-extraction. Asset type: authentic ecommerce product-only cutout of the exact photographed Costurero Real small Luna Moth cape. Image 1 is the edit target, photographed from the back with wings spread; image 2 is a supporting view of the same product. Extract only the existing thin chiffon wing cape from the photographs. Remove the person completely, including hair, head, skin, hands, body and other clothing, and remove waterfall, forest, rocks and all background. Present the same cape spread as an isolated fabric garment, centered and fully within frame, actual transparent background and alpha. Preserve its exact silhouette, short scalloped two-wing hem, mint/aqua-green color, burgundy/maroon border and vein pattern, yellow-ringed moth eyes, cloth texture, translucent chiffon material and printed details. Keep the visible product design unchanged. Use the supporting photo only to resolve the same existing garment, never invent decorative details, closures, extra eyes, long tails, antennae, rods, or rigid insect wings. Preserve existing garment folds and photographic texture. No model, mannequin, body part, extra costume piece, text, shadow backdrop or invented feature.",
+      "limits": "AI-assisted extraction from merchant photos. Original models obscure the upper center/neckline; those hidden fabric areas are inferred. Retained photographed short wing shape, printed markings, color and chiffon texture. This is a derived display image, not an unedited merchant product-only photo.",
+      "sourceImageUrls": [
+        "https://cdn.shopify.com/s/files/1/0883/3630/2421/files/il_fullxfull.1996150184_grqn.jpg?v=1787136353",
+        "https://cdn.shopify.com/s/files/1/0883/3630/2421/files/il_fullxfull.985642352_rcbm.jpg?v=1787136353"
+      ],
+      "productId": "p-6969a5c537"
+    },
+    {
+      "name": "cecropia",
+      "output": "public/products/p-fda8cff285-cutout.png",
+      "merchant": "Costurero Real",
+      "productUrl": "https://www.costureroreal.es/products/cecropia-moth-butterfly-cape-chiffon-cloak-dance-wings-costume-short-small-fairy?currency=USD",
+      "sourceFiles": [
+        "data/cache/moon-photo-sources/cecropia-spread.jpg",
+        "data/cache/moon-photo-sources/cecropia-front.jpg"
+      ],
+      "generatedOriginal": "/Users/ohong/.codex/generated_images/01a17027-29ab-7d62-a9f1-44d779dba205/exec-9690350b-8c4d-4fe8-8416-2041267cc4a3.png",
+      "prompt": "Use case: background-extraction. Asset type: authentic ecommerce product-only cutout of the exact photographed Costurero Real small Cecropia Moth cape. Image 1 is the edit target with cape wings spread, image 2 is a supporting view of the same product. Extract only the existing thin chiffon wing cape. Remove the person completely, including hair, head, skin, hands, body, black dress and sleeves, plus all forest and background. Present the same cape spread as an isolated fabric garment, centered and fully within frame, with actual transparent background and alpha. Preserve the exact short scalloped two-wing silhouette, nearly black/dark-green base, red and cream borders, pale mint-blue accents, printed moth markings, thin maroon piping, chiffon texture and translucent material. Keep the visible printed design and geometry unchanged; use supporting photo only to resolve the same existing fabric. Do not invent product details, collars, closures, additional eye spots, long tails, antennae, rods, or rigid insect wings. Preserve the original photographic folds and texture. No person, body part, mannequin, dress, extra costume item, text, shadow backdrop or added feature.",
+      "limits": "AI-assisted extraction from merchant photos. Original models obscure the upper center/neckline; those hidden fabric areas are inferred. Retained photographed short wing shape, printed markings, color and chiffon texture. This is a derived display image, not an unedited merchant product-only photo.",
+      "sourceImageUrls": [
+        "https://cdn.shopify.com/s/files/1/0883/3630/2421/files/il_fullxfull.1119080995_5170.jpg?v=1787136215",
+        "https://cdn.shopify.com/s/files/1/0883/3630/2421/files/il_fullxfull.1072494476_tb8k.jpg?v=1787136215"
+      ],
+      "productId": "p-fda8cff285"
+    },
+    {
+      "name": "emperor",
+      "output": "public/products/p-0d0f5afedb-cutout.png",
+      "merchant": "Costurero Real",
+      "productUrl": "https://www.costureroreal.es/products/moth-butterfly-cape-emperor-moth-cloak-dance-wings-costume-short-small-fairy?currency=USD",
+      "sourceFiles": [
+        "data/cache/moon-photo-sources/emperor-spread.jpg",
+        "data/cache/moon-photo-sources/emperor-front.jpg"
+      ],
+      "generatedOriginal": "/Users/ohong/.codex/generated_images/01a17027-29ab-7d62-a9f1-44d779dba205/exec-c4a4f211-7d75-4401-b1a1-6bd12d011ba3.png",
+      "prompt": "Use case: background-extraction. Asset type: authentic ecommerce product-only cutout of the exact photographed Costurero Real small Emperor Moth cape. Image 1 is the edit target with the cape spread on the model's back; image 2 is a supporting front/side view of this exact product. Extract only the existing thin chiffon wing cape. Remove the person entirely, including head, hair, skin, hands, body and other clothes, and remove outdoor forest/flowers/rocks/background. Present the same cape spread as an isolated fabric garment, centered and fully within frame, actual transparent background and alpha. Preserve its exact short scalloped silhouette, central split/drape as shown, gray-lilac and charcoal moth print, four ringed eye markings in their actual locations, dark featherlike printed bands, subtle maroon edge piping, translucent chiffon material, folds and photographed texture. Keep the visible product design unchanged. Supporting image only confirms the same garment; do not invent hidden details, closures, extra eyes, long tails, antennae, rods, or rigid butterfly wings. No model, mannequin, body part, extra costume piece, text, shadow backdrop or invented feature.",
+      "limits": "AI-assisted extraction from merchant photos. Original models obscure the upper center/neckline; those hidden fabric areas are inferred. Retained photographed short wing shape, printed markings, color and chiffon texture. This is a derived display image, not an unedited merchant product-only photo.",
+      "sourceImageUrls": [
+        "https://cdn.shopify.com/s/files/1/0883/3630/2421/files/il_fullxfull.1265651515_2te0.jpg?v=1787135266",
+        "https://cdn.shopify.com/s/files/1/0883/3630/2421/files/il_fullxfull.6244837244_axxf.jpg?v=1787135266"
+      ],
+      "productId": "p-0d0f5afedb"
+    },
+    {
+      "name": "collar-dejmo",
+      "output": "public/products/p-3850171d93-cutout.png",
+      "merchant": "Dejmo",
+      "productUrl": "https://dejmo.com/products/fur-collar?variant=32744541454463&currency=USD",
+      "sourceFiles": [
+        "data/cache/moon-photo-sources/dejmo-collar.jpg"
+      ],
+      "sourceImageUrls": [
+        "https://cdn.shopify.com/s/files/1/0070/3833/7151/products/Ergi_FurCollar_Cream_Ivory.jpg?v=1599837590"
+      ],
+      "prompt": "Use case: background-extraction. Asset type: authentic ecommerce product-only accessory cutout. The attached image is the edit target: the exact Dejmo Beige & Ivory faux fur collar with an ivory satin ribbon bow on a dress-form mannequin. Remove only the mannequin, wooden neck cap and gray background. Keep the exact photographed cream/ivory short soft fur collar, broad curved shoulder shape, existing ivory satin bow and two long diagonal ribbon tails. Preserve the cream fur color, soft short fur texture, ribbon widths, folds, proportions, lighting and all actual product details from this photograph. The empty inside neckline and background must have true transparency and alpha. Infer only tiny portions of the rear inside edge where the mannequin neck obscures them; do not redesign, lengthen, shorten, thicken or recolor the product. Center and fit the entire collar and full bow tails inside the frame. Keep the same original front view. No person, mannequin, neck, body, hanger, head, text, watermark, extra bow, fake fur trim, new decoration, artificial outline, cast shadow or backdrop. This is removal of supporting display only, not a new product design.",
+      "limits": "AI-assisted removal of mannequin and background. Tiny hidden inner rear-neck fur edge is inferred. Shape, ivory bow and cream fur colors remain matched to the source.",
+      "generatedOriginal": "/Users/ohong/.codex/generated_images/01a17027-29ab-7d62-a9f1-44d779dba205/exec-f838316e-b912-403f-937c-2ff58cab5427.png",
+      "productId": "p-3850171d93"
+    },
+    {
+      "name": "collar-jennafer",
+      "output": "public/products/p-3afdfbc4a6-cutout.png",
+      "merchant": "Jennafer Grace",
+      "productUrl": "https://jennafergracecollection.com/products/penny-blanc-faux-fur-collar?currency=USD",
+      "sourceFiles": [
+        "data/cache/moon-photo-sources/jennafer-collar.jpg"
+      ],
+      "sourceImageUrls": [
+        "https://cdn.shopify.com/s/files/1/0658/3425/4585/files/DSC02205.jpg?v=1762654297"
+      ],
+      "prompt": "Use case: background-extraction. Asset type: authentic ecommerce product-only accessory cutout. The attached image is the exact edit target: Jennafer Grace Penny Blanc Ivory Faux Fur Collar photographed flat on a white background. Remove ONLY the white photographic background. Preserve the ENTIRE large white/ivory long-fur collar: its broad curved top, two long tapered front sides, fluffy wispy outer edges and fine individual fur strands. The white fur is the PRODUCT, not background; keep all of that product visible and opaque enough to remain a clear real ivory-white furry collar on transparent canvas. Preserve its exact photographed silhouette, size/proportions, long white fibers, soft texture, offwhite color and lighting without recoloring or redesign. Keep the visible interior patterned lining at the neck, with its black, ivory, gray and pale pink ornamental print, and keep the existing small Jennafer Grace woven label exactly as photographed. Do not add or rewrite label text. The lining is part of the product and remains opaque. Background outside the fur must have actual true transparency and alpha. Maintain the exact original flat product photograph view, centered and fully inside the frame with transparent margin. No mannequin, person, body, new clasp, bow, sleeve, fur extension, fake hard outline, shadow backdrop, additional text or product redesign. This is a precise photographic background removal, not a new illustration or product.",
+      "limits": "AI-assisted background extraction from an original product-only flat photograph. Preserves the full white fur, printed lining and woven label; individual fur strands and very small label details can differ.",
+      "generatedOriginal": "/Users/ohong/.codex/generated_images/01a17027-29ab-7d62-a9f1-44d779dba205/exec-193854e5-3f93-43da-96d0-a78ad85a7d6b.png",
+      "productId": "p-3afdfbc4a6"
+    },
+    {
+      "name": "collar-fashionwear",
+      "output": "public/products/p-e83266cff0-cutout.png",
+      "merchant": "FashionWear Canada",
+      "productUrl": "https://fashionwearcanada.com/products/faux-fur-collar?currency=USD",
+      "sourceFiles": [
+        "data/cache/moon-fashionwear-source.jpg"
+      ],
+      "sourceImageUrls": [
+        "https://cdn.shopify.com/s/files/1/1225/8300/files/faux-fur-collar-accessories-cream-os-sand-452687.webp?v=1787263555"
+      ],
+      "generatedOriginal": "/Users/ohong/.codex/generated_images/01a17027-29ab-7d62-a9f1-44d779dba205/exec-f03b0f37-e86c-49b5-b0c5-86692a386ccb.png",
+      "prompt": "Use case: background-extraction. Asset type: authentic ecommerce product-only accessory cutout. The attached photograph is the exact edit target: FashionWear Sand faux fur collar and its matching sand-beige fabric ribbon tie. Remove ONLY the pure white photographic background, both OUTSIDE the product AND inside all negative spaces, especially the large neck hole between the two fur sides, the triangular openings above the tied ribbon and the gaps around the hanging ribbon tails. All these empty spaces must have actual true transparent alpha, not white fill. Preserve the exact sand-beige fur color, fluffy texture, full thick upside-down U-shaped fur silhouette with rounded lower ends, existing flat fabric bow, asymmetric folds, knot, ribbons and two long tails. Keep the precise photographed shape, proportions, fabric material, color, lighting and front view unchanged. Center and fit the entire real product including complete ribbon tails with transparent margin. Do not add or infer any new product detail; there is no obscured product here. No person, mannequin, hanger, new decoration, new ribbon, label, text, watermark, cast shadow, white backdrop, opaque neck opening, recolor or redesign. This is precise photographic background extraction of the existing product.",
+      "limits": "AI-assisted background extraction preserves the complete Sand beige fur collar, fabric ribbon and bow. Exterior and interior neck negative spaces are transparent. Individual fur strands and fine cloth folds can differ slightly from the source.",
+      "productId": "p-e83266cff0"
+    },
+    {
+      "asset": "public/products/p-33ba42bb05-cutout.png",
+      "sourcePath": "data/cache/moon-unitard-black-1.jpg",
+      "sourceUrl": "https://cdn.shopify.com/s/files/1/2152/0639/products/black2_1.jpg?v=1721953708",
+      "method": "built-in image_gen; background-extraction with identity invariants",
+      "prompt": "Use case: background-extraction. Edit target: the attached merchant product photograph. Produce one accurate ecommerce product-only cutout on a genuinely transparent background. Remove the human model entirely, including face, hair, skin, hands and feet, along with footwear, jewelry, props and the original backdrop. Retain the exact matte BLACK long-sleeve scoop-neck ankle-length cotton jersey unitard in the merchant photo. Keep its unadorned scoop neckline, fitted torso, long slim sleeves, plain ankle hems and black matte texture. Present the actual garment empty as a tidy front-facing flat lay, sleeves angled slightly outward, legs fully included and uncrossed. Preserve product identity, construction, proportions, seams, fabric, neckline and true color; do not add zippers, pockets, belts, logos, trim or other invented features. Show no mannequin or body parts. Keep all garment edges complete with comfortable transparent padding. No text, shadows, borders or background.",
+      "limits": "The merchant only supplies modeled photos. The wearer was removed and the photographed garment was presented as an empty front view. Small regions hidden by hands, hair or footwear are inferred; the original merchant images remain in sourceImages.",
+      "productId": "p-33ba42bb05"
+    },
+    {
+      "asset": "public/products/p-45928ddd7f-cutout.png",
+      "sourcePath": "data/cache/moon-unitard-2.png",
+      "sourceUrl": "https://cdn.shopify.com/s/files/1/2152/0639/products/charcoal1.jpg?v=1757539542",
+      "method": "built-in image_gen; background-extraction with identity invariants",
+      "prompt": "Use case: background-extraction. Edit target: the attached merchant product photograph. Produce one accurate ecommerce product-only cutout on a genuinely transparent background. Remove the human model entirely, including face, hair, skin, hands and feet, along with footwear, jewelry, props and the original backdrop. Retain the exact CHARCOAL GREY long-sleeve scoop-neck ankle-length velvet unitard in the merchant photo. Keep its deep round scoop neckline, fitted torso, long slim sleeves, plain ankle hems, cool charcoal grey hue and soft velvet pile sheen. Present the actual garment empty as a tidy front-facing flat lay, sleeves angled slightly outward, legs fully included and uncrossed. Preserve product identity, construction, proportions, seams, fabric, neckline and true color; do not add zippers, pockets, belts, logos, trim or other invented features. Show no mannequin or body parts. Keep all garment edges complete with comfortable transparent padding. No text, shadows, borders or background.",
+      "limits": "The merchant only supplies modeled photos. The wearer was removed and the photographed garment was presented as an empty front view. Small regions hidden by hands, hair or footwear are inferred; the original merchant images remain in sourceImages.",
+      "productId": "p-45928ddd7f"
+    },
+    {
+      "asset": "public/products/p-76e3d4dc61-cutout.png",
+      "sourcePath": "data/cache/moon-unitard-4.png",
+      "sourceUrl": "https://cdn.shopify.com/s/files/1/0163/5048/files/IMG_7363_1.jpg?v=1684989770",
+      "method": "built-in image_gen; background-extraction with identity invariants",
+      "prompt": "Use case: background-extraction. Edit target: the attached merchant product photograph. Produce one accurate ecommerce product-only cutout on a genuinely transparent background. Remove the human model entirely, including face, hair, skin, hands and feet, along with footwear, jewelry, props and the original backdrop. Retain the exact BLACK sleeveless scoop-neck ankle-length Nooworks unitard in the merchant photo. Keep its broad tank straps, round scoop neckline, fitted torso, black smooth tricot stretch fabric, slim full-length legs, and plain ankle hems. The product is ONLY the black tank unitard; shoes are not part of the product. Present the actual garment empty as a tidy front-facing flat lay, sleeves angled slightly outward, legs fully included and uncrossed. Preserve product identity, construction, proportions, seams, fabric, neckline and true color; do not add zippers, pockets, belts, logos, trim or other invented features. Show no mannequin or body parts. Keep all garment edges complete with comfortable transparent padding. No text, shadows, borders or background.",
+      "limits": "The merchant only supplies modeled photos. The wearer was removed and the photographed garment was presented as an empty front view. Small regions hidden by hands, hair or footwear are inferred; the original merchant images remain in sourceImages.",
+      "productId": "p-76e3d4dc61"
+    },
+    {
+      "productId": "p-0c2cadf99d",
+      "asset": "public/products/p-0c2cadf99d-cutout.png",
+      "sourcePath": "data/cache/moon-pure-source.jpg",
+      "sourceUrl": "https://cdn.shopify.com/s/files/1/0792/4950/6518/files/FM78998_full_1.jpg?v=1766708466",
+      "method": "built-in image_gen; background extraction preserving thin antennae",
+      "generatedOriginal": "/Users/ohong/.codex/generated_images/01a17007-8799-73a3-a4ee-623d51ac56ef/exec-e455cae3-813f-41ce-a681-0295e02316a7.png",
+      "prompt": "Edit this exact merchant product photograph into a transparent ecommerce cutout. Preserve the entire existing black butterfly antenna headband exactly: both long thin curved stems, both spiral tips, the wrapped black fabric U-shaped headband, its texture, proportions, and all connections. Remove only the white background and white center negative space. Keep every thin antenna complete and uncropped. No redesign, no extra stalks, no decorations, no model, no mannequin, no text. Exact photographed product, centered, actual transparent alpha.",
+      "limits": "AI-assisted white-background extraction preserves the complete photographed item. Fine wrapped texture and edge pixels can differ."
+    },
+    {
+      "productId": "p-3cdde2812f",
+      "asset": "public/products/p-3cdde2812f-cutout.png",
+      "sourcePath": "data/cache/moon-zucker-source.jpg",
+      "sourceUrl": "https://cdn.shopify.com/s/files/1/0630/5605/2475/files/marabou-antenna-headband-w-lurex-black-silver-feathers-898.jpg?v=1723028026",
+      "method": "built-in image_gen; background extraction preserving fine springs and feathers",
+      "generatedOriginal": "/Users/ohong/.codex/generated_images/01a17007-8799-73a3-a4ee-623d51ac56ef/exec-bd43998a-9111-4928-928b-99e6e2c3625d.png",
+      "prompt": "Edit this exact Zucker Feather product photograph into a transparent ecommerce product cutout. Preserve the existing entire black/silver marabou antenna headband: same two fluffy black feather poms with fine silver lurex, same thin silver spring stalks, same thin black satin U-shaped band, same proportions, positions and photographic texture. Remove only white background and empty interior. Keep all thin connecting springs and fine feather wisps intact. Do not recolor, redesign, add feathers, add stalks, add decoration, or add text. No model or mannequin. Center the complete exact item, actual transparent background and alpha.",
+      "limits": "AI-assisted white-background extraction preserves the complete photographed item. Individual feather wisps and lurex strands can differ."
+    },
+    {
+      "productId": "p-54e817742a",
+      "asset": "public/products/p-54e817742a-cutout.png",
+      "sourcePath": "data/cache/moon-photo-sources/costumeshop-antenna.jpg",
+      "sourceUrl": "https://cdn.shopify.com/s/files/1/0084/9113/9138/products/antenna_20headband_mr158041.jpg?v=1692789874",
+      "method": "built-in image_gen; identity-preserving model removal and hidden plain-band completion",
+      "generatedOriginal": "/Users/ohong/.codex/generated_images/01a17007-8799-73a3-a4ee-623d51ac56ef/exec-1a393ce5-cb75-4534-8523-52659add24fd.png",
+      "prompt": "Use case: background extraction and occlusion cleanup for this exact real product. Remove the woman, all hair, face, body, and white background from this Costume Shop antenna headband merchant photograph. Preserve the two existing thick black glittered foam antenna stalks with their exact visible spiral shapes, positions and connecting black bridge. Present only that exact complete headband on actual transparent alpha, centered with the entire silhouette visible. Complete only the plain thin black U-shaped supporting band hidden under the hair, using a simple unadorned continuation of the visible black bridge. Keep that inferred band minimal and the same black material, without inventing decoration or extra features. Preserve photographed foam and glitter texture, two spirals, lengths and proportions; no redesign, color change, extra antennae, feathers or text. No model, mannequin, face or hair remains.",
+      "limits": "The original visible black glittered foam stalks and spirals are retained. Hair hides the supporting band; its plain black U-shaped continuation is inferred. The original merchant image remains available for comparison."
+    },
+    {
+      "productId": "p-fede61aff7",
+      "asset": "public/products/p-fede61aff7-cutout.png",
+      "sourceUrl": "https://cdn.shopify.com/s/files/1/1210/8810/files/black-leather-pull-on-western-pointed-mondo-creeper-boot-2577076.jpg?v=1785552548",
+      "method": "Reviewed authentic merchant product-only photograph; u2net background removal, no generated product pixels.",
+      "limits": "The original photographed boot pixels remain. The white backdrop and empty lace openings are removed for display."
+    },
+    {
+      "productId": "p-b5d5883bd9",
+      "asset": "public/products/p-b5d5883bd9-cutout.png",
+      "sourceUrl": "https://cdn.shopify.com/s/files/1/1210/8810/files/black-brogue-airship-boot-5731764.jpg?v=1786629671",
+      "method": "Reviewed authentic merchant product-only photograph; u2net background removal, no generated product pixels.",
+      "limits": "The original photographed boot pixels remain. The white backdrop and empty lace openings are removed for display."
+    },
+    {
+      "productId": "p-df0dff8ba0",
+      "asset": "public/products/p-df0dff8ba0-cutout.png",
+      "sourceUrl": "https://cdn.shopify.com/s/files/1/1210/8810/files/black-tukskin-lace-corset-pointed-creeper-boot-7462226.jpg?v=1788618430",
+      "method": "Reviewed authentic merchant product-only photograph; u2net background removal, no generated product pixels.",
+      "limits": "The original photographed boot pixels remain. The white backdrop and empty lace openings are removed for display."
+    }
+  ]
+}
