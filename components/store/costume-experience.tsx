@@ -13,6 +13,8 @@ import { ProductImage } from "./product-image";
 
 export function CostumeExperience({ costume }: { costume: CostumeView }) {
   const cart = useCart();
+  const costumeSlug = costume.costume.slug;
+  const ownsCart = cart.costumeSlug === costumeSlug;
   const pieces = useMemo(() => [...costume.pieces].sort((a, b) => a.piece.order - b.piece.order), [costume.pieces]);
   // Chosen option index per piece; 0 is the default pick.
   const [chosen, setChosen] = useState<Record<string, number>>({});
@@ -20,7 +22,7 @@ export function CostumeExperience({ costume }: { costume: CostumeView }) {
   function selectedIndex(view: PieceView) {
     const selected = chosen[view.piece.id];
     if (selected !== undefined) return selected;
-    const cartProduct = cart.items.find((line) => line.pieceId === view.piece.id)?.productId;
+    const cartProduct = ownsCart ? cart.items.find((line) => line.pieceId === view.piece.id)?.productId : undefined;
     const savedIndex = view.options.findIndex(({ product }) => product.id === cartProduct);
     return savedIndex >= 0 ? savedIndex : 0;
   }
@@ -29,11 +31,18 @@ export function CostumeExperience({ costume }: { costume: CostumeView }) {
     pieces.map((view) => [view.piece.id, view.options[selectedIndex(view)] ?? view.options[0]]),
   );
 
+  const flatlayItems = pieces.flatMap((view) => {
+    const option = picked.get(view.piece.id);
+    return option?.product.cutout ? [{ key: view.piece.id, src: option.product.cutout, alt: `${view.piece.name}: ${option.product.title}` }] : [];
+  });
+
   const slides: Slide[] = [
-    { key: "flat-lay", src: costume.costume.image, alt: costume.costume.alt, caption: `${costume.costume.name} · the complete look`, local: costume.costume.image.startsWith("/") },
+    flatlayItems.length > 0 && flatlayItems.length === pieces.length
+      ? { kind: "flatlay", key: "flat-lay", items: flatlayItems, caption: `${costume.costume.name} · ${flatlayItems.length} selected pieces` }
+      : { kind: "image", key: "flat-lay", src: costume.costume.image, alt: costume.costume.alt, caption: `${costume.costume.name} · the complete look`, local: costume.costume.image.startsWith("/") },
     ...pieces.flatMap((view) => {
       const option = picked.get(view.piece.id);
-      return option ? [{ key: `${view.piece.id}:${option.product.id}`, src: option.product.image, alt: option.product.title, caption: `${view.piece.name} · ${option.merchant.name}` }] : [];
+      return option ? [{ kind: "image" as const, key: `${view.piece.id}:${option.product.id}`, src: option.product.image, alt: option.product.title, caption: `${view.piece.name} · ${option.merchant.name}` }] : [];
     }),
   ];
 
@@ -50,11 +59,11 @@ export function CostumeExperience({ costume }: { costume: CostumeView }) {
     if (!view.options[index] || view.options[index].product.availability === "out_of_stock") return;
     setChosen((current) => ({ ...current, [view.piece.id]: index }));
     // A piece already in the cart follows the swap.
-    if (cart.items.some((line) => line.pieceId === view.piece.id)) cart.add(toCartItem(view.piece, view.options[index]));
+    if (ownsCart && cart.items.some((line) => line.pieceId === view.piece.id)) cart.add(toCartItem(view.piece, view.options[index]), costumeSlug);
   }
 
   function addAll() {
-    cart.addMany(pickedOptions.map(({ view, option }) => toCartItem(view.piece, option)));
+    cart.addMany(pickedOptions.map(({ view, option }) => toCartItem(view.piece, option)), costumeSlug);
     cart.setOpen(true);
   }
 
@@ -69,6 +78,8 @@ export function CostumeExperience({ costume }: { costume: CostumeView }) {
         ? <div className="whole-costume">
             <button type="button" className="btn btn-block" disabled={!complete || !cart.ready} onClick={addAll}>Add whole costume · {formatPrice(total)}</button>
             <p className="meta">{pickedOptions.length} pieces from {shopCount} {shopCount === 1 ? "shop" : "shops"}. Merchant prices, one checkout.</p>
+            {cart.ready && cart.items.length > 0 && !ownsCart && <p className="meta">One costume per cart. Adding this look replaces the pieces in your current cart.</p>}
+            {ownsCart && cart.notice && !cart.isOpen && <div className="notice" role="status"><p>{cart.notice}</p><button type="button" className="text-btn" onClick={cart.dismissNotice}>Dismiss</button></div>}
             <button type="button" className="text-btn assistant-size-link" onClick={() => window.dispatchEvent(new Event("halloween:open-assistant"))}>Tell the assistant your sizes →</button>
           </div>
         : <p className="sourcing-note">This costume is being sourced. Check back soon.</p>}
@@ -78,7 +89,7 @@ export function CostumeExperience({ costume }: { costume: CostumeView }) {
       </p>}
 
       <ul className="piece-list">
-        {pieces.map((view) => <PieceRow key={view.piece.id} view={view} index={selectedIndex(view)} onChoose={(i) => choose(view, i)} />)}
+        {pieces.map((view) => <PieceRow key={view.piece.id} costumeSlug={costumeSlug} view={view} index={selectedIndex(view)} onChoose={(i) => choose(view, i)} />)}
       </ul>
 
       <div className="costume-actions"><SaveLook slug={costume.costume.slug} name={costume.costume.name} showLabel /></div>
@@ -97,7 +108,7 @@ function joinList(items: string[]) {
   return lower.length < 3 ? lower.join(" and ") : `${lower.slice(0, -1).join(", ")} and ${lower[lower.length - 1]}`;
 }
 
-function PieceRow({ view, index, onChoose }: { view: PieceView; index: number; onChoose: (index: number) => void }) {
+function PieceRow({ costumeSlug, view, index, onChoose }: { costumeSlug: string; view: PieceView; index: number; onChoose: (index: number) => void }) {
   const cart = useCart();
   const [swapOpen, setSwapOpen] = useState(false);
   const { piece, options } = view;
@@ -112,7 +123,7 @@ function PieceRow({ view, index, onChoose }: { view: PieceView; index: number; o
     return <li className="piece">{header}<p className="sourcing-note">No available pick. Ask the assistant for help.</p></li>;
   }
 
-  const inCart = cart.ready && cart.items.some((line) => line.pieceId === piece.id && line.productId === option.product.id);
+  const inCart = cart.ready && cart.costumeSlug === costumeSlug && cart.items.some((line) => line.pieceId === piece.id && line.productId === option.product.id);
   const hood = option.neighborhood;
 
   return <li className="piece">
@@ -143,7 +154,7 @@ function PieceRow({ view, index, onChoose }: { view: PieceView; index: number; o
 
     <div className="piece-actions">
       <button type="button" className="btn btn-small" disabled={!cart.ready || inCart || option.product.availability === "out_of_stock"}
-        onClick={() => cart.add(toCartItem(piece, option))}>
+        onClick={() => cart.add(toCartItem(piece, option), costumeSlug)}>
         {inCart ? "In cart" : "Add to cart"}
       </button>
       {options.length > 1 && <button type="button" className="btn btn-ghost btn-small" aria-expanded={swapOpen} onClick={() => setSwapOpen((open) => !open)}>

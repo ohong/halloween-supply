@@ -64,7 +64,8 @@ export function AssistantPanel({ costume, onChoose }: { costume: CostumeView; on
 
   const context: ChatContext = {
     costumeSlug: costume.costume.slug,
-    cart: cart.items.map((item) => ({ pieceId: item.pieceId, productId: item.productId, size: item.size })),
+    cart: cart.costumeSlug === costume.costume.slug
+      ? cart.items.map((item) => ({ pieceId: item.pieceId, productId: item.productId, size: item.size })) : [],
     sizes,
   };
   const contextRef = useRef(context);
@@ -75,7 +76,7 @@ export function AssistantPanel({ costume, onChoose }: { costume: CostumeView; on
     const option = piece?.options.find(({ product }) => product.id === productId);
     if (!piece || !option || option.product.availability === "out_of_stock") throw new Error("That product is not available for this piece.");
     const size = sizesRef.current[piece.piece.sizeKind] ?? null;
-    cartRef.current.add(toCartItem(piece.piece, option, size));
+    cartRef.current.add(toCartItem(piece.piece, option, size), costumeRef.current.costume.slug);
     const previous = contextRef.current.cart.find((line) => line.pieceId === pieceId);
     contextRef.current = {
       ...contextRef.current,

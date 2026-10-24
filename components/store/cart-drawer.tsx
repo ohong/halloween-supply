@@ -4,7 +4,7 @@ import { useEffect, useMemo, useRef, useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { formatPrice, useCart } from "@/lib/cart/context";
-import { liveCostumeSlug } from "@/lib/costumes";
+import { costumes } from "@/lib/costumes";
 import type { CheckoutRequest, CheckoutResponse, PriceChange } from "@/lib/checkout/types";
 import type { CartItem } from "@/lib/types";
 import { ProductImage } from "./product-image";
@@ -18,12 +18,12 @@ type Status =
 
 export function CartDrawer() {
   const cart = useCart();
-  const { items, isOpen, setOpen } = cart;
+  const { items, isOpen, setOpen, costumeSlug } = cart;
   const [status, setStatus] = useState<Status>({ kind: "idle" });
   const closeRef = useRef<HTMLButtonElement>(null);
   const drawerRef = useRef<HTMLElement>(null);
   const pathname = usePathname();
-  const cartKey = JSON.stringify(items.map(({ pieceId, productId, size, priceCents }) => [pieceId, productId, size, priceCents]));
+  const cartKey = JSON.stringify([costumeSlug, items.map(({ pieceId, productId, size, priceCents }) => [pieceId, productId, size, priceCents])]);
   const latestKey = useRef(cartKey);
   useEffect(() => { latestKey.current = cartKey; }, [cartKey]);
   const currentStatus = status.kind === "idle" || status.cartKey === cartKey ? status : { kind: "idle" } as const;
@@ -67,9 +67,10 @@ export function CartDrawer() {
   const missingSizes = items.filter((line) => line.sizeKind !== "one_size" && !line.size).length;
 
   async function checkout(acceptChanges = false) {
+    if (!costumeSlug) return;
     setStatus({ kind: "loading", cartKey });
     const body: CheckoutRequest = {
-      costumeSlug: liveCostumeSlug,
+      costumeSlug,
       items: items.map((line) => ({ pieceId: line.pieceId, productId: line.productId, size: line.size })),
       acceptedPrices: items.map((line) => ({
         pieceId: line.pieceId,
@@ -108,7 +109,8 @@ export function CartDrawer() {
 
   if (!isOpen) return null;
   const busy = currentStatus.kind === "loading" || currentStatus.kind === "redirecting";
-  const onCostume = pathname === `/costumes/${liveCostumeSlug}`;
+  const onCostume = costumeSlug !== null && pathname === `/costumes/${costumeSlug}`;
+  const costume = costumes.find((look) => look.slug === costumeSlug);
 
   function askForSizes() {
     setOpen(false);
@@ -119,9 +121,14 @@ export function CartDrawer() {
     <div className="drawer-scrim" onClick={() => setOpen(false)} />
     <aside className="drawer" ref={drawerRef} role="dialog" aria-modal="true" aria-label="Cart">
       <div className="drawer-head">
-        <h2>Cart</h2>
+        <div><h2>Cart</h2>{costume && <p className="meta">{costume.name} · One costume per cart</p>}</div>
         <button type="button" className="text-btn" ref={closeRef} onClick={() => setOpen(false)}>Close</button>
       </div>
+
+      {cart.notice && <div className="notice" role="status">
+        <p>{cart.notice}</p>
+        <button type="button" className="text-btn" onClick={cart.dismissNotice}>Dismiss</button>
+      </div>}
 
       {items.length === 0
         ? <p className="drawer-empty">Your cart is empty. Add a piece or the whole costume.</p>
@@ -158,7 +165,7 @@ export function CartDrawer() {
           {missingSizes > 0 && <p className="meta is-needed">{missingSizes} {missingSizes === 1 ? "piece needs" : "pieces need"} a size.</p>}
           {onCostume
             ? <button type="button" className="text-btn" onClick={askForSizes}>{missingSizes > 0 ? "Tell the assistant your sizes" : "Update sizes with the assistant"} →</button>
-            : <Link className="text-btn" href={`/costumes/${liveCostumeSlug}?assistant=sizes`} onClick={() => setOpen(false)}>{missingSizes > 0 ? "Tell the assistant your sizes" : "Update sizes with the assistant"} →</Link>}
+            : <Link className="text-btn" href={`/costumes/${costumeSlug}?assistant=sizes`} onClick={() => setOpen(false)}>{missingSizes > 0 ? "Tell the assistant your sizes" : "Update sizes with the assistant"} →</Link>}
         </div>}
         {currentStatus.kind === "message" && <p className="notice" role="alert">{currentStatus.text}</p>}
         {currentStatus.kind === "price_changed" && <div className="notice" role="alert">
