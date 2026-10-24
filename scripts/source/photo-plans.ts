@@ -1,4 +1,8 @@
 import type { NormalizeOptions } from "../../lib/sourcing/images";
+import { photoPlans as vampirePhotos } from "./costumes/velvet-vampire.photos";
+import { photoPlans as ghostPhotos } from "./costumes/linen-ghost.photos";
+import { photoPlans as mothPhotos } from "./costumes/moon-moth.photos";
+import { photoPlans as mushroomPhotos } from "./costumes/woodland-mushroom.photos";
 
 export interface PhotoPlan extends Pick<NormalizeOptions, "crop" | "polygon" | "removeUpperSkin" | "skipRembg"> {
   /** A reviewed photo from this exact merchant product's gallery. */
@@ -7,7 +11,7 @@ export interface PhotoPlan extends Pick<NormalizeOptions, "crop" | "polygon" | "
   reviewedCutout?: string;
 }
 
-export const photoPlans: Record<string, PhotoPlan> = {
+const cowboyPhotos: Record<string, PhotoPlan> = {
   "p-4b2c550c26": {
     "sourceUrl": "https://cdn.shopify.com/s/files/1/0579/7072/0791/products/ScreenShot2022-09-12at1.46.15PM.png?v=1663015669",
     "reviewedCutout": "public/products/p-4b2c550c26-cutout.png"
@@ -69,3 +73,5 @@ export const photoPlans: Record<string, PhotoPlan> = {
     "reviewedCutout": "public/products/p-bc8f5c1ddb-cutout.png"
   }
 };
+
+export const photoPlans: Record<string, PhotoPlan> = { ...cowboyPhotos, ...vampirePhotos, ...ghostPhotos, ...mothPhotos, ...mushroomPhotos };
