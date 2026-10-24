@@ -48,6 +48,7 @@ function toProduct(e: GraphEntity, merchantId: string): Product {
     priceCents: Number(p.priceCents),
     currency: "USD",
     image: p.image,
+    ...(p.cutout ? { cutout: p.cutout } : {}),
     sourceImages: p.sourceImages ?? [],
     availability: p.availability as Availability,
     sizes: p.sizes ?? [],

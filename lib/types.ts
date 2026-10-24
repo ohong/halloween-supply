@@ -77,6 +77,8 @@ export interface Product {
   currency: "USD";
   /** Primary display image: a path under /public/products/ when processed, else a remote URL. */
   image: string;
+  /** Reviewed transparent product silhouette used by the selectable flat-lay. */
+  cutout?: string;
   /** Remote source images as found on the merchant page. */
   sourceImages: string[];
   availability: Availability;

@@ -106,7 +106,7 @@ export async function upsertSnapshot(snapshot: CostumeSnapshot): Promise<UpsertC
     `UNWIND $rows AS row
      MERGE (p:Product {id: row.id})
      SET p.title = row.title, p.url = row.url, p.priceCents = row.priceCents, p.currency = row.currency,
-         p.image = row.image, p.sourceImages = row.sourceImages, p.availability = row.availability,
+         p.image = row.image, p.cutout = row.cutout, p.sourceImages = row.sourceImages, p.availability = row.availability,
          p.sizes = row.sizes, p.merchantId = row.merchantId, p.tagSlugs = row.tagSlugs,
          p.description = row.description, p.checkedAt = row.checkedAt`,
     { rows: products },

@@ -35,6 +35,7 @@ const schema = z.object({
     priceCents: z.number().int().positive().max(99_999_999),
     currency: z.literal("USD"),
     image,
+    cutout: z.string().regex(/^\/products\/[a-z0-9-]+-cutout\.png$/).optional(),
     sourceImages: z.array(url).min(1),
     availability: z.enum(["in_stock", "out_of_stock", "unknown"]),
     sizes: z.array(text),
