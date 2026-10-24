@@ -60,7 +60,8 @@ async function verifyAsset(publicPath: string, transparent = false) {
   if (fetchedAssets.has(publicPath)) return;
   const local = await readFile(path.join(process.cwd(), "public", publicPath));
   const meta = await sharp(local).metadata();
-  assert(Math.max(meta.width ?? 0, meta.height ?? 0) >= 500 && Math.min(meta.width ?? 0, meta.height ?? 0) >= 50, `Image is too small: ${publicPath}`);
+  // Trimmed merchant jewelry can be smaller than its normalized display tile.
+  assert(Math.max(meta.width ?? 0, meta.height ?? 0) >= (transparent ? 300 : 500) && Math.min(meta.width ?? 0, meta.height ?? 0) >= 50, `Image is too small: ${publicPath}`);
   if (transparent) {
     assert.equal(meta.format, "png", `Cutout must be PNG: ${publicPath}`);
     assert(meta.hasAlpha, `Cutout needs an alpha channel: ${publicPath}`);
