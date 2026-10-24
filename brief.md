@@ -85,7 +85,7 @@ At checkout we re-fetch each product page once to confirm price and stock before
 ## Stack
 
 - **App.** Next.js 16 (App Router) with React 19, TypeScript and bun, deployed on Vercel on the Node runtime. This Next.js version has breaking changes, so read `node_modules/next/dist/docs/` before writing code.
-- **AI.** AI SDK with Vercel AI Gateway (`"anthropic/…"` model strings), using Claude Sonnet 5.5 for decomposition, ranking, extraction and the assistant. The model ID lives in one place so we can swap it.
+- **AI.** AI SDK with the direct Anthropic provider (`@ai-sdk/anthropic`), authenticated with `ANTHROPIC_API_KEY`, using Claude Sonnet 5.5 for decomposition, ranking, extraction and the assistant. The model ID lives in one place so we can swap it.
 - **Chat UI.** Vercel AI Elements for the assistant panel, product-card responses and tool-call display.
 - **Components.** shadcn/ui on Tailwind 4.
 - **Graph.** FalkorDB Cloud through the `falkordb` npm client, with one connection cached per server instance.
@@ -118,7 +118,7 @@ The key names are in `.env.local`. Oscar fills them in.
 
 | Variable | Source |
 | --- | --- |
-| `AI_GATEWAY_API_KEY` | Vercel → AI Gateway → API Keys (OIDC on deploys) |
+| `ANTHROPIC_API_KEY` | Anthropic Console → Settings → API keys |
 | `BRIGHTDATA_API_KEY` | Bright Data → Account settings → API keys |
 | `BRIGHTDATA_SERP_ZONE` | Bright Data → a SERP API zone |
 | `BRIGHTDATA_UNLOCKER_ZONE` | Bright Data → a Web Unlocker zone |
