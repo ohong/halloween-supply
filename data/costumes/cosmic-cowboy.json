@@ -1,0 +1,22 @@
+{
+  "costume": {
+    "slug": "cosmic-cowboy",
+    "name": "Cosmic Cowboy",
+    "description": "Silver western wear with fringe, pointed boots, and a blue neckerchief.",
+    "image": "/costumes/cosmic-cowboy.png",
+    "alt": "Metallic silver cowboy hat, fringed western jacket, silver trousers and boots with a blue neckerchief",
+    "status": "live"
+  },
+  "pieces": [
+    { "id": "cowboy-hat", "name": "Silver cowboy hat", "category": "Headwear", "required": true, "order": 1, "styleNotes": "Metallic or pale silver western hat with a pinched crown.", "queries": ["silver metallic cowboy hat", "vintage silver western hat"], "sizeKind": "hat", "matches": [] },
+    { "id": "fringe-jacket", "name": "Fringed western jacket", "category": "Outerwear", "required": true, "order": 2, "styleNotes": "Metallic, sequined or suede western jacket with fringe.", "queries": ["metallic fringe western jacket", "vintage fringe jacket"], "sizeKind": "apparel", "matches": [] },
+    { "id": "silver-trousers", "name": "Silver trousers", "category": "Bottoms", "required": true, "order": 3, "styleNotes": "Metallic silver pants or flares.", "queries": ["metallic silver pants", "silver flare trousers"], "sizeKind": "pants", "matches": [] },
+    { "id": "western-boots", "name": "Pointed western boots", "category": "Footwear", "required": true, "order": 4, "styleNotes": "Pointed-toe cowboy boots, silver, white or metallic.", "queries": ["silver cowboy boots", "vintage pointed western boots"], "sizeKind": "shoe", "matches": [] },
+    { "id": "neckerchief", "name": "Blue neckerchief", "category": "Accessories", "required": false, "order": 5, "styleNotes": "Bright blue bandana or silk neck scarf.", "queries": ["blue silk neckerchief", "vintage blue bandana"], "sizeKind": "one_size", "matches": [] }
+  ],
+  "products": [],
+  "merchants": [],
+  "neighborhoods": [],
+  "tags": [],
+  "provenance": { "method": "manual-research", "generatedAt": "2026-10-24T22:00:00Z", "notes": "Skeleton: pieces only, products pending sourcing." }
+}
