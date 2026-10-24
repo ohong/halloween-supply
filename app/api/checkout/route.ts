@@ -11,7 +11,6 @@ const reply = (body: CheckoutResponse, status = 200) => Response.json(body, { st
 const fail = (message: string, status = 400) => reply({ status: "error", message }, status);
 const clip = (s: string, n = 500) => (s.length > n ? s.slice(0, n) : s);
 const identifier = (value: unknown): value is string => typeof value === "string" && value.length > 0 && value.length <= 150;
-const normalizeSize = (size: string) => size.trim().replace(/\s+/g, " ").toLowerCase();
 
 function parseBody(raw: unknown): CheckoutRequest | null {
   if (typeof raw !== "object" || raw === null) return null;
@@ -78,14 +77,8 @@ export async function POST(request: Request) {
       return reply({ status: "needs_sizes", pieceIds: missing, message: `Sizes are still needed for: ${names.join(", ")}.` });
     }
 
-    for (const line of lines) {
-      const offered = line.option.product.sizes;
-      if (line.pv.piece.sizeKind !== "one_size" && line.size && offered.length && !offered.some((size) => normalizeSize(size) === normalizeSize(line.size!))) {
-        return reply({ status: "invalid_size", pieceId: line.pv.piece.id, pieceName: line.pv.piece.name, availableSizes: offered, message: `${line.size} is not offered for ${line.option.product.title}. Tell the assistant one of these sizes: ${offered.join(", ")}.` });
-      }
-    }
-
-    // Live re-check, all products in parallel.
+    // Merchant sizes can change after sourcing. Only the live offer decides
+    // whether a size is valid, including full variant titles and size aliases.
     const checks = await Promise.all(lines.map((line) => verifyProduct(line.option.product, line.pv.piece.sizeKind === "one_size" ? null : line.size)));
 
     for (let i = 0; i < lines.length; i++) {
@@ -143,6 +136,7 @@ export async function POST(request: Request) {
           unit_amount: cents,
           product_data: {
             name: clip(`${l.pv.piece.name}: ${p.title}`, 250),
+            description: clip(`From ${l.option.merchant.name}${l.size ? ` · Size ${l.size}` : ""}`),
             ...(image ? { images: [image] } : {}),
             metadata: {
               merchant: clip(l.option.merchant.name),

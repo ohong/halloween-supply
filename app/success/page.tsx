@@ -1,8 +1,9 @@
 import Link from "next/link";
 import { Suspense } from "react";
 import { getStripe } from "@/lib/checkout/stripe";
+import { ClearCart } from "./clear-cart";
 
-export const metadata = { title: "Checkout status — Halloween Supply" };
+export const metadata = { title: "Checkout status — Halloween Supply", robots: { index: false, follow: false } };
 
 const money = (cents: number | null) => `$${((cents ?? 0) / 100).toFixed(2)}`;
 
@@ -56,6 +57,7 @@ async function OrderDetails({ searchParams }: SuccessProps) {
           </>
         ) : (
           <>
+            <ClearCart />
             <h1 style={{ fontSize: 28, fontWeight: 300, letterSpacing: "0.01em", margin: 0 }}>Order received</h1>
             <p style={{ color: "#666", marginTop: 12 }}>
               Thanks{session.customer_details?.name ? `, ${session.customer_details.name}` : ""}. Your payment is confirmed.

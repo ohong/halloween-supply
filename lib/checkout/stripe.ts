@@ -7,6 +7,6 @@ let client: Stripe | null = null;
 export function getStripe(): Stripe {
   const key = process.env.STRIPE_SECRET_KEY;
   if (!key) throw new Error("Missing STRIPE_SECRET_KEY. Set it in .env.local.");
-  client ??= new Stripe(key);
+  client ??= new Stripe(key, { timeout: 20_000, maxNetworkRetries: 1 });
   return client;
 }
