@@ -21,7 +21,7 @@ const rankSchema = z.object({
       reason: z.string().describe("One factual sentence on why it suits the piece (material, era, look). Do not mention ranks or scores."),
       merchantName: z.string().describe("The shop or brand name as customers know it."),
       merchantKind: z.enum(KINDS),
-      bayAreaCity: z.string().nullable().describe("Bay Area city the merchant is based in, ONLY if the page text, hints or well-known fact says so. Else null."),
+      bayAreaCity: z.string().nullable().describe("Bay Area city the merchant is based in, ONLY if the page text or verified hints say so. Else null."),
       neighborhood: z.string().nullable().describe("Neighborhood within the city (for example Mission District), only if known."),
       tags: z.array(z.string()).describe("Up to 5 lowercase tags, e.g. vintage, handmade, secondhand, western-wear, felt, leather, sequin."),
     }),
@@ -89,7 +89,7 @@ export async function rankPiece(costume: CostumeSource, piece: Piece, candidates
         `#${i} ${c.parsed.title}`,
         `  url: ${c.url}`,
         `  price: $${(c.parsed.priceCents / 100).toFixed(2)}${c.parsed.sizes.length ? ` | sizes: ${c.parsed.sizes.slice(0, 12).join(", ")}` : ""}`,
-        `  description: ${(c.parsed.description ?? "").slice(0, 280)}`,
+        `  description: ${(c.parsed.description ?? "").slice(0, 600)}`,
         `  site: ${c.hints.siteName ?? c.domain} | brand/shop: ${c.hints.brand ?? "?"}`,
         `  location hints: ${c.hints.locationSnippets.join(" || ") || "none"} | Bay Area mentions: ${c.hints.bayAreaMentions.join(", ") || "none"}`,
       ].join("\n"),
@@ -101,16 +101,17 @@ export async function rankPiece(costume: CostumeSource, piece: Piece, candidates
     schema: rankSchema,
     instructions:
       "You are the buyer for a curated Halloween costume store that sources from independent merchants. Score every candidate for the piece. " +
-      "Be strict: a candidate that is the wrong item, a kids' version, a costume-bag knockoff or the wrong colour gets fit under 4. " +
-      "Prefer real materials and distinctive listings. Identify the merchant and, only with evidence, its Bay Area location.",
+      "Be strict: a candidate that is the wrong item, a kids' version, or a costume-bag knockoff gets fit under 3. A compatible neutral color can fit a cowboy costume; explain color differences honestly. " +
+      "Prefer real materials and distinctive listings. Identify the merchant and, only with evidence, its Bay Area location. Never guess materials or write likely/probably claims; omit facts not stated in the description.",
     prompt: `Costume: ${costume.name} (${costume.description})\nPiece: ${piece.name} (${piece.category})\nStyle notes: ${piece.styleNotes}\n\nCandidates:\n${listing}\n\nScore every candidate.`,
   });
 
   const scored = out.candidates
-    .filter((r) => Number.isInteger(r.index) && r.index >= 0 && r.index < candidates.length && r.fit >= 4)
+    .filter((r) => Number.isInteger(r.index) && r.index >= 0 && r.index < candidates.length && r.fit >= 3)
     .map((r) => {
       const c = candidates[r.index];
-      const city = matchCity(r.bayAreaCity);
+      const proposedCity = matchCity(r.bayAreaCity);
+      const city = proposedCity && c.hints.bayAreaMentions.some((hint) => hint.toLowerCase() === proposedCity.toLowerCase()) ? proposedCity : null;
       const { merchant, neighborhood } = buildMerchant(c, {
         merchantName: r.merchantName,
         merchantKind: r.merchantKind,

@@ -86,7 +86,6 @@ export function prune(s: CostumeSnapshot): CostumeSnapshot {
 
 /** Replace the pieces in `partial` inside `existing` (used by --only). */
 export function mergeSnapshot(existing: CostumeSnapshot, partial: CostumeSnapshot): CostumeSnapshot {
-  const replaced = new Set(partial.pieces.map((p) => p.id));
   const byId = <T extends { id: string }>(a: T[], b: T[]) => [...new Map([...a, ...b].map((x) => [x.id, x])).values()];
   const merged: CostumeSnapshot = {
     ...existing,
@@ -95,7 +94,7 @@ export function mergeSnapshot(existing: CostumeSnapshot, partial: CostumeSnapsho
     merchants: byId(existing.merchants, partial.merchants),
     neighborhoods: byId(existing.neighborhoods, partial.neighborhoods),
     tags: [...new Map([...existing.tags, ...partial.tags].map((t) => [t.slug, t])).values()],
-    provenance: { ...existing.provenance, generatedAt: partial.provenance.generatedAt, notes: `${existing.provenance.notes ?? ""} | refreshed ${[...replaced].join(", ")}`.trim() },
+    provenance: { ...partial.provenance, notes: "Bright Data SERP and Web Unlocker, with direct public merchant pages and Shopify variant feeds when Shopping links or Unlocker were unusable; Claude decomposition and ranking. Only verified in-stock USD variants are included." },
   };
   return prune(merged);
 }
@@ -127,5 +126,9 @@ export async function upsertToGraph(s: CostumeSnapshot, log: (m: string) => void
     log(`Upserted to FalkorDB: ${JSON.stringify(counts)}`);
   } catch (e) {
     log(`FalkorDB upsert failed (snapshot file was still written): ${(e as Error).message}`);
+    process.exitCode = 1;
+  } finally {
+    const { resetGraph } = await import("../../lib/graph/client");
+    await resetGraph();
   }
 }

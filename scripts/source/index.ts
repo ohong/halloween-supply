@@ -1,5 +1,6 @@
 // Precomputed sourcing pipeline: bun run source <costume-slug> [--dry-run] [--skip-images] [--only=<pieceId>]
 //   [--allow-partial] [--force-images]
+import { resetGraph } from "../../lib/graph/client";
 import { costumes } from "../../lib/costumes";
 import { buildFlatlay, applyExistingTiles, processProductImages } from "./images";
 import type { Costume, CostumeSnapshot, Piece } from "../../lib/types";
@@ -62,6 +63,11 @@ async function main() {
     alt: source.alt,
     status: source.slug === "cosmic-cowboy" ? "live" : "coming_soon",
   };
+  const previous = await loadExisting(costume.slug);
+  if (previous?.costume.image.startsWith("/products/")) {
+    costume.image = previous.costume.image;
+    costume.alt = previous.costume.alt;
+  }
   log(`Sourcing ${costume.name}${args.dryRun ? " (dry run: nothing is written except the response cache)" : ""}`);
 
   // 1. decompose
@@ -80,9 +86,13 @@ async function main() {
   const perPiece: PiecePicks[] = [];
   for (const piece of pieces) {
     log(`\n[${piece.id}] 2/6 search`);
-    const candidates = await searchPiece(piece, { log });
+    const candidates = await searchPiece(piece, { log, maxCandidates: 6 });
     log(`[${piece.id}] 3-4/6 fetch + parse ${candidates.length} candidates`);
-    const priced = await gatherCandidates(candidates, { log });
+    const merchantPages = candidates.filter((candidate) => candidate.source === "merchant catalog discovery");
+    const priced = await gatherCandidates(merchantPages.length ? merchantPages : candidates, { log });
+    if (merchantPages.length && priced.length < 3) {
+      priced.push(...await gatherCandidates(candidates.filter((candidate) => candidate.source !== "merchant catalog discovery"), { log }));
+    }
     log(`[${piece.id}] ${priced.length} usable products; 5/6 rank`);
     const picks = await rankPiece(source, piece, priced);
     if (picks.length < 3) log(`  WARNING: ${piece.id} has only ${picks.length} acceptable matches (need 3)`);
@@ -90,9 +100,16 @@ async function main() {
       log(`  #${pk.rank} $${(pk.candidate.parsed.priceCents / 100).toFixed(2)} ${pk.merchant.name}${pk.isLocal ? " [local]" : ""} - ${pk.candidate.parsed.title.slice(0, 70)}\n      ${pk.reason}`);
     }
     perPiece.push({ piece, picks });
+    if (!args.dryRun && picks.length === 3) {
+      // Preserve completed pieces if a later network or model request fails.
+      const partial = assembleSnapshot(costume, [{ piece, picks }], "Sourced from live merchant pages with Bright Data discovery and public merchant data.");
+      const existing = await loadExisting(costume.slug);
+      await writeSnapshotFile(existing ? mergeSnapshot(existing, partial) : partial);
+      log(`  saved ${piece.id} incrementally`);
+    }
   }
 
-  let snapshot: CostumeSnapshot = assembleSnapshot(costume, perPiece, `Sourced with Bright Data SERP + Web Unlocker; scored by Claude. Bay Area boost +1.5/10.`);
+  let snapshot: CostumeSnapshot = assembleSnapshot(costume, perPiece, `Bright Data SERP and Web Unlocker, with direct public merchant pages and Shopify variant feeds when Shopping links or Unlocker were unusable; Claude decomposition and ranking. Only verified in-stock USD variants are included. Bay Area boost +1.5/10.`);
   const short = perPiece.filter((p) => p.picks.length < 3);
 
   if (args.only) {
@@ -123,21 +140,24 @@ async function main() {
     const withCutout = await processProductImages(touched, { force: args.forceImages, log });
     applyExistingTiles(snapshot.products);
     const defaults = snapshot.pieces.map((p) => p.matches.find((m) => m.rank === 0)?.productId).filter((x): x is string => !!x);
-    await buildFlatlay(costume.slug, defaults, withCutout, log);
+    if (await buildFlatlay(costume.slug, defaults, withCutout, log)) {
+      snapshot.costume.image = `/products/${costume.slug}-flatlay.jpg`;
+      snapshot.costume.alt = "The sourced cowboy pieces arranged on a pale grey background.";
+    }
   }
 
   // 7. write
-  const file = await writeSnapshotFile(snapshot);
-  log(`\nWrote ${file}`);
   if (short.length && !args.allowPartial) {
-    log(`Skipped graph upsert: pieces with fewer than 3 matches (${short.map((p) => p.piece.id).join(", ")}). Re-run, or pass --allow-partial.`);
+    log(`Incomplete pieces (${short.map((p) => p.piece.id).join(", ")}); kept the prior complete catalog and saved successful pieces. Re-run, or pass --allow-partial for a partial snapshot.`);
     process.exitCode = 1;
     return;
   }
+  const file = await writeSnapshotFile(snapshot);
+  log(`\nWrote ${file}`);
   await upsertToGraph(snapshot, log);
 }
 
 main().catch((e) => {
   console.error(e instanceof Error ? e.message : e);
-  process.exit(1);
-});
+  process.exitCode = 1;
+}).finally(() => resetGraph());

@@ -1,11 +1,13 @@
 // Step 3 + 4: fetch each candidate through Web Unlocker and parse it (JSON-LD / OG, then Claude).
 import { fetchProductPage } from "../../lib/brightdata/client";
 import { extractMerchantHints, type MerchantHints } from "../../lib/products/hints";
-import { extractProductWithClaude, parseProduct, type ParsedProduct } from "../../lib/products/parse";
+import { extractProductWithClaude, htmlToText, parseProduct, type ParsedProduct } from "../../lib/products/parse";
+import { readShopifyProduct, selectShopifyVariants } from "../../lib/products/shopify";
 import { cached, hashKey } from "../../lib/sourcing/cache";
 import { isBlockedDomain, registrableDomain } from "../../lib/sourcing/blocklist";
 import { mapLimit } from "../../lib/sourcing/pool";
 import type { Candidate } from "./search";
+import { researchedMerchantLocation } from "./curated";
 
 export interface PricedCandidate {
   url: string;
@@ -35,6 +37,26 @@ export async function gatherCandidates(candidates: Candidate[], opts: GatherOpti
       return null;
     }
     let parsed = parseProduct(page.html, finalUrl);
+    const shopify = await readShopifyProduct(finalUrl);
+    let productUrl = finalUrl;
+    const pageCurrency = parsed.currency ?? page.html.match(/Shopify\.currency\s*=\s*\{[^}]*"active"\s*:\s*"([A-Z]{3})"/)?.[1];
+    if (shopify && pageCurrency === "USD") {
+      const variants = selectShopifyVariants(shopify, c.preferredColor);
+      if (!variants.length) {
+        opts.log?.(`  skip ${c.url}: no in-stock variants${c.preferredColor ? ` in ${c.preferredColor}` : ""}`);
+        return null;
+      }
+      const first = variants[0];
+      const chosen = new URL(finalUrl);
+      chosen.searchParams.set("variant", String(first.id));
+      productUrl = chosen.toString();
+      const src = first.featured_image?.src;
+      parsed = { ...parsed, title: c.preferredColor ? `${shopify.title} — ${c.preferredColor}` : shopify.title,
+        priceCents: first.price, currency: "USD", availability: "in_stock", sizes: variants.map((v) => v.title), via: "shopify",
+        description: parsed.description ?? htmlToText(shopify.description ?? "").slice(0,600),
+        images: [...new Set([...(src ? [new URL(src, finalUrl).toString()] : []), ...parsed.images, ...shopify.images.map((i) => new URL(i, finalUrl).toString())])],
+      };
+    }
     if (parsed.via === "none" && claudeBudget > 0) {
       claudeBudget--;
       try {
@@ -54,17 +76,24 @@ export async function gatherCandidates(candidates: Candidate[], opts: GatherOpti
       opts.log?.(`  skip ${c.url}: currency ${parsed.currency}`);
       return null;
     }
-    if (parsed.availability === "out_of_stock") {
-      opts.log?.(`  skip ${c.url}: out of stock`);
+    if (parsed.availability !== "in_stock") {
+      opts.log?.(`  skip ${c.url}: stock is ${parsed.availability}`);
       return null;
     }
-    if (priceCents < 200) return null;
+    if (priceCents < 200 || !parsed.images.length) return null;
+    const hints = extractMerchantHints(page.html, finalUrl);
+    const researched = researchedMerchantLocation(finalUrl);
+    if (researched) {
+      hints.siteName = researched.name;
+      hints.bayAreaMentions = [...new Set([...hints.bayAreaMentions, researched.city])];
+      hints.locationSnippets.unshift(`${researched.name}, ${researched.neighborhood}, ${researched.city}. Official address evidence: ${researched.evidence}`);
+    }
     return {
-      url: finalUrl,
+      url: productUrl,
       domain: registrableDomain(finalUrl) ?? "",
       serpTitle: c.title,
       parsed: { ...parsed, priceCents, title },
-      hints: extractMerchantHints(page.html, finalUrl),
+      hints,
     };
   });
   const out: PricedCandidate[] = [];

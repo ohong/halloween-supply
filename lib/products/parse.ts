@@ -10,7 +10,7 @@ export interface ParsedProduct {
   sizes: string[];
   description: string | null;
   /** Which strategy produced the fields. */
-  via: "json-ld" | "open-graph" | "claude" | "none";
+  via: "json-ld" | "open-graph" | "shopify" | "claude" | "none";
 }
 
 // ---------------------------------------------------------------------------

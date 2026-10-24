@@ -251,12 +251,25 @@ export async function fetchProductPage(
   const key = { kind: "unlocker", url };
   if (opts.cache) {
     const hit = await readCache<FetchedPage>("unlocker", key);
-    if (hit) return hit;
+    if (hit && hit.html.length >= 500) return hit;
   }
   const zone = requireEnv("BRIGHTDATA_UNLOCKER_ZONE");
-  const res = await withRetries(opts.retries ?? 2, () => brightDataRequest(zone, url, opts.timeoutMs ?? 12_000));
-  const finalUrl = res.headers.get("x-brd-final-url") ?? res.headers.get("x-final-url") ?? url;
-  const page: FetchedPage = { url, finalUrl, status: res.status, html: res.text };
+  let page: FetchedPage;
+  try {
+    const res = await withRetries(opts.retries ?? 0, () => brightDataRequest(zone, url, opts.timeoutMs ?? 12_000));
+    if (res.text.length < 500) throw new Error("Web Unlocker returned an empty page");
+    const finalUrl = res.headers.get("x-brd-final-url") ?? res.headers.get("x-final-url") ?? url;
+    page = { url, finalUrl, status: res.status, html: res.text };
+  } catch (unlockerError) {
+    // Some independent stores are public and reachable even when the proxy's
+    // Unlocker request times out. Check their real page before discarding them.
+    try {
+      const direct = await fetch(url, { signal: AbortSignal.timeout(10_000), headers: { "User-Agent": "Mozilla/5.0" } });
+      const html = await direct.text();
+      if (!direct.ok || html.length < 500) throw unlockerError;
+      page = { url, finalUrl: direct.url, status: direct.status, html };
+    } catch { throw unlockerError; }
+  }
   if (opts.cache) await writeCache("unlocker", key, page);
   return page;
 }

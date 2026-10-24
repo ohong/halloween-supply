@@ -22,7 +22,7 @@ async function main() {
   console.log(`shopping: ${res.shopping.length} results, ${priced.length} with parseable prices`);
   console.log(`organic:  ${res.organic.length} results`);
   console.log(`raw shopping array present: ${Array.isArray(raw.shopping)}${Array.isArray(raw.shopping) ? ` (length ${(raw.shopping as unknown[]).length})` : ""}`);
-  if (Array.isArray(raw.shopping) && raw.shopping.length) console.log(`First raw shopping item:\n${JSON.stringify(raw.shopping[0], null, 2)}`);
+  if (Array.isArray(raw.shopping) && raw.shopping.length) console.log(`First raw shopping item:\n${JSON.stringify(raw.shopping[0], (key, value) => key.includes("image") || key.includes("logo") || (typeof value === "string" && value.startsWith("data:")) ? "[image omitted]" : value, 2)}`);
   for (const s of res.shopping.slice(0, 5)) console.log(`  ${s.price ?? "(no price)"}  ${s.source ?? "?"}  ${s.title.slice(0, 60)}\n    ${s.link}`);
   console.log(
     res.shopping.length && priced.length

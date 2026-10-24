@@ -3,6 +3,7 @@ import { serpSearch } from "../../lib/brightdata/client";
 import { hostnameOf, isBlockedDomain, isNoiseDomain } from "../../lib/sourcing/blocklist";
 import { mapLimit } from "../../lib/sourcing/pool";
 import type { Piece } from "../../lib/types";
+import { curatedCandidates } from "./curated";
 
 export interface Candidate {
   url: string;
@@ -11,9 +12,11 @@ export interface Candidate {
   serpPriceCents?: number;
   source?: string;
   via: "shopping" | "organic";
+  /** Preserve a researched color when the merchant groups colors on one page. */
+  preferredColor?: string;
 }
 
-const TRACKING = /^(utm_|gclid|fbclid|srsltid|ref$|ref_|pf_rd|cmpid|variant$)/i;
+const TRACKING = /^(utm_|gclid|fbclid|srsltid|ref$|ref_|pf_rd|cmpid)/i;
 
 export function canonicalUrl(raw: string): string | null {
   try {
@@ -59,7 +62,7 @@ export async function searchPiece(piece: Piece, opts: SearchOptions = {}): Promi
     { q, shopping: true },
     { q, shopping: false },
   ]);
-  const settled = await mapLimit(jobs, 3, (j) => serpSearch(j.q, { shopping: j.shopping, cache: true }));
+  const settled = await mapLimit(jobs, 3, (j) => serpSearch(j.q, { shopping: j.shopping, cache: true, timeoutMs: 25_000, retries: 0 }));
 
   const shopping: Candidate[] = [];
   const organic: Candidate[] = [];
@@ -78,18 +81,18 @@ export async function searchPiece(piece: Piece, opts: SearchOptions = {}): Promi
   const seen = new Set<string>();
   const perHost = new Map<string, number>();
   const out: Candidate[] = [];
-  for (const c of [...shopping, ...organic]) {
+  for (const c of [...curatedCandidates(piece.id), ...shopping, ...organic]) {
     const url = canonicalUrl(c.url);
     if (!url) continue;
     if (isBlockedDomain(url)) {
       dropped++;
       continue;
     }
-    if (isNoiseDomain(url) || !looksLikeProductUrl(url) || seen.has(url)) continue;
+    if (isNoiseDomain(url) || !looksLikeProductUrl(url) || seen.has(`${url}:${c.preferredColor ?? ""}`)) continue;
     const host = hostnameOf(url) ?? "";
-    const cap = host.endsWith("etsy.com") ? perDomain * 2 : perDomain;
+    const cap = c.source === "merchant catalog discovery" ? 5 : host.endsWith("etsy.com") ? perDomain * 2 : perDomain;
     if ((perHost.get(host) ?? 0) >= cap) continue;
-    seen.add(url);
+    seen.add(`${url}:${c.preferredColor ?? ""}`);
     perHost.set(host, (perHost.get(host) ?? 0) + 1);
     out.push({ ...c, url });
     if (out.length >= max) break;
