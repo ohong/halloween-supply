@@ -120,6 +120,22 @@ interface Offer {
 /** Restrict charges to exact offers. AggregateOffer.lowPrice cannot price a chosen size. */
 function exactOffers(html: string, url: string): Offer[] {
   const offers: Offer[] = [];
+  const products: RecordValue[] = [];
+  const productTypes = new Set(["Product", "ProductGroup", "IndividualProduct"]);
+  const collect = (value: unknown, depth: number) => {
+    if (depth > 6) return;
+    if (Array.isArray(value)) { for (const item of value) collect(item, depth + 1); return; }
+    if (!record(value)) return;
+    if (array(value["@type"]).some((type) => typeof type === "string" && productTypes.has(type.split(/[/#]/).at(-1) ?? ""))) products.push(value);
+    for (const key of ["@graph", "mainEntity"]) if (key in value) collect(value[key], depth + 1);
+  };
+  for (const block of readJsonLdBlocks(html)) collect(block, 0);
+  const original = new URL(url);
+  const sameProduct = (value: RecordValue) => {
+    const identifier = text(value.url) ?? text(value["@id"]);
+    if (!identifier) return products.length === 1;
+    try { const candidate = new URL(identifier, url); return sameMerchant(candidate.toString(), url) && candidate.pathname.replace(/\/$/, "") === original.pathname.replace(/\/$/, ""); } catch { return false; }
+  };
   const stock = (value: unknown): Availability => {
     if (typeof value !== "string") return "unknown";
     const name = value.split(/[/#]/).at(-1)?.toLowerCase();
@@ -141,9 +157,9 @@ function exactOffers(html: string, url: string): Offer[] {
       }
     }
     // Do not traverse recommendation lists, reviews or unrelated page content.
-    for (const key of ["@graph", "mainEntity", "hasVariant", "offers"]) if (key in value) visit(value[key], ownSize, depth + 1);
+    for (const key of ["hasVariant", "offers"]) if (key in value) visit(value[key], ownSize, depth + 1);
   };
-  for (const block of readJsonLdBlocks(html)) visit(block, null, 0);
+  for (const product of products.filter(sameProduct)) visit(product, null, 0);
   return offers;
 }
 
