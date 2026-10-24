@@ -1,29 +1,71 @@
 import type { NormalizeOptions } from "../../lib/sourcing/images";
 
-interface PhotoPlan extends Pick<NormalizeOptions, "crop" | "polygon" | "removeUpperSkin" | "skipRembg"> {
+export interface PhotoPlan extends Pick<NormalizeOptions, "crop" | "polygon" | "removeUpperSkin" | "skipRembg"> {
   /** A reviewed photo from this exact merchant product's gallery. */
   sourceUrl: string;
+  /** Committed, visually reviewed silhouette. Force rebuilds keep these product details. */
+  reviewedCutout?: string;
 }
 
 export const photoPlans: Record<string, PhotoPlan> = {
-  "p-864df416a3": {
-    sourceUrl: "https://cdn.shopify.com/s/files/1/0693/8794/3970/files/black-star-faux-leather-fringe-moto-jacket-6582134.jpg?v=1789743869",
-    // Keep the photographed back yoke and sleeve. The source photo crops the lower
-    // and right edges; the lower-left car and the model's head are excluded.
-    skipRembg: true,
-    polygon: [[0,.6184],[.095,.5768],[.189,.5336],[.277,.4848],[.352,.4416],[.408,.4008],[.443,.364],[.474,.3048],[.506,.3136],[.538,.3312],[.583,.3416],[.638,.3496],[.690,.356],[.741,.3632],[.790,.3696],[.815,.3832],[.90,.45],[1,.50],[1,1],[.37,1],[.37,.75],[.333,.66],[.218,.632],[.153,.6544],[.062,.6864],[0,.64]],
+  "p-4b2c550c26": {
+    "sourceUrl": "https://cdn.shopify.com/s/files/1/0579/7072/0791/products/ScreenShot2022-09-12at1.46.15PM.png?v=1663015669",
+    "reviewedCutout": "public/products/p-4b2c550c26-cutout.png"
+  },
+  "p-5159210de3": {
+    "sourceUrl": "https://cdn.shopify.com/s/files/1/0579/7072/0791/files/Screenshot2026-03-18at2.14.32PM.png?v=1773868568",
+    "reviewedCutout": "public/products/p-5159210de3-cutout.png"
+  },
+  "p-2776c6bc82": {
+    "sourceUrl": "https://cdn.shopify.com/s/files/1/0608/9326/6116/files/1540C0A7-860E-40A1-B7D2-831A3C91A3E2.jpg?v=1700951893",
+    "reviewedCutout": "public/products/p-2776c6bc82-cutout.png"
+  },
+  "p-fac2225e1f": {
+    "sourceUrl": "https://cdn.shopify.com/s/files/1/0940/5210/products/beige-fringe-jacket.jpg?v=1664649219",
+    "reviewedCutout": "public/products/p-fac2225e1f-cutout.png"
   },
   "p-001ca783f4": {
-    sourceUrl: "https://cdn.shopify.com/s/files/1/0940/5210/files/24355708_439897ca-46d3-4044-a1e7-9aaccadb7351.jpg?v=1756259622",
-    polygon: [[0.385,0.368],[0.595,0.368],[0.610,0.397],[0.625,0.47],[0.63,0.508],[0.623,0.562],[0.625,0.65],[0.633,0.737],[0.646,0.835],[0.666,0.94],[0.623,0.956],[0.565,0.957],[0.505,0.951],[0.516,0.86],[0.526,0.746],[0.517,0.63],[0.501,0.505],[0.488,0.575],[0.464,0.723],[0.46,0.844],[0.486,0.947],[0.442,0.958],[0.383,0.954],[0.317,0.94],[0.337,0.85],[0.349,0.754],[0.354,0.683],[0.359,0.603],[0.353,0.548],[0.348,0.507],[0.357,0.446],[0.368,0.408]],
+    "sourceUrl": "https://cdn.shopify.com/s/files/1/0940/5210/files/24355708_439897ca-46d3-4044-a1e7-9aaccadb7351.jpg?v=1756259622",
+    "reviewedCutout": "public/products/p-001ca783f4-cutout.png"
+  },
+  "p-bf85954bb6": {
+    "sourceUrl": "https://cdn.shopify.com/s/files/1/0794/5139/0145/files/METALLICFRONTJEANS.png?v=1762198226",
+    "reviewedCutout": "public/products/p-bf85954bb6-cutout.png"
+  },
+  "p-ba3ef9a46e": {
+    "sourceUrl": "https://cdn.shopify.com/s/files/1/0757/5483/2096/files/Screenshot_2025-10-11_at_10.56.20_PM.png?v=1780688905",
+    "reviewedCutout": "public/products/p-ba3ef9a46e-cutout.png"
   },
   "p-db9dc722b0": {
-    sourceUrl: "https://cdn.shopify.com/s/files/1/0693/8794/3970/products/metallic-silver-cowgirl-boots-201533.jpg?v=1710262433",
-    crop: { left: 0, top: 0.34, width: 1, height: 0.66 },
-    removeUpperSkin: true,
+    "sourceUrl": "https://cdn.shopify.com/s/files/1/0693/8794/3970/products/metallic-silver-cowgirl-boots-201533.jpg?v=1710262433",
+    "reviewedCutout": "public/products/p-db9dc722b0-cutout.png"
+  },
+  "p-fdcac24cb5": {
+    "sourceUrl": "https://cdn.shopify.com/s/files/1/0940/5210/files/ponsiesembroideredcowboyboots-SH3950_Silver_1.jpg?v=1780919714",
+    "reviewedCutout": "public/products/p-fdcac24cb5-cutout.png"
+  },
+  "p-bc746b747a": {
+    "sourceUrl": "https://cdn.shopify.com/s/files/1/0940/5210/files/western-fringe-boots_1.png?v=1788425397",
+    "reviewedCutout": "public/products/p-bc746b747a-cutout.png"
   },
   "p-0a49fa4bf2": {
-    sourceUrl: "https://cdn.shopify.com/s/files/1/0595/2490/7173/files/Caribbean_Blue_Wild_Rag.png?v=1781368858",
-    polygon: [[0.388,0.007],[0.608,0.008],[0.636,0.031],[0.642,0.089],[0.619,0.139],[0.712,0.124],[0.744,0.133],[0.763,0.171],[0.766,0.204],[0.742,0.207],[0.696,0.198],[0.676,0.216],[0.674,0.236],[0.718,0.247],[0.748,0.290],[0.769,0.308],[0.811,0.361],[0.83,0.435],[0.82,0.544],[0.792,0.639],[0.743,0.721],[0.668,0.802],[0.586,0.876],[0.485,0.969],[0.424,0.904],[0.379,0.856],[0.315,0.794],[0.26,0.710],[0.21,0.622],[0.187,0.550],[0.184,0.439],[0.197,0.331],[0.222,0.282],[0.264,0.253],[0.293,0.235],[0.227,0.246],[0.175,0.226],[0.166,0.220],[0.222,0.208],[0.272,0.182],[0.307,0.155],[0.344,0.138],[0.355,0.113],[0.363,0.057]],
+    "sourceUrl": "https://cdn.shopify.com/s/files/1/0595/2490/7173/files/Caribbean_Blue_Wild_Rag.png?v=1781368858",
+    "reviewedCutout": "public/products/p-0a49fa4bf2-cutout.png"
   },
+  "p-dd6cb1a575": {
+    "sourceUrl": "https://standardandstrange.com/cdn/shop/files/omotodenim-RevealKojimaBandanna-Blue-Flat-07.jpg?v=1785450722&width=1920",
+    "reviewedCutout": "public/products/p-dd6cb1a575-cutout.png"
+  },
+  "p-bbebd49e6b": {
+    "sourceUrl": "https://cdn.shopify.com/s/files/1/0254/0447/3422/products/W49440-RWPMKR-634020-PEACEMAKER.jpg?v=1621736000",
+    "reviewedCutout": "public/products/p-bbebd49e6b-cutout.png"
+  },
+  "p-8df245a09b": {
+    "sourceUrl": "https://cdn.shopify.com/s/files/1/0254/0447/3422/files/71mjwKTwMmL._AC_UX569.jpg?v=1687447576",
+    "reviewedCutout": "public/products/p-8df245a09b-cutout.png"
+  },
+  "p-bc8f5c1ddb": {
+    "sourceUrl": "https://cdn.shopify.com/s/files/1/0940/5210/products/BlackSuedeJacket_Front.jpg?v=1737969048",
+    "reviewedCutout": "public/products/p-bc8f5c1ddb-cutout.png"
+  }
 };

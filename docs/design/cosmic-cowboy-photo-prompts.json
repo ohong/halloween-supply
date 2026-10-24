@@ -1,0 +1,287 @@
+{
+  "costumeSlug": "cosmic-cowboy",
+  "date": "2026-10-24",
+  "tool": "built-in image_gen",
+  "normalization": "normalizeProductImage with skipRembg:true; 1000x1250 JPEG on #EFEEEF and committed transparent PNG; composeFlatlay for default five pieces",
+  "curation": {
+    "removedProduct": "p-864df416a3",
+    "reason": "Every merchant gallery photo is modeled and cropped. A partial sleeve/back image cannot represent the complete garment.",
+    "defaultJacket": "p-2776c6bc82",
+    "replacementAlternative": "p-2776c6bc82",
+    "verifiedFeed": "https://grittybelleboutique.com/products/silver-fringe-r-r-jacket.js",
+    "availableSizes": [
+      "XS",
+      "Small",
+      "Medium",
+      "Large",
+      "XL"
+    ],
+    "priceCents": 7100,
+    "blackJacketAlternative": "p-bc8f5c1ddb"
+  },
+  "products": [
+    {
+      "productId": "p-4b2c550c26",
+      "title": "Metallic Cowboy Hat — Silver",
+      "merchantProductUrl": "https://eastnwestlabel.com/products/metallic-cowboy-hat?variant=40304078225431",
+      "sourceUrls": [
+        "https://cdn.shopify.com/s/files/1/0579/7072/0791/products/ScreenShot2022-09-12at1.46.15PM.png?v=1663015669"
+      ],
+      "publishedCutout": "/products/p-4b2c550c26-cutout.png",
+      "publishedTile": "/products/p-4b2c550c26.jpg",
+      "method": "built-in imagegen background extraction",
+      "prompt": "Use case: background-extraction. Asset type: exact merchant product catalog cutout. Edit target: the attached original silver metallic cowboy hat photographed front-on on a clear plastic display stand. Primary request: extract only the complete silver hat onto a genuinely transparent background. Remove the clear plastic stand and all background. Preserve the exact existing hat pixels and silhouette as faithfully as possible: front-on view, silver woven metallic texture, pinched crown, two-row rhinestone band, single rhinestone star on front, full upward-curved brim and intact lower front brim. Do not change camera angle, reconstruct a different hat, add details, change color, restyle or re-light. This is the silver variant, not gold. Do not include text, hands, models, support, surface or shadow. Entire hat must be visible with comfortable transparent margin."
+    },
+    {
+      "productId": "p-5159210de3",
+      "title": "Charmed Cowboy Hat — White",
+      "merchantProductUrl": "https://eastnwestlabel.com/products/charmed-cowboy-hat-copy?variant=44731148664855",
+      "sourceUrls": [
+        "https://cdn.shopify.com/s/files/1/0579/7072/0791/files/Screenshot2026-03-18at2.14.32PM.png?v=1773868568",
+        "https://cdn.shopify.com/s/files/1/0579/7072/0791/files/Screenshot2026-03-18at2.14.23PM.png?v=1773868568"
+      ],
+      "publishedCutout": "/products/p-5159210de3-cutout.png",
+      "publishedTile": "/products/p-5159210de3.jpg",
+      "method": "built-in imagegen background extraction",
+      "prompt": "Use case: background-extraction. Asset type: exact merchant product catalog cutout. Input image 1 is the edit target: white open-weave charmed cowboy hat worn by a woman with both arms raised. Input image 2 is supporting reference showing the same exact white hat and its charms from the other front angle. Primary request: isolate only the complete white hat from image 1 onto a genuinely transparent background. Keep the exact photographed angle, crown shape, open crochet/straw weave, white color, turned-up full brim, and every gold/silver charm in its original visible position. Remove the person, all black hair, skin, clothing, beige background and any shadow. Through the weave holes show transparency rather than hair or beige backdrop. Do not redesign, add new charms, invent decorations, change the shape, change the camera angle or change the material. Reuse the visible hat faithfully, including the silver dangling star and gold hat charm. No text, no surface, no mannequin, no support. Entire hat alone, comfortably inside transparent canvas."
+    },
+    {
+      "productId": "p-2776c6bc82",
+      "title": "Silver Fringe R&R Jacket",
+      "merchantProductUrl": "https://grittybelleboutique.com/products/silver-fringe-r-r-jacket?variant=42621922115780",
+      "sourceUrls": [
+        "https://cdn.shopify.com/s/files/1/0608/9326/6116/files/1540C0A7-860E-40A1-B7D2-831A3C91A3E2.jpg?v=1700951893"
+      ],
+      "publishedCutout": "/products/p-2776c6bc82-cutout.png",
+      "publishedTile": "/products/p-2776c6bc82.jpg",
+      "method": "built-in imagegen background extraction",
+      "prompt": "Use case: background-extraction. Create a clean ecommerce cutout from this exact photographed silver metallic Rock&Roll Denim fringe moto jacket. Remove the hanger, Christmas decorations, tree, sofa, boots in background, floor and all surrounding objects. Preserve only the complete silver jacket as photographed with both sleeves, cuffs, lapels, front silver zipper and zippered pockets, snap buttons, epaulets, visible neck label and short chest fringe. Keep the actual silver material, subtle texture, seam positions and garment proportions. Preserve the source jacket arrangement; do not redesign, alter the collar, invent extra fringe, or invent features. The cuffs/hem must be complete and visible with margin. Genuine transparent alpha all around, no shadows, no person/mannequin, no added objects or text. Product identity is critical."
+    },
+    {
+      "productId": "p-fac2225e1f",
+      "title": "Beige Faux Suede Fringe Jacket",
+      "merchantProductUrl": "https://pretty-attitude.com/products/beige-faux-suede-fringe-jacket?variant=39626614308899",
+      "sourceUrls": [
+        "https://cdn.shopify.com/s/files/1/0940/5210/products/beige-fringe-jacket.jpg?v=1664649219"
+      ],
+      "publishedCutout": "/products/p-fac2225e1f-cutout.png",
+      "publishedTile": "/products/p-fac2225e1f.jpg",
+      "method": "built-in imagegen background extraction",
+      "prompt": "Use case: background-extraction. Remove only the plain white background from this exact beige faux-suede fringe jacket front product photo. Preserve the full photographed jacket exactly: beige fabric color and texture, lapels, inner lining, neck labels, every seam, both complete sleeves and cuffs, and all long fine fringe strands and gaps. Keep the same frontal composition and exact proportions. Genuine transparent alpha around the product and between separated fringe strands. Complete jacket with margin; no cropping. Do not add a person, hanger, mannequin, shadows, redesign, embellishments, or recoloring. This is a real merchant product; keep identity exact."
+    },
+    {
+      "productId": "p-001ca783f4",
+      "title": "Metallic Bell Bottom Jean in Black Denim",
+      "merchantProductUrl": "https://pretty-attitude.com/products/metallic-bell-bottom-jean-in-black-denim?variant=42453163933731",
+      "sourceUrls": [
+        "https://cdn.shopify.com/s/files/1/0940/5210/files/24355708_439897ca-46d3-4044-a1e7-9aaccadb7351.jpg?v=1756259622"
+      ],
+      "publishedCutout": "/products/p-001ca783f4-cutout.png",
+      "publishedTile": "/products/p-001ca783f4.jpg",
+      "method": "built-in imagegen background extraction",
+      "prompt": "Use case: background-extraction. Asset type: exact merchant catalog trouser cutout. Edit the provided catalog photo. Primary request: remove only the solid pale gray background, producing actual transparent alpha around this exact pair of black metallic foil denim bell-bottom trousers. Keep every visible product pixel and the exact back-view silhouette, waistband, belt loops, two back patch pockets, center seam, black-silver foil texture, wrinkles, leg widths and flared hems unchanged. Keep both trousers complete from the waistband top edge to the hem edges. No people, skin, shoes, torso, accessories, floor, shadow, labels, or extra objects. Do not redesign, straighten, recolor, smooth, reshape or invent any garment details. Output the same photographed product alone, centered with a small transparent margin."
+    },
+    {
+      "productId": "p-bf85954bb6",
+      "title": "Final Sale | Metallic Silver Straight",
+      "merchantProductUrl": "https://shaynagibbonskeeley.com/products/metallic-silver-straight?variant=49639959134401",
+      "sourceUrls": [
+        "https://cdn.shopify.com/s/files/1/0794/5139/0145/files/METALLICFRONTJEANS.png?v=1762198226"
+      ],
+      "publishedCutout": "/products/p-bf85954bb6-cutout.png",
+      "publishedTile": "/products/p-bf85954bb6.jpg",
+      "method": "built-in imagegen background extraction",
+      "prompt": "Use case: background-extraction. Asset type: exact merchant catalog trouser cutout. Input image: the merchant's existing product-only front photo of metallic silver straight-leg denim trousers; the SGK BOUTIQUE words are outside the garment. Remove only the solid white background and the separate text/logo, leaving actual transparent alpha around the exact trousers. Preserve every visible product pixel: exact pale metallic silver color and subtle texture, medium rise waistband, single silver button, belt loops, zip fly, curved front pockets, small coin pocket, seams, long straight legs and stitched hems. Keep the full garment from waistband top to both hems. Retain the existing front-view shape, length, width, natural fabric tones, camera angle and all details; do not make a new design or a generic replacement. No person, skin, feet, shoes, shirt, hanger, floor, shadows, words or logos. Center the exact product alone with a small transparent margin."
+    },
+    {
+      "productId": "p-ba3ef9a46e",
+      "title": "Metallic Muse Satin Trouser in Silver",
+      "merchantProductUrl": "https://thelocalgroup.shop/products/metallic-muse-satin-trouser-in-silver?variant=47754806853856",
+      "sourceUrls": [
+        "https://cdn.shopify.com/s/files/1/0757/5483/2096/files/Screenshot_2025-10-11_at_10.56.20_PM.png?v=1780688905"
+      ],
+      "publishedCutout": "/products/p-ba3ef9a46e-cutout.png",
+      "publishedTile": "/products/p-ba3ef9a46e.jpg",
+      "method": "built-in imagegen background extraction",
+      "prompt": "Use case: background-extraction. Asset type: exact merchant catalog trouser cutout. Image 1 is the edit target: back view of the merchant's metallic silver satin wide-leg trousers on a model. Image 2 supports identifying the same garment's material; do not copy its shirt or front view. Extract only the complete trousers in the exact back view of image 1, removing the model's upper body, black shirt, hands and arms, all exposed skin, the shoes, floor and background. Output actual transparent alpha outside the garment and between its legs. Keep the exact visible elastic gathered waistband at its natural height, rear center seam, two narrow horizontal welt pockets, side seams, wide leg cut, broad straight hems, silver-gray satin color and fluid glossy fabric folds. Preserve the existing three-quarter rear camera angle and shape. Keep the full trousers from waistband top to both hem edges, including the original hem folds. Do not invent a front button, fly, belt loops, decorative trim, additional pockets, or a new garment design. Do not add a person, skin, shoes, shirt, mannequin, hanger, floor, drop shadow, logo or words. Center the same product alone with a small transparent margin."
+    },
+    {
+      "productId": "p-db9dc722b0",
+      "title": "Metallic Silver Cowgirl Boots",
+      "merchantProductUrl": "https://shopcindyjane.com/products/metallic-silver-cowgirl-boots?variant=41635064905762",
+      "sourceUrls": [
+        "https://cdn.shopify.com/s/files/1/0693/8794/3970/products/metallic-silver-cowgirl-boots-201533.jpg?v=1710262433"
+      ],
+      "publishedCutout": "/products/p-db9dc722b0-cutout.png",
+      "publishedTile": "/products/p-db9dc722b0.jpg",
+      "method": "built-in imagegen background extraction",
+      "prompt": "Use case: background-extraction.\nAsset type: exact e-commerce product photo cutout with actual transparent alpha.\nInput images: Image 1 is the original edit target; Image 2 is only a supporting view of the desired boots pair and must not preserve its removal artifacts.\nPrimary request: Carefully extract ONLY the exact pair of silver cowgirl boots from Image 1. Remove the person completely, including all skin and legs above and inside the boot openings, remove skirt, wall, ground, cast shadows, and every background fragment. Repair the boot openings naturally where the removed legs were, showing subtle dark neutral boot interiors. Do not leave any detached strips, skin flecks, floating slivers, or tall remnants above the boot rims.\nPreserve invariants: exact same two silver metallic boots, their original pose and relative positions, heights, pointed toes, scalloped upper rims and pull tabs, elaborate swirling silver embroidery, wrinkles, silver reflections, brown stacked heels and brown sole edges. Preserve the exact product identity; no new style, embellishments, changed color, reshaping, added accessories, or text.\nComposition: Show the complete boots pair from top pull tabs to bottom sole edges, with a small transparent margin all around. Keep the original front three-quarter camera view. Both boots must be fully present and uncropped. Output true transparent PNG alpha, with clean natural edges and no artificial floor shadow, no background color, no checkerboard graphic."
+    },
+    {
+      "productId": "p-fdcac24cb5",
+      "title": "Ponsies Embroidered Cowboy Calf Boots — Silver",
+      "merchantProductUrl": "https://pretty-attitude.com/products/ponsies-boot?variant=42456681512995",
+      "sourceUrls": [
+        "https://cdn.shopify.com/s/files/1/0940/5210/files/ponsiesembroideredcowboyboots-SH3950_Silver_1.jpg?v=1780919714"
+      ],
+      "publishedCutout": "/products/p-fdcac24cb5-cutout.png",
+      "publishedTile": "/products/p-fdcac24cb5.jpg",
+      "method": "built-in imagegen background extraction",
+      "prompt": "Use case: background-extraction.\nAsset type: exact merchant product photo cutout for an e-commerce catalog.\nPrimary request: Remove only the pale background and floor shadow from this source photo. Preserve the one exact silver Ponsies embroidered calf-height cowboy boot, viewed from its outer side with the toe pointing right. Output true transparent alpha with clean accurate edges.\nInvariants: Keep the same silver metallic leather with visible fine grain, embroidery stitching pattern, full curved boot shaft and pull tab, seam lines, pointed toe, black sole, and black stacked block heel. Preserve the exact silhouette, camera view, color, proportions, textures, highlights, and product identity. Do not add another boot. Do not reshape, recolor, invent details, or change style.\nComposition: Complete uncropped boot from upper rim to heel and toe, small transparent margin all around. No person, backdrop, surface, cast shadow, checkerboard image, text, or watermark."
+    },
+    {
+      "productId": "p-bc746b747a",
+      "title": "Dolly Black Fringe Cowboy Boots",
+      "merchantProductUrl": "https://www.pretty-attitude.com/products/dolly-black-fringe-cowboy-boots?variant=43863591616547",
+      "sourceUrls": [
+        "https://cdn.shopify.com/s/files/1/0940/5210/files/western-fringe-boots_1.png?v=1788425397"
+      ],
+      "publishedCutout": "/products/p-bc746b747a-cutout.png",
+      "publishedTile": "/products/p-bc746b747a.jpg",
+      "method": "built-in imagegen background extraction",
+      "prompt": "Use case: background-extraction.\nAsset type: exact merchant product photo cutout for an e-commerce catalog.\nPrimary request: Remove only the white background and all floor shadows from this source photo. Preserve the exact pair of black Dolly fringe cowboy boots in the same overlapped three-quarter view, toes pointing left. Output true transparent alpha with clean accurate edges and transparent gaps between fine fringe strips.\nInvariants: Keep both exact boots, original relative positions, black leather grain, long black fringe, small silver star studs and round studs, complete upper pull tabs, pointed toes, black soles, black stacked block heels, seam details, proportions, and original camera angle. Preserve product identity and color. No redesign, new accessories, extra boots, or changed decorations.\nComposition: Both complete boots uncropped with a small transparent margin all around. No person, backdrop, floor, cast shadows, checkerboard image, text, or watermark."
+    },
+    {
+      "productId": "p-0a49fa4bf2",
+      "title": "Buckaroo Blue | Silk Wild Rag | 19mm Solid Western Scarf",
+      "merchantProductUrl": "https://cowtownwildrags.com/products/solid-buckaroo-blue-wild-rag?variant=47759561425061",
+      "sourceUrls": [
+        "https://cdn.shopify.com/s/files/1/0595/2490/7173/files/Caribbean_Blue_Wild_Rag.png?v=1781368858"
+      ],
+      "publishedCutout": "/products/p-0a49fa4bf2-cutout.png",
+      "publishedTile": "/products/p-0a49fa4bf2.jpg",
+      "method": "built-in imagegen background extraction",
+      "prompt": "Remove ALL mannequin and ALL background, including the narrow dark gray mannequin sliver immediately outside the scarf along its lower-right diagonal edge and every mannequin remnant near the top. Keep only the exact teal-blue silk wild rag on genuine transparency. Preserve its silhouette, pointed tip, top loop, knot, tied ends, folds, texture, color, highlights, and fabric shadows. Change only background and mannequin pixels. No added objects, text, border, or background shadow."
+    },
+    {
+      "productId": "p-dd6cb1a575",
+      "title": "Reveal Kojima Bandanna - Blue",
+      "merchantProductUrl": "https://standardandstrange.com/products/reveal-kojima-bandanna-blue?variant=46119804108973",
+      "sourceUrls": [
+        "https://standardandstrange.com/cdn/shop/files/omotodenim-RevealKojimaBandanna-Blue-Flat-07.jpg?v=1785450722&width=1920"
+      ],
+      "publishedCutout": "/products/p-dd6cb1a575-cutout.png",
+      "publishedTile": "/products/p-dd6cb1a575.jpg",
+      "method": "reviewed exterior alpha mask; merchant RGB preserved",
+      "prompt": null
+    },
+    {
+      "productId": "p-bbebd49e6b",
+      "title": "Stetson John Wayne Peacemaker - (4X) Wool Cowboy Hat — Stone",
+      "merchantProductUrl": "https://wilderwest.com/products/stetson-john-wayne-peacemaker-4x-wool-cowboy-hat?variant=39379153649742",
+      "sourceUrls": [
+        "https://cdn.shopify.com/s/files/1/0254/0447/3422/products/W49440-RWPMKR-634020-PEACEMAKER.jpg?v=1621736000"
+      ],
+      "publishedCutout": "/products/p-bbebd49e6b-cutout.png",
+      "publishedTile": "/products/p-bbebd49e6b.jpg",
+      "method": "built-in imagegen background extraction",
+      "prompt": "Use case: background-extraction. Asset type: exact merchant product catalog cutout. Edit target: the photographed Stetson John Wayne Peacemaker stone wool cowboy hat. Primary request: remove only the plain white background and preserve the exact product on a genuinely transparent canvas. Keep the existing full silhouette, same three-quarter angle, same stone-tan wool texture and color, same gus crown, same dark brown two-ply ribbon band and bow, same small JOHN WAYNE metal ornament with exact existing lettering. Preserve all product details and original lighting. Do not redesign, change shape or material, add decoration, rotate, crop, create a new hat, or invent unseen features. Entire hat with all brim edges visible and transparent margin. No shadow, no background, no text overlay."
+    },
+    {
+      "productId": "p-8df245a09b",
+      "title": "28x28 PAISLEY BANDANA — ROYAL BLUE",
+      "merchantProductUrl": "https://wilderwest.com/products/white-paisley-bandana?variant=44866105245996",
+      "sourceUrls": [
+        "https://cdn.shopify.com/s/files/1/0254/0447/3422/files/71mjwKTwMmL._AC_UX569.jpg?v=1687447576"
+      ],
+      "publishedCutout": "/products/p-8df245a09b-cutout.png",
+      "publishedTile": "/products/p-8df245a09b.jpg",
+      "method": "reviewed exterior alpha mask; merchant RGB preserved",
+      "prompt": null
+    },
+    {
+      "productId": "p-bc8f5c1ddb",
+      "title": "Black Faux Suede Moto Jacket with Fringe",
+      "merchantProductUrl": "https://pretty-attitude.com/products/black-jacket-with-fringe?variant=39540972257315",
+      "sourceUrls": [
+        "https://cdn.shopify.com/s/files/1/0940/5210/products/BlackSuedeJacket_Front.jpg?v=1737969048"
+      ],
+      "publishedCutout": "/products/p-bc8f5c1ddb-cutout.png",
+      "publishedTile": "/products/p-bc8f5c1ddb.jpg",
+      "method": "built-in imagegen background extraction",
+      "prompt": "Use case: background-extraction. Asset type: accurate ecommerce product cutout. Remove only the plain white background from this exact front product photo of the black faux-suede fringe moto jacket. Preserve the jacket exactly: black fabric texture, lapels, inner lining and real neck label, all seam placements, both complete long sleeves and cuffs, and every long thin fringe strand including transparent gaps between strands. Keep the same front view and geometry. Genuine transparent alpha outside the product and in open spaces. Full jacket with margin on all edges. No person, hanger, mannequin, added details, recoloring, extra shadows, or redesign. This is a real purchasable product: identity fidelity matters."
+    }
+  ],
+  "printedBandanaMasks": {
+    "p-dd6cb1a575": {
+      "method": "Flood-fill exterior background from image edges; change alpha only",
+      "threshold": "R/G/B each exceed 110 and channel range below 45. The blue outside border protects interior white lettering.",
+      "preserve": "Original merchant RGB pixels and opaque white print"
+    },
+    "p-8df245a09b": {
+      "method": "Original 569x531 source; exterior polygon alpha only",
+      "pixelPolygon": [
+        [
+          20,
+          3
+        ],
+        [
+          548,
+          4
+        ],
+        [
+          555,
+          8
+        ],
+        [
+          560,
+          62
+        ],
+        [
+          565,
+          175
+        ],
+        [
+          567,
+          381
+        ],
+        [
+          566,
+          498
+        ],
+        [
+          562,
+          516
+        ],
+        [
+          552,
+          523
+        ],
+        [
+          527,
+          527
+        ],
+        [
+          2,
+          525
+        ],
+        [
+          2,
+          428
+        ],
+        [
+          5,
+          324
+        ],
+        [
+          9,
+          205
+        ],
+        [
+          15,
+          70
+        ]
+      ],
+      "preserve": "Complete royal-blue bottom/right fabric and every original paisley detail"
+    },
+    "note": "Generated bandana candidates slightly redrew fine lettering and paisley; those candidates were not published."
+  },
+  "checks": {
+    "snapshotValidation": "passed",
+    "products": 15,
+    "transparentCutouts": 15,
+    "visualReview": "all 15 tiles and five-piece flat-lay inspected; no people, skin, support stands or mannequin fragments",
+    "graphWrites": false,
+    "forcedImageRebuild": "passed; all 15 read reviewed local cutouts without merchant or model calls"
+  }
+}

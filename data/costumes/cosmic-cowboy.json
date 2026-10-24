@@ -41,7 +41,7 @@
     },
     {
       "id": "fringe-jacket",
-      "name": "Metallic or sequined fringed jacket",
+      "name": "Fringed western jacket",
       "category": "Outerwear",
       "required": true,
       "order": 2,
@@ -54,19 +54,19 @@
       "sizeKind": "apparel",
       "matches": [
         {
-          "productId": "p-864df416a3",
+          "productId": "p-2776c6bc82",
           "rank": 0,
-          "reason": "Black and white faux leather moto jacket with bold stars across the shoulders and dramatic fringe; the western and star details suit the theme, though it is black rather than silver and has no metallic finish."
-        },
-        {
-          "productId": "p-fac2225e1f",
-          "rank": 1,
-          "reason": "Faux suede fringe moto jacket in beige; it has fringe but no metallic or sequin finish, so it misses the silver shine of the cosmic look."
+          "reason": "A silver-tone moto jacket with chest fringe, notched lapels and zippered pockets. Its metallic finish matches the silver hat and boots."
         },
         {
           "productId": "p-bc8f5c1ddb",
+          "rank": 1,
+          "reason": "Long fringe on the front and sleeves gives this black faux-suede moto jacket a western silhouette. It is the lowest-priced jacket in this set; the silver alternative adds a metallic finish."
+        },
+        {
+          "productId": "p-fac2225e1f",
           "rank": 2,
-          "reason": "Black faux suede jacket with fringe down the front and back, giving a western twist, but it has no metallic or sequin element for a silver look."
+          "reason": "Beige faux suede with long fringe across the front and sleeves offers a softer western look. It has no metallic or sequin finish."
         }
       ]
     },
@@ -172,6 +172,7 @@
       "priceCents": 14000,
       "currency": "USD",
       "image": "/products/p-4b2c550c26.jpg",
+      "cutout": "/products/p-4b2c550c26-cutout.png",
       "sourceImages": [
         "https://cdn.shopify.com/s/files/1/0579/7072/0791/products/ScreenShot2022-09-12at1.46.15PM.png?v=1663015669",
         "https://eastnwestlabel.com/cdn/shop/products/ScreenShot2022-09-12at1.46.15PM.png?v=1663015669&width=2804",
@@ -203,13 +204,14 @@
       "priceCents": 21000,
       "currency": "USD",
       "image": "/products/p-5159210de3.jpg",
+      "cutout": "/products/p-5159210de3-cutout.png",
       "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/0579/7072/0791/files/Screenshot2026-03-18at2.14.32PM.png?v=1773868568",
         "https://cdn.shopify.com/s/files/1/0579/7072/0791/files/Screenshot2026-03-18at2.14.23PM.png?v=1773868568",
         "https://eastnwestlabel.com/cdn/shop/files/Screenshot2026-03-16at9.55.06AM.png?v=1773680143&width=1100",
         "http://eastnwestlabel.com/cdn/shop/files/Screenshot2026-03-16at9.55.06AM.png?crop=center&height=1200&v=1773680143&width=1200",
         "https://eastnwestlabel.com/cdn/shop/files/Screenshot2026-03-16at9.55.06AM.png?crop=center&height=1200&v=1773680143&width=1200",
-        "https://cdn.shopify.com/s/files/1/0579/7072/0791/files/Screenshot2026-03-16at9.55.06AM.png?v=1773680143",
-        "https://cdn.shopify.com/s/files/1/0579/7072/0791/files/Screenshot2026-03-18at2.14.32PM.png?v=1773868568"
+        "https://cdn.shopify.com/s/files/1/0579/7072/0791/files/Screenshot2026-03-16at9.55.06AM.png?v=1773680143"
       ],
       "availability": "in_stock",
       "sizes": [
@@ -228,36 +230,35 @@
       "checkedAt": "2026-10-24T22:34:50.850Z"
     },
     {
-      "id": "p-864df416a3",
-      "title": "Black Star Faux Leather Fringe Moto Jacket",
-      "url": "https://shopcindyjane.com/products/black-star-faux-leather-fringe-moto-jacket?variant=45797547212834",
-      "priceCents": 11800,
+      "id": "p-2776c6bc82",
+      "title": "Silver Fringe R&R Jacket",
+      "url": "https://grittybelleboutique.com/products/silver-fringe-r-r-jacket?variant=42621922115780",
+      "priceCents": 7100,
       "currency": "USD",
-      "image": "/products/p-864df416a3.jpg",
+      "image": "/products/p-2776c6bc82.jpg",
+      "cutout": "/products/p-2776c6bc82-cutout.png",
       "sourceImages": [
-        "http://shopcindyjane.com/cdn/shop/files/black-star-faux-leather-fringe-moto-jacket-6582134.jpg?v=1789743869",
-        "https://shopcindyjane.com/cdn/shop/files/black-star-faux-leather-fringe-moto-jacket-6582134.jpg?v=1789743869",
-        "https://cdn.shopify.com/s/files/1/0693/8794/3970/files/black-star-faux-leather-fringe-moto-jacket-6582134.jpg?v=1789743869",
-        "https://cdn.shopify.com/s/files/1/0693/8794/3970/files/black-star-faux-leather-fringe-moto-jacket-8848119.jpg?v=1789743870",
-        "https://cdn.shopify.com/s/files/1/0693/8794/3970/files/black-star-faux-leather-fringe-moto-jacket-9544206.jpg?v=1789743869",
-        "https://cdn.shopify.com/s/files/1/0693/8794/3970/files/black-star-faux-leather-fringe-moto-jacket-3358699.jpg?v=1789743870"
+        "https://cdn.shopify.com/s/files/1/0608/9326/6116/files/1540C0A7-860E-40A1-B7D2-831A3C91A3E2.jpg?v=1700951893",
+        "https://cdn.shopify.com/s/files/1/0608/9326/6116/files/6A4E41DE-8E4F-454B-858A-DD5A52A3A024.jpg?v=1700951894"
       ],
       "availability": "in_stock",
       "sizes": [
-        "S / Black And White",
-        "M / Black And White",
-        "L / Black And White"
+        "XS",
+        "Small",
+        "Medium",
+        "Large",
+        "XL"
       ],
-      "merchantId": "shopcindyjane-com",
+      "merchantId": "grittybelleboutique-com",
       "tagSlugs": [
+        "silver",
+        "metallic",
         "fringe",
-        "faux-leather",
-        "stars",
         "western-wear",
         "moto"
       ],
-      "description": "Our Black Star Faux Leather Fringe Moto Jacket: for the folks who collect motel matchbooks, know every word to the jukebox songs & never quite learned how to leave before closing time. Finished with bold stars across the shoulders and dramatic fringe, this is the faux leather jacket made for chasing horizons, missi",
-      "checkedAt": "2026-10-24T22:39:09.593Z"
+      "description": "Silver-tone zip-front moto jacket with notched lapels, chest fringe, zippered pockets and snap details.",
+      "checkedAt": "2026-10-24T23:09:18.655Z"
     },
     {
       "id": "p-fac2225e1f",
@@ -266,10 +267,11 @@
       "priceCents": 5990,
       "currency": "USD",
       "image": "/products/p-fac2225e1f.jpg",
+      "cutout": "/products/p-fac2225e1f-cutout.png",
       "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/0940/5210/products/beige-fringe-jacket.jpg?v=1664649219",
         "https://cdn.shopify.com/s/files/1/0940/5210/products/white-fringe-jacket_5e938087-3890-4994-a7c8-7a8714aec9ae.jpg?v=1664649219",
         "https://cdn.shopify.com/s/files/1/0940/5210/products/suede-fringe-jacket.jpg?v=1664649219",
-        "https://cdn.shopify.com/s/files/1/0940/5210/products/beige-fringe-jacket.jpg?v=1664649219",
         "https://cdn.shopify.com/s/files/1/0940/5210/products/beige-suede-fringe-jacket.jpg?v=1664649219"
       ],
       "availability": "in_stock",
@@ -296,9 +298,10 @@
       "priceCents": 12000,
       "currency": "USD",
       "image": "/products/p-001ca783f4.jpg",
+      "cutout": "/products/p-001ca783f4-cutout.png",
       "sourceImages": [
-        "https://cdn.shopify.com/s/files/1/0940/5210/files/metallic-bell-bottoms-liv.jpg?v=1756259622",
         "https://cdn.shopify.com/s/files/1/0940/5210/files/24355708_439897ca-46d3-4044-a1e7-9aaccadb7351.jpg?v=1756259622",
+        "https://cdn.shopify.com/s/files/1/0940/5210/files/metallic-bell-bottoms-liv.jpg?v=1756259622",
         "https://cdn.shopify.com/s/files/1/0940/5210/files/47505f55-0e9c-4eb8-b1d3-74ca0ade1781.png?v=1780643460",
         "https://cdn.shopify.com/s/files/1/0940/5210/files/647a1473-9182-4b72-890f-f01428503b8a.png?v=1780643460",
         "https://cdn.shopify.com/s/files/1/0940/5210/files/e2d1ea3a-001f-482b-9f91-a4b5d8a9204f.png?v=1780643460"
@@ -345,12 +348,13 @@
       "priceCents": 4900,
       "currency": "USD",
       "image": "/products/p-bf85954bb6.jpg",
+      "cutout": "/products/p-bf85954bb6-cutout.png",
       "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/0794/5139/0145/files/METALLICFRONTJEANS.png?v=1762198226",
         "https://cdn.shopify.com/s/files/1/0794/5139/0145/files/METALLIC.webp?v=1762198226",
         "https://shaynagibbonskeeley.com/cdn/shop/files/METALLICFRONTJEANS_1024x1024.png?v=1762198226",
         "http://shaynagibbonskeeley.com/cdn/shop/files/METALLICFRONTJEANS.png?v=1762198226",
         "https://shaynagibbonskeeley.com/cdn/shop/files/METALLICFRONTJEANS.png?v=1762198226",
-        "https://cdn.shopify.com/s/files/1/0794/5139/0145/files/METALLICFRONTJEANS.png?v=1762198226",
         "https://cdn.shopify.com/s/files/1/0794/5139/0145/files/METALLICBACK.webp?v=1762198226"
       ],
       "availability": "in_stock",
@@ -376,12 +380,13 @@
       "priceCents": 3900,
       "currency": "USD",
       "image": "/products/p-ba3ef9a46e.jpg",
+      "cutout": "/products/p-ba3ef9a46e-cutout.png",
       "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/0757/5483/2096/files/Screenshot_2025-10-11_at_10.56.20_PM.png?v=1780688905",
         "https://thelocalgroup.shop/cdn/shop/files/Screenshot_2025-10-11_at_10.55.58_PM.png?v=1780688888&width=1920",
         "http://thelocalgroup.shop/cdn/shop/files/Screenshot_2025-10-11_at_10.55.58_PM.png?v=1780688888",
         "https://thelocalgroup.shop/cdn/shop/files/Screenshot_2025-10-11_at_10.55.58_PM.png?v=1780688888",
         "https://cdn.shopify.com/s/files/1/0757/5483/2096/files/Screenshot_2025-10-11_at_10.55.58_PM.png?v=1780688888",
-        "https://cdn.shopify.com/s/files/1/0757/5483/2096/files/Screenshot_2025-10-11_at_10.56.20_PM.png?v=1780688905",
         "https://cdn.shopify.com/s/files/1/0757/5483/2096/files/Screenshot2025-09-10at12.06.01AM.png?v=1780688922"
       ],
       "availability": "in_stock",
@@ -409,12 +414,13 @@
       "priceCents": 2000,
       "currency": "USD",
       "image": "/products/p-db9dc722b0.jpg",
+      "cutout": "/products/p-db9dc722b0-cutout.png",
       "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/0693/8794/3970/products/metallic-silver-cowgirl-boots-201533.jpg?v=1710262433",
         "https://shopcindyjane.com/cdn/shop/products/metallic-silver-cowgirl-boots-103386.jpg?v=1710262433&width=1920",
         "http://shopcindyjane.com/cdn/shop/products/metallic-silver-cowgirl-boots-103386.jpg?v=1710262433",
         "https://shopcindyjane.com/cdn/shop/products/metallic-silver-cowgirl-boots-103386.jpg?v=1710262433",
         "https://cdn.shopify.com/s/files/1/0693/8794/3970/products/metallic-silver-cowgirl-boots-103386.jpg?v=1710262433",
-        "https://cdn.shopify.com/s/files/1/0693/8794/3970/products/metallic-silver-cowgirl-boots-201533.jpg?v=1710262433",
         "https://cdn.shopify.com/s/files/1/0693/8794/3970/products/metallic-silver-cowgirl-boots-314882.jpg?v=1710262433"
       ],
       "availability": "in_stock",
@@ -439,6 +445,7 @@
       "priceCents": 5199,
       "currency": "USD",
       "image": "/products/p-fdcac24cb5.jpg",
+      "cutout": "/products/p-fdcac24cb5-cutout.png",
       "sourceImages": [
         "https://cdn.shopify.com/s/files/1/0940/5210/files/ponsiesembroideredcowboyboots-SH3950_Silver_1.jpg?v=1780919714",
         "https://cdn.shopify.com/s/files/1/0940/5210/files/embroidered_cowboy_boots.jpg?v=1780932667",
@@ -470,6 +477,7 @@
       "priceCents": 5990,
       "currency": "USD",
       "image": "/products/p-bc746b747a.jpg",
+      "cutout": "/products/p-bc746b747a-cutout.png",
       "sourceImages": [
         "https://cdn.shopify.com/s/files/1/0940/5210/files/western-fringe-boots_1.png?v=1788425397",
         "https://cdn.shopify.com/s/files/1/0940/5210/files/western-fringe-boots.png?v=1788425397",
@@ -502,6 +510,7 @@
       "priceCents": 7800,
       "currency": "USD",
       "image": "/products/p-0a49fa4bf2.jpg",
+      "cutout": "/products/p-0a49fa4bf2-cutout.png",
       "sourceImages": [
         "https://cdn.shopify.com/s/files/1/0595/2490/7173/files/Caribbean_Blue_Wild_Rag.png?v=1781368858",
         "https://cowtownwildrags.com/cdn/shop/files/Caribbean_Blue_Wild_Rag_1024x1024.png?v=1781368858",
@@ -532,6 +541,7 @@
       "priceCents": 2500,
       "currency": "USD",
       "image": "/products/p-dd6cb1a575.jpg",
+      "cutout": "/products/p-dd6cb1a575-cutout.png",
       "sourceImages": [
         "https://standardandstrange.com/cdn/shop/files/omotodenim-RevealKojimaBandanna-Blue-Flat-07.jpg?v=1785450722&width=1920",
         "http://standardandstrange.com/cdn/shop/files/omotodenim-RevealKojimaBandanna-Blue-Flat-07.jpg?v=1785450722",
@@ -563,11 +573,12 @@
       "priceCents": 20300,
       "currency": "USD",
       "image": "/products/p-bbebd49e6b.jpg",
+      "cutout": "/products/p-bbebd49e6b-cutout.png",
       "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/0254/0447/3422/products/W49440-RWPMKR-634020-PEACEMAKER.jpg?v=1621736000",
         "http://wilderwest.com/cdn/shop/products/W49440-RWPMKR-634020-PEACEMAKER_grande.jpg?v=1621736000",
         "https://wilderwest.com/cdn/shop/products/W49440-RWPMKR-634020-PEACEMAKER_grande.jpg?v=1621736000",
-        "https://wilderwest.com/cdn/shop/products/W49440-RWPMKR-634020-PEACEMAKER_medium.jpg?v=1621736000",
-        "https://cdn.shopify.com/s/files/1/0254/0447/3422/products/W49440-RWPMKR-634020-PEACEMAKER.jpg?v=1621736000"
+        "https://wilderwest.com/cdn/shop/products/W49440-RWPMKR-634020-PEACEMAKER_medium.jpg?v=1621736000"
       ],
       "availability": "in_stock",
       "sizes": [
@@ -595,6 +606,7 @@
       "priceCents": 800,
       "currency": "USD",
       "image": "/products/p-8df245a09b.jpg",
+      "cutout": "/products/p-8df245a09b-cutout.png",
       "sourceImages": [
         "https://cdn.shopify.com/s/files/1/0254/0447/3422/files/71mjwKTwMmL._AC_UX569.jpg?v=1687447576",
         "http://wilderwest.com/cdn/shop/files/img97943_austin-accent-paisley-print-bandana_600x_33aaac99-b126-470c-bdeb-16af25dbde9b_grande.webp?v=1687447457",
@@ -625,10 +637,11 @@
       "priceCents": 4990,
       "currency": "USD",
       "image": "/products/p-bc8f5c1ddb.jpg",
+      "cutout": "/products/p-bc8f5c1ddb-cutout.png",
       "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/0940/5210/products/BlackSuedeJacket_Front.jpg?v=1737969048",
         "https://cdn.shopify.com/s/files/1/0940/5210/products/black-fringe-jacket_6ba8a471-aa85-46c4-b849-b4914ad6f189.jpg?v=1737969048",
         "https://cdn.shopify.com/s/files/1/0940/5210/products/black-suede-fringe-jacket.jpg?v=1737969048",
-        "https://cdn.shopify.com/s/files/1/0940/5210/products/BlackSuedeJacket_Front.jpg?v=1737969048",
         "https://cdn.shopify.com/s/files/1/0940/5210/products/BlackSuedeJacket_Back.jpg?v=1737969048"
       ],
       "availability": "in_stock",
@@ -714,6 +727,14 @@
       "url": "https://wilderwest.com",
       "kind": "boutique",
       "neighborhoodId": "sf-fisherman-s-wharf"
+    },
+    {
+      "id": "grittybelleboutique-com",
+      "name": "Gritty Belle Boutique",
+      "domain": "grittybelleboutique.com",
+      "url": "https://grittybelleboutique.com",
+      "kind": "boutique",
+      "neighborhoodId": null
     }
   ],
   "neighborhoods": [
@@ -915,6 +936,6 @@
   "provenance": {
     "method": "pipeline",
     "generatedAt": "2026-10-24T22:39:09.593Z",
-    "notes": "Bright Data SERP and Web Unlocker, with direct public merchant pages and Shopify variant feeds when Shopping links or Unlocker were unusable; Claude decomposition and ranking. Only verified in-stock USD variants are included."
+    "notes": "Bright Data SERP and Web Unlocker, with direct public merchant pages and Shopify variant feeds when Shopping links or Unlocker were unusable; Claude decomposition and ranking. Only verified in-stock USD variants are included. Cowboy product photography was reviewed individually; complete product-only gallery photos and identity-preserving extractions replace modeled crops. The cropped star jacket was replaced by a live USD variant from Gritty Belle Boutique; merchant Shopify feed verified price and stock."
   }
 }
