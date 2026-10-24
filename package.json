@@ -7,7 +7,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint",
-    "typecheck": "tsc --noEmit",
+    "typecheck": "next typegen && tsc --noEmit",
     "seed": "bun scripts/seed.ts",
     "warm": "bun scripts/warm.ts",
     "source": "bun scripts/source/index.ts"
