@@ -1,51 +1,90 @@
 "use client";
 
-import { useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import { ProductImage } from "./product-image";
+import "./carousel.css";
 
 export interface Slide {
   key: string;
   src: string;
   alt: string;
   caption: string;
-  /** Local flat-lay uses next/image; merchant images use a plain img. */
+  /** Generated costume artwork is local; product photos remain unchanged. */
   local?: boolean;
 }
 
 export function Carousel({ slides }: { slides: Slide[] }) {
+  const root = useRef<HTMLElement>(null);
   const track = useRef<HTMLDivElement>(null);
   const [index, setIndex] = useState(0);
   const last = slides.length - 1;
+  const current = Math.min(index, Math.max(last, 0));
 
-  function go(to: number) {
+  const go = useCallback((to: number) => {
     const el = track.current;
     if (!el) return;
     const next = Math.min(Math.max(to, 0), last);
-    el.scrollTo({ left: next * el.clientWidth, behavior: "smooth" });
-  }
+    // Instant navigation keeps repeated clicks and key presses responsive.
+    el.scrollTo({ left: next * el.clientWidth, behavior: "instant" });
+    setIndex(next);
+  }, [last]);
 
-  return <section className="carousel" aria-roledescription="carousel" aria-label="Costume images">
-    <div className="carousel-track" ref={track} tabIndex={0}
-      onKeyDown={(event) => {
-        if (event.key === "ArrowLeft") { event.preventDefault(); go(index - 1); }
-        if (event.key === "ArrowRight") { event.preventDefault(); go(index + 1); }
-      }}
-      onScroll={(event) => {
-        const el = event.currentTarget;
-        setIndex(Math.round(el.scrollLeft / Math.max(el.clientWidth, 1)));
-      }}>
-      {slides.map((slide, i) => <figure className="slide" key={slide.key} aria-roledescription="slide" aria-label={`${i + 1} of ${slides.length}`}>
-        {slide.local
-          ? <Image src={slide.src} alt={slide.alt} fill sizes="(min-width: 960px) 50vw, 100vw" preload={i === 0} />
-          : <ProductImage src={slide.src} alt={slide.alt} />}
-        <figcaption>{slide.caption}</figcaption>
-      </figure>)}
-    </div>
-    {slides.length > 1 && <div className="carousel-controls">
-      <button type="button" className="text-btn" onClick={() => go(index - 1)} disabled={index === 0}>Previous</button>
-      <span className="carousel-count" aria-live="polite">{Math.min(index + 1, slides.length)} / {slides.length}</span>
-      <button type="button" className="text-btn" onClick={() => go(index + 1)} disabled={index >= last}>Next</button>
-    </div>}
-  </section>;
+  useEffect(() => {
+    function onKeyDown(event: KeyboardEvent) {
+      if (event.defaultPrevented || event.altKey || event.ctrlKey || event.metaKey || event.shiftKey) return;
+      if (event.key !== "ArrowLeft" && event.key !== "ArrowRight") return;
+      const target = event.target;
+      if (!(target instanceof HTMLElement)) return;
+      // Leave typing, dialogs, and controls outside the carousel to their own keys.
+      if (target.closest("input, textarea, select, [contenteditable]:not([contenteditable='false']), [role='dialog'], [role='combobox'], [role='slider']")) return;
+      if (target.closest("a, button, [tabindex]") && !root.current?.contains(target)) return;
+      const bounds = root.current?.getBoundingClientRect();
+      if (!bounds || bounds.bottom <= 0 || bounds.top >= window.innerHeight) return;
+      event.preventDefault();
+      go(current + (event.key === "ArrowRight" ? 1 : -1));
+    }
+    document.addEventListener("keydown", onKeyDown);
+    return () => document.removeEventListener("keydown", onKeyDown);
+  }, [current, go]);
+
+  if (!slides.length) return null;
+
+  return (
+    <section ref={root} className="carousel" aria-roledescription="carousel" aria-label="Costume images" aria-keyshortcuts="ArrowLeft ArrowRight">
+      <div className="carousel-frame">
+        <div className="carousel-track" ref={track} tabIndex={0} aria-label="Use left and right arrow keys to change images"
+          onScroll={(event) => {
+            const el = event.currentTarget;
+            setIndex(Math.min(last, Math.max(0, Math.round(el.scrollLeft / Math.max(el.clientWidth, 1)))));
+          }}>
+          {slides.map((slide, i) => (
+            <figure className={`slide${slide.local ? " slide-costume" : ""}`} key={slide.key} aria-roledescription="slide" aria-label={`${i + 1} of ${slides.length}`}>
+              {slide.local
+                ? <Image src={slide.src} alt={slide.alt} fill sizes="(min-width: 960px) 50vw, 100vw" preload={i === 0} />
+                : <ProductImage src={slide.src} alt={slide.alt} />}
+            </figure>
+          ))}
+        </div>
+        {slides.length > 1 && <>
+          <button type="button" className="carousel-arrow carousel-arrow-prev" aria-label="Previous image" onClick={() => go(current - 1)} disabled={current === 0}>
+            <Chevron direction="left" />
+          </button>
+          <button type="button" className="carousel-arrow carousel-arrow-next" aria-label="Next image" onClick={() => go(current + 1)} disabled={current === last}>
+            <Chevron direction="right" />
+          </button>
+        </>}
+      </div>
+      <div className="carousel-controls" aria-live="polite" aria-atomic="true">
+        <p className="carousel-caption">{slides[current].caption}</p>
+        {slides.length > 1 && <span className="carousel-count">{current + 1} / {slides.length}</span>}
+      </div>
+    </section>
+  );
+}
+
+function Chevron({ direction }: { direction: "left" | "right" }) {
+  return <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+    <path d={direction === "left" ? "m14 6-6 6 6 6" : "m10 6 6 6-6 6"} />
+  </svg>;
 }

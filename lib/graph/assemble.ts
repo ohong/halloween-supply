@@ -64,7 +64,13 @@ export function buildOption(raw: RawMatch): ProductOption {
     isCheapest: raw.cheaper === 0,
   };
   return {
-    product: { ...raw.product, merchantId: raw.merchant.id, tagSlugs: tags.map((t) => t.slug) },
+    product: {
+      ...raw.product,
+      // Preserve the merchant photo. Automated cutouts can remove clothing details.
+      image: raw.product.sourceImages.find((src) => /^https?:\/\//i.test(src))?.replace(/^http:/i, "https:") ?? raw.product.image,
+      merchantId: raw.merchant.id,
+      tagSlugs: tags.map((t) => t.slug),
+    },
     merchant: { ...raw.merchant, neighborhoodId: raw.neighborhood?.id ?? null },
     neighborhood,
     tags,

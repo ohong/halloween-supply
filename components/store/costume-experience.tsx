@@ -10,12 +10,16 @@ import { SaveLook } from "@/components/saved-looks";
 import { Carousel, type Slide } from "./carousel";
 import { suggestConsolidation } from "./consolidate";
 import { ProductImage } from "./product-image";
+import { ShopForMe } from "./shop-for-me";
 
 export function CostumeExperience({ costume }: { costume: CostumeView }) {
   const cart = useCart();
   const pieces = useMemo(() => [...costume.pieces].sort((a, b) => a.piece.order - b.piece.order), [costume.pieces]);
   // Chosen option index per piece; 0 is the default pick.
   const [chosen, setChosen] = useState<Record<string, number>>({});
+  const sourcingPieces = useMemo(() => pieces.map(({ piece, options }) => ({
+    id: piece.id, name: piece.name, queries: piece.queries, options,
+  })), [pieces]);
 
   function selectedIndex(view: PieceView) {
     const selected = chosen[view.piece.id];
@@ -30,7 +34,7 @@ export function CostumeExperience({ costume }: { costume: CostumeView }) {
   );
 
   const slides: Slide[] = [
-    { key: "flat-lay", src: costume.costume.image, alt: costume.costume.alt, caption: `${costume.costume.name} · the complete look`, local: costume.costume.image.startsWith("/") },
+    { key: "complete-look", src: costume.costume.image, alt: costume.costume.alt, caption: `${costume.costume.name} · the complete look`, local: costume.costume.image.startsWith("/") },
     ...pieces.flatMap((view) => {
       const option = picked.get(view.piece.id);
       return option ? [{ key: `${view.piece.id}:${option.product.id}`, src: option.product.image, alt: option.product.title, caption: `${view.piece.name} · ${option.merchant.name}` }] : [];
@@ -64,6 +68,8 @@ export function CostumeExperience({ costume }: { costume: CostumeView }) {
       <Link href="/" className="back-link">All costumes</Link>
       <h1 className="costume-title">{costume.costume.name}</h1>
       <p className="costume-description">{costume.costume.description}</p>
+
+      <ShopForMe pieces={sourcingPieces} onComplete={(choices) => setChosen((current) => ({ ...current, ...choices }))} />
 
       {pickedOptions.length > 0
         ? <div className="whole-costume">

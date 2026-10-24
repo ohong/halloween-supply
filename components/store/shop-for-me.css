@@ -1,0 +1,435 @@
+.shop-for-me-launch {
+  margin-bottom: 20px;
+}
+.shop-for-me-launch svg:last-child {
+  margin-left: auto;
+}
+.shop-for-me-launch svg:first-child {
+  margin-right: auto;
+}
+.shop-for-me-sequence {
+  --sourcing-ease: cubic-bezier(0.23, 1, 0.32, 1);
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  outline-offset: 5px;
+  margin-block-start: 4px;
+  margin-block-end: 24px;
+  padding-block-start: 22px;
+  padding-block-end: 12px;
+  scroll-margin-top: 80px;
+}
+.shop-for-me-sequence-head,
+.shop-for-me-sequence-foot,
+.shop-for-me-source-head,
+.shop-for-me-total {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+}
+.shop-for-me-activity {
+  display: flex;
+  color: var(--ink);
+  align-items: center;
+  gap: 9px;
+  font-size: 13px;
+  font-weight: 400;
+}
+.shop-for-me-activity-dot {
+  background: var(--ink);
+  animation: sourcing-breathe 1.6s ease infinite;
+  border-radius: 50%;
+  width: 6px;
+  height: 6px;
+}
+.shop-for-me-cancel {
+  color: var(--mid);
+  background: 0 0;
+  border: 0;
+  min-height: 32px;
+  padding: 5px 0 5px 12px;
+  font-size: 12px;
+}
+.shop-for-me-progress {
+  background: var(--grey);
+  overflow: hidden;
+  height: 2px;
+  margin-top: 18px;
+}
+.shop-for-me-progress > span {
+  display: block;
+  background: var(--ink);
+  transform-origin: left;
+  height: 100%;
+  transition: transform 0.1s linear;
+}
+.shop-for-me-steps {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 10px;
+  margin-top: 20px;
+}
+.shop-for-me-steps li {
+  display: flex;
+  color: var(--mid);
+  flex-direction: column;
+  gap: 8px;
+  font-size: 11px;
+  line-height: 1.45;
+}
+.shop-for-me-steps li[data-state="active"] {
+  color: var(--ink);
+  font-weight: 400;
+}
+.shop-for-me-step-mark {
+  display: grid;
+  place-items: center;
+  width: 16px;
+  height: 16px;
+}
+.shop-for-me-step-mark > span {
+  background: var(--line);
+  border-radius: 50%;
+  width: 5px;
+  height: 5px;
+}
+[data-state="active"] .shop-for-me-step-mark > span {
+  background: var(--ink);
+  animation: sourcing-breathe 1.6s ease infinite;
+}
+.shop-for-me-stage-heading {
+  margin-top: 34px;
+}
+.shop-for-me-stage-heading h2 {
+  letter-spacing: -0.025em;
+  color: var(--ink);
+  text-wrap: balance;
+  font-size: clamp(21px, 2vw, 26px);
+  font-weight: 300;
+  line-height: 1.2;
+}
+.shop-for-me-stage {
+  animation: sourcing-arrive 0.24s var(--sourcing-ease) both;
+  min-height: 305px;
+  padding-top: 24px;
+}
+.shop-for-me-breakdown {
+  display: grid;
+  gap: 0;
+}
+.shop-for-me-component {
+  display: flex;
+  border-bottom: 1px solid var(--grey);
+  animation: sourcing-arrive 0.24s var(--sourcing-ease) both;
+  align-items: center;
+  gap: 12px;
+  min-height: 46px;
+  font-size: 14px;
+}
+.shop-for-me-component svg {
+  color: var(--mid);
+  flex-shrink: 0;
+}
+.shop-for-me-search-stage {
+  animation: sourcing-arrive 0.2s var(--sourcing-ease) both;
+}
+.shop-for-me-search-field {
+  display: flex;
+  background: var(--grey);
+  color: var(--ink);
+  align-items: center;
+  gap: 10px;
+  min-height: 46px;
+  padding: 13px 14px;
+  font-size: 13px;
+}
+.shop-for-me-search-field svg {
+  flex-shrink: 0;
+}
+.shop-for-me-search-field > span:first-of-type {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.shop-for-me-search-cursor {
+  background: var(--ink);
+  animation: sourcing-breathe 0.8s ease infinite;
+  flex-shrink: 0;
+  width: 1px;
+  height: 15px;
+}
+.shop-for-me-source-head {
+  padding-block-start: 20px;
+  padding-block-end: 10px;
+}
+.shop-for-me-source-head h3 {
+  color: var(--ink);
+  font-size: 13px;
+  font-weight: 400;
+}
+.shop-for-me-source-head > span {
+  color: var(--mid);
+  white-space: nowrap;
+  font-size: 11px;
+}
+.shop-for-me-candidate {
+  display: flex;
+  border-top: 1px solid var(--grey);
+  animation: sourcing-arrive 0.24s var(--sourcing-ease) both;
+  align-items: center;
+  gap: 12px;
+  padding-block-start: 10px;
+  padding-block-end: 10px;
+}
+.shop-for-me-source-image {
+  background: var(--grey);
+  flex-shrink: 0;
+  width: 36px;
+  height: 42px;
+}
+.shop-for-me-source-image img {
+  object-fit: contain;
+  width: 100%;
+  height: 100%;
+}
+.shop-for-me-source-name {
+  display: grid;
+  color: var(--ink);
+  gap: 4px;
+  min-width: 0;
+  font-size: 13px;
+}
+.shop-for-me-source-name span,
+.shop-for-me-source-name small {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+.shop-for-me-source-name small,
+.shop-for-me-source-price small {
+  display: block;
+  color: var(--mid);
+  font-size: 11px;
+  font-weight: 300;
+}
+.shop-for-me-source-price {
+  white-space: nowrap;
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+  color: var(--ink);
+  margin-left: auto;
+  font-size: 13px;
+  font-weight: 400;
+}
+.shop-for-me-source-price small {
+  margin-top: 4px;
+}
+.shop-for-me-no-sources {
+  display: flex;
+  color: var(--mid);
+  align-items: center;
+  gap: 10px;
+  padding-block-start: 26px;
+  padding-block-end: 26px;
+  font-size: 13px;
+}
+.shop-for-me-component-track {
+  display: flex;
+  justify-content: center;
+  gap: 5px;
+  padding-block-start: 18px;
+  padding-block-end: 0;
+}
+.shop-for-me-component-track span {
+  background: var(--line);
+  transition: background-color var(--t);
+  width: 18px;
+  height: 2px;
+}
+.shop-for-me-component-track [data-active="true"] {
+  background: var(--ink);
+}
+.shop-for-me-table-head {
+  display: flex;
+  color: var(--mid);
+  border-bottom: 1px solid var(--line);
+  justify-content: space-between;
+  gap: 16px;
+  padding-bottom: 10px;
+  font-size: 11px;
+}
+.shop-for-me-comparison-row {
+  display: flex;
+  border-bottom: 1px solid var(--grey);
+  animation: sourcing-arrive 0.24s var(--sourcing-ease) both;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  min-height: 53px;
+  padding-block-start: 9px;
+  padding-block-end: 9px;
+  font-size: 13px;
+}
+.shop-for-me-comparison-row small,
+.shop-for-me-assembly-row small {
+  display: block;
+  color: var(--mid);
+  margin-top: 3px;
+  font-size: 11px;
+}
+.shop-for-me-compared-price {
+  display: flex;
+  white-space: nowrap;
+  font-variant-numeric: tabular-nums;
+  align-items: center;
+  gap: 8px;
+}
+.shop-for-me-compared-price small {
+  color: var(--mid);
+  font-size: 11px;
+}
+.shop-for-me-compared-price strong {
+  color: var(--ink);
+  font-weight: 400;
+}
+.shop-for-me-comparison-note {
+  color: var(--mid);
+  margin-top: 12px;
+  font-size: 11px;
+  line-height: 1.5;
+}
+.shop-for-me-assembly-row {
+  display: flex;
+  border-bottom: 1px solid var(--grey);
+  animation: sourcing-arrive 0.24s var(--sourcing-ease) both;
+  align-items: center;
+  gap: 12px;
+  min-height: 53px;
+  font-size: 13px;
+}
+.shop-for-me-assembly-mark {
+  color: var(--mid);
+  flex-shrink: 0;
+}
+.shop-for-me-total {
+  color: var(--ink);
+  padding-top: 18px;
+  font-size: 13px;
+}
+.shop-for-me-total strong {
+  font-variant-numeric: tabular-nums;
+  letter-spacing: -0.025em;
+  font-size: 20px;
+  font-weight: 400;
+}
+.shop-for-me-sequence-foot {
+  border-top: 1px solid var(--grey);
+  color: var(--mid);
+  margin-top: 22px;
+  padding-top: 14px;
+  font-size: 11px;
+  line-height: 1.5;
+}
+.shop-for-me-sequence-foot button {
+  color: var(--ink);
+  display: inline-flex;
+  background: 0 0;
+  border: 0;
+  flex-shrink: 0;
+  align-items: center;
+  gap: 6px;
+  min-height: 36px;
+  font-size: 11px;
+}
+.shop-for-me-sequence-foot button svg {
+  width: 13px;
+  height: 13px;
+}
+.shop-for-me-complete {
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  margin-block-start: 4px;
+  margin-block-end: 24px;
+  padding-block-start: 22px;
+  padding-block-end: 12px;
+}
+.shop-for-me-complete-heading {
+  display: flex;
+  color: var(--ink);
+  align-items: center;
+  gap: 10px;
+}
+.shop-for-me-complete-heading h2 {
+  letter-spacing: -0.02em;
+  font-size: 19px;
+  font-weight: 300;
+}
+.shop-for-me-result-note {
+  color: var(--mid);
+  max-width: 48ch;
+  margin-block-start: 10px;
+  margin-block-end: 8px;
+  font-size: 13px;
+  line-height: 1.65;
+}
+.shop-for-me-complete > button {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+}
+.shop-for-me-complete > button svg {
+  width: 13px;
+  height: 13px;
+}
+@keyframes sourcing-arrive {
+  0% {
+    opacity: 0.2;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes sourcing-breathe {
+  0%,
+  to {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.3;
+  }
+}
+@media (hover: hover) and (pointer: fine) {
+  .shop-for-me-cancel:hover {
+    color: var(--ink);
+  }
+  .shop-for-me-sequence-foot button:hover {
+    text-decoration: underline;
+    text-underline-offset: 4px;
+  }
+}
+@media (max-width: 420px) {
+  .shop-for-me-sequence-foot {
+    align-items: start;
+    gap: 8px;
+  }
+  .shop-for-me-steps {
+    gap: 7px;
+  }
+  .shop-for-me-steps li {
+    font-size: 10px;
+  }
+  .shop-for-me-compared-price {
+    flex-direction: column;
+    align-items: end;
+    gap: 2px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .shop-for-me-sequence *,
+  .shop-for-me-complete * {
+    animation: none;
+    transition-duration: 0s;
+  }
+}
