@@ -1,15 +1,15 @@
-/** The one live costume. The cart holds a single costume's pieces, so checkout sends this slug. */
+/** Used only to restore carts saved before multiple costumes were available. */
 export const liveCostumeSlug = "cosmic-cowboy";
 
 export const costumes = [
   {
     slug: "velvet-vampire",
-    status: "coming_soon",
+    status: "live",
     name: "Velvet Vampire",
     description: "A black velvet cape with oxblood lining, a ruffled shirt, and a tailored waistcoat.",
     image: "/costumes/velvet-vampire.png",
     alt: "Black velvet vampire cape with burgundy lining, a ruffled shirt, waistcoat, trousers, and black boots",
-    pieces: ["A black cape with a high collar", "A white ruffled shirt", "A black waistcoat and tailored trousers", "Black ankle boots", "A small silver brooch"],
+    pieces: ["A black cape with a high collar", "A white ruffled shirt", "A black waistcoat over your own trousers", "Black ankle boots", "A small silver brooch"],
     tip: "Borrow the shirt and trousers from your everyday wardrobe. Let the cape do the talking.",
   },
   {
@@ -24,7 +24,7 @@ export const costumes = [
   },
   {
     slug: "moon-moth",
-    status: "coming_soon",
+    status: "live",
     name: "Moon Moth",
     description: "A sage and cream wing cape over a dark jumpsuit, with a soft collar and antennae.",
     image: "/costumes/moon-moth.png",
@@ -34,22 +34,22 @@ export const costumes = [
   },
   {
     slug: "linen-ghost",
-    status: "coming_soon",
+    status: "live",
     name: "Linen Ghost",
-    description: "An off-white linen sheet with two eye openings and brown lace-up boots.",
+    description: "An off-white linen drape over a light base outfit, finished with brown lace-up boots.",
     image: "/costumes/linen-ghost.png",
     alt: "An off-white linen ghost costume with two oval eye openings, a flowing scalloped hem, and brown lace-up boots",
-    pieces: ["A large piece of off-white linen or an old sheet", "Two carefully positioned eye openings", "Comfortable clothes underneath", "Your favorite lace-up boots"],
+    pieces: ["An off-white sheet", "A comfortable light top", "Comfortable trousers", "Brown lace-up boots", "A small fastener for draping"],
     tip: "Pin and try on the fabric before cutting. Keep the eye openings clear and the hem above your shoes.",
   },
   {
     slug: "woodland-mushroom",
-    status: "coming_soon",
+    status: "live",
     name: "Woodland Mushroom",
     description: "A red felt mushroom cap, cream blouse, and brown corduroy overalls.",
     image: "/costumes/woodland-mushroom.png",
     alt: "A rust-red spotted mushroom cap hat with cream blouse, brown corduroy overalls, cream tights, and leather boots",
-    pieces: ["An oversized red mushroom cap hat", "Cream felt spots for the cap", "A cream puff-sleeve blouse", "Brown corduroy overalls", "Cream tights and brown boots"],
+    pieces: ["A red spotted mushroom cap hat", "A cream puff-sleeve blouse", "Brown corduroy overalls", "Cream tights", "Brown boots"],
     tip: "Build a lightweight cap around a comfortable hat. Felt spots and pleated cream fabric underneath add the finishing detail.",
   },
 ] as const;

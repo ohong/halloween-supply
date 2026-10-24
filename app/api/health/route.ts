@@ -1,6 +1,6 @@
 import { connection } from "next/server";
 import { getCatalogSource, getCostume } from "@/lib/catalog";
-import { liveCostumeSlug } from "@/lib/costumes";
+import { costumes, liveCostumeSlug } from "@/lib/costumes";
 import { getGraph, isGraphConfigured, resetGraph } from "@/lib/graph/client";
 
 const set = (name: string) => Boolean(process.env[name]);
@@ -9,16 +9,25 @@ const set = (name: string) => Boolean(process.env[name]);
 export async function GET() {
   await connection();
 
-  const catalogPromise = getCostume(liveCostumeSlug).then((view) => ({
-    source: getCatalogSource(),
-    pieces: view?.pieces.length ?? 0,
-    products: new Set(view?.pieces.flatMap((piece) => piece.options.map((option) => option.product.id))).size,
-    complete: Boolean(view?.pieces.length) && (view?.pieces.every((piece) =>
-      piece.options.length >= 3 && piece.options.some((option) =>
-        option.pick.rank === 0 && option.product.availability === "in_stock",
-      ),
-    ) ?? false),
-  }));
+  // Resolve in sequence so the source belongs to this exact catalog read.
+  const catalogPromise = (async () => {
+    const catalogs = [];
+    for (const costume of costumes.filter((item) => item.status === "live")) {
+      const view = await getCostume(costume.slug);
+      catalogs.push({
+        costumeSlug: costume.slug,
+        source: getCatalogSource(),
+        pieces: view?.pieces.length ?? 0,
+        products: new Set(view?.pieces.flatMap((piece) => piece.options.map((option) => option.product.id))).size,
+        complete: view?.pieces.length === 5 && view.pieces.every(({ options }) =>
+          options.length === 3 && options.some(({ pick, product }) =>
+            pick.rank === 0 && product.availability === "in_stock" && Boolean(product.cutout),
+          ),
+        ),
+      });
+    }
+    return catalogs;
+  })();
 
   const graph = { configured: isGraphConfigured(), ok: false, latencyMs: null as number | null, costume: false, pieces: 0, products: 0 };
   const graphPromise = (async () => {
@@ -50,12 +59,14 @@ export async function GET() {
       clearTimeout(timer);
     }
   })();
-  const [catalog] = await Promise.all([catalogPromise, graphPromise]);
+  const [catalogs] = await Promise.all([catalogPromise, graphPromise]);
+  const catalog = catalogs.find((item) => item.costumeSlug === liveCostumeSlug);
+  const complete = catalogs.length > 0 && catalogs.every((item) => item.complete);
 
   const key = process.env.STRIPE_SECRET_KEY ?? "";
   return Response.json(
     {
-      status: graph.ok && catalog.source === "graph" && catalog.complete ? "ok" : "degraded",
+      status: graph.ok && catalogs.every((item) => item.source === "graph") && complete ? "ok" : "degraded",
       buildCommit: process.env.VERCEL_GIT_COMMIT_SHA ?? null,
       env: {
         ANTHROPIC_API_KEY: set("ANTHROPIC_API_KEY"),
@@ -68,9 +79,10 @@ export async function GET() {
         CRON_SECRET: set("CRON_SECRET"),
       },
       graph,
-      catalogSource: catalog.source,
-      catalog: { costumeSlug: liveCostumeSlug, ...catalog },
+      catalogSource: catalogs.every((item) => item.source === "graph") ? "graph" : "snapshot",
+      catalog,
+      catalogs,
     },
-    { status: catalog.complete ? 200 : 503, headers: { "Cache-Control": "no-store" } },
+    { status: complete ? 200 : 503, headers: { "Cache-Control": "no-store" } },
   );
 }
