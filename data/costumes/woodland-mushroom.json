@@ -1,0 +1,943 @@
+{
+  "costume": {
+    "slug": "woodland-mushroom",
+    "name": "Woodland Mushroom",
+    "description": "A red spotted mushroom hat, cream blouse, and brown corduroy overalls.",
+    "image": "/products/woodland-mushroom-flatlay.jpg",
+    "alt": "Woodland Mushroom: red spotted mushroom hat, cream blouse, brown corduroy overalls, cream tights, brown boots, arranged on pale grey.",
+    "status": "live"
+  },
+  "pieces": [
+    {
+      "id": "mushroom-hat",
+      "name": "Red spotted mushroom hat",
+      "category": "Headwear",
+      "required": true,
+      "order": 1,
+      "styleNotes": "A rounded red felt mushroom cap dotted with cream spots, handmade in a cottagecore fairytale style. It should sit lightweight and comfortable on the head, with a slightly domed silhouette.",
+      "queries": [
+        "handmade red felt mushroom hat white spots Etsy",
+        "cottagecore wool felt mushroom cap hat red handmade",
+        "fairy forest red mushroom hat felt costume handmade"
+      ],
+      "sizeKind": "one_size",
+      "matches": [
+        {
+          "productId": "p-1c7d22a0b4",
+          "rank": 0,
+          "reason": "Handmade in California from cotton, this adult hat has a domed red cap, white spots and a pleated cream underside. Its mushroom silhouette anchors the woodland look."
+        },
+        {
+          "productId": "p-15ce18ceb4",
+          "rank": 1,
+          "reason": "Hand-felted from 100% wool, this red fly agaric beret has white polka dots and a 3D mushroom on top, giving a cottagecore fairytale look, though it is a beret shape rather than a full domed cap."
+        },
+        {
+          "productId": "p-fa247ed9c8",
+          "rank": 2,
+          "reason": "A red wool felt beret with small mushrooms; the listing gives only material and color, with no mention of white spots or a domed cap."
+        }
+      ]
+    },
+    {
+      "id": "cream-blouse",
+      "name": "Cream blouse",
+      "category": "Tops",
+      "required": true,
+      "order": 2,
+      "styleNotes": "A soft cream blouse in cotton or linen with puff sleeves or a Peter Pan collar. Vintage prairie or cottagecore styling suits the earthy look.",
+      "queries": [
+        "vintage cream cotton prairie blouse puff sleeve",
+        "handmade cream linen peasant blouse Etsy",
+        "vintage ivory Peter Pan collar blouse cottagecore"
+      ],
+      "sizeKind": "apparel",
+      "matches": [
+        {
+          "productId": "p-2e68ffb9ca",
+          "rank": 0,
+          "reason": "Soft cream textured woven blouse with a keyhole neckline that ties into a bow, a romantic period-drama look that suits the cottagecore styling; fiber content is not stated."
+        },
+        {
+          "productId": "p-e8f6f99d70",
+          "rank": 1,
+          "reason": "Ivory vintage-style blouse in lightweight crepe with peacock feather embossing, a tie neck, and billowing long sleeves with button cuffs, which gives a soft vintage-inspired look, though it is semi-sheer and more glam than earthy."
+        },
+        {
+          "productId": "p-98d4153601",
+          "rank": 2,
+          "reason": "Ivory dolman-sleeve button-up in a rayon-nylon blend with embroidery, but it has no puff sleeves or Peter Pan collar and is not cotton or linen, so it reads more modern than prairie."
+        }
+      ]
+    },
+    {
+      "id": "brown-corduroy-overalls",
+      "name": "Brown corduroy overalls",
+      "category": "Bottoms",
+      "required": true,
+      "order": 3,
+      "styleNotes": "Earthy brown corduroy overalls with a relaxed 70s silhouette and a straight or slightly flared leg. Worn-in vintage texture suits the woodland look.",
+      "queries": [
+        "vintage brown corduroy overalls 70s",
+        "brown corduroy bib overalls secondhand vintage women",
+        "handmade brown corduroy dungarees Etsy"
+      ],
+      "sizeKind": "pants",
+      "matches": [
+        {
+          "productId": "p-6f635d52e1",
+          "rank": 0,
+          "reason": "Brown corduroy overalls in 97% cotton and 3% spandex with a relaxed fit, adjustable buckle straps and front and back slip pockets, which gives a structured earthy base for the costume."
+        },
+        {
+          "productId": "p-d03db98829",
+          "rank": 1,
+          "reason": "Brown corduroy overalls with a relaxed fit, adjustable metal-buckle straps, five pockets and a cuffed hem, which gives a vintage-inspired look for the woodland costume."
+        },
+        {
+          "productId": "p-c7a21e7a36",
+          "rank": 2,
+          "reason": "Soft brown corduroy overalls with a relaxed wide-leg silhouette, adjustable straps and a front bib pocket, which suits the earthy 70s woodland look."
+        }
+      ]
+    },
+    {
+      "id": "cream-tights",
+      "name": "Cream tights",
+      "category": "Hosiery",
+      "required": true,
+      "order": 4,
+      "styleNotes": "Opaque cream tights in cotton or a soft knit blend, with a slightly textured or cable-knit look for cottagecore charm. They tie the cream blouse into the outfit.",
+      "queries": [
+        "cream cable knit tights cotton cottagecore",
+        "vintage style ivory opaque tights small brand",
+        "cream wool blend knit tights handmade Etsy"
+      ],
+      "sizeKind": "apparel",
+      "matches": [
+        {
+          "productId": "p-7420e8a31b",
+          "rank": 0,
+          "reason": "Merino wool cable-knit tights in Oatmeal give the textured, cottagecore look requested, though the oatmeal shade is a slightly deeper neutral than true cream; they pair well with a cream blouse."
+        },
+        {
+          "productId": "p-c1b881a1cf",
+          "rank": 1,
+          "reason": "80 denier microfiber tights in Ivory with good opacity match the cream color, but they are smooth and silky rather than textured or cable-knit."
+        },
+        {
+          "productId": "p-de1a3e35c4",
+          "rank": 2,
+          "reason": "80 denier microfiber plus size tights in Ivory with good opacity match the cream color, but they are smooth and silky rather than textured or cable-knit."
+        }
+      ]
+    },
+    {
+      "id": "brown-boots",
+      "name": "Brown boots",
+      "category": "Footwear",
+      "required": true,
+      "order": 5,
+      "styleNotes": "Worn brown leather ankle or lace-up boots with a vintage, woodland-trekking feel. A rounded toe and a low heel keep them practical and comfortable.",
+      "queries": [
+        "vintage brown leather lace up ankle boots",
+        "secondhand brown leather boots women western wear",
+        "handmade brown leather lace-up boots Etsy"
+      ],
+      "sizeKind": "shoe",
+      "matches": [
+        {
+          "productId": "p-5434cb33bf",
+          "rank": 0,
+          "reason": "The merchant lists a fully waterproof trail boot in Rugged Bark. Its reviewed product photo shows brown uppers and a lace-up front."
+        },
+        {
+          "productId": "p-85e9e6d813",
+          "rank": 1,
+          "reason": "The reviewed Dakota product photo shows brown lace-up uppers. The merchant lists waterproof construction and an all-terrain, slip-resistant rubber outsole."
+        },
+        {
+          "productId": "p-2694d6fdfc",
+          "rank": 2,
+          "reason": "A waterproof Chelsea-style boot in Espresso, a dark brown, but the pull-on Chelsea silhouette is less of a lace-up woodland-trekking look; it is built on the Primal Zen outsole with a zero-drop, ultra-wide fit."
+        }
+      ]
+    }
+  ],
+  "products": [
+    {
+      "id": "p-15ce18ceb4",
+      "title": "Red Mushroom Beret - Hand Felted Wool Hat",
+      "url": "https://heartfeltlayers.com/products/red-mushroom-beret-hand-felted-wool-hat?variant=54281112879407",
+      "priceCents": 6500,
+      "currency": "USD",
+      "image": "/products/p-15ce18ceb4.jpg",
+      "sourceImages": [
+        "https://heartfeltlayers.com/cdn/shop/files/mushroom_cover.png?v=1771798254&width=1920",
+        "http://heartfeltlayers.com/cdn/shop/files/mushroom_cover.png?v=1771798254",
+        "https://heartfeltlayers.com/cdn/shop/files/mushroom_cover.png?v=1771798254",
+        "https://cdn.shopify.com/s/files/1/0969/4514/4111/files/mushroom_cover.png?v=1771798254",
+        "https://cdn.shopify.com/s/files/1/0969/4514/4111/files/mushroom2.png?v=1771798254",
+        "https://cdn.shopify.com/s/files/1/0969/4514/4111/files/2026-01-25153801.jpg?v=1771798321"
+      ],
+      "availability": "in_stock",
+      "sizes": [
+        "Default Title"
+      ],
+      "merchantId": "heartfeltlayers-com",
+      "tagSlugs": [
+        "handmade",
+        "felt",
+        "wool",
+        "cottagecore",
+        "mushroom"
+      ],
+      "description": "Step into a magical woodland fairytale with our enchanting hand-felted fly agaric beret! This bright red hat features whimsical white polka dots and an adorable 3D mushroom sprouting right on top, making it the ultimate cottagecore accessory to brighten your wardrobe. We are so delighted to bring this forest-inspired design to life for you. Each cap is meticulously handcrafted from 100% premium wool using a traditional hand-felting technique, ensuring a soft, cozy, and high-quality finish. The playful toadstool details make this piece a truly unique work of wearable art that is perfect for na…",
+      "checkedAt": "2026-10-24T23:11:08.334Z",
+      "cutout": "/products/p-15ce18ceb4-cutout.png"
+    },
+    {
+      "id": "p-1c7d22a0b4",
+      "title": "Adult Mushroom Hat — Hat",
+      "url": "https://bandofthewild.com/products/adult-mushroom-hat?variant=46316878102715",
+      "priceCents": 6500,
+      "currency": "USD",
+      "image": "/products/p-1c7d22a0b4.jpg",
+      "sourceImages": [
+        "https://www.bandofthewild.com/cdn/shop/files/Facetune_18-08-2024-20-12-30.jpg?v=1754426562&width=1537",
+        "http://www.bandofthewild.com/cdn/shop/files/Facetune_18-08-2024-20-12-30.jpg?v=1754426562",
+        "https://www.bandofthewild.com/cdn/shop/files/Facetune_18-08-2024-20-12-30.jpg?v=1754426562",
+        "https://cdn.shopify.com/s/files/1/0568/9052/3835/files/Facetune_18-08-2024-20-12-30.jpg?v=1754426562",
+        "https://cdn.shopify.com/s/files/1/0568/9052/3835/files/243DC8DB-5A40-4CBD-BF29-4949B4EBE70A.jpg?v=1780544014",
+        "https://cdn.shopify.com/s/files/1/0568/9052/3835/files/mushroom.jpg?v=1754426562"
+      ],
+      "availability": "in_stock",
+      "sizes": [
+        "Hat"
+      ],
+      "merchantId": "bandofthewild-com",
+      "tagSlugs": [
+        "handmade",
+        "cotton",
+        "mushroom",
+        "cottagecore",
+        "adult"
+      ],
+      "description": "Handmade in California from soft, eco-friendly cotton, this whimsical Adult Mushroom Hat is inspired by nature’s most enchanting fungi. Featuring a vibrant red cap with white spots, it’s crafted entirely from sustainable materials for a costume that’s as kind to the planet as it is charming. Comfortable, breathable, and designed to fit most adults, it’s perfect for Halloween, parties, or twinning with your little woodland sidekick.",
+      "checkedAt": "2026-10-24T23:11:08.334Z",
+      "cutout": "/products/p-1c7d22a0b4-cutout.png"
+    },
+    {
+      "id": "p-2e68ffb9ca",
+      "title": "Iona Textured Woven Blouse - Cream",
+      "url": "https://snagtights.us/products/textured-woven-blouse-cream?variant=45785053200453",
+      "priceCents": 9499,
+      "currency": "USD",
+      "image": "/products/p-2e68ffb9ca.jpg",
+      "sourceImages": [
+        "https://snagtights.us/cdn/shop/files/Emma-SizeD-WovenTop-Cream-Height-6ft_2_8ce0be39-1309-440d-af9d-50629d5ebaa6.jpg?v=1792080240&width=1920",
+        "http://snagtights.us/cdn/shop/files/Emma-SizeD-WovenTop-Cream-Height-6ft_2_8ce0be39-1309-440d-af9d-50629d5ebaa6.jpg?v=1792080240",
+        "https://snagtights.us/cdn/shop/files/Emma-SizeD-WovenTop-Cream-Height-6ft_2_8ce0be39-1309-440d-af9d-50629d5ebaa6.jpg?v=1792080240",
+        "https://cdn.shopify.com/s/files/1/0069/7568/4655/files/Emma-SizeD-WovenTop-Cream-Height-6ft_2_8ce0be39-1309-440d-af9d-50629d5ebaa6.jpg?v=1792080240",
+        "https://cdn.shopify.com/s/files/1/0069/7568/4655/files/Nicole-SizeE-WovenTop-Cream-Height-5ft5_1_05f78e28-4799-49ba-96cc-baeab29fedb8.jpg?v=1792080240",
+        "https://cdn.shopify.com/s/files/1/0069/7568/4655/files/Bella-Size-G-Woven-Top-Cream-Height-5ft9-Full-Phone-Shot_1_c3443278-54ef-44ca-90ed-98c3563b54e2.jpg?v=1792080240"
+      ],
+      "availability": "in_stock",
+      "sizes": [
+        "A/B (0-2)",
+        "C (4-6)",
+        "D (8-10)",
+        "E (12-14)",
+        "F (16-18)",
+        "G (20-22)",
+        "I (28-30)",
+        "J (32-34)"
+      ],
+      "merchantId": "snagtights-us",
+      "tagSlugs": [
+        "cream",
+        "textured",
+        "period-drama",
+        "tie-neck",
+        "cottagecore"
+      ],
+      "description": "Every romantic heroine needs a blouse like this. In a soft cream shade, this beautifully textured style has just the right amount of period drama while still feeling effortless enough for every day. The keyhole neckline can be tied into a neat bow when you're feeling polished or left loose to create an easy V neck. Relaxed through the body, it looks gorgeous tucked into our Green Tartan Maxi Skirt for full romantic effect, but works just as beautifully worn loose with leggings or denim. Perfect for living out your period-drama dreams, whether you're the scullery maid, the grand witch's daught…",
+      "checkedAt": "2026-10-24T23:22:10.556Z",
+      "cutout": "/products/p-2e68ffb9ca-cutout.png"
+    },
+    {
+      "id": "p-e8f6f99d70",
+      "title": "Unique Vintage Ivory Peacock Feather Embossed Gwen Blouse",
+      "url": "https://unique-vintage.com/products/unique-vintage-ivory-peacock-feather-embossed-gwen-blouse?variant=43352672305254",
+      "priceCents": 4899,
+      "currency": "USD",
+      "image": "/products/p-e8f6f99d70.jpg",
+      "sourceImages": [
+        "https://www.unique-vintage.com/cdn/shop/files/unique-vintage-ivory-peacock-feather-embossed-gwen-blouse-9889637.jpg?v=1759513166&width=1920",
+        "http://www.unique-vintage.com/cdn/shop/files/unique-vintage-ivory-peacock-feather-embossed-gwen-blouse-9889637.jpg?v=1759513166",
+        "https://www.unique-vintage.com/cdn/shop/files/unique-vintage-ivory-peacock-feather-embossed-gwen-blouse-9889637.jpg?v=1759513166",
+        "https://cdn.shopify.com/s/files/1/2714/9310/files/unique-vintage-ivory-peacock-feather-embossed-gwen-blouse-9889637.jpg?v=1759513166",
+        "https://cdn.shopify.com/s/files/1/2714/9310/files/unique-vintage-ivory-peacock-feather-embossed-gwen-blouse-3717417.jpg?v=1759513166",
+        "https://cdn.shopify.com/s/files/1/2714/9310/files/unique-vintage-ivory-peacock-feather-embossed-gwen-blouse-1789641.jpg?v=1759513166"
+      ],
+      "availability": "in_stock",
+      "sizes": [
+        "XL/14-16"
+      ],
+      "merchantId": "unique-vintage-com",
+      "tagSlugs": [
+        "ivory",
+        "vintage-style",
+        "crepe",
+        "tie-neck",
+        "billowy-sleeves"
+      ],
+      "description": "You need an attitude, darling! A chic separate with vintage glamour, the Gwen Blouse from Unique Vintage will get your opinion heard. Crafted in a lightweight crepe, this elegant piece is cast in ivory with subtle peacock feather embossing. The button up form of this semi-sheer top leads to a stunning attached neck tie that provides a beautiful embellishment to your visage. The billowing long sleeves leads to button cuffs for a bewitching silhouette that leaves them speechless! Available in sizes XS-5X while supplies last.",
+      "checkedAt": "2026-10-24T23:22:10.556Z",
+      "cutout": "/products/p-e8f6f99d70-cutout.png"
+    },
+    {
+      "id": "p-6f635d52e1",
+      "title": "Cassidie Corduroy Overalls — Brown",
+      "url": "https://vicicollection.com/products/cassidie-corduroy-overalls?variant=42023075283006",
+      "priceCents": 8800,
+      "currency": "USD",
+      "image": "/products/p-6f635d52e1.jpg",
+      "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/0204/7208/files/FINAL_07_VCR45125-MUSHROOM_9-13-2025_7528.jpg?v=1757625288",
+        "https://www.vicicollection.com/cdn/shop/files/FINAL_07_VCR45125-MUSHROOM_9-13-2025_7528.jpg?v=1757625288&width=1024",
+        "https://www.vicicollection.com/cdn/shop/files/FINAL_07_VCR45125-MUSHROOM_9-13-2025_7554.jpg?v=1757625325&width=1024",
+        "https://www.vicicollection.com/cdn/shop/files/FINAL_07_VCR45125-MUSHROOM_9-13-2025_7557.jpg?v=1757625325&width=1024",
+        "https://www.vicicollection.com/cdn/shop/files/FINAL_07_VCR45125-MUSHROOM_9-13-2025_7563.jpg?v=1757625325&width=1024",
+        "https://www.vicicollection.com/cdn/shop/files/FINAL_07_VCR45125-MUSHROOM_9-13-2025_7545.jpg?v=1757625325&width=1024"
+      ],
+      "availability": "in_stock",
+      "sizes": [
+        "Brown / S",
+        "Brown / M"
+      ],
+      "merchantId": "vicicollection-com",
+      "tagSlugs": [
+        "corduroy",
+        "brown",
+        "cotton",
+        "overalls",
+        "relaxed-fit"
+      ],
+      "description": "Somewhere between apple orchard daydream and city-stroll cool, the Cassidie Corduroy Overalls were made to move with your fall mood. With soft, structured corduroy and a relaxed silhouette, these overalls bring effortless charm to everything from chunky knits to cropped tees. Adjustable buckle straps let you fine-tune your vibe, while front and back slip pockets keep it all chill and functional. Corduroy fabric Rigid non stretch fabric Relaxed fit Adjustable buckle straps at shoulders Front and back slip pockets Buttoned waist Unlined 97% Cotton 3% Spandex",
+      "checkedAt": "2026-10-24T23:09:45.749Z",
+      "cutout": "/products/p-6f635d52e1-cutout.png"
+    },
+    {
+      "id": "p-d03db98829",
+      "title": "Brown Cotton Corduroy Overalls - Vintage-Inspired Adjustable Strap C1830 — Brown",
+      "url": "https://ylistyle.com/products/retro-brown-corduroy-overalls-women-c1830?variant=39656404189253",
+      "priceCents": 8900,
+      "currency": "USD",
+      "image": "/products/p-d03db98829.jpg",
+      "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/0045/7162/7589/products/A12A7744_b3bdbb80-c814-49da-adbe-3b600738d42a.jpg?v=1638773082",
+        "https://ylistyle.com/cdn/shop/products/A12A7744_b3bdbb80-c814-49da-adbe-3b600738d42a.jpg?v=1638773082&width=1920",
+        "http://ylistyle.com/cdn/shop/products/A12A7744_b3bdbb80-c814-49da-adbe-3b600738d42a.jpg?v=1638773082",
+        "https://ylistyle.com/cdn/shop/products/A12A7744_b3bdbb80-c814-49da-adbe-3b600738d42a.jpg?v=1638773082",
+        "https://cdn.shopify.com/s/files/1/0045/7162/7589/products/A12A7727_d0ed3bbe-06de-467c-becb-6e5ff4c8a99c.jpg?v=1638773082",
+        "https://cdn.shopify.com/s/files/1/0045/7162/7589/products/A12A7728_9d52a926-1a63-4362-aadd-a1425debbda3.jpg?v=1638773082"
+      ],
+      "availability": "in_stock",
+      "sizes": [
+        "Brown / XS",
+        "Brown / S",
+        "Brown / M",
+        "Brown / L",
+        "Brown / XL"
+      ],
+      "merchantId": "ylistyle-com",
+      "tagSlugs": [
+        "corduroy",
+        "brown",
+        "dtc",
+        "overalls",
+        "vintage-inspired"
+      ],
+      "description": "Embrace effortless nostalgia with these brown corduroy overalls, designed for comfort and vintage charm. The relaxed fit and soft texture offer easy movement, making them perfect for casual days or layered looks. Adjustable straps ensure a personalized fit, blending timeless style with practical wearability. Material: 60% cotton corduroy, medium weight, breathable, and soft-washed Loose waistband for relaxed comfort Five functional pockets Adjustable shoulder straps with metal buckles Side button closures Cuffed hem detail Suitable for spring and autumn wear Care: dry clean or wash by hand or…",
+      "checkedAt": "2026-10-24T23:09:45.749Z",
+      "cutout": "/products/p-d03db98829-cutout.png"
+    },
+    {
+      "id": "p-c7a21e7a36",
+      "title": "Classic Brown Corduroy Overalls",
+      "url": "https://goldenhourgiftco.com/products/classic-brown-corduroy-overalls?variant=41575476428858",
+      "priceCents": 5500,
+      "currency": "USD",
+      "image": "/products/p-c7a21e7a36.jpg",
+      "sourceImages": [
+        "https://goldenhourgiftco.com/cdn/shop/files/smwardrobe_12_6e869dba-3e19-4447-a69f-06eff9530c86_1024x1024.png?v=1785614621",
+        "http://goldenhourgiftco.com/cdn/shop/files/smwardrobe_12_6e869dba-3e19-4447-a69f-06eff9530c86.png?v=1785614621",
+        "https://goldenhourgiftco.com/cdn/shop/files/smwardrobe_12_6e869dba-3e19-4447-a69f-06eff9530c86.png?v=1785614621",
+        "https://cdn.shopify.com/s/files/1/0792/2305/files/smwardrobe_12_6e869dba-3e19-4447-a69f-06eff9530c86.png?v=1785614621",
+        "https://cdn.shopify.com/s/files/1/0792/2305/files/smwardrobe_13_c6eeb304-a07d-4e0b-b6c4-a21f0eca83f2.png?v=1785614767"
+      ],
+      "availability": "in_stock",
+      "sizes": [
+        "S"
+      ],
+      "merchantId": "goldenhourgiftco-com",
+      "tagSlugs": [
+        "corduroy",
+        "brown",
+        "wide-leg",
+        "overalls",
+        "boutique"
+      ],
+      "description": "Classic Corduroy Overalls 🤎🍂 Timeless, cozy, and made for everyday adventures. These soft brown corduroy overalls feature a relaxed wide-leg silhouette that's easy to layer through every season. With classic utility details and a comfortable fit, they're a wardrobe staple you'll reach for again and again. Details:🤎 Soft, textured brown corduroy fabric👖 Relaxed wide-leg silhouette for all-day comfort🎀 Adjustable shoulder straps for a customizable fit👜 Front bib pocket and roomy side pockets🌿 Perfect for layering over your favorite tees, turtlenecks, or sweaters👟 Pairs effortlessly with…",
+      "checkedAt": "2026-10-24T23:09:45.749Z",
+      "cutout": "/products/p-c7a21e7a36-cutout.png"
+    },
+    {
+      "id": "p-c1b881a1cf",
+      "title": "Color Tights — Ivory",
+      "url": "https://sockdreams.com/products/color-tights?variant=44684372640039",
+      "priceCents": 2800,
+      "currency": "USD",
+      "image": "/products/p-c1b881a1cf.jpg",
+      "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/0712/4978/9223/products/color-tights-ivory-s-m.jpg?v=1775593182",
+        "https://sockdreams.com/cdn/shop/files/TBSDT8000-antique-Rose-JT-NN.jpg?v=1762457713&width=1920",
+        "https://sockdreams.com/cdn/shop/products/color-tights-black-s-m.jpg?v=1775593182&width=1920",
+        "https://sockdreams.com/cdn/shop/files/DT8000_darkgrey15_IL.jpg?v=1775593182&width=1920",
+        "https://sockdreams.com/cdn/shop/products/color-tights-ivory-s-m.jpg?v=1775593182&width=1920",
+        "https://sockdreams.com/cdn/shop/products/color-tights-merlot-s-m.jpg?v=1775593409&width=1920"
+      ],
+      "availability": "in_stock",
+      "sizes": [
+        "Ivory"
+      ],
+      "merchantId": "sockdreams-com",
+      "tagSlugs": [
+        "ivory",
+        "opaque",
+        "microfiber",
+        "tights"
+      ],
+      "description": "Beautiful 80 denier microfiber tights that come in a rainbow of colors! Great for any occasion, from office clothes to cosplay, we love their silky texture and good opacity.",
+      "checkedAt": "2026-10-24T23:13:40.185Z",
+      "cutout": "/products/p-c1b881a1cf-cutout.png"
+    },
+    {
+      "id": "p-de1a3e35c4",
+      "title": "Plus Size Color Tights — Ivory",
+      "url": "https://sockdreams.com/products/plus-size-color-tights?variant=51214866022695",
+      "priceCents": 2800,
+      "currency": "USD",
+      "image": "/products/p-de1a3e35c4.jpg",
+      "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/0712/4978/9223/files/color-tights-ivory-s-m.jpg?v=1775669651",
+        "https://sockdreams.com/cdn/shop/files/TBSDT8000-antique-rose-plus-TB-NN.jpg?v=1775669651&width=1920",
+        "https://sockdreams.com/cdn/shop/products/color-tights-black-p.jpg?v=1775669651&width=1920",
+        "https://sockdreams.com/cdn/shop/products/color-tights-dark-grey-p.jpg?v=1775669651&width=1920",
+        "https://sockdreams.com/cdn/shop/files/color-tights-ivory-s-m.jpg?v=1775669651&width=1920",
+        "https://sockdreams.com/cdn/shop/products/color-tights-merlot-p.jpg?v=1775669651&width=1920"
+      ],
+      "availability": "in_stock",
+      "sizes": [
+        "Ivory"
+      ],
+      "merchantId": "sockdreams-com",
+      "tagSlugs": [
+        "ivory",
+        "opaque",
+        "microfiber",
+        "plus-size",
+        "tights"
+      ],
+      "description": "Beautiful 80 denier microfiber plus size tights that come in a rainbow of colors! Great for any occasion, from office clothes to cosplay, we love their silky texture and good opacity.",
+      "checkedAt": "2026-10-24T23:13:40.185Z",
+      "cutout": "/products/p-de1a3e35c4-cutout.png"
+    },
+    {
+      "id": "p-5434cb33bf",
+      "title": "Women's Boulder Summit Waterproof — Rugged Bark",
+      "url": "https://www.lemsshoes.com/products/womens-boulder-summit-waterproof?variant=40017820745786",
+      "priceCents": 21000,
+      "currency": "USD",
+      "image": "/products/p-5434cb33bf.jpg",
+      "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/0076/8812/6522/products/RuggedBark_RightOutside_1c02603f-9b84-4a68-9e6c-be5bc2465eff.jpg?v=1773209241",
+        "https://www.lemsshoes.com/cdn/shop/products/RuggedBark_RightOutside_1c02603f-9b84-4a68-9e6c-be5bc2465eff.jpg?v=1773209241&width=2400",
+        "http://www.lemsshoes.com/cdn/shop/products/RuggedBark_3QtrPair_d59ec62f-21b2-49a2-a520-58a9ed6348c8.jpg?v=1773208914",
+        "https://www.lemsshoes.com/cdn/shop/products/RuggedBark_3QtrPair_d59ec62f-21b2-49a2-a520-58a9ed6348c8.jpg?v=1773208914",
+        "https://cdn.shopify.com/s/files/1/0076/8812/6522/products/RuggedBark_3QtrPair_d59ec62f-21b2-49a2-a520-58a9ed6348c8.jpg?v=1773208914",
+        "https://cdn.shopify.com/s/files/1/0076/8812/6522/files/womens-summit.jpg?v=1773209241"
+      ],
+      "availability": "in_stock",
+      "sizes": [
+        "Rugged Bark / 6",
+        "Rugged Bark / 6.5",
+        "Rugged Bark / 7",
+        "Rugged Bark / 7.5",
+        "Rugged Bark / 8",
+        "Rugged Bark / 8.5",
+        "Rugged Bark / 9",
+        "Rugged Bark / 9.5",
+        "Rugged Bark / 10",
+        "Rugged Bark / 10.5",
+        "Rugged Bark / 11",
+        "Rugged Bark / 11.5",
+        "Rugged Bark / 12"
+      ],
+      "merchantId": "lemsshoes-com",
+      "tagSlugs": [
+        "waterproof",
+        "boots",
+        "trail",
+        "brown",
+        "women-s"
+      ],
+      "description": "If you’ve been holding your breath for us to release a Boulder Boot style that can properly tackle the trails, you can go ahead and release that breath. Now take another, and another, because you’ll be huffing and puffing up and over mountains and along stretches of dirt and rock in your spiffy Boulder Summit boots. Rain? Mud? Snow? Sleet? No matter, these boots are fully waterproof and will keep those feet dry despite what Mother Nature throws your way. The Boulder Summit combines the minimalist features of the Boulder Boot with the outsole of the Outlander. This means these boots offer subs…",
+      "checkedAt": "2026-10-24T23:09:45.749Z",
+      "cutout": "/products/p-5434cb33bf-cutout.png"
+    },
+    {
+      "id": "p-85e9e6d813",
+      "title": "Women's Boulder Boot Grip Waterproof — Dakota",
+      "url": "https://www.lemsshoes.com/products/womens-boulder-boot-grip-waterproof?variant=40061992534074",
+      "priceCents": 20000,
+      "currency": "USD",
+      "image": "/products/p-85e9e6d813.jpg",
+      "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/0076/8812/6522/files/WPBBGrip_Dakota_RightOutside_54fccc92-ff1a-4a1a-adad-aa792d47b2bc.jpg?v=1753197828",
+        "https://www.lemsshoes.com/cdn/shop/files/WPBBGrip_Dakota_RightOutside_54fccc92-ff1a-4a1a-adad-aa792d47b2bc.jpg?v=1753197828&width=2400",
+        "http://www.lemsshoes.com/cdn/shop/files/WPBBGrip_Dakota_3QtrPair_53599fc8-3aa8-402c-a343-ef7759f74437.jpg?v=1695919044",
+        "https://www.lemsshoes.com/cdn/shop/files/WPBBGrip_Dakota_3QtrPair_53599fc8-3aa8-402c-a343-ef7759f74437.jpg?v=1695919044",
+        "https://cdn.shopify.com/s/files/1/0076/8812/6522/files/WPBBGrip_Dakota_3QtrPair_53599fc8-3aa8-402c-a343-ef7759f74437.jpg?v=1695919044",
+        "https://cdn.shopify.com/s/files/1/0076/8812/6522/files/womensdakota.jpg?v=1781114033"
+      ],
+      "availability": "in_stock",
+      "sizes": [
+        "Dakota / 6",
+        "Dakota / 6.5",
+        "Dakota / 7",
+        "Dakota / 7.5",
+        "Dakota / 8",
+        "Dakota / 8.5",
+        "Dakota / 9",
+        "Dakota / 9.5",
+        "Dakota / 10",
+        "Dakota / 10.5",
+        "Dakota / 11",
+        "Dakota / 11.5",
+        "Dakota / 12"
+      ],
+      "merchantId": "lemsshoes-com",
+      "tagSlugs": [
+        "waterproof",
+        "boots",
+        "trail",
+        "rubber-outsole",
+        "women-s"
+      ],
+      "description": "Slippin’ n’ slidin’ in your current boot situation? That’ll be a thing of the past with the Boulder Boot Grip Waterproof! We took the beloved Boulder Boot Waterproof and amped it up a few levels with an All-Terrain/Slip-Resistant Rubber Outsole. That’s right, this innovative outsole features siping grooves designed specifically to combat traction in wet and slippery conditions, just like your winter tires. This means you can confidently tackle any hike, explore any terrain, and conquer any adventure Mother Nature throws your way. But wait, there’s more! Above the rubber outsole, we've incorpo…",
+      "checkedAt": "2026-10-24T23:09:45.749Z",
+      "cutout": "/products/p-85e9e6d813-cutout.png"
+    },
+    {
+      "id": "p-2694d6fdfc",
+      "title": "Women's Chelsea Barefoot Boot Waterproof — Espresso",
+      "url": "https://lemsshoes.com/products/womens-chelsea-boot-waterproof?variant=40008784019514",
+      "priceCents": 19000,
+      "currency": "USD",
+      "image": "/products/p-2694d6fdfc.jpg",
+      "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/0076/8812/6522/products/Espresso_RightOutside_7b519791-34c8-43b3-99d2-0173a7f14cbc.jpg?v=1752685520",
+        "https://www.lemsshoes.com/cdn/shop/products/Espresso_RightOutside_7b519791-34c8-43b3-99d2-0173a7f14cbc.jpg?v=1752685520&width=2400",
+        "http://www.lemsshoes.com/cdn/shop/products/Espresso_3QtrPair_fcecec15-66f8-459f-b861-fa60c99b031a.jpg?v=1725119621",
+        "https://www.lemsshoes.com/cdn/shop/products/Espresso_3QtrPair_fcecec15-66f8-459f-b861-fa60c99b031a.jpg?v=1725119621",
+        "https://cdn.shopify.com/s/files/1/0076/8812/6522/products/Espresso_3QtrPair_fcecec15-66f8-459f-b861-fa60c99b031a.jpg?v=1725119621",
+        "https://cdn.shopify.com/s/files/1/0076/8812/6522/products/womensespresso.jpg?v=1725119621"
+      ],
+      "availability": "in_stock",
+      "sizes": [
+        "Espresso / 6",
+        "Espresso / 7.5",
+        "Espresso / 8",
+        "Espresso / 11"
+      ],
+      "merchantId": "lemsshoes-com",
+      "tagSlugs": [
+        "chelsea",
+        "waterproof",
+        "espresso",
+        "zero-drop",
+        "boots"
+      ],
+      "description": "Comparison: Lems Chelsea Boot Collection Slushies belong in cups, not the insides of your shoes. Whether your Winters are rainy, bitterly cold, or the snow didn’t get the memo that it’s officially Spring, our waterproof Chelsea boots keep the elements out and the warmth in. From fall through the last throes of winter, these boots will be your trusty companions. Built on the same outsole as our beloved Primal Zen, you can expect the same zero-drop, lightweight, and ultra wide fit. This boot can be dressed up or down, worn to the office, bar, or trail. This version features a fully waterproof m…",
+      "checkedAt": "2026-10-24T23:09:45.749Z",
+      "cutout": "/products/p-2694d6fdfc-cutout.png"
+    },
+    {
+      "id": "p-fa247ed9c8",
+      "title": "Wool Felt Beret With Small Mushroom Hat",
+      "url": "https://behumblemushrooms.com/products/original-handmade-wool-felt-beret-with-small-mushrooms?variant=44181986967827",
+      "priceCents": 2999,
+      "currency": "USD",
+      "image": "/products/p-fa247ed9c8.jpg",
+      "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/0692/2502/1715/products/handmade-wool-felt-beret-with-small-mushrooms-hat-953412.jpg?v=1672647851",
+        "https://behumblemushrooms.com/cdn/shop/products/handmade-wool-felt-beret-with-small-mushrooms-hat-953412_800x.jpg?v=1672647851",
+        "http://behumblemushrooms.com/cdn/shop/products/handmade-wool-felt-beret-with-small-mushrooms-hat-953412.jpg?v=1672647851",
+        "https://behumblemushrooms.com/cdn/shop/products/handmade-wool-felt-beret-with-small-mushrooms-hat-953412.jpg?v=1672647851",
+        "https://cdn.shopify.com/s/files/1/0692/2502/1715/products/handmade-wool-felt-beret-with-small-mushrooms-hat-209457.jpg?v=1672647851",
+        "https://cdn.shopify.com/s/files/1/0692/2502/1715/products/handmade-wool-felt-beret-with-small-mushrooms-hat-220604.jpg?v=1672647851"
+      ],
+      "availability": "in_stock",
+      "sizes": [
+        "Default Title"
+      ],
+      "merchantId": "behumblemushrooms-com",
+      "tagSlugs": [
+        "felt",
+        "wool",
+        "beret",
+        "mushroom",
+        "red"
+      ],
+      "description": "Details: Product material: Wool Color: Red",
+      "checkedAt": "2026-10-24T23:11:08.334Z",
+      "cutout": "/products/p-fa247ed9c8-cutout.png"
+    },
+    {
+      "id": "p-7420e8a31b",
+      "title": "Grannies Cable Knit Wool Tights - Oatmeal",
+      "url": "https://snagtights.us/products/merino-wool-tights-v2-grannies-oatmeal?variant=42202310312005",
+      "priceCents": 4699,
+      "currency": "USD",
+      "image": "/products/p-7420e8a31b.jpg",
+      "sourceImages": [
+        "https://snagtights.us/cdn/shop/files/Alexandra-SizeDE-Oatmeal-Grannies_1_-min_824d79bb-ab7f-4634-8131-a0c669ba5bc9.jpg?v=1792137798&width=1920",
+        "http://snagtights.us/cdn/shop/files/Alexandra-SizeDE-Oatmeal-Grannies_1_-min_824d79bb-ab7f-4634-8131-a0c669ba5bc9.jpg?v=1792137798",
+        "https://snagtights.us/cdn/shop/files/Alexandra-SizeDE-Oatmeal-Grannies_1_-min_824d79bb-ab7f-4634-8131-a0c669ba5bc9.jpg?v=1792137798",
+        "https://cdn.shopify.com/s/files/1/0069/7568/4655/files/Alexandra-SizeDE-Oatmeal-Grannies_1_-min_824d79bb-ab7f-4634-8131-a0c669ba5bc9.jpg?v=1792137798",
+        "https://cdn.shopify.com/s/files/1/0069/7568/4655/files/Alexandra-SizeDE-Oatmeal-Grannies_5_-min_9f3ac000-01e7-43d0-969c-892483197b11.jpg?v=1792137798",
+        "https://cdn.shopify.com/s/files/1/0069/7568/4655/files/Jerica-SizeG-OatmealGrannieTights_51de7f48-a42b-4306-96e2-8ede58c90c27.jpg?v=1792137798"
+      ],
+      "availability": "in_stock",
+      "sizes": [
+        "AB-C",
+        "D-E",
+        "F",
+        "G"
+      ],
+      "merchantId": "snagtights-us",
+      "tagSlugs": [
+        "merino-wool",
+        "cable-knit",
+        "cottagecore",
+        "oatmeal",
+        "tights"
+      ],
+      "description": "Snag merino wool Granny tights in Oatmeal are so cosy, a stunning cable knit design and are some of the best tights we've ever made. Beautiful to look at and lovely to wear, they look great under skirts and dresses. These tights have all the goodness of our regular wools, meaning they are super soft and will keep you warm on chilly days without making you itch or overheat (thank you merino yarn). Available in 4 sizes, these tights have been trialled extensively, more than our normal process, across our inclusive size range. Version two of Grannies we've tweaked the elastane to perfect the fit…",
+      "checkedAt": "2026-10-24T23:13:40.185Z",
+      "cutout": "/products/p-7420e8a31b-cutout.png"
+    },
+    {
+      "id": "p-98d4153601",
+      "title": "Ivory Blouse",
+      "url": "https://imasfashions.com/products/tru-luxe-embroidered-dolman-sleeve-button-up-shirt-ivory?variant=49034906730729",
+      "priceCents": 8900,
+      "currency": "USD",
+      "image": "/products/p-98d4153601.jpg",
+      "sourceImages": [
+        "https://imasfashions.com/cdn/shop/files/T35225BM-IVORY_FRONT_800x_a71ab9af-f06f-4a95-9875-c12d85d6daaf.webp?v=1756310424&width=1920",
+        "http://imasfashions.com/cdn/shop/files/T35225BM-IVORY_FRONT_800x_a71ab9af-f06f-4a95-9875-c12d85d6daaf.webp?v=1756310424",
+        "https://imasfashions.com/cdn/shop/files/T35225BM-IVORY_FRONT_800x_a71ab9af-f06f-4a95-9875-c12d85d6daaf.webp?v=1756310424",
+        "https://cdn.shopify.com/s/files/1/2665/5078/files/T35225BM-IVORY_FRONT_800x_a71ab9af-f06f-4a95-9875-c12d85d6daaf.webp?v=1756310424",
+        "https://cdn.shopify.com/s/files/1/2665/5078/files/T35225BM-IVORY_BACK_800x_14a20899-2f33-4619-a98a-26f1a9f7ae6a.webp?v=1756310423"
+      ],
+      "availability": "in_stock",
+      "sizes": [
+        "S",
+        "X-large"
+      ],
+      "merchantId": "imasfashions-com",
+      "tagSlugs": [
+        "ivory",
+        "embroidered",
+        "button-up",
+        "rayon-blend"
+      ],
+      "description": "Artful embroidery meets effortless drape in this dolman sleeve button-up. Crafted from a soft rayon-nylon blend, it brings a touch of texture and movement to your everyday wardrobe with its flowy silhouette and elegant detailing.",
+      "checkedAt": "2026-10-24T23:22:10.556Z",
+      "cutout": "/products/p-98d4153601-cutout.png"
+    }
+  ],
+  "merchants": [
+    {
+      "id": "heartfeltlayers-com",
+      "name": "HeartFelt Layers",
+      "domain": "heartfeltlayers.com",
+      "url": "https://heartfeltlayers.com",
+      "kind": "dtc",
+      "neighborhoodId": null
+    },
+    {
+      "id": "bandofthewild-com",
+      "name": "Band of the Wild",
+      "domain": "bandofthewild.com",
+      "url": "https://bandofthewild.com",
+      "kind": "dtc",
+      "neighborhoodId": null
+    },
+    {
+      "id": "snagtights-us",
+      "name": "Snag",
+      "domain": "snagtights.us",
+      "url": "https://snagtights.us",
+      "kind": "dtc",
+      "neighborhoodId": null
+    },
+    {
+      "id": "unique-vintage-com",
+      "name": "Unique Vintage",
+      "domain": "unique-vintage.com",
+      "url": "https://unique-vintage.com",
+      "kind": "dtc",
+      "neighborhoodId": null
+    },
+    {
+      "id": "vicicollection-com",
+      "name": "VICI",
+      "domain": "vicicollection.com",
+      "url": "https://vicicollection.com",
+      "kind": "dtc",
+      "neighborhoodId": null
+    },
+    {
+      "id": "ylistyle-com",
+      "name": "Ylistyle",
+      "domain": "ylistyle.com",
+      "url": "https://ylistyle.com",
+      "kind": "dtc",
+      "neighborhoodId": null
+    },
+    {
+      "id": "goldenhourgiftco-com",
+      "name": "Golden Hour Gift Co",
+      "domain": "goldenhourgiftco.com",
+      "url": "https://goldenhourgiftco.com",
+      "kind": "boutique",
+      "neighborhoodId": null
+    },
+    {
+      "id": "sockdreams-com",
+      "name": "Sock Dreams",
+      "domain": "sockdreams.com",
+      "url": "https://sockdreams.com",
+      "kind": "dtc",
+      "neighborhoodId": null
+    },
+    {
+      "id": "lemsshoes-com",
+      "name": "Lems Shoes",
+      "domain": "lemsshoes.com",
+      "url": "https://www.lemsshoes.com",
+      "kind": "dtc",
+      "neighborhoodId": null
+    },
+    {
+      "id": "behumblemushrooms-com",
+      "name": "Humble Mushrooms",
+      "domain": "behumblemushrooms.com",
+      "url": "https://behumblemushrooms.com",
+      "kind": "dtc",
+      "neighborhoodId": null
+    },
+    {
+      "id": "imasfashions-com",
+      "name": "Ima's Fashions",
+      "domain": "imasfashions.com",
+      "url": "https://imasfashions.com",
+      "kind": "boutique",
+      "neighborhoodId": null
+    }
+  ],
+  "neighborhoods": [],
+  "tags": [
+    {
+      "slug": "handmade",
+      "label": "Handmade"
+    },
+    {
+      "slug": "wool",
+      "label": "Wool"
+    },
+    {
+      "slug": "felt",
+      "label": "Felt"
+    },
+    {
+      "slug": "cottagecore",
+      "label": "Cottagecore"
+    },
+    {
+      "slug": "cotton",
+      "label": "Cotton"
+    },
+    {
+      "slug": "mushroom",
+      "label": "Mushroom"
+    },
+    {
+      "slug": "red",
+      "label": "Red"
+    },
+    {
+      "slug": "cream",
+      "label": "Cream"
+    },
+    {
+      "slug": "textured",
+      "label": "Textured"
+    },
+    {
+      "slug": "period-drama",
+      "label": "Period Drama"
+    },
+    {
+      "slug": "ivory",
+      "label": "Ivory"
+    },
+    {
+      "slug": "crepe",
+      "label": "Crepe"
+    },
+    {
+      "slug": "corduroy",
+      "label": "Corduroy"
+    },
+    {
+      "slug": "brown",
+      "label": "Brown"
+    },
+    {
+      "slug": "overalls",
+      "label": "Overalls"
+    },
+    {
+      "slug": "relaxed-fit",
+      "label": "Relaxed Fit"
+    },
+    {
+      "slug": "dtc",
+      "label": "Dtc"
+    },
+    {
+      "slug": "vintage-inspired",
+      "label": "Vintage Inspired"
+    },
+    {
+      "slug": "wide-leg",
+      "label": "Wide Leg"
+    },
+    {
+      "slug": "boutique",
+      "label": "Boutique"
+    },
+    {
+      "slug": "cable-knit",
+      "label": "Cable Knit"
+    },
+    {
+      "slug": "tights",
+      "label": "Tights"
+    },
+    {
+      "slug": "microfiber",
+      "label": "Microfiber"
+    },
+    {
+      "slug": "opaque",
+      "label": "Opaque"
+    },
+    {
+      "slug": "plus-size",
+      "label": "Plus Size"
+    },
+    {
+      "slug": "waterproof",
+      "label": "Waterproof"
+    },
+    {
+      "slug": "boots",
+      "label": "Boots"
+    },
+    {
+      "slug": "trail",
+      "label": "Trail"
+    },
+    {
+      "slug": "women-s",
+      "label": "Women S"
+    },
+    {
+      "slug": "rubber-outsole",
+      "label": "Rubber Outsole"
+    },
+    {
+      "slug": "chelsea",
+      "label": "Chelsea"
+    },
+    {
+      "slug": "espresso",
+      "label": "Espresso"
+    },
+    {
+      "slug": "zero-drop",
+      "label": "Zero Drop"
+    },
+    {
+      "slug": "adult",
+      "label": "Adult"
+    },
+    {
+      "slug": "beret",
+      "label": "Beret"
+    },
+    {
+      "slug": "merino-wool",
+      "label": "Merino Wool"
+    },
+    {
+      "slug": "oatmeal",
+      "label": "Oatmeal"
+    },
+    {
+      "slug": "tie-neck",
+      "label": "Tie Neck"
+    },
+    {
+      "slug": "billowy-sleeves",
+      "label": "Billowy Sleeves"
+    },
+    {
+      "slug": "vintage-style",
+      "label": "Vintage Style"
+    },
+    {
+      "slug": "embroidered",
+      "label": "Embroidered"
+    },
+    {
+      "slug": "button-up",
+      "label": "Button Up"
+    },
+    {
+      "slug": "rayon-blend",
+      "label": "Rayon Blend"
+    }
+  ],
+  "provenance": {
+    "method": "pipeline",
+    "generatedAt": "2026-10-24T23:22:10.556Z",
+    "notes": "Bright Data SERP and Web Unlocker, with direct public merchant pages and Shopify variant feeds when Shopping links or Unlocker were unusable; Claude decomposition and ranking. Only verified in-stock USD variants are included."
+  }
+}

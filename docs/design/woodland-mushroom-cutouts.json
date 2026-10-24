@@ -1,0 +1,171 @@
+{
+  "costumeSlug": "woodland-mushroom",
+  "createdAt": "2026-10-24T23:27:12.287Z",
+  "imageEditing": "Built-in imagegen tool for photographed garments worn by people; original isolated merchant hat and boot photographs use U2Net only.",
+  "constraints": "Keep real merchant products and their design, color, texture and visible details. Remove people and background. Full garments, no cropped body fragments. The two Sock Dreams ivory size ranges share the same official gallery and derived product view.",
+  "artifacts": [
+    {
+      "productId": "p-2e68ffb9ca",
+      "merchantProductUrl": "https://snagtights.us/products/textured-woven-blouse-cream",
+      "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/0069/7568/4655/files/Nicole-SizeE-WovenTop-Cream-Height-5ft5_1_05f78e28-4799-49ba-96cc-baeab29fedb8.jpg?v=1792080240"
+      ],
+      "method": "Built-in imagegen background extraction, then alpha threshold 245 and largest-connected-component cleanup to remove glow and specks; garment RGB is unchanged after generation.",
+      "generatedFile": "exec-af85edef-cbcc-44ca-b945-c241d7f7e4fa.png",
+      "output": "public/products/p-2e68ffb9ca-cutout.png",
+      "prompt": "Use case: background-extraction. Edit the supplied real merchant product photo into one clean complete garment-only ecommerce cutout. Remove the person, skin, hair, jewelry, trousers/shoes that are not part of the requested garment, and all background. Preserve this exact cream Iona textured woven blouse, its fine vertical crinkle texture, plain round gathered yoke with a small keyhole tied by narrow cream cords, long full balloon sleeves gathered at their cuffs, relaxed body and gently curved untucked hem. Keep the real pale cream color; no new embroidery, buttons or decorative collar. Lay the same garment naturally flat in straight front view. Reconstruct only small areas hidden by the wearer, continuing the adjacent real garment construction. Do not redesign, recolor, add details or add other products. No person, body fragments, mannequin, hanger, accessories, text, floor, shadow or vignette. True transparent alpha background right up to the garment edge. Full item centered with a clear margin."
+    },
+    {
+      "productId": "p-e8f6f99d70",
+      "merchantProductUrl": "https://www.unique-vintage.com/products/unique-vintage-ivory-peacock-feather-embossed-gwen-blouse",
+      "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/2714/9310/files/unique-vintage-ivory-peacock-feather-embossed-gwen-blouse-1789641.jpg?v=1759513166"
+      ],
+      "method": "Built-in imagegen background extraction, then alpha threshold 245 and largest-connected-component cleanup to remove glow and specks; garment RGB is unchanged after generation.",
+      "generatedFile": "exec-3f71877e-b6fb-466b-b4be-413b7a5028e3.png",
+      "output": "public/products/p-e8f6f99d70-cutout.png",
+      "prompt": "Use case: background-extraction. Edit the supplied real merchant product photo into one clean complete garment-only ecommerce cutout. Remove the person, skin, hair, jewelry, trousers/shoes that are not part of the requested garment, and all background. Preserve this exact ivory semi-sheer crepe Gwen blouse, subtle white peacock feather embossing, attached broad neck tie tied in a large bow, small ivory center front buttons, long billowing sleeves and narrow button cuffs, complete curved lower hem. Keep the faint original feather motif; do not replace it with floral lace or plain cloth. Lay the same garment naturally flat in straight front view. Reconstruct only small areas hidden by the wearer, continuing the adjacent real garment construction. Do not redesign, recolor, add details or add other products. No person, body fragments, mannequin, hanger, accessories, text, floor, shadow or vignette. True transparent alpha background right up to the garment edge. Full item centered with a clear margin."
+    },
+    {
+      "productId": "p-98d4153601",
+      "merchantProductUrl": "https://imasfashions.com/products/tru-luxe-embroidered-dolman-sleeve-button-up-shirt-ivory",
+      "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/2665/5078/files/T35225BM-IVORY_FRONT_800x_a71ab9af-f06f-4a95-9875-c12d85d6daaf.webp?v=1756310424"
+      ],
+      "method": "Built-in imagegen background extraction, then alpha threshold 245 and largest-connected-component cleanup to remove glow and specks; garment RGB is unchanged after generation.",
+      "generatedFile": "exec-9c5a4d5d-043a-478b-9177-6b22c2bc09a1.png",
+      "output": "public/products/p-98d4153601-cutout.png",
+      "prompt": "Use case: background-extraction. Edit this exact merchant photograph into a clean complete product-only cutout of the ivory Tru Luxe embroidered blouse. Remove the person, skin, hair, hands, black trousers and background. Preserve the exact soft ivory fabric, relaxed dolman shirt silhouette, simple notched collar, central row of small shell buttons, three-quarter sleeves, narrow embroidered cuffs, and the original black floral/vine embroidery arranged in two vertical bands on the front and across the shoulders. Reconstruct only the cloth hidden by hair and hands, continuing the real embroidery pattern seen on adjacent areas. Do not add, recolor, simplify or redesign the pattern. Lay the same shirt naturally flat in straight front view with both sleeves and the full lower hem visible. No model, mannequin, body pieces, hanger, label, other garments, shadow or glow. True transparent alpha background right up to the garment edges. Entire shirt fits with margin."
+    },
+    {
+      "productId": "p-d03db98829",
+      "merchantProductUrl": "https://ylistyle.com/products/retro-brown-corduroy-overalls-women-c1830",
+      "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/0045/7162/7589/products/A12A7744_b3bdbb80-c814-49da-adbe-3b600738d42a.jpg?v=1638773082"
+      ],
+      "method": "Built-in imagegen background extraction, then alpha threshold 245 and largest-connected-component cleanup to remove glow and specks; garment RGB is unchanged after generation.",
+      "generatedFile": "exec-56b25867-9374-4552-a931-32f3e7649766.png",
+      "output": "public/products/p-d03db98829-cutout.png",
+      "prompt": "Use case: background-extraction. Edit this exact merchant product photo into a complete product-only catalog cutout of the same dark chocolate brown cotton corduroy overalls. Remove the person, black shirt, skin, shoes, bag and background. Preserve this exact overalls design: broad adjustable straps with brass rectangular sliders and brass fastening hooks, square front bib with central patch pocket, brass side buttons, side pockets, dark brown corduroy texture, loose straight trouser legs with rolled cuffs. Arrange the full overalls naturally flat in straight front view, legs down and not bent, both straps present, keep exact garment proportions, pocket placement and color. Fill only areas hidden by the wearer, following the real construction shown. Do not redesign, change material or color, add pockets or decorations. No person, mannequin, body fragments, hanger, text, unrelated garments or shadows. Transparent alpha background. The entire garment and both full legs fit with a clear margin."
+    },
+    {
+      "productId": "p-c7a21e7a36",
+      "merchantProductUrl": "https://goldenhourgiftco.com/products/classic-brown-corduroy-overalls",
+      "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/0792/2305/files/smwardrobe_12_6e869dba-3e19-4447-a69f-06eff9530c86.png?v=1785614621"
+      ],
+      "method": "Built-in imagegen background extraction, then alpha threshold 245 and largest-connected-component cleanup to remove glow and specks; garment RGB is unchanged after generation.",
+      "generatedFile": "exec-ec5d3ef3-4549-405b-8648-df6ba86f87ee.png",
+      "output": "public/products/p-c7a21e7a36-cutout.png",
+      "prompt": "Use case: background-extraction. Edit the supplied real merchant product photo into one clean complete garment-only ecommerce cutout. Remove the person, skin, hair, jewelry, trousers/shoes that are not part of the requested garment, and all background. Preserve only these exact warm medium brown corduroy overalls: simple broad straps attaching at two brass bib buttons, square bib with single front patch pocket, relaxed straight-wide legs and simple unrolled hems, side pockets, warm brown fine corduroy texture. Both complete legs and straps must be visible, legs straight down. Remove the white t-shirt and white shoes completely. Lay the same garment naturally flat in straight front view. Reconstruct only small areas hidden by the wearer, continuing the adjacent real garment construction. Do not redesign, recolor, add details or add other products. No person, body fragments, mannequin, hanger, accessories, text, floor, shadow or vignette. True transparent alpha background right up to the garment edge. Full item centered with a clear margin."
+    },
+    {
+      "productId": "p-6f635d52e1",
+      "merchantProductUrl": "https://www.vicicollection.com/products/cassidie-corduroy-overalls",
+      "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/0204/7208/files/FINAL_07_VCR45125-MUSHROOM_9-13-2025_7545.jpg?v=1757625325"
+      ],
+      "method": "Built-in imagegen background extraction, then alpha threshold 245 and largest-connected-component cleanup to remove glow and specks; garment RGB is unchanged after generation.",
+      "generatedFile": "exec-92a0010f-a4f6-49d6-bb25-07718a17f48a.png",
+      "output": "public/products/p-6f635d52e1-cutout.png",
+      "prompt": "Use case: background-extraction. Create a clean complete product-only cutout from this exact merchant photograph of brown Cassidie corduroy overalls. Remove the woman, white top, all skin and hair, cap, bag, sandals, furniture and background. Preserve the original warm mushroom-brown fine corduroy, adjustable buckle straps and bib hooks, rounded rectangular single front bib pocket, three bronze buttons on each hip, slant side pockets and relaxed straight wide cropped legs with plain unrolled hems. Arrange this exact garment naturally flat in straight front view with both full straps and both full legs visible. Do not change its design or add pockets. Fill only small areas hidden by the wearer following the neighboring real construction. True transparent alpha background, no glow, shadow, floor, hanger, model or mannequin; empty pixels outside the cloth. Entire garment fits with margin."
+    },
+    {
+      "productId": "p-7420e8a31b",
+      "merchantProductUrl": "https://snagtights.us/products/merino-wool-tights-v2-grannies-oatmeal",
+      "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/0069/7568/4655/files/Alexandra-SizeDE-Oatmeal-Grannies_5_-min_9f3ac000-01e7-43d0-969c-892483197b11.jpg?v=1792137798",
+        "https://cdn.shopify.com/s/files/1/0069/7568/4655/files/Josephine-SizeG-Oatmeal-Grannies_1_-min_d6ec01e5-c95a-411d-b610-8b8fc5d9afb7.jpg?v=1792137798"
+      ],
+      "method": "Built-in imagegen background extraction, then alpha threshold 245 and largest-connected-component cleanup to remove glow and specks; garment RGB is unchanged after generation.",
+      "generatedFile": "exec-7b762953-f7cc-439a-9033-d0dd2706aba6.png",
+      "output": "public/products/p-7420e8a31b-cutout.png",
+      "prompt": "Use case: background-extraction. Create a clean full product-only flat-lay cutout of the exact Snag Oatmeal merino wool cable-knit tights shown in the two merchant photos. Image 1 shows the actual ivory/oatmeal color and complete leg pattern; Image 2 shows the exact cable knit texture. Remove people, skin, coat, skirt, shoes, furniture and all background. Show just the empty unworn pair of full-length footed tights laid flat, waistband at top, two straight legs ending in closed feet. Preserve the exact warm ivory oatmeal color and the alternating slim vertical cable-knit and rib panels visible in the reference, without changing pattern or making them thick leggings. Do not include boots or living legs. Minimal reconstruction only at waist/feet hidden in the source, consistent with normal tights construction. Transparent alpha background; no floor, person, mannequin, skin, shadow, glow, text or accessories. Entire pair fits with clear margins."
+    },
+    {
+      "productId": "p-c1b881a1cf",
+      "merchantProductUrl": "https://sockdreams.com/products/color-tights",
+      "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/0712/4978/9223/products/color-tights-ivory-s-m.jpg?v=1775593182",
+        "https://cdn.shopify.com/s/files/1/0712/4978/9223/files/color-tights-ivory-s-m-1.jpg?v=1775593409"
+      ],
+      "method": "Built-in imagegen background extraction, then alpha threshold 245 and largest-connected-component cleanup to remove glow and specks; garment RGB is unchanged after generation.",
+      "generatedFile": "exec-165cd236-193c-4f07-a2f9-b369a2996f65.png",
+      "output": "public/products/p-c1b881a1cf-cutout.png",
+      "prompt": "Use case: background-extraction. Create a clean complete product-only flat-lay cutout of the exact ivory opaque microfiber Color Tights in these two real Sock Dreams merchant images. Image 1 is how the ivory tights cover the legs; image 2 shows the exact actual cream fabric, color and texture folded. Remove the person/legs, shoes, skirt, chair, label/packaging and background. Show just the unworn empty full-length footed tights laid flat with a simple elastic waistband at top, two straight empty legs and closed feet. Preserve the same ivory/cream smooth fine microfiber, opacity and simple undecorated design. No ribbing, cable knitting, lace or invented patterns. Reconstruct only the hidden waist/feet consistent with this same simple garment. No person, skin, mannequin, unrelated clothes, text, shadows, glow or floor. True transparent alpha background all the way to garment edge. Whole pair centered with clear margins."
+    },
+    {
+      "productId": "p-de1a3e35c4",
+      "merchantProductUrl": "https://sockdreams.com/products/plus-size-color-tights",
+      "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/0712/4978/9223/products/color-tights-ivory-s-m.jpg?v=1775593182",
+        "https://cdn.shopify.com/s/files/1/0712/4978/9223/files/color-tights-ivory-s-m-1.jpg?v=1775593409"
+      ],
+      "method": "Built-in imagegen background extraction, then alpha threshold 245 and largest-connected-component cleanup to remove glow and specks; garment RGB is unchanged after generation.",
+      "generatedFile": "exec-165cd236-193c-4f07-a2f9-b369a2996f65.png",
+      "output": "public/products/p-de1a3e35c4-cutout.png",
+      "prompt": "Use case: background-extraction. Create a clean complete product-only flat-lay cutout of the exact ivory opaque microfiber Color Tights in these two real Sock Dreams merchant images. Image 1 is how the ivory tights cover the legs; image 2 shows the exact actual cream fabric, color and texture folded. Remove the person/legs, shoes, skirt, chair, label/packaging and background. Show just the unworn empty full-length footed tights laid flat with a simple elastic waistband at top, two straight empty legs and closed feet. Preserve the same ivory/cream smooth fine microfiber, opacity and simple undecorated design. No ribbing, cable knitting, lace or invented patterns. Reconstruct only the hidden waist/feet consistent with this same simple garment. No person, skin, mannequin, unrelated clothes, text, shadows, glow or floor. True transparent alpha background all the way to garment edge. Whole pair centered with clear margins."
+    },
+    {
+      "productId": "p-1c7d22a0b4",
+      "merchantProductUrl": "https://bandofthewild.com/products/adult-mushroom-hat?variant=46316878102715",
+      "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/0568/9052/3835/files/243DC8DB-5A40-4CBD-BF29-4949B4EBE70A.jpg?v=1780544014"
+      ],
+      "method": "Original merchant gallery photograph; deterministic U2Net background removal, with no generated pixels.",
+      "crop": {
+        "left": 0,
+        "top": 0,
+        "width": 1,
+        "height": 0.535
+      },
+      "note": "Crop excludes the separately sold ruffle collar below the hat.",
+      "output": "public/products/p-1c7d22a0b4-cutout.png"
+    },
+    {
+      "productId": "p-15ce18ceb4",
+      "merchantProductUrl": "https://heartfeltlayers.com/products/red-mushroom-beret-hand-felted-wool-hat?variant=54281112879407",
+      "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/0969/4514/4111/files/mushroom2.png?v=1771798254"
+      ],
+      "method": "Original merchant gallery photograph; deterministic U2Net background removal, with no generated pixels.",
+      "output": "public/products/p-15ce18ceb4-cutout.png"
+    },
+    {
+      "productId": "p-fa247ed9c8",
+      "merchantProductUrl": "https://behumblemushrooms.com/products/original-handmade-wool-felt-beret-with-small-mushrooms?variant=44181986967827",
+      "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/0692/2502/1715/products/handmade-wool-felt-beret-with-small-mushrooms-hat-953412.jpg?v=1672647851"
+      ],
+      "method": "Original merchant gallery photograph; deterministic U2Net background removal, with no generated pixels.",
+      "output": "public/products/p-fa247ed9c8-cutout.png"
+    },
+    {
+      "productId": "p-5434cb33bf",
+      "merchantProductUrl": "https://www.lemsshoes.com/products/womens-boulder-summit-waterproof?variant=40017820745786",
+      "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/0076/8812/6522/products/RuggedBark_RightOutside_1c02603f-9b84-4a68-9e6c-be5bc2465eff.jpg?v=1773209241"
+      ],
+      "method": "Original merchant gallery photograph; deterministic U2Net background removal, with no generated pixels.",
+      "output": "public/products/p-5434cb33bf-cutout.png"
+    },
+    {
+      "productId": "p-85e9e6d813",
+      "merchantProductUrl": "https://www.lemsshoes.com/products/womens-boulder-boot-grip-waterproof?variant=40061992534074",
+      "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/0076/8812/6522/files/WPBBGrip_Dakota_RightOutside_54fccc92-ff1a-4a1a-adad-aa792d47b2bc.jpg?v=1753197828"
+      ],
+      "method": "Original merchant gallery photograph; deterministic U2Net background removal, with no generated pixels.",
+      "output": "public/products/p-85e9e6d813-cutout.png"
+    },
+    {
+      "productId": "p-2694d6fdfc",
+      "merchantProductUrl": "https://lemsshoes.com/products/womens-chelsea-boot-waterproof?variant=40008784019514",
+      "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/0076/8812/6522/products/Espresso_RightOutside_7b519791-34c8-43b3-99d2-0173a7f14cbc.jpg?v=1752685520"
+      ],
+      "method": "Original merchant gallery photograph; deterministic U2Net background removal, with no generated pixels.",
+      "output": "public/products/p-2694d6fdfc-cutout.png"
+    }
+  ]
+}

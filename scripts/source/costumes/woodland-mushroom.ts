@@ -15,11 +15,9 @@ export const products: Record<string, Array<[string, string, string?]>> = {
     ["https://www.bandofthewild.com/products/adult-mushroom-hat", "Handmade Adult Mushroom Hat", "Hat"],
     ["https://heartfeltlayers.com/products/red-mushroom-beret-hand-felted-wool-hat", "Red Mushroom Beret - Hand Felted Wool Hat"],
     ["https://behumblemushrooms.com/products/original-handmade-wool-felt-beret-with-small-mushrooms", "Wool Felt Beret With Small Mushroom Hat"],
-    ["https://www.etsy.com/listing/741760095/mushroom-headpiece-with-dots-for", "Handmade Adult Red Mushroom Hat by Sirenablu"],
   ],
   "cream-blouse": [
     ["https://imasfashions.com/products/tru-luxe-embroidered-dolman-sleeve-button-up-shirt-ivory", "Ivory Embroidered Dolman Sleeve Blouse"],
-    ["https://shopthemint.com/products/under-clear-skies-cream-ruffled-blouse", "Under Clear Skies Cream Ruffled Blouse", "White"],
     ["https://us.snagtights.com/products/textured-woven-blouse-cream", "Iona Textured Woven Blouse - Cream"],
     ["https://www.unique-vintage.com/products/unique-vintage-ivory-peacock-feather-embossed-gwen-blouse", "Ivory Peacock Feather Embossed Gwen Blouse"],
   ],
