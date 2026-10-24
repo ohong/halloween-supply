@@ -13,7 +13,7 @@ applyExistingTiles(snapshot.products);
 const defaults = snapshot.pieces.map((p) => p.matches.find((m) => m.rank === 0)?.productId).filter((id): id is string => !!id);
 if (await buildFlatlay(slug, defaults, cutouts, console.log)) {
   snapshot.costume.image = `/products/${slug}-flatlay.jpg`;
-  snapshot.costume.alt = "A composition of the sourced cowboy pieces on pale grey: cowboy hat, a detail of the fringe jacket, trousers, western boots and blue neckerchief.";
+  snapshot.costume.alt = `${snapshot.costume.name}: ${snapshot.pieces.map((piece) => piece.name.toLowerCase()).join(", ")}, arranged on pale grey.`;
 }
 await writeSnapshotFile(snapshot);
 await upsertToGraph(snapshot, console.log);

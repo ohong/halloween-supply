@@ -61,7 +61,7 @@ async function main() {
     description: source.description,
     image: source.image,
     alt: source.alt,
-    status: source.slug === "cosmic-cowboy" ? "live" : "coming_soon",
+    status: "live",
   };
   const previous = await loadExisting(costume.slug);
   if (previous?.costume.image.startsWith("/products/")) {
@@ -142,7 +142,7 @@ async function main() {
     const defaults = snapshot.pieces.map((p) => p.matches.find((m) => m.rank === 0)?.productId).filter((x): x is string => !!x);
     if (await buildFlatlay(costume.slug, defaults, withCutout, log)) {
       snapshot.costume.image = `/products/${costume.slug}-flatlay.jpg`;
-      snapshot.costume.alt = "The sourced cowboy pieces arranged on a pale grey background.";
+      snapshot.costume.alt = `${costume.name}: ${snapshot.pieces.map((piece) => piece.name.toLowerCase()).join(", ")}, arranged on pale grey.`;
     }
   }
 

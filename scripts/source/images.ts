@@ -1,6 +1,6 @@
 // Step 6: download chosen product images, cut out backgrounds, compose tiles and the flat-lay.
 import { existsSync } from "node:fs";
-import { mkdir, writeFile } from "node:fs/promises";
+import { copyFile, mkdir, writeFile } from "node:fs/promises";
 import path from "node:path";
 import { cacheDir } from "../../lib/sourcing/cache";
 import { composeFlatlay, normalizeProductImage } from "../../lib/sourcing/images";
@@ -10,6 +10,13 @@ import type { Product } from "../../lib/types";
 
 export const PRODUCTS_DIR = path.join(process.cwd(), "public", "products");
 const cutoutPath = (id: string) => path.join(cacheDir(), "images", "cutouts", `${id}.png`);
+const publishedCutoutPath = (id: string) => path.join(PRODUCTS_DIR, `${id}-cutout.png`);
+
+async function publishCutout(product: Product): Promise<void> {
+  await mkdir(PRODUCTS_DIR, { recursive: true });
+  await copyFile(cutoutPath(product.id), publishedCutoutPath(product.id));
+  product.cutout = `/products/${product.id}-cutout.png`;
+}
 
 export function localImagePath(productId: string): string {
   return path.join(PRODUCTS_DIR, `${productId}.jpg`);
@@ -19,6 +26,7 @@ export function localImagePath(productId: string): string {
 export function applyExistingTiles(products: Product[]): void {
   for (const p of products) {
     if (existsSync(localImagePath(p.id))) p.image = `/products/${p.id}.jpg`;
+    if (existsSync(publishedCutoutPath(p.id))) p.cutout = `/products/${p.id}-cutout.png`;
   }
 }
 
@@ -55,7 +63,12 @@ export async function processProductImages(products: Product[], opts: ImageStepO
   const withCutout = new Set<string>();
   await mapLimit(products, 2, async (p) => {
     const out = localImagePath(p.id);
-    if (!opts.force && existsSync(out) && existsSync(cutoutPath(p.id))) {
+    if (!opts.force && existsSync(out) && (existsSync(cutoutPath(p.id)) || existsSync(publishedCutoutPath(p.id)))) {
+      if (!existsSync(cutoutPath(p.id))) {
+        await mkdir(path.dirname(cutoutPath(p.id)), { recursive: true });
+        await copyFile(publishedCutoutPath(p.id), cutoutPath(p.id));
+      }
+      await publishCutout(p);
       p.image = `/products/${p.id}.jpg`;
       withCutout.add(p.id);
       return;
@@ -68,6 +81,7 @@ export async function processProductImages(products: Product[], opts: ImageStepO
       try {
         const file = await downloadImage(src, p.id);
         await normalizeProductImage(file, out, { cutoutPath: cutoutPath(p.id), ...plan });
+        await publishCutout(p);
         p.image = `/products/${p.id}.jpg`;
         withCutout.add(p.id);
         opts.log(`  image ok: ${p.id}`);
@@ -82,7 +96,8 @@ export async function processProductImages(products: Product[], opts: ImageStepO
 }
 
 export async function buildFlatlay(slug: string, defaultProductIds: string[], withCutout: Set<string>, log: (m: string) => void): Promise<boolean> {
-  const inputs = defaultProductIds.filter((id) => withCutout.has(id) || existsSync(cutoutPath(id))).map(cutoutPath);
+  const inputs = defaultProductIds.filter((id) => withCutout.has(id) || existsSync(cutoutPath(id)) || existsSync(publishedCutoutPath(id)))
+    .map((id) => existsSync(publishedCutoutPath(id)) ? publishedCutoutPath(id) : cutoutPath(id));
   if (inputs.length < 2 || inputs.length !== defaultProductIds.length) {
     log(`  flat-lay skipped: ${inputs.length}/${defaultProductIds.length} default cutouts available`);
     return false;
