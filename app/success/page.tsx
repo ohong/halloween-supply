@@ -2,7 +2,7 @@ import Link from "next/link";
 import { Suspense } from "react";
 import { getStripe } from "@/lib/checkout/stripe";
 
-export const metadata = { title: "Order received — Halloween Supply" };
+export const metadata = { title: "Checkout status — Halloween Supply" };
 
 const money = (cents: number | null) => `$${((cents ?? 0) / 100).toFixed(2)}`;
 
