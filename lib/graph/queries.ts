@@ -105,32 +105,40 @@ function toRaw(row: Row): RawMatch {
  * count/rank the piece's other matches, walk SOLD_BY -> LOCATED_IN -> IN, collect tags.
  * `filter` is a WHERE body over pc, m, p, mer, n, r.
  */
-function optionQuery(head: string, filter = "true", tail = ""): string {
+function optionQuery(head: string, filter = "true", tail = "", carry: string[] = []): string {
+  const carried = carry.length ? `${carry.join(", ")}, ` : "";
   return `
     ${head}
-    WITH pc, m, p
+    WITH ${carried}pc, m, p
     MATCH (pc)-[m2:MATCHED_BY]->(p2:Product)
     WHERE m2.costume = m.costume
-    WITH pc, m, p, count(p2) AS nMatches,
+    WITH ${carried}pc, m, p, count(p2) AS nMatches,
          sum(CASE WHEN p2.priceCents < p.priceCents
                    OR (p2.priceCents = p.priceCents AND m2.rank < m.rank) THEN 1 ELSE 0 END) AS cheaper
     MATCH (p)-[:SOLD_BY]->(mer:Merchant)
     OPTIONAL MATCH (mer)-[:LOCATED_IN]->(n:Neighborhood)
     OPTIONAL MATCH (n)-[:IN]->(r:Region)
-    WITH pc, m, p, nMatches, cheaper, mer, n, r
+    WITH ${carried}pc, m, p, nMatches, cheaper, mer, n, r
     WHERE ${filter}
     OPTIONAL MATCH (p)-[:TAGGED]->(t:Tag)
-    RETURN pc, m, p, mer, n, r, nMatches, cheaper, collect(t) AS tags${tail}`;
+    RETURN ${carried}pc, m, p, mer, n, r, nMatches, cheaper, collect(t) AS tags${tail}`;
 }
 
 export async function getCostume(slug: string): Promise<CostumeView | null> {
-  const [head] = await read(
-    `MATCH (c:Costume {slug: $slug}) RETURN c`,
+  // Keep the costume, NEEDS edge, and joined product in one round trip. A cold
+  // free-tier graph has no matches and returns null, allowing snapshot fallback.
+  const rows = await read(
+    optionQuery(
+      `MATCH (c:Costume {slug: $slug})-[nd:NEEDS]->(pc:Piece)-[m:MATCHED_BY]->(p:Product)
+       WHERE c.status = 'live' AND m.costume = $slug`,
+      "true",
+      "",
+      ["c", "nd"],
+    ),
     { slug },
   );
-  if (!head) return null;
-  const c = props(head.c);
-  if (c.status !== "live") return null;
+  if (rows.length === 0) return null;
+  const c = props(rows[0].c);
   const costume: Costume = {
     slug: c.slug,
     name: c.name,
@@ -139,34 +147,23 @@ export async function getCostume(slug: string): Promise<CostumeView | null> {
     alt: c.alt,
     status: c.status,
   };
-
-  const rows = await read(
-    optionQuery(
-      `MATCH (:Costume {slug: $slug})-[:NEEDS]->(pc:Piece)-[m:MATCHED_BY]->(p:Product)
-       WHERE m.costume = $slug`,
-    ),
-    { slug },
-  );
-  const needs = await read(
-    `MATCH (:Costume {slug: $slug})-[nd:NEEDS]->(pc:Piece) RETURN pc.id AS id, nd.required AS required, nd.order AS ord`,
-    { slug },
-  );
-
-  const pieces: CostumeView["pieces"] = needs
-    .map((nd) => {
-      const raws = rows.filter((r) => props(r.pc).id === nd.id).map(toRaw);
-      if (raws.length === 0) return null;
-      raws.sort((a, b) => a.rank - b.rank);
-      const piece: Piece = {
-        ...raws[0].piece,
-        required: nd.required !== false,
-        order: Number(nd.ord),
+  const byPiece = new Map<string, { piece: Piece; raws: RawMatch[] }>();
+  for (const row of rows) {
+    const raw = toRaw(row);
+    const nd = props(row.nd);
+    let group = byPiece.get(raw.piece.id);
+    if (!group) {
+      group = {
+        piece: { ...raw.piece, required: nd.required !== false, order: Number(nd.order) },
+        raws: [],
       };
-      return { piece, options: raws.map(buildOption) };
-    })
-    .filter((x): x is NonNullable<typeof x> => x !== null)
+      byPiece.set(raw.piece.id, group);
+    }
+    group.raws.push(raw);
+  }
+  const pieces: CostumeView["pieces"] = [...byPiece.values()]
+    .map(({ piece, raws }) => ({ piece, options: raws.sort((a, b) => a.rank - b.rank).map(buildOption) }))
     .sort((a, b) => a.piece.order - b.piece.order);
-
   return { costume, pieces };
 }
 

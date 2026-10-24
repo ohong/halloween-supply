@@ -1,23 +1,28 @@
-// bun run warm — ping the graph and re-seed if the free tier wiped it.
+// bun run warm — ping the graph and restore a missing or incomplete catalog.
 import { getGraph, resetGraph } from "../lib/graph/client";
 import { upsertSnapshot } from "../lib/graph/upsert";
 import { loadSnapshot } from "../lib/graph/load";
 
-const SLUG = "cosmic-cowboy";
-
 try {
+  const snapshot = await loadSnapshot(process.argv[2]);
+  const slug = snapshot.costume.slug;
   const graph = await getGraph();
-  const started = Date.now();
-  await graph.query("RETURN 1");
-  console.log(`graph answered in ${Date.now() - started}ms`);
-  const found = await graph.roQuery<{ n: number }>("MATCH (c:Costume {slug: $slug}) RETURN count(c) AS n", {
-    params: { slug: SLUG },
-  });
-  if (Number(found.data?.[0]?.n ?? 0) > 0) {
-    console.log(`Costume "${SLUG}" present; nothing to seed.`);
+  const started = performance.now();
+  const found = await graph.roQuery<{ pieces: number; matches: number }>(
+    `MATCH (:Costume {slug: $slug})-[:NEEDS]->(pc:Piece)
+     OPTIONAL MATCH (pc)-[match:MATCHED_BY {costume: $slug}]->(:Product)
+     RETURN count(DISTINCT pc) AS pieces, count(match) AS matches`,
+    { params: { slug } },
+  );
+  console.log(`Graph answered in ${Math.round(performance.now() - started)}ms`);
+  const pieces = Number(found.data?.[0]?.pieces ?? 0);
+  const matches = Number(found.data?.[0]?.matches ?? 0);
+  const expectedMatches = snapshot.pieces.reduce((sum, piece) => sum + piece.matches.length, 0);
+  if (pieces === snapshot.pieces.length && matches === expectedMatches) {
+    console.log(`Costume "${slug}" present: ${pieces} pieces, ${matches} matches.`);
   } else {
-    console.log(`Costume "${SLUG}" missing; re-seeding...`);
-    console.log(await upsertSnapshot(await loadSnapshot(SLUG)));
+    console.log(`Costume "${slug}" missing or incomplete; re-seeding...`);
+    console.log(await upsertSnapshot(snapshot));
   }
 } catch (e) {
   console.error("Warm failed:", e instanceof Error ? e.message : e);

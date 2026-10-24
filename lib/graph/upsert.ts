@@ -1,5 +1,6 @@
 import type { CostumeSnapshot } from "../types";
 import { getGraph } from "./client";
+import { validateSnapshot } from "./validate";
 
 // Idempotent write of a whole costume snapshot. Every value goes through query
 // parameters; the Cypher text is static.
@@ -36,6 +37,7 @@ export interface UpsertCounts {
 }
 
 export async function upsertSnapshot(snapshot: CostumeSnapshot): Promise<UpsertCounts> {
+  snapshot = validateSnapshot(snapshot);
   const graph = await getGraph();
   await ensureIndexes();
   const { costume, pieces, products, merchants, neighborhoods, tags } = snapshot;

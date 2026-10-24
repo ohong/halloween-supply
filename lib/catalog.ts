@@ -14,9 +14,11 @@ import type { AlternativeFilters, CostumeView, PickReason, ProductOption, Shared
 export type CatalogSource = "graph" | "snapshot";
 
 const GRAPH_TIMEOUT_MS = 2500;
+const GRAPH_RETRY_DELAY_MS = 30_000;
 
 let lastSource: CatalogSource | null = null;
 let warned = false;
+let retryGraphAfter = 0;
 
 /** Where the most recent read came from (null before the first read). */
 export function getCatalogSource(): CatalogSource | null {
@@ -40,7 +42,7 @@ async function read<T>(
   fromSnapshot: () => Promise<T>,
   isEmpty: (v: T) => boolean,
 ): Promise<T> {
-  if (isGraphConfigured()) {
+  if (isGraphConfigured() && performance.now() >= retryGraphAfter) {
     try {
       const value = await withTimeout(fromGraph(), GRAPH_TIMEOUT_MS);
       if (!isEmpty(value)) {
@@ -48,9 +50,13 @@ async function read<T>(
         warned = false;
         return value;
       }
-      warnOnce("graph returned no data (not seeded?)");
-    } catch (e) {
-      warnOnce(e instanceof Error ? e.message : String(e));
+      // An empty result can be a valid filter. Do not disable graph access.
+      warnOnce("graph returned no matching data");
+    } catch {
+      // A sleeping free-tier database should cost one bounded wait per server,
+      // rather than slowing every page and assistant tool while it wakes.
+      retryGraphAfter = performance.now() + GRAPH_RETRY_DELAY_MS;
+      warnOnce("graph unavailable; retrying in 30 seconds");
       void resetGraph();
     }
   }

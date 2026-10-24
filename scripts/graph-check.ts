@@ -28,9 +28,13 @@ const check = (label: string, ok: boolean, detail = "") => {
 try {
   console.log(`source: ${isGraphConfigured() ? "graph (FALKORDB_URL set)" : "snapshot"}`);
 
+  const started = performance.now();
   const view = await catalog.getCostume(SLUG);
+  console.log(`Costume read: ${Math.round(performance.now() - started)}ms`);
   check("getCostume", !!view && view.pieces.length > 0, `pieces=${view?.pieces.length}`);
-  if (!view) throw new Error("no costume");
+  if (!view || view.pieces.length === 0) throw new Error("Costume has no sourced products; run the sourcing pipeline and seed first");
+  check("each piece has one default and two alternatives", view.pieces.every(({ options }) => options.length === 3 && options.every((option, rank) => option.pick.rank === rank)));
+  check("each default is in stock", view.pieces.every(({ options }) => options[0].product.availability === "in_stock"));
   for (const pv of view.pieces) {
     console.log(`  ${pv.piece.order} ${pv.piece.id} (${pv.options.length} options)`);
     for (const o of pv.options) console.log(`     ${slim(o)}`);
@@ -72,8 +76,6 @@ try {
       const other = b.options.find((o) => o.merchant.id === m && o.pick.rank > 0);
       if (!other) continue;
       const hit = base.find((s) => s.merchant.id === m);
-      const withOther = [a.options[0].product.id, ...defaultIds.filter((id) => id !== b.options[0].product.id)];
-      void withOther;
       check(
         `getFewestShops: ${m} (default for ${a.piece.id}) also sells ${other.product.id} for ${b.piece.id}`,
         !!hit && hit.productIds.includes(a.options[0].product.id) && hit.productIds.includes(other.product.id),
@@ -91,6 +93,11 @@ try {
     const eq = (a: unknown, b: unknown) => JSON.stringify(a) === JSON.stringify(b);
     check("graph == snapshot: getCostume", eq(await graphImpl.getCostume(SLUG), await snap.getCostume(SLUG)));
     check("graph == snapshot: getAlternatives", eq(await graphImpl.getAlternatives(first.piece.id), await snap.getAlternatives(first.piece.id)));
+    for (const { piece } of view.pieces) {
+      for (const filters of [{ costumeSlug: SLUG }, { costumeSlug: SLUG, localOnly: true }, { costumeSlug: SLUG, maxPriceCents: 10000 }]) {
+        check(`graph == snapshot: alternatives ${piece.id} ${JSON.stringify(filters)}`, eq(await graphImpl.getAlternatives(piece.id, filters), await snap.getAlternatives(piece.id, filters)));
+      }
+    }
     check("graph == snapshot: getMerchantCatalog", eq(await graphImpl.getMerchantCatalog(mid, SLUG), await snap.getMerchantCatalog(mid, SLUG)));
     check("graph == snapshot: getFewestShops", eq(await graphImpl.getFewestShops(defaultIds), await snap.getFewestShops(defaultIds)));
     check("graph == snapshot: getPickPath", eq(await graphImpl.getPickPath(defaultIds[0], first.piece.id), await snap.getPickPath(defaultIds[0], first.piece.id)));
