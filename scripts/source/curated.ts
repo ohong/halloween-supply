@@ -1,8 +1,16 @@
 // Merchant product pages discovered from live independent-store catalogs.
 // These supplement Google Shopping cards that link back to Google instead of the shop.
 import type { Candidate } from "./search";
+import { products as linenGhostProducts } from "./costumes/linen-ghost";
+import { products as vampireProducts } from "./costumes/velvet-vampire";
+import { products as mushroomProducts } from "./costumes/woodland-mushroom";
+import { products as mothProducts } from "./costumes/moon-moth";
 
 const products: Record<string, Array<[string, string, string?]>> = {
+  ...linenGhostProducts,
+  ...vampireProducts,
+  ...mushroomProducts,
+  ...mothProducts,
   "cowboy-hat": [
     ["https://eastnwestlabel.com/products/metallic-cowboy-hat", "Metallic Cowboy Hat", "Silver"],
     ["https://wilderwest.com/products/stetson-john-wayne-peacemaker-4x-wool-cowboy-hat", "Stetson John Wayne Peacemaker Cowboy Hat", "Stone"],
@@ -11,7 +19,7 @@ const products: Record<string, Array<[string, string, string?]>> = {
   "fringe-jacket": [
     ["https://www.pretty-attitude.com/products/beige-faux-suede-fringe-jacket", "Beige Faux Suede Fringe Jacket"],
     ["https://www.pretty-attitude.com/products/black-jacket-with-fringe", "Black Faux Suede Moto Jacket with Fringe"],
-    ["https://shopcindyjane.com/products/black-star-faux-leather-fringe-moto-jacket", "Black Star Faux Leather Fringe Moto Jacket"],
+    ["https://grittybelleboutique.com/products/silver-fringe-r-r-jacket", "Silver Fringe R&R Jacket"],
   ],
   "silver-trousers": [
     ["https://fringe-co.com/products/silver-high-waisted-sequin-party-pant", "Silver High Waisted Sequin Party Pant"],
