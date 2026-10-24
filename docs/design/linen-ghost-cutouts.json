@@ -1,0 +1,88 @@
+{
+  "costumeSlug": "linen-ghost",
+  "method": "Merchant-reference cleanup for product-only transparent cutouts",
+  "records": [
+    {
+      "productId": "p-70b91ecda7",
+      "merchantProductUrl": "https://linen-shed.com/products/bed-linen-flat-sheet-natural-undyed?variant=647362221",
+      "sourceImageUrl": "https://cdn.shopify.com/s/files/1/0407/1833/files/LSNaturalflatsheet.png?v=1702362099",
+      "output": "public/products/p-70b91ecda7-cutout.png",
+      "method": "Built-in image generation edit from merchant reference; actual transparent alpha retained",
+      "transparentBackground": true,
+      "prompt": "Use case: product photograph cleanup for an independent-store catalog. The input is the exact merchant product reference. Create a faithful isolated product-only photograph of ONE flat linen sheet, neatly folded into a low rectangular stack with visible folded hem edges. This is an uncut regular flat sheet, not a costume garment. Preserve the reference's natural undyed light oatmeal ivory linen, its visible plain-weave flax texture, natural slight wrinkling and simple unadorned sewn hems. Show the complete sheet as a fully framed folded fabric item, slight overhead studio view, generous transparent margin. Remove all bed, pillows, headboard, furniture, books, walls, floor, plants, display hardware and people. No eye holes, no face, no ghost shape, no additional garments, no decoration, no brand text, no labels. Actual transparent background, no cast shadow or grey checkerboard. Realistic soft even product lighting. Do not change the product material or color. This is a styled catalog representation of the same plain linen sheet in the reference."
+    },
+    {
+      "productId": "p-ade84082ca",
+      "merchantProductUrl": "https://roughlinen.com/products/orkney-linen-flat-sheet?variant=41055310413921",
+      "sourceImageUrl": "https://cdn.shopify.com/s/files/1/1084/5358/products/orkney_off_white_fitted_and_flat_sheets.jpg?v=1742929067",
+      "output": "public/products/p-ade84082ca-cutout.png",
+      "method": "Built-in image generation edit from merchant reference; actual transparent alpha retained",
+      "transparentBackground": true,
+      "prompt": "Use case: product photograph cleanup for an independent-store catalog. The input is the exact merchant product reference. Create a faithful isolated product-only photograph of ONE flat linen sheet, neatly folded into a low rectangular stack with visible folded hem edges. This is an uncut regular flat sheet, not a costume garment. Preserve the reference's off-white slightly cool ivory heavyweight linen, its visible plain-weave flax texture, natural slight wrinkling and simple unadorned sewn hems. Show the complete sheet as a fully framed folded fabric item, slight overhead studio view, generous transparent margin. Remove all bed, pillows, headboard, furniture, books, walls, floor, plants, display hardware and people. No eye holes, no face, no ghost shape, no additional garments, no decoration, no brand text, no labels. Actual transparent background, no cast shadow or grey checkerboard. Realistic soft even product lighting. Do not change the product material or color. This is a styled catalog representation of the same plain linen sheet in the reference.",
+      "followupPrompt": "Make one precise cleanup edit to this product cutout: erase the entire soft pale halo/shadow outside the folded white linen sheet. Outside the exact physical fabric silhouette must be completely transparent alpha=0, with no glow or soft shadow. Keep every part of the existing folded sheet unchanged: same off-white flax linen, same weave texture, exact folds, hem, outline and camera view. Do not add anything, do not change the framing. This is background extraction only. Use a crisp natural fabric edge with alpha antialiasing only immediately at the physical edge."
+    },
+    {
+      "productId": "p-3ead2de5c8",
+      "merchantProductUrl": "https://groceriesapparel.com/products/willy-tee?variant=40351438176338",
+      "sourceImageUrl": "https://cdn.shopify.com/s/files/1/1863/5243/files/20251210_Groceries_Casey_0228.jpg?v=1775341360",
+      "output": "public/products/p-3ead2de5c8-cutout.png",
+      "method": "Built-in image generation edit from merchant reference; actual transparent alpha retained",
+      "transparentBackground": true,
+      "prompt": "Use case: identity-preserving product photo cleanup for a real merchant catalog. Edit the exact garment or accessory in the input reference into a complete product-only ecommerce flat-lay cutout. The Willa Tee: no-bleach creamy white lightweight organic cotton top, relaxed oversized shape, wide boat neckline, dropped shoulder and long loose sleeves. Preserve the exact sleeve length, neckline, softly curved hem and unprinted fabric. Completely remove the person, skin, hair, limbs, shoes, other clothes, hangers, room, beach and all background. Arrange the single item naturally flat, front side up, with all edges fully visible and generous clear margin. Reconstruct only small cloth regions hidden by the model, maintaining the photographed design; do not invent closures, ornaments, pockets or logos. Soft even photographic lighting, authentic material, no text, no watermark. Actual transparent background all around the product, including between sleeves or trouser legs. No solid backdrop, no checkerboard drawn into pixels, no ground shadow, no glow. Keep product color and cut faithful to the merchant reference."
+    },
+    {
+      "productId": "p-d2949e96ef",
+      "merchantProductUrl": "https://larelaxed.com/products/needlepoint-tee?variant=48910447739109",
+      "sourceImageUrl": "https://cdn.shopify.com/s/files/1/0771/8275/files/white_needlepoint_front.jpg?v=1783272698",
+      "output": "public/products/p-d2949e96ef-cutout.png",
+      "method": "Built-in image generation edit from merchant reference; actual transparent alpha retained",
+      "transparentBackground": true,
+      "prompt": "Use case: identity-preserving product photo cleanup for a real merchant catalog. Edit the exact garment or accessory in the input reference into a complete product-only ecommerce flat-lay cutout. The Needlepoint Tee: white fine rib/pointelle organic cotton close-fit cropped short-sleeve crew-neck T-shirt, chunky narrow scalloped binding at neck, sleeves and bottom. Preserve the delicate vertical knit texture, actual cap sleeve proportions and clean fitted silhouette. Completely remove the person, skin, hair, limbs, shoes, other clothes, hangers, room, beach and all background. Arrange the single item naturally flat, front side up, with all edges fully visible and generous clear margin. Reconstruct only small cloth regions hidden by the model, maintaining the photographed design; do not invent closures, ornaments, pockets or logos. Soft even photographic lighting, authentic material, no text, no watermark. Actual transparent background all around the product, including between sleeves or trouser legs. No solid backdrop, no checkerboard drawn into pixels, no ground shadow, no glow. Keep product color and cut faithful to the merchant reference."
+    },
+    {
+      "productId": "p-1192c69a2d",
+      "merchantProductUrl": "https://larelaxed.com/products/linen-drawstring-pant?variant=46699949916389",
+      "sourceImageUrl": "https://cdn.shopify.com/s/files/1/0771/8275/files/White_linen_drawstring_lead.jpg?v=1776369060",
+      "output": "public/products/p-1192c69a2d-cutout.png",
+      "method": "Built-in image generation edit from merchant reference; actual transparent alpha retained",
+      "transparentBackground": true,
+      "prompt": "Use case: identity-preserving product photo cleanup for a real merchant catalog. Edit the exact garment or accessory in the input reference into a complete product-only ecommerce flat-lay cutout. The Linen Drawstring Pant: white linen full-length straight relaxed trousers with gathered drawstring waistband, two fine white drawstring ends and angled hip pockets. Preserve the linen texture, exact plain waist construction and simple straight legs. The beach light gives the white fabric a slight cool cast; the actual garment is white, not blue. Completely remove the person, skin, hair, limbs, shoes, other clothes, hangers, room, beach and all background. Arrange the single item naturally flat, front side up, with all edges fully visible and generous clear margin. Reconstruct only small cloth regions hidden by the model, maintaining the photographed design; do not invent closures, ornaments, pockets or logos. Soft even photographic lighting, authentic material, no text, no watermark. Actual transparent background all around the product, including between sleeves or trouser legs. No solid backdrop, no checkerboard drawn into pixels, no ground shadow, no glow. Keep product color and cut faithful to the merchant reference."
+    },
+    {
+      "productId": "p-7bfcf10aa3",
+      "merchantProductUrl": "https://groceriesapparel.com/products/hemp-pant?variant=40537724911698",
+      "sourceImageUrl": "https://cdn.shopify.com/s/files/1/1863/5243/files/20251210_Groceries_Casey_0607.jpg?v=1775351231",
+      "output": "public/products/p-7bfcf10aa3-cutout.png",
+      "method": "Built-in image generation edit from merchant reference; actual transparent alpha retained",
+      "transparentBackground": true,
+      "prompt": "Use case: identity-preserving product photo cleanup for a real merchant catalog. Edit the exact garment or accessory in the input reference into a complete product-only ecommerce flat-lay cutout. The Hemp Pant: no-bleach ivory hemp full-length relaxed wide-leg trousers, gathered elastic waistband and thin cream drawstring with two ends, unobtrusive side pockets, plain stitched hems. Preserve the complete loose straight-leg proportions and organic woven fabric. Completely remove the person, skin, hair, limbs, shoes, other clothes, hangers, room, beach and all background. Arrange the single item naturally flat, front side up, with all edges fully visible and generous clear margin. Reconstruct only small cloth regions hidden by the model, maintaining the photographed design; do not invent closures, ornaments, pockets or logos. Soft even photographic lighting, authentic material, no text, no watermark. Actual transparent background all around the product, including between sleeves or trouser legs. No solid backdrop, no checkerboard drawn into pixels, no ground shadow, no glow. Keep product color and cut faithful to the merchant reference."
+    },
+    {
+      "productId": "p-880e0f00e7",
+      "merchantProductUrl": "https://threadandmaple.com/products/leather-snap-shawl-cuff?variant=39905683013765",
+      "sourceImageUrl": "https://cdn.shopify.com/s/files/1/0364/4991/0917/products/shawlcuff-whikeyflatpxadj.jpg?v=1668116540",
+      "output": "public/products/p-880e0f00e7-cutout.png",
+      "method": "Built-in image generation edit from merchant reference; actual transparent alpha retained",
+      "transparentBackground": true,
+      "prompt": "Use case: identity-preserving product photo cleanup for a real merchant catalog. Edit the exact garment or accessory in the input reference into a complete product-only ecommerce flat-lay cutout. Only the small narrow Whiskey brown leather snap shawl cuff accessory. Preserve its simple long rounded-end leather strip, edge stitching, brass circular snap cap at one end and matching small metal snap at the other. Keep the strap open and flat with its existing diagonal angle, retaining its proportions. The beige knitted garment is NOT part of the product. Completely remove the person, skin, hair, limbs, shoes, other clothes, hangers, room, beach and all background. Arrange the single item naturally flat, front side up, with all edges fully visible and generous clear margin. Reconstruct only small cloth regions hidden by the model, maintaining the photographed design; do not invent closures, ornaments, pockets or logos. Soft even photographic lighting, authentic material, no text, no watermark. Actual transparent background all around the product, including between sleeves or trouser legs. No solid backdrop, no checkerboard drawn into pixels, no ground shadow, no glow. Keep product color and cut faithful to the merchant reference."
+    },
+    {
+      "productId": "p-e918d81b72",
+      "merchantProductUrl": "https://needlesnpinsyarnshoppe.com/products/white-brass-shawl-pin?variant=44604404072471",
+      "sourceImageUrl": "https://cdn.shopify.com/s/files/1/2363/7221/files/Circle_Shawl_Pin.jpg?v=1771532065",
+      "output": "public/products/p-e918d81b72-cutout.png",
+      "method": "Built-in image generation background extraction; original ring holes made transparent",
+      "transparentBackground": true,
+      "prompt": "Use case: precise background extraction of the exact real merchant jewelry product. Remove only the grey scratched and engraved tabletop background from this shawl pin photograph. Keep the entire existing circular ring and long diagonal pin unchanged, preserving exact irregular shape, material, wood grain or metal texture, color, angle, fine edges and sharp pin tip. The hole INSIDE the ring must be fully transparent too, including both triangular regions separated by the diagonal pin. The engraved swirly lines and scratches belong to the table, not the jewelry; remove all of them. Do not fill the ring hole with a solid disk. No person, no extra objects, no shadow, no grey backing. Actual transparent alpha everywhere except the ring and its single diagonal pin. Full product fully visible with margin. This is extraction only, do not redesign or stylize the product."
+    },
+    {
+      "productId": "p-2a93dfe671",
+      "merchantProductUrl": "https://needlesnpinsyarnshoppe.com/products/wood-off-center-shawl-pin?variant=44609222803479",
+      "sourceImageUrl": "https://cdn.shopify.com/s/files/1/2363/7221/files/RosewoodShawlPin.jpg?v=1771600452",
+      "output": "public/products/p-2a93dfe671-cutout.png",
+      "method": "Built-in image generation background extraction; original ring holes made transparent",
+      "transparentBackground": true,
+      "prompt": "Use case: precise background extraction of the exact real merchant jewelry product. Remove only the grey scratched and engraved tabletop background from this shawl pin photograph. Keep the entire existing circular ring and long diagonal pin unchanged, preserving exact irregular shape, material, wood grain or metal texture, color, angle, fine edges and sharp pin tip. The hole INSIDE the ring must be fully transparent too, including both triangular regions separated by the diagonal pin. The engraved swirly lines and scratches belong to the table, not the jewelry; remove all of them. Do not fill the ring hole with a solid disk. No person, no extra objects, no shadow, no grey backing. Actual transparent alpha everywhere except the ring and its single diagonal pin. Full product fully visible with margin. This is extraction only, do not redesign or stylize the product."
+    }
+  ]
+}

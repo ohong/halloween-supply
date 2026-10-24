@@ -1,0 +1,981 @@
+{
+  "costume": {
+    "slug": "linen-ghost",
+    "name": "Linen Ghost",
+    "description": "An off-white linen sheet with two eye openings and brown lace-up boots.",
+    "image": "/products/linen-ghost-flatlay.jpg",
+    "alt": "Linen Ghost: off-white linen sheet to drape, comfortable light base top, comfortable light base pants, brown leather lace-up boots, optional shawl pin or drape fastener, arranged on pale grey.",
+    "status": "live"
+  },
+  "pieces": [
+    {
+      "id": "ghost-linen-drape",
+      "name": "Off-white linen sheet to drape",
+      "category": "Fabric",
+      "required": true,
+      "order": 1,
+      "styleNotes": "A large, loose-woven off-white linen sheet with a slightly rumpled, aged texture that drapes in soft folds to the ankle. Vintage flax or stonewashed linen gives a classic, spooky storybook ghost look.",
+      "queries": [
+        "vintage off-white linen bed sheet flax Etsy",
+        "handmade stonewashed natural linen flat sheet king size ivory",
+        "antique European hemp linen sheet cream undyed"
+      ],
+      "sizeKind": "one_size",
+      "matches": [
+        {
+          "productId": "p-70b91ecda7",
+          "rank": 0,
+          "reason": "A natural undyed, unbleached French flax linen sheet with a vintage-washed finish that is a little rough at first, giving the aged, rumpled texture of a storybook ghost, in a twin size of 72 x 102 inches."
+        },
+        {
+          "productId": "p-ade84082ca",
+          "rank": 1,
+          "reason": "Described as a homespun, textured, heavyweight 100% natural flax linen flat sheet in off-white, with an oversized cut that suits draping, though the twin size is listed and the $202 price is steep for a costume."
+        },
+        {
+          "productId": "p-4e51868ea7",
+          "rank": 2,
+          "reason": "A linen flat sheet in natural oatmeal color, a slightly warmer neutral than off-white, made from wide fabric with no center seam, which helps a clean drape for a ghost costume."
+        }
+      ]
+    },
+    {
+      "id": "ghost-light-top",
+      "name": "Comfortable light base top",
+      "category": "Tops",
+      "required": true,
+      "order": 2,
+      "styleNotes": "A lightweight, breathable cotton or linen tee or long-sleeve in white or cream, worn underneath the sheet. Keep it slim and plain so it doesn't bulk up the drape.",
+      "queries": [
+        "handmade organic cotton long sleeve tee cream lightweight",
+        "vintage 90s plain white cotton t-shirt single stitch",
+        "small brand linen blend crew neck top off-white"
+      ],
+      "sizeKind": "apparel",
+      "matches": [
+        {
+          "productId": "p-883971c192",
+          "rank": 0,
+          "reason": "Plain crew tee in undyed natural 4.3 oz 100% organic cotton jersey with a rib collar, a cream-toned color that suits a light base layer under an off-white sheet; the description says it is sewn in the San Francisco Bay Area."
+        },
+        {
+          "productId": "p-3ead2de5c8",
+          "rank": 1,
+          "reason": "White lightweight organic cotton tee, but it is described as oversized and slouchy, which may add more bulk under the sheet than the slim plain base layer calls for."
+        },
+        {
+          "productId": "p-d2949e96ef",
+          "rank": 2,
+          "reason": "White 100% organic cotton tee in a ribbed needlepoint fabric with a chunky scalloped neck binding, but the texture and cropped cut are less plain and slim than the base layer calls for."
+        }
+      ]
+    },
+    {
+      "id": "ghost-base-pants",
+      "name": "Comfortable light base pants",
+      "category": "Bottoms",
+      "required": true,
+      "order": 3,
+      "styleNotes": "Light, relaxed pants in cream, white or pale grey cotton or linen that stay hidden beneath the sheet. A drawstring waist keeps them comfortable all night.",
+      "queries": [
+        "handmade linen drawstring pants natural off-white",
+        "vintage cotton drawstring trousers cream lightweight",
+        "small brand organic cotton lounge pants ecru"
+      ],
+      "sizeKind": "pants",
+      "matches": [
+        {
+          "productId": "p-1192c69a2d",
+          "rank": 0,
+          "reason": "White 100% linen pants with a straight leg, adjustable drawstring waist and hip pockets, garment washed for softness, matching the light linen base the costume calls for."
+        },
+        {
+          "productId": "p-7bfcf10aa3",
+          "rank": 1,
+          "reason": "No-bleach white hemp pants with a relaxed fit, elastic mid-rise waistband and adjustable drawstring, a light neutral that suits wearing beneath a sheet."
+        },
+        {
+          "productId": "p-41e32b9102",
+          "rank": 2,
+          "reason": "Undyed natural 100% organic cotton jersey lounge pants with a relaxed straight leg and stretchy waistband (not a drawstring), sewn in the San Francisco Bay Area, so the light neutral color stays hidden under a sheet."
+        }
+      ]
+    },
+    {
+      "id": "brown-lace-up-boots",
+      "name": "Brown leather lace-up boots",
+      "category": "Footwear",
+      "required": true,
+      "order": 4,
+      "styleNotes": "Worn, brown leather lace-up boots with a rounded toe and a low stacked heel, in a vintage work or Victorian style. Scuffed, patinated leather adds to the haunted look peeking out from under the hem.",
+      "queries": [
+        "vintage brown leather lace-up boots women's Victorian style",
+        "handmade brown leather lace up ankle boots Etsy",
+        "vintage men's brown leather work boots lace-up distressed"
+      ],
+      "sizeKind": "shoe",
+      "matches": [
+        {
+          "productId": "p-e7257a048c",
+          "rank": 0,
+          "reason": "Plain toe boot in saddle tan Minerva vegetable-tanned leather from Badalassi Carlo, with leather uppers, lining, insole and outsole; the tan color is a warm brown-compatible shade and the leather will develop patina, but at $435 it costs a lot for a costume piece."
+        },
+        {
+          "productId": "p-aeae870a1f",
+          "rank": 1,
+          "reason": "Saddle brown Krumenauer leather boot with a narrow, refined 415 last and a dressy Dakota sole; the description says it steps away from the work-boot style, so it reads more polished than worn."
+        },
+        {
+          "productId": "p-d17b6f67bc",
+          "rank": 2,
+          "reason": "Brown leather lace-up boot with waxed cotton laces, Goodyear welt construction and a studded rubber outsole, a work-boot style that works under a ghost sheet, though it is a modern new pair rather than a worn, patinated one."
+        }
+      ]
+    },
+    {
+      "id": "ghost-drape-fastener",
+      "name": "Optional shawl pin or drape fastener",
+      "category": "Accessories",
+      "required": false,
+      "order": 5,
+      "styleNotes": "A small antique-style brass or pewter shawl pin, brooch or kilt pin that secures the sheet at the shoulder or chin without showing much. A tarnished vintage finish suits the ghostly theme.",
+      "queries": [
+        "vintage brass shawl pin brooch antique",
+        "handmade pewter cloak pin fastener Etsy",
+        "antique silver kilt pin large safety pin brooch"
+      ],
+      "sizeKind": "one_size",
+      "matches": [
+        {
+          "productId": "p-e918d81b72",
+          "rank": 0,
+          "reason": "A white brass shawl pin about 2 inches across with a 4-inch pin, made by Jul Designs, it can fasten the sheet at the shoulder and a tarnished finish would suit the vintage theme, though the metal is listed as white brass rather than antique brass or pewter."
+        },
+        {
+          "productId": "p-2a93dfe671",
+          "rank": 1,
+          "reason": "A rosewood off-center shawl pin from Jul Designs that could hold the sheet in place, but it is wood rather than the antique brass or pewter metal requested."
+        },
+        {
+          "productId": "p-880e0f00e7",
+          "rank": 2,
+          "reason": "A genuine leather shawl cuff in whiskey brown that closes with snaps at 7.5 inches long, it holds a shawl but is a cuff rather than a pin, brooch or kilt pin and has no antique metal look."
+        }
+      ]
+    }
+  ],
+  "products": [
+    {
+      "id": "p-70b91ecda7",
+      "title": "Bed Linen Flat Sheet Natural Undyed",
+      "url": "https://linen-shed.com/products/bed-linen-flat-sheet-natural-undyed?variant=647362221",
+      "priceCents": 10560,
+      "currency": "USD",
+      "image": "/products/p-70b91ecda7.jpg",
+      "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/0407/1833/files/LSNaturalflatsheet.png?v=1702362099",
+        "https://linen-shed.com/cdn/shop/files/LSNaturalflatsheet.png?v=1702362099&width=115",
+        "http://linen-shed.com/cdn/shop/files/LSNaturalflatsheet_1200x630.png?v=1702362099",
+        "http://linen-shed.com/cdn/shop/files/NaturalFlatSheet3_1200x630.png?v=1702544055",
+        "http://linen-shed.com/cdn/shop/files/NaturalFlatSheetredo2_1200x630.png?v=1702544055",
+        "https://linen-shed.com/cdn/shop/files/LSNaturalflatsheet_1200x630.png?v=1702362099",
+        "https://linen-shed.com/cdn/shop/files/NaturalFlatSheet3_1200x630.png?v=1702544055"
+      ],
+      "availability": "in_stock",
+      "sizes": [
+        "USA Twin W.72\"xL.102\" / 183 x 260 cm"
+      ],
+      "merchantId": "linen-shed-com",
+      "tagSlugs": [
+        "linen",
+        "flax",
+        "undyed",
+        "vintage-washed",
+        "french-linen"
+      ],
+      "description": "This natural washed bed linen sheet did not undergo any bleaching so it is guaranteed to last for a long time, it’s more eco-friendly as well. Made from the highest quality of flax fiber, this French linen sheet is great for people looking for a real natural alternative for their bedding. You can have this vintage washed sheet tailored to fit the specified size of your bed. While little rough at first, it’s reaching softness washings after washings. If you have a very sensitive skin, it’s advised to choose one of our dyed linen products instead, each one having it’s own texture due to each dy…",
+      "checkedAt": "2026-10-24T23:09:21.778Z",
+      "cutout": "/products/p-70b91ecda7-cutout.png"
+    },
+    {
+      "id": "p-ade84082ca",
+      "title": "Orkney Linen Flat Sheet — off-white",
+      "url": "https://roughlinen.com/products/orkney-linen-flat-sheet?variant=41055310413921",
+      "priceCents": 20200,
+      "currency": "USD",
+      "image": "/products/p-ade84082ca.jpg",
+      "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/1084/5358/products/orkney_off_white_fitted_and_flat_sheets.jpg?v=1742929067",
+        "https://www.roughlinen.com/cdn/shop/products/Orkney_Natural_Flat_Sheet_600x.jpg?v=1776777017",
+        "https://www.roughlinen.com/cdn/shop/files/OrkneySheets_forest_43ff3b38-96c1-42e0-9d0f-2b370fb87316_600x.jpg?v=1776777017",
+        "https://www.roughlinen.com/cdn/shop/files/Orkney_FOG_91732b09-c131-4bbb-baf4-6908fddb01dd_600x.jpg?v=1776777017",
+        "https://www.roughlinen.com/cdn/shop/products/Orkney_Natural_Flat_Sheet_240x.jpg?v=1776777017",
+        "https://cdn.shopify.com/s/files/1/1084/5358/products/Orkney_Natural_Flat_Sheet.jpg?v=1776777017"
+      ],
+      "availability": "in_stock",
+      "sizes": [
+        "off-white / twin"
+      ],
+      "merchantId": "roughlinen-com",
+      "tagSlugs": [
+        "linen",
+        "flax",
+        "off-white",
+        "handmade",
+        "bedding"
+      ],
+      "description": "Homespun, textured, heavyweight linen bedding sheet. 100% pure natural flax. Oversized, flat sheet top or bottom sheet. Fits any size mattress even extra deep, tuck hospital corners as fitted sheet. Hotel quality. Washed, organic, non-toxic, breathable modern minimalist.",
+      "checkedAt": "2026-10-24T23:09:21.778Z",
+      "cutout": "/products/p-ade84082ca-cutout.png"
+    },
+    {
+      "id": "p-4e51868ea7",
+      "title": "Natural linen flat sheet — US",
+      "url": "https://magiclinen.com/products/natural-linen-flat-sheet?variant=42852865081603",
+      "priceCents": 11600,
+      "currency": "USD",
+      "image": "/products/p-4e51868ea7.jpg",
+      "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/0640/8454/1699/products/natural-linen-flat-sheet-1.jpg?v=1660217774",
+        "https://magiclinen.com/cdn/shop/products/natural-linen-flat-sheet-1.jpg?v=1660217774&width=2000",
+        "https://magiclinen.com/cdn/shop/files/natural-linen-flat-sheet-1.jpg?v=1776318020&width=2000",
+        "https://magiclinen.com/cdn/shop/files/natural-linen-duvet-cover.jpg?v=1776318020&width=2000",
+        "https://magiclinen.com/cdn/shop/files/natural-linen-flat-sheet-2.jpg?v=1776318020&width=2000",
+        "https://magiclinen.com/cdn/shop/products/natural-linen-flat-sheet-2.jpg?v=1776318020&width=2000",
+        "http://magiclinen.com/cdn/shop/products/natural-linen-flat-sheet-1.jpg?v=1660217774"
+      ],
+      "availability": "in_stock",
+      "sizes": [
+        "US / Twin",
+        "US / Twin XL"
+      ],
+      "merchantId": "magiclinen-com",
+      "tagSlugs": [
+        "linen",
+        "oatmeal",
+        "flat-sheet",
+        "seamless",
+        "neutral"
+      ],
+      "description": "Linen flat sheet in natural linen color (oatmeal). Luxuriously soft and breathable linen sheets will become a staple of every modern bedroom. The natural thermoregulating and moisture-wicking properties of linen guarantee the feeling of comfort all year round. Flat sheets can be used as top sheets or bedcovers as well. Please note that due to the many variations in monitors and browsers, actual colors may vary. Note: We use wide fabric to make our bedding so there won't be any additional seams in the middle.",
+      "checkedAt": "2026-10-24T23:09:21.778Z",
+      "cutout": "/products/p-4e51868ea7-cutout.png"
+    },
+    {
+      "id": "p-883971c192",
+      "title": "Men's Organic Crew Tee in Natural",
+      "url": "https://harvestandmill.com/products/mens-crew?variant=39547855568970",
+      "priceCents": 5400,
+      "currency": "USD",
+      "image": "/products/p-883971c192.jpg",
+      "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/0550/6478/9066/products/undyed-organic-tee-shirt-harvest-and-mill-3_280a306b-0cc9-422d-a65b-99dce4e2ecbe.jpg?v=1652803121",
+        "https://harvestandmill.com/cdn/shop/products/JV_H_26M_ECM-6292.jpg?v=1640040456&width=1024",
+        "https://harvestandmill.com/cdn/shop/products/JV_H_26M_ECM-6303.jpg?v=1640040458&width=1024",
+        "https://harvestandmill.com/cdn/shop/products/JV_H_26M_ECM-6322.jpg?v=1640040460&width=1024",
+        "https://harvestandmill.com/cdn/shop/products/JV_H_26M_ECM-6303_1024x.jpg?v=1640040458",
+        "http://harvestandmill.com/cdn/shop/products/JV_H_26M_ECM-6292_800x.jpg?v=1640040456",
+        "http://harvestandmill.com/cdn/shop/products/JV_H_26M_ECM-6303_800x.jpg?v=1640040458"
+      ],
+      "availability": "in_stock",
+      "sizes": [
+        "x-small",
+        "small",
+        "medium",
+        "large",
+        "x-large"
+      ],
+      "merchantId": "harvestandmill-com",
+      "tagSlugs": [
+        "organic-cotton",
+        "cream",
+        "made-in-usa",
+        "basic-tee",
+        "undyed"
+      ],
+      "description": "Natural version of our modern men’s crew. Made to be your daily wearer. Built with 4.3 ounce 100% organic cotton jersey, this fabric is the perfect weight and ideal for tee shirts. Soft, flexible feel on the body with rib collar for a clean look. Fits true to size.Origins: Organic cotton grown in USA, yarn spun and knit in USA, sewn in the San Francisco Bay Area. Color: Undyed, unbleached clean finish. Richer in tone than stark bleached optic white. This is the real color of white cotton. Questions? We would love to help hello@harvestandmill.com",
+      "checkedAt": "2026-10-24T23:09:21.778Z",
+      "cutout": "/products/p-883971c192-cutout.png"
+    },
+    {
+      "id": "p-3ead2de5c8",
+      "title": "Willa Tee — No-bleach White",
+      "url": "https://groceriesapparel.com/products/willy-tee?variant=40351438176338",
+      "priceCents": 4800,
+      "currency": "USD",
+      "image": "/products/p-3ead2de5c8.jpg",
+      "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/1863/5243/files/20251210_Groceries_Casey_0228.jpg?v=1775341360",
+        "https://cdn.shopify.com/s/files/1/1863/5243/files/20251210_Groceries_Casey_0210.jpg?v=1775341360",
+        "https://groceriesapparel.com/cdn/shop/files/20251210_Groceries_Casey_0210.jpg?v=1775341360&width=1920",
+        "http://groceriesapparel.com/cdn/shop/files/20251210_Groceries_Casey_0519.jpg?v=1775341360",
+        "https://groceriesapparel.com/cdn/shop/files/20251210_Groceries_Casey_0519.jpg?v=1775341360",
+        "https://cdn.shopify.com/s/files/1/1863/5243/files/20251210_Groceries_Casey_0519.jpg?v=1775341360"
+      ],
+      "availability": "in_stock",
+      "sizes": [
+        "No-bleach White / XS/S",
+        "No-bleach White / M/L"
+      ],
+      "merchantId": "groceriesapparel-com",
+      "tagSlugs": [
+        "organic-cotton",
+        "white",
+        "oversized",
+        "lightweight"
+      ],
+      "description": "Oversized exactly where you want it for a look that’s perfectly slouchy, yet surprisingly streamlined. Spring-weight and cloud soft in lightweight organic cotton make it as irresistible as it is effortless.",
+      "checkedAt": "2026-10-24T23:09:21.778Z",
+      "cutout": "/products/p-3ead2de5c8-cutout.png"
+    },
+    {
+      "id": "p-d2949e96ef",
+      "title": "Needlepoint Tee — White",
+      "url": "https://larelaxed.com/products/needlepoint-tee?variant=48910447739109",
+      "priceCents": 6000,
+      "currency": "USD",
+      "image": "/products/p-d2949e96ef.jpg",
+      "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/0771/8275/files/white_needlepoint_front.jpg?v=1783272698",
+        "https://cdn.shopify.com/s/files/1/0771/8275/files/needlepoint_tee.jpg?v=1783272674",
+        "https://larelaxed.com/cdn/shop/files/needlepoint_tee_1200x.jpg?v=1783272674",
+        "http://larelaxed.com/cdn/shop/files/needlepoint_tee.jpg?v=1783272674",
+        "https://larelaxed.com/cdn/shop/files/needlepoint_tee.jpg?v=1783272674",
+        "https://cdn.shopify.com/s/files/1/0771/8275/files/white_needlepoint_full.jpg?v=1785180233"
+      ],
+      "availability": "in_stock",
+      "sizes": [
+        "S / White",
+        "M / White",
+        "XL / White"
+      ],
+      "merchantId": "larelaxed-com",
+      "tagSlugs": [
+        "organic-cotton",
+        "white",
+        "ribbed",
+        "cropped"
+      ],
+      "description": "A classic fitted short sleeve tee made of a delicate ribbed needlepoint fabric. It features a chunky neck binding with a scalloped effect. Made of a locally knit and dyed Organic Cotton. Size up one for a less cropped fit. Details: - Ribbed textured fabric. - Dyed with AZO-free dyes. - Pre-shrunk and garment washed. 100% Organic Cotton Alivia is 5'9\" and wears size S. Manuella is 5'6\" and wears XS.",
+      "checkedAt": "2026-10-24T23:09:21.778Z",
+      "cutout": "/products/p-d2949e96ef-cutout.png"
+    },
+    {
+      "id": "p-1192c69a2d",
+      "title": "Linen Drawstring Pant — White",
+      "url": "https://larelaxed.com/products/linen-drawstring-pant?variant=46699949916389",
+      "priceCents": 13800,
+      "currency": "USD",
+      "image": "/products/p-1192c69a2d.jpg",
+      "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/0771/8275/files/White_linen_drawstring_lead.jpg?v=1776369060",
+        "https://cdn.shopify.com/s/files/1/0771/8275/files/Black_square_tank_full.jpg?v=1776369060",
+        "https://larelaxed.com/cdn/shop/files/Black_square_tank_full_1200x.jpg?v=1776369060",
+        "http://larelaxed.com/cdn/shop/files/Black_square_tank_full.jpg?v=1776369060",
+        "https://larelaxed.com/cdn/shop/files/Black_square_tank_full.jpg?v=1776369060",
+        "https://cdn.shopify.com/s/files/1/0771/8275/files/White_square_cami_front.jpg?v=1776369145"
+      ],
+      "availability": "in_stock",
+      "sizes": [
+        "XS / White",
+        "S / White",
+        "M / White",
+        "L / White",
+        "XL / White"
+      ],
+      "merchantId": "larelaxed-com",
+      "tagSlugs": [
+        "linen",
+        "white",
+        "drawstring",
+        "straight-leg",
+        "garment-washed"
+      ],
+      "description": "These classic and simple linen pants feature a straight leg fit with a drawstring waistband and hip pockets. Inseam is 31\". Details: - Adjustable drawstring waist. - Dyed with AZO-free dyes. - Garment washed to increase softness and remove shrinkage. 100% Linen sourced in California Anissa is 5'6\" and wears size Small. Manuella is 5'6\" and wears size Small.",
+      "checkedAt": "2026-10-24T23:09:21.778Z",
+      "cutout": "/products/p-1192c69a2d-cutout.png"
+    },
+    {
+      "id": "p-7bfcf10aa3",
+      "title": "Hemp Pant — No-bleach White",
+      "url": "https://groceriesapparel.com/products/hemp-pant?variant=40537724911698",
+      "priceCents": 8100,
+      "currency": "USD",
+      "image": "/products/p-7bfcf10aa3.jpg",
+      "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/1863/5243/files/20251210_Groceries_Casey_0607.jpg?v=1775351231",
+        "https://cdn.shopify.com/s/files/1/1863/5243/files/20251210_Groceries_Casey_0553.jpg?v=1775351231",
+        "https://groceriesapparel.com/cdn/shop/files/241002_Groceries_Leila_2240.jpg?v=1775351231&width=1920",
+        "http://groceriesapparel.com/cdn/shop/files/20251210_Groceries_Casey_0607.jpg?v=1775351231",
+        "https://groceriesapparel.com/cdn/shop/files/20251210_Groceries_Casey_0607.jpg?v=1775351231",
+        "https://cdn.shopify.com/s/files/1/1863/5243/files/241002_Groceries_Leila_2240.jpg?v=1775351231"
+      ],
+      "availability": "in_stock",
+      "sizes": [
+        "No-bleach White / XS",
+        "No-bleach White / S",
+        "No-bleach White / M",
+        "No-bleach White / L"
+      ],
+      "merchantId": "groceriesapparel-com",
+      "tagSlugs": [
+        "hemp",
+        "white",
+        "drawstring",
+        "relaxed",
+        "lounge"
+      ],
+      "description": "Our most versatile spring pant. Cozy to lounge in yet sleek to leave the house. A relaxed fit, elastic mid-rise waistband and adjustable drawstring make these simple to slip into anytime.",
+      "checkedAt": "2026-10-24T23:09:21.778Z",
+      "cutout": "/products/p-7bfcf10aa3-cutout.png"
+    },
+    {
+      "id": "p-41e32b9102",
+      "title": "Men's Organic Straight Leg Lounge Pants in Natural",
+      "url": "https://harvestandmill.com/products/mens-organic-straight-leg-lounge-pants-in-natural?variant=42275062218826",
+      "priceCents": 7600,
+      "currency": "USD",
+      "image": "/products/p-41e32b9102.jpg",
+      "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/0550/6478/9066/files/Harvest_and_Mill_organic_cotton_made_in_usa_lounge_pants_undyed_1.jpg?v=1758142760",
+        "https://harvestandmill.com/cdn/shop/files/Harvest_and_Mill_organic_cotton_mens_organic_lounge_pants_dye_free_11.jpg?v=1752509147&width=1024",
+        "https://harvestandmill.com/cdn/shop/files/Harvest_and_Mill_organic_cotton_made_in_usa_lounge_pants_undyed_1.jpg?v=1758142760&width=1024",
+        "https://harvestandmill.com/cdn/shop/files/Harvest_and_Mill_organic_cotton_made_in_usa_lounge_pants_undyed_5.jpg?v=1752244177&width=1024",
+        "https://harvestandmill.com/cdn/shop/files/Harvest_and_Mill_organic_cotton_made_in_usa_lounge_pants_undyed_1_1024x.jpg?v=1758142760",
+        "http://harvestandmill.com/cdn/shop/files/Harvest_and_Mill_organic_cotton_mens_organic_lounge_pants_dye_free_11_800x.jpg?v=1752509147",
+        "http://harvestandmill.com/cdn/shop/files/Harvest_and_Mill_organic_cotton_made_in_usa_lounge_pants_undyed_1_800x.jpg?v=1758142760"
+      ],
+      "availability": "in_stock",
+      "sizes": [
+        "small",
+        "medium",
+        "large",
+        "x-large"
+      ],
+      "merchantId": "harvestandmill-com",
+      "tagSlugs": [
+        "organic-cotton",
+        "undyed",
+        "lounge",
+        "made-in-usa",
+        "natural"
+      ],
+      "description": "Made with our 100% organic cotton 5.4 oz jersey fabric. Lighter than our fleece fabric, our jersey is the perfect weight for casual pants. Naturally flexible and breathable, soft enough to be lounge pants and structured enough to wear out. This relaxed style is designed with a straight leg, open-hem leg cuffs and stretchy waistband. Featuring 2 large side pockets and a back patch pocket. Style #LP03N Fabric: 100% organic cotton USA grown Origins: Organic cotton grown in the USA, yarn spun and knit in the USA, sewn in the San Francisco Bay Area. Entirely USA domestic supply chain Color: Undyed…",
+      "checkedAt": "2026-10-24T23:09:21.778Z",
+      "cutout": "/products/p-41e32b9102-cutout.png"
+    },
+    {
+      "id": "p-e7257a048c",
+      "title": "Diesel Boot Saddle Tan — D (Standard)",
+      "url": "https://grantstoneshoes.com/products/diesel-boot-saddle-tan?variant=12617336651840",
+      "priceCents": 43500,
+      "currency": "USD",
+      "image": "/products/p-e7257a048c.jpg",
+      "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/1163/3390/files/GRANT2SIDE2-Edit-Edit_27ba84f7-bb9a-4473-89e4-2683d625de2f.jpg?v=1783616239",
+        "https://www.grantstoneshoes.com/cdn/shop/files/GRANT2SIDE2-Edit-Edit_27ba84f7-bb9a-4473-89e4-2683d625de2f.jpg?v=1783616239&width=1920",
+        "http://www.grantstoneshoes.com/cdn/shop/files/GRANT2SIDE2-Edit-Edit_27ba84f7-bb9a-4473-89e4-2683d625de2f.jpg?v=1783616239",
+        "https://www.grantstoneshoes.com/cdn/shop/files/GRANT2SIDE2-Edit-Edit_27ba84f7-bb9a-4473-89e4-2683d625de2f.jpg?v=1783616239",
+        "https://cdn.shopify.com/s/files/1/1163/3390/files/GRANT2SIDEbySIDE2-Edit.jpg?v=1751891549",
+        "https://cdn.shopify.com/s/files/1/1163/3390/files/GRANT2TOP-Edit.jpg?v=1751891549"
+      ],
+      "availability": "in_stock",
+      "sizes": [
+        "6 / D (Standard)",
+        "6.5 / D (Standard)",
+        "7 / D (Standard)",
+        "7.5 / D (Standard)",
+        "8 / D (Standard)",
+        "8.5 / D (Standard)",
+        "9 / D (Standard)",
+        "9.5 / D (Standard)",
+        "10 / D (Standard)",
+        "10.5 / D (Standard)",
+        "11 / D (Standard)",
+        "11.5 / D (Standard)",
+        "12 / D (Standard)",
+        "13 / D (Standard)"
+      ],
+      "merchantId": "grantstoneshoes-com",
+      "tagSlugs": [
+        "leather",
+        "vegetable-tanned",
+        "plain-toe",
+        "tan",
+        "lace-up"
+      ],
+      "description": "The word \"Diesel\" reminds us of something that may not be flashy but an object that is built for strength and longevity. This is our rendition of the basic plain toe boot pattern made with proven leather uppers, lining, insole, and outsole. The kicker is the Leo last being utilized on a boot pattern, which offers exceptional support and comfort. The Badalassi Carlo Tannery's Minerva leather is one of our favorites. This boutique Italian tannery specializes in vegetable tanning. During the process, the leather is placed in a 'Bottali,' a large barrel that rotates, allowing the organic tanning…",
+      "checkedAt": "2026-10-24T23:09:21.778Z",
+      "cutout": "/products/p-e7257a048c-cutout.png"
+    },
+    {
+      "id": "p-aeae870a1f",
+      "title": "The Zind Saddle Brown — Standard (D)",
+      "url": "https://helmboots.com/products/the-zind-saddle-brown?variant=40536538251326",
+      "priceCents": 31800,
+      "currency": "USD",
+      "image": "/products/p-aeae870a1f.jpg",
+      "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/0048/2912/files/helm-boots-the-zind-saddle-brown-31788107300926.jpg?v=1726171778",
+        "https://helmboots.com/cdn/shop/files/helm-boots-the-zind-saddle-brown-31788107300926.jpg?v=1726171778",
+        "http://helmboots.com/cdn/shop/files/helm-boots-the-zind-saddle-brown-31788107300926.jpg?v=1726171778",
+        "https://cdn.shopify.com/s/files/1/0048/2912/files/helm-boots-the-zind-saddle-brown-31788066799678.jpg?v=1713206753",
+        "https://cdn.shopify.com/s/files/1/0048/2912/files/helm-boots-the-zind-saddle-brown-31788106448958.jpg?v=1726171786",
+        "https://cdn.shopify.com/s/files/1/0048/2912/files/helm-boots-the-zind-saddle-brown-31788066865214.jpg?v=1713206749"
+      ],
+      "availability": "in_stock",
+      "sizes": [
+        "Standard (D) / 6",
+        "Standard (D) / 7",
+        "Standard (D) / 8",
+        "Standard (D) / 8.5",
+        "Standard (D) / 9",
+        "Standard (D) / 9.5",
+        "Standard (D) / 10",
+        "Standard (D) / 10.5",
+        "Standard (D) / 11",
+        "Standard (D) / 11.5",
+        "Standard (D) / 12",
+        "Standard (D) / 13",
+        "Standard (D) / 14",
+        "Standard (D) / 15"
+      ],
+      "merchantId": "helmboots-com",
+      "tagSlugs": [
+        "leather",
+        "lace-up",
+        "saddle-brown",
+        "dressy",
+        "boots"
+      ],
+      "description": "Blending elements from two customer favorites, the Zind is a boot made to pair with jeans on the weekend or a suit at the office during the week. Using elegant and rich Krumenauer leather, it steps away from the work-boot style and into a class of its own. The Dakota sole offers grip and traction with a dressy profile, while the 415 last gives it a narrow and refined form, making it a style versatile enough to accompany all of your wardrobe.",
+      "checkedAt": "2026-10-24T23:09:21.778Z",
+      "cutout": "/products/p-aeae870a1f-cutout.png"
+    },
+    {
+      "id": "p-d17b6f67bc",
+      "title": "Captain | Brown — Standard",
+      "url": "https://thursdayboots.com/products/mens-brown-captain?variant=7609600581",
+      "priceCents": 19900,
+      "currency": "USD",
+      "image": "/products/p-d17b6f67bc.jpg",
+      "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/0419/1525/files/1024x1024-Men-Captain-Brown-081226-3.4-d17ac2.jpg?v=1790357464",
+        "https://thursdayboots.com/cdn/shop/files/1024x1024-Men-Captain-Brown-081226-3.4-d17ac2_1024x1024.jpg?v=1790357464",
+        "https://thursdayboots.com/cdn/shop/files/1024x1024-Men-Captain-Brown-081226-3.4-d17ac2_1200x1200.jpg?v=1790357464",
+        "https://thursdayboots.com/cdn/shop/files/1024x1024-Men-Captain-Brown-081226-3.4-d17ac2_1200x1200_crop_center.jpg?v=1790357464",
+        "https://cdn.shopify.com/s/files/1/0419/1525/files/1024x1024-Men-Captain-Brown-081226-Side-96a64d.jpg?v=1790357471",
+        "https://cdn.shopify.com/s/files/1/0419/1525/products/1024x1024-Overhead-Captain-Brown.jpg?v=1576775268"
+      ],
+      "availability": "in_stock",
+      "sizes": [
+        "Standard / 6",
+        "Standard / 6.5",
+        "Standard / 7",
+        "Standard / 7.5",
+        "Standard / 8",
+        "Standard / 8.5",
+        "Standard / 9",
+        "Standard / 9.5",
+        "Standard / 10",
+        "Standard / 10.5",
+        "Standard / 11",
+        "Standard / 11.5",
+        "Standard / 12",
+        "Standard / 12.5",
+        "Standard / 13",
+        "Standard / 13.5",
+        "Standard / 14",
+        "Standard / 15",
+        "Standard / 16"
+      ],
+      "merchantId": "thursdayboots-com",
+      "tagSlugs": [
+        "leather",
+        "lace-up",
+        "goodyear-welt",
+        "work-boot",
+        "brown"
+      ],
+      "description": "Product Features Brown Thursday Chrome Leather Goodyear Welt Construction for Longevity Fully Lined Supple Glove Leather Interior Premium Flat Waxed Cotton Laces Custom Developed Reinforced Eyelets Poron® Antimicrobial Shock Absorbing Insoles Cork-Bed Midsoles that Form to Your Feet DuraEVA™ Comfort Strip Durable Studded Rubber Outsoles Handcrafted with Integrity Shipping Info Free domestic U.S. ground shipping Free domestic U.S. returns. See our full policy International shipping available Expedited shipping options available at checkout",
+      "checkedAt": "2026-10-24T23:09:21.778Z",
+      "cutout": "/products/p-d17b6f67bc-cutout.png"
+    },
+    {
+      "id": "p-e918d81b72",
+      "title": "White Brass Shawl Pin — Round",
+      "url": "https://needlesnpinsyarnshoppe.com/products/white-brass-shawl-pin?variant=44604404072471",
+      "priceCents": 3400,
+      "currency": "USD",
+      "image": "/products/p-e918d81b72.jpg",
+      "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/2363/7221/files/Circle_Shawl_Pin.jpg?v=1771532065",
+        "http://www.needlesnpinsyarnshoppe.com/cdn/shop/files/Circle_Shawl_Pin_1200x1200.jpg?v=1771532065",
+        "http://www.needlesnpinsyarnshoppe.com/cdn/shop/files/squareshawlpin_1200x1200.jpg?v=1771600072",
+        "http://www.needlesnpinsyarnshoppe.com/cdn/shop/files/square_shawl_pin_d66bac77-495f-40e5-b605-9aa648b9fc39_1200x1200.jpg?v=1771602655",
+        "https://www.needlesnpinsyarnshoppe.com/cdn/shop/files/Circle_Shawl_Pin_1200x1200.jpg?v=1771532065",
+        "https://www.needlesnpinsyarnshoppe.com/cdn/shop/files/squareshawlpin_1200x1200.jpg?v=1771600072"
+      ],
+      "availability": "in_stock",
+      "sizes": [
+        "Round"
+      ],
+      "merchantId": "needlesnpinsyarnshoppe-com",
+      "tagSlugs": [
+        "brass",
+        "shawl-pin",
+        "handmade",
+        "metal",
+        "accessory"
+      ],
+      "description": "From Jul Designs. White Brass. Approx. 2\" in diameter. Pin is 4\" long. Made in Indonesia.",
+      "checkedAt": "2026-10-24T23:09:21.778Z",
+      "cutout": "/products/p-e918d81b72-cutout.png"
+    },
+    {
+      "id": "p-2a93dfe671",
+      "title": "Wood Off-Center Shawl Pin",
+      "url": "https://needlesnpinsyarnshoppe.com/products/wood-off-center-shawl-pin?variant=44609222803479",
+      "priceCents": 1800,
+      "currency": "USD",
+      "image": "/products/p-2a93dfe671.jpg",
+      "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/2363/7221/files/RosewoodShawlPin.jpg?v=1771600452",
+        "http://www.needlesnpinsyarnshoppe.com/cdn/shop/files/RosewoodShawlPin_1200x1200.jpg?v=1771600452",
+        "https://www.needlesnpinsyarnshoppe.com/cdn/shop/files/RosewoodShawlPin_1200x1200.jpg?v=1771600452"
+      ],
+      "availability": "in_stock",
+      "sizes": [
+        "Default Title"
+      ],
+      "merchantId": "needlesnpinsyarnshoppe-com",
+      "tagSlugs": [
+        "wood",
+        "rosewood",
+        "shawl-pin",
+        "accessory"
+      ],
+      "description": "From Jul Designs. Classic Off Center Shawl Pin---Rosewood Made in Indonesia.",
+      "checkedAt": "2026-10-24T23:09:21.778Z",
+      "cutout": "/products/p-2a93dfe671-cutout.png"
+    },
+    {
+      "id": "p-880e0f00e7",
+      "title": "Leather Snap Shawl Cuff — Whiskey",
+      "url": "https://threadandmaple.com/products/leather-snap-shawl-cuff?variant=39905683013765",
+      "priceCents": 1300,
+      "currency": "USD",
+      "image": "/products/p-880e0f00e7.jpg",
+      "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/0364/4991/0917/products/shawlcuff-whikeyflatpxadj.jpg?v=1668116540",
+        "https://cdn.shopify.com/s/files/1/0364/4991/0917/products/shawlcuff-whiskeypxadj.jpg?v=1668116536",
+        "https://www.threadandmaple.com/cdn/shop/products/leather-snap-shawl-cuff-goods-631.jpg?v=1668116347&width=1920",
+        "http://www.threadandmaple.com/cdn/shop/products/leather-snap-shawl-cuff-goods-317.jpg?v=1668116344",
+        "https://www.threadandmaple.com/cdn/shop/products/leather-snap-shawl-cuff-goods-317.jpg?v=1668116344",
+        "https://cdn.shopify.com/s/files/1/0364/4991/0917/products/leather-snap-shawl-cuff-goods-317.jpg?v=1668116344",
+        "https://cdn.shopify.com/s/files/1/0364/4991/0917/products/leather-snap-shawl-cuff-goods-631.jpg?v=1668116347"
+      ],
+      "availability": "in_stock",
+      "sizes": [
+        "Whiskey"
+      ],
+      "merchantId": "threadandmaple-com",
+      "tagSlugs": [
+        "leather",
+        "handmade",
+        "shawl-cuff",
+        "snap",
+        "accessory"
+      ],
+      "description": "Adorn your favorite shawl with this simple & elegant shawl cuff. Handmade from genuine leather, these cuffs close with simple snaps.� They come in a length of 19cm [7.5\"], allowing for a 5cm [2\"] circular diameter when closed, which will work well with most yarn weights - light, medium and bulky.",
+      "checkedAt": "2026-10-24T23:09:21.778Z",
+      "cutout": "/products/p-880e0f00e7-cutout.png"
+    }
+  ],
+  "merchants": [
+    {
+      "id": "linen-shed-com",
+      "name": "Linenshed",
+      "domain": "linen-shed.com",
+      "url": "https://linen-shed.com",
+      "kind": "dtc",
+      "neighborhoodId": null
+    },
+    {
+      "id": "roughlinen-com",
+      "name": "Rough Linen",
+      "domain": "roughlinen.com",
+      "url": "https://roughlinen.com",
+      "kind": "dtc",
+      "neighborhoodId": null
+    },
+    {
+      "id": "magiclinen-com",
+      "name": "MagicLinen",
+      "domain": "magiclinen.com",
+      "url": "https://magiclinen.com",
+      "kind": "dtc",
+      "neighborhoodId": null
+    },
+    {
+      "id": "harvestandmill-com",
+      "name": "Harvest & Mill",
+      "domain": "harvestandmill.com",
+      "url": "https://harvestandmill.com",
+      "kind": "dtc",
+      "neighborhoodId": null
+    },
+    {
+      "id": "groceriesapparel-com",
+      "name": "Groceries Apparel",
+      "domain": "groceriesapparel.com",
+      "url": "https://groceriesapparel.com",
+      "kind": "dtc",
+      "neighborhoodId": null
+    },
+    {
+      "id": "larelaxed-com",
+      "name": "LA Relaxed",
+      "domain": "larelaxed.com",
+      "url": "https://larelaxed.com",
+      "kind": "dtc",
+      "neighborhoodId": null
+    },
+    {
+      "id": "grantstoneshoes-com",
+      "name": "Grant Stone",
+      "domain": "grantstoneshoes.com",
+      "url": "https://grantstoneshoes.com",
+      "kind": "dtc",
+      "neighborhoodId": null
+    },
+    {
+      "id": "helmboots-com",
+      "name": "HELM Boots",
+      "domain": "helmboots.com",
+      "url": "https://helmboots.com",
+      "kind": "dtc",
+      "neighborhoodId": null
+    },
+    {
+      "id": "thursdayboots-com",
+      "name": "Thursday Boot Company",
+      "domain": "thursdayboots.com",
+      "url": "https://thursdayboots.com",
+      "kind": "dtc",
+      "neighborhoodId": null
+    },
+    {
+      "id": "needlesnpinsyarnshoppe-com",
+      "name": "Needles 'n Pins Yarn Shoppe",
+      "domain": "needlesnpinsyarnshoppe.com",
+      "url": "https://needlesnpinsyarnshoppe.com",
+      "kind": "boutique",
+      "neighborhoodId": null
+    },
+    {
+      "id": "threadandmaple-com",
+      "name": "Thread & Maple",
+      "domain": "threadandmaple.com",
+      "url": "https://threadandmaple.com",
+      "kind": "etsy",
+      "neighborhoodId": null
+    }
+  ],
+  "neighborhoods": [],
+  "tags": [
+    {
+      "slug": "linen",
+      "label": "Linen"
+    },
+    {
+      "slug": "flax",
+      "label": "Flax"
+    },
+    {
+      "slug": "undyed",
+      "label": "Undyed"
+    },
+    {
+      "slug": "vintage-washed",
+      "label": "Vintage Washed"
+    },
+    {
+      "slug": "french-linen",
+      "label": "French Linen"
+    },
+    {
+      "slug": "off-white",
+      "label": "Off White"
+    },
+    {
+      "slug": "handmade",
+      "label": "Handmade"
+    },
+    {
+      "slug": "bedding",
+      "label": "Bedding"
+    },
+    {
+      "slug": "oatmeal",
+      "label": "Oatmeal"
+    },
+    {
+      "slug": "flat-sheet",
+      "label": "Flat Sheet"
+    },
+    {
+      "slug": "seamless",
+      "label": "Seamless"
+    },
+    {
+      "slug": "neutral",
+      "label": "Neutral"
+    },
+    {
+      "slug": "organic-cotton",
+      "label": "Organic Cotton"
+    },
+    {
+      "slug": "cream",
+      "label": "Cream"
+    },
+    {
+      "slug": "made-in-usa",
+      "label": "Made In Usa"
+    },
+    {
+      "slug": "basic-tee",
+      "label": "Basic Tee"
+    },
+    {
+      "slug": "white",
+      "label": "White"
+    },
+    {
+      "slug": "oversized",
+      "label": "Oversized"
+    },
+    {
+      "slug": "lightweight",
+      "label": "Lightweight"
+    },
+    {
+      "slug": "ribbed",
+      "label": "Ribbed"
+    },
+    {
+      "slug": "cropped",
+      "label": "Cropped"
+    },
+    {
+      "slug": "drawstring",
+      "label": "Drawstring"
+    },
+    {
+      "slug": "straight-leg",
+      "label": "Straight Leg"
+    },
+    {
+      "slug": "garment-washed",
+      "label": "Garment Washed"
+    },
+    {
+      "slug": "hemp",
+      "label": "Hemp"
+    },
+    {
+      "slug": "relaxed",
+      "label": "Relaxed"
+    },
+    {
+      "slug": "lounge",
+      "label": "Lounge"
+    },
+    {
+      "slug": "natural",
+      "label": "Natural"
+    },
+    {
+      "slug": "leather",
+      "label": "Leather"
+    },
+    {
+      "slug": "vegetable-tanned",
+      "label": "Vegetable Tanned"
+    },
+    {
+      "slug": "plain-toe",
+      "label": "Plain Toe"
+    },
+    {
+      "slug": "tan",
+      "label": "Tan"
+    },
+    {
+      "slug": "lace-up",
+      "label": "Lace Up"
+    },
+    {
+      "slug": "saddle-brown",
+      "label": "Saddle Brown"
+    },
+    {
+      "slug": "dressy",
+      "label": "Dressy"
+    },
+    {
+      "slug": "boots",
+      "label": "Boots"
+    },
+    {
+      "slug": "goodyear-welt",
+      "label": "Goodyear Welt"
+    },
+    {
+      "slug": "work-boot",
+      "label": "Work Boot"
+    },
+    {
+      "slug": "brown",
+      "label": "Brown"
+    },
+    {
+      "slug": "brass",
+      "label": "Brass"
+    },
+    {
+      "slug": "shawl-pin",
+      "label": "Shawl Pin"
+    },
+    {
+      "slug": "metal",
+      "label": "Metal"
+    },
+    {
+      "slug": "accessory",
+      "label": "Accessory"
+    },
+    {
+      "slug": "wood",
+      "label": "Wood"
+    },
+    {
+      "slug": "rosewood",
+      "label": "Rosewood"
+    },
+    {
+      "slug": "shawl-cuff",
+      "label": "Shawl Cuff"
+    },
+    {
+      "slug": "snap",
+      "label": "Snap"
+    }
+  ],
+  "provenance": {
+    "method": "pipeline",
+    "generatedAt": "2026-10-24T23:09:21.778Z",
+    "notes": "Bright Data SERP and Web Unlocker, with direct public merchant pages and Shopify variant feeds when Shopping links or Unlocker were unusable; Claude decomposition and ranking. Only verified in-stock USD variants are included. Bay Area boost +1.5/10. Product-only merchant gallery photographs are used where available. Nine cutouts are styled or retouched from the exact merchant references with built-in image generation; product facts, prices and stock remain merchant sourced. The linen is sold uncut; DIY draping is required and no eye openings are included."
+  }
+}
