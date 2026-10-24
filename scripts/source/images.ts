@@ -2,6 +2,7 @@
 import { existsSync } from "node:fs";
 import { copyFile, mkdir, writeFile } from "node:fs/promises";
 import path from "node:path";
+import sharp from "sharp";
 import { cacheDir } from "../../lib/sourcing/cache";
 import { composeFlatlay, normalizeProductImage } from "../../lib/sourcing/images";
 import { mapLimit } from "../../lib/sourcing/pool";
@@ -14,7 +15,10 @@ const publishedCutoutPath = (id: string) => path.join(PRODUCTS_DIR, `${id}-cutou
 
 async function publishCutout(product: Product): Promise<void> {
   await mkdir(PRODUCTS_DIR, { recursive: true });
-  await copyFile(cutoutPath(product.id), publishedCutoutPath(product.id));
+  await sharp(cutoutPath(product.id))
+    .resize({ width: 1000, height: 1250, fit: "inside", withoutEnlargement: true })
+    .png({ compressionLevel: 9 })
+    .toFile(publishedCutoutPath(product.id));
   product.cutout = `/products/${product.id}-cutout.png`;
 }
 
