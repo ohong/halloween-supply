@@ -28,3 +28,14 @@ bun run build
 ```
 
 The page is a costume inspiration gallery. It has no commerce or signup backend.
+
+## Deployment
+
+The private GitHub repository is `ohong/halloween-supply`.
+Vercel project `halloween-supply` in the Pacific Systems team uses the GitHub integration.
+Each push to `main` creates a production deployment automatically.
+Other branches create preview deployments using Vercel's project defaults.
+
+Production URL: https://halloween-supply.vercel.app
+
+Local environment files, Stripe state, and generated agent integrations are excluded from Git.
