@@ -8,6 +8,7 @@ import { costumes, liveCostumeSlug } from "../costumes";
 
 const storageKey = "halloween-supply-cart-v1";
 export const sizesStorageKey = "halloween-supply-sizes-v1";
+export const pieceSizesStorageKey = "halloween-supply-piece-sizes-v1";
 
 export interface CartApi {
   items: CartItem[];
@@ -69,15 +70,22 @@ function readStored(): CartState {
 
 function merge(current: CartItem[], incoming: CartItem[]): CartItem[] {
   let savedSizes: Record<string, unknown> = {};
+  let savedPieceSizes: Record<string, unknown> = {};
   try {
     const value: unknown = JSON.parse(localStorage.getItem(sizesStorageKey) ?? "{}");
     if (value && typeof value === "object") savedSizes = value as Record<string, unknown>;
   } catch { /* Sizes remain optional until the assistant records them. */ }
+  try {
+    const value: unknown = JSON.parse(localStorage.getItem(pieceSizesStorageKey) ?? "{}");
+    if (value && typeof value === "object" && !Array.isArray(value)) savedPieceSizes = value as Record<string, unknown>;
+  } catch { /* General sizes still apply when no piece overrides are stored. */ }
   const next = [...current];
   for (const item of incoming) {
     const index = next.findIndex((line) => line.pieceId === item.pieceId);
     const saved = savedSizes[item.sizeKind];
-    const size = item.size ?? (index >= 0 ? next[index].size : null) ?? (typeof saved === "string" ? saved : null);
+    const pieceSize = savedPieceSizes[item.pieceId];
+    const size = (typeof pieceSize === "string" && pieceSize.trim().length > 0 && pieceSize.length <= 80 ? pieceSize : null)
+      ?? item.size ?? (index >= 0 ? next[index].size : null) ?? (typeof saved === "string" ? saved : null);
     if (index === -1) next.push({ ...item, size });
     else next[index] = { ...item, size };
   }

@@ -18,13 +18,13 @@ const labels: Record<string, string> = {
 
 type Output = Record<string, unknown> | undefined;
 
-function summarize(name: string, output: Output): string {
+function summarize(name: string, output: Output, pieceNames: Record<string, string>): string {
   if (!output) return "Checking the catalog…";
   if (typeof output.error === "string") return output.error;
   switch (name) {
     case "recordSizes": {
-      const saved = (output.saved as { sizeKind: string; size: string }[] | undefined) ?? [];
-      return saved.length ? `Saved: ${saved.map((s) => `${s.sizeKind} ${s.size}`).join(", ")}.` : "No sizes changed.";
+      const saved = (output.saved as { sizeKind: string; pieceId?: string; size: string }[] | undefined) ?? [];
+      return saved.length ? `Saved: ${saved.map((s) => `${s.pieceId ? pieceNames[s.pieceId] ?? s.pieceId : s.sizeKind}: ${s.size}`).join(", ")}.` : "No sizes changed.";
     }
     case "addToCart": return output.title ? `Added ${String(output.title)}.` : "Cart updated.";
     case "getPickPath": return `${String(output.reason ?? "")}${Array.isArray(output.path) ? ` ${output.path.join(" → ")}` : ""}`;
@@ -34,9 +34,10 @@ function summarize(name: string, output: Output): string {
   }
 }
 
-export function MessageView({ message, cartProductIds, onAdd }: {
+export function MessageView({ message, cartProductIds, pieceNames, onAdd }: {
   message: UIMessage;
   cartProductIds: Set<string>;
+  pieceNames: Record<string, string>;
   onAdd: (card: Card) => void;
 }) {
   return (
@@ -49,7 +50,7 @@ export function MessageView({ message, cartProductIds, onAdd }: {
         const failed = part.state === "output-error" || part.state === "output-denied";
         const products = (output?.products as Card[] | undefined) ?? (Array.isArray(output?.shops) ? (output.shops as { products: Card[] }[]).flatMap((shop) => shop.products) : []);
         const uniqueProducts = products.filter((card, i) => products.findIndex((other) => other.pieceId === card.pieceId && other.productId === card.productId) === i);
-        const summary = failed ? ("errorText" in part ? part.errorText : "This action did not complete.") : summarize(name, output);
+        const summary = failed ? ("errorText" in part ? part.errorText : "This action did not complete.") : summarize(name, output, pieceNames);
         return (
           <div key={part.toolCallId} className="flex w-full flex-col gap-2">
             <Tool defaultOpen={failed || name === "recordSizes" || name === "addToCart"}>

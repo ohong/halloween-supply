@@ -8,9 +8,13 @@ export const sizeKindSchema = z.enum(["apparel", "pants", "shoe", "hat"]);
 
 export const recordSizesSchema = z.object({
   sizes: z
-    .array(z.object({ sizeKind: sizeKindSchema, size: z.string().trim().min(1).max(80).describe("As the shopper said it, including any stated sizing system, e.g. 'M', '32x32', 'US men 10.5', '7 1/4'") }).strict())
-    .min(1).max(4)
-    .refine((entries) => new Set(entries.map((entry) => entry.sizeKind)).size === entries.length, "Give each size kind once."),
+    .array(z.object({
+      sizeKind: sizeKindSchema,
+      pieceId: z.string().min(1).max(150).optional().describe("Include the piece id when a size belongs to one garment, especially when two garments use different merchant labels. Omit only for a general size preference."),
+      size: z.string().trim().min(1).max(80).describe("As the shopper said it, including any stated sizing system or exact merchant label, e.g. 'M', '40', 'C', '32x32', 'US men 10.5', '7 1/4'"),
+    }).strict())
+    .min(1).max(24)
+    .refine((entries) => new Set(entries.map((entry) => `${entry.sizeKind}:${entry.pieceId ?? "*"}`)).size === entries.length, "Give each piece or general size kind once."),
 }).strict();
 export const addToCartSchema = z.object({
   pieceId: z.string().min(1).max(150).describe("Piece id from getCostume"),
@@ -20,7 +24,7 @@ export const addToCartSchema = z.object({
 export const clientTools = {
   recordSizes: tool({
     description:
-      "Save the shopper's sizes. Call it as soon as the shopper states any size. One entry per size kind (apparel, pants, shoe, hat). Updates cart lines of that kind and is remembered for later adds.",
+      "Save the shopper's sizes as soon as they state them. Include pieceId for a particular garment; this updates only that piece and takes priority over its general size kind. Omit pieceId for a general apparel, pants, shoe or hat preference; this updates that kind and clears piece overrides in the active costume. Different garments may use different labels even when their sizeKind is the same.",
     inputSchema: recordSizesSchema,
   }),
   addToCart: tool({

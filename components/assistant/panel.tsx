@@ -5,10 +5,10 @@ import { DefaultChatTransport, lastAssistantMessageIsCompleteWithToolCalls } fro
 import { useCallback, useEffect, useMemo, useRef, useState, type FormEvent } from "react";
 import { Conversation, ConversationContent, ConversationScrollButton } from "@/components/ai-elements/conversation";
 import { Button } from "@/components/ui/button";
-import { sizesSchema, type ChatContext } from "@/lib/ai/chat-context";
+import { pieceSizesSchema, sizesSchema, type ChatContext } from "@/lib/ai/chat-context";
 import type { ProductCard } from "@/lib/ai/cards";
 import { addToCartSchema, recordSizesSchema, type RecordSizesInput } from "@/lib/ai/client-tools";
-import { sizesStorageKey, useCart } from "@/lib/cart/context";
+import { pieceSizesStorageKey, sizesStorageKey, useCart } from "@/lib/cart/context";
 import { toCartItem } from "@/lib/cart/item";
 import type { CostumeView, SizeKind } from "@/lib/types";
 import { MessageView } from "./message-view";
@@ -20,6 +20,13 @@ const starters = ["What sizes do you need from me?", "Anything cheaper?", "Only 
 function readSizes(): Sizes {
   try {
     const parsed = sizesSchema.safeParse(JSON.parse(localStorage.getItem(sizesStorageKey) ?? "{}"));
+    return parsed.success ? parsed.data : {};
+  } catch { return {}; }
+}
+
+function readPieceSizes(): Record<string, string> {
+  try {
+    const parsed = pieceSizesSchema.safeParse(JSON.parse(localStorage.getItem(pieceSizesStorageKey) ?? "{}"));
     return parsed.success ? parsed.data : {};
   } catch { return {}; }
 }
@@ -37,11 +44,13 @@ export function AssistantPanel({ costume, onChoose }: { costume: CostumeView; on
   const [open, setOpen] = useState(false);
   const [input, setInput] = useState("");
   const [sizes, setSizes] = useState<Sizes>({});
+  const [pieceSizes, setPieceSizes] = useState<Record<string, string>>({});
   const inputRef = useRef<HTMLInputElement>(null);
   const triggerRef = useRef<HTMLButtonElement>(null);
   const receipts = useRef(new Map<string, ToolReceipt>());
   const cartRef = useRef(cart);
   const sizesRef = useRef<Sizes>({});
+  const pieceSizesRef = useRef<Record<string, string>>({});
   const costumeRef = useRef(costume);
   const onChooseRef = useRef(onChoose);
   useEffect(() => {
@@ -52,10 +61,13 @@ export function AssistantPanel({ costume, onChoose }: { costume: CostumeView; on
 
   useEffect(() => {
     const stored = readSizes();
+    const storedPieces = readPieceSizes();
     sizesRef.current = stored;
+    pieceSizesRef.current = storedPieces;
     // Browser storage and a cart link cannot be read during server rendering.
     // eslint-disable-next-line react-hooks/set-state-in-effect
     setSizes(stored);
+    setPieceSizes(storedPieces);
     if (new URLSearchParams(window.location.search).get("assistant") === "sizes") setOpen(true);
     const show = () => setOpen(true);
     window.addEventListener("halloween:open-assistant", show);
@@ -67,6 +79,7 @@ export function AssistantPanel({ costume, onChoose }: { costume: CostumeView; on
     cart: cart.costumeSlug === costume.costume.slug
       ? cart.items.map((item) => ({ pieceId: item.pieceId, productId: item.productId, size: item.size })) : [],
     sizes,
+    pieceSizes: Object.fromEntries(costume.pieces.flatMap(({ piece }) => pieceSizes[piece.id] && piece.sizeKind !== "one_size" ? [[piece.id, pieceSizes[piece.id]]] : [])),
   };
   const contextRef = useRef(context);
   useEffect(() => { contextRef.current = context; });
@@ -75,7 +88,7 @@ export function AssistantPanel({ costume, onChoose }: { costume: CostumeView; on
     const piece = costumeRef.current.pieces.find(({ piece }) => piece.id === pieceId);
     const option = piece?.options.find(({ product }) => product.id === productId);
     if (!piece || !option || option.product.availability === "out_of_stock") throw new Error("That product is not available for this piece.");
-    const size = sizesRef.current[piece.piece.sizeKind] ?? null;
+    const size = pieceSizesRef.current[pieceId] ?? sizesRef.current[piece.piece.sizeKind] ?? null;
     cartRef.current.add(toCartItem(piece.piece, option, size), costumeRef.current.costume.slug);
     const previous = contextRef.current.cart.find((line) => line.pieceId === pieceId);
     contextRef.current = {
@@ -87,29 +100,39 @@ export function AssistantPanel({ costume, onChoose }: { costume: CostumeView; on
   }, []);
 
   const recordSizes = useCallback(({ sizes: entries }: RecordSizesInput) => {
+    const activePieces = costumeRef.current.pieces.map(({ piece }) => piece);
+    if (entries.some((entry) => entry.pieceId !== undefined && !activePieces.some((piece) => piece.id === entry.pieceId && piece.sizeKind === entry.sizeKind))) throw new Error("That size does not belong to this costume.");
     const next = { ...sizesRef.current };
+    const nextPieces = { ...pieceSizesRef.current };
     const updated = new Set<string>();
-    for (const { sizeKind, size } of entries) {
+    // Apply general preferences first so explicit piece choices win in the same call.
+    for (const { sizeKind, size } of entries.filter((entry) => entry.pieceId === undefined)) {
       next[sizeKind] = size;
-      for (const line of contextRef.current.cart) {
-        const piece = costumeRef.current.pieces.find(({ piece }) => piece.id === line.pieceId);
-        if (piece?.piece.sizeKind === sizeKind) {
-          cartRef.current.setSize(line.pieceId, size);
-          updated.add(line.pieceId);
-        }
-      }
+      for (const piece of activePieces.filter((piece) => piece.sizeKind === sizeKind)) delete nextPieces[piece.id];
     }
+    for (const { pieceId, size } of entries) if (pieceId !== undefined) nextPieces[pieceId] = size;
+    const affected = new Set(activePieces.filter((piece) => entries.some((entry) => entry.pieceId === piece.id || entry.pieceId === undefined && entry.sizeKind === piece.sizeKind)).map((piece) => piece.id));
     sizesRef.current = next;
+    pieceSizesRef.current = nextPieces;
     contextRef.current = {
       ...contextRef.current,
       sizes: next,
+      pieceSizes: Object.fromEntries(activePieces.flatMap((piece) => nextPieces[piece.id] ? [[piece.id, nextPieces[piece.id]]] : [])),
       cart: contextRef.current.cart.map((line) => {
-        const sizeKind = costumeRef.current.pieces.find(({ piece }) => piece.id === line.pieceId)?.piece.sizeKind;
-        return sizeKind && next[sizeKind] ? { ...line, size: next[sizeKind]! } : line;
+        const piece = activePieces.find((piece) => piece.id === line.pieceId);
+        const size = piece && affected.has(piece.id) ? nextPieces[piece.id] ?? next[piece.sizeKind] : undefined;
+        if (!size) return line;
+        cartRef.current.setSize(line.pieceId, size);
+        updated.add(line.pieceId);
+        return { ...line, size };
       }),
     };
     setSizes(next);
-    try { localStorage.setItem(sizesStorageKey, JSON.stringify(next)); }
+    setPieceSizes(nextPieces);
+    try {
+      localStorage.setItem(sizesStorageKey, JSON.stringify(next));
+      localStorage.setItem(pieceSizesStorageKey, JSON.stringify(nextPieces));
+    }
     catch { /* Sizes remain in the current conversation if storage is blocked. */ }
     return { saved: entries, updatedPieceIds: [...updated] };
   }, []);
@@ -176,6 +199,11 @@ export function AssistantPanel({ costume, onChoose }: { costume: CostumeView; on
   const onSubmit = (event: FormEvent) => { event.preventDefault(); send(input); };
   const cartProductIds = useMemo(() => new Set(cart.items.map((item) => item.productId)), [cart.items]);
   const onAdd = useCallback((card: ProductCard) => { addProduct(card.pieceId, card.productId); }, [addProduct]);
+  const pieceNames = Object.fromEntries(costume.pieces.map(({ piece }) => [piece.id, piece.name]));
+  const savedLabels = costume.pieces.flatMap(({ piece }) => {
+    const size = pieceSizes[piece.id] ?? sizes[piece.sizeKind];
+    return size && piece.sizeKind !== "one_size" ? [`${piece.name}: ${size}`] : [];
+  });
 
   return <>
     {!open && <Button ref={triggerRef} onClick={() => setOpen(true)} aria-expanded={open} aria-controls="shopping-assistant" className="fixed right-4 bottom-4 z-40">Ask the assistant</Button>}
@@ -184,6 +212,7 @@ export function AssistantPanel({ costume, onChoose }: { costume: CostumeView; on
         <h2 className="text-sm font-normal text-[#111]">Shopping assistant</h2>
         <Button variant="ghost" onClick={close} aria-label="Close the assistant">Close</Button>
       </header>
+      {savedLabels.length > 0 && <p className="border-b border-[#CCC] px-4 py-2 text-xs leading-relaxed text-[#666]" aria-live="polite">Saved sizes: {savedLabels.join(" · ")}</p>}
       <Conversation aria-label="Conversation with the shopping assistant">
         <ConversationContent>
           {messages.length === 0 && <div className="flex flex-col items-start gap-3">
@@ -191,7 +220,7 @@ export function AssistantPanel({ costume, onChoose }: { costume: CostumeView; on
             <p className="text-xs leading-relaxed text-[#666]">Tell me your top, pants, shoe and hat sizes. I will ask only for what this look needs.</p>
             <div className="flex flex-wrap gap-2">{starters.map((starter) => <Button key={starter} variant="outline" size="sm" onClick={() => send(starter)}>{starter}</Button>)}</div>
           </div>}
-          {messages.map((message) => <MessageView key={message.id} message={message} cartProductIds={cartProductIds} onAdd={onAdd} />)}
+          {messages.map((message) => <MessageView key={message.id} message={message} cartProductIds={cartProductIds} pieceNames={pieceNames} onAdd={onAdd} />)}
           {status === "submitted" && <p role="status" className="text-xs text-[#666]">Checking the catalog…</p>}
           {error && <div role="alert" className="flex flex-col items-start gap-2 rounded-[4px] border border-[#CCC] p-3 text-xs">
             <p>{errorMessage(error)}</p>

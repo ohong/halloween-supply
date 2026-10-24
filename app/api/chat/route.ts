@@ -24,7 +24,9 @@ function groundHistory(messages: UIMessage[], view: CostumeView): UIMessage[] {
         parts.push({ type: "text", text: part.text });
         continue;
       }
-      if (part.type === "step-start" && message.role === "assistant") continue;
+      // Provider thinking and display metadata can accompany genuine tool calls.
+      // They are not cart receipts and browser-supplied metadata is never replayed.
+      if (message.role === "assistant" && ["step-start", "reasoning", "reasoning-file", "custom", "source-url", "source-document"].includes(part.type)) continue;
       if (!isToolUIPart(part) || message.role !== "assistant" || part.type === "dynamic-tool") throw new Error("Unsupported message content.");
       if (callIds.has(part.toolCallId)) throw new Error("A tool call was repeated.");
       callIds.add(part.toolCallId);
@@ -38,6 +40,7 @@ function groundHistory(messages: UIMessage[], view: CostumeView): UIMessage[] {
       }
       if (part.type === "tool-recordSizes") {
         const input = recordSizesSchema.parse(part.input);
+        if (input.sizes.some((entry) => entry.pieceId !== undefined && !view.pieces.some(({ piece }) => piece.id === entry.pieceId && piece.sizeKind === entry.sizeKind))) throw new Error("That size does not belong to a piece in this costume.");
         parts.push({ ...part, input, output: { saved: input.sizes } });
       } else {
         const input = addToCartSchema.parse(part.input);
@@ -73,6 +76,7 @@ export async function POST(req: Request) {
   const ctx = parsedContext.data;
   const view = await getCostume(ctx.costumeSlug);
   if (!view) return fail(404, "That costume is not in the catalog.");
+  if (Object.keys(ctx.pieceSizes).some((pieceId) => !view.pieces.some(({ piece }) => piece.id === pieceId && piece.sizeKind !== "one_size"))) return fail(400, "The saved sizes contain a piece outside this costume or a one-size accessory.");
   if (new Set(ctx.cart.map((line) => line.pieceId)).size !== ctx.cart.length || ctx.cart.some((line) => !view.pieces.some(({ piece, options }) => piece.id === line.pieceId && options.some(({ product }) => product.id === line.productId)))) return fail(400, "The cart contains a product outside this costume.");
 
   const tools = createTools(view);

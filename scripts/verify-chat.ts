@@ -4,7 +4,7 @@
  */
 import { readFile, readdir } from "node:fs/promises";
 import assert from "node:assert/strict";
-import type { UIMessage } from "ai";
+import { readUIMessageStream, type UIMessage, type UIMessageChunk } from "ai";
 import type { CostumeSnapshot } from "../lib/types";
 import type { ChatContext } from "../lib/ai/chat-context";
 import { addToCartSchema, recordSizesSchema } from "../lib/ai/client-tools";
@@ -34,9 +34,16 @@ async function chat(messages: UIMessage[], ctx = context) {
   const raw = await response.text();
   const events = raw.split("\n").filter((line) => line.startsWith("data: ") && line !== "data: [DONE]").map((line) => JSON.parse(line.slice(6)) as Event);
   assert(!events.some((event) => event.type === "error"), "The real provider returned a stream error.");
+  const stream = new ReadableStream<UIMessageChunk>({ start(controller) {
+    for (const event of events) controller.enqueue(event as UIMessageChunk);
+    controller.close();
+  } });
+  let message: UIMessage | undefined;
+  for await (const assembled of readUIMessageStream({ stream, terminateOnError: true })) message = assembled;
+  assert(message, "The SDK did not assemble an assistant message.");
   const calls = events.filter((event) => event.type === "tool-input-available") as Call[];
   const text = events.filter((event) => event.type === "text-delta").map((event) => String(event.delta ?? "")).join("");
-  return { events, calls, text };
+  return { events, calls, text, message };
 }
 function toolOutput(result: Awaited<ReturnType<typeof chat>>, name: string) {
   const call = result.calls.find((entry) => entry.toolName === name);
@@ -101,16 +108,57 @@ assert.equal(added.pieceId, piece.id);
 assert.equal(added.productId, picked.id);
 assert.equal(recorded.sizes.length, 4, "The assistant must capture all four provided sizes.");
 const saved = Object.fromEntries(recorded.sizes.map((entry) => [entry.sizeKind, entry.size]));
-const continuation: UIMessage = { id: crypto.randomUUID(), role: "assistant", parts: [
-  { type: "tool-recordSizes", toolCallId: sizeCall.toolCallId, state: "output-available", input: recorded, output: { saved: recorded.sizes, updatedPieceIds: [] } },
-  { type: "tool-addToCart", toolCallId: addCall.toolCallId, state: "output-available", input: added, output: { ok: true, title: picked.title, ...added } },
-] };
+// Preserve the real SDK message, including provider metadata that the browser sends.
+const continuation: UIMessage = { ...mutations.message, parts: mutations.message.parts.map((part) => {
+  if (part.type === "tool-recordSizes") {
+    assert.equal(part.state, "input-available");
+    return { ...part, state: "output-available", input: recorded, output: { saved: recorded.sizes, updatedPieceIds: [] } };
+  }
+  if (part.type === "tool-addToCart") {
+    assert.equal(part.state, "input-available");
+    return { ...part, state: "output-available", input: added, output: { ok: true, title: picked.title, ...added } };
+  }
+  return part;
+}) };
 const continued = await chat([sizeRequest, continuation], { ...context, sizes: saved, cart: [{ ...added, size: saved[piece.sizeKind] ?? null }] });
 assert(continued.text.trim().length > 0, "The assistant did not continue after client tool results.");
 assert(!continued.calls.some((entry) => entry.toolName === "recordSizes" || entry.toolName === "addToCart"), "The assistant replayed a completed cart mutation.");
-console.log("PASS generated recordSizes/addToCart inputs validate and the real provider completes their continuation");
+console.log(`PASS real SDK-assembled recordSizes/addToCart continuation (${mutations.message.parts.map((part) => part.type).join(", ")})`);
 
-const replayed: UIMessage = { ...continuation, parts: [...continuation.parts, continuation.parts[0]] };
+const receipt = continuation.parts.find((part) => part.type === "tool-recordSizes");
+assert(receipt);
+const replayed: UIMessage = { ...continuation, parts: [...continuation.parts, receipt] };
 assert.equal((await rawPost({ messages: [sizeRequest, replayed], context })).status, 400);
 console.log("PASS duplicate client tool call IDs are rejected");
+
+const garmentSnapshot = snapshots.find((entry) => entry.costume.status === "live" && entry.pieces.filter((piece) => piece.sizeKind === "apparel").length > 1);
+if (garmentSnapshot) {
+  const garments = garmentSnapshot.pieces.filter((piece) => piece.sizeKind === "apparel").slice(0, 2);
+  const garmentSizes = garments.map((piece, index) => {
+    const product = garmentSnapshot.products.find((product) => product.id === piece.matches[0].productId);
+    assert(product?.sizes.length, `${piece.id} needs real merchant size labels for verification.`);
+    const previousSize = index > 0 ? garmentSnapshot.products.find((product) => product.id === garments[0].matches[0].productId)?.sizes[0] : undefined;
+    return { sizeKind: "apparel" as const, pieceId: piece.id, size: product.sizes.find((size) => size !== previousSize) ?? product.sizes[0] };
+  });
+  assert.notEqual(garmentSizes[0].size, garmentSizes[1].size, "Choose two available merchant labels that differ.");
+  const garmentContext: ChatContext = { costumeSlug: garmentSnapshot.costume.slug, cart: [], sizes: {}, pieceSizes: {} };
+  const garmentRequest = user(`Save these exact merchant sizes with recordSizes: ${garmentSizes.map((entry) => `${entry.size} for ${entry.pieceId} (apparel)`).join("; ")}. Each answer belongs to its pieceId. Do not add or change products.`);
+  const garmentResult = await chat([garmentRequest], garmentContext);
+  const entries = garmentResult.calls.filter((call) => call.toolName === "recordSizes").flatMap((call) => recordSizesSchema.parse(call.input).sizes);
+  const pieceSizes = Object.fromEntries(entries.filter((entry) => entry.pieceId).map((entry) => [entry.pieceId!, entry.size]));
+  for (const entry of garmentSizes) assert.equal(pieceSizes[entry.pieceId], entry.size);
+  const garmentContinuation: UIMessage = { ...garmentResult.message, parts: garmentResult.message.parts.map((part) => {
+    if (part.type !== "tool-recordSizes") return part;
+    const input = recordSizesSchema.parse(part.input);
+    assert.equal(part.state, "input-available");
+    return { ...part, state: "output-available", input, output: { saved: input.sizes, updatedPieceIds: [] } };
+  }) };
+  const completed = await chat([garmentRequest, garmentContinuation], { ...garmentContext, pieceSizes });
+  assert(completed.text.trim().length > 0);
+  assert(!completed.calls.some((call) => call.toolName === "recordSizes"), "A completed piece-specific size update was replayed.");
+  assert.equal((await rawPost({ messages: [user("Hi")], context: { ...garmentContext, pieceSizes: { "foreign-piece": "M" } } })).status, 400);
+  const mismatched: UIMessage = { id: crypto.randomUUID(), role: "assistant", parts: [{ type: "tool-recordSizes", toolCallId: crypto.randomUUID(), state: "output-available", input: { sizes: [{ ...garmentSizes[0], sizeKind: "shoe" }] }, output: { saved: [] } }] };
+  assert.equal((await rawPost({ messages: [garmentRequest, mismatched], context: garmentContext })).status, 400);
+  console.log(`PASS distinct apparel merchant sizes (${garmentSizes.map((entry) => `${entry.pieceId}: ${entry.size}`).join(", ")}) and scoped receipt guards`);
+}
 console.log(JSON.stringify({ ok: true, base, costume: snapshot.costume.slug, product: picked.id, provider: "Anthropic", model: "lib/ai/models.ts" }));
