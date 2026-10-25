@@ -204,6 +204,7 @@ function MirrorRoom({ costume: initialCostume, initialOutfit, onApply, onClose }
     const index = costumes.findIndex(look => look.slug === costume.costume.slug);
     void switchLook(costumes[(index + direction + costumes.length) % costumes.length].slug);
   };
+  const nextLook = costumes[(costumes.findIndex(look => look.slug === costume.costume.slug) + 1) % costumes.length];
 
   const handleCommand = useCallback(async (command: MirrorCommand) => {
     const newLook = command.actions.find(action => action.type === "try_look");
@@ -290,6 +291,7 @@ function MirrorRoom({ costume: initialCostume, initialOutfit, onApply, onClose }
           </div>}
           {video.cameraStream && <video ref={cameraRef} className="mirror-original" autoPlay playsInline muted aria-label="Original camera" />}
           <div className="mirror-stage-label" role="status"><span className={live ? "mirror-dot is-live" : "mirror-dot"} />{frozen ? "Frozen preview · camera off" : live ? "Live preview" : connecting ? video.stream ? "Updating your look…" : "Connecting…" : "Your preview"}</div>
+          {video.stream && !frozen && <button className="mirror-next-look" onClick={() => cycleLook(1)} disabled={switchingLook} aria-label={`Switch to ${nextLook.name}`}><img src={nextLook.image} alt="" /><span>{switchingLook ? "Loading…" : "Swipe up to switch"}</span></button>}
           {(video.stream || frozen) && <button className="mirror-freeze" disabled={!frozen && !video.isCurrent} onClick={frozen ? resume : freeze}>{frozen ? <Play size={15} /> : <Pause size={15} />}{frozen ? "Resume camera" : "Freeze look"}</button>}
         </div>
         <nav className="mirror-look-switch" aria-label="Switch costume">

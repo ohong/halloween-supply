@@ -19,8 +19,9 @@ type VideoSession = {
   updating: boolean;
 };
 async function readResponse<T>(response: Response): Promise<T> {
-  const body = await response.json();
-  if (!response.ok && (response.status === 429 || (response.status === 403 && body.error?.code === "403"))) {
+  // Firewall blocks can arrive as HTML, so only the status is trusted for them.
+  const body = await response.json().catch(() => ({}));
+  if (!response.ok && (response.status === 429 || response.status === 403)) {
     throw new Error("The site blocked this mirror request. Your network may have reached its hourly session limit. Please try again later.");
   }
   if (!response.ok) throw new Error(typeof body.error === "string" ? body.error : "The live mirror could not connect.");

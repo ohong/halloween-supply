@@ -13,7 +13,7 @@
 .mirror-body { flex: 1; min-height: 0; overflow-y: auto; overscroll-behavior: contain; padding: 20px 16px max(30px, env(safe-area-inset-bottom)); }
 .mirror-visual { min-width: 0; }
 .mirror-stage { position: relative; min-height: 440px; aspect-ratio: 3 / 4; max-height: 75dvh; background: #e9e6dd; border: 1px solid #e0dcd0; overflow: hidden; }
-.mirror-camera { width: 100%; height: 100%; position: absolute; inset: 0; object-fit: contain; background: #e9e6dd; }
+.mirror-camera { width: 100%; height: 100%; position: absolute; inset: 0; object-fit: cover; background: #1d1c18; }
 .mirror-hidden { display: none; }
 .mirror-stage-intro { display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; height: 100%; min-height: inherit; padding: 52px 20px; background: radial-gradient(ellipse at center, #f7f4ed 0, #e9e6dd 78%); }
 .mirror-stage-products { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); width: 90%; max-width: 360px; gap: 6px; margin-bottom: 36px; }
@@ -23,7 +23,7 @@
 .mirror-stage-label { position: absolute; top: 17px; left: 16px; display: inline-flex; align-items: center; gap: 7px; background: rgb(250 249 245 / .94); border: 1px solid rgb(38 37 31 / .08); border-radius: 20px; padding: 7px 11px; font-size: 10px; }
 .mirror-dot { display: inline-block; width: 5px; height: 5px; border-radius: 50%; background: #a19c90; flex: 0 0 auto; }
 .mirror-dot.is-live { background: #9c751f; box-shadow: 0 0 0 3px rgb(181 138 66 / .14); }
-.mirror-freeze { position: absolute; bottom: 18px; left: 50%; transform: translateX(-50%); display: flex; gap: 8px; align-items: center; justify-content: center; padding: 0 18px; min-height: 44px; border: 1px solid #ddd9cf; background: #faf9f5; border-radius: 4px; font-size: 12px; white-space: nowrap; }
+.mirror-freeze { position: absolute; bottom: 16px; right: 16px; display: flex; gap: 8px; align-items: center; justify-content: center; padding: 0 18px; min-height: 44px; border: 1px solid #ddd9cf; background: #faf9f5; border-radius: 4px; font-size: 12px; white-space: nowrap; }
 .mirror-below-stage { padding: 12px 0 24px; display: grid; gap: 10px; }
 .mirror-below-stage > p { font-size: 10px; line-height: 1.7; color: var(--mirror-muted); }
 .mirror-start { display: grid; gap: 14px; padding-top: 8px; }
@@ -59,7 +59,7 @@
 }
 @media (min-width: 1400px) { .mirror-body { padding-inline: max(48px, calc((100vw - 1400px) / 2)); gap: 70px; } }
 
-.mirror-original { position: absolute; width: 22%; aspect-ratio: 3 / 4; object-fit: cover; bottom: 16px; right: 16px; border: 2px solid #faf9f5; border-radius: 5px; background: #26251f; transform: scaleX(-1); }
+.mirror-original { position: absolute; width: 22%; aspect-ratio: 3 / 4; object-fit: cover; top: 16px; right: 16px; border: 2px solid #faf9f5; border-radius: 5px; background: #26251f; transform: scaleX(-1); }
 .mirror-pieces { margin-top: 24px; display: grid; gap: 12px; }
 .mirror-piece { display: flex; gap: 14px; align-items: center; padding: 12px 0; border-bottom: 1px solid var(--mirror-line); min-width: 0; }
 .mirror-piece > img { width: 58px; height: 76px; object-fit: contain; flex: 0 0 auto; }
@@ -77,3 +77,6 @@
 .mirror-look-switch select { max-width: 100%; border: 0; background: transparent; color: inherit; font: inherit; font-size: 14px; min-height: 36px; }
 .mirror-look-switch p { font-size: 10px; color: var(--mirror-muted); }
 .mirror-shop { display: flex; justify-content: space-between; margin-top: 24px; }
+.mirror-next-look { position: absolute; bottom: 16px; left: 16px; width: 22%; min-width: 78px; max-width: 132px; display: grid; gap: 6px; padding: 0; border: 0; background: transparent; text-align: left; }
+.mirror-next-look img { width: 100%; aspect-ratio: 3 / 4; object-fit: cover; object-position: top; border: 2px solid #faf9f5; border-radius: 5px; background: #faf9f5; }
+.mirror-next-look span { font-size: 10px; color: #faf9f5; text-shadow: 0 1px 3px rgb(0 0 0 / .6); }
