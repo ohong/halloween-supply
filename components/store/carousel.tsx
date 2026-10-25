@@ -3,6 +3,7 @@
 import { useCallback, useEffect, useId, useRef, useState } from "react";
 import Image from "next/image";
 import { ProductImage } from "./product-image";
+import { CarouselHotspots, type CarouselHotspotsProps } from "./carousel-hotspots";
 import "./carousel.css";
 
 export type Slide = {
@@ -20,7 +21,7 @@ export type Slide = {
   items: { key: string; slideKey: string; name: string; src: string; alt: string; scale: number; photo: boolean }[];
 });
 
-export function Carousel({ slides }: { slides: Slide[] }) {
+export function Carousel({ slides, hotspots }: { slides: Slide[]; hotspots?: CarouselHotspotsProps }) {
   const root = useRef<HTMLElement>(null);
   const track = useRef<HTMLDivElement>(null);
   const trackId = useId();
@@ -70,6 +71,7 @@ export function Carousel({ slides }: { slides: Slide[] }) {
       if (event.key !== "ArrowLeft" && event.key !== "ArrowRight") return;
       const target = event.target;
       if (!(target instanceof HTMLElement)) return;
+      if (target.closest("[data-carousel-interaction]")) return;
       // Leave typing, dialogs, and controls outside the carousel to their own keys.
       if (target.closest("input, textarea, select, [contenteditable]:not([contenteditable='false']), [role='dialog'], [role='combobox'], [role='slider']")) return;
       if (target.closest("a, button, [tabindex]") && !root.current?.contains(target)) return;
@@ -111,6 +113,7 @@ export function Carousel({ slides }: { slides: Slide[] }) {
                 go(slides.findIndex((candidate) => candidate.key === key));
                 track.current?.focus({ preventScroll: true });
               }} />
+              {slide.key === "complete-look" && current === i && hotspots && <CarouselHotspots {...hotspots} />}
             </figure>
           ))}
         </div>

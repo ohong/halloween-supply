@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import Link from "next/link";
 import { ArrowLeft, ArrowRight, Check, ChevronDown, ChevronRight, ShoppingBag, Sparkles } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -22,6 +22,7 @@ import { LiveMirror } from "./live-mirror";
 import type { MirrorOutfit } from "@/lib/live-mirror/types";
 import { modelImage, useCostumeModel } from "@/lib/model-selection";
 import { WardrobeRail } from "./wardrobe-rail";
+import { CostumePieceInspector } from "./costume-piece-inspector";
 
 export function CostumeExperience({ costume }: { costume: CostumeView }) {
   const { model } = useCostumeModel();
@@ -35,6 +36,8 @@ export function CostumeExperience({ costume }: { costume: CostumeView }) {
   }, [ready, reconcile, pieces, costumeSlug]);
   // Chosen option index per piece; 0 is the default pick.
   const [chosen, setChosen] = useState<Record<string, number>>({});
+  const [inspectedPieceId, setInspectedPieceId] = useState<string>();
+  const inspectionTrigger = useRef<HTMLButtonElement | null>(null);
   const [uses, setUses] = useState<MirrorOutfit["uses"]>({});
   const [mirrorBudget, setMirrorBudget] = useState("");
   useEffect(() => {
@@ -72,6 +75,7 @@ export function CostumeExperience({ costume }: { costume: CostumeView }) {
   );
 
   const needed = pieces.filter(({ piece }) => !uses[piece.id] || uses[piece.id] === "buy");
+  const inspectedPiece = needed.find(({ piece }) => piece.id === inspectedPieceId);
   const flatlayItems = needed.flatMap((view) => {
     const option = picked.get(view.piece.id);
     if (!option) return [];
@@ -142,7 +146,15 @@ export function CostumeExperience({ costume }: { costume: CostumeView }) {
         <TabsTrigger value="try-on"><Sparkles size={15} aria-hidden="true" />Try it on</TabsTrigger>
       </TabsList>
       {/* Keep photos and gallery position in memory when switching tabs. */}
-      <TabsContent value="look" forceMount><Carousel slides={slides} /><p className="costume-image-note">Style inspiration. Preview may differ from the selected pieces.</p></TabsContent>
+      <TabsContent value="look" forceMount><Carousel slides={slides} hotspots={{
+        items: pickedOptions.map(({ view, option }) => ({ pieceId: view.piece.id, name: view.piece.name, priceCents: option.product.priceCents, merchantName: option.merchant.name })),
+        selectedPieceId: inspectedPiece?.piece.id,
+        onSelect: (pieceId, trigger) => {
+          inspectionTrigger.current = trigger;
+          setInspectedPieceId(pieceId);
+          if (pieceId === inspectedPieceId) document.getElementById("costume-piece-inspection")?.focus();
+        },
+      }} /><p className="costume-image-note">Style inspiration. Preview may differ from the selected pieces.</p></TabsContent>
       <TabsContent value="try-on" forceMount>
         <VirtualTryOn costumeSlug={costumeSlug} pieces={pieces.map(({ piece }) => ({ id: piece.id, name: piece.name, category: piece.category }))} selection={pickedOptions.map(({ view, option }) => ({ pieceId: view.piece.id, productId: option.product.id }))} ownedPieceIds={pieces.filter(({ piece }) => uses[piece.id] === "owned").map(({ piece }) => piece.id)} skippedPieceIds={pieces.filter(({ piece }) => uses[piece.id] === "skip").map(({ piece }) => piece.id)} totalCents={total} />
         <div className="costume-live-option"><span>Prefer a live preview?</span><LiveMirror costume={costume} initialOutfit={{ selection: Object.fromEntries(pieces.flatMap((view) => { const option = picked.get(view.piece.id); return option ? [[view.piece.id, option.product.id]] : []; })), uses, locked: [], budget: mirrorBudget }} onApply={applyMirror} /></div>
@@ -150,6 +162,10 @@ export function CostumeExperience({ costume }: { costume: CostumeView }) {
     </Tabs>
 
     <div className="costume-info">
+      {inspectedPiece && <CostumePieceInspector costumeSlug={costumeSlug} view={inspectedPiece} index={selectedIndex(inspectedPiece)} onChoose={(index) => choose(inspectedPiece, index)} onClose={() => {
+        setInspectedPieceId(undefined);
+        inspectionTrigger.current?.focus();
+      }} />}
       {pickedOptions.length > 0
         ? <div className="costume-purchase" id="selected-outfit">
             <div className="costume-total"><span>{formatPrice(total)}<small>USD</small></span><p>{pickedOptions.length} pieces · {shopCount} {shopCount === 1 ? "shop" : "shops"}</p></div>
