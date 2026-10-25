@@ -14,6 +14,7 @@ import { applyActions, createOutfit, outfitTotal } from "@/lib/live-mirror/state
 import { sendMirrorCommand, useLiveVoice } from "@/lib/live-mirror/use-live-voice";
 import { useLiveVideo } from "@/lib/live-mirror/use-live-video";
 import { VoiceStateIndicator } from "./voice-state-indicator";
+import { LiveTranscript, useLiveTranscript } from "./live-transcript";
 import "./live-mirror.css";
 
 type Props = { costume: CostumeView; initialOutfit: MirrorOutfit; onApply: (outfit: MirrorOutfit) => void };
@@ -49,7 +50,7 @@ function MirrorRoom({ costume: initialCostume, initialOutfit, onApply, onClose }
   const [notice, setNotice] = useState("");
   const [commandText, setCommandText] = useState("");
   const [sending, setSending] = useState(false);
-  const [utterance, setUtterance] = useState<{ text: string; role: "user" | "assistant" } | null>(null);
+  const transcript = useLiveTranscript();
   const [availability, setAvailability] = useState<{ videoAvailable: boolean; voiceAvailable: boolean } | null>(null);
   const [configError, setConfigError] = useState("");
   const [consent, setConsent] = useState(false);
@@ -62,7 +63,7 @@ function MirrorRoom({ costume: initialCostume, initialOutfit, onApply, onClose }
   const commandHandler = useRef<(command: MirrorCommand) => void | Promise<void>>(() => {});
   const video = useLiveVideo({ costume, outfit });
   const { start: startVideo, stop: stopVideo } = video;
-  const voice = useLiveVoice({ costume, outfit, onFocus: setFocusedPiece, onCommand: (command) => commandHandler.current(command), onTranscript: (text, role) => setUtterance({ text, role }) });
+  const voice = useLiveVoice({ costume, outfit, onFocus: setFocusedPiece, onCommand: (command) => commandHandler.current(command), onTranscript: transcript.receive });
   const stopRef = useRef({ video: video.stop, voice: voice.stop });
   useEffect(() => { stopRef.current = { video: video.stop, voice: voice.stop }; }, [video.stop, voice.stop]);
 
@@ -237,13 +238,14 @@ function MirrorRoom({ costume: initialCostume, initialOutfit, onApply, onClose }
     requestRef.current = controller;
     const revision = revisionRef.current;
     setSending(true);
-    setUtterance({ text, role: "user" });
+    transcript.append(text, "user");
     setCommandText("");
     try {
       const command = await sendMirrorCommand({ costumeSlug: costume.costume.slug, outfit: outfitRef.current, text }, controller.signal);
       if (controller.signal.aborted) return;
       if (revision !== revisionRef.current) { setNotice("Your look changed while that request was running. Please try it again."); return; }
       await handleCommand(command);
+      if (command.message) transcript.append(command.message, "assistant");
     } catch (error) { if (!controller.signal.aborted) setNotice(error instanceof Error ? error.message : "That request didn't go through. Try again."); }
     finally { if (!controller.signal.aborted) setSending(false); }
   }
@@ -326,7 +328,7 @@ function MirrorRoom({ costume: initialCostume, initialOutfit, onApply, onClose }
           </form>
           {sending && <p className="mirror-muted" role="status">Considering your change…</p>}
           {availability?.voiceAvailable && <VoiceStateIndicator status={voice.status} activity={voice.activity} muted={voice.muted} onStop={voice.stop} />}
-          {utterance && <p className="mirror-transcript"><span>{utterance.role === "user" ? "You" : "Stylist"}</span>{utterance.text}</p>}
+          <LiveTranscript entries={transcript.entries} latestId={transcript.latestId} />
         </div>
         <div className="mirror-pieces" aria-label="Selected costume pieces">
           {costume.pieces.map(({ piece, options }) => {
