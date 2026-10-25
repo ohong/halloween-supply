@@ -5,6 +5,8 @@ import type { MirrorAction, MirrorCommand, MirrorOutfit } from "./types";
 export type DecisionQuestion = { type: "choice"; name: string; instructions: string; choices: { value: string; description?: string }[] };
 export type DecisionAnswer = { type: string; name?: string; choice?: string; confidence?: number };
 const globalActions = ["undo", "save", "freeze", "resume", "cheapest"] as const;
+// Calibrated from recorded mirror requests: weak choices must not change an outfit.
+const minimumEditConfidence = 0.4;
 
 /** Fixed choices bind fast decisions to actual catalog IDs, never invented SKUs. */
 type LookChoice = Pick<Costume, "slug" | "name" | "description">;
@@ -51,7 +53,14 @@ export function outfitSnapshot(costume: CostumeView, outfit: MirrorOutfit) {
 
 /** Also validates native events client-side before they may touch outfit state. */
 export function commandFromAnswers(answers: DecisionAnswer[], costume: CostumeView, outfit: MirrorOutfit, looks: readonly LookChoice[] = costumes): MirrorCommand {
-  const choice = (name: string) => answers.find(answer => answer.type === "choice" && answer.name === name)?.choice;
+  let uncertain = false;
+  const choice = (name: string) => {
+    const answer = answers.find(answer => answer.type === "choice" && answer.name === name);
+    if (!answer?.choice || answer.choice === "none") return answer?.choice;
+    if (typeof answer.confidence === "number" && Number.isFinite(answer.confidence) && answer.confidence >= minimumEditConfidence && answer.confidence <= 1) return answer.choice;
+    uncertain = true;
+    return undefined;
+  };
   const requestedLook = choice("look");
   const currentIndex = looks.findIndex(item => item.slug === costume.costume.slug);
   const look = requestedLook === "next" || requestedLook === "previous"
@@ -76,7 +85,7 @@ export function commandFromAnswers(answers: DecisionAnswer[], costume: CostumeVi
   if (globalActions.some(action => action === global) && (global !== "cheapest" || choice("optimize_scope") === "whole_outfit")) actions.push({ type: global as typeof globalActions[number] });
   // Undo restores a complete snapshot; mixing it with other edits is ambiguous.
   if (global === "undo") return { actions: [{ type: "undo" }] };
-  return { actions };
+  return { actions, ...(uncertain && !actions.length ? { message: "I’m not sure which change you want. Please name the piece and what to change." } : {}) };
 }
 
 export function needsBudget(answers: DecisionAnswer[]) {
