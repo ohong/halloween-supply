@@ -7,6 +7,8 @@ import { formatPrice } from "@/lib/cart/context";
 import { costumes } from "@/lib/costumes";
 import { composeShareCard, lookUrl } from "@/lib/share-card";
 import "./virtual-try-on.css";
+import { TryOn3D } from "./try-on-3d";
+import type { FocusPiece, RenderOffer } from "@/lib/try-on-3d/types";
 
 type Selection = { pieceId: string; productId: string }[];
 
@@ -39,15 +41,15 @@ const SAVE = "M12 4v11m0 0l-4-4m4 4l4-4M5 20h14";
 const CLOSE = "M6 6l12 12M18 6L6 18";
 const SHARE = "M12 15V4m0 0L8 8m4-4l4 4M5 13v5a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-5";
 
-export function VirtualTryOn({ costumeSlug, selection = [], ownedPieceIds = [], skippedPieceIds = [], totalCents = 0 }: {
-  costumeSlug: string; selection?: Selection; ownedPieceIds?: string[]; skippedPieceIds?: string[]; totalCents?: number;
+export function VirtualTryOn({ costumeSlug, selection = [], ownedPieceIds = [], skippedPieceIds = [], totalCents = 0, pieces }: {
+  costumeSlug: string; selection?: Selection; ownedPieceIds?: string[]; skippedPieceIds?: string[]; totalCents?: number; pieces?: FocusPiece[];
 }) {
   const [photo, setPhoto] = useState<Blob | null>(null);
   const [photoUrl, setPhotoUrl] = useState("");
   const [preparing, setPreparing] = useState(false);
   const [busy, setBusy] = useState(false);
   const [error, setError] = useState("");
-  const [result, setResult] = useState<{ image: string; key: string } | null>(null);
+  const [result, setResult] = useState<{ image: string; key: string; render3d: RenderOffer | null } | null>(null);
   const [peek, setPeek] = useState(false);
   const controller = useRef<AbortController | null>(null);
   const uploadVersion = useRef(0);
@@ -100,7 +102,7 @@ export function VirtualTryOn({ costumeSlug, selection = [], ownedPieceIds = [], 
     if (!file) return;
     const version = ++uploadVersion.current;
     controller.current?.abort();
-    setBusy(false); setPreparing(true); setError(""); setResult(null); setPeek(false);
+    setCard(null); setPhoto(null); setPhotoUrl(""); setBusy(false); setPreparing(true); setError(""); setResult(null); setPeek(false);
     try {
       const prepared = await preparePhoto(file);
       if (version !== uploadVersion.current) return;
@@ -113,7 +115,7 @@ export function VirtualTryOn({ costumeSlug, selection = [], ownedPieceIds = [], 
   function reset() {
     uploadVersion.current++;
     controller.current?.abort();
-    setPhoto(null); setPhotoUrl(""); setResult(null); setBusy(false); setPreparing(false); setError(""); setPeek(false);
+    setCard(null); setPhoto(null); setPhotoUrl(""); setResult(null); setBusy(false); setPreparing(false); setError(""); setPeek(false);
   }
 
   // Tapping the primary button is the consent; the disclosure sits directly under it.
@@ -121,7 +123,7 @@ export function VirtualTryOn({ costumeSlug, selection = [], ownedPieceIds = [], 
     if (!photo || busy) return;
     const requestController = new AbortController();
     controller.current = requestController;
-    setBusy(true); setError(""); setShareNote("");
+    setCard(null); setBusy(true); setError(""); setShareNote("");
     const form = new FormData();
     form.set("photo", photo, "photo.jpg"); form.set("costumeSlug", costumeSlug); form.set("consent", "true");
     form.set("selection", JSON.stringify(selection));
@@ -132,7 +134,10 @@ export function VirtualTryOn({ costumeSlug, selection = [], ownedPieceIds = [], 
       const data: unknown = await response.json().catch(() => null);
       if (data && typeof data === "object" && "error" in data && typeof data.error === "string") throw new Error(data.error);
       if (!response.ok || !data || typeof data !== "object" || !("image" in data) || typeof data.image !== "string" || !data.image.startsWith("data:image/jpeg;base64,")) throw new Error("The preview could not be created. Please try again.");
-      if (!requestController.signal.aborted) setResult({ image: data.image, key: outfitKey });
+      if (!requestController.signal.aborted) {
+        const offer = "render3d" in data ? data.render3d as RenderOffer | null : null;
+        setResult({ image: data.image, key: outfitKey, render3d: offer });
+      }
     } catch (caught) { if (!requestController.signal.aborted) setError(caught instanceof Error ? caught.message : "The preview could not be created. Please try again."); }
     finally { if (controller.current === requestController) setBusy(false); }
   }
@@ -178,5 +183,6 @@ export function VirtualTryOn({ costumeSlug, selection = [], ownedPieceIds = [], 
     {current && shareNote && <p className="try-on-fine" role="status">{shareNote}</p>}
     {error && <p className="try-on-error" role="alert">{error}</p>}
     {photoUrl && !current && !busy && <p className="try-on-fine">Tapping sends your photo to OpenAI for a preview. This app does not save your photo or preview. OpenAI processes uploads under its API data policies.</p>}
+    {current && <TryOn3D key={current.key} image={current.image} offer={current.render3d} pieces={(pieces ?? costume.pieces.map((name, index) => ({ id: String(index), name }))).filter((piece) => !skippedPieceIds.includes(piece.id))} />}
   </section>;
 }
