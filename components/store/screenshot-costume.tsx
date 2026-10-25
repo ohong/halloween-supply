@@ -2,7 +2,9 @@
 
 import { useCallback, useEffect, useRef, useState, type CSSProperties } from "react";
 import { SCREENSHOT_SLUG, formatPrice, useCart } from "@/lib/cart/context";
+import { compatibleSize } from "@/lib/cart/item";
 import type { CartItem } from "@/lib/types";
+import { PieceInspectionPanel } from "./piece-inspection-panel";
 import "./screenshot-costume.css";
 
 interface LookPiece { name: string; slot: string; query: string; sizeKind: CartItem["sizeKind"] }
@@ -28,6 +30,8 @@ export function ScreenshotCostume() {
   const [sizes, setSizes] = useState<Record<string, string | null>>({});
   const [dragging, setDragging] = useState(false);
   const [shown, setShown] = useState(0);
+  const [selectedPieceId, setSelectedPieceId] = useState<string | null>(null);
+  const inspectionTrigger = useRef<HTMLButtonElement | null>(null);
   const abort = useRef<AbortController | null>(null);
   const queue = useRef<LogLine[]>([]);
   const logRef = useRef<HTMLOListElement>(null);
@@ -37,9 +41,10 @@ export function ScreenshotCostume() {
   const restored = phase === "idle" && cart.ready && cart.costumeSlug === SCREENSHOT_SLUG && slots.length === 0;
   const visible: Slot[] = restored ? cart.items.map((item) => ({ state: "found", name: item.pieceName, item })) : slots;
   const found = visible.flatMap((slot) => slot.state === "found" ? [slot.item] : []);
+  const selected = found.find((item) => item.pieceId === selectedPieceId) ?? null;
   const total = found.reduce((sum, item) => sum + item.priceCents, 0);
-  const inCart = (pieceId: string) => cart.costumeSlug === SCREENSHOT_SLUG && cart.items.some((line) => line.pieceId === pieceId);
-  const sizeOf = (item: CartItem) => cart.items.find((line) => cart.costumeSlug === SCREENSHOT_SLUG && line.pieceId === item.pieceId)?.size ?? sizes[item.pieceId] ?? null;
+  const inCart = (item: CartItem) => cart.costumeSlug === SCREENSHOT_SLUG && cart.items.some((line) => line.pieceId === item.pieceId && line.productId === item.productId);
+  const sizeOf = (item: CartItem) => compatibleSize(item, cart.items.find((line) => cart.costumeSlug === SCREENSHOT_SLUG && line.pieceId === item.pieceId && line.productId === item.productId)?.size ?? sizes[item.pieceId]);
 
   // Lines arrive in bursts, so drip them out to keep the log readable.
   useEffect(() => {
@@ -65,7 +70,7 @@ export function ScreenshotCostume() {
     const controller = new AbortController();
     abort.current = controller;
     setPreview((old) => { if (old) URL.revokeObjectURL(old); return URL.createObjectURL(file); });
-    setPhase("running"); setError(null); setCharacter(null); setSummary(""); setSlots([]); setSizes({}); setLog([]);
+    setPhase("running"); setError(null); setCharacter(null); setSummary(""); setSlots([]); setSizes({}); setLog([]); setSelectedPieceId(null);
     queue.current = [];
 
     const form = new FormData();
@@ -127,7 +132,7 @@ export function ScreenshotCostume() {
   function chooseSize(item: CartItem, size: string) {
     const value = size || null;
     setSizes((current) => ({ ...current, [item.pieceId]: value }));
-    if (inCart(item.pieceId)) cart.setSize(item.pieceId, value);
+    if (inCart(item)) cart.setSize(item.pieceId, value);
   }
 
   function addLook() {
@@ -135,8 +140,19 @@ export function ScreenshotCostume() {
     cart.setOpen(true);
   }
 
+  function closeInspection() {
+    setSelectedPieceId(null);
+    inspectionTrigger.current?.focus();
+  }
+
+  function addSelected() {
+    if (!selected || !cart.ready) return;
+    if (!inCart(selected)) cart.add({ ...selected, size: sizeOf(selected) }, SCREENSHOT_SLUG);
+    cart.setOpen(true);
+  }
+
   const running = phase === "running";
-  const allInCart = found.length > 0 && found.every((item) => inCart(item.pieceId));
+  const allInCart = found.length > 0 && found.every((item) => inCart(item));
   const missing = visible.filter((slot) => slot.state === "missing").length;
 
   return <div className="page shot">
@@ -178,33 +194,49 @@ export function ScreenshotCostume() {
 
       {error && <p className="notice" role="alert">{error}</p>}
 
-      {visible.length > 0 ? <ul className="shot-lay">
-        {visible.map((slot, i) => <li key={i} className={`shot-slot is-${slot.state}`} style={{ "--r": `${TILT[i % TILT.length]}deg` } as CSSProperties}>
-          <div className="shot-frame">
-            {slot.state === "found"
-              // eslint-disable-next-line @next/next/no-img-element -- merchant images come from any shop's CDN
-              ? <img src={slot.item.image} alt={slot.item.title} referrerPolicy="no-referrer" />
-              : <span className="shot-ghost">{slot.state === "missing" ? "Not in stock anywhere we checked" : "Searching shops…"}</span>}
-          </div>
-          <div className="shot-caption">
-            <p className="shot-piece">{slot.name}</p>
-            {slot.state === "found" && <>
-              <a href={slot.item.productUrl} target="_blank" rel="noopener noreferrer">{slot.item.title}</a>
-              <p className="meta">{slot.item.merchantName} · {formatPrice(slot.item.priceCents)}</p>
-              {slot.item.sizeKind !== "one_size" && slot.item.availableSizes.length > 0 && <select
+      {visible.length > 0 ? <div className={`shot-workbench ${selected ? "has-selection" : ""}`}>
+        <ul className="shot-lay">
+        {visible.map((slot, i) => <li key={i} className={`shot-slot is-${slot.state} ${slot.state === "found" && selected?.pieceId === slot.item.pieceId ? "is-selected" : ""}`} style={{ "--r": `${TILT[i % TILT.length]}deg` } as CSSProperties}>
+          {slot.state === "found" ? <>
+            <button type="button" className="shot-inspect"
+              aria-label={`Inspect ${slot.name}`} aria-expanded={selected?.pieceId === slot.item.pieceId}
+              aria-controls={selected?.pieceId === slot.item.pieceId ? "screenshot-piece-inspection" : undefined}
+              onClick={(event) => {
+                inspectionTrigger.current = event.currentTarget;
+                if (selected?.pieceId === slot.item.pieceId) closeInspection();
+                else setSelectedPieceId(slot.item.pieceId);
+              }}>
+              <span className="shot-frame">
+                {/* eslint-disable-next-line @next/next/no-img-element -- merchant images come from any shop's CDN */}
+                <img src={slot.item.image} alt={slot.item.title} referrerPolicy="no-referrer" />
+              </span>
+              <span className="shot-caption">
+                <span className="shot-piece">{slot.name}</span>
+                <span className="shot-title">{slot.item.title}</span>
+                <span className="meta">{slot.item.merchantName} · {formatPrice(slot.item.priceCents)}</span>
+                <span className="shot-inspect-hint">{selected?.pieceId === slot.item.pieceId ? "Viewing details" : "Inspect piece"}</span>
+              </span>
+            </button>
+            {slot.item.sizeKind !== "one_size" && slot.item.availableSizes.length > 0 && <select
                 className="shot-size" aria-label={`Size for ${slot.name}`}
                 value={sizeOf(slot.item) ?? ""} onChange={(event) => chooseSize(slot.item, event.target.value)}>
                 <option value="">Pick a size</option>
                 {slot.item.availableSizes.map((size) => <option key={size} value={size}>{size}</option>)}
-              </select>}
-            </>}
-          </div>
+            </select>}
+          </> : <>
+            <div className="shot-frame"><span className="shot-ghost">{slot.state === "missing" ? "Not in stock anywhere we checked" : "Searching shops…"}</span></div>
+            <div className="shot-caption"><p className="shot-piece">{slot.name}</p></div>
+          </>}
         </li>)}
-      </ul> : !running && <div className="shot-empty" aria-hidden="true">{TILT.slice(0, 6).map((r, i) => <span key={i} style={{ "--r": `${r}deg` } as CSSProperties} />)}</div>}
+        </ul>
+        {selected && <PieceInspectionPanel id="screenshot-piece-inspection" item={selected}
+          size={sizeOf(selected)} inCart={inCart(selected)} addDisabled={!cart.ready}
+          onSizeChange={(size) => chooseSize(selected, size)} onAdd={addSelected} onClose={closeInspection} />}
+      </div> : !running && <div className="shot-empty" aria-hidden="true">{TILT.slice(0, 6).map((r, i) => <span key={i} style={{ "--r": `${r}deg` } as CSSProperties} />)}</div>}
 
       {found.length > 0 && !running && <div className="shot-foot">
         <p className="meta">{missing > 0 ? `${missing} ${missing === 1 ? "piece wasn’t" : "pieces weren’t"} in stock. ` : ""}Prices and stock are checked again at checkout.</p>
-        <button type="button" className="btn" onClick={allInCart ? () => cart.setOpen(true) : addLook}>
+        <button type="button" className="btn" disabled={!cart.ready} onClick={allInCart ? () => cart.setOpen(true) : addLook}>
           {allInCart ? "View cart" : `Add the look to cart · ${formatPrice(total)}`}
         </button>
       </div>}
