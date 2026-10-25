@@ -151,6 +151,7 @@ async function verifyCheckout(snapshot: CostumeSnapshot, stripe: Stripe, rank: n
     const session = await stripe.checkout.sessions.retrieve(id);
     assert.equal(session.livemode, false, "Never test a live Stripe session.");
     assert.equal(session.mode, "payment");
+    assert.equal(session.branding_settings?.display_name, "Halloween Supply");
     assert.equal(session.status, "open");
     assert.equal(session.payment_status, "unpaid");
     assert.equal(session.customer_creation, "if_required");

@@ -159,6 +159,7 @@ export async function POST(request: Request) {
 
     const session = await getStripe().checkout.sessions.create({
       mode: "payment",
+      branding_settings: { display_name: "Halloween Supply", button_color: "#111111", background_color: "#ffffff" },
       line_items: lineItems,
       adaptive_pricing: { enabled: false },
       automatic_tax: { enabled: false },
