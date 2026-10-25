@@ -72,11 +72,14 @@ const postCommand = async text => {
 try {
   // Bootstrap the deployment's access cookie without persisting it or logging the URL.
   if (process.env.MIRROR_ACCESS_URL) await page.goto(process.env.MIRROR_ACCESS_URL);
-  // Reject invalid requests before spending any provider credits.
-  for (const [headers, data, status] of [
-    [{ origin: "https://unrelated.invalid" }, { consent: true }, 403],
-    [{ origin }, { consent: false }, 400],
-  ]) assert.equal((await context.request.post(`${origin}/api/live-mirror/video`, { headers, data })).status(), status);
+  // Hosted firewall limits count rejected requests too. Exercise these checks
+  // locally and reserve hosted allowance for the two real camera connections.
+  if (["localhost", "127.0.0.1"].includes(new URL(origin).hostname)) {
+    for (const [headers, data, status] of [
+      [{ origin: "https://unrelated.invalid" }, { consent: true }, 403],
+      [{ origin }, { consent: false }, 400],
+    ]) assert.equal((await context.request.post(`${origin}/api/live-mirror/video`, { headers, data })).status(), status);
+  }
   await page.goto(`${origin}/costumes/cosmic-cowboy`);
   await page.getByRole("button", { name: "Try it on live", exact: true }).click();
   assert.equal(await page.getByRole("button", { name: "Start my mirror", exact: true }).isEnabled(), false);

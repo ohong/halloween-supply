@@ -95,6 +95,12 @@ provider pricing before changing session limits. The application has per-process
 request limits; deployment-wide quotas and provider spending controls remain
 separate operations.
 
+The existing Vercel firewall additionally limits video starts and voice starts
+to three requests per IP address per hour. Resume uses another video start.
+Rejected POST requests also count, so the test runs its invalid-request checks
+only on localhost. This firewall does not enforce the length of a running
+provider session or a total account spending cap.
+
 ## Reproduce the real-provider test
 
 ```sh
@@ -110,6 +116,8 @@ The test uses Playwright Chromium, `ffmpeg`, and macOS `say`. Install Chromium w
 10 seconds and cape request at 30 seconds). `MIRROR_BASE_URL` chooses the target;
 `MIRROR_EVIDENCE_DIR` chooses an existing output folder. The default evidence
 folder is temporary and contains screenshots, a saved preview, and JSON results.
+For a protected deployment, `MIRROR_ACCESS_URL` can bootstrap an authorized
+Vercel share link. It is not written to the evidence or used to bypass quotas.
 
 The camera fixture is a generated catalog mannequin. The microphone is synthetic
 speech. The app, route handlers, reference generation, fal video, OpenAI voice,
