@@ -21,6 +21,11 @@ Your OpenAI project needs access to both models; image access may require organi
 
 ## Try-on behavior
 
+Every generated photo preview uses a white commercial studio style: a seamless
+white backdrop and floor, softbox lighting, natural contact shadows, and full-body
+framing. The shopper remains the identity reference; the original room is removed.
+Selected products and owned or skipped pieces still control the outfit.
+
 ```text
 Browser photo → resize + explicit consent → server decode + validation
   → Decisions photo suitability check → image edit with costume/product references
