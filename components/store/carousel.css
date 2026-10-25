@@ -1,3 +1,70 @@
+.carousel-views {
+  display: flex;
+  gap: 4px;
+  width: fit-content;
+  margin-bottom: 12px;
+  padding: 3px;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+}
+
+.carousel-view {
+  min-height: 44px;
+  padding: 0 16px;
+  border: 0;
+  border-radius: 3px;
+  background: transparent;
+  color: var(--mid);
+  font-size: 12px;
+}
+
+.carousel-view[aria-pressed="true"] {
+  background: var(--ink);
+  color: var(--bg);
+}
+
+.carousel-flatlay {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 4%;
+  padding: 5% 10%;
+}
+
+.carousel-piece {
+  display: grid;
+  grid-template-rows: minmax(0, 1fr) auto;
+  gap: 6px;
+  min-width: 0;
+  min-height: 0;
+  padding: 6px;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  background: transparent;
+  text-align: center;
+}
+
+.carousel-piece-image {
+  display: block;
+  min-width: 0;
+  min-height: 0;
+  transform-origin: center;
+}
+
+.carousel-piece-photo .carousel-piece-image {
+  overflow: hidden;
+  border-radius: 2px;
+  background: #fff;
+}
+
+.carousel-piece-name {
+  color: var(--ink);
+  font-size: 11px;
+  line-height: 1.4;
+  text-wrap: balance;
+}
+
 .carousel-frame {
   position: relative;
 }
@@ -46,5 +113,7 @@
 .carousel-arrow:disabled { opacity: .3; }
 
 @media (hover: hover) and (pointer: fine) {
+  .carousel-view:hover:not([aria-pressed="true"]) { background: var(--grey); color: var(--ink); }
+  .carousel-piece:hover { border-color: var(--line); }
   .carousel-arrow:hover:not(:disabled) { background: var(--grey); }
 }
