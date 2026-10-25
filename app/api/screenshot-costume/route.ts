@@ -89,6 +89,7 @@ export async function POST(request: Request) {
         const source = screenshotSourcing(signal, log, image);
         const work = Promise.allSettled(look.pieces.map((piece, i) => source(piece, match => {
           if (signal.aborted) return;
+          if (!match) { matched.delete(i); emit({ t: "miss", i }); return; }
           matched.add(i);
           emit({ t: "candidate", i, match });
         }, hit => {
