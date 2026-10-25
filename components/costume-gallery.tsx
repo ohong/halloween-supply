@@ -4,11 +4,14 @@ import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
+import { ArrowRight, ArrowUpRight, Camera, Heart, Search, X } from "lucide-react";
+import { Button } from "@/components/ui/button";
 import { costumes } from "@/lib/costumes";
 import { localSearch, normalizeSearchQuery, type SearchResponse } from "@/lib/costume-search";
 import type { CustomLookEvent, CustomPiece } from "@/lib/custom-looks/types";
 import { modelImage, useCostumeModel } from "@/lib/model-selection";
 import { SaveLook, useSavedLooks } from "./saved-looks";
+import { searchPlaceholder, useSearchPlaceholder } from "./use-search-placeholder";
 import "./landing-search.css";
 
 type Refinement = { key: string; response: SearchResponse; failed: boolean };
@@ -19,7 +22,7 @@ type Creation = {
   pieces: { piece: CustomPiece; state: "looking" | "found" | "missing" }[];
 };
 
-export function CostumeGallery() {
+export function CostumeGallery({ pieceCounts }: { pieceCounts: Record<string, number> }) {
   const router = useRouter();
   const [query, setQuery] = useState("");
   const [composing, setComposing] = useState(false);
@@ -29,7 +32,6 @@ export function CostumeGallery() {
   const [savedOnly, setSavedOnly] = useState(false);
   const { model, setModel } = useCostumeModel();
   const { saved } = useSavedLooks();
-  const input = useRef<HTMLInputElement>(null);
   const creationAbort = useRef<AbortController | null>(null);
   const attempt = useRef<{ key: string; id: string } | null>(null);
   const normalized = normalizeSearchQuery(query);
@@ -40,13 +42,14 @@ export function CostumeGallery() {
   const result = resolved?.response ?? local;
   const pending = normalized.length >= 2 && (composing || !resolved);
   const running = creation?.phase === "running";
+  const input = useSearchPlaceholder(query.length === 0 && !running && !composing);
   const bySlug = new Map(costumes.map((costume) => [costume.slug, costume]));
   // Saved is a view of global results, never evidence that a costume is absent.
   const visible = result.matches.flatMap(({ slug }) => {
     const costume = bySlug.get(slug);
     return costume && (!savedOnly || saved.includes(slug)) ? [costume] : [];
   });
-  const offerCreation = normalized.length >= 3 && !pending && !result.hasStrongMatch;
+  const offerCreation = !savedOnly && normalized.length >= 3 && !pending && !result.hasStrongMatch;
 
   useEffect(() => {
     if (composing || normalized.length < 2) return;
@@ -138,69 +141,80 @@ export function CostumeGallery() {
     }
   }
 
-  return <main id="main">
-    <section className="page landing-search" aria-labelledby="costume-search-heading">
-      <h1 id="costume-search-heading"><label htmlFor="costume-search">What do you want to be?</label></h1>
+  return <main id="main" className="home-page page">
+    <section className="landing-search" aria-labelledby="costume-search-heading">
+      <h1 id="costume-search-heading">What will you be?</h1>
+      <p className="landing-description">Discover costume ideas, try them on, and shop the whole look.</p>
       <form role="search" onSubmit={(event) => event.preventDefault()}>
+        <label htmlFor="costume-search" className="sr-only">Search costumes</label>
         <div className="costume-search-field">
-          <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" strokeWidth="1.3" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5" /><path d="m15.5 15.5 5 5" /></svg>
+          <Search size={19} aria-hidden="true" />
           <input ref={input} id="costume-search" type="search" value={query} maxLength={160} autoComplete="off" spellCheck={false}
-            placeholder="A character, a creature, a whole mood…" disabled={running} aria-controls="costume-results" aria-describedby="costume-search-status"
+            placeholder={searchPlaceholder} disabled={running} aria-controls="costume-results" aria-describedby="costume-search-status"
             onChange={(event) => { setQuery(event.target.value); setCreation(null); }}
             onCompositionStart={() => setComposing(true)}
             onCompositionEnd={(event) => { setQuery(event.currentTarget.value); setComposing(false); }}
             onKeyDown={(event) => { if (event.key === "Escape" && !running && !composing) { event.preventDefault(); clearSearch(); } }} />
-          {query && !running && <button className="search-clear" type="button" onClick={clearSearch} aria-label="Clear search"><span aria-hidden="true">×</span></button>}
+          {query && !running && <Button variant="ghost" size="icon" className="search-clear" onClick={clearSearch} aria-label="Clear search"><X aria-hidden="true" /></Button>}
         </div>
       </form>
-      <Link href="/screenshot" className="search-screenshot">Start with a screenshot instead <span aria-hidden="true">↗</span></Link>
+      <div className="search-hints">
+        <div className="search-suggestions" role="group" aria-label="Search ideas"><span>Try</span>{["Vampire", "Space", "Woodland"].map((idea) => <Button key={idea} variant="ghost" size="sm" disabled={running} onClick={() => { setQuery(idea); setCreation(null); }}>{idea}</Button>)}</div>
+        <Link href="/screenshot" className="search-screenshot"><Camera size={15} aria-hidden="true" />Use a screenshot<ArrowUpRight size={14} aria-hidden="true" /></Link>
+      </div>
     </section>
 
-    <div className="page home-bar search-gallery-bar">
-      <p id="costume-search-status" className="search-status" role="status" aria-live="polite" aria-atomic="true">
-        {visible.length} {savedOnly ? "saved " : ""}{visible.length === 1 ? "costume" : "costumes"}
-        {pending && <span> · Finding related looks…</span>}
-        {!pending && resolved?.failed && <span> · Local matches</span>}
-      </p>
-      <div className="home-controls">
-        <div className="view-toggle" role="group" aria-label="Model">
-          <button type="button" aria-pressed={model === "male"} disabled={running} onClick={() => setModel("male")}>Male</button>
-          <button type="button" aria-pressed={model === "female"} disabled={running} onClick={() => setModel("female")}>Female</button>
+    <section className="costume-collection" aria-labelledby="costume-collection-heading">
+      <div className="gallery-heading">
+        <div><h2 id="costume-collection-heading">{savedOnly ? "Your saved looks" : normalized ? "Find your look" : "Explore costumes"}</h2>
+          <p id="costume-search-status" className="search-status" role="status" aria-live="polite" aria-atomic="true">
+            {visible.length} {visible.length === 1 ? "look" : "looks"}{normalized && <> for “{normalized}”</>}
+            {pending && <span> · Finding related looks…</span>}
+            {!pending && resolved?.failed && <span> · Local matches</span>}
+          </p>
         </div>
-        <nav className="view-toggle" aria-label="Costume views">
-          <button type="button" aria-pressed={!savedOnly} onClick={() => setSavedOnly(false)}>All</button>
-          <button type="button" aria-pressed={savedOnly} onClick={() => setSavedOnly(true)}>Saved{saved.length > 0 && <span className="saved-count">{saved.length}</span>}</button>
-        </nav>
+        <div className="gallery-controls">
+          <div className="gallery-views" role="group" aria-label="Costume views">
+            <Button variant="ghost" aria-pressed={!savedOnly} disabled={running} onClick={() => setSavedOnly(false)}>All looks</Button>
+            <Button variant="ghost" aria-pressed={savedOnly} disabled={running} onClick={() => setSavedOnly(true)}><Heart aria-hidden="true" />Saved{saved.length > 0 && <span className="saved-count">{saved.length}</span>}</Button>
+          </div>
+          <div className="gallery-model"><label htmlFor="gallery-model">Model</label><select id="gallery-model" value={model} disabled={running} onChange={(event) => setModel(event.target.value === "male" ? "male" : "female")}><option value="female">Female</option><option value="male">Male</option></select></div>
+        </div>
       </div>
-    </div>
 
-    {creation ? <section className="page search-creation" aria-label="Creating your costume" aria-busy={running}>
+    {creation ? <section className="search-creation" aria-label="Creating your costume" aria-busy={running}>
       <div className="search-creation-heading"><h2>{creation.name}</h2>
         <button type="button" className="text-btn" onClick={() => { creationAbort.current?.abort(); creationAbort.current = null; setCreation(null); input.current?.focus(); }}>{running ? "Cancel" : "Dismiss"}</button>
       </div>
       <p className="search-creation-message" role={creation.phase === "error" ? "alert" : "status"}>{creation.message}</p>
       {creation.pieces.length > 0 && <ul className="search-creation-pieces">{creation.pieces.map(({ piece, state }, i) => <li key={`${piece.slot}:${i}`}><span>{piece.name}</span><span>{state === "found" ? "Found" : state === "missing" ? "Not found" : "Searching…"}</span></li>)}</ul>}
       {creation.phase === "error" && <button type="button" className="btn btn-small" onClick={() => void createLook()}>Try again</button>}
-    </section> : offerCreation && <div className="page search-create-row">
-      <button type="button" className="btn" onClick={() => void createLook()}>Create “{normalized}” <span aria-hidden="true">→</span></button>
-      {resolved?.failed && <button type="button" className="text-btn" onClick={() => setRetry((value) => value + 1)}>Retry search</button>}
+    </section> : offerCreation && <div className="search-create-row">
+      <div><h3>No exact match yet</h3><p>Try another search, or create a look for “{normalized}”.</p></div>
+      <div className="search-create-actions"><Button onClick={() => void createLook()}>Create this look<ArrowRight aria-hidden="true" /></Button>
+      {resolved?.failed && <Button variant="outline" onClick={() => setRetry((value) => value + 1)}>Retry search</Button>}</div>
     </div>}
 
-    <div id="costume-results" className="mosaic page" aria-label={savedOnly ? "Saved costumes" : "Costumes"}>
+    <ul id="costume-results" className="mosaic" aria-label={savedOnly ? "Saved costumes" : "Costumes"}>
       {visible.map((costume, index) => {
         const live = costume.status === "live";
-        return <div className="tile" key={costume.slug}>
+        const count = pieceCounts[costume.slug];
+        const detail = !live ? "Style guide" : count ? `${count} pieces` : "Shop the look";
+        return <li className="tile" key={costume.slug}>
           <Link href={`/costumes/${costume.slug}`} className="tile-body" aria-label={`View ${costume.name}${live ? "" : " style guide"}`}>
-            <span className="tile-picture"><Image src={modelImage(costume.slug, model)} alt={`${costume.name} worn by our ${model} model. ${costume.alt}`} fill sizes="(min-width: 1200px) 20vw, (min-width: 768px) 33vw, 50vw" preload={index === 0} /></span>
-            <span className="tile-caption"><span className="tile-name">{costume.name}</span>{!live && <span className="tile-kind">Style guide</span>}</span>
+            <span className="tile-picture"><Image src={modelImage(costume.slug, model)} alt={`${costume.name} worn by our ${model} model. ${costume.alt}`} fill sizes="(min-width: 1360px) 300px, (min-width: 1100px) 25vw, (min-width: 700px) 33vw, 50vw" preload={index === 0} /></span>
+            <span className="tile-caption"><span className="tile-name">{costume.name}</span><span className="tile-detail"><span>{detail}</span><ArrowUpRight size={15} aria-hidden="true" /></span></span>
           </Link>
           <SaveLook slug={costume.slug} name={costume.name} />
-        </div>;
+        </li>;
       })}
-    </div>
-    {visible.length === 0 && savedOnly && <div className="empty-state page">
-      <p>{normalized ? "No saved costumes match." : "No saved costumes yet."}</p>
-      <button type="button" className="text-btn" onClick={() => setSavedOnly(false)}>{normalized ? "Search all costumes" : "Browse costumes"} <span aria-hidden="true">→</span></button>
+    </ul>
+    {visible.length === 0 && savedOnly && <div className="empty-state">
+      <Heart size={24} aria-hidden="true" />
+      <h3>{normalized ? "No saved looks match" : "Keep your favorites here"}</h3>
+      <p>{normalized ? "Try a different search, or explore all costumes." : "Tap the heart on a costume to save it for later."}</p>
+      <Button variant="outline" onClick={() => setSavedOnly(false)}>{normalized ? "Search all looks" : "Explore costumes"}<ArrowRight aria-hidden="true" /></Button>
     </div>}
+    </section>
   </main>;
 }

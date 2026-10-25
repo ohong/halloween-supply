@@ -1,4 +1,4 @@
-import { cached } from "../sourcing/cache";
+import { readCache, writeCache } from "../sourcing/cache";
 import { parsePriceToCents } from "./price";
 
 interface ShopifyVariant {
@@ -45,14 +45,14 @@ export function shopifySizes(product: ShopifyProduct, anchor: ShopifyVariant): s
 }
 
 /** Public merchant data. No admin credentials or inventory guesses. */
-export async function readShopifyProduct(url: string, useCache = true): Promise<ShopifyProduct | null> {
+export async function readShopifyProduct(url: string, useCache = true, options: { signal?: AbortSignal; timeoutMs?: number } = {}): Promise<ShopifyProduct | null> {
   const u = new URL(url);
   if (!/\/products\/[^/]+\/?$/.test(u.pathname)) return null;
   u.pathname = u.pathname.replace(/\/$/, "") + ".js";
   u.search = "?currency=USD";
   const load = async (): Promise<ShopifyProduct | null> => {
     try {
-      const res = await fetch(u, { signal: AbortSignal.timeout(10_000), headers: { Accept: "application/json" } });
+      const res = await fetch(u, { signal: AbortSignal.any([AbortSignal.timeout(options.timeoutMs ?? 10_000), ...(options.signal ? [options.signal] : [])]), headers: { Accept: "application/json" } });
       if (!res.ok) return null;
       const data = await res.json();
       if (!Array.isArray(data.variants) || !data.variants.every((v: ShopifyVariant) => Number.isInteger(v.price) && typeof v.available === "boolean") ||
@@ -60,7 +60,15 @@ export async function readShopifyProduct(url: string, useCache = true): Promise<
       return data as ShopifyProduct;
     } catch { return null; }
   };
-  return useCache ? cached("shopify", { url: u.toString() }, load) : load();
+  const key = { url: u.toString() };
+  if (useCache) {
+    const hit = await readCache<ShopifyProduct>("shopify", key);
+    if (hit) return hit;
+  }
+  const product = await load();
+  // A cancelled request or temporary merchant failure must not poison later lookups.
+  if (useCache && product) await writeCache("shopify", key, product);
+  return product;
 }
 
 export function selectShopifyVariants(product: ShopifyProduct, color?: string, pinnedVariantId?: string | null) {

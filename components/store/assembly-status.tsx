@@ -17,7 +17,7 @@ export function AssemblyStatus({ found, total, missing = 0, running, stopped = f
 export function AssemblyPlaceholder({ state, index }: { state: "looking" | "missing" | "stopped"; index: number }) {
   return <span className={`assembly-placeholder is-${state}`}>
     <span className="assembly-placeholder-index" aria-hidden="true">{String(index + 1).padStart(2, "0")}</span>
-    <span>{state === "missing" ? "No available source" : state === "stopped" ? "Search unfinished" : "Finding a match"}</span>
+    <span>{state === "missing" ? "No verified match yet" : state === "stopped" ? "Search unfinished" : "Finding a match"}</span>
   </span>;
 }
 

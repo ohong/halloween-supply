@@ -2,7 +2,7 @@ import { readCache, writeCache } from "../sourcing/cache";
 
 const ENDPOINT = "https://api.firecrawl.dev/v2";
 
-interface SearchResult {
+export interface SearchResult {
   title: string;
   url: string;
   description?: string;
@@ -15,9 +15,16 @@ export interface FetchedPage {
   html: string;
 }
 
-type RequestOptions = { cache?: boolean; timeoutMs?: number };
+type RequestOptions = { cache?: boolean; timeoutMs?: number; signal?: AbortSignal };
+type SearchOptions = RequestOptions & { excludeDomains?: readonly string[]; retryAt?: number };
 
-async function request<T>(endpoint: "search" | "scrape", body: object, timeoutMs: number): Promise<T> {
+export class FirecrawlError extends Error {
+  constructor(public status: number, public retryAfterMs: number, endpoint: string) {
+    super(`Firecrawl ${endpoint} failed (HTTP ${status}).`);
+  }
+}
+
+async function request<T>(endpoint: "search" | "scrape", body: object, timeoutMs: number, signal?: AbortSignal): Promise<T> {
   const key = process.env.FIRECRAWL_API_KEY;
   if (!key) throw new Error("FIRECRAWL_API_KEY is not configured.");
   const response = await fetch(`${ENDPOINT}/${endpoint}`, {
@@ -25,22 +32,30 @@ async function request<T>(endpoint: "search" | "scrape", body: object, timeoutMs
     headers: { Authorization: `Bearer ${key}`, "Content-Type": "application/json" },
     body: JSON.stringify(body),
     cache: "no-store",
-    signal: AbortSignal.timeout(timeoutMs + 2000),
+    signal: AbortSignal.any([AbortSignal.timeout(timeoutMs + 2000), ...(signal ? [signal] : [])]),
   });
-  if (!response.ok) throw new Error(`Firecrawl ${endpoint} failed (HTTP ${response.status}).`);
+  if (!response.ok) {
+    const retry = response.headers.get("retry-after");
+    const milliseconds = retry && /^\d+(\.\d+)?$/.test(retry) ? Number(retry) * 1000 : retry ? Date.parse(retry) - Date.now() : 0;
+    throw new FirecrawlError(response.status, Math.max(0, milliseconds || 0), endpoint);
+  }
   const payload = await response.json() as { success?: boolean; data?: T };
   if (payload.success !== true || !payload.data) throw new Error(`Firecrawl ${endpoint} returned no data.`);
   return payload.data;
 }
 
 /** Discover merchant URLs, then scrape only shortlisted product pages. */
-export async function searchWeb(query: string, opts: RequestOptions = {}): Promise<SearchResult[]> {
-  const body = { query, limit: 10, country: "US", location: "San Francisco,California,United States", timeout: opts.timeoutMs ?? 25_000 };
+export async function searchWeb(query: string, opts: SearchOptions = {}): Promise<SearchResult[]> {
+  const body = { query: query.trim().replace(/\s+/g, " "), limit: 10, country: "US", location: "San Francisco,California,United States",
+    ...(opts.excludeDomains ? { excludeDomains: [...opts.excludeDomains].sort() } : {}),
+  };
   if (opts.cache) {
     const hit = await readCache<SearchResult[]>("firecrawl-search", body);
     if (hit) return hit;
   }
-  const data = await request<{ web?: SearchResult[] }>("search", body, body.timeout);
+  if (opts.retryAt && Date.now() < opts.retryAt) throw new FirecrawlError(429, opts.retryAt - Date.now(), "search");
+  const timeout = opts.timeoutMs ?? 25_000;
+  const data = await request<{ web?: SearchResult[] }>("search", { ...body, timeout }, timeout, opts.signal);
   if (!Array.isArray(data.web)) throw new Error("Firecrawl search returned an invalid result list.");
   const results = data.web.filter((item) => typeof item.url === "string" && /^https?:\/\//.test(item.url) && typeof item.title === "string");
   if (opts.cache) await writeCache("firecrawl-search", body, results);
@@ -57,7 +72,7 @@ export async function fetchProductPage(url: string, opts: RequestOptions = {}): 
   const data = await request<{
     rawHtml?: string;
     metadata?: { url?: string; sourceURL?: string; statusCode?: number; error?: string };
-  }>("scrape", { url, formats: ["rawHtml"], onlyMainContent: false, maxAge: 0, timeout }, timeout);
+  }>("scrape", { url, formats: ["rawHtml"], onlyMainContent: false, maxAge: 0, timeout }, timeout, opts.signal);
   const status = data.metadata?.statusCode ?? 200;
   if (data.metadata?.error || status >= 400 || typeof data.rawHtml !== "string" || data.rawHtml.length < 500) {
     throw new Error("Firecrawl did not return a usable merchant page.");
