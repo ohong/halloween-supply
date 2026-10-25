@@ -9,7 +9,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import "./costume-experience.css";
 import { AssistantPanel } from "@/components/assistant/panel";
 import { formatPrice, useCart } from "@/lib/cart/context";
-import { toCartItem } from "@/lib/cart/item";
+import { compatibleSize, toCartItem } from "@/lib/cart/item";
 import type { CostumeView, PieceView, ProductOption } from "@/lib/types";
 import { SaveLook } from "@/components/saved-looks";
 import { Carousel, type Slide } from "./carousel";
@@ -36,6 +36,7 @@ export function CostumeExperience({ costume }: { costume: CostumeView }) {
   }, [ready, reconcile, pieces, costumeSlug]);
   // Chosen option index per piece; 0 is the default pick.
   const [chosen, setChosen] = useState<Record<string, number>>({});
+  const [draftSizes, setDraftSizes] = useState<Record<string, string | null>>({});
   const [inspectedPieceId, setInspectedPieceId] = useState<string>();
   const inspectionTrigger = useRef<HTMLButtonElement | null>(null);
   const [uses, setUses] = useState<MirrorOutfit["uses"]>({});
@@ -70,12 +71,45 @@ export function CostumeExperience({ costume }: { costume: CostumeView }) {
     return savedIndex >= 0 ? savedIndex : 0;
   }
 
+  function sizeFor(view: PieceView, option: ProductOption): string | null {
+    const item = toCartItem(view.piece, option);
+    const current = ownsCart ? cart.items.find((line) => line.pieceId === view.piece.id) : undefined;
+    // An explicit cart size, including an empty one, wins over an older draft.
+    if (current?.productId === option.product.id) return compatibleSize(item, current.size);
+    if (Object.hasOwn(draftSizes, option.product.id)) return compatibleSize(item, draftSizes[option.product.id]);
+    return compatibleSize(item, current?.size);
+  }
+
+  function changeSize(view: PieceView, option: ProductOption, next: string) {
+    const size = compatibleSize(toCartItem(view.piece, option), next);
+    setDraftSizes((current) => ({ ...current, [option.product.id]: size }));
+    if (ownsCart && cart.items.some((line) => line.pieceId === view.piece.id && line.productId === option.product.id)) cart.setSize(view.piece.id, size);
+  }
+
+  function rememberCartSize(view: PieceView) {
+    const current = ownsCart ? cart.items.find((line) => line.pieceId === view.piece.id) : undefined;
+    if (current) setDraftSizes((sizes) => ({ ...sizes, [current.productId]: current.size }));
+  }
+
+  function hasExplicitSize(view: PieceView, option: ProductOption): boolean {
+    return Object.hasOwn(draftSizes, option.product.id)
+      || ownsCart && cart.items.some((line) => line.pieceId === view.piece.id && line.productId === option.product.id);
+  }
+
+  function addPiece(view: PieceView, option: ProductOption) {
+    const item = toCartItem(view.piece, option, sizeFor(view, option));
+    cart.add(item, costumeSlug);
+    // Preserve explicit clears while letting untouched products use saved preferences.
+    if (hasExplicitSize(view, option)) cart.setSize(item.pieceId, item.size);
+  }
+
   const picked = new Map<string, ProductOption | undefined>(
     pieces.map((view) => [view.piece.id, view.options[selectedIndex(view)] ?? view.options[0]]),
   );
 
   const needed = pieces.filter(({ piece }) => !uses[piece.id] || uses[piece.id] === "buy");
   const inspectedPiece = needed.find(({ piece }) => piece.id === inspectedPieceId);
+  const inspectedOption = inspectedPiece && picked.get(inspectedPiece.piece.id);
   const flatlayItems = needed.flatMap((view) => {
     const option = picked.get(view.piece.id);
     if (!option) return [];
@@ -105,12 +139,17 @@ export function CostumeExperience({ costume }: { costume: CostumeView }) {
   function choose(view: PieceView, index: number) {
     if (!view.options[index] || view.options[index].product.availability === "out_of_stock") return;
     setChosen((current) => ({ ...current, [view.piece.id]: index }));
+    rememberCartSize(view);
     // A piece already in the cart follows the swap.
-    if (ownsCart && cart.items.some((line) => line.pieceId === view.piece.id)) cart.add(toCartItem(view.piece, view.options[index], cart.items.find((line) => line.pieceId === view.piece.id)?.size ?? null), costumeSlug);
+    if (ownsCart && cart.items.some((line) => line.pieceId === view.piece.id)) addPiece(view, view.options[index]);
   }
 
   function addAll() {
-    cart.addMany(pickedOptions.map(({ view, option }) => toCartItem(view.piece, option, cart.items.find((line) => line.pieceId === view.piece.id)?.size ?? null)), costumeSlug);
+    const items = pickedOptions.map(({ view, option }) => toCartItem(view.piece, option, sizeFor(view, option)));
+    cart.addMany(items, costumeSlug);
+    pickedOptions.forEach(({ view, option }, index) => {
+      if (hasExplicitSize(view, option)) cart.setSize(items[index].pieceId, items[index].size);
+    });
     cart.setOpen(true);
   }
 
@@ -121,8 +160,9 @@ export function CostumeExperience({ costume }: { costume: CostumeView }) {
       if (index >= 0) nextChosen[view.piece.id] = index;
       const current = ownsCart ? cart.items.find((item) => item.pieceId === view.piece.id) : undefined;
       if (current) {
+        rememberCartSize(view);
         if (outfit.uses[view.piece.id] !== "buy") cart.remove(view.piece.id);
-        else if (index >= 0) cart.add(toCartItem(view.piece, view.options[index], current.size), costumeSlug);
+        else if (index >= 0) addPiece(view, view.options[index]);
       }
     }
     setChosen(nextChosen);
@@ -162,7 +202,7 @@ export function CostumeExperience({ costume }: { costume: CostumeView }) {
     </Tabs>
 
     <div className="costume-info">
-      {inspectedPiece && <CostumePieceInspector costumeSlug={costumeSlug} view={inspectedPiece} index={selectedIndex(inspectedPiece)} onChoose={(index) => choose(inspectedPiece, index)} onClose={() => {
+      {inspectedPiece && inspectedOption && <CostumePieceInspector costumeSlug={costumeSlug} view={inspectedPiece} index={selectedIndex(inspectedPiece)} size={sizeFor(inspectedPiece, inspectedOption)} onSizeChange={(size) => changeSize(inspectedPiece, inspectedOption, size)} onAdd={() => addPiece(inspectedPiece, inspectedOption)} onChoose={(index) => choose(inspectedPiece, index)} onClose={() => {
         setInspectedPieceId(undefined);
         inspectionTrigger.current?.focus();
       }} />}
@@ -178,7 +218,10 @@ export function CostumeExperience({ costume }: { costume: CostumeView }) {
 
       <div className="costume-pieces-heading"><h2>Complete the look</h2><span>Change any piece</span></div>
       <ul className="outfit-pieces">
-        {needed.map((view) => <PieceRow key={view.piece.id} costumeSlug={costumeSlug} view={view} index={selectedIndex(view)} onChoose={(i) => choose(view, i)} />)}
+        {needed.map((view) => {
+          const option = picked.get(view.piece.id);
+          return <PieceRow key={view.piece.id} costumeSlug={costumeSlug} view={view} index={selectedIndex(view)} onAdd={() => { if (option) addPiece(view, option); }} onChoose={(i) => choose(view, i)} />;
+        })}
       </ul>
 
       <div className="costume-help">
@@ -206,7 +249,7 @@ export function CostumeExperience({ costume }: { costume: CostumeView }) {
   </div>;
 }
 
-function PieceRow({ costumeSlug, view, index, onChoose }: { costumeSlug: string; view: PieceView; index: number; onChoose: (index: number) => void }) {
+function PieceRow({ costumeSlug, view, index, onAdd, onChoose }: { costumeSlug: string; view: PieceView; index: number; onAdd: () => void; onChoose: (index: number) => void }) {
   const cart = useCart();
   const [open, setOpen] = useState(false);
   const { piece, options } = view;
@@ -229,7 +272,7 @@ function PieceRow({ costumeSlug, view, index, onChoose }: { costumeSlug: string;
         <details className="piece-reason"><summary>Why this pick?</summary><p>{option.pick.reason}</p></details>
         <a className="piece-merchant-link" href={option.product.url} target="_blank" rel="noopener noreferrer">View at {option.merchant.name}<ArrowRight size={14} aria-hidden="true" /></a>
         <div className="piece-dialog-footer">
-          <Button variant="outline" disabled={!cart.ready || inCart || option.product.availability === "out_of_stock"} onClick={() => cart.add(toCartItem(piece, option), costumeSlug)}>{inCart ? <><Check aria-hidden="true" />In cart</> : "Add this piece"}</Button>
+          <Button variant="outline" disabled={!cart.ready || inCart || option.product.availability === "out_of_stock"} onClick={onAdd}>{inCart ? <><Check aria-hidden="true" />In cart</> : "Add this piece"}</Button>
           <DialogClose asChild><Button>Done</Button></DialogClose>
         </div>
       </DialogContent>
