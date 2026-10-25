@@ -24,7 +24,7 @@ for (const slug of samples) {
     const form = new FormData();
     form.set("photo", new File([image], `${slug}.png`, { type: "image/png" }));
     const start = performance.now();
-    const response = await fetch(`${base}/api/screenshot-costume`, { method: "POST", body: form, signal: AbortSignal.timeout(58_000) });
+    const response = await fetch(`${base}/api/screenshot-costume`, { method: "POST", body: form, signal: AbortSignal.timeout(115_000) });
     assert.equal(response.status, 200);
     assert.match(response.headers.get("content-type") ?? "", /application\/x-ndjson/);
     const text = await response.text();

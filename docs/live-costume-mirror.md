@@ -75,9 +75,9 @@ outfit, preserving owned clothing instead of treating edits as permanent layers.
 Camera capture starts only after consent and an explicit Start action. Closing,
 leaving, or hiding the page releases media. Freeze disconnects video and releases
 the camera while voice remains available; Resume creates a new video connection.
-Failed connections require an explicit retry. Each UI session stops after three
-minutes. Token expiry alone does not terminate a running fal session; the
-three-minute limit is client-side, not a provider-enforced spending cap.
+Failed connections require an explicit retry. Testing mode disables the app session
+cutoffs. Outside testing mode, each UI session stops after three minutes. Token expiry
+alone does not terminate a running fal session. See [testing policy](./mirror-session-limits.md).
 
 The interface marks video live only after the video element begins playing.
 A control send confirms only that an outfit request was sent. The fal extension
@@ -95,11 +95,9 @@ provider pricing before changing session limits. The application has per-process
 request limits; deployment-wide quotas and provider spending controls remain
 separate operations.
 
-The existing Vercel firewall additionally limits video starts and voice starts
-to three requests per IP address per hour. Resume uses another video start.
-Rejected POST requests also count, so the test runs its invalid-request checks
-only on localhost. This firewall does not enforce the length of a running
-provider session or a total account spending cap.
+The four try-on firewall quotas are disabled during demo testing. Restoring the
+normal limits requires both an environment change and firewall publication; see
+[testing policy](./mirror-session-limits.md). Provider limits remain independent.
 
 ## Reproduce the real-provider test
 

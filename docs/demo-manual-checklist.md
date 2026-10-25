@@ -8,13 +8,13 @@ The checks below cover physical devices, human judgment, and operating-system be
 
 1. Open https://halloween.supply/screenshot.
 2. Upload the exact screenshot you plan to show. Use one clear, mostly full-body subject.
-3. Confirm the character, garment types, main colors, silhouettes, and adult sizing match your reference.
+3. Confirm the character, garment types, main colors, silhouettes, and adult sizing match your reference. For the two supplied film stills, both titles should identify Ryland Grace from Project Hail Mary.
 4. Open each merchant link. Check that its selected color and product image agree with the result.
-5. Confirm every needed piece appears. An explicit missing match is preferable to an unrelated product.
-6. Upload the same file again. A complete recent look should return immediately and say it uses recent matches.
-7. Choose offered sizes, add the look, and open the cart. Confirm pieces and prices agree.
+5. Confirm the fox cardigan is a finished sweater, not a yarn kit. Confirm the spacecraft look has clear glasses and an orange strap harness, with no steampunk goggles or invented wig. Read the match notes for differences.
+6. Upload the same file again. Confirm image analysis, Firecrawl searches and merchant verification run again; a previous result must not replay.
+7. Choose offered sizes, add the look, and open the cart. Confirm pieces and prices agree. Upload a different screenshot and add it; confirm products from the old screenshot leave the cart.
 
-Also try paste from your actual screenshot tool and drag-and-drop from Finder. Clipboard formats and phone image decoders differ. Automated samples cannot establish match quality for an unseen screenshot. Search can still return partial results or hit provider limits. Recent complete results are cached for 15 minutes on a warm server instance; a new instance can take longer.
+Also try paste from your actual screenshot tool and drag-and-drop from Finder. Clipboard formats and phone image decoders differ. Automated samples cannot establish match quality for an unseen screenshot. Search can still return partial results or hit provider limits. Every upload runs fresh analysis and sourcing. Provider limits and merchant response times can make a repeat slower, too.
 
 ## 2. Physical camera and microphone
 
@@ -44,25 +44,25 @@ Speech recognition with your voice, turn-taking, speaker volume, Bluetooth routi
 ## 4. Media controls and cleanup
 
 1. Start one live session. Mute the microphone and confirm voice input stops.
-2. Freeze the preview. Confirm the video stops and the camera indicator turns off while voice remains available.
+2. Freeze the preview. Confirm generated video stops while voice remains available. With a paired phone, its raw camera preview stays connected; use Disconnect phone to stop that camera.
 3. Resume once. Confirm moving video returns.
 4. Save a preview. Confirm a useful file opens on your device.
 5. Close the mirror. Confirm camera and microphone indicators turn off.
 6. In a separate run, hide the tab or lock the phone. Confirm media stops. Return and restart explicitly.
-7. Let a session reach three minutes. Confirm it stops instead of continuing indefinitely.
+7. During testing mode, confirm the session continues beyond three minutes and stops when you close it. Outside testing mode, confirm the three-minute cutoff. See [testing policy](./mirror-session-limits.md).
 
-The production firewall allows three video starts and three voice starts per IP per hour. Resume consumes another video start. Failed POST requests also count. Keep the main rehearsal within this budget; perform failure tests afterward or in another hourly window. Provider usage is paid even though checkout is in Stripe test mode.
+Run permission and connection failure tests after the main rehearsal. Starting or resuming live previews consumes provider credits even though checkout remains in Stripe test mode. See [current live-session limits](./mirror-session-limits.md).
 
 ## 5. Phone photo and desktop QR handoff
 
-1. On desktop, open a costume page, open **Try it on**, and select **Take photo**.
+1. Put the phone and desktop on the same Wi-Fi. Open a costume’s **Try it on** tab and select **Use phone camera**.
 2. Scan the QR code with your phone. Confirm it opens the production capture page.
-3. Select **Open camera**. Take a clear full-body photo of yourself and send it.
-4. Confirm the same photo appears on desktop without manual refresh.
-5. Retake once and confirm the replacement photo is used.
-6. On the phone costume page, select **Take photo** directly. Confirm native capture and orientation work.
+3. On the phone, choose whether to share its microphone, then select **Open camera**. Keep both tabs visible.
+4. Confirm the desktop shows moving phone video. Select **Take photo from phone**, and confirm a clear photo arrives without refresh.
+5. Take another photo from each device. Confirm the replacement is used. Test **Try it on** and **Try it on live** with that connection.
+6. Stop sharing or select **Disconnect phone**. Confirm the phone camera indicator turns off. Reconnect once with a new code.
 
-Physical cross-device scanning, native camera capture, HEIC decoding, orientation, and cellular-to-desktop handoff remain unverified by this agent.
+Physical scanning, camera quality, permissions, rotation and real two-device Wi-Fi connectivity remain manual checks. Pairing expires after ten minutes. Direct WebRTC requires both tabs to remain visible; guest-network isolation and different networks can prevent connection. Old single-photo QR codes no longer work. See [phone camera details](./phone-camera.md).
 
 ## 6. Personal photo try-on and sharing
 

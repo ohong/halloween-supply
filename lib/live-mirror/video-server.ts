@@ -2,9 +2,10 @@ import "server-only";
 
 import { createHash } from "node:crypto";
 import { z } from "zod";
+import { MIRROR_SESSION_STARTS_PER_HOUR } from "./session-limits";
+import { isTryOnTesting } from "@/lib/try-on-policy";
 
 export const VIDEO_MODEL = "decart/lucy-2-5/realtime";
-export const VIDEO_SESSION_SECONDS = 180;
 
 export class VideoError extends Error {
   constructor(public status: number, message: string) { super(message); }
@@ -21,15 +22,16 @@ export function videoFailure(error: unknown) {
   return videoResponse({ error: "The live mirror could not connect. Please try again shortly." }, 502);
 }
 
-/** Local protection only; configure deployment-wide quotas before public launch. */
+/** Per-process backstop; the firewall enforces quotas across deployments. */
 const attempts = new Map<string, { count: number; expires: number }>();
 export function reserveVideoRequest(request: Request, kind: "token" | "reference" | "pair") {
+  if (isTryOnTesting()) return;
   const now = Date.now();
   for (const [key, value] of attempts) if (value.expires <= now) attempts.delete(key);
   const address = request.headers.get("x-real-ip") ?? request.headers.get("x-forwarded-for")?.split(",")[0]?.trim() ?? "local";
   const key = `${kind}:${createHash("sha256").update(address).digest("hex")}`;
   const entry = attempts.get(key) ?? { count: 0, expires: now + 3_600_000 };
-  if (entry.count >= (kind === "token" ? 8 : kind === "pair" ? 12 : 180) || attempts.size >= 2000) {
+  if (entry.count >= (kind === "token" ? MIRROR_SESSION_STARTS_PER_HOUR : kind === "pair" ? 12 : 180) || attempts.size >= 2000) {
     throw new VideoError(429, "The live mirror has reached its session limit. Please try again later.");
   }
   attempts.set(key, { ...entry, count: entry.count + 1 });

@@ -4,6 +4,7 @@ import { useCallback, useEffect, useRef, useState } from "react";
 import type { CostumeView } from "@/lib/types";
 import type { MirrorCatalogContext, MirrorCatalogLook, MirrorCommand, MirrorOutfit, MirrorStatus } from "./types";
 import { commandFromAnswers, focusQuestion, needsBudget, needsCatalog, outfitQuestions, outfitSnapshot, type DecisionAnswer } from "./voice-decisions";
+import { readMirrorResponse } from "./read-response";
 
 export type VoiceActivity = "listening" | "thinking" | "speaking";
 
@@ -24,6 +25,7 @@ type Session = {
   microphone?: MediaStream;
   controller: AbortController;
   ready: boolean;
+  maxSessionSeconds: number | null;
   catalogSlug: string;
   catalog: MirrorCatalogLook[];
   frontendSnapshot?: string;
@@ -48,8 +50,7 @@ export async function sendMirrorCommand(input: { costumeSlug: string; outfit: Mi
   const response = await fetch("/api/live-mirror/command", {
     method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(input), signal,
   });
-  const result = await response.json();
-  if (!response.ok) throw new Error(typeof result.error === "string" ? result.error : "The stylist couldn't respond. Please try again.");
+  const result = await readMirrorResponse<MirrorCommand>(response);
   if (!Array.isArray(result.actions)) throw new Error("The stylist returned an unreadable response.");
   return result as MirrorCommand;
 }
@@ -193,7 +194,7 @@ export function useLiveVoice(options: VoiceOptions) {
     const channel = peer.createDataChannel("oai-events");
     const audio = new Audio(); audio.autoplay = true;
     const session: Session = {
-      peer, channel, audio, controller: new AbortController(), ready: false, closing: false, timers: new Set(),
+      peer, channel, audio, controller: new AbortController(), ready: false, maxSessionSeconds: 180, closing: false, timers: new Set(),
       latestDelegation: null, pendingDelegation: null, outputActive: false, handled: new Set(), delegations: new Map(), sourceOrder: new Map(), lastFocus: -1, sourceSequence: 0,
       catalogSlug: catalogSignature(latest.current.costume), catalog: [], pendingCatalog: null, catalogReports: [], pendingReports: new Map(), transcript: { user: "", assistant: "", lastInputEnd: 0, lastOutputEnd: 0, turns: { user: crypto.randomUUID(), assistant: crypto.randomUUID() } },
     };
@@ -275,7 +276,7 @@ export function useLiveVoice(options: VoiceOptions) {
         void sampleOutput();
         syncOutfit(session);
         emit(session, { type: "session.commentary.append", delegation_id: null, event_id: `hello_${crypto.randomUUID()}`, content: "The mirror controls are ready. Greet the shopper in one short sentence: What would you like to change? Then listen." });
-        after(session, () => { if (current()) { stop(); setError("Your voice session has ended. Tap the microphone to start another."); } }, 180000);
+        if (session.maxSessionSeconds !== null) after(session, () => { if (current()) { stop(); setError("Your voice session has ended. Tap the microphone to start another."); } }, session.maxSessionSeconds * 1000);
         return;
       }
       if (event.type === "error") { fail("Voice couldn't complete that request. Please reconnect or type your change."); return; }
@@ -384,12 +385,12 @@ export function useLiveVoice(options: VoiceOptions) {
         body: JSON.stringify({ costumeSlug: latest.current.costume.costume.slug, outfit: latest.current.outfit, sdp: peer.localDescription?.sdp }),
         signal: AbortSignal.any([session.controller.signal, AbortSignal.timeout(35000)]),
       });
-      const result = await response.json();
-      if (!response.ok) throw new Error(typeof result.error === "string" ? result.error : "Voice couldn't connect.");
+      const result = await readMirrorResponse<{ transport?: { sdp?: string }; catalog?: MirrorCatalogLook[]; maxSessionSeconds?: number | null }>(response);
       if (!current()) return;
       if (typeof result.transport?.sdp !== "string") throw new Error("Voice returned an invalid connection.");
       if (!Array.isArray(result.catalog) || !result.catalog.length) throw new Error("The global catalog could not load. Please reconnect.");
       session.catalog = result.catalog as MirrorCatalogLook[];
+      session.maxSessionSeconds = result.maxSessionSeconds === null ? null : Math.min(result.maxSessionSeconds ?? 180, 180);
       await peer.setRemoteDescription({ type: "answer", sdp: result.transport.sdp });
       after(session, () => { if (!session.ready) fail("Voice didn't connect in time. Please try again."); }, 15000);
     } catch (caught) {
