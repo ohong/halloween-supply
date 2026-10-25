@@ -26,6 +26,8 @@ for(const page of [desktop,phone]) {
   window.cameraTest={peers:[],tracks:[],requests:[],events:[],peerEvents:[]};
   const Peer=window.RTCPeerConnection;
   window.RTCPeerConnection=class extends Peer {constructor(...args){if(forceRelay && args[0]?.iceServers?.some(s=>JSON.stringify(s.urls).includes('cloudflare.com')))args[0]={...args[0],iceTransportPolicy:'relay'};super(...args);window.cameraTest.peers.push(this); const index=window.cameraTest.peers.length-1; this.addEventListener("connectionstatechange",()=>window.cameraTest.peerEvents.push({index,state:this.connectionState,at:performance.now()})); this.addEventListener("icecandidate",event=>{if(event.candidate)window.cameraTest.peerEvents.push({index,candidateType:event.candidate.type,protocol:event.candidate.protocol,at:performance.now()});});} close(){window.cameraTest.peerEvents.push({close:window.cameraTest.peers.indexOf(this),at:performance.now(),stack:new Error().stack}); return super.close();}createDataChannel(...args){const channel=super.createDataChannel(...args);channel.addEventListener('message',({data})=>{try{const event=JSON.parse(data);window.cameraTest.events.push({type:event.type,delta:event.delta});}catch{}});return channel;}};
+  const replace=RTCRtpSender.prototype.replaceTrack;
+  RTCRtpSender.prototype.replaceTrack=async function(track){await replace.call(this,track);if(window.cameraTest.delayNextReplace){window.cameraTest.delayNextReplace=false;await new Promise(resolve=>{window.cameraTest.releaseReplace=resolve;});}};
   const capture=navigator.mediaDevices.getUserMedia.bind(navigator.mediaDevices);
   navigator.mediaDevices.getUserMedia=async constraints=>{window.cameraTest.requests.push(constraints);const stream=await capture(constraints);window.cameraTest.tracks.push(...stream.getTracks());return stream;};
  },process.env.PHONE_FORCE_RELAY==='1');
@@ -123,7 +125,15 @@ try{
   log('photo-gpt-live-reuses-phone-microphone');
   assert.equal(await desktop.evaluate(()=>window.cameraTest.requests.length),0);
   await desktop.getByRole('button',{name:'Disconnect phone',exact:true}).click();
- }else await desktop.getByRole('button',{name:'Disconnect phone',exact:true}).click();
+ }else {
+  await phone.evaluate(()=>{window.cameraTest.delayNextReplace=true;});
+  await phone.getByRole('button',{name:'Switch camera',exact:true}).click();
+  await phone.waitForFunction(()=>typeof window.cameraTest.releaseReplace==='function');
+  await desktop.getByRole('button',{name:'Disconnect phone',exact:true}).click();
+  await phone.getByRole('button',{name:'Open camera',exact:true}).waitFor();
+  await phone.evaluate(()=>window.cameraTest.releaseReplace());
+  log('disconnect-during-camera-switch');
+ }
  await phone.waitForFunction(()=>window.cameraTest.tracks.every(track=>track.readyState==='ended'),{}, {timeout:15000});
  await desktop.waitForFunction(()=>window.cameraTest.peers.every(peer=>peer.connectionState==='closed'),{}, {timeout:10000});
  log('desktop-close-stops-phone-and-all-peers');

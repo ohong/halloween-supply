@@ -96,17 +96,24 @@ export function PhoneCapture() {
     const next = facing === "user" ? "environment" : "user";
     // iOS often needs the old camera released before the opposite lens opens.
     session.stream.getVideoTracks().forEach(track => track.stop());
+    let camera: MediaStream | null = null;
     try {
-      const camera = await navigator.mediaDevices.getUserMedia({ video: { facingMode: { ideal: next }, width: { ideal: 1280 }, height: { ideal: 720 } }, audio: false });
+      camera = await navigator.mediaDevices.getUserMedia({ video: { facingMode: { ideal: next }, width: { ideal: 1280 }, height: { ideal: 720 } }, audio: false });
       if (sessionRef.current !== session) { camera.getTracks().forEach(track => track.stop()); return; }
       const track = camera.getVideoTracks()[0];
       await session.peer.getSenders().find(sender => sender.track?.kind === "video")?.replaceTrack(track);
+      if (sessionRef.current !== session) return;
       session.stream.getVideoTracks().forEach(old => session.stream!.removeTrack(old)); session.stream.addTrack(track);
       track.addEventListener("ended", () => { if (sessionRef.current === session) { stop(""); setError("Your camera stopped. Scan a new code to reconnect."); } }, { once: true });
       if (video.current) video.current.srcObject = new MediaStream(session.stream.getTracks());
+      camera = null; // The active session now owns this camera track.
       setFacing(next);
     } catch { stop(""); setError("The camera could not switch. Scan a new code to reconnect."); }
-    finally { setSwitching(false); }
+    finally {
+      // Disconnect can finish while replaceTrack is still pending.
+      camera?.getTracks().forEach(track => track.stop());
+      setSwitching(false);
+    }
   }
   async function capture() {
     const session = sessionRef.current, channel = session?.channel;
