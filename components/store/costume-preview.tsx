@@ -1,16 +1,20 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
 import { SaveLook } from "@/components/saved-looks";
 import { VirtualTryOn } from "./virtual-try-on";
+import { modelImage, useCostumeModel } from "@/lib/model-selection";
 
 /** Editorial style guides provide a practical piece list and styling advice. */
 export function CostumePreview({ costume }: { costume: {
   slug: string; name: string; description: string; image: string; alt: string;
   pieces: readonly string[]; tip: string;
 } }) {
+  const { model } = useCostumeModel();
   return <div className="costume-layout">
     <div className="costume-media"><figure className="slide">
-      <Image src={costume.image} alt={costume.alt} fill sizes="(min-width: 960px) 50vw, 100vw" preload />
+      <Image src={modelImage(costume.slug, model)} alt={`${costume.name} worn by our ${model} model`} fill sizes="(min-width: 960px) 50vw, 100vw" preload />
     </figure></div>
     <div className="costume-info">
       <Link href="/" className="back-link">All costumes</Link>

@@ -134,7 +134,8 @@ async function verifyPage(editorial: Editorial, snapshot?: CostumeSnapshot) {
   assert(!elements(html, "p").some((element) => hasClass(element, "preview-status")), "Page fell back to a Style guide");
   assert(!/No available pick\.|Nothing to buy\./.test(text(html)), "Page contains a shopping dead end");
   assert(elements(html, "button").some((button) => text(button.inner).startsWith("Add whole costume")), "Missing whole-costume shopping control");
-  assert(html.includes(editorial.image) || html.includes(encodeURIComponent(editorial.image)), "Generated complete-look reference is missing");
+  const modelImage = `/costumes/models/${editorial.slug}-female.webp`;
+  assert(html.includes(modelImage) || html.includes(encodeURIComponent(modelImage)), "Default model complete-look reference is missing");
   if (!snapshot) return;
   const view = await query.getCostume([snapshot], editorial.slug);
   assert(view, "No local view is available for page comparison");

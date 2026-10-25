@@ -51,3 +51,14 @@ for (const { slug } of costumes) {
   assert.notEqual(pair[0].sha256, pair[1].sha256, `${slug}: model versions must be separate images`);
 }
 console.log(`PASS all ${expected.length} distinct model assets decode, retain transparency, and match served bytes`);
+
+const pages = await mapLimit(costumes, 4, async ({ slug }) => {
+  const response = await fetch(new URL(`/costumes/${slug}`, origin), { cache: "no-store", signal: AbortSignal.timeout(20_000) });
+  assert.equal(response.status, 200, slug);
+  const html = (await response.text()).replace(/<script\b[^>]*>[\s\S]*?<\/script>/gi, "");
+  const firstImage = html.slice(html.indexOf('class="carousel-track"')).match(/<img\b[^>]*src="([^"]+)"/i)?.[1];
+  assert(firstImage && decodeURIComponent(firstImage).includes(`/costumes/models/${slug}-female.webp`), `${slug}: first slide must use the default female model`);
+  return slug;
+});
+assert(pages.every((page) => page.ok), "A costume page is missing its default model image");
+console.log(`PASS all ${costumes.length} costume pages start with a model image`);

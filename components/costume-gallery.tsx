@@ -4,13 +4,12 @@ import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { costumes } from "@/lib/costumes";
+import { modelImage, useCostumeModel } from "@/lib/model-selection";
 import { SaveLook, useSavedLooks } from "./saved-looks";
-
-type Model = "male" | "female";
 
 export function CostumeGallery() {
   const [savedOnly, setSavedOnly] = useState(false);
-  const [model, setModel] = useState<Model>("female");
+  const { model, setModel } = useCostumeModel();
   const { saved } = useSavedLooks();
   const visible = [...costumes].filter((costume) => !savedOnly || saved.includes(costume.slug))
     .sort((a, b) => Number(b.status === "live") - Number(a.status === "live"));
@@ -34,7 +33,7 @@ export function CostumeGallery() {
         const live = costume.status === "live";
         const picture = <>
           <span className="tile-picture">
-            <Image src={`/costumes/models/${costume.slug}-${model}.webp`} alt={`${costume.name} worn by our ${model} model. ${costume.alt}`} fill sizes="(min-width: 1200px) 20vw, (min-width: 768px) 33vw, 50vw" preload={index === 0} />
+            <Image src={modelImage(costume.slug, model)} alt={`${costume.name} worn by our ${model} model. ${costume.alt}`} fill sizes="(min-width: 1200px) 20vw, (min-width: 768px) 33vw, 50vw" preload={index === 0} />
           </span>
           <span className="tile-caption">
             <span className="tile-name">{costume.name}</span>

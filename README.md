@@ -6,7 +6,8 @@ for each purchasable component: $, $$, and $$$. Components are separate garments
 confirmed bundles, or clearly described DIY supplies. Every look supports merchant
 links, swaps, budget styling, cart selections, and the generated inspiration image.
 The homepage shows each look on the same male or female model. Its model toggle
-switches all 25 previews. The 50 transparent images and their generation prompts
+switches all 25 previews and each costume page's first carousel image. The browser
+remembers the choice across navigation and refreshes. The 50 transparent images and their generation prompts
 are saved in `public/costumes/models/` and `docs/design/model-gallery-image-prompts.json`.
 
 ## Run

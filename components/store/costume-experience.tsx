@@ -15,8 +15,10 @@ import { VirtualTryOn } from "./virtual-try-on";
 import { readLook } from "@/lib/share-card";
 import { LiveMirror } from "./live-mirror";
 import type { MirrorOutfit } from "@/lib/live-mirror/types";
+import { modelImage, useCostumeModel } from "@/lib/model-selection";
 
-export function CostumeExperience({ costume, editorial }: { costume: CostumeView; editorial?: { image: string; alt: string } }) {
+export function CostumeExperience({ costume }: { costume: CostumeView }) {
+  const { model } = useCostumeModel();
   const cart = useCart();
   const costumeSlug = costume.costume.slug;
   const ownsCart = cart.costumeSlug === costumeSlug;
@@ -65,7 +67,7 @@ export function CostumeExperience({ costume, editorial }: { costume: CostumeView
   });
 
   const slides: Slide[] = [
-    { kind: "image", key: "complete-look", src: editorial?.image ?? costume.costume.image, alt: editorial?.alt ?? costume.costume.alt, caption: `${costume.costume.name} · the complete look`, local: (editorial?.image ?? costume.costume.image).startsWith("/"), editorial: true },
+    { kind: "image", key: "complete-look", src: modelImage(costumeSlug, model), alt: `${costume.costume.name} worn by our ${model} model`, caption: `${costume.costume.name} · the complete look`, local: true, editorial: true },
     ...needed.flatMap((view) => {
       const option = picked.get(view.piece.id);
       return option ? [{ kind: "image" as const, key: `${view.piece.id}:${option.product.id}`, src: shot(option.product), alt: option.product.title, caption: `${view.piece.name} · ${option.merchant.name}` }] : [];

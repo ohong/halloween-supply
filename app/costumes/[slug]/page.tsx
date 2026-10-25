@@ -41,7 +41,7 @@ async function CachedCostume({ slug }: { slug: string }) {
   if (inspiration.status !== "live") return <CostumePreview key={slug} costume={inspiration} />;
   const costume = await getCostume(slug);
   if (!costume || costume.pieces.length === 0 || costume.pieces.every(({ options }) => options.length === 0)) return <CostumePreview key={slug} costume={inspiration} />;
-  return <CostumeExperience key={slug} costume={costume} editorial={{ image: inspiration.image, alt: inspiration.alt }} />;
+  return <CostumeExperience key={slug} costume={costume} />;
 }
 
 export default function CostumePage({ params }: { params: Params }) {
