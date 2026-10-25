@@ -104,7 +104,7 @@ try{
   const transcripts=await desktop.evaluate(()=>window.cameraTest.events.filter(event=>event.type==='session.input_transcript.delta').length);
   await stylist.getByRole('button',{name:'Start photo voice styling'}).click();
   await desktop.waitForFunction(n=>window.cameraTest.events.filter(event=>event.type==='session.input_transcript.delta').length>n,transcripts,{timeout:30000});
-  await desktop.getByRole('button',{name:'Change Fringed western jacket',exact:true}).getByText(jacket.options.find(option=>option.product.id===cheap).product.title,{exact:true}).waitFor({timeout:20000});
+  await desktop.locator('.outfit-piece').filter({has:desktop.getByRole('button',{name:'Change Fringed western jacket',exact:true})}).getByText(jacket.options.find(option=>option.product.id===cheap).product.title,{exact:true}).waitFor({timeout:20000});
   log('photo-gpt-live-reuses-phone-microphone');
   assert.equal(await desktop.evaluate(()=>window.cameraTest.requests.length),0);
   await desktop.getByRole('button',{name:'Disconnect phone',exact:true}).click();
