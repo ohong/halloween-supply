@@ -1,49 +1,48 @@
 "use client";
 
+import { CheckIcon, PlusIcon } from "lucide-react";
 import { formatPrice } from "@/lib/cart/context";
 import type { ProductCard as Card } from "@/lib/ai/cards";
 
-/** A catalog product inside an assistant reply, with an add-to-cart button. */
+/** A catalog product row inside an assistant reply, with a compact add control. */
 export function ProductCard({ card, inCart, onAdd }: { card: Card; inCart: boolean; onAdd: (card: Card) => void }) {
   const soldOut = card.availability === "out_of_stock";
+  const notes = [card.priceTier, card.isLocal ? "Local" : null, soldOut ? "Sold out" : null].filter(Boolean).join(" · ");
   return (
-    <li className="flex gap-3 rounded-[4px] border border-[#CCC] bg-white p-2.5">
+    <li className="ai-product">
       <a
         href={card.url}
         target="_blank"
         rel="noopener noreferrer"
-        className="relative block size-16 shrink-0 overflow-hidden rounded-[4px] bg-[#EFEEEF]"
+        className="ai-product-thumb"
         aria-label={`${card.title} at ${card.merchant} (opens the merchant page)`}
       >
         {/* Remote merchant images have no known host list, so a plain img is used. */}
         {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img src={card.image} alt="" className="size-full object-contain" loading="lazy" />
+        <img src={card.image} alt="" loading="lazy" />
       </a>
-      <div className="flex min-w-0 flex-1 flex-col gap-1">
-        <p className="line-clamp-2 text-[13px] leading-snug text-[#333]">{card.title}</p>
-        <p className="truncate text-xs text-[#666]">
+      <div className="min-w-0 flex-1">
+        <p className="ai-product-title">{card.title}</p>
+        <p className="ai-product-meta">
           {card.merchant}
           {card.location ? ` · ${card.location}` : ""}
         </p>
-        <div className="flex flex-wrap items-center gap-1.5">
-          <span className="text-[13px] text-[#333]">{formatPrice(card.priceCents)}</span>
-          <Tag>{card.priceTier}</Tag>
-          {card.isLocal && <Tag>Support local</Tag>}
-          {soldOut && <Tag>Sold out</Tag>}
-        </div>
+      </div>
+      <div className="flex shrink-0 flex-col items-end gap-1.5">
+        <p className="ai-product-price">
+          {formatPrice(card.priceCents)}
+          {notes && <span className="sr-only">, {notes}</span>}
+        </p>
         <button
           type="button"
           disabled={inCart || soldOut}
           onClick={() => onAdd(card)}
-          className="mt-0.5 min-h-11 self-start rounded-[4px] bg-[#111] px-3 text-xs text-white transition-colors duration-150 hover:bg-[#333] active:opacity-75 disabled:bg-[#EFEEEF] disabled:text-[#666]"
+          className="ai-product-add"
+          aria-label={inCart ? `${card.title} is in your cart` : soldOut ? `${card.title} is sold out` : `Add ${card.title} to cart`}
         >
-          {inCart ? "In cart" : "Add to cart"}
+          {inCart ? <><CheckIcon aria-hidden />In cart</> : soldOut ? "Sold out" : <><PlusIcon aria-hidden />Add</>}
         </button>
       </div>
     </li>
   );
-}
-
-function Tag({ children }: { children: string }) {
-  return <span className="rounded-full bg-[#EFEEEF] px-2 py-0.5 text-[11px] leading-none text-[#333]">{children}</span>;
 }

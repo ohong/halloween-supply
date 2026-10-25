@@ -2,8 +2,12 @@
 
 import { useChat } from "@ai-sdk/react";
 import { DefaultChatTransport, lastAssistantMessageIsCompleteWithToolCalls } from "ai";
+import { XIcon } from "lucide-react";
 import { useCallback, useEffect, useMemo, useRef, useState, type FormEvent } from "react";
 import { Conversation, ConversationContent, ConversationScrollButton } from "@/components/ai-elements/conversation";
+import { PromptInput, PromptInputSubmit, PromptInputTextarea } from "@/components/ai-elements/prompt-input";
+import { Shimmer } from "@/components/ai-elements/shimmer";
+import { Suggestion, Suggestions } from "@/components/ai-elements/suggestion";
 import { Button } from "@/components/ui/button";
 import { pieceSizesSchema, sizesSchema, type ChatContext } from "@/lib/ai/chat-context";
 import type { ProductCard } from "@/lib/ai/cards";
@@ -45,7 +49,7 @@ export function AssistantPanel({ costume, onChoose }: { costume: CostumeView; on
   const [input, setInput] = useState("");
   const [sizes, setSizes] = useState<Sizes>({});
   const [pieceSizes, setPieceSizes] = useState<Record<string, string>>({});
-  const inputRef = useRef<HTMLInputElement>(null);
+  const inputRef = useRef<HTMLTextAreaElement>(null);
   const panelRef = useRef<HTMLElement>(null);
   const triggerRef = useRef<HTMLButtonElement>(null);
   const receipts = useRef(new Map<string, ToolReceipt>());
@@ -196,7 +200,7 @@ export function AssistantPanel({ costume, onChoose }: { costume: CostumeView; on
     const onKey = (event: KeyboardEvent) => {
       if (event.key === "Escape") close();
       if (event.key !== "Tab") return;
-      const controls = panel?.querySelectorAll<HTMLElement>("button:not(:disabled), a[href], input:not(:disabled), [tabindex='0']");
+      const controls = panel?.querySelectorAll<HTMLElement>("button:not(:disabled), a[href], input:not(:disabled), textarea:not(:disabled), [tabindex='0']");
       const first = controls?.[0];
       const last = controls?.[controls.length - 1];
       if (event.shiftKey && document.activeElement === first) { event.preventDefault(); last?.focus(); }
@@ -228,33 +232,38 @@ export function AssistantPanel({ costume, onChoose }: { costume: CostumeView; on
   return <>
     {!open && <Button ref={triggerRef} onClick={() => setOpen(true)} aria-label="Talk to your personal shopper" aria-expanded={open} aria-controls="shopping-assistant" className="assistant-trigger fixed z-40">Help</Button>}
     {open && <>
-    <div className="fixed inset-0 z-40 bg-black/20" onClick={close} aria-hidden="true" />
-    <section ref={panelRef} id="shopping-assistant" role="dialog" aria-modal="true" aria-label="Your personal shopper" className="fixed inset-x-0 bottom-0 z-50 flex h-[85dvh] flex-col rounded-t-[4px] border border-[#CCC] bg-white text-[#333] md:inset-x-auto md:right-4 md:bottom-4 md:h-[640px] md:max-h-[calc(100dvh-32px)] md:w-[400px] md:rounded-[4px]">
-      <header className="flex shrink-0 items-center justify-between border-b border-[#CCC] px-4 py-2">
-        <h2 className="text-sm font-normal text-[#111]">Your personal shopper</h2>
-        <Button variant="ghost" onClick={close} aria-label="Close your personal shopper">Close</Button>
+    <div className="ai-scrim fixed inset-0 z-40" onClick={close} aria-hidden="true" />
+    <section ref={panelRef} id="shopping-assistant" role="dialog" aria-modal="true" aria-labelledby="shopping-assistant-title" className="ai-panel fixed inset-x-0 bottom-0 z-50 flex h-[85dvh] flex-col md:inset-x-auto md:right-4 md:bottom-4 md:h-[min(680px,calc(100dvh-32px))] md:w-[400px]">
+      <header className="ai-panel-head">
+        <div className="min-w-0">
+          <h2 id="shopping-assistant-title" className="text-[15px] font-normal text-[#111]">Your personal shopper</h2>
+          <p className="truncate text-xs text-[#666]">{costume.costume.name}</p>
+        </div>
+        <button type="button" onClick={close} aria-label="Close your personal shopper" className="ai-icon-button"><XIcon className="size-4" aria-hidden /></button>
       </header>
-      {savedLabels.length > 0 && <p className="assistant-sizes max-h-[25%] shrink-0 overflow-y-auto border-b border-[#CCC] text-xs leading-relaxed text-[#666]" aria-live="polite">Saved sizes: {savedLabels.join(" · ")}</p>}
+      {savedLabels.length > 0 && <p className="assistant-sizes" aria-live="polite"><span className="text-[#111]">Sizes</span> {savedLabels.join(" · ")}</p>}
       <Conversation aria-label="Conversation with your personal shopper">
         <ConversationContent>
-          {messages.length === 0 && <div className="flex flex-col items-start gap-3">
-            <p className="text-sm leading-relaxed">I can help with the {costume.costume.name} pieces, find swaps, save your sizes and add picks to your cart.</p>
-            <p className="text-xs leading-relaxed text-[#666]">Tell me your top, pants, shoe and hat sizes. I will ask only for what this look needs.</p>
-            <div className="flex flex-wrap gap-2">{starters.map((starter) => <Button key={starter} variant="outline" size="sm" onClick={() => send(starter)}>{starter}</Button>)}</div>
+          {messages.length === 0 && <div className="ai-message flex flex-col items-start gap-2 pt-2">
+            <p className="text-[15px] leading-relaxed text-[#111]">Hi, I can find swaps for the {costume.costume.name} pieces, save your sizes and add picks to your cart.</p>
+            <p className="text-[13px] leading-relaxed text-[#666]">Share your top, pants, shoe and hat sizes. I&apos;ll ask only for what this look needs.</p>
           </div>}
           {messages.map((message) => <MessageView key={message.id} message={message} cartProductIds={cartProductIds} pieceNames={pieceNames} onAdd={onAdd} />)}
-          {status === "submitted" && <p role="status" className="text-xs text-[#666]">Checking the catalog…</p>}
-          {error && <div role="alert" className="flex flex-col items-start gap-2 rounded-[4px] border border-[#CCC] p-3 text-xs">
+          {status === "submitted" && <p role="status" className="ai-message text-[13px]"><Shimmer>Checking the catalog…</Shimmer></p>}
+          {error && <div role="alert" className="ai-message ai-error">
             <p>{errorMessage(error)}</p>
-            <Button size="sm" onClick={() => { clearError(); void regenerate(); }}>Try again</Button>
+            <button type="button" className="ai-suggestion" onClick={() => { clearError(); void regenerate(); }}>Try again</button>
           </div>}
         </ConversationContent>
         <ConversationScrollButton />
       </Conversation>
-      <form onSubmit={onSubmit} className="assistant-form flex shrink-0 gap-2 border-t border-[#CCC] p-3">
-        <input ref={inputRef} value={input} onChange={(event) => setInput(event.target.value)} maxLength={6000} autoComplete="off" enterKeyHint="send" placeholder="Ask about a piece or share your sizes" aria-label="Message your personal shopper" className="min-h-11 min-w-0 flex-1 rounded-[4px] border border-[#CCC] bg-white px-3 text-base text-[#333] outline-none placeholder:text-[#999] focus-visible:ring-2 focus-visible:ring-[#111]" />
-        {busy ? <Button variant="outline" onClick={() => { void stop(); }}>Stop</Button> : <Button type="submit" disabled={!input.trim()}>Send</Button>}
-      </form>
+      <div className="assistant-form shrink-0">
+        {messages.length === 0 && <Suggestions aria-label="Suggested questions">{starters.map((starter) => <Suggestion key={starter} suggestion={starter} onClick={send} />)}</Suggestions>}
+        <PromptInput onSubmit={onSubmit}>
+          <PromptInputTextarea ref={inputRef} value={input} onChange={(event) => setInput(event.target.value)} maxLength={6000} autoComplete="off" enterKeyHint="send" placeholder="Ask about a piece or share your sizes" aria-label="Message your personal shopper" />
+          <PromptInputSubmit busy={busy} onStop={() => { void stop(); }} disabled={!input.trim()} />
+        </PromptInput>
+      </div>
     </section></>}
   </>;
 }

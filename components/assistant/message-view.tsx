@@ -2,8 +2,8 @@
 
 import { getToolName, isToolUIPart, type UIMessage } from "ai";
 import type { ProductCard as Card } from "@/lib/ai/cards";
-import { Message, MessageContent } from "@/components/ai-elements/message";
-import { Tool, ToolContent, ToolHeader, ToolOutput } from "@/components/ai-elements/tool";
+import { Message, MessageContent, MessageResponse } from "@/components/ai-elements/message";
+import { Tool } from "@/components/ai-elements/tool";
 import { formatPrice } from "@/lib/cart/context";
 import { ProductCard } from "./product-card";
 
@@ -37,6 +37,25 @@ function summarize(name: string, output: Output, pieceNames: Record<string, stri
   }
 }
 
+type ToolPart = Extract<UIMessage["parts"][number], { toolCallId: string }>;
+type Segment = { kind: "text"; key: string; text: string } | { kind: "tool"; key: string; name: string; parts: ToolPart[] };
+
+/** Consecutive calls to the same tool (one lookup per costume piece) read as one step, so they share a row. */
+function segment(parts: UIMessage["parts"]): Segment[] {
+  const segments: Segment[] = [];
+  parts.forEach((part, index) => {
+    if (part.type === "text") { if (part.text) segments.push({ kind: "text", key: String(index), text: part.text }); return; }
+    if (!isToolUIPart(part)) return;
+    const name = getToolName(part);
+    const failed = part.state === "output-error" || part.state === "output-denied";
+    if (name === "getPickPath" && !failed) return;
+    const last = segments.at(-1);
+    if (last?.kind === "tool" && last.name === name && !failed && !last.parts.some((p) => p.state === "output-error" || p.state === "output-denied")) last.parts.push(part);
+    else segments.push({ kind: "tool", key: part.toolCallId, name, parts: [part] });
+  });
+  return segments;
+}
+
 export function MessageView({ message, cartProductIds, pieceNames, onAdd }: {
   message: UIMessage;
   cartProductIds: Set<string>;
@@ -47,28 +66,29 @@ export function MessageView({ message, cartProductIds, pieceNames, onAdd }: {
   const shown = new Set<string>();
   return (
     <Message from={message.role}>
-      {message.parts.map((part, index) => {
-        if (part.type === "text") return part.text ? <MessageContent key={index}><p className="whitespace-pre-wrap leading-relaxed">{part.text}</p></MessageContent> : null;
-        if (!isToolUIPart(part)) return null;
-        const name = getToolName(part);
-        const output = part.state === "output-available" ? part.output as Output : undefined;
-        const failed = part.state === "output-error" || part.state === "output-denied";
-        if (name === "getPickPath" && !failed) return null;
-        const products = (output?.products as Card[] | undefined) ?? (Array.isArray(output?.shops) ? (output.shops as { products: Card[] }[]).flatMap((shop) => shop.products) : []);
+      {segment(message.parts).map((seg) => {
+        if (seg.kind === "text") return <MessageContent key={seg.key}>{message.role === "user" ? <p className="whitespace-pre-wrap">{seg.text}</p> : <MessageResponse>{seg.text}</MessageResponse>}</MessageContent>;
+        const { name, parts } = seg;
+        const failedPart = parts.find((part) => part.state === "output-error" || part.state === "output-denied");
+        const pending = parts.find((part) => part.state !== "output-available" && part !== failedPart);
+        const state = failedPart?.state ?? pending?.state ?? "output-available";
+        const outputs = parts.map((part) => (part.state === "output-available" ? part.output as Output : undefined));
+        const products = outputs.flatMap((output) => (output?.products as Card[] | undefined) ?? (Array.isArray(output?.shops) ? (output.shops as { products: Card[] }[]).flatMap((shop) => shop.products) : []));
         const uniqueProducts = products.filter((card) => {
           const key = `${card.pieceId}-${card.productId}`;
           if (shown.has(key)) return false;
           shown.add(key);
           return true;
         });
-        const summary = failed ? ("errorText" in part ? part.errorText : "This action did not complete.") : summarize(name, output, pieceNames);
+        const summary = failedPart
+          ? ("errorText" in failedPart ? failedPart.errorText ?? "" : "This action did not complete.")
+          : parts.length > 1 && uniqueProducts.length && name !== "assembleOutfit"
+            ? `${uniqueProducts.length} catalog ${uniqueProducts.length === 1 ? "pick" : "picks"} across ${parts.length} lookups.`
+            : summarize(name, outputs.at(-1), pieceNames);
         return (
-          <div key={part.toolCallId} className="flex w-full flex-col gap-2">
-            <Tool defaultOpen={failed || name === "recordSizes" || name === "addToCart" || name === "assembleOutfit"}>
-              <ToolHeader title={labels[name] ?? "Catalog lookup"} state={part.state} />
-              <ToolContent><ToolOutput error={failed}>{summary}</ToolOutput></ToolContent>
-            </Tool>
-            {uniqueProducts.length > 0 && <ul className="flex w-full flex-col gap-2">{uniqueProducts.map((card) => <ProductCard key={`${card.pieceId}-${card.productId}`} card={card} inCart={cartProductIds.has(card.productId)} onAdd={onAdd} />)}</ul>}
+          <div key={seg.key} className="flex w-full flex-col gap-2">
+            <Tool title={labels[name] ?? "Catalog lookup"} state={state} summary={summary} />
+            {uniqueProducts.length > 0 && <ul className="ai-products">{uniqueProducts.map((card) => <ProductCard key={`${card.pieceId}-${card.productId}`} card={card} inCart={cartProductIds.has(card.productId)} onAdd={onAdd} />)}</ul>}
           </div>
         );
       })}
