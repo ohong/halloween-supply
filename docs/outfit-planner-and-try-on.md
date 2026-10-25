@@ -1,7 +1,11 @@
-# Outfit planner and photo try-on
+# Photo try-on
 
-The live costume page has a shopping brief and three complete outfit comparisons.
-Every costume page also has a photo try-on form. The existing Shop for me component is unchanged.
+The costume page opens with the selected product flat-lay, followed by individual
+products and the editorial reference. Local badges and collapsed pick explanations
+remain beside the pieces. Wardrobe choices and budget changes belong to the voice
+stylist. There is no shopping brief, event-date form, outfit comparison or final
+plan screen. Voice changes update selected products directly. Shop for me and
+photo try-on remain available.
 
 ## Local setup
 
@@ -15,27 +19,12 @@ The default models are `gpt-6-luna` for the Decisions API and
 `OPENAI_IMAGE_MODEL` settings override them. The API key stays on the server.
 Your OpenAI project needs access to both models; image access may require organization verification.
 
-## Outfit behavior
-
-- The brief records a pieces budget, event date, size labels, and a styling preference.
-- Each piece is bought or owned. Optional pieces can also be skipped.
-- Owned and skipped pieces leave the cart and add nothing to the budget.
-- Lowest cost minimizes the pieces subtotal.
-- Closest to the look minimizes catalog styling rank, with extra weight for the selected merchant preference.
-- Fewest shops minimizes merchant count, then cost.
-- All three honor the budget when a matching combination exists. Otherwise, they show the cheapest combination and disable selection.
-- Sold-out products and known size mismatches are excluded. Unknown stock and sizes remain visible with notices.
-- Missing pieces produce an incomplete plan, with selection disabled.
-- Use this outfit applies product choices and updates matching pieces already in the cart.
-- Add remaining pieces adds only purchases. Sizes from the brief accompany those cart lines.
-- Event dates are planning context. The app does not claim or verify arrival dates.
-- Shipping and tax are excluded. Brief and wardrobe choices last for the current page visit.
-
-The comparison algorithm evaluates whole combinations and discards dominated states
-for each merchant set. This preserves the cheapest, best styling, and fewest-shop
-choices without making model calls or inventing products.
-
 ## Try-on behavior
+
+Every generated photo preview uses a white commercial studio style: a seamless
+white backdrop and floor, softbox lighting, natural contact shadows, and full-body
+framing. The shopper remains the identity reference; the original room is removed.
+Selected products and owned or skipped pieces still control the outfit.
 
 ```text
 Browser photo → resize + explicit consent → server decode + validation

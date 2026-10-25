@@ -5,10 +5,13 @@ merchant price points, labeled $, $$, and $$$ relative to that piece. A higher
 price is not a quality claim. Rank still records the editorial default independently
 of price.
 
-The shopper enters a pieces budget, merchant size labels, preferences, an optional
-event date, and styling notes. Owned pieces cost nothing; optional pieces can be
-skipped. “Style my outfit” asks the Decisions API to choose a complete outfit.
-“Use this outfit” applies the choices to the page. Neither action places an order.
+The shopper tells the assistant a total pieces budget, exact merchant size labels,
+preferences, an optional event date, and styling notes. Owned pieces cost nothing;
+optional pieces can be skipped. The assistant asks Decisions to choose a complete
+outfit and shows the selected products. Recommendations do not change the cart or
+place an order. The shopper can choose or add the recommended pieces explicitly.
+Per-piece size labels override general garment sizes, so a shirt can be Medium
+while a waistcoat is 42.
 
 ## How selection works
 
@@ -29,8 +32,7 @@ The former 24-outfit heuristic shortlist was removed so it cannot hide a useful 
 
 If the budget is too small, the endpoint returns the exact lowest matching subtotal
 and shortfall. It does not recommend an over-budget outfit. A provider error is
-shown as an error, not a simulated AI result. Changing the brief invalidates the
-previous recommendation and cancels an in-flight request.
+shown as an error, not a simulated AI result.
 
 ## Evidence and limits
 
@@ -64,6 +66,7 @@ bun run typecheck
 bun run build
 bun run start --port 3401
 bun --env-file=.env.local scripts/verify-stylist.ts http://localhost:3401
+bun --env-file=.env.local scripts/verify-stylist-chat.ts http://localhost:3401
 bun --env-file=.env.local scripts/verify-costumes.ts http://localhost:3401
 ```
 

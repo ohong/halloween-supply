@@ -21,6 +21,9 @@ export function createTools(view: CostumeView, context?: ChatContext) {
   const productIds = new Set(options.map(({ product }) => product.id));
   const merchantIds = new Set(options.map(({ merchant }) => merchant.id));
   const id = z.string().min(1).max(150);
+  const cartPieceSizes = Object.fromEntries((context?.cart ?? []).flatMap((line) => line.size !== null
+    && view.pieces.some(({ piece }) => piece.id === line.pieceId && piece.sizeKind !== "one_size")
+    ? [[line.pieceId, line.size]] : []));
   let stylingCalls = 0;
 
   return {
@@ -78,7 +81,7 @@ export function createTools(view: CostumeView, context?: ChatContext) {
           costumeSlug,
           brief: {
             budget: (budgetCents / 100).toFixed(2), eventDate: eventDate ?? "", preference: preference ?? "styling",
-            sizes: { ...(context?.sizes ?? {}), ...sizes }, pieceSizes: { ...(context?.pieceSizes ?? {}), ...pieceSizes },
+            sizes: { ...(context?.sizes ?? {}), ...sizes }, pieceSizes: { ...cartPieceSizes, ...(context?.pieceSizes ?? {}), ...pieceSizes },
             ...(notes ? { notes } : {}),
           },
           uses,

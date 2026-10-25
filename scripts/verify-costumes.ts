@@ -278,10 +278,10 @@ async function main() {
     const response = await get(`/costumes/${slug}`);
     assert.equal(response.status, 200, `${slug}: costume page failed`);
     const html = decode(await response.text());
-    assert(html.includes("Add whole costume") && html.includes("Why this pick") && html.includes("Swap"));
+    assert(html.includes("Add whole costume") && html.includes("Change") && html.includes("Why this pick"));
     const editorial = costumes.find((costume) => costume.slug === slug);
     assert(editorial && html.includes(editorial.image), `${slug}: page must keep its generated full-costume reference`);
-    assert(html.includes("Style my outfit") && html.includes("Price points for"), `${slug}: budget styling and price-point controls must render`);
+    assert(html.includes("Price points for"), `${slug}: price-point controls must render`);
     for (const piece of snapshot.pieces) {
       assert.deepEqual(piece.matches.map((match) => match.rank).sort(), [0, 1, 2]);
       assert.equal(new Set(piece.matches.map((match) => match.productId)).size, 3);

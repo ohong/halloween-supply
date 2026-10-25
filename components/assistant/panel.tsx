@@ -226,7 +226,7 @@ export function AssistantPanel({ costume, onChoose }: { costume: CostumeView; on
   });
 
   return <>
-    {!open && <Button ref={triggerRef} onClick={() => setOpen(true)} aria-expanded={open} aria-controls="shopping-assistant" className="assistant-trigger fixed z-40">Ask the assistant</Button>}
+    {!open && <Button ref={triggerRef} onClick={() => setOpen(true)} aria-label="Ask the assistant" aria-expanded={open} aria-controls="shopping-assistant" className="assistant-trigger fixed z-40">Help</Button>}
     {open && <>
     <div className="fixed inset-0 z-40 bg-black/20" onClick={close} aria-hidden="true" />
     <section ref={panelRef} id="shopping-assistant" role="dialog" aria-modal="true" aria-label="Shopping assistant" className="fixed inset-x-0 bottom-0 z-50 flex h-[85dvh] flex-col rounded-t-[4px] border border-[#CCC] bg-white text-[#333] md:inset-x-auto md:right-4 md:bottom-4 md:h-[640px] md:max-h-[calc(100dvh-32px)] md:w-[400px] md:rounded-[4px]">

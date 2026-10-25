@@ -4,14 +4,16 @@ import { getToolName, isToolUIPart, type UIMessage } from "ai";
 import type { ProductCard as Card } from "@/lib/ai/cards";
 import { Message, MessageContent } from "@/components/ai-elements/message";
 import { Tool, ToolContent, ToolHeader, ToolOutput } from "@/components/ai-elements/tool";
+import { formatPrice } from "@/lib/cart/context";
 import { ProductCard } from "./product-card";
 
 const labels: Record<string, string> = {
   getCostume: "Costume pieces",
+  assembleOutfit: "Your styled outfit",
   getAlternatives: "Catalog alternatives",
   getMerchantCatalog: "More from this shop",
   getFewestShops: "Pieces from the same shop",
-  getPickPath: "Why this pick",
+  getPickPath: "Product lookup",
   recordSizes: "Your sizes",
   addToCart: "Your cart",
 };
@@ -22,12 +24,13 @@ function summarize(name: string, output: Output, pieceNames: Record<string, stri
   if (!output) return "Checking the catalog…";
   if (typeof output.error === "string") return output.error;
   switch (name) {
+    case "assembleOutfit": return typeof output.totalCents === "number" && typeof output.budgetCents === "number"
+      ? `${formatPrice(output.totalCents)} of your ${formatPrice(output.budgetCents)} pieces budget. Shipping and tax extra.` : "Outfit comparison complete.";
     case "recordSizes": {
       const saved = (output.saved as { sizeKind: string; pieceId?: string; size: string }[] | undefined) ?? [];
       return saved.length ? `Saved: ${saved.map((s) => `${s.pieceId ? pieceNames[s.pieceId] ?? s.pieceId : s.sizeKind}: ${s.size}`).join(", ")}.` : "No sizes changed.";
     }
     case "addToCart": return output.title ? `Added ${String(output.title)}.` : "Cart updated.";
-    case "getPickPath": return `${String(output.reason ?? "")}${Array.isArray(output.path) ? ` ${output.path.join(" → ")}` : ""}`;
     case "getCostume": return "These are the pieces and checked merchant picks for this look.";
     case "getFewestShops": return Array.isArray(output.shops) && output.shops.length ? "These shops cover more than one selected piece." : "No shop in the catalog covers more than one selected piece.";
     default: return Array.isArray(output.products) ? `${output.products.length} catalog ${output.products.length === 1 ? "pick" : "picks"} found.` : "Catalog checked.";
@@ -50,6 +53,7 @@ export function MessageView({ message, cartProductIds, pieceNames, onAdd }: {
         const name = getToolName(part);
         const output = part.state === "output-available" ? part.output as Output : undefined;
         const failed = part.state === "output-error" || part.state === "output-denied";
+        if (name === "getPickPath" && !failed) return null;
         const products = (output?.products as Card[] | undefined) ?? (Array.isArray(output?.shops) ? (output.shops as { products: Card[] }[]).flatMap((shop) => shop.products) : []);
         const uniqueProducts = products.filter((card) => {
           const key = `${card.pieceId}-${card.productId}`;
@@ -60,7 +64,7 @@ export function MessageView({ message, cartProductIds, pieceNames, onAdd }: {
         const summary = failed ? ("errorText" in part ? part.errorText : "This action did not complete.") : summarize(name, output, pieceNames);
         return (
           <div key={part.toolCallId} className="flex w-full flex-col gap-2">
-            <Tool defaultOpen={failed || name === "recordSizes" || name === "addToCart"}>
+            <Tool defaultOpen={failed || name === "recordSizes" || name === "addToCart" || name === "assembleOutfit"}>
               <ToolHeader title={labels[name] ?? "Catalog lookup"} state={part.state} />
               <ToolContent><ToolOutput error={failed}>{summary}</ToolOutput></ToolContent>
             </Tool>

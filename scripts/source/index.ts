@@ -8,7 +8,7 @@ import { decompose } from "./decompose";
 import { gatherCandidates } from "./gather";
 import { rankPiece } from "./rank";
 import { searchPiece } from "./search";
-import { assembleSnapshot, loadExisting, mergeSnapshot, prune, type PiecePicks, saveToDatabase, writeSnapshotFile } from "./write";
+import { assembleSnapshot, loadExisting, mergeSnapshot, prune, type PiecePicks, saveToDatabase, writeCheckpoint, writeSnapshotFile } from "./write";
 
 const REQUIRED_ENV = ["ANTHROPIC_API_KEY", "FIRECRAWL_API_KEY"];
 
@@ -102,9 +102,9 @@ async function main() {
     perPiece.push({ piece, picks });
     if (!args.dryRun && picks.length === 3) {
       // Preserve completed pieces if a later network or model request fails.
-      const partial = assembleSnapshot(costume, [{ piece, picks }], "Sourced from live merchant pages with Firecrawl discovery and public merchant data.");
+      const partial = assembleSnapshot(costume, perPiece, "Sourcing checkpoint; not published.");
       const existing = await loadExisting(costume.slug);
-      await writeSnapshotFile(existing ? mergeSnapshot(existing, partial) : partial);
+      await writeCheckpoint(existing ? mergeSnapshot(existing, partial) : partial);
       log(`  saved ${piece.id} incrementally`);
     }
   }
@@ -129,29 +129,29 @@ async function main() {
     return;
   }
 
-  // 6. images
-  if (args.skipImages) {
-    applyExistingTiles(snapshot.products);
-  } else {
+  if (short.length) {
+    await writeCheckpoint(snapshot);
+    log(`Incomplete pieces (${short.map((p) => p.piece.id).join(", ")}); saved a draft checkpoint and kept the prior published catalog.`);
+    if (!args.allowPartial) process.exitCode = 1;
+    return;
+  }
+
+  // Even when reusing product photos, rebuild the flat-lay for the newly ranked defaults.
+  let withCutout = new Set<string>();
+  if (!args.skipImages) {
     log("\n6/6 images (rembg may download a model on first run)");
     const touched = args.only
       ? snapshot.products.filter((p) => perPiece.some((pp) => pp.picks.some((pk) => pk.candidate.url === p.url)))
       : snapshot.products;
-    const withCutout = await processProductImages(touched, { force: args.forceImages, log });
-    applyExistingTiles(snapshot.products);
-    const defaults = snapshot.pieces.map((p) => p.matches.find((m) => m.rank === 0)?.productId).filter((x): x is string => !!x);
-    if (await buildFlatlay(costume.slug, defaults, withCutout, log, snapshot.pieces.map(flatlayScale))) {
-      snapshot.costume.image = `/products/${costume.slug}-flatlay.jpg`;
-      snapshot.costume.alt = `${costume.name}: ${snapshot.pieces.map((piece) => piece.name.toLowerCase()).join(", ")}, arranged on pale grey.`;
-    }
+    withCutout = await processProductImages(touched, { force: args.forceImages, log });
   }
+  applyExistingTiles(snapshot.products);
+  const defaults = snapshot.pieces.map((p) => p.matches.find((m) => m.rank === 0)?.productId).filter((x): x is string => !!x);
+  if (!await buildFlatlay(costume.slug, defaults, withCutout, log, snapshot.pieces.map(flatlayScale))) throw new Error("Cannot publish without a complete flat-lay. Normalize every default product first.");
+  snapshot.costume.image = `/products/${costume.slug}-flatlay.jpg`;
+  snapshot.costume.alt = `${costume.name}: ${snapshot.pieces.map((piece) => piece.name.toLowerCase()).join(", ")}, arranged on pale grey.`;
 
   // 7. write
-  if (short.length && !args.allowPartial) {
-    log(`Incomplete pieces (${short.map((p) => p.piece.id).join(", ")}); kept the prior complete catalog and saved successful pieces. Re-run, or pass --allow-partial for a partial snapshot.`);
-    process.exitCode = 1;
-    return;
-  }
   const file = await writeSnapshotFile(snapshot);
   log(`\nWrote ${file}`);
   await saveToDatabase(snapshot, log);

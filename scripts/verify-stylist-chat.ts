@@ -1,6 +1,7 @@
 /** Real Anthropic -> assembleOutfit -> Decisions check. No checkout or cart write.
  * TURSO_DATABASE_URL='' TURSO_AUTH_TOKEN='' bun --env-file=.env.local scripts/verify-stylist-chat.ts http://localhost:3401
  * Calls both real providers using the running app's configured credentials.
+ * --preflight-only verifies real cart-size constraints without provider requests.
  */
 import assert from "node:assert/strict";
 import type { UIMessage } from "ai";
@@ -16,15 +17,32 @@ type BunRuntime = { plugin(plugin: { name: string; setup(build: { module(name: s
   setup(build) { build.module("server-only", () => ({ exports: {}, loader: "object" })); },
 });
 const { getCostume } = await import("../lib/catalog");
+const { createTools } = await import("../lib/ai/tools");
 const base = new URL(process.argv.find((argument) => /^https?:\/\//.test(argument)) ?? "http://127.0.0.1:3401").origin;
 const view = await getCostume("velvet-vampire");
 assert(view, "The real Velvet Vampire catalog is required.");
-const context: ChatContext = { costumeSlug: view.costume.slug, cart: [], sizes: { apparel: "Medium" }, pieceSizes: { "black-waistcoat": "42" } };
-const brief: ShoppingBrief = { budget: "", eventDate: "", preference: "styling", sizes: context.sizes, pieceSizes: context.pieceSizes };
+const cartWaistcoat = view.pieces.find(({ piece }) => piece.id === "black-waistcoat")?.options.find(({ product }) => product.sizes.includes("42"));
+assert(cartWaistcoat, "The actual cart waistcoat must offer merchant label42.");
+const context: ChatContext = {
+  costumeSlug: view.costume.slug, sizes: { apparel: "Medium" },
+  cart: [{ pieceId: "black-waistcoat", productId: cartWaistcoat.product.id, size: "42" }],
+};
+const brief: ShoppingBrief = { budget: "", eventDate: "", preference: "styling", sizes: context.sizes, pieceSizes: { "black-waistcoat": "42" } };
 const feasible = enumerateOutfits(view, brief, {}).affordable;
 const minimum = Math.min(...feasible.map((candidate) => candidate.total));
 const maximum = Math.max(...feasible.map((candidate) => candidate.total));
 const budgetCents = minimum + Math.floor((maximum - minimum) / 3);
+// A one-cent request fails before any provider call, exercising the real tool's
+// cart/context merge and exact catalog constraints without a mocked success.
+const preflight = await createTools(view, context).assembleOutfit.execute!({ budgetCents: 1 }, { toolCallId: "cart-size-preflight", messages: [], context: {} });
+assert("code" in preflight && preflight.code === "budget_too_low");
+assert("minimumSubtotal" in preflight && preflight.minimumSubtotal === minimum, "Cart-only waistcoat42 must constrain the real minimum subtotal.");
+const cleared = await createTools(view, context).assembleOutfit.execute!({ budgetCents: 1, pieceSizes: { "black-waistcoat": "" } }, { toolCallId: "cleared-cart-size-preflight", messages: [], context: {} });
+const clearedMinimum = enumerateOutfits(view, { ...brief, pieceSizes: { "black-waistcoat": "" } }, {}).minimumSubtotal;
+assert("code" in cleared && cleared.code === "budget_too_low");
+assert("minimumSubtotal" in cleared && cleared.minimumSubtotal === clearedMinimum && clearedMinimum < minimum, "Explicit empty per-piece input must override the cart label and suppress generic fallback.");
+console.log("PASS real tool preflight preserves cart-only waistcoat42; explicit empty override clears it without provider calls.");
+if (process.argv.includes("--preflight-only")) process.exit(0);
 const messages: UIMessage[] = [{ id: crypto.randomUUID(), role: "user", parts: [{
   type: "text", text: `I have $${(budgetCents / 100).toFixed(2)} TOTAL for the whole Velvet Vampire costume. Choose a complete outfit that fits that total. Keep my saved exact merchant sizes. I do not own any pieces. Recommend it only; do not add anything to my cart.`,
 }] }];
@@ -74,4 +92,4 @@ assert(output.products.find((card) => card.pieceId === "ruffled-shirt")?.sizes.i
 assert(output.products.find((card) => card.pieceId === "black-waistcoat")?.sizes.includes("42"));
 assert.equal(output.evidence.deliveryConfirmed, false);
 console.log(`PASS real Anthropic called assembleOutfit; actual Decisions selected ${output.products.length} scoped product cards totaling ${total} cents within a ${budgetCents}-cent total budget.`);
-console.log("PASS exact saved shirt Medium and waistcoat 42 were preserved; merchant photos were supplied; no cart or checkout action occurred.");
+console.log("PASS saved shirt Medium and cart-only waistcoat42 were preserved; merchant photos were supplied; no cart or checkout action occurred.");
