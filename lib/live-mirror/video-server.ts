@@ -3,9 +3,9 @@ import "server-only";
 import { createHash } from "node:crypto";
 import { z } from "zod";
 import { MIRROR_SESSION_STARTS_PER_HOUR } from "./session-limits";
+import { isTryOnTesting } from "@/lib/try-on-policy";
 
 export const VIDEO_MODEL = "decart/lucy-2-5/realtime";
-export const VIDEO_SESSION_SECONDS = 180;
 
 export class VideoError extends Error {
   constructor(public status: number, message: string) { super(message); }
@@ -25,6 +25,7 @@ export function videoFailure(error: unknown) {
 /** Per-process backstop; the firewall enforces quotas across deployments. */
 const attempts = new Map<string, { count: number; expires: number }>();
 export function reserveVideoRequest(request: Request, kind: "token" | "reference" | "pair") {
+  if (isTryOnTesting()) return;
   const now = Date.now();
   for (const [key, value] of attempts) if (value.expires <= now) attempts.delete(key);
   const address = request.headers.get("x-real-ip") ?? request.headers.get("x-forwarded-for")?.split(",")[0]?.trim() ?? "local";

@@ -7,6 +7,7 @@ import sharp from "sharp";
 
 mock.module("server-only", () => ({}));
 process.env.OPENAI_API_KEY = "test-only-not-a-key";
+delete process.env.TRY_ON_TESTING_MODE;
 process.env.FALKORDB_URL = "";
 const { POST } = await import("../app/api/try-on/route.ts");
 const { costumes } = await import("../lib/costumes.ts");
@@ -88,9 +89,13 @@ console.log("PASS selected products, owned pieces, duplicate protection, missing
 
 for (let i = 0; i < 3; i++) await expectStatus(request({ ip: "quota-test" }), 200);
 await expectStatus(request({ ip: "quota-test" }), 429);
+process.env.TRY_ON_TESTING_MODE = "1";
+for (let i = 0; i < 4; i++) await expectStatus(request({ ip: "quota-test" }), 200);
+delete process.env.TRY_ON_TESTING_MODE;
+await expectStatus(request({ ip: "quota-test" }), 429);
 delete process.env.OPENAI_API_KEY;
 await expectStatus(request(), 503);
-console.log("PASS per-client quota and missing-key response");
+console.log("PASS default quota, repeated testing-mode requests, quota restoration and missing-key response");
 
 // Optionally verify that the running storefront still exposes this feature.
 // The route contract alone cannot catch components disconnected from the pages.

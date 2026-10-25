@@ -1,10 +1,11 @@
 import { z } from "zod";
-import { readVideoJson, reserveVideoRequest, VIDEO_MODEL, VIDEO_SESSION_SECONDS, VideoError, videoFailure, videoResponse } from "@/lib/live-mirror/video-server";
+import { readVideoJson, reserveVideoRequest, VIDEO_MODEL, VideoError, videoFailure, videoResponse } from "@/lib/live-mirror/video-server";
+import { mirrorSessionSeconds } from "@/lib/try-on-policy";
 
 export const maxDuration = 30;
 
 export async function GET() {
-  return videoResponse({ videoAvailable: Boolean(process.env.FAL_KEY), voiceAvailable: Boolean(process.env.OPENAI_API_KEY), provider: "fal", model: VIDEO_MODEL, maxSessionSeconds: VIDEO_SESSION_SECONDS });
+  return videoResponse({ videoAvailable: Boolean(process.env.FAL_KEY), voiceAvailable: Boolean(process.env.OPENAI_API_KEY), provider: "fal", model: VIDEO_MODEL, maxSessionSeconds: mirrorSessionSeconds() });
 }
 
 export async function POST(request: Request) {
@@ -24,6 +25,6 @@ export async function POST(request: Request) {
     if (!response.ok) throw new VideoError(response.status === 429 ? 429 : 502, "The live video service is unavailable. Please try again later.");
     const result: unknown = await response.json();
     const token = z.string().min(1).parse(typeof result === "object" && result && "detail" in result ? result.detail : result);
-    return videoResponse({ token, model: VIDEO_MODEL, maxSessionSeconds: VIDEO_SESSION_SECONDS });
+    return videoResponse({ token, model: VIDEO_MODEL, maxSessionSeconds: mirrorSessionSeconds() });
   } catch (error) { return videoFailure(error); }
 }

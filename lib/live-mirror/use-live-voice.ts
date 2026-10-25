@@ -25,6 +25,7 @@ type Session = {
   microphone?: MediaStream;
   controller: AbortController;
   ready: boolean;
+  maxSessionSeconds: number | null;
   catalogSlug: string;
   catalog: MirrorCatalogLook[];
   frontendSnapshot?: string;
@@ -56,6 +57,10 @@ export async function sendMirrorCommand(input: { costumeSlug: string; outfit: Mi
 
 function voiceSnapshot(options: VoiceOptions) {
   return JSON.stringify({ costumeSlug: options.costume.costume.slug, outfit: options.outfit, catalogContext: options.catalogContext, pendingLook: options.pendingLook });
+}
+
+function catalogSignature(costume: CostumeView) {
+  return JSON.stringify([costume.costume.slug, costume.pieces.map(view => [view.piece.id, view.options.map(option => option.product.id)])]);
 }
 
 function emit(session: Session, event: object) {
@@ -109,8 +114,8 @@ export function useLiveVoice(options: VoiceOptions) {
 
   const syncOutfit = useCallback((session: Session, report?: { delegationId: string; content: string }) => {
     if (!session.ready || session.closing) return;
-    if (session.catalogSlug !== latest.current.costume.costume.slug) {
-      session.catalogSlug = latest.current.costume.costume.slug;
+    if (session.catalogSlug !== catalogSignature(latest.current.costume)) {
+      session.catalogSlug = catalogSignature(latest.current.costume);
       session.pendingCatalog = `catalog_${crypto.randomUUID()}`;
       session.latestDelegation = null;
       session.pendingDelegation = null;
@@ -189,9 +194,9 @@ export function useLiveVoice(options: VoiceOptions) {
     const channel = peer.createDataChannel("oai-events");
     const audio = new Audio(); audio.autoplay = true;
     const session: Session = {
-      peer, channel, audio, controller: new AbortController(), ready: false, closing: false, timers: new Set(),
+      peer, channel, audio, controller: new AbortController(), ready: false, maxSessionSeconds: 180, closing: false, timers: new Set(),
       latestDelegation: null, pendingDelegation: null, outputActive: false, handled: new Set(), delegations: new Map(), sourceOrder: new Map(), lastFocus: -1, sourceSequence: 0,
-      catalogSlug: latest.current.costume.costume.slug, catalog: [], pendingCatalog: null, catalogReports: [], pendingReports: new Map(), transcript: { user: "", assistant: "", lastInputEnd: 0, lastOutputEnd: 0, turns: { user: crypto.randomUUID(), assistant: crypto.randomUUID() } },
+      catalogSlug: catalogSignature(latest.current.costume), catalog: [], pendingCatalog: null, catalogReports: [], pendingReports: new Map(), transcript: { user: "", assistant: "", lastInputEnd: 0, lastOutputEnd: 0, turns: { user: crypto.randomUUID(), assistant: crypto.randomUUID() } },
     };
     sessionRef.current = session;
     const current = () => mounted.current && sessionRef.current === session && !session.closing && generation.current === ticket;
@@ -271,7 +276,7 @@ export function useLiveVoice(options: VoiceOptions) {
         void sampleOutput();
         syncOutfit(session);
         emit(session, { type: "session.commentary.append", delegation_id: null, event_id: `hello_${crypto.randomUUID()}`, content: "The mirror controls are ready. Greet the shopper in one short sentence: What would you like to change? Then listen." });
-        after(session, () => { if (current()) { stop(); setError("Your voice session has ended. Tap the microphone to start another."); } }, 180000);
+        if (session.maxSessionSeconds !== null) after(session, () => { if (current()) { stop(); setError("Your voice session has ended. Tap the microphone to start another."); } }, session.maxSessionSeconds * 1000);
         return;
       }
       if (event.type === "error") { fail("Voice couldn't complete that request. Please reconnect or type your change."); return; }
@@ -341,7 +346,7 @@ export function useLiveVoice(options: VoiceOptions) {
           if (delegated && delegated.snapshot !== voiceSnapshot(latest.current)) {
             syncOutfit(session, { delegationId, content: "The shopper changed their look or search while the catalog was being checked. Those older results were not applied. Ask if they still want that search." }); return;
           }
-          command = { ...found, actions: [...command.actions, ...found.actions] };
+          command = { ...found, actions: [...command.actions.filter(action => action.type !== "select" || !found.actions.some(edit => edit.type === "mix" && (edit.replacesPieceId === action.pieceId || edit.source.pieceId === action.pieceId))), ...found.actions] };
         }
         if (needsBudget(answers) && !command.actions.some(action => action.type === "undo")) {
           const extra = await sendMirrorCommand({ costumeSlug: latest.current.costume.costume.slug, outfit: latest.current.outfit, text: session.transcript.user || delegated?.text || "", budgetOnly: true }, session.controller.signal);
@@ -380,11 +385,12 @@ export function useLiveVoice(options: VoiceOptions) {
         body: JSON.stringify({ costumeSlug: latest.current.costume.costume.slug, outfit: latest.current.outfit, sdp: peer.localDescription?.sdp }),
         signal: AbortSignal.any([session.controller.signal, AbortSignal.timeout(35000)]),
       });
-      const result = await readMirrorResponse<{ transport?: { sdp?: string }; catalog?: MirrorCatalogLook[] }>(response);
+      const result = await readMirrorResponse<{ transport?: { sdp?: string }; catalog?: MirrorCatalogLook[]; maxSessionSeconds?: number | null }>(response);
       if (!current()) return;
       if (typeof result.transport?.sdp !== "string") throw new Error("Voice returned an invalid connection.");
       if (!Array.isArray(result.catalog) || !result.catalog.length) throw new Error("The global catalog could not load. Please reconnect.");
       session.catalog = result.catalog as MirrorCatalogLook[];
+      session.maxSessionSeconds = result.maxSessionSeconds === null ? null : Math.min(result.maxSessionSeconds ?? 180, 180);
       await peer.setRemoteDescription({ type: "answer", sdp: result.transport.sdp });
       after(session, () => { if (!session.ready) fail("Voice didn't connect in time. Please try again."); }, 15000);
     } catch (caught) {

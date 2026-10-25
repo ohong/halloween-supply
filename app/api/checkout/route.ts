@@ -1,6 +1,7 @@
 import { createHash } from "node:crypto";
 import type Stripe from "stripe";
 import { getCostume } from "@/lib/catalog";
+import { readMirrorInventory } from "@/lib/live-mirror/catalog-server";
 import { getStripe } from "@/lib/checkout/stripe";
 import { DEMO_DEFAULT_SIZE, SCREENSHOT_SLUG, customLookId, type CheckoutRequest, type CheckoutResponse, type PriceChange, type WebItem } from "@/lib/checkout/types";
 import { readCustomLook } from "@/lib/custom-looks/store";
@@ -128,10 +129,12 @@ export async function POST(request: Request) {
       if (!costume) return fail(`Unknown costume "${body.costumeSlug}".`, 404);
       costumeSlug = costume.costume.slug;
       cancelPath = `/costumes/${costume.costume.slug}`;
+      // Mixed looks use real piece/product pairs from any published costume.
+      const inventory = await readMirrorInventory();
       // Resolve each item against the catalog; the client never supplies prices.
       for (const item of body.items) {
-        const pv = costume.pieces.find((p) => p.piece.id === item.pieceId);
-        if (!pv) return fail(`Piece "${item.pieceId}" is not part of ${costume.costume.name}.`);
+        const pv = inventory.views.flatMap(view => view.pieces).find(view => view.piece.id === item.pieceId && view.options.some(option => option.product.id === item.productId));
+        if (!pv) return fail(`That piece and product are not in the published catalog.`);
         const option = pv.options.find((o) => o.product.id === item.productId);
         if (!option) return fail(`Product "${item.productId}" is not an option for ${pv.piece.name}.`);
         if (seen.has(pv.piece.id)) return fail(`Piece "${pv.piece.name}" appears twice in the cart.`);

@@ -26,7 +26,7 @@ const tokens = (s: string) => s.toLowerCase().replace(/[^a-z0-9]+/g, " ").trim()
 const KINDS = [
   /\b(boots?|booties)\b/i, /\b(shoes?|heels?|loafers?|sneakers?|pumps?|sandals?)\b/i,
   /\b(headbands?|headpieces?|tiaras?|crowns?|circlets?)\b/i, /\b(hats?|beanies?|berets?|caps?|bonnets?|helmets?)\b/i,
-  /\b(wigs?)\b/i, /\b(masks?)\b/i, /\b(glasses|spectacles|eyeglasses)\b/i, /\b(goggles)\b/i,
+  /\b(wigs?)\b/i, /\b(masks?)\b/i, /\b(wrist[ -]?bands?|sweat[ -]?bands?|wrist[ -]?cuffs?)\b/i, /\b(glasses|spectacles|eyeglasses)\b/i, /\b(goggles)\b/i,
   /\b(collars?)\b/i, /\b(scarf|scarves|neckerchiefs?|bandanas?|wild\s?rags?)\b/i,
   /\b(harness|harnesses|vests?|waistcoats?)\b/i,
   /\b(cardigans?|sweaters?|knitwear|jumpers?)\b/i, /\b(shirts?|blouses?|tops?)\b/i,

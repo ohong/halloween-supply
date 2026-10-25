@@ -46,7 +46,7 @@ export function PhoneCapture() {
     const fail = (message: string) => { if (current()) { stop(""); setError(message); } };
     try {
       const claimant = crypto.randomUUID();
-      const config = await pairRequest<{ iceServers: RTCIceServer[]; expires: number }>(id, token, { action: "claim", claimant }, session.controller.signal);
+      const config = await pairRequest<{ iceServers: RTCIceServer[]; expires: number; unlimitedSession?: boolean }>(id, token, { action: "claim", claimant }, session.controller.signal);
       if (!current()) return;
       const stream = await navigator.mediaDevices.getUserMedia({ video: { facingMode: facing, width: { ideal: 1280 }, height: { ideal: 720 }, frameRate: { ideal: 24, max: 30 } }, audio: audio ? { echoCancellation: true, noiseSuppression: true } : false });
       if (!current()) { stream.getTracks().forEach(track => track.stop()); return; }
@@ -57,6 +57,7 @@ export function PhoneCapture() {
       const channel = peer.createDataChannel("camera-control"); session.channel = channel;
       channel.onopen = () => {
         if (!current()) return;
+        if (config.unlimitedSession) clearTimeout(session.expiry);
         setStatus("connected"); setNote("Your camera is visible on the computer."); session.lastPing = Date.now();
         session.heartbeat = setInterval(() => { if (Date.now() - session.lastPing > 12_000) fail("Your computer stopped responding. Scan a new code to reconnect."); }, 3000);
       };
