@@ -3,6 +3,7 @@
 import { useCallback, useEffect, useRef, useState, type CSSProperties } from "react";
 import { SCREENSHOT_SLUG, formatPrice, useCart } from "@/lib/cart/context";
 import type { CartItem } from "@/lib/types";
+import { AssemblyPlaceholder, AssemblyStatus } from "./assembly-status";
 import "./screenshot-costume.css";
 
 interface LookPiece { name: string; slot: string; query: string; sizeKind: CartItem["sizeKind"] }
@@ -178,13 +179,20 @@ export function ScreenshotCostume() {
 
       {error && <p className="notice" role="alert">{error}</p>}
 
+      {(running || visible.length > 0) && <AssemblyStatus found={found.length} total={visible.length} missing={missing} running={running} stopped={phase === "error"} />}
+      {running && visible.length === 0 && <div className="shot-preparing" aria-hidden="true">
+        <span className="shot-preparing-sheet" />
+        <span className="shot-preparing-sheet" />
+        <span className="shot-preparing-sheet" />
+        <p>Making room for your look</p>
+      </div>}
       {visible.length > 0 ? <ul className="shot-lay">
         {visible.map((slot, i) => <li key={i} className={`shot-slot is-${slot.state}`} style={{ "--r": `${TILT[i % TILT.length]}deg` } as CSSProperties}>
           <div className="shot-frame">
             {slot.state === "found"
               // eslint-disable-next-line @next/next/no-img-element -- merchant images come from any shop's CDN
               ? <img src={slot.item.image} alt={slot.item.title} referrerPolicy="no-referrer" />
-              : <span className="shot-ghost">{slot.state === "missing" ? "Not in stock anywhere we checked" : "Searching shops…"}</span>}
+              : <AssemblyPlaceholder state={slot.state === "looking" && phase === "error" ? "stopped" : slot.state} index={i} />}
           </div>
           <div className="shot-caption">
             <p className="shot-piece">{slot.name}</p>
