@@ -32,6 +32,18 @@ vercel env ls --environment production --scope ohong-projects --project hallowee
 Do not pull environment files over `.env.local` or print credentials.
 Stripe remains in test mode for the five-costume demo. Do not replace the production credential with a live key without a new user instruction.
 
+## Demo sizes
+
+Stripe test checkout accepts missing sizes and records `M` (Medium) for them.
+The cart labels these as demo defaults and keeps Checkout enabled. Explicitly
+chosen sizes still use exact merchant validation; one-size pieces stay one size.
+The assistant does not require size entry during this demo.
+
+Medium is a demo placeholder, including for numeric-size pieces. It is not a
+claim that a merchant stocks Medium. Defaulted lines still check live price and
+stock without requiring a specific size and carry `size_defaulted_for_demo` in
+Stripe metadata. Live-money checkout keeps its explicit-size requirement.
+
 ## Daily catalog refresh
 
 `vercel.json` schedules `/api/cron/refresh` each day at 10:00 UTC.

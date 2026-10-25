@@ -3,6 +3,7 @@ import { Suspense } from "react";
 import { Geist, Geist_Mono } from "next/font/google";
 import { CartProvider } from "@/lib/cart/context";
 import { CartDrawer } from "@/components/store/cart-drawer";
+import { usesDemoSizes } from "@/lib/checkout/mode";
 import { SiteHeader } from "@/components/store/site-header";
 import "./globals.css";
 
@@ -37,7 +38,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
           <SiteHeader />
           {children}
           <footer className="site-footer page">© 2026 halloween.supply</footer>
-          <Suspense fallback={null}><CartDrawer /></Suspense>
+          <Suspense fallback={null}><CartDrawer demoDefaultSizes={usesDemoSizes()} /></Suspense>
         </CartProvider>
       </body>
     </html>
