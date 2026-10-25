@@ -1,19 +1,16 @@
 "use client";
 
-import { useState } from "react";
 import { formatExactPrice, useCart } from "@/lib/cart/context";
 import { toCartItem } from "@/lib/cart/item";
 import type { PieceView } from "@/lib/types";
 import { PieceInspectionPanel } from "./piece-inspection-panel";
 import "./costume-piece-inspector.css";
 
-export function CostumePieceInspector({ costumeSlug, view, index, onChoose, onClose }: { costumeSlug: string; view: PieceView; index: number; onChoose: (index: number) => void; onClose: () => void }) {
+export function CostumePieceInspector({ costumeSlug, view, index, size, onSizeChange, onAdd, onChoose, onClose }: { costumeSlug: string; view: PieceView; index: number; size: string | null; onSizeChange: (size: string) => void; onAdd: () => void; onChoose: (index: number) => void; onClose: () => void }) {
   const cart = useCart();
-  const [sizes, setSizes] = useState<Record<string, string>>({});
   const option = view.options[index] ?? view.options[0];
   if (!option) return null;
   const current = cart.costumeSlug === costumeSlug ? cart.items.find((line) => line.pieceId === view.piece.id && line.productId === option.product.id) : undefined;
-  const size = sizes[option.product.id] ?? current?.size ?? null;
   const item = toCartItem(view.piece, option, size);
   const inCart = cart.ready && !!current;
 
@@ -24,13 +21,10 @@ export function CostumePieceInspector({ costumeSlug, view, index, onChoose, onCl
       size={item.size}
       inCart={inCart}
       addDisabled={!cart.ready || option.product.availability === "out_of_stock"}
-      onSizeChange={(next) => {
-        setSizes((values) => ({ ...values, [option.product.id]: next }));
-        if (inCart) cart.setSize(view.piece.id, next);
-      }}
+      onSizeChange={onSizeChange}
       onAdd={() => {
         if (!cart.ready || option.product.availability === "out_of_stock") return;
-        if (!inCart) cart.add(item, costumeSlug);
+        if (!inCart) onAdd();
         cart.setOpen(true);
       }}
       onClose={onClose}
