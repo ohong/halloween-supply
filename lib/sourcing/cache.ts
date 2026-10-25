@@ -17,7 +17,7 @@ export async function readCache<T>(namespace: string, key: unknown): Promise<T |
   try {
     const file = path.join(cacheDir(), namespace, `${hashKey(key)}.json`);
     // Product facts expire quickly; repeated runs must not re-date old stock.
-    const maxAge = ["firecrawl-pages", "shopify", "shop-currency", "screenshot-look"].includes(namespace) ? 15 * 60_000
+    const maxAge = ["firecrawl-pages", "shopify", "shop-currency", "shop-page-currency", "screenshot-look"].includes(namespace) ? 15 * 60_000
       : ["firecrawl-search", "screenshot-analysis"].includes(namespace) ? 24 * 60 * 60_000 : Infinity;
     if (Date.now() - (await stat(file)).mtimeMs > maxAge) return undefined;
     const raw = await readFile(file, "utf8");

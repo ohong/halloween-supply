@@ -60,6 +60,7 @@ function wrongAudience(piece: ScreenshotPiece, text: string) {
   if (!supportsWearerAudience(text)) return true;
   return [
     /\b\d+\s*(?:[-–]\s*\d+\s*)?(?:years?|months?|yrs?|mos?)\b/i,
+    /\b\d+\s*[-–]\s*\d+\s*[my]\b|\b\d+\s*[yt]\b/i,
     /\b(pattern|tutorial|download|printable|charm|ornament|keychain|hand fan)\b/i,
     /\b(rent|rental)\b/i,
   ].some((kind) => kind.test(text) && !kind.test(`${piece.name} ${piece.query}`));
@@ -145,13 +146,14 @@ export function screenshotSourcing(signal: AbortSignal, log: SourcingLog, catalo
     let pending = currencies.get(origin);
     if (!pending) {
       pending = (async () => {
-        const cached = await readCache<string>("shop-currency", origin);
+        const key = { origin, currency: "USD" };
+        const cached = await readCache<string>("shop-currency", key);
         if (cached) return cached;
         try {
-          const response = await fetch(`${origin}/cart.js`, { signal: AbortSignal.any([signal, AbortSignal.timeout(2_500)]), headers: { Accept: "application/json" } });
+          const response = await fetch(`${origin}/cart.js?currency=USD`, { signal: AbortSignal.any([signal, AbortSignal.timeout(2_500)]), headers: { Accept: "application/json" } });
           const cart = response.ok ? await response.json() as { currency?: string } : null;
           const value = typeof cart?.currency === "string" ? cart.currency : null;
-          if (value) await writeCache("shop-currency", origin, value);
+          if (value) await writeCache("shop-currency", key, value);
           return value;
         } catch { return null; }
       })();
@@ -161,8 +163,26 @@ export function screenshotSourcing(signal: AbortSignal, log: SourcingLog, catalo
   }
 
   async function readShopify(url: string, piece: ScreenshotPiece, readSignal: AbortSignal): Promise<ScreenshotProduct | null> {
-    const [product, money] = await Promise.all([readShopifyProduct(url, true, { signal: readSignal, timeoutMs: 3_500 }), currency(new URL(url).origin)]);
-    if (!product?.title || money !== "USD") return null;
+    const pageCurrency = async () => {
+      const pageUrl = new URL(url); pageUrl.search = "?currency=USD";
+      const key = pageUrl.toString();
+      const cached = await readCache<string>("shop-page-currency", key);
+      if (cached) return cached;
+      try {
+        const response = await fetch(pageUrl, { signal: AbortSignal.any([readSignal, AbortSignal.timeout(3_500)]), headers: { Accept: "text/html" } });
+        if (!response.ok || registrableDomain(response.url) !== registrableDomain(url)) return null;
+        const declared = parseProduct(await response.text(), key).currency ?? "unknown";
+        await writeCache("shop-page-currency", key, declared);
+        return declared;
+      } catch { return null; }
+    };
+    const [raw, money, declared] = await Promise.all([
+      readShopifyProduct(url, true, { signal: readSignal, timeoutMs: 3_500 }), currency(new URL(url).origin), pageCurrency(),
+    ]);
+    // Some stores report USD in cart.js while their product facts still price the same cents in EUR.
+    // Match checkout's currency agreement before showing that offer as purchasable.
+    if (!raw?.title || money !== "USD" || !declared || !["USD", "unknown"].includes(declared)) return null;
+    const product = { ...raw, variants: raw.variants.filter((variant) => !wrongAudience(piece, `${variant.title} ${(variant.options ?? []).join(" ")}`)) };
     // Match color options on the chosen variant. A title cannot override an explicit wrong color.
     const colorIndex = product.options.findIndex((option) => /colou?r/i.test(typeof option === "string" ? option : option.name));
     const purchaseIndex = product.options.findIndex((option) => /purchase\s*(type|option)/i.test(typeof option === "string" ? option : option.name));
@@ -186,6 +206,7 @@ export function screenshotSourcing(signal: AbortSignal, log: SourcingLog, catalo
       const productUrl = new URL(url);
       productUrl.search = "";
       productUrl.searchParams.set("variant", String(variant.id));
+      productUrl.searchParams.set("currency", "USD");
       return { title: product.title, image, url: productUrl.toString(), priceCents: variant.price, merchant: registrableDomain(productUrl.hostname)!, sizes };
     }
     return null;

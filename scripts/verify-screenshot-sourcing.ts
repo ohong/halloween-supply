@@ -42,6 +42,7 @@ for (const slug of samples) {
       assert(item.title && item.merchantName && item.productUrl.startsWith("https://"));
       assert(!isBlockedDomain(item.productUrl) && !isNoiseDomain(item.productUrl));
       assert(item.image.startsWith("https://"));
+      assert(!/\b\d+\s*[-–]\s*\d+\s*(?:years?|months?|[my])\b|\b\d+\s*[yt]\b/i.test(item.availableSizes.join(" ")), "Adult demo must not return children's size variants");
       assert(Number.isSafeInteger(item.priceCents) && item.priceCents > 0);
       assert.equal(item.productId, createHash("sha256").update(item.productUrl).digest("hex").slice(0, 24));
     }

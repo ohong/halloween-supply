@@ -29,7 +29,9 @@ Discovery keeps the precise product query first. Generic gender suffixes are rem
 
 Firecrawl result excerpts sometimes contain exact product links under a collection hit. The route extracts same-merchant links and verifies their product pages directly. It never treats excerpt prices or stock claims as checkout facts.
 
-Candidates are ranked before applying the four-page limit. Up to two products from one host remain eligible. Reads race so a slow merchant cannot delay another acceptable match. Losing reads are cancelled. Shopify reads have a 3.5-second timeout; currency reads have 2.5 seconds. Other merchant pages get a five-second Firecrawl timeout. The screenshot run has a shared 50-second deadline, including queued searches and retries.
+Candidates are ranked before applying the four-page limit. Up to two products from one host remain eligible. Reads race so a slow merchant cannot delay another acceptable match. Losing reads are cancelled. Shopify feeds and direct currency-page checks have a 3.5-second timeout; cart currency reads have 2.5 seconds. Other merchant pages get a five-second Firecrawl timeout. The screenshot run has a shared 50-second deadline, including queued searches and retries.
+
+Shopify offers carry an explicit USD selection into checkout. The merchant page and cart must agree on currency. A cart claiming USD cannot override a page that still prices the same cents in EUR. Abbreviated child sizes such as `18–24m`, `2–4y`, and `3T` are filtered before selecting the purchasable variant family.
 
 The route rejects incompatible garment types, wrong color variants, explicit child/pet/doll audiences, age-labeled variants, rentals, digital patterns, and unsupported identifying style details. It checks secondary colors in merchant evidence for details such as red lining or white spots. These checks are conservative heuristics, not visual proof of an exact match. Color families include close alternatives, such as ivory/cream/white.
 
