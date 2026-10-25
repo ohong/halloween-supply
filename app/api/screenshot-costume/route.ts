@@ -191,9 +191,9 @@ export async function POST(request: Request) {
           }
         }
         await handle(buffer);
-        const finished: z.infer<typeof lookSchema> | null = look;
-        if (!finished) throw new PreviewError(422, "That image didn’t show an outfit we could read. Try a screenshot with one clear character.");
-        for (let i = 0; i < finished.pieces.length; i++) if (!placed.has(i)) emit({ t: "miss", i });
+        const finished = lookSchema.safeParse(look);
+        if (!finished.success) throw new PreviewError(422, "That image didn’t show an outfit we could read. Try a screenshot with one clear character.");
+        for (let i = 0; i < finished.data.pieces.length; i++) if (!placed.has(i)) emit({ t: "miss", i });
         emit({ t: "done", found: placed.size });
       } catch (error) {
         const text = error instanceof PreviewError ? error.message
