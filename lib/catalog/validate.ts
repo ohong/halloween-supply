@@ -36,6 +36,7 @@ const schema = z.object({
     currency: z.literal("USD"),
     image,
     cutout: z.string().regex(/^\/products\/[a-z0-9-]+-cutout\.png$/).optional(),
+    merchantImage: z.string().regex(/^\/products\/price-tiers\/[a-z0-9-]+\.webp$/).optional(),
     sourceImages: z.array(url).min(1),
     availability: z.enum(["in_stock", "out_of_stock", "unknown"]),
     sizes: z.array(text),
@@ -43,6 +44,7 @@ const schema = z.object({
     tagSlugs: z.array(id),
     description: z.string(),
     checkedAt: z.iso.datetime({ offset: true }),
+    sourcing: z.object({ method: z.literal("built-in-web"), checkedAt: z.iso.datetime({ offset: true }), url, notes: z.string() }).optional(),
   })),
   merchants: z.array(z.object({
     id,
@@ -58,6 +60,7 @@ const schema = z.object({
     method: z.enum(["pipeline", "manual-research"]),
     generatedAt: z.iso.datetime({ offset: true }),
     notes: z.string().optional(),
+    priceTiers: z.boolean().optional(),
   }),
 });
 
@@ -102,6 +105,11 @@ export function validateSnapshot(value: unknown, requireInStockDefault = true): 
       assert(piece.matches.length === 3 && piece.matches.every((match) => match.rank <= 2), `Live piece ${piece.id} needs ranks 0, 1, and 2`);
       const defaultPick = piece.matches.find((match) => match.rank === 0);
       assert(!requireInStockDefault || (!!defaultPick && productById.get(defaultPick.productId)?.availability === "in_stock"), `Live piece ${piece.id} needs an in-stock default`);
+      if (requireInStockDefault && snapshot.provenance.priceTiers) {
+        const prices = piece.matches.map((match) => productById.get(match.productId)?.priceCents);
+        assert(new Set(prices).size === 3, `Price-tier piece ${piece.id} needs three distinct prices`);
+        assert(piece.matches.every((match) => productById.get(match.productId)?.availability !== "out_of_stock"), `Price-tier piece ${piece.id} cannot publish sold-out options`);
+      }
     }
   }
   if (errors.length) throw new Error(`Invalid catalog snapshot: ${errors.join("; ")}`);

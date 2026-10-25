@@ -1,5 +1,6 @@
 import type { CostumeSnapshot, Product } from "../types";
 import { validateSnapshot } from "../catalog/validate";
+import { validateDeployedImages, validatePublicationImages } from "../catalog/publication-images";
 import { getDatabase } from "./client";
 
 export async function ensureSchema(): Promise<void> {
@@ -19,6 +20,7 @@ export async function readSnapshots(): Promise<CostumeSnapshot[]> {
 /** A costume is replaced in one statement, so readers cannot see a partial import. */
 export async function upsertSnapshot(input: CostumeSnapshot): Promise<void> {
   const snapshot = validateSnapshot(input);
+  await validateDeployedImages(await validatePublicationImages(snapshot));
   await getDatabase().execute({
     sql: `INSERT INTO catalog_snapshots (slug, snapshot) VALUES (?, ?)
       ON CONFLICT(slug) DO UPDATE SET snapshot = excluded.snapshot,

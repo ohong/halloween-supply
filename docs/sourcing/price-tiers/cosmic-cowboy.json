@@ -1,0 +1,358 @@
+{
+  "costumeSlug": "cosmic-cowboy",
+  "checkedAt": "2026-10-25T07:20:28.729826Z",
+  "pieces": [
+    {
+      "pieceId": "cowboy-hat",
+      "pieceName": "Silver cowboy hat",
+      "options": [
+        {
+          "tier": "$",
+          "title": "Silver Sequin Cowboy Hat with White LED Brim",
+          "url": "https://www.flashingblinkylights.com/silver-sequin-cowboy-hat-with-white-led-brim.html",
+          "priceCents": 999,
+          "currency": "USD",
+          "merchantName": "Flashing Blinky Lights",
+          "merchantDomain": "www.flashingblinkylights.com",
+          "imageUrl": "https://www.flashingblinkylights.com/media/catalog/product/1/1/11832_sl_cowboy_hatv2_600.gif",
+          "sizes": [
+            "One adult size"
+          ],
+          "availability": "in_stock",
+          "evidenceUrl": "https://www.flashingblinkylights.com/silver-sequin-cowboy-hat-with-white-led-brim.html",
+          "notes": "Silver sequins and white LED brim. Adult costume accessory; dimensions 15 x 9.5 x 5 inches. LEDs can remain off. Page states 14,430 in stock; single-unit price $9.99.",
+          "localMerchantImage": "/products/price-tiers/p-9a55a595ed.webp"
+        },
+        {
+          "tier": "$$",
+          "title": "Silver Rhinestone Cowboy Hat Adult Costume Accessory",
+          "url": "https://www.toynk.com/products/silver-rhinestone-cowboy-hat-adult-costume-accessory?variant=43882059923578",
+          "priceCents": 4299,
+          "currency": "USD",
+          "merchantName": "Toynk",
+          "merchantDomain": "toynk.com",
+          "imageUrl": "https://cdn.shopify.com/s/files/1/1140/8354/files/UDW-30904-C-1.jpg?v=1727685331",
+          "sizes": [
+            "One adult size"
+          ],
+          "availability": "in_stock",
+          "evidenceUrl": "https://www.toynk.com/products/silver-rhinestone-cowboy-hat-adult-costume-accessory.js",
+          "notes": "Metallic silver adult cowboy hat with rhinestone trim. Current merchant variant feed is $42.99, lower than the older search-index price of $44.99. One adult size.",
+          "localMerchantImage": "/products/price-tiers/p-d3dda3a622.webp"
+        },
+        {
+          "tier": "$$$",
+          "title": "Metallic Cowboy Hat — Silver",
+          "url": "https://eastnwestlabel.com/products/metallic-cowboy-hat?variant=40304078225431",
+          "priceCents": 14000,
+          "currency": "USD",
+          "merchantName": "EastnWest Label",
+          "merchantDomain": "eastnwestlabel.com",
+          "imageUrl": "https://cdn.shopify.com/s/files/1/0579/7072/0791/products/ScreenShot2022-09-12at1.46.15PM.png?v=1663015669",
+          "sizes": [
+            "Silver / S/M",
+            "Silver / L/XL"
+          ],
+          "availability": "in_stock",
+          "evidenceUrl": "https://eastnwestlabel.com/products/metallic-cowboy-hat.js",
+          "notes": "Silver metallic cowboy hat; optional crystal star. Made to order in Costa Mesa. S/M fits 20–22.5 inches; L/XL fits 23–24.5 inches. Feed confirms both silver variants in stock at $140; do not use the gold variants.",
+          "existingProductId": "p-4b2c550c26",
+          "localMerchantImage": "/products/price-tiers/p-4b2c550c26.webp"
+        }
+      ],
+      "gaps": []
+    },
+    {
+      "pieceId": "fringe-jacket",
+      "pieceName": "Fringed western jacket",
+      "options": [
+        {
+          "tier": "$",
+          "title": "Adult L/XL Silver Tinsel Fringe Jacket",
+          "url": "https://theoddassortment.com/products/adult-l-xl-silver-tinsel-fringe-jacket?variant=46101072937217",
+          "priceCents": 2499,
+          "currency": "USD",
+          "merchantName": "The Odd Assortment",
+          "merchantDomain": "theoddassortment.com",
+          "imageUrl": "https://cdn.shopify.com/s/files/1/0337/2243/3676/files/s-l1600_62b933d3-fe5a-43a1-b9e0-2eca9552a463.jpg?v=1741114817",
+          "sizes": [
+            "L/XL"
+          ],
+          "availability": "in_stock",
+          "evidenceUrl": "https://theoddassortment.com/products/adult-l-xl-silver-tinsel-fringe-jacket.js",
+          "notes": "Adult KBW silver tinsel fringe costume jacket. This listing offers L/XL only; confirm body measurements. Allover tinsel is a disco interpretation, not a tailored western yoke.",
+          "localMerchantImage": "/products/price-tiers/p-47ca5a0d66.webp"
+        },
+        {
+          "tier": "$$",
+          "title": "Silver Fringe R&R Jacket",
+          "url": "https://grittybelleboutique.com/products/silver-fringe-r-r-jacket?variant=42621922115780",
+          "priceCents": 7100,
+          "currency": "USD",
+          "merchantName": "Gritty Belle Boutique",
+          "merchantDomain": "grittybelleboutique.com",
+          "imageUrl": "https://cdn.shopify.com/s/files/1/0608/9326/6116/files/1540C0A7-860E-40A1-B7D2-831A3C91A3E2.jpg?v=1700951893",
+          "sizes": [
+            "XS",
+            "Small",
+            "Medium",
+            "Large",
+            "XL"
+          ],
+          "availability": "in_stock",
+          "evidenceUrl": "https://grittybelleboutique.com/products/silver-fringe-r-r-jacket.js",
+          "notes": "Silver zip-front moto jacket with chest fringe, notched lapels, zip pockets and snaps. Current feed confirms XS, Small, Medium, Large and XL at $71. Photo review confirms a metallic silver jacket under warm shop lighting; cool blue reflections show on sleeves. Gallery has two views of this same silver-only product; all variants are sizes, not colors. Existing reviewed product extraction p-2776c6bc82.jpg is visually clearer.",
+          "existingProductId": "p-2776c6bc82",
+          "localMerchantImage": "/products/price-tiers/p-2776c6bc82.webp"
+        },
+        {
+          "tier": "$$$",
+          "title": "Silver tinsel jacket",
+          "url": "https://ancosti.com/products/silver-tinsel-jacket?variant=47888578019611",
+          "priceCents": 10200,
+          "currency": "USD",
+          "merchantName": "Ancosti",
+          "merchantDomain": "ancosti.com",
+          "imageUrl": "https://cdn.shopify.com/s/files/1/0804/7099/9323/files/Silvertinseljacket5.jpg?v=1708171736",
+          "sizes": [
+            "Silver / S",
+            "Silver / M",
+            "Silver / L"
+          ],
+          "availability": "in_stock",
+          "evidenceUrl": "https://ancosti.com/products/silver-tinsel-jacket.js",
+          "notes": "Silver allover tinsel fringe; round neck, button placket and short straight cut. 100% polyester. S/M/L variants are in stock at $102, final sale. More expensive here describes price only, not proven quality.",
+          "localMerchantImage": "/products/price-tiers/p-bbb1483f81.webp"
+        }
+      ],
+      "gaps": [
+        "The $ jacket is L/XL only and uses allover tinsel rather than a classic western yoke. The $$$ jacket also uses tinsel; no comparative quality claim is verified."
+      ]
+    },
+    {
+      "pieceId": "silver-trousers",
+      "pieceName": "Silver trousers",
+      "options": [
+        {
+          "tier": "$",
+          "title": "Women’s 70’s Metallic Bell Bottoms — Silver",
+          "url": "https://shop.johnniebrocks.com/products/womens-70s-metallic-bell-bottoms?variant=42188986220683",
+          "priceCents": 2499,
+          "currency": "USD",
+          "merchantName": "Johnnie Brock’s",
+          "merchantDomain": "shop.johnniebrocks.com",
+          "imageUrl": "https://cdn.shopify.com/s/files/1/0598/0035/4955/files/vn8435juw4qrczxwtgjv.jpg?v=1712947664",
+          "sizes": [
+            "XS",
+            "S/M"
+          ],
+          "availability": "in_stock",
+          "evidenceUrl": "https://shop.johnniebrocks.com/products/womens-70s-metallic-bell-bottoms.js",
+          "notes": "Underwraps high-waisted silver metallic stretch bell bottoms with elastic waistband. Correct silver photo visually reviewed against all three gallery colorways. Current feed confirms Silver XS and Silver S/M in stock at $24.99; L/XL is sold out. Replaces pale white-looking Bellissima pants after image QA.",
+          "localMerchantImage": "/products/price-tiers/p-9bbb0166a7.webp"
+        },
+        {
+          "tier": "$$",
+          "title": "Metallic Muse Satin Trouser in Silver",
+          "url": "https://thelocalgroup.shop/products/metallic-muse-satin-trouser-in-silver?variant=47754806853856",
+          "priceCents": 3900,
+          "currency": "USD",
+          "merchantName": "The Local Group Apparel",
+          "merchantDomain": "thelocalgroup.shop",
+          "imageUrl": "https://cdn.shopify.com/s/files/1/0757/5483/2096/files/Screenshot_2025-10-11_at_10.55.58_PM.png?v=1780688888",
+          "sizes": [
+            "S",
+            "M",
+            "L",
+            "XL"
+          ],
+          "availability": "in_stock",
+          "evidenceUrl": "https://thelocalgroup.shop/products/metallic-muse-satin-trouser-in-silver.js",
+          "notes": "Fluid silver satin wide-leg pants with front pleats, button and zip fly. 100% polyester. S/M/L/XL in stock at $39. Satin sheen rather than high-shine foil; wide leg fits over boots.",
+          "existingProductId": "p-ba3ef9a46e",
+          "localMerchantImage": "/products/price-tiers/p-ba3ef9a46e.webp"
+        },
+        {
+          "tier": "$$$",
+          "title": "Metallic Bell Bottom Jean in Black Denim",
+          "url": "https://pretty-attitude.com/products/metallic-bell-bottom-jean-in-black-denim?variant=42453163933731",
+          "priceCents": 12000,
+          "currency": "USD",
+          "merchantName": "Pretty Attitude",
+          "merchantDomain": "pretty-attitude.com",
+          "imageUrl": "https://cdn.shopify.com/s/files/1/0940/5210/files/metallic-bell-bottoms-liv.jpg?v=1756259622",
+          "sizes": [
+            "Short Inseam 30\" / 3",
+            "Short Inseam 30\" / 5",
+            "Short Inseam 30\" / 7",
+            "Short Inseam 30\" / 9",
+            "Short Inseam 30\" / 11",
+            "Short Inseam 30\" / 13",
+            "Short Inseam 30\" / 15",
+            "Regular Inseam 32\" / 3",
+            "Regular Inseam 32\" / 5",
+            "Regular Inseam 32\" / 7",
+            "Regular Inseam 32\" / 9",
+            "Regular Inseam 32\" / 11",
+            "Regular Inseam 32\" / 13",
+            "Regular Inseam 32\" / 15",
+            "Long Inseam 34\" / 3",
+            "Long Inseam 34\" / 5",
+            "Long Inseam 34\" / 7",
+            "Long Inseam 34\" / 9",
+            "Long Inseam 34\" / 11",
+            "Long Inseam 34\" / 13",
+            "Long Inseam 34\" / 15"
+          ],
+          "availability": "in_stock",
+          "evidenceUrl": "https://pretty-attitude.com/products/metallic-bell-bottom-jean-in-black-denim.js",
+          "notes": "USA-made high-shine silver-black foil-coated denim bell bottoms. Darker than pure silver. Sizes 3/5/7/9/11/13/15 at 30, 32 and 34-inch inseams all confirm available at $120 in current feed.",
+          "existingProductId": "p-001ca783f4",
+          "localMerchantImage": "/products/price-tiers/p-001ca783f4.webp"
+        }
+      ],
+      "gaps": [
+        "The $$ satin trouser is wide-leg rather than bootcut. The $$$ foil denim has a darker silver-black finish.",
+        "The $ silver bell bottoms cover XS and S/M only; L/XL is sold out."
+      ]
+    },
+    {
+      "pieceId": "western-boots",
+      "pieceName": "Pointed western boots",
+      "options": [
+        {
+          "tier": "$",
+          "title": "RIVER01 - SILVER",
+          "url": "https://hotmiamishoes.com/products/river01-silver?variant=42152908292271",
+          "priceCents": 3499,
+          "currency": "USD",
+          "merchantName": "Hot Miami Shoes",
+          "merchantDomain": "hotmiamishoes.com",
+          "imageUrl": "https://cdn.shopify.com/s/files/1/2723/5426/products/river01-slv.png?v=1669171745",
+          "sizes": [
+            "6",
+            "6.5",
+            "8.5"
+          ],
+          "availability": "in_stock",
+          "evidenceUrl": "https://hotmiamishoes.com/products/river01-silver.js",
+          "notes": "Silver rhinestone western ankle boots with pointed toe and block heel. Current feed confirms US 6, 6.5 and 8.5 in stock at $34.99. Limited size coverage; not suitable for other sizes.",
+          "localMerchantImage": "/products/price-tiers/p-b399bab722.webp"
+        },
+        {
+          "tier": "$$",
+          "title": "STARBURST LEATHER BOOT",
+          "url": "https://dingo1969.com/products/starburst-leather-boot-si?variant=49666872967458",
+          "priceCents": 7999,
+          "currency": "USD",
+          "merchantName": "Dingo1969",
+          "merchantDomain": "dingo1969.com",
+          "imageUrl": "https://cdn.shopify.com/s/files/1/0033/0707/7741/files/DI2248-Silver_2.png?v=1740588327",
+          "sizes": [
+            "SILVER / 6 / M",
+            "SILVER / 6.5 / M",
+            "SILVER / 7 / M",
+            "SILVER / 7.5 / M",
+            "SILVER / 8 / M",
+            "SILVER / 8.5 / M",
+            "SILVER / 9 / M",
+            "SILVER / 9.5 / M",
+            "SILVER / 10 / M",
+            "SILVER / 11 / M"
+          ],
+          "availability": "in_stock",
+          "evidenceUrl": "https://dingo1969.com/products/starburst-leather-boot-si.js",
+          "notes": "Silver leather western boot with star inlays, snip toe, 9-inch shaft and 3-inch heel. Current feed confirms every offered size 6–11 (including half sizes through 9.5) in medium width at $79.99.",
+          "localMerchantImage": "/products/price-tiers/p-68dc4caa64.webp"
+        },
+        {
+          "tier": "$$$",
+          "title": "Dingo Silver Dollar Sparkle Women's Boot DI570",
+          "url": "https://wildbillswestern.com/products/di570-silver-dollar-sparkle?variant=44216998559981",
+          "priceCents": 23999,
+          "currency": "USD",
+          "merchantName": "Wild Bill’s Western Store",
+          "merchantDomain": "wildbillswestern.com",
+          "imageUrl": "https://cdn.shopify.com/s/files/1/0609/0889/6493/files/e8290256c0b6036578e57084a1cb28d4.png?v=1724443270",
+          "sizes": [
+            "M / 7 / Silver",
+            "M / 7.5 / Silver",
+            "M / 8 / Silver",
+            "M / 9 / Silver",
+            "M / 9.5 / Silver",
+            "M / 10 / Silver"
+          ],
+          "availability": "in_stock",
+          "evidenceUrl": "https://wildbillswestern.com/products/di570-silver-dollar-sparkle.js",
+          "notes": "Dingo Silver Dollar DI570 silver leather western boot with rhinestones, snip toe, 12-inch shaft, 2.5-inch heel. Current feed confirms medium-width sizes 7/7.5/8/9/9.5/10 at $239.99. Search-rendered HTML was six months old and contradicted current inventory; use current .js feed.",
+          "localMerchantImage": "/products/price-tiers/p-be96576442.webp"
+        }
+      ],
+      "gaps": [
+        "The $ option is limited to sizes US 6, 6.5 and 8.5. The $$ option covers sizes 6 through 11 and is the practical fallback for other sizes."
+      ]
+    },
+    {
+      "pieceId": "neckerchief",
+      "pieceName": "Bright blue neckerchief",
+      "options": [
+        {
+          "tier": "$",
+          "title": "Royal Blue Paisley Bandana",
+          "url": "https://wexpress.com/products/made-in-the-usa-royal-blue-paisley-bandana?variant=53458560418092",
+          "priceCents": 599,
+          "currency": "USD",
+          "merchantName": "Western Express",
+          "merchantDomain": "wexpress.com",
+          "imageUrl": "https://cdn.shopify.com/s/files/1/0950/8166/0716/files/3507-0.jpg?v=1784663783",
+          "sizes": [
+            "One size"
+          ],
+          "availability": "in_stock",
+          "evidenceUrl": "https://wexpress.com/products/made-in-the-usa-royal-blue-paisley-bandana.js",
+          "notes": "Royal blue cotton paisley bandana, made in USA, 22 x 22 inches. White/black print; brighter and closer to cobalt than the premium teal-blue silk option. Current feed in stock at $5.99.",
+          "localMerchantImage": "/products/price-tiers/p-8c95a056a9.webp"
+        },
+        {
+          "tier": "$$",
+          "title": "Reveal Kojima Bandanna - Blue",
+          "url": "https://standardandstrange.com/products/reveal-kojima-bandanna-blue?variant=46119804108973",
+          "priceCents": 2500,
+          "currency": "USD",
+          "merchantName": "Standard & Strange",
+          "merchantDomain": "standardandstrange.com",
+          "imageUrl": "https://cdn.shopify.com/s/files/1/0352/5633/files/omotodenim-RevealKojimaBandanna-Blue-Flat-07.jpg?v=1785450722",
+          "sizes": [
+            "One size"
+          ],
+          "availability": "in_stock",
+          "evidenceUrl": "https://standardandstrange.com/products/reveal-kojima-bandanna-blue.js",
+          "notes": "Omoto 100% cotton, discharge-printed selvedge bandanna in blue. Soft lightweight poplin; one size. Current official feed in stock at $25.",
+          "existingProductId": "p-dd6cb1a575",
+          "localMerchantImage": "/products/price-tiers/p-dd6cb1a575.webp"
+        },
+        {
+          "tier": "$$$",
+          "title": "Buckaroo Blue | Silk Wild Rag | 19mm Solid Western Scarf",
+          "url": "https://cowtownwildrags.com/products/solid-buckaroo-blue-wild-rag?variant=47759561425061",
+          "priceCents": 7800,
+          "currency": "USD",
+          "merchantName": "Cowtown Wild Rags",
+          "merchantDomain": "cowtownwildrags.com",
+          "imageUrl": "https://cdn.shopify.com/s/files/1/0595/2490/7173/files/Caribbean_Blue_Wild_Rag.png?v=1781368858",
+          "sizes": [
+            "36-inch square"
+          ],
+          "availability": "in_stock",
+          "evidenceUrl": "https://cowtownwildrags.com/products/solid-buckaroo-blue-wild-rag.js",
+          "notes": "Solid 19mm 100% silk wild rag. $78 is specifically the 36-inch square; 42-inch is $84 and is not represented by this price. Blue with a teal cast, not pure cobalt.",
+          "existingProductId": "p-0a49fa4bf2",
+          "localMerchantImage": "/products/price-tiers/p-0a49fa4bf2.webp"
+        }
+      ],
+      "gaps": [
+        "The $$$ silk option leans toward teal; choose the $ royal-blue bandana for a closer cobalt match."
+      ]
+    }
+  ]
+}

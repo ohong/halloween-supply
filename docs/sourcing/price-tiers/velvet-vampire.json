@@ -1,0 +1,332 @@
+{
+  "costumeSlug": "velvet-vampire",
+  "checkedAt": "2026-10-25T07:10:48.768664Z",
+  "pieces": [
+    {
+      "pieceId": "vampire-cape",
+      "pieceName": "Black velvet cape",
+      "options": [
+        {
+          "tier": "$",
+          "title": "Black Velvet Hooded Cape with Red Satin Lining",
+          "url": "https://statefairseasons.com/products/black-velvet-hooded-cape-with-red-satin-lining?variant=39357556195443",
+          "priceCents": 2199,
+          "currency": "USD",
+          "merchantName": "State Fair Seasons",
+          "merchantDomain": "statefairseasons.com",
+          "imageUrl": "https://cdn.shopify.com/s/files/1/0127/0982/products/30355.jpg?v=1758642614",
+          "sizes": [
+            "ADULT"
+          ],
+          "availability": "in_stock",
+          "evidenceUrl": "https://statefairseasons.com/products/black-velvet-hooded-cape-with-red-satin-lining.js",
+          "notes": "Underwraps #30355. Long black velvet with red satin lining; adult size. Page and live variant feed both list available; cheaper than existing Underwraps variants.",
+          "localMerchantImage": "/products/price-tiers/p-10914a6666.webp"
+        },
+        {
+          "tier": "$$",
+          "title": "Velvet Cape with Embossed Red Lining",
+          "url": "https://www.mostlydead.com/products/velvet-cape-with-embossed-red-lining?variant=33034954276917",
+          "priceCents": 4520,
+          "currency": "USD",
+          "merchantName": "MostlyDead.com",
+          "merchantDomain": "mostlydead.com",
+          "imageUrl": "https://cdn.shopify.com/s/files/1/0248/6858/products/29292-Full.jpg?v=1601956507",
+          "sizes": [
+            "one size"
+          ],
+          "availability": "in_stock",
+          "evidenceUrl": "https://www.mostlydead.com/products/velvet-cape-with-embossed-red-lining.js",
+          "notes": "Full-length hooded black velvet cape with embossed red satin lining. Page lists 2 in stock; live variant feed available. Different listing/SKU than the budget #30355 cape.",
+          "existingProductId": "p-610c2db658",
+          "localMerchantImage": "/products/price-tiers/p-610c2db658.webp"
+        },
+        {
+          "tier": "$$$",
+          "title": "Noir Black Velvet Cloak Cape",
+          "url": "https://www.immortellebijouterie.com/products/noir-black-velvet-cloak-cape-1?variant=41764656971908",
+          "priceCents": 16500,
+          "currency": "USD",
+          "merchantName": "Immortelle Bijouterie",
+          "merchantDomain": "immortellebijouterie.com",
+          "imageUrl": "https://cdn.shopify.com/s/files/1/0338/3105/9588/files/black-velvet-cape-TL-116_SIDE.jpg?v=1709772012",
+          "sizes": [
+            "one size"
+          ],
+          "availability": "in_stock",
+          "evidenceUrl": "https://www.immortellebijouterie.com/products/noir-black-velvet-cloak-cape-1.js",
+          "notes": "Merchant describes silk velvet, full black satin lining, generous armholes and a button neckline. Clear style compromise: black lining rather than oxblood, no hood. Listed available; atelier says designed and shipped within approximately five business days.",
+          "localMerchantImage": "/products/price-tiers/p-bec94708ca.webp"
+        }
+      ],
+      "gaps": []
+    },
+    {
+      "pieceId": "ruffled-shirt",
+      "pieceName": "White ruffled shirt",
+      "options": [
+        {
+          "tier": "$",
+          "title": "Ruffled Costume Shirt",
+          "url": "https://www.medievalcollectibles.com/product/ruffled-costume-shirt/",
+          "priceCents": 2200,
+          "currency": "USD",
+          "merchantName": "Medieval Collectibles",
+          "merchantDomain": "medievalcollectibles.com",
+          "imageUrl": "https://www.medievalcollectibles.com/wp-content/uploads/2020/05/FM-64755.jpg",
+          "sizes": [
+            "Standard (up to 42-inch chest)"
+          ],
+          "availability": "in_stock",
+          "evidenceUrl": "https://www.medievalcollectibles.com/product/ruffled-costume-shirt/",
+          "notes": "SKU FM-64755. White poly-cotton shirt, front ruffle, lace-trimmed full sleeves. Read in live browser: product has instock/purchasable classes and enabled cart form, quantity maximum 6. One standard size only; do not treat it as a flexible S–XL range.",
+          "localMerchantImage": "/products/price-tiers/p-3917412b3f.webp"
+        },
+        {
+          "tier": "$$",
+          "title": "Dracula Ruffled Pirate Shirt – White",
+          "url": "https://www.medievalcollectibles.com/product/dracula-ruffled-pirate-shirt-white/?attribute_pa_size=large",
+          "priceCents": 5000,
+          "currency": "USD",
+          "merchantName": "Medieval Collectibles",
+          "merchantDomain": "medievalcollectibles.com",
+          "imageUrl": "https://www.medievalcollectibles.com/wp-content/uploads/2025/03/LC-DRW.jpg",
+          "sizes": [
+            "L",
+            "XL",
+            "2XL",
+            "3XL"
+          ],
+          "availability": "in_stock",
+          "evidenceUrl": "https://www.medievalcollectibles.com/product/dracula-ruffled-pirate-shirt-white/",
+          "notes": "Leonardo Carbone LC-DRW, 100% cotton with ruffled laced placket and wrists. Live browser selections: L: 4 in stock; XL: 1; 2XL: 1; 3XL: 1. S and M explicitly backordered 3–4 weeks, despite all generic WooCommerce variant flags claiming is_in_stock=true. Exact variation IDs: L 1280776; XL 1280775; 2XL 1280774; 3XL 1280773.",
+          "localMerchantImage": "/products/price-tiers/p-c2362342ad.webp"
+        },
+        {
+          "tier": "$$$",
+          "title": "Ruffled Cotton Shirt | Regency",
+          "url": "https://www.samsonhistorical.com/products/ruffled-cotton-shirt-regency?variant=43812843454685",
+          "priceCents": 12000,
+          "currency": "USD",
+          "merchantName": "Samson Historical",
+          "merchantDomain": "samsonhistorical.com",
+          "imageUrl": "https://cdn.shopify.com/s/files/1/0440/7857/products/Samson_02_Lynn_Jackson_0084.jpg?v=1681955899",
+          "sizes": [
+            "Small",
+            "Medium",
+            "Large",
+            "X Large",
+            "XX Large",
+            "XXX Large"
+          ],
+          "availability": "in_stock",
+          "evidenceUrl": "https://www.samsonhistorical.com/products/ruffled-cotton-shirt-regency.js",
+          "notes": "Historical reproduction in white cotton, bone button cuffs and neck, ruffled bosom slit, underarm triangle gussets. All six regular sizes currently available in live merchant feed. Less flamboyant cuffs than the generated jabot shirt.",
+          "localMerchantImage": "/products/price-tiers/p-b51856d12a.webp"
+        }
+      ],
+      "gaps": [
+        "S and M at the mid tier are backordered; sizes L through3XL are independently confirmed ready stock. Merchant generic WooCommerce stock flags include backorders and are not safe size-stock evidence."
+      ]
+    },
+    {
+      "pieceId": "black-waistcoat",
+      "pieceName": "Black waistcoat — wear with your own black trousers",
+      "options": [
+        {
+          "tier": "$",
+          "title": "Men's Waistcoat Vest Black Brocade Gothic Steampunk VTG /USA",
+          "url": "https://www.darkrock.net/products/mens-waistcoat-vest-black-brocade-gothic-steampunk-vtg-usa?variant=46475594137685",
+          "priceCents": 3245,
+          "currency": "USD",
+          "merchantName": "DarkRock",
+          "merchantDomain": "darkrock.net",
+          "imageUrl": "https://cdn.shopify.com/s/files/1/0729/6267/0677/files/Document-37-page0001.jpg?v=1792737878",
+          "sizes": [
+            "S",
+            "M",
+            "L",
+            "XL",
+            "2XL",
+            "3XL",
+            "4XL",
+            "5XL"
+          ],
+          "availability": "in_stock",
+          "evidenceUrl": "https://www.darkrock.net/products/mens-waistcoat-vest-black-brocade-gothic-steampunk-vtg-usa.js",
+          "notes": "Black Victorian damask brocade, collarless V neck, three metal buttons and adjustable back buckle. Merchant specifies 65% cotton/35% polyester, lined in black polyester sateen. All S–5XL variants available.",
+          "localMerchantImage": "/products/price-tiers/p-43dbc8c569.webp"
+        },
+        {
+          "tier": "$$",
+          "title": "Gramercy Velvet Vest - Black",
+          "url": "https://historicalemporium.com/products/gramercy-velvet-vest-black?variant=52047707439398",
+          "priceCents": 8695,
+          "currency": "USD",
+          "merchantName": "Historical Emporium",
+          "merchantDomain": "historicalemporium.com",
+          "imageUrl": "https://cdn.shopify.com/s/files/1/0980/0974/3654/files/006674_01_386c4496-1afe-4d01-8d81-7e56e39cdfb1.jpg?v=1769539840",
+          "sizes": [
+            "S",
+            "2X",
+            "3X"
+          ],
+          "availability": "in_stock",
+          "evidenceUrl": "https://historicalemporium.com/products/gramercy-velvet-vest-black.js",
+          "notes": "Black velvet double-breasted vest, black satin back/trim, silver-tone buttons and two inset pockets. The double-breasted shape differs from a plain V-neck waistcoat. Only S, 2X and 3X currently available.",
+          "existingProductId": "p-6b969bd8b3",
+          "localMerchantImage": "/products/price-tiers/p-6b969bd8b3.webp"
+        },
+        {
+          "tier": "$$$",
+          "title": "RS Atelier Mens Walter Velvet Waistcoat",
+          "url": "https://www.danceshopper.com/dance-clothes.RS-Atelier-Mens-Walter-Velvet-Vest",
+          "priceCents": 16900,
+          "currency": "USD",
+          "merchantName": "DanceShopper",
+          "merchantDomain": "danceshopper.com",
+          "imageUrl": "https://www.danceshopper.com/images/dancewear/menswear/RS-Atelier-Mens-Walter-Velvet-Vest-Black-b.jpg",
+          "sizes": [
+            "42",
+            "44",
+            "46",
+            "48",
+            "50"
+          ],
+          "availability": "in_stock",
+          "evidenceUrl": "https://www.danceshopper.com/dance-clothes.RS-Atelier-Mens-Walter-Velvet-Vest",
+          "notes": "Black velvet, V neck, front buttons, tailored silhouette, discreet welt pocket, made in Italy. Live page JSON-LD offers USD169 and InStock. Raw merchant size list marks each 42–50 Quick Ship. These are merchant numeric sizes; use its chart and do not translate them into US chest sizes without measuring. Live browser sizing table: 42 chest 34.5 in, 44 chest 36 in, 46 chest 37.5 in, 48 chest 39 in, 50 chest 41 in.",
+          "localMerchantImage": "/products/price-tiers/p-3d8701654f.webp"
+        }
+      ],
+      "gaps": []
+    },
+    {
+      "pieceId": "vampire-boots",
+      "pieceName": "Black tall boots",
+      "options": [
+        {
+          "tier": "$",
+          "title": "Funtasma Pirate Captain-100 Black Boots",
+          "url": "https://www.fearlessapparel.com/funtasma-pirate-cosplay-adult-mens-halloween-costume-black-boots-captain-100/",
+          "priceCents": 6795,
+          "currency": "USD",
+          "merchantName": "Fearless Apparel",
+          "merchantDomain": "fearlessapparel.com",
+          "imageUrl": "https://cdn11.bigcommerce.com/s-863teu/images/stencil/1280x1280/products/16104/73042/56c48101-f934-543b-8573-8404ad4fd359__61189.1557925809.jpg?c=2",
+          "sizes": [
+            "S (US men 8–9)"
+          ],
+          "availability": "in_stock",
+          "evidenceUrl": "https://www.fearlessapparel.com/funtasma-pirate-cosplay-adult-mens-halloween-costume-black-boots-captain-100/",
+          "notes": "Allowed merchant; rechecked against project sourcing blocklist. Funtasma CAP100/B/PU, black PU knee-high boot, 1-inch heel and full inner side zipper. Live merchant BigCommerce markup confirms USD67.95, instock=true, purchasable=true, and in_stock_attributes=[28768]. Its actual option form maps attribute[12633]=28768 to S; other displayed M/L/XL options are excluded from the live in-stock list. S corresponds to US men8–9 per manufacturer Captain-100 sizing. Full-size original merchant product photograph downloaded and available locally. Budget costume construction, not real leather.",
+          "localMerchantImage": "/products/price-tiers/p-99a22fc86e.webp"
+        },
+        {
+          "tier": "$$",
+          "title": "Sky Pilot Faux Leather Boots - Black",
+          "url": "https://historicalemporium.com/products/mens-faux-leather-sky-pilot-boots-black?variant=51717725913382",
+          "priceCents": 12095,
+          "currency": "USD",
+          "merchantName": "Historical Emporium",
+          "merchantDomain": "historicalemporium.com",
+          "imageUrl": "https://cdn.shopify.com/s/files/1/0980/0974/3654/files/006564_01_2b95236b-324e-4978-8373-e0a04ae81a5c.jpg?v=1769539801",
+          "sizes": [
+            "S",
+            "M",
+            "L",
+            "XL"
+          ],
+          "availability": "in_stock",
+          "evidenceUrl": "https://historicalemporium.com/products/mens-faux-leather-sky-pilot-boots-black.js",
+          "notes": "Distressed black faux leather, 16–17-inch shaft, flat 1.5-inch heel, zipper and decorative lacing/buttons. More steampunk than a clean equestrian boot. All S–XL variants available; these are grouped boot sizes and require merchant chart.",
+          "existingProductId": "p-91556ae8e5",
+          "localMerchantImage": "/products/price-tiers/p-91556ae8e5.webp"
+        },
+        {
+          "tier": "$$$",
+          "title": "Long Leather Cavalry Boots - Black",
+          "url": "https://historicalemporium.com/products/long-leather-cavalry-boots-black?variant=51717700813094",
+          "priceCents": 26995,
+          "currency": "USD",
+          "merchantName": "Historical Emporium",
+          "merchantDomain": "historicalemporium.com",
+          "imageUrl": "https://cdn.shopify.com/s/files/1/0980/0974/3654/files/006560_01_b92ad657-0bbc-43e4-8301-c833d954a5df.jpg?v=1769539795",
+          "sizes": [
+            "7",
+            "8",
+            "9",
+            "10"
+          ],
+          "availability": "in_stock",
+          "evidenceUrl": "https://historicalemporium.com/products/long-leather-cavalry-boots-black.js",
+          "notes": "100% black leather, low heel, 15-inch back shaft plus 3-inch front rise, square toe and pull loops. This best preserves the riding/cavalry boot brief. Only 7, 8, 9 and 10 available; 11–13 sold out.",
+          "existingProductId": "p-0969c0dcdf",
+          "localMerchantImage": "/products/price-tiers/p-0969c0dcdf.webp"
+        }
+      ],
+      "gaps": [
+        "Budget boots currently only S (US men 8–9) verified available; premium boots only7–10. Fit filtering must override tier preference."
+      ]
+    },
+    {
+      "pieceId": "silver-brooch",
+      "pieceName": "Silver brooch",
+      "options": [
+        {
+          "tier": "$",
+          "title": "Sunburst Magnetic Brooch - Silver",
+          "url": "https://historicalemporium.com/products/sunburst-magnetic-brooch-silver?variant=51717835391270",
+          "priceCents": 2195,
+          "currency": "USD",
+          "merchantName": "Historical Emporium",
+          "merchantDomain": "historicalemporium.com",
+          "imageUrl": "https://cdn.shopify.com/s/files/1/0980/0974/3654/files/008688_01.jpg?v=1769542356",
+          "sizes": [
+            "one size"
+          ],
+          "availability": "in_stock",
+          "evidenceUrl": "https://historicalemporium.com/products/sunburst-magnetic-brooch-silver.js",
+          "notes": "Silver-tone sunburst magnetic brooch, about 2.5 inches. Budget ornamental fastening; no dark gemstone and no claim of sterling silver. Live variant available.",
+          "existingProductId": "p-f6b66c527c",
+          "localMerchantImage": "/products/price-tiers/p-f6b66c527c.webp"
+        },
+        {
+          "tier": "$$",
+          "title": "Celtic Raven Kilt Pin - Handmade in Scotland",
+          "url": "https://www.celticcrystaldesign.com/products/celtic-raven-kilt-pin-scottish-jewelry-43966?variant=42234447429890",
+          "priceCents": 5700,
+          "currency": "USD",
+          "merchantName": "Celtic Crystal Design Jewelry",
+          "merchantDomain": "celticcrystaldesign.com",
+          "imageUrl": "https://cdn.shopify.com/s/files/1/0416/1146/0774/products/il_fullxfull.3477639353_91nn.jpg?v=1783169900",
+          "sizes": [
+            "one size"
+          ],
+          "availability": "in_stock",
+          "evidenceUrl": "https://www.celticcrystaldesign.com/products/celtic-raven-kilt-pin-scottish-jewelry-43966.js",
+          "notes": "Scottish-made polished pewter Celtic raven knotwork pin with antique silver finish, 3.5 x 0.75 inches. Strong locking pin suitable for a cape. Longer raven silhouette instead of gem brooch; not sterling. Live variant available. Listed $57 without requiring promotional code.",
+          "localMerchantImage": "/products/price-tiers/p-4ffaf2c353.webp"
+        },
+        {
+          "tier": "$$$",
+          "title": "Cybele Celtic Marcasite Brooch",
+          "url": "https://www.celticcrystaldesign.com/products/cybele-celtic-marcasite-brooch?variant=46731615535362",
+          "priceCents": 12500,
+          "currency": "USD",
+          "merchantName": "Celtic Crystal Design Jewelry",
+          "merchantDomain": "celticcrystaldesign.com",
+          "imageUrl": "https://cdn.shopify.com/s/files/1/0416/1146/0774/files/IMG-1866.heic?v=1757366908&format=jpg&width=1000",
+          "sizes": [
+            "one size"
+          ],
+          "availability": "in_stock",
+          "evidenceUrl": "https://www.celticcrystaldesign.com/products/cybele-celtic-marcasite-brooch.js",
+          "notes": "Solid sterling silver, Celtic knotwork, marcasite and black onyx. Black Onyx variant specifically confirmed available, and its matching image is used. Approximately1.25 x1 inch; sturdy 0.75-inch pin and pendant bale. $125 listing price; no coupon assumptions.",
+          "localMerchantImage": "/products/price-tiers/p-6490e8541e.webp"
+        }
+      ],
+      "gaps": []
+    }
+  ]
+}

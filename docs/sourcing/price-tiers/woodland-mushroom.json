@@ -1,0 +1,364 @@
+{
+  "costumeSlug": "woodland-mushroom",
+  "checkedAt": "2026-10-25T07:12:26.294Z",
+  "pieces": [
+    {
+      "pieceId": "mushroom-hat",
+      "pieceName": "Red spotted mushroom hat",
+      "options": [
+        {
+          "tier": "$",
+          "title": "Plush Mushroom Hat",
+          "url": "https://www.partycheap.com/Plush-Mushroom-Hat-p/60308.htm",
+          "priceCents": 1529,
+          "currency": "USD",
+          "merchantName": "PartyCheap",
+          "merchantDomain": "partycheap.com",
+          "imageUrl": "https://cdn4.volusion.store/y63jv-z2jxq/v/vspfiles/photos/60308-2.jpg?v-cache=1723033463",
+          "sizes": [
+            "One size (fits a normal sized head)"
+          ],
+          "availability": "in_stock",
+          "evidenceUrl": "https://www.partycheap.com/Plush-Mushroom-Hat-p/60308.htm",
+          "notes": "Official merchant page lists current $15.29 (retail $16.99), In Stock, product60308, 11-inch width and felt-foam material. Actual merchant photo inspected: red pointed/domed mushroom cap with white spots, white gathered underside and short white stem/cuff. Pennsylvania-based online party retailer; not a national big-box chain. There is a short white stem/cuff below the cap; it is not identical to the handmade adult cap silhouette.",
+          "localMerchantImage": "/products/price-tiers/p-f54885650b.webp"
+        },
+        {
+          "tier": "$$",
+          "existingProductId": "p-fa247ed9c8",
+          "title": "Wool Felt Beret With Small Mushroom Hat",
+          "url": "https://behumblemushrooms.com/products/original-handmade-wool-felt-beret-with-small-mushrooms?variant=44181986967827",
+          "priceCents": 2999,
+          "currency": "USD",
+          "merchantName": "Humble Mushrooms",
+          "merchantDomain": "behumblemushrooms.com",
+          "imageUrl": "https://cdn.shopify.com/s/files/1/0692/2502/1715/products/handmade-wool-felt-beret-with-small-mushrooms-hat-953412.jpg?v=1672647851",
+          "sizes": [
+            "one size"
+          ],
+          "availability": "in_stock",
+          "evidenceUrl": "https://behumblemushrooms.com/products/original-handmade-wool-felt-beret-with-small-mushrooms?variant=44181986967827",
+          "notes": "Red wool felt beret with small raised mushrooms. Beret silhouette differs from the larger domed costume cap; small 3D mushrooms replace allover cream spots. Live public Shopify product feed confirms the exact listed variant available at this USD amount.",
+          "localMerchantImage": "/products/price-tiers/p-fa247ed9c8.webp"
+        },
+        {
+          "tier": "$$$",
+          "existingProductId": "p-1c7d22a0b4",
+          "title": "Adult Mushroom Hat — Hat",
+          "url": "https://bandofthewild.com/products/adult-mushroom-hat?variant=46316878102715",
+          "priceCents": 6500,
+          "currency": "USD",
+          "merchantName": "Band of the Wild",
+          "merchantDomain": "bandofthewild.com",
+          "imageUrl": "https://www.bandofthewild.com/cdn/shop/files/Facetune_18-08-2024-20-12-30.jpg?v=1754426562&width=1537",
+          "sizes": [
+            "one size"
+          ],
+          "availability": "in_stock",
+          "evidenceUrl": "https://bandofthewild.com/products/adult-mushroom-hat?variant=46316878102715",
+          "notes": "Handmade adult domed cotton mushroom hat with red cap, white spots and pleated cream underside. The $65 hat-only variant is selected, not the $80 hat-and-collar bundle. Live public Shopify product feed confirms the exact listed variant available at this USD amount.",
+          "localMerchantImage": "/products/price-tiers/p-1c7d22a0b4.webp"
+        }
+      ],
+      "gaps": [
+        "The medium-price wool beret is an aesthetic variation, not an exact large spotted dome. Choose the low or high option when the full mushroom silhouette is essential."
+      ]
+    },
+    {
+      "pieceId": "cream-blouse",
+      "pieceName": "Cream blouse",
+      "options": [
+        {
+          "tier": "$",
+          "title": "The Rosalind Blouse — Cream",
+          "url": "https://sueasyretro.com/products/victorian-puff-sleeve-cotton-blouse?variant=52639457542436",
+          "priceCents": 2999,
+          "currency": "USD",
+          "merchantName": "Sueasyretro",
+          "merchantDomain": "sueasyretro.com",
+          "imageUrl": "https://cdn.shopify.com/s/files/1/0885/6908/6244/files/3_2acf8f46-953a-4d89-a097-0d6a74f92d69.jpg?v=1786694110",
+          "sizes": [
+            "S",
+            "M",
+            "L",
+            "XL",
+            "XXL"
+          ],
+          "availability": "in_stock",
+          "evidenceUrl": "https://sueasyretro.com/products/victorian-puff-sleeve-cotton-blouse.js",
+          "notes": "Cream 100% cotton blouse with drawstring neckline and elastic short puff sleeves. Exact cream variants S–XXL are available in the live merchant feed.",
+          "localMerchantImage": "/products/price-tiers/p-2d094f5f73.webp"
+        },
+        {
+          "tier": "$$",
+          "title": "Marseille Polka Dot Blouse — Cream",
+          "url": "https://thesalientcollection.com/products/marseille-polka-dot-blouse?variant=51185637425399",
+          "priceCents": 4900,
+          "currency": "USD",
+          "merchantName": "The Salient Collection",
+          "merchantDomain": "thesalientcollection.com",
+          "imageUrl": "https://cdn.shopify.com/s/files/1/0881/2812/7223/files/MarseillePolkaDotBlouse1_2e2851d7-9223-4d53-b31c-82e066a445a6.jpg?v=1789772078",
+          "sizes": [
+            "S",
+            "M",
+            "L"
+          ],
+          "availability": "in_stock",
+          "evidenceUrl": "https://thesalientcollection.com/products/marseille-polka-dot-blouse.js",
+          "notes": "Cream polyester blouse with long puff sleeves, high mock neck and bow back. Black polka dots add a pattern; it is not plain cream. Live merchant feed shows S/M/L available for $49.00; built-in web search had an older $58.00 price.",
+          "localMerchantImage": "/products/price-tiers/p-e065f62c65.webp"
+        },
+        {
+          "tier": "$$$",
+          "existingProductId": "p-2e68ffb9ca",
+          "title": "Iona Textured Woven Blouse - Cream",
+          "url": "https://snagtights.us/products/textured-woven-blouse-cream?variant=45785053200453",
+          "priceCents": 9499,
+          "currency": "USD",
+          "merchantName": "Snag",
+          "merchantDomain": "snagtights.us",
+          "imageUrl": "https://snagtights.us/cdn/shop/files/Emma-SizeD-WovenTop-Cream-Height-6ft_2_8ce0be39-1309-440d-af9d-50629d5ebaa6.jpg?v=1792080240&width=1920",
+          "sizes": [
+            "A/B (0-2)",
+            "C (4-6)",
+            "D (8-10)",
+            "E (12-14)",
+            "F (16-18)",
+            "G (20-22)",
+            "I (28-30)",
+            "J (32-34)"
+          ],
+          "availability": "in_stock",
+          "evidenceUrl": "https://snagtights.us/products/textured-woven-blouse-cream?variant=45785053200453",
+          "notes": "Cream textured blouse with tie-neck keyhole and long romantic sleeves. Available live sizes A/B (0–2), C (4–6), D (8–10), E (12–14), F (16–18), G (20–22), I (28–30), J (32–34); H unavailable. Live public Shopify product feed confirms the exact listed variant available at this USD amount.",
+          "localMerchantImage": "/products/price-tiers/p-2e68ffb9ca.webp"
+        }
+      ],
+      "gaps": [
+        "The $49 middle option has black polka dots and polyester fabric; it preserves cream color and puff sleeves but is not a plain cotton/linen blouse."
+      ]
+    },
+    {
+      "pieceId": "brown-corduroy-overalls",
+      "pieceName": "Brown corduroy overalls",
+      "options": [
+        {
+          "tier": "$",
+          "existingProductId": "p-c7a21e7a36",
+          "title": "Classic Brown Corduroy Overalls",
+          "url": "https://goldenhourgiftco.com/products/classic-brown-corduroy-overalls?variant=41575476428858",
+          "priceCents": 5500,
+          "currency": "USD",
+          "merchantName": "Golden Hour Gift Co",
+          "merchantDomain": "goldenhourgiftco.com",
+          "imageUrl": "https://cdn.shopify.com/s/files/1/0792/2305/files/smwardrobe_12_6e869dba-3e19-4447-a69f-06eff9530c86.png?v=1785614621",
+          "sizes": [
+            "S"
+          ],
+          "availability": "in_stock",
+          "evidenceUrl": "https://goldenhourgiftco.com/products/classic-brown-corduroy-overalls.js",
+          "notes": "Live official merchant feed verifies brown corduroy overalls in S only at $55, variant41575476428858. Relaxed wide-leg silhouette with adjustable straps and front bib pocket. Only S is available: do not recommend this item for a different requested size; use the middle XS–XL option instead.",
+          "localMerchantImage": "/products/price-tiers/p-c7a21e7a36.webp"
+        },
+        {
+          "tier": "$$",
+          "existingProductId": "p-d03db98829",
+          "title": "Brown Cotton Corduroy Overalls - Vintage-Inspired Adjustable Strap C1830 — Brown",
+          "url": "https://ylistyle.com/products/retro-brown-corduroy-overalls-women-c1830?variant=39656404189253",
+          "priceCents": 8900,
+          "currency": "USD",
+          "merchantName": "Ylistyle",
+          "merchantDomain": "ylistyle.com",
+          "imageUrl": "https://cdn.shopify.com/s/files/1/0045/7162/7589/products/A12A7744_b3bdbb80-c814-49da-adbe-3b600738d42a.jpg?v=1638773082",
+          "sizes": [
+            "XS",
+            "S",
+            "M",
+            "L",
+            "XL"
+          ],
+          "availability": "in_stock",
+          "evidenceUrl": "https://ylistyle.com/products/retro-brown-corduroy-overalls-women-c1830?variant=39656404189253",
+          "notes": "Brown vintage-inspired cotton corduroy overalls with relaxed fit, adjustable metal-buckle straps, five pockets and cuffed hem. Standard XS–XL are all $89; custom order costs $119 and is excluded from this price tier. Live public Shopify product feed confirms the exact listed variant available at this USD amount.",
+          "localMerchantImage": "/products/price-tiers/p-d03db98829.webp"
+        },
+        {
+          "tier": "$$$",
+          "title": "Cattail Corduroy Wide Leg Overall — Honey Brown",
+          "url": "https://www.toadandco.com/products/cattail-corduroy-wide-leg-overall-honey-brown?variant=42814272929840",
+          "priceCents": 14500,
+          "currency": "USD",
+          "merchantName": "Toad&Co",
+          "merchantDomain": "toadandco.com",
+          "imageUrl": "https://cdn.shopify.com/s/files/1/0253/4801/4128/files/T1001188-Honey_Brown-1.jpg?v=1782496501",
+          "sizes": [
+            "XS",
+            "S",
+            "M",
+            "L"
+          ],
+          "availability": "in_stock",
+          "evidenceUrl": "https://www.toadandco.com/products/cattail-corduroy-wide-leg-overall-honey-brown.js",
+          "notes": "Honey Brown 100% organic cotton mini-corduroy, adjustable straps, relaxed full wide leg. Live feed confirms XS/S/M/L available; XL is unavailable. Price excludes optional promotional codes.",
+          "localMerchantImage": "/products/price-tiers/p-d4973c208a.webp"
+        }
+      ],
+      "gaps": [
+        "The $55 budget option has only S remaining. Never substitute an incorrect size to meet budget; the $89 middle option has XS–XL."
+      ]
+    },
+    {
+      "pieceId": "cream-tights",
+      "pieceName": "Cream tights",
+      "options": [
+        {
+          "tier": "$",
+          "title": "Opaque 80 Den Tights — Unicorn Fluff",
+          "url": "https://snagtights.us/products/80-denier-opaque-tights-unicorn-fluff?variant=45727670042693",
+          "priceCents": 1899,
+          "currency": "USD",
+          "merchantName": "Snag",
+          "merchantDomain": "snagtights.us",
+          "imageUrl": "https://cdn.shopify.com/s/files/1/0069/7568/4655/files/Amber-Size-E-80-Denier-Unicorn-Fluff4_970efea7-ac98-432c-bb41-cab3ca76a7f6.jpg?v=1792137871",
+          "sizes": [
+            "C",
+            "D",
+            "E",
+            "Short F",
+            "F",
+            "G"
+          ],
+          "availability": "in_stock",
+          "evidenceUrl": "https://snagtights.us/products/80-denier-opaque-tights-unicorn-fluff.js",
+          "notes": "Official product describes Unicorn Fluff as a subtle warm off-white, listed in the merchant Cream Tights collection. Smooth 80D opaque tights rather than cable knit. Live merchant feed confirms C, D, E, Short F, F, G available; A/B is unavailable. $18.99 is the item amount before any promotional checkout discount; indexed pages advertise variable automatic discounts, which are not assumed.",
+          "localMerchantImage": "/products/price-tiers/p-e0ed0303a2.webp"
+        },
+        {
+          "tier": "$$",
+          "existingProductId": "p-c1b881a1cf",
+          "title": "Color Tights — Ivory",
+          "url": "https://sockdreams.com/products/color-tights?variant=44684372640039",
+          "priceCents": 2800,
+          "currency": "USD",
+          "merchantName": "Sock Dreams",
+          "merchantDomain": "sockdreams.com",
+          "imageUrl": "https://cdn.shopify.com/s/files/1/0712/4978/9223/products/color-tights-ivory-s-m.jpg?v=1775593182",
+          "sizes": [
+            "one size"
+          ],
+          "availability": "in_stock",
+          "evidenceUrl": "https://sockdreams.com/products/color-tights?variant=44684372640039",
+          "notes": "Ivory smooth 80-denier microfiber tights, one size. Exact Ivory variant is in stock. Smooth rather than cable knit; consult merchant fit measurements, do not treat one size as universal. Live public Shopify product feed confirms the exact listed variant available at this USD amount.",
+          "localMerchantImage": "/products/price-tiers/p-c1b881a1cf.webp"
+        },
+        {
+          "tier": "$$$",
+          "existingProductId": "p-7420e8a31b",
+          "title": "Grannies Cable Knit Wool Tights - Oatmeal",
+          "url": "https://snagtights.us/products/merino-wool-tights-v2-grannies-oatmeal?variant=42202310312005",
+          "priceCents": 4699,
+          "currency": "USD",
+          "merchantName": "Snag",
+          "merchantDomain": "snagtights.us",
+          "imageUrl": "https://snagtights.us/cdn/shop/files/Alexandra-SizeDE-Oatmeal-Grannies_1_-min_824d79bb-ab7f-4634-8131-a0c669ba5bc9.jpg?v=1792137798&width=1920",
+          "sizes": [
+            "AB-C",
+            "D-E",
+            "F",
+            "G"
+          ],
+          "availability": "in_stock",
+          "evidenceUrl": "https://snagtights.us/products/merino-wool-tights-v2-grannies-oatmeal?variant=42202310312005",
+          "notes": "Oatmeal cable-knit merino wool tights. The oatmeal shade is a deeper cream neutral. Available AB-C/D-E/F/G. Live merchant feed gives $46.99 before any automatic/promotional discount; indexed pages show lower promotion amounts. Live public Shopify product feed confirms the exact listed variant available at this USD amount.",
+          "localMerchantImage": "/products/price-tiers/p-7420e8a31b.webp"
+        }
+      ],
+      "gaps": [
+        "Stock Dreams middle option has a separate plus-size listing at the same $28 price (p-de1a3e35c4), not a fourth price tier. A stylist must check fit measurements."
+      ]
+    },
+    {
+      "pieceId": "brown-boots",
+      "pieceName": "Brown boots",
+      "options": [
+        {
+          "tier": "$",
+          "title": "Danie Brown Boots — Dark Brown",
+          "url": "https://www.rocketdog.com/products/danner-brown-boots?variant=43737405587526",
+          "priceCents": 5597,
+          "currency": "USD",
+          "merchantName": "Rocket Dog",
+          "merchantDomain": "rocketdog.com",
+          "imageUrl": "https://cdn.shopify.com/s/files/1/1903/5555/files/DANNERAO_DARKBROWN_2.jpg?v=1756989780",
+          "sizes": [
+            "7",
+            "7.5",
+            "8",
+            "8.5",
+            "9",
+            "9.5",
+            "10"
+          ],
+          "availability": "in_stock",
+          "evidenceUrl": "https://www.rocketdog.com/products/danner-brown-boots.js",
+          "notes": "Dark brown faux leather lace-up ankle boots with side zip and chunky lug sole. Live feed confirms US 7, 7.5, 8, 8.5, 9, 9.5, 10. Heel/platform height is 5.3 cm, higher than the preferred low heel. Current live feed price is $55.97; older indexed page showed $79.95.",
+          "localMerchantImage": "/products/price-tiers/p-9f0ec3e56f.webp"
+        },
+        {
+          "tier": "$$",
+          "title": "Auburn Bootie — Brown Suede",
+          "url": "https://whitemountainshoes.com/products/auburn-bootie?variant=47385767182485",
+          "priceCents": 7999,
+          "currency": "USD",
+          "merchantName": "White Mountain Shoes",
+          "merchantDomain": "whitemountainshoes.com",
+          "imageUrl": "https://cdn.shopify.com/s/files/1/0671/3848/6421/files/W26019-918-main.jpg?v=1734372807",
+          "sizes": [
+            "6.5",
+            "7",
+            "9",
+            "6W",
+            "6.5W"
+          ],
+          "availability": "in_stock",
+          "evidenceUrl": "https://whitemountainshoes.com/products/auburn-bootie.js",
+          "notes": "Brown suede leather lace-up desert ankle boot, one-inch heel and four-inch shaft. Exact brown regular US 6.5/7/9 and wide US 6W/6.5W variants available. Size range is limited; do not recommend for unmatched sizes. Current live feed price $79.99; indexed page showed $89.99.",
+          "localMerchantImage": "/products/price-tiers/p-f623746353.webp"
+        },
+        {
+          "tier": "$$$",
+          "existingProductId": "p-5434cb33bf",
+          "title": "Women's Boulder Summit Waterproof — Rugged Bark",
+          "url": "https://www.lemsshoes.com/products/womens-boulder-summit-waterproof?variant=40017820745786",
+          "priceCents": 21000,
+          "currency": "USD",
+          "merchantName": "Lems Shoes",
+          "merchantDomain": "lemsshoes.com",
+          "imageUrl": "https://cdn.shopify.com/s/files/1/0076/8812/6522/products/RuggedBark_RightOutside_1c02603f-9b84-4a68-9e6c-be5bc2465eff.jpg?v=1773209241",
+          "sizes": [
+            "6",
+            "6.5",
+            "7",
+            "7.5",
+            "8",
+            "8.5",
+            "9",
+            "9.5",
+            "10",
+            "10.5",
+            "11",
+            "11.5",
+            "12"
+          ],
+          "availability": "in_stock",
+          "evidenceUrl": "https://www.lemsshoes.com/products/womens-boulder-summit-waterproof?variant=40017820745786",
+          "notes": "Rugged Bark brown lace-up waterproof trail boot, rounded roomy toe. Live merchant feed confirms all listed women’s US sizes 6–12 including halves; selected brown variant only, not Coal black. Live public Shopify product feed confirms the exact listed variant available at this USD amount.",
+          "localMerchantImage": "/products/price-tiers/p-5434cb33bf.webp"
+        }
+      ],
+      "gaps": [
+        "The $79.99 brown suede option has limited remaining sizes (6.5,7,9 regular; 6W,6.5W). Never substitute a different size to fit budget. The lowest option has a 5.3 cm heel/platform, higher than the ideal low heel."
+      ]
+    }
+  ]
+}

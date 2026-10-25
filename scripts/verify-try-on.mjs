@@ -74,7 +74,7 @@ for (const costume of costumes) {
   assert((await response.json()).image.startsWith("data:image/jpeg;base64,"));
   assert.equal(calls.length, 2);
 }
-console.log("PASS all five costume references through Decisions → image edits (provider responses simulated)");
+console.log("PASS all costume references through Decisions → image edits (provider responses simulated)");
 
 const selection = view.pieces.map(({ piece, options }) => ({ pieceId: piece.id, productId: options[0].product.id }));
 await expectStatus(request({ selection }), 200);
@@ -104,8 +104,12 @@ if (storefront) {
     assert(html.includes('class="try-on"'), `${costume.slug} is missing the try-on form`);
     assert(html.includes('capture="environment"'), `${costume.slug} is missing mobile camera capture`);
     assert(html.includes("Take photo"), `${costume.slug} is missing the camera button`);
-    assert(html.includes("Shop for me"), `${costume.slug} is missing Shop for me`);
-    if (costume.slug === "cosmic-cowboy") assert(html.includes("outfit-planner"), "The shopping brief and comparisons are missing");
+    if (costume.status === "live") assert(html.includes("Shop for me"), `${costume.slug} is missing Shop for me`);
+    assert(!html.includes("outfit-planner"), "Removed planner is still rendered");
+    assert(!html.includes("Compare outfits"), "Removed comparisons are still rendered");
+    assert(!html.includes("I own this"), "Removed wardrobe controls are still rendered");
+    const carousel = html.slice(html.indexOf('aria-label="Costume images"'));
+    if (costume.status === "live") assert((carousel.match(/<img[^>]+src="([^"]+)"/)?.[1] ?? "").includes("-cutout.png"), "Selected product flat-lay must be first");
   }));
-  console.log("PASS running storefront exposes try-on and Shop for me on all five costumes, plus outfit comparisons");
+  console.log("PASS running storefront exposes try-on on all costume pages and Shop for me on shoppable costumes, without the removed planner or wardrobe controls");
 }
