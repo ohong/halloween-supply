@@ -51,7 +51,7 @@ export function VirtualTryOn({ costumeSlug, selection = [], ownedPieceIds = [], 
   const fileInput = useRef<HTMLInputElement>(null);
   const cameraInput = useRef<HTMLInputElement>(null);
   const costume = costumes.find((item) => item.slug === costumeSlug)!;
-  const outfitKey = JSON.stringify([selection, ownedPieceIds, skippedPieceIds]);
+  const outfitKey = JSON.stringify([costumeSlug, selection, ownedPieceIds, skippedPieceIds]);
   const current = result?.key === outfitKey ? result : null;
   useEffect(() => () => { controller.current?.abort(); }, []);
   useEffect(() => () => { if (photoUrl) URL.revokeObjectURL(photoUrl); }, [photoUrl]);
@@ -129,6 +129,7 @@ export function VirtualTryOn({ costumeSlug, selection = [], ownedPieceIds = [], 
     {photoUrl && <div className="try-on-actions">
       {current ? <>
         <a className="btn try-on-primary" href={current.image} download={`${costumeSlug}-try-on.jpg`}><Icon d={SAVE} size={18} />Save</a>
+        <button type="button" className="btn btn-ghost" aria-pressed={peek} onClick={() => setPeek((value) => !value)}>{peek ? "Show preview" : "Show original"}</button>
       </> : busy ? (
         <button type="button" className="btn btn-ghost btn-block" onClick={() => { controller.current?.abort(); setBusy(false); }}>Cancel</button>
       ) : (
