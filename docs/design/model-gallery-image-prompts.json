@@ -1,0 +1,661 @@
+{
+  "generatedAt": "2026-10-25T10:02:48.786Z",
+  "tool": "built-in image_gen",
+  "purpose": "One consistent male model and one consistent female model wearing all 25 costumes; homepage presentation only.",
+  "transparentBackground": true,
+  "encoding": "960px maximum edge, WebP quality 86, alpha quality 100",
+  "images": [
+    {
+      "slug": "velvet-vampire",
+      "model": "male",
+      "file": "/costumes/models/velvet-vampire-male.webp",
+      "width": 960,
+      "height": 960,
+      "sha256": "19475951e636a9b2f9e1e67a929f9828312ff45e3c07f76341d517fef23af7d1",
+      "references": [
+        "/costumes/models/cosmic-cowboy-male.webp",
+        "/costumes/velvet-vampire.png"
+      ],
+      "prompt": "Use case: identity-preserve. Produce one premium photorealistic, full-body studio fashion photograph for Halloween Supply. Image 1 is the identity reference: preserve this exact adult person's face, skin tone, hair, body and calm expression. Image 2 is the outfit reference: replace the entire cowboy outfit with this exact costume. Preserve the costume's palette, textiles, accessories and silhouette, tailored naturally to the model. No clothes from image 1 may remain. Front-facing relaxed standing pose, direct gaze when visible, hands naturally down unless the cape needs slightly spread arms. Entire person and all headwear and shoes visible, 8% clear margin on every side. Soft even studio daylight, natural skin texture, believable fabric. One centered isolated adult person on an actually transparent background. No floor, props, lettering, collage, watermark, mannequin or floating clothes. Keep original colors, not grayscale. Fully clothed. Costume: Black velvet vampire cape with burgundy lining and high collar, white ruffled blouse, black brocade waistcoat, black trousers, polished black ankle boots, silver brooch."
+    },
+    {
+      "slug": "velvet-vampire",
+      "model": "female",
+      "file": "/costumes/models/velvet-vampire-female.webp",
+      "width": 960,
+      "height": 960,
+      "sha256": "967a208656d106506a72765ffd2487ec36a8ea260d7ba9bad7e467f56e239be6",
+      "references": [
+        "/costumes/models/cosmic-cowboy-female.webp",
+        "/costumes/velvet-vampire.png"
+      ],
+      "prompt": "Use case: identity-preserve. Produce one premium photorealistic, full-body studio fashion photograph for Halloween Supply. Image 1 is the identity reference: preserve this exact adult person's face, skin tone, hair, body and calm expression. Image 2 is the outfit reference: replace the entire cowboy outfit with this exact costume. Preserve the costume's palette, textiles, accessories and silhouette, tailored naturally to the model. No clothes from image 1 may remain. Front-facing relaxed standing pose, direct gaze when visible, hands naturally down unless the cape needs slightly spread arms. Entire person and all headwear and shoes visible, 8% clear margin on every side. Soft even studio daylight, natural skin texture, believable fabric. One centered isolated adult person on an actually transparent background. No floor, props, lettering, collage, watermark, mannequin or floating clothes. Keep original colors, not grayscale. Fully clothed. Costume: Black velvet vampire cape with burgundy lining and high collar, white ruffled blouse, black brocade waistcoat, black trousers, polished black ankle boots, silver brooch."
+    },
+    {
+      "slug": "moon-moth",
+      "model": "male",
+      "file": "/costumes/models/moon-moth-male.webp",
+      "width": 960,
+      "height": 960,
+      "sha256": "19528e3b01ec64d07b51146260845588fbe6da189bd56dc22e1c8ea1065be3db",
+      "references": [
+        "/costumes/models/cosmic-cowboy-male.webp",
+        "/costumes/moon-moth.png"
+      ],
+      "prompt": "Use case: identity-preserve. Produce one premium photorealistic, full-body studio fashion photograph for Halloween Supply. Image 1 is the identity reference: preserve this exact adult person's face, skin tone, hair, body and calm expression. Image 2 is the outfit reference: replace the entire cowboy outfit with this exact costume. Preserve the costume's palette, textiles, accessories and silhouette, tailored naturally to the model. No clothes from image 1 may remain. Front-facing relaxed standing pose, direct gaze when visible, hands naturally down unless the cape needs slightly spread arms. Entire person and all headwear and shoes visible, 8% clear margin on every side. Soft even studio daylight, natural skin texture, believable fabric. One centered isolated adult person on an actually transparent background. No floor, props, lettering, collage, watermark, mannequin or floating clothes. Keep original colors, not grayscale. Fully clothed. Costume: Sage and cream moth-wing cape with visible eye spots, fluffy cream collar, feather antenna headband, opaque charcoal jumpsuit and dark shoes. Gently extend forearms enough to reveal the wing shape."
+    },
+    {
+      "slug": "moon-moth",
+      "model": "female",
+      "file": "/costumes/models/moon-moth-female.webp",
+      "width": 960,
+      "height": 960,
+      "sha256": "82c903576fa043b62e3fa3fbe527a580fda7c07eb1bfe35731b64167a56ea970",
+      "references": [
+        "/costumes/models/cosmic-cowboy-female.webp",
+        "/costumes/moon-moth.png"
+      ],
+      "prompt": "Use case: identity-preserve. Produce one premium photorealistic, full-body studio fashion photograph for Halloween Supply. Image 1 is the identity reference: preserve this exact adult person's face, skin tone, hair, body and calm expression. Image 2 is the outfit reference: replace the entire cowboy outfit with this exact costume. Preserve the costume's palette, textiles, accessories and silhouette, tailored naturally to the model. No clothes from image 1 may remain. Front-facing relaxed standing pose, direct gaze when visible, hands naturally down unless the cape needs slightly spread arms. Entire person and all headwear and shoes visible, 8% clear margin on every side. Soft even studio daylight, natural skin texture, believable fabric. One centered isolated adult person on an actually transparent background. No floor, props, lettering, collage, watermark, mannequin or floating clothes. Keep original colors, not grayscale. Fully clothed. Costume: Sage and cream moth-wing cape with visible eye spots, fluffy cream collar, feather antenna headband, opaque charcoal jumpsuit and dark shoes. Gently extend forearms enough to reveal the wing shape."
+    },
+    {
+      "slug": "linen-ghost",
+      "model": "male",
+      "file": "/costumes/models/linen-ghost-male.webp",
+      "width": 960,
+      "height": 960,
+      "sha256": "97fea47e39d66665e6f2a4f62973669ca6e2059cbe38e41ccfaf7ed1f39578bb",
+      "references": [
+        "/costumes/models/cosmic-cowboy-male.webp",
+        "/costumes/linen-ghost.png"
+      ],
+      "prompt": "Use case: identity-preserve. Produce one premium photorealistic, full-body studio fashion photograph for Halloween Supply. Image 1 is the identity reference: preserve this exact adult person's face, skin tone, hair, body and calm expression. Image 2 is the outfit reference: replace the entire cowboy outfit with this exact costume. Preserve the costume's palette, textiles, accessories and silhouette, tailored naturally to the model. No clothes from image 1 may remain. Front-facing relaxed standing pose, direct gaze when visible, hands naturally down unless the cape needs slightly spread arms. Entire person and all headwear and shoes visible, 8% clear margin on every side. Soft even studio daylight, natural skin texture, believable fabric. One centered isolated adult person on an actually transparent background. No floor, props, lettering, collage, watermark, mannequin or floating clothes. Keep original colors, not grayscale. Fully clothed. Costume: Opaque off-white linen sheet draped over the model's head and whole body, exactly two oval eye openings, irregular flowing hem safely above brown lace-up boots, fully covered pale base clothes beneath. This is a real person under the sheet: credible shoulders, body weight, hands and boots, not floating fabric. Face remains hidden because this is a ghost costume."
+    },
+    {
+      "slug": "linen-ghost",
+      "model": "female",
+      "file": "/costumes/models/linen-ghost-female.webp",
+      "width": 960,
+      "height": 960,
+      "sha256": "ffc1c39a365300b3b95c27209b447c3d1a67d572d506b339d1e5eab9df9a88af",
+      "references": [
+        "/costumes/models/cosmic-cowboy-female.webp",
+        "/costumes/linen-ghost.png"
+      ],
+      "prompt": "Use case: identity-preserve. Produce one premium photorealistic, full-body studio fashion photograph for Halloween Supply. Image 1 is the identity reference: preserve this exact adult person's face, skin tone, hair, body and calm expression. Image 2 is the outfit reference: replace the entire cowboy outfit with this exact costume. Preserve the costume's palette, textiles, accessories and silhouette, tailored naturally to the model. No clothes from image 1 may remain. Front-facing relaxed standing pose, direct gaze when visible, hands naturally down unless the cape needs slightly spread arms. Entire person and all headwear and shoes visible, 8% clear margin on every side. Soft even studio daylight, natural skin texture, believable fabric. One centered isolated adult person on an actually transparent background. No floor, props, lettering, collage, watermark, mannequin or floating clothes. Keep original colors, not grayscale. Fully clothed. Costume: Opaque off-white linen sheet draped over the model's head and whole body, exactly two oval eye openings, irregular flowing hem safely above brown lace-up boots, fully covered pale base clothes beneath. This is a real person under the sheet: credible shoulders, body weight, hands and boots, not floating fabric. Face remains hidden because this is a ghost costume."
+    },
+    {
+      "slug": "woodland-mushroom",
+      "model": "male",
+      "file": "/costumes/models/woodland-mushroom-male.webp",
+      "width": 960,
+      "height": 960,
+      "sha256": "2ce48fdbb0795ef3b46c8912e6266f850e741240d485c996bfc394cd70e00213",
+      "references": [
+        "/costumes/models/cosmic-cowboy-male.webp",
+        "/costumes/woodland-mushroom.png"
+      ],
+      "prompt": "Use case: identity-preserve. Produce one premium photorealistic, full-body studio fashion photograph for Halloween Supply. Image 1 is the identity reference: preserve this exact adult person's face, skin tone, hair, body and calm expression. Image 2 is the outfit reference: replace the entire cowboy outfit with this exact costume. Preserve the costume's palette, textiles, accessories and silhouette, tailored naturally to the model. No clothes from image 1 may remain. Front-facing relaxed standing pose, direct gaze when visible, hands naturally down unless the cape needs slightly spread arms. Entire person and all headwear and shoes visible, 8% clear margin on every side. Soft even studio daylight, natural skin texture, believable fabric. One centered isolated adult person on an actually transparent background. No floor, props, lettering, collage, watermark, mannequin or floating clothes. Keep original colors, not grayscale. Fully clothed. Costume: Rust-red mushroom cap hat with cream spots and visible gills, cream puff-sleeve blouse, olive neck scarf, brown corduroy short overalls, opaque cream ribbed tights and brown ankle boots."
+    },
+    {
+      "slug": "woodland-mushroom",
+      "model": "female",
+      "file": "/costumes/models/woodland-mushroom-female.webp",
+      "width": 960,
+      "height": 960,
+      "sha256": "c9ddb320d7e506686be465aaec8c818c4a9357665c78000a38fa86906148ec26",
+      "references": [
+        "/costumes/models/cosmic-cowboy-female.webp",
+        "/costumes/woodland-mushroom.png"
+      ],
+      "prompt": "Use case: identity-preserve. Produce one premium photorealistic, full-body studio fashion photograph for Halloween Supply. Image 1 is the identity reference: preserve this exact adult person's face, skin tone, hair, body and calm expression. Image 2 is the outfit reference: replace the entire cowboy outfit with this exact costume. Preserve the costume's palette, textiles, accessories and silhouette, tailored naturally to the model. No clothes from image 1 may remain. Front-facing relaxed standing pose, direct gaze when visible, hands naturally down unless the cape needs slightly spread arms. Entire person and all headwear and shoes visible, 8% clear margin on every side. Soft even studio daylight, natural skin texture, believable fabric. One centered isolated adult person on an actually transparent background. No floor, props, lettering, collage, watermark, mannequin or floating clothes. Keep original colors, not grayscale. Fully clothed. Costume: Rust-red mushroom cap hat with cream spots and visible gills, cream puff-sleeve blouse, olive neck scarf, brown corduroy short overalls, opaque cream ribbed tights and brown ankle boots."
+    },
+    {
+      "slug": "starlight-witch",
+      "model": "male",
+      "file": "/costumes/models/starlight-witch-male.webp",
+      "width": 960,
+      "height": 960,
+      "sha256": "b9a76de0e1290bf390cf540d8783e43964c023dc625e9fc7323c373e97856aa7",
+      "references": [
+        "/costumes/models/cosmic-cowboy-male.webp",
+        "/costumes/starlight-witch.png"
+      ],
+      "prompt": "Use case: identity-preserve. Produce one premium photorealistic, full-body studio fashion photograph for Halloween Supply. Image 1 is the identity reference: preserve this exact adult person's face, skin tone, hair, body and calm expression. Image 2 is the outfit reference: replace the entire cowboy outfit with this exact costume. Preserve the costume's palette, textiles, accessories and silhouette, tailored naturally to the model. No clothes from image 1 may remain. Front-facing relaxed standing pose, direct gaze when visible, hands naturally down unless the cape needs slightly spread arms. Entire person and all headwear and shoes visible, 8% clear margin on every side. Soft even studio daylight, natural skin texture, believable fabric. One centered isolated adult person on an actually transparent background. No floor, props, lettering, collage, watermark, mannequin or floating clothes. Keep original colors, not grayscale. Fully clothed. Costume: Midnight navy pointed velvet witch hat with silver stars and crescent embroidery, matching long star-embroidered cape, fully opaque floor-length navy dress, silver crescent pendant and black lace-up boots. Preserve the full-length dress for either model; no cowboy garments."
+    },
+    {
+      "slug": "starlight-witch",
+      "model": "female",
+      "file": "/costumes/models/starlight-witch-female.webp",
+      "width": 960,
+      "height": 960,
+      "sha256": "75d5f054ccf7f57d4a564d652947e0f5960c0c2ba368e9e51019a82f355c7705",
+      "references": [
+        "/costumes/models/cosmic-cowboy-female.webp",
+        "/costumes/starlight-witch.png"
+      ],
+      "prompt": "Use case: identity-preserve. Produce one premium photorealistic, full-body studio fashion photograph for Halloween Supply. Image 1 is the identity reference: preserve this exact adult person's face, skin tone, hair, body and calm expression. Image 2 is the outfit reference: replace the entire cowboy outfit with this exact costume. Preserve the costume's palette, textiles, accessories and silhouette, tailored naturally to the model. No clothes from image 1 may remain. Front-facing relaxed standing pose, direct gaze when visible, hands naturally down unless the cape needs slightly spread arms. Entire person and all headwear and shoes visible, 8% clear margin on every side. Soft even studio daylight, natural skin texture, believable fabric. One centered isolated adult person on an actually transparent background. No floor, props, lettering, collage, watermark, mannequin or floating clothes. Keep original colors, not grayscale. Fully clothed. Costume: Midnight navy pointed velvet witch hat with silver stars and crescent embroidery, matching long star-embroidered cape, fully opaque floor-length navy dress, silver crescent pendant and black lace-up boots. Preserve the full-length dress for either model; no cowboy garments."
+    },
+    {
+      "slug": "clockwork-aviator",
+      "model": "male",
+      "file": "/costumes/models/clockwork-aviator-male.webp",
+      "width": 960,
+      "height": 960,
+      "sha256": "da05f32d7028784f63558a69d5f04e4dc8d61ba2e4e89e0550b1e6ae57377a26",
+      "references": [
+        "/costumes/models/cosmic-cowboy-male.webp",
+        "/costumes/clockwork-aviator.png"
+      ],
+      "prompt": "Use case: identity-preserve. Produce one premium photorealistic, full-body studio fashion photograph for Halloween Supply. Image 1 is the identity reference: preserve this exact adult person's face, skin tone, hair, body and calm expression. Image 2 is the outfit reference: replace the entire cowboy outfit with this exact costume. Preserve the costume's palette, textiles, accessories and silhouette, tailored naturally to the model. No clothes from image 1 may remain. Front-facing relaxed standing pose, direct gaze when visible, hands naturally down unless the cape needs slightly spread arms. Entire person and all headwear and shoes visible, 8% clear margin on every side. Soft even studio daylight, natural skin texture, believable fabric. One centered isolated adult person on an actually transparent background. No floor, props, lettering, collage, watermark, mannequin or floating clothes. Keep original colors, not grayscale. Fully clothed. Costume: Brown leather flying cap with brass goggles above the forehead, caramel brown leather shearling-lined flight jacket, cream buttoned shirt, brown utility trousers and tall dark brown lace-up boots."
+    },
+    {
+      "slug": "clockwork-aviator",
+      "model": "female",
+      "file": "/costumes/models/clockwork-aviator-female.webp",
+      "width": 960,
+      "height": 960,
+      "sha256": "b0afbd0276296e036b6dd2b62fad5df05744033febb56a9afff44a222189be91",
+      "references": [
+        "/costumes/models/cosmic-cowboy-female.webp",
+        "/costumes/clockwork-aviator.png"
+      ],
+      "prompt": "Use case: identity-preserve. Produce one premium photorealistic, full-body studio fashion photograph for Halloween Supply. Image 1 is the identity reference: preserve this exact adult person's face, skin tone, hair, body and calm expression. Image 2 is the outfit reference: replace the entire cowboy outfit with this exact costume. Preserve the costume's palette, textiles, accessories and silhouette, tailored naturally to the model. No clothes from image 1 may remain. Front-facing relaxed standing pose, direct gaze when visible, hands naturally down unless the cape needs slightly spread arms. Entire person and all headwear and shoes visible, 8% clear margin on every side. Soft even studio daylight, natural skin texture, believable fabric. One centered isolated adult person on an actually transparent background. No floor, props, lettering, collage, watermark, mannequin or floating clothes. Keep original colors, not grayscale. Fully clothed. Costume: Brown leather flying cap with brass goggles above the forehead, caramel brown leather shearling-lined flight jacket, cream buttoned shirt, brown utility trousers and tall dark brown lace-up boots."
+    },
+    {
+      "slug": "autumn-scarecrow",
+      "model": "male",
+      "file": "/costumes/models/autumn-scarecrow-male.webp",
+      "width": 960,
+      "height": 960,
+      "sha256": "9af76c006f363e75e966d7308c1f7ad372b26af5707c9a48dc2f303c4accc8ae",
+      "references": [
+        "/costumes/models/cosmic-cowboy-male.webp",
+        "/costumes/autumn-scarecrow.png"
+      ],
+      "prompt": "Use case: identity-preserve. Produce one premium photorealistic, full-body studio fashion photograph for Halloween Supply. Image 1 is the identity reference: preserve this exact adult person's face, skin tone, hair, body and calm expression. Image 2 is the outfit reference: replace the entire cowboy outfit with this exact costume. Preserve the costume's palette, textiles, accessories and silhouette, tailored naturally to the model. No clothes from image 1 may remain. Front-facing relaxed standing pose, direct gaze when visible, hands naturally down unless the cape needs slightly spread arms. Entire person and all headwear and shoes visible, 8% clear margin on every side. Soft even studio daylight, natural skin texture, believable fabric. One centered isolated adult person on an actually transparent background. No floor, props, lettering, collage, watermark, mannequin or floating clothes. Keep original colors, not grayscale. Fully clothed. Costume: Rust patchwork soft pointed hat with sunflower and raffia trim, ochre plaid long-sleeved shirt, loose patched denim overalls, straw-colored fabric cuff tufts at wrists and ankles and brown work boots. Real adult, no scarecrow makeup."
+    },
+    {
+      "slug": "autumn-scarecrow",
+      "model": "female",
+      "file": "/costumes/models/autumn-scarecrow-female.webp",
+      "width": 960,
+      "height": 960,
+      "sha256": "a1ac87199a51323b60bffe73059c00348f25c1472112696c0b1a748f671ed7c9",
+      "references": [
+        "/costumes/models/cosmic-cowboy-female.webp",
+        "/costumes/autumn-scarecrow.png"
+      ],
+      "prompt": "Use case: identity-preserve. Produce one premium photorealistic, full-body studio fashion photograph for Halloween Supply. Image 1 is the identity reference: preserve this exact adult person's face, skin tone, hair, body and calm expression. Image 2 is the outfit reference: replace the entire cowboy outfit with this exact costume. Preserve the costume's palette, textiles, accessories and silhouette, tailored naturally to the model. No clothes from image 1 may remain. Front-facing relaxed standing pose, direct gaze when visible, hands naturally down unless the cape needs slightly spread arms. Entire person and all headwear and shoes visible, 8% clear margin on every side. Soft even studio daylight, natural skin texture, believable fabric. One centered isolated adult person on an actually transparent background. No floor, props, lettering, collage, watermark, mannequin or floating clothes. Keep original colors, not grayscale. Fully clothed. Costume: Rust patchwork soft pointed hat with sunflower and raffia trim, ochre plaid long-sleeved shirt, loose patched denim overalls, straw-colored fabric cuff tufts at wrists and ankles and brown work boots. Real adult, no scarecrow makeup."
+    },
+    {
+      "slug": "midnight-pirate",
+      "model": "male",
+      "file": "/costumes/models/midnight-pirate-male.webp",
+      "width": 960,
+      "height": 960,
+      "sha256": "31587caac6a53718e32daddb2e5bc53c7217f0c6fff25801d867cad3063e39e8",
+      "references": [
+        "/costumes/models/cosmic-cowboy-male.webp",
+        "/costumes/midnight-pirate.png"
+      ],
+      "prompt": "Use case: identity-preserve. Produce one premium photorealistic, full-body studio fashion photograph for Halloween Supply. Image 1 is the identity reference: preserve this exact adult person's face, skin tone, hair, body and calm expression. Image 2 is the outfit reference: replace the entire cowboy outfit with this exact costume. Preserve the costume's palette, textiles, accessories and silhouette, tailored naturally to the model. No clothes from image 1 may remain. Front-facing relaxed standing pose, direct gaze when visible, hands naturally down unless the cape needs slightly spread arms. Entire person and all headwear and shoes visible, 8% clear margin on every side. Soft even studio daylight, natural skin texture, believable fabric. One centered isolated adult person on an actually transparent background. No floor, props, lettering, collage, watermark, mannequin or floating clothes. Keep original colors, not grayscale. Fully clothed. Costume: Black tricorn hat with gold edging and black feather, midnight blue brocade long coat with ornate cuffs and gold braid, ivory ruffled billowy shirt, burgundy fabric sash tied at waist, black trousers and tall black buckled boots.",
+      "edits": [
+        "Remove the entire studio backdrop and every background pixel from this image. Preserve only the exact same full-body adult man, his face, hair, costume, hands, boots, and pose. Do not change or crop any of the person or clothing. The full surrounding background must be genuinely transparent, including the spaces between arms and torso and between legs. No grey, black, glow, vignette, floor, haze, shadow or gradient behind the model. One clean realistic cutout with natural edges.",
+        "Create a SQUARE 1:1 isolated fashion catalog cutout on a completely transparent background. Image 1 is the exact male actor identity. Image 2 is the exact finished Midnight Pirate outfit and the desired transparent cutout presentation. Change the woman in image 2 to the fully clothed adult man from image 1, preserving his face, hair and build. Preserve image 2's pirate hat, midnight blue brocade coat, ivory ruffled shirt, burgundy sash, black trousers, buckled boots, front standing pose and full-body framing. Preserve the genuine transparency surrounding image 2. Never add a studio backdrop, a vignette, gradient, glow, haze, scenery, floor or shadow. All empty background including between arms and torso and between the legs must be alpha-transparent. Hat and soles fully visible with margin. Soft even catalog lighting on the person only. No words, border, or collage."
+      ]
+    },
+    {
+      "slug": "midnight-pirate",
+      "model": "female",
+      "file": "/costumes/models/midnight-pirate-female.webp",
+      "width": 960,
+      "height": 960,
+      "sha256": "027b2749086fe286be5eeabbefa5bf99e4aead3b883feeee498eab8b48461098",
+      "references": [
+        "/costumes/models/cosmic-cowboy-female.webp",
+        "/costumes/midnight-pirate.png"
+      ],
+      "prompt": "Use case: identity-preserve. Produce one premium photorealistic, full-body studio fashion photograph for Halloween Supply. Image 1 is the identity reference: preserve this exact adult person's face, skin tone, hair, body and calm expression. Image 2 is the outfit reference: replace the entire cowboy outfit with this exact costume. Preserve the costume's palette, textiles, accessories and silhouette, tailored naturally to the model. No clothes from image 1 may remain. Front-facing relaxed standing pose, direct gaze when visible, hands naturally down unless the cape needs slightly spread arms. Entire person and all headwear and shoes visible, 8% clear margin on every side. Soft even studio daylight, natural skin texture, believable fabric. One centered isolated adult person on an actually transparent background. No floor, props, lettering, collage, watermark, mannequin or floating clothes. Keep original colors, not grayscale. Fully clothed. Costume: Black tricorn hat with gold edging and black feather, midnight blue brocade long coat with ornate cuffs and gold braid, ivory ruffled billowy shirt, burgundy fabric sash tied at waist, black trousers and tall black buckled boots."
+    },
+    {
+      "slug": "enchanted-jester",
+      "model": "male",
+      "file": "/costumes/models/enchanted-jester-male.webp",
+      "width": 960,
+      "height": 960,
+      "sha256": "5e5cf455d8d20adc8022c0ac47bb306094ee8e27628b7ac1119cc847744dedce",
+      "references": [
+        "/costumes/models/cosmic-cowboy-male.webp",
+        "/costumes/enchanted-jester.png"
+      ],
+      "prompt": "Use case: identity-preserve. Produce one premium photorealistic, full-body studio fashion photograph for Halloween Supply. Image 1 is the identity reference: preserve this exact adult person's face, skin tone, hair, body and calm expression. Image 2 is the outfit reference: replace the entire cowboy outfit with this exact costume. Preserve the costume's palette, textiles, accessories and silhouette, tailored naturally to the model. No clothes from image 1 may remain. Front-facing relaxed standing pose, direct gaze when visible, hands naturally down unless the cape needs slightly spread arms. Entire person and all headwear and shoes visible, 8% clear margin on every side. Soft even studio daylight, natural skin texture, believable fabric. One centered isolated adult person on an actually transparent background. No floor, props, lettering, collage, watermark, mannequin or floating clothes. Keep original colors, not grayscale. Fully clothed. Costume: Two-point plum and sage velvet jester cap with little gold bells, cream ruff collar, long-sleeved plum and sage diamond-pattern tunic with gold piping, matching plum trousers, burgundy curled-toe boots with sage cuffs and bells. Real adult face, no clown makeup."
+    },
+    {
+      "slug": "enchanted-jester",
+      "model": "female",
+      "file": "/costumes/models/enchanted-jester-female.webp",
+      "width": 960,
+      "height": 960,
+      "sha256": "27410eb5bfc4aa6b231f53c8e54aa4330bf2583a6eebdbcbcaebbc9dbdac8519",
+      "references": [
+        "/costumes/models/cosmic-cowboy-female.webp",
+        "/costumes/enchanted-jester.png"
+      ],
+      "prompt": "Use case: identity-preserve. Produce one premium photorealistic, full-body studio fashion photograph for Halloween Supply. Image 1 is the identity reference: preserve this exact adult person's face, skin tone, hair, body and calm expression. Image 2 is the outfit reference: replace the entire cowboy outfit with this exact costume. Preserve the costume's palette, textiles, accessories and silhouette, tailored naturally to the model. No clothes from image 1 may remain. Front-facing relaxed standing pose, direct gaze when visible, hands naturally down unless the cape needs slightly spread arms. Entire person and all headwear and shoes visible, 8% clear margin on every side. Soft even studio daylight, natural skin texture, believable fabric. One centered isolated adult person on an actually transparent background. No floor, props, lettering, collage, watermark, mannequin or floating clothes. Keep original colors, not grayscale. Fully clothed. Costume: Two-point plum and sage velvet jester cap with little gold bells, cream ruff collar, long-sleeved plum and sage diamond-pattern tunic with gold piping, matching plum trousers, burgundy curled-toe boots with sage cuffs and bells. Real adult face, no clown makeup."
+    },
+    {
+      "slug": "forest-sprite",
+      "model": "male",
+      "file": "/costumes/models/forest-sprite-male.webp",
+      "width": 960,
+      "height": 960,
+      "sha256": "f78a2b5c8d28a2f297545e6f14ebda0b4b2541b5ed2a5179290181fee76bd0e1",
+      "references": [
+        "/costumes/models/cosmic-cowboy-male.webp",
+        "/costumes/forest-sprite.png"
+      ],
+      "prompt": "Use case: identity-preserve. Produce one premium photorealistic, full-body studio fashion photograph for Halloween Supply. Image 1 is the identity reference: preserve this exact adult person's face, skin tone, hair, body and calm expression. Image 2 is the outfit reference: replace the entire cowboy outfit with this exact costume. Preserve the costume's palette, textiles, accessories and silhouette, tailored naturally to the model. No clothes from image 1 may remain. Front-facing relaxed standing pose, direct gaze when visible, hands naturally down unless the cape needs slightly spread arms. Entire person and all headwear and shoes visible, 8% clear margin on every side. Soft even studio daylight, natural skin texture, believable fabric. One centered isolated adult person on an actually transparent background. No floor, props, lettering, collage, watermark, mannequin or floating clothes. Keep original colors, not grayscale. Fully clothed. Costume: A leafy twig crown, moss green hooded leaf-edged cloak, layered sage leaf-shaped tunic over opaque olive leggings, vine-like belt and brown lace-up ankle boots. Preserve the layered leaves and long cloak."
+    },
+    {
+      "slug": "forest-sprite",
+      "model": "female",
+      "file": "/costumes/models/forest-sprite-female.webp",
+      "width": 960,
+      "height": 960,
+      "sha256": "3f9551f212769a276052345d80a0b85198453e8d371c8533bfc9fdcbb67331aa",
+      "references": [
+        "/costumes/models/cosmic-cowboy-female.webp",
+        "/costumes/forest-sprite.png"
+      ],
+      "prompt": "Use case: identity-preserve. Produce one premium photorealistic, full-body studio fashion photograph for Halloween Supply. Image 1 is the identity reference: preserve this exact adult person's face, skin tone, hair, body and calm expression. Image 2 is the outfit reference: replace the entire cowboy outfit with this exact costume. Preserve the costume's palette, textiles, accessories and silhouette, tailored naturally to the model. No clothes from image 1 may remain. Front-facing relaxed standing pose, direct gaze when visible, hands naturally down unless the cape needs slightly spread arms. Entire person and all headwear and shoes visible, 8% clear margin on every side. Soft even studio daylight, natural skin texture, believable fabric. One centered isolated adult person on an actually transparent background. No floor, props, lettering, collage, watermark, mannequin or floating clothes. Keep original colors, not grayscale. Fully clothed. Costume: A leafy twig crown, moss green hooded leaf-edged cloak, layered sage leaf-shaped tunic over opaque olive leggings, vine-like belt and brown lace-up ankle boots. Preserve the layered leaves and long cloak."
+    },
+    {
+      "slug": "celestial-sorcerer",
+      "model": "male",
+      "file": "/costumes/models/celestial-sorcerer-male.webp",
+      "width": 960,
+      "height": 960,
+      "sha256": "db065cf768e5e9ca765042af4743ab6f64b29d9ee8a299b4d2be5db77e2f521b",
+      "references": [
+        "/costumes/models/cosmic-cowboy-male.webp",
+        "/costumes/celestial-sorcerer.png"
+      ],
+      "prompt": "Use case: identity-preserve. Produce one premium photorealistic, full-body studio fashion photograph for Halloween Supply. Image 1 is the identity reference: preserve this exact adult person's face, skin tone, hair, body and calm expression. Image 2 is the outfit reference: replace the entire cowboy outfit with this exact costume. Preserve the costume's palette, textiles, accessories and silhouette, tailored naturally to the model. No clothes from image 1 may remain. Front-facing relaxed standing pose, direct gaze when visible, hands naturally down unless the cape needs slightly spread arms. Entire person and all headwear and shoes visible, 8% clear margin on every side. Soft even studio daylight, natural skin texture, believable fabric. One centered isolated adult person on an actually transparent background. No floor, props, lettering, collage, watermark, mannequin or floating clothes. Keep original colors, not grayscale. Fully clothed. Costume: Tall navy velvet pointed hat with silver moon and stars, floor-length navy robe with silver constellation embroidery, broad bell sleeves, braided silver rope belt, crescent pendant and black embroidered boots."
+    },
+    {
+      "slug": "celestial-sorcerer",
+      "model": "female",
+      "file": "/costumes/models/celestial-sorcerer-female.webp",
+      "width": 960,
+      "height": 960,
+      "sha256": "5f964e6c3ed34d770aac446ca34b287b1bde752d4a62356265482e8e4156045c",
+      "references": [
+        "/costumes/models/cosmic-cowboy-female.webp",
+        "/costumes/celestial-sorcerer.png"
+      ],
+      "prompt": "Use case: identity-preserve. Produce one premium photorealistic, full-body studio fashion photograph for Halloween Supply. Image 1 is the identity reference: preserve this exact adult person's face, skin tone, hair, body and calm expression. Image 2 is the outfit reference: replace the entire cowboy outfit with this exact costume. Preserve the costume's palette, textiles, accessories and silhouette, tailored naturally to the model. No clothes from image 1 may remain. Front-facing relaxed standing pose, direct gaze when visible, hands naturally down unless the cape needs slightly spread arms. Entire person and all headwear and shoes visible, 8% clear margin on every side. Soft even studio daylight, natural skin texture, believable fabric. One centered isolated adult person on an actually transparent background. No floor, props, lettering, collage, watermark, mannequin or floating clothes. Keep original colors, not grayscale. Fully clothed. Costume: Tall navy velvet pointed hat with silver moon and stars, floor-length navy robe with silver constellation embroidery, broad bell sleeves, braided silver rope belt, crescent pendant and black embroidered boots."
+    },
+    {
+      "slug": "pumpkin-harlequin",
+      "model": "male",
+      "file": "/costumes/models/pumpkin-harlequin-male.webp",
+      "width": 960,
+      "height": 960,
+      "sha256": "dda4ac4f13e0ef8c3cc57de3bcfa3356ac9ab9c4de2bbf708debb740087c8cf6",
+      "references": [
+        "/costumes/models/cosmic-cowboy-male.webp",
+        "/costumes/pumpkin-harlequin.png"
+      ],
+      "prompt": "Use case: identity-preserve. Produce one premium photorealistic, full-body studio fashion photograph for Halloween Supply. Image 1 is the identity reference: preserve this exact adult person's face, skin tone, hair, body and calm expression. Image 2 is the outfit reference: replace the entire cowboy outfit with this exact costume. Preserve the costume's palette, textiles, accessories and silhouette, tailored naturally to the model. No clothes from image 1 may remain. Front-facing relaxed standing pose, direct gaze when visible, hands naturally down unless the cape needs slightly spread arms. Entire person and all headwear and shoes visible, 8% clear margin on every side. Soft even studio daylight, natural skin texture, believable fabric. One centered isolated adult person on an actually transparent background. No floor, props, lettering, collage, watermark, mannequin or floating clothes. Keep original colors, not grayscale. Fully clothed. Costume: Small orange and charcoal pumpkin beret with stem, layered orange ruff, fully opaque orange and charcoal diamond-pattern long-sleeved jumpsuit, fitted cuffs and black pointed ankle boots."
+    },
+    {
+      "slug": "pumpkin-harlequin",
+      "model": "female",
+      "file": "/costumes/models/pumpkin-harlequin-female.webp",
+      "width": 960,
+      "height": 960,
+      "sha256": "7fbf3fda5c4bff16afc9d1bc9a56b8c77a654b6c533b591d9a7f6eccf13fd631",
+      "references": [
+        "/costumes/models/cosmic-cowboy-female.webp",
+        "/costumes/pumpkin-harlequin.png"
+      ],
+      "prompt": "Use case: identity-preserve. Produce one premium photorealistic, full-body studio fashion photograph for Halloween Supply. Image 1 is the identity reference: preserve this exact adult person's face, skin tone, hair, body and calm expression. Image 2 is the outfit reference: replace the entire cowboy outfit with this exact costume. Preserve the costume's palette, textiles, accessories and silhouette, tailored naturally to the model. No clothes from image 1 may remain. Front-facing relaxed standing pose, direct gaze when visible, hands naturally down unless the cape needs slightly spread arms. Entire person and all headwear and shoes visible, 8% clear margin on every side. Soft even studio daylight, natural skin texture, believable fabric. One centered isolated adult person on an actually transparent background. No floor, props, lettering, collage, watermark, mannequin or floating clothes. Keep original colors, not grayscale. Fully clothed. Costume: Small orange and charcoal pumpkin beret with stem, layered orange ruff, fully opaque orange and charcoal diamond-pattern long-sleeved jumpsuit, fitted cuffs and black pointed ankle boots."
+    },
+    {
+      "slug": "victorian-detective",
+      "model": "male",
+      "file": "/costumes/models/victorian-detective-male.webp",
+      "width": 960,
+      "height": 960,
+      "sha256": "af70f68f131ab4f6a9ddf9c33c5f41bf7a3b9c13749f4ad96800bad2740e2fc4",
+      "references": [
+        "/costumes/models/cosmic-cowboy-male.webp",
+        "/costumes/victorian-detective.png"
+      ],
+      "prompt": "Use case: identity-preserve. Produce one premium photorealistic, full-body studio fashion photograph for Halloween Supply. Image 1 is the identity reference: preserve this exact adult person's face, skin tone, hair, body and calm expression. Image 2 is the outfit reference: replace the entire cowboy outfit with this exact costume. Preserve the costume's palette, textiles, accessories and silhouette, tailored naturally to the model. No clothes from image 1 may remain. Front-facing relaxed standing pose, direct gaze when visible, hands naturally down unless the cape needs slightly spread arms. Entire person and all headwear and shoes visible, 8% clear margin on every side. Soft even studio daylight, natural skin texture, believable fabric. One centered isolated adult person on an actually transparent background. No floor, props, lettering, collage, watermark, mannequin or floating clothes. Keep original colors, not grayscale. Fully clothed. Costume: Brown herringbone deerstalker cap, matching short-shouldered Inverness cape coat, brown tweed waistcoat, cream button-down shirt, brown straight tweed trousers and polished brown brogue shoes. No pipe, weapon or extra prop."
+    },
+    {
+      "slug": "victorian-detective",
+      "model": "female",
+      "file": "/costumes/models/victorian-detective-female.webp",
+      "width": 960,
+      "height": 960,
+      "sha256": "86985d00fcac4c3246e683c49abec665b266224969db6fffe75b206535e8ba39",
+      "references": [
+        "/costumes/models/cosmic-cowboy-female.webp",
+        "/costumes/victorian-detective.png"
+      ],
+      "prompt": "Use case: identity-preserve. Produce one premium photorealistic, full-body studio fashion photograph for Halloween Supply. Image 1 is the identity reference: preserve this exact adult person's face, skin tone, hair, body and calm expression. Image 2 is the outfit reference: replace the entire cowboy outfit with this exact costume. Preserve the costume's palette, textiles, accessories and silhouette, tailored naturally to the model. No clothes from image 1 may remain. Front-facing relaxed standing pose, direct gaze when visible, hands naturally down unless the cape needs slightly spread arms. Entire person and all headwear and shoes visible, 8% clear margin on every side. Soft even studio daylight, natural skin texture, believable fabric. One centered isolated adult person on an actually transparent background. No floor, props, lettering, collage, watermark, mannequin or floating clothes. Keep original colors, not grayscale. Fully clothed. Costume: Brown herringbone deerstalker cap, matching short-shouldered Inverness cape coat, brown tweed waistcoat, cream button-down shirt, brown straight tweed trousers and polished brown brogue shoes. No pipe, weapon or extra prop."
+    },
+    {
+      "slug": "storm-chaser",
+      "model": "male",
+      "file": "/costumes/models/storm-chaser-male.webp",
+      "width": 960,
+      "height": 960,
+      "sha256": "8b0ab33e8d6f4a860aa4aa5c92a4cf36f4fd8d1a52e42efe81af2775648d836b",
+      "references": [
+        "/costumes/models/cosmic-cowboy-male.webp",
+        "/costumes/storm-chaser.png"
+      ],
+      "prompt": "Use case: identity-preserve. Produce one premium photorealistic, full-body studio fashion photograph for Halloween Supply. Image 1 is the identity reference: preserve this exact adult person's face, skin tone, hair, body and calm expression. Image 2 is the outfit reference: replace the entire cowboy outfit with this exact costume. Preserve the costume's palette, textiles, accessories and silhouette, tailored naturally to the model. No clothes from image 1 may remain. Front-facing relaxed standing pose, direct gaze when visible, hands naturally down unless the cape needs slightly spread arms. Entire person and all headwear and shoes visible, 8% clear margin on every side. Soft even studio daylight, natural skin texture, believable fabric. One centered isolated adult person on an actually transparent background. No floor, props, lettering, collage, watermark, mannequin or floating clothes. Keep original colors, not grayscale. Fully clothed. Costume: Mustard yellow hooded raincoat with little silver lightning pin, navy and cream striped knit sweater, navy trousers and dark rubber rain boots. Hood sits naturally behind the visible face."
+    },
+    {
+      "slug": "storm-chaser",
+      "model": "female",
+      "file": "/costumes/models/storm-chaser-female.webp",
+      "width": 960,
+      "height": 960,
+      "sha256": "77aa540a33c55c9e5463db305db4858077344f6fd0d7b263c94b6713c8dca5de",
+      "references": [
+        "/costumes/models/cosmic-cowboy-female.webp",
+        "/costumes/storm-chaser.png"
+      ],
+      "prompt": "Use case: identity-preserve. Produce one premium photorealistic, full-body studio fashion photograph for Halloween Supply. Image 1 is the identity reference: preserve this exact adult person's face, skin tone, hair, body and calm expression. Image 2 is the outfit reference: replace the entire cowboy outfit with this exact costume. Preserve the costume's palette, textiles, accessories and silhouette, tailored naturally to the model. No clothes from image 1 may remain. Front-facing relaxed standing pose, direct gaze when visible, hands naturally down unless the cape needs slightly spread arms. Entire person and all headwear and shoes visible, 8% clear margin on every side. Soft even studio daylight, natural skin texture, believable fabric. One centered isolated adult person on an actually transparent background. No floor, props, lettering, collage, watermark, mannequin or floating clothes. Keep original colors, not grayscale. Fully clothed. Costume: Mustard yellow hooded raincoat with little silver lightning pin, navy and cream striped knit sweater, navy trousers and dark rubber rain boots. Hood sits naturally behind the visible face."
+    },
+    {
+      "slug": "disco-phantom",
+      "model": "male",
+      "file": "/costumes/models/disco-phantom-male.webp",
+      "width": 960,
+      "height": 960,
+      "sha256": "2ca8c6dbea321d019ca706efce3b7a58729139977c4b0dc9c10d5d3ec872d9cf",
+      "references": [
+        "/costumes/models/cosmic-cowboy-male.webp",
+        "/costumes/disco-phantom.png"
+      ],
+      "prompt": "Use case: identity-preserve. Produce one premium photorealistic, full-body studio fashion photograph for Halloween Supply. Image 1 is the identity reference: preserve this exact adult person's face, skin tone, hair, body and calm expression. Image 2 is the outfit reference: replace the entire cowboy outfit with this exact costume. Preserve the costume's palette, textiles, accessories and silhouette, tailored naturally to the model. No clothes from image 1 may remain. Front-facing relaxed standing pose, direct gaze when visible, hands naturally down unless the cape needs slightly spread arms. Entire person and all headwear and shoes visible, 8% clear margin on every side. Soft even studio daylight, natural skin texture, believable fabric. One centered isolated adult person on an actually transparent background. No floor, props, lettering, collage, watermark, mannequin or floating clothes. Keep original colors, not grayscale. Fully clothed. Costume: Shimmering silver sequined hooded floor-length cape, fully opaque ivory satin flared-leg jumpsuit with a modest high crossover neckline, wide rhinestone silver belt, silver gloves and silver platform ankle boots. The face is visible beneath the hood."
+    },
+    {
+      "slug": "disco-phantom",
+      "model": "female",
+      "file": "/costumes/models/disco-phantom-female.webp",
+      "width": 960,
+      "height": 960,
+      "sha256": "8cef46c43a5f39391ed8c2c03ed32f5c67fe7b77190f40f3d12aaf4bf4132ec5",
+      "references": [
+        "/costumes/models/cosmic-cowboy-female.webp",
+        "/costumes/disco-phantom.png"
+      ],
+      "prompt": "Use case: identity-preserve. Produce one premium photorealistic, full-body studio fashion photograph for Halloween Supply. Image 1 is the identity reference: preserve this exact adult person's face, skin tone, hair, body and calm expression. Image 2 is the outfit reference: replace the entire cowboy outfit with this exact costume. Preserve the costume's palette, textiles, accessories and silhouette, tailored naturally to the model. No clothes from image 1 may remain. Front-facing relaxed standing pose, direct gaze when visible, hands naturally down unless the cape needs slightly spread arms. Entire person and all headwear and shoes visible, 8% clear margin on every side. Soft even studio daylight, natural skin texture, believable fabric. One centered isolated adult person on an actually transparent background. No floor, props, lettering, collage, watermark, mannequin or floating clothes. Keep original colors, not grayscale. Fully clothed. Costume: Shimmering silver sequined hooded floor-length cape, fully opaque ivory satin flared-leg jumpsuit with a modest high crossover neckline, wide rhinestone silver belt, silver gloves and silver platform ankle boots. The face is visible beneath the hood."
+    },
+    {
+      "slug": "garden-beekeeper",
+      "model": "male",
+      "file": "/costumes/models/garden-beekeeper-male.webp",
+      "width": 960,
+      "height": 960,
+      "sha256": "d3bffadc5be179d328a7385baa6cae1cfb38a054be6506c943dc94e2f4411ebc",
+      "references": [
+        "/costumes/models/cosmic-cowboy-male.webp",
+        "/costumes/garden-beekeeper.png"
+      ],
+      "prompt": "Use case: identity-preserve. Produce one premium photorealistic, full-body studio fashion photograph for Halloween Supply. Image 1 is the identity reference: preserve this exact adult person's face, skin tone, hair, body and calm expression. Image 2 is the outfit reference: replace the entire cowboy outfit with this exact costume. Preserve the costume's palette, textiles, accessories and silhouette, tailored naturally to the model. No clothes from image 1 may remain. Front-facing relaxed standing pose, direct gaze when visible, hands naturally down unless the cape needs slightly spread arms. Entire person and all headwear and shoes visible, 8% clear margin on every side. Soft even studio daylight, natural skin texture, believable fabric. One centered isolated adult person on an actually transparent background. No floor, props, lettering, collage, watermark, mannequin or floating clothes. Keep original colors, not grayscale. Fully clothed. Costume: Cream cotton utility jacket and loose cream trousers, cream beekeeping veil hood with realistic black mesh through which the adult face is visible, tan protective-style gloves, brown work boots and a small bee brooch on the chest."
+    },
+    {
+      "slug": "garden-beekeeper",
+      "model": "female",
+      "file": "/costumes/models/garden-beekeeper-female.webp",
+      "width": 960,
+      "height": 960,
+      "sha256": "d4ccd1cfc5327e26123a53ac68032ed7805a728b268934591111c3153b06c4d4",
+      "references": [
+        "/costumes/models/cosmic-cowboy-female.webp",
+        "/costumes/garden-beekeeper.png"
+      ],
+      "prompt": "Use case: identity-preserve. Produce one premium photorealistic, full-body studio fashion photograph for Halloween Supply. Image 1 is the identity reference: preserve this exact adult person's face, skin tone, hair, body and calm expression. Image 2 is the outfit reference: replace the entire cowboy outfit with this exact costume. Preserve the costume's palette, textiles, accessories and silhouette, tailored naturally to the model. No clothes from image 1 may remain. Front-facing relaxed standing pose, direct gaze when visible, hands naturally down unless the cape needs slightly spread arms. Entire person and all headwear and shoes visible, 8% clear margin on every side. Soft even studio daylight, natural skin texture, believable fabric. One centered isolated adult person on an actually transparent background. No floor, props, lettering, collage, watermark, mannequin or floating clothes. Keep original colors, not grayscale. Fully clothed. Costume: Cream cotton utility jacket and loose cream trousers, cream beekeeping veil hood with realistic black mesh through which the adult face is visible, tan protective-style gloves, brown work boots and a small bee brooch on the chest."
+    },
+    {
+      "slug": "coral-mermaid",
+      "model": "male",
+      "file": "/costumes/models/coral-mermaid-male.webp",
+      "width": 787,
+      "height": 960,
+      "sha256": "5d26f7a2a5397823c4a7efbd387df26ad462b5380918b4f3499745b7d72c28bb",
+      "references": [
+        "/costumes/models/cosmic-cowboy-male.webp",
+        "/costumes/coral-mermaid.png"
+      ],
+      "prompt": "Use case: identity-preserve. Produce one premium photorealistic, full-body studio fashion photograph for Halloween Supply. Image 1 is the identity reference: preserve this exact adult person's face, skin tone, hair, body and calm expression. Image 2 is the outfit reference: replace the entire cowboy outfit with this exact costume. Preserve the costume's palette, textiles, accessories and silhouette, tailored naturally to the model. No clothes from image 1 may remain. Front-facing relaxed standing pose, direct gaze when visible, hands naturally down unless the cape needs slightly spread arms. Entire person and all headwear and shoes visible, 8% clear margin on every side. Soft even studio daylight, natural skin texture, believable fabric. One centered isolated adult person on an actually transparent background. No floor, props, lettering, collage, watermark, mannequin or floating clothes. Keep original colors, not grayscale. Fully clothed. Costume: Coral and shell tiara, fully opaque seafoam blouse with billowy sleeves and a modest neckline, short coral-pink embroidered jacket, long teal scale-pattern mermaid skirt with coral embroidery and a flowing flared fabric hem. Visible garment is a real skirt, not a biological tail. Pearl details and a shell pendant."
+    },
+    {
+      "slug": "coral-mermaid",
+      "model": "female",
+      "file": "/costumes/models/coral-mermaid-female.webp",
+      "width": 796,
+      "height": 960,
+      "sha256": "fc1e290f3fcbee28ebcb557a215a8dbb9a180a0ff2927a94e2d0a795de65c215",
+      "references": [
+        "/costumes/models/cosmic-cowboy-female.webp",
+        "/costumes/coral-mermaid.png"
+      ],
+      "prompt": "Use case: identity-preserve. Produce one premium photorealistic, full-body studio fashion photograph for Halloween Supply. Image 1 is the identity reference: preserve this exact adult person's face, skin tone, hair, body and calm expression. Image 2 is the outfit reference: replace the entire cowboy outfit with this exact costume. Preserve the costume's palette, textiles, accessories and silhouette, tailored naturally to the model. No clothes from image 1 may remain. Front-facing relaxed standing pose, direct gaze when visible, hands naturally down unless the cape needs slightly spread arms. Entire person and all headwear and shoes visible, 8% clear margin on every side. Soft even studio daylight, natural skin texture, believable fabric. One centered isolated adult person on an actually transparent background. No floor, props, lettering, collage, watermark, mannequin or floating clothes. Keep original colors, not grayscale. Fully clothed. Costume: Coral and shell tiara, fully opaque seafoam blouse with billowy sleeves and a modest neckline, short coral-pink embroidered jacket, long teal scale-pattern mermaid skirt with coral embroidery and a flowing flared fabric hem. Visible garment is a real skirt, not a biological tail. Pearl details and a shell pendant."
+    },
+    {
+      "slug": "snow-owl",
+      "model": "male",
+      "file": "/costumes/models/snow-owl-male.webp",
+      "width": 960,
+      "height": 960,
+      "sha256": "df409d5187739005be5e1a12f05da69c2d96b35364b64eea1b1d72fe999a36a3",
+      "references": [
+        "/costumes/models/cosmic-cowboy-male.webp",
+        "/costumes/snow-owl.png"
+      ],
+      "prompt": "Use case: identity-preserve. Produce one premium photorealistic, full-body studio fashion photograph for Halloween Supply. Image 1 is the identity reference: preserve this exact adult person's face, skin tone, hair, body and calm expression. Image 2 is the outfit reference: replace the entire cowboy outfit with this exact costume. Preserve the costume's palette, textiles, accessories and silhouette, tailored naturally to the model. No clothes from image 1 may remain. Front-facing relaxed standing pose, direct gaze when visible, hands naturally down unless the cape needs slightly spread arms. Entire person and all headwear and shoes visible, 8% clear margin on every side. Soft even studio daylight, natural skin texture, believable fabric. One centered isolated adult person on an actually transparent background. No floor, props, lettering, collage, watermark, mannequin or floating clothes. Keep original colors, not grayscale. Fully clothed. Costume: Cream feather owl headband framing the visible face, ivory and taupe-spotted feather shoulder cape, opaque cream V-neck tunic and cream trousers, braided cream rope belt and taupe wrapped boots."
+    },
+    {
+      "slug": "snow-owl",
+      "model": "female",
+      "file": "/costumes/models/snow-owl-female.webp",
+      "width": 960,
+      "height": 960,
+      "sha256": "b762def62f2bce7b0f68d25f85a0ce95d0f36c09099f3eedd1d4175e666c2b4b",
+      "references": [
+        "/costumes/models/cosmic-cowboy-female.webp",
+        "/costumes/snow-owl.png"
+      ],
+      "prompt": "Use case: identity-preserve. Produce one premium photorealistic, full-body studio fashion photograph for Halloween Supply. Image 1 is the identity reference: preserve this exact adult person's face, skin tone, hair, body and calm expression. Image 2 is the outfit reference: replace the entire cowboy outfit with this exact costume. Preserve the costume's palette, textiles, accessories and silhouette, tailored naturally to the model. No clothes from image 1 may remain. Front-facing relaxed standing pose, direct gaze when visible, hands naturally down unless the cape needs slightly spread arms. Entire person and all headwear and shoes visible, 8% clear margin on every side. Soft even studio daylight, natural skin texture, believable fabric. One centered isolated adult person on an actually transparent background. No floor, props, lettering, collage, watermark, mannequin or floating clothes. Keep original colors, not grayscale. Fully clothed. Costume: Cream feather owl headband framing the visible face, ivory and taupe-spotted feather shoulder cape, opaque cream V-neck tunic and cream trousers, braided cream rope belt and taupe wrapped boots."
+    },
+    {
+      "slug": "velvet-ringmaster",
+      "model": "male",
+      "file": "/costumes/models/velvet-ringmaster-male.webp",
+      "width": 960,
+      "height": 960,
+      "sha256": "612233d0c3c9cc0dd2d3e82823a5ff0403d2fa5961357c66cbfb024d0d9002b0",
+      "references": [
+        "/costumes/models/cosmic-cowboy-male.webp",
+        "/costumes/velvet-ringmaster.png"
+      ],
+      "prompt": "Use case: identity-preserve. Produce one premium photorealistic, full-body studio fashion photograph for Halloween Supply. Image 1 is the identity reference: preserve this exact adult person's face, skin tone, hair, body and calm expression. Image 2 is the outfit reference: replace the entire cowboy outfit with this exact costume. Preserve the costume's palette, textiles, accessories and silhouette, tailored naturally to the model. No clothes from image 1 may remain. Front-facing relaxed standing pose, direct gaze when visible, hands naturally down unless the cape needs slightly spread arms. Entire person and all headwear and shoes visible, 8% clear margin on every side. Soft even studio daylight, natural skin texture, believable fabric. One centered isolated adult person on an actually transparent background. No floor, props, lettering, collage, watermark, mannequin or floating clothes. Keep original colors, not grayscale. Fully clothed. Costume: Black top hat with burgundy ribbon, red velvet tailcoat with ornate gold braid and black lapels, cream high-neck ruffled shirt, black and gold brocade waistcoat, black trousers and tall polished black boots."
+    },
+    {
+      "slug": "velvet-ringmaster",
+      "model": "female",
+      "file": "/costumes/models/velvet-ringmaster-female.webp",
+      "width": 960,
+      "height": 960,
+      "sha256": "356d34e7fdd98c46edc7cf97cdf243f6e281c51613b93d9560b167881227cba6",
+      "references": [
+        "/costumes/models/cosmic-cowboy-female.webp",
+        "/costumes/velvet-ringmaster.png"
+      ],
+      "prompt": "Use case: identity-preserve. Produce one premium photorealistic, full-body studio fashion photograph for Halloween Supply. Image 1 is the identity reference: preserve this exact adult person's face, skin tone, hair, body and calm expression. Image 2 is the outfit reference: replace the entire cowboy outfit with this exact costume. Preserve the costume's palette, textiles, accessories and silhouette, tailored naturally to the model. No clothes from image 1 may remain. Front-facing relaxed standing pose, direct gaze when visible, hands naturally down unless the cape needs slightly spread arms. Entire person and all headwear and shoes visible, 8% clear margin on every side. Soft even studio daylight, natural skin texture, believable fabric. One centered isolated adult person on an actually transparent background. No floor, props, lettering, collage, watermark, mannequin or floating clothes. Keep original colors, not grayscale. Fully clothed. Costume: Black top hat with burgundy ribbon, red velvet tailcoat with ornate gold braid and black lapels, cream high-neck ruffled shirt, black and gold brocade waistcoat, black trousers and tall polished black boots."
+    },
+    {
+      "slug": "desert-alchemist",
+      "model": "male",
+      "file": "/costumes/models/desert-alchemist-male.webp",
+      "width": 960,
+      "height": 960,
+      "sha256": "b25ca2a504906232678a127f848c9b40756cd8a9c0944dac6c937a9fabfbbee9",
+      "references": [
+        "/costumes/models/cosmic-cowboy-male.webp",
+        "/costumes/desert-alchemist.png"
+      ],
+      "prompt": "Use case: identity-preserve. Produce one premium photorealistic, full-body studio fashion photograph for Halloween Supply. Image 1 is the identity reference: preserve this exact adult person's face, skin tone, hair, body and calm expression. Image 2 is the outfit reference: replace the entire cowboy outfit with this exact costume. Preserve the costume's palette, textiles, accessories and silhouette, tailored naturally to the model. No clothes from image 1 may remain. Front-facing relaxed standing pose, direct gaze when visible, hands naturally down unless the cape needs slightly spread arms. Entire person and all headwear and shoes visible, 8% clear margin on every side. Soft even studio daylight, natural skin texture, believable fabric. One centered isolated adult person on an actually transparent background. No floor, props, lettering, collage, watermark, mannequin or floating clothes. Keep original colors, not grayscale. Fully clothed. Costume: Sand-colored hooded linen cloak and scarf, terracotta wrap tunic, cream loose trousers, wide brown leather belt with small bottle pouches and closed decorative potion bottles, brown leather forearm bracers and tall brown wrapped boots. Face visible beneath the hood."
+    },
+    {
+      "slug": "desert-alchemist",
+      "model": "female",
+      "file": "/costumes/models/desert-alchemist-female.webp",
+      "width": 960,
+      "height": 960,
+      "sha256": "952d0e207d11461c2795c54cacb221cbf0123f259959aee30aa9d33b81c24407",
+      "references": [
+        "/costumes/models/cosmic-cowboy-female.webp",
+        "/costumes/desert-alchemist.png"
+      ],
+      "prompt": "Use case: identity-preserve. Produce one premium photorealistic, full-body studio fashion photograph for Halloween Supply. Image 1 is the identity reference: preserve this exact adult person's face, skin tone, hair, body and calm expression. Image 2 is the outfit reference: replace the entire cowboy outfit with this exact costume. Preserve the costume's palette, textiles, accessories and silhouette, tailored naturally to the model. No clothes from image 1 may remain. Front-facing relaxed standing pose, direct gaze when visible, hands naturally down unless the cape needs slightly spread arms. Entire person and all headwear and shoes visible, 8% clear margin on every side. Soft even studio daylight, natural skin texture, believable fabric. One centered isolated adult person on an actually transparent background. No floor, props, lettering, collage, watermark, mannequin or floating clothes. Keep original colors, not grayscale. Fully clothed. Costume: Sand-colored hooded linen cloak and scarf, terracotta wrap tunic, cream loose trousers, wide brown leather belt with small bottle pouches and closed decorative potion bottles, brown leather forearm bracers and tall brown wrapped boots. Face visible beneath the hood."
+    },
+    {
+      "slug": "rose-garden-queen",
+      "model": "male",
+      "file": "/costumes/models/rose-garden-queen-male.webp",
+      "width": 960,
+      "height": 960,
+      "sha256": "6284807dd323d2b66672b0a627bc38b092b1eec37379bfc89e28a4cfa8f303f9",
+      "references": [
+        "/costumes/models/cosmic-cowboy-male.webp",
+        "/costumes/rose-garden-queen.png"
+      ],
+      "prompt": "Use case: identity-preserve. Produce one premium photorealistic, full-body studio fashion photograph for Halloween Supply. Image 1 is the identity reference: preserve this exact adult person's face, skin tone, hair, body and calm expression. Image 2 is the outfit reference: replace the entire cowboy outfit with this exact costume. Preserve the costume's palette, textiles, accessories and silhouette, tailored naturally to the model. No clothes from image 1 may remain. Front-facing relaxed standing pose, direct gaze when visible, hands naturally down unless the cape needs slightly spread arms. Entire person and all headwear and shoes visible, 8% clear margin on every side. Soft even studio daylight, natural skin texture, believable fabric. One centered isolated adult person on an actually transparent background. No floor, props, lettering, collage, watermark, mannequin or floating clothes. Keep original colors, not grayscale. Fully clothed. Costume: Delicate antique-brass crown with dark red roses, sage green shoulder cape with rose embroidery, fully opaque burgundy velvet floor-length gown embroidered with gold vines and roses, burgundy gloves and dark embroidered ankle boots. Preserve the long gown for either model."
+    },
+    {
+      "slug": "rose-garden-queen",
+      "model": "female",
+      "file": "/costumes/models/rose-garden-queen-female.webp",
+      "width": 960,
+      "height": 960,
+      "sha256": "33ca6c76a8216f5b01e7b45a22995769d2eed2a9da7dcb29124e4d712046a87e",
+      "references": [
+        "/costumes/models/cosmic-cowboy-female.webp",
+        "/costumes/rose-garden-queen.png"
+      ],
+      "prompt": "Use case: identity-preserve. Produce one premium photorealistic, full-body studio fashion photograph for Halloween Supply. Image 1 is the identity reference: preserve this exact adult person's face, skin tone, hair, body and calm expression. Image 2 is the outfit reference: replace the entire cowboy outfit with this exact costume. Preserve the costume's palette, textiles, accessories and silhouette, tailored naturally to the model. No clothes from image 1 may remain. Front-facing relaxed standing pose, direct gaze when visible, hands naturally down unless the cape needs slightly spread arms. Entire person and all headwear and shoes visible, 8% clear margin on every side. Soft even studio daylight, natural skin texture, believable fabric. One centered isolated adult person on an actually transparent background. No floor, props, lettering, collage, watermark, mannequin or floating clothes. Keep original colors, not grayscale. Fully clothed. Costume: Delicate antique-brass crown with dark red roses, sage green shoulder cape with rose embroidery, fully opaque burgundy velvet floor-length gown embroidered with gold vines and roses, burgundy gloves and dark embroidered ankle boots. Preserve the long gown for either model."
+    },
+    {
+      "slug": "retro-astronaut",
+      "model": "male",
+      "file": "/costumes/models/retro-astronaut-male.webp",
+      "width": 960,
+      "height": 960,
+      "sha256": "04908e90827602bff399f8ab6d88376394bc197e6cc8b0c30eddc9dc39dbc8be",
+      "references": [
+        "/costumes/models/cosmic-cowboy-male.webp",
+        "/costumes/retro-astronaut.png"
+      ],
+      "prompt": "Use case: identity-preserve. Produce one premium photorealistic, full-body studio fashion photograph for Halloween Supply. Image 1 is the identity reference: preserve this exact adult person's face, skin tone, hair, body and calm expression. Image 2 is the outfit reference: replace the entire cowboy outfit with this exact costume. Preserve the costume's palette, textiles, accessories and silhouette, tailored naturally to the model. No clothes from image 1 may remain. Front-facing relaxed standing pose, direct gaze when visible, hands naturally down unless the cape needs slightly spread arms. Entire person and all headwear and shoes visible, 8% clear margin on every side. Soft even studio daylight, natural skin texture, believable fabric. One centered isolated adult person on an actually transparent background. No floor, props, lettering, collage, watermark, mannequin or floating clothes. Keep original colors, not grayscale. Fully clothed. Costume: Cream retro flight jumpsuit with burnt orange shoulder and side panels, round silver astronaut helmet with visor raised to show this model's face, cream utility belt and suspenders, silver forearm cuffs, cream gloves and silver boots. Physical wearable costume, no space scene or props."
+    },
+    {
+      "slug": "retro-astronaut",
+      "model": "female",
+      "file": "/costumes/models/retro-astronaut-female.webp",
+      "width": 960,
+      "height": 960,
+      "sha256": "a70c1c88b1fdd978a02b2e3af527fe117b184e926d88a03425cf49790acf779a",
+      "references": [
+        "/costumes/models/cosmic-cowboy-female.webp",
+        "/costumes/retro-astronaut.png"
+      ],
+      "prompt": "Use case: identity-preserve. Produce one premium photorealistic, full-body studio fashion photograph for Halloween Supply. Image 1 is the identity reference: preserve this exact adult person's face, skin tone, hair, body and calm expression. Image 2 is the outfit reference: replace the entire cowboy outfit with this exact costume. Preserve the costume's palette, textiles, accessories and silhouette, tailored naturally to the model. No clothes from image 1 may remain. Front-facing relaxed standing pose, direct gaze when visible, hands naturally down unless the cape needs slightly spread arms. Entire person and all headwear and shoes visible, 8% clear margin on every side. Soft even studio daylight, natural skin texture, believable fabric. One centered isolated adult person on an actually transparent background. No floor, props, lettering, collage, watermark, mannequin or floating clothes. Keep original colors, not grayscale. Fully clothed. Costume: Cream retro flight jumpsuit with burnt orange shoulder and side panels, round silver astronaut helmet with visor raised to show this model's face, cream utility belt and suspenders, silver forearm cuffs, cream gloves and silver boots. Physical wearable costume, no space scene or props."
+    },
+    {
+      "slug": "raven-scholar",
+      "model": "male",
+      "file": "/costumes/models/raven-scholar-male.webp",
+      "width": 960,
+      "height": 960,
+      "sha256": "aff5d3605a235db4ddb308db0758fdbd3538749d265b0a28a964bd15d1a5c76d",
+      "references": [
+        "/costumes/models/cosmic-cowboy-male.webp",
+        "/costumes/raven-scholar.png"
+      ],
+      "prompt": "Use case: identity-preserve. Produce one premium photorealistic, full-body studio fashion photograph for Halloween Supply. Image 1 is the identity reference: preserve this exact adult person's face, skin tone, hair, body and calm expression. Image 2 is the outfit reference: replace the entire cowboy outfit with this exact costume. Preserve the costume's palette, textiles, accessories and silhouette, tailored naturally to the model. No clothes from image 1 may remain. Front-facing relaxed standing pose, direct gaze when visible, hands naturally down unless the cape needs slightly spread arms. Entire person and all headwear and shoes visible, 8% clear margin on every side. Soft even studio daylight, natural skin texture, believable fabric. One centered isolated adult person on an actually transparent background. No floor, props, lettering, collage, watermark, mannequin or floating clothes. Keep original colors, not grayscale. Fully clothed. Costume: Black raven feather headpiece with beak perched above the forehead so the model's face remains visible, black feather shoulder cape, ivory long-sleeved ruffled high-neck shirt, charcoal brocade waistcoat, long layered charcoal skirt and black lace-up boots."
+    },
+    {
+      "slug": "raven-scholar",
+      "model": "female",
+      "file": "/costumes/models/raven-scholar-female.webp",
+      "width": 960,
+      "height": 960,
+      "sha256": "29dbeae8c007a68a7652b95ae715bdd5b7a422e0025a607dd7c252b087963f7e",
+      "references": [
+        "/costumes/models/cosmic-cowboy-female.webp",
+        "/costumes/raven-scholar.png"
+      ],
+      "prompt": "Use case: identity-preserve. Produce one premium photorealistic, full-body studio fashion photograph for Halloween Supply. Image 1 is the identity reference: preserve this exact adult person's face, skin tone, hair, body and calm expression. Image 2 is the outfit reference: replace the entire cowboy outfit with this exact costume. Preserve the costume's palette, textiles, accessories and silhouette, tailored naturally to the model. No clothes from image 1 may remain. Front-facing relaxed standing pose, direct gaze when visible, hands naturally down unless the cape needs slightly spread arms. Entire person and all headwear and shoes visible, 8% clear margin on every side. Soft even studio daylight, natural skin texture, believable fabric. One centered isolated adult person on an actually transparent background. No floor, props, lettering, collage, watermark, mannequin or floating clothes. Keep original colors, not grayscale. Fully clothed. Costume: Black raven feather headpiece with beak perched above the forehead so the model's face remains visible, black feather shoulder cape, ivory long-sleeved ruffled high-neck shirt, charcoal brocade waistcoat, long layered charcoal skirt and black lace-up boots."
+    },
+    {
+      "slug": "candy-corn-sorceress",
+      "model": "male",
+      "file": "/costumes/models/candy-corn-sorceress-male.webp",
+      "width": 943,
+      "height": 960,
+      "sha256": "3cbdcfcbf64e98829774f227d781b3da30d02bbdbe933203da3a046324475d24",
+      "references": [
+        "/costumes/models/cosmic-cowboy-male.webp",
+        "/costumes/candy-corn-sorceress.png"
+      ],
+      "prompt": "Use case: identity-preserve. Produce one premium photorealistic, full-body studio fashion photograph for Halloween Supply. Image 1 is the identity reference: preserve this exact adult person's face, skin tone, hair, body and calm expression. Image 2 is the outfit reference: replace the entire cowboy outfit with this exact costume. Preserve the costume's palette, textiles, accessories and silhouette, tailored naturally to the model. No clothes from image 1 may remain. Front-facing relaxed standing pose, direct gaze when visible, hands naturally down unless the cape needs slightly spread arms. Entire person and all headwear and shoes visible, 8% clear margin on every side. Soft even studio daylight, natural skin texture, believable fabric. One centered isolated adult person on an actually transparent background. No floor, props, lettering, collage, watermark, mannequin or floating clothes. Keep original colors, not grayscale. Fully clothed. Costume: Tall candy-corn striped pointed hat in ivory, orange and golden yellow, small black velvet shoulder cape, fully opaque ivory bodice with orange lace-up waist and layered orange and yellow knee-length skirt, opaque ivory-orange-yellow striped tights, black lace-up ankle boots. Real adult, preserve the dress for either model."
+    },
+    {
+      "slug": "candy-corn-sorceress",
+      "model": "female",
+      "file": "/costumes/models/candy-corn-sorceress-female.webp",
+      "width": 960,
+      "height": 960,
+      "sha256": "e73072c8ad0693c4681a019b143a60931fb3eb622762528a29a0d6685ea37034",
+      "references": [
+        "/costumes/models/cosmic-cowboy-female.webp",
+        "/costumes/candy-corn-sorceress.png"
+      ],
+      "prompt": "Use case: identity-preserve. Produce one premium photorealistic, full-body studio fashion photograph for Halloween Supply. Image 1 is the identity reference: preserve this exact adult person's face, skin tone, hair, body and calm expression. Image 2 is the outfit reference: replace the entire cowboy outfit with this exact costume. Preserve the costume's palette, textiles, accessories and silhouette, tailored naturally to the model. No clothes from image 1 may remain. Front-facing relaxed standing pose, direct gaze when visible, hands naturally down unless the cape needs slightly spread arms. Entire person and all headwear and shoes visible, 8% clear margin on every side. Soft even studio daylight, natural skin texture, believable fabric. One centered isolated adult person on an actually transparent background. No floor, props, lettering, collage, watermark, mannequin or floating clothes. Keep original colors, not grayscale. Fully clothed. Costume: Tall candy-corn striped pointed hat in ivory, orange and golden yellow, small black velvet shoulder cape, fully opaque ivory bodice with orange lace-up waist and layered orange and yellow knee-length skirt, opaque ivory-orange-yellow striped tights, black lace-up ankle boots. Real adult, preserve the dress for either model."
+    },
+    {
+      "slug": "cosmic-cowboy",
+      "model": "male",
+      "file": "/costumes/models/cosmic-cowboy-male.webp",
+      "width": 960,
+      "height": 960,
+      "sha256": "346e030dd4bbfc11afdef3b059fbe9e4e9253a496c05bf69164cfd5e60687be5",
+      "references": [
+        "/costumes/cosmic-cowboy.png"
+      ],
+      "prompt": "Use case: identity-preserve. Create one premium photorealistic full-length fashion catalog photograph for a minimalist Halloween costume gallery. Reference image 1 is the exact outfit design. Dress a real adult human in this same complete silver cosmic cowboy costume: star-embroidered holographic silver fringed western jacket, matching silver flared trousers, silver pointed cowboy boots, silver hat, royal blue star-pattern neckerchief. Preserve all garment colors, materials, accessories and recognizable silhouette, with natural tailoring to this model. Show the entire person from hat tip to boot soles with 8% clear margin, a calm front-facing relaxed standing pose, hands down and slightly clear of the body, neutral expression and direct gaze. Full-frame 85mm studio fashion photography, soft even daylight, natural skin texture, crisp believable fabric. Real person visibly wearing the garments, no mannequin, no floating clothes. One isolated figure centered on a truly transparent background, no floor or scenery, no text, no collage, no watermark. Square image; same camera height and scale across the series. Male model: a man around 30 with warm medium-brown skin, short dark curly hair, brown eyes, a clean-shaven face and an average lean build. Fully clothed."
+    },
+    {
+      "slug": "cosmic-cowboy",
+      "model": "female",
+      "file": "/costumes/models/cosmic-cowboy-female.webp",
+      "width": 960,
+      "height": 960,
+      "sha256": "e40172820f0dd85afce2c56a223ec4325f2d00f2b87090c8363a4d4f9bf1afab",
+      "references": [
+        "/costumes/cosmic-cowboy.png"
+      ],
+      "prompt": "Use case: identity-preserve. Create one premium photorealistic full-length fashion catalog photograph for a minimalist Halloween costume gallery. Reference image 1 is the exact outfit design. Dress a real adult human in this same complete silver cosmic cowboy costume: star-embroidered holographic silver fringed western jacket, matching silver flared trousers, silver pointed cowboy boots, silver hat, royal blue star-pattern neckerchief. Preserve all garment colors, materials, accessories and recognizable silhouette, with natural tailoring to this model. Show the entire person from hat tip to boot soles with 8% clear margin, a calm front-facing relaxed standing pose, hands down and slightly clear of the body, neutral expression and direct gaze. Full-frame 85mm studio fashion photography, soft even daylight, natural skin texture, crisp believable fabric. Real person visibly wearing the garments, no mannequin, no floating clothes. One isolated figure centered on a truly transparent background, no floor or scenery, no text, no collage, no watermark. Square image; same camera height and scale across the series. Female model: a woman around 30 with warm olive skin, brown eyes, dark brown hair in a neat low bun and an average lean build. Fully clothed."
+    }
+  ]
+}
