@@ -66,6 +66,12 @@
 @media (max-width: 600px) { .mirror-stage { min-height: 300px; max-height: 60dvh; } }
 
 .mirror-piece.is-focused { background: #f1ecdf; }
+.mirror-catalog-results { margin-top: 20px; }
+.mirror-catalog-results ul { display: grid; gap: 12px; margin-top: 12px; list-style: none; padding: 0; }
+.mirror-catalog-results li { display: flex; align-items: flex-start; gap: 12px; padding-block: 12px; border-bottom: 1px solid var(--mirror-line); }
+.mirror-catalog-results li > img { width: 64px; height: 80px; object-fit: contain; flex: 0 0 auto; }
+.mirror-catalog-results li > div { flex: 1; min-width: 0; font-size: 11px; line-height: 1.5; overflow-wrap: anywhere; }
+.mirror-catalog-results li a { display: inline-block; margin-block: 4px; text-underline-offset: 3px; }
 
 .mirror-stage { touch-action: pan-x; }
 .mirror-look-switch { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding-top: 14px; }

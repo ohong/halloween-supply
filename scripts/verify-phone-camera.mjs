@@ -80,7 +80,9 @@ try{
   await desktop.getByRole('button',{name:'Try it on live',exact:true}).click();
   const mirror=desktop.getByRole('dialog',{name:/Costume Mirror/});
   await mirror.getByRole('checkbox').check();
-  await mirror.getByRole('button',{name:'Start my mirror',exact:true}).click();
+  const voiceOnly=process.env.PHONE_VOICE_ONLY==='1';
+  await mirror.getByRole('button',{name:voiceOnly?'Start voice styling':'Start my mirror',exact:true}).click();
+  if(!voiceOnly){
   const videoDeadline=Date.now()+60000;
   let decoded=false;
   while(Date.now()<videoDeadline){
@@ -91,11 +93,12 @@ try{
     await new Promise(resolve=>setTimeout(resolve,250));
   }
   assert.equal(decoded,true,'Both phone and Lucy must deliver decoded video frames.');
+  }
   await desktop.waitForFunction(()=>window.cameraTest.events.some(event=>event.type==='session.started'),{}, {timeout:30000});
   assert.equal(await desktop.evaluate(()=>window.cameraTest.requests.length),0);
   const stats=await desktop.evaluate(async()=>{const result=[];for(const peer of window.cameraTest.peers)for(const stat of (await peer.getStats()).values())if(stat.type==='inbound-rtp')result.push({kind:stat.kind,framesDecoded:stat.framesDecoded,totalSamplesReceived:stat.totalSamplesReceived});return result;});
-  log('real-lucy-and-gpt-live-use-phone-media',{stats});
-  assert.equal(await desktop.evaluate(()=>window.cameraTest.peers.filter(peer=>peer.connectionState==='connected').length),3);
+  log(voiceOnly?'real-gpt-live-uses-phone-media':'real-lucy-and-gpt-live-use-phone-media',{stats});
+  assert.equal(await desktop.evaluate(()=>window.cameraTest.peers.filter(peer=>peer.connectionState==='connected').length),voiceOnly?2:3);
   await mirror.evaluate(element=>element.scrollTo(0,0));
   await desktop.screenshot({path:path.join(output,'live-result.png')});
   const cowboy=await (await desktopContext.request.get(`${origin}/api/live-mirror/catalog?slug=cosmic-cowboy`)).json();

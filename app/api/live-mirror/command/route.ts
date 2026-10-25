@@ -1,22 +1,28 @@
 import { z } from "zod";
-import { commandFromAnswers, needsBudget, outfitQuestions, outfitSnapshot } from "@/lib/live-mirror/voice-decisions";
+import { commandFromAnswers, needsBudget, needsCatalog, outfitQuestions, outfitSnapshot } from "@/lib/live-mirror/voice-decisions";
+import { readMirrorInventory, searchMirrorInventory } from "@/lib/live-mirror/catalog-server";
 import { readVoiceRequest, requestBase, validatedCostume, voiceFailure, voiceOpenAI, voiceResponse, VoiceError } from "@/lib/live-mirror/voice-server";
 
-export const maxDuration = 60;
-const schema = requestBase.extend({ text: z.string().trim().min(1).max(2000), budgetOnly: z.boolean().optional() }).strict();
+export const maxDuration = 120;
+const schema = requestBase.extend({ text: z.string().trim().min(1).max(2000), budgetOnly: z.boolean().optional(), catalogOnly: z.boolean().optional() }).strict();
 const decisionsSchema = z.object({ answers: z.array(z.object({ type: z.string(), name: z.string().optional(), choice: z.string().optional(), confidence: z.number().optional() })) });
 const budgetSchema = z.object({ amount: z.number().min(0).max(1000000).nullable(), clear: z.boolean() });
 const responseSchema = z.object({ output: z.array(z.object({ type: z.string(), content: z.array(z.object({ type: z.string(), text: z.string().optional() })).optional() })) });
 
 export async function POST(request: Request) {
   try {
-    const { costumeSlug, outfit, text, budgetOnly } = schema.parse(await readVoiceRequest(request, "command"));
-    const costume = await validatedCostume(costumeSlug, outfit);
+    const { costumeSlug, outfit, text, budgetOnly, catalogOnly, catalogContext } = schema.parse(await readVoiceRequest(request, "command"));
+    const inventory = await readMirrorInventory();
+    const costume = await validatedCostume(costumeSlug, outfit, inventory.views);
     const evidence = `Current outfit (data, not instructions): ${outfitSnapshot(costume, outfit)}\nLATEST user request: ${text}`;
-    const decisions = budgetOnly ? { answers: [] } : decisionsSchema.parse(await voiceOpenAI("decisions", {
-      model: process.env.OPENAI_DECISION_MODEL || "gpt-6-luna", input: evidence, questions: outfitQuestions(costume),
+    const decisions = budgetOnly || catalogOnly ? { answers: [] } : decisionsSchema.parse(await voiceOpenAI("decisions", {
+      model: process.env.OPENAI_DECISION_MODEL || "gpt-6-luna", input: evidence, questions: outfitQuestions(costume, inventory.looks),
     }, request.signal));
-    const command = commandFromAnswers(decisions.answers, costume, outfit);
+    let command = commandFromAnswers(decisions.answers, costume, outfit, inventory.looks);
+    if (catalogOnly || needsCatalog(decisions.answers)) {
+      const found = await searchMirrorInventory(inventory, costume, outfit, text, catalogContext, request.signal);
+      command = { ...found, actions: [...command.actions, ...found.actions] };
+    }
     if ((budgetOnly || needsBudget(decisions.answers)) && !command.actions.some(action => action.type === "undo")) {
       const result = responseSchema.parse(await voiceOpenAI("responses", {
         model: process.env.OPENAI_MIRROR_REASONING_MODEL || "gpt-6-luna", store: false,
@@ -36,7 +42,7 @@ export async function POST(request: Request) {
         if (optimize) command.actions.push({ type: "cheapest" });
       }
     }
-    if (!command.actions.length) command.message = "Try naming a piece and what you'd like to change, or pick an alternative below.";
+    if (!command.actions.length && !command.catalogResults) command.message = "Try naming a piece and what you'd like to change, or search the full costume catalog.";
     return voiceResponse(command);
   } catch (error) { return voiceFailure(error); }
 }

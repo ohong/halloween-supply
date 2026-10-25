@@ -3,12 +3,12 @@
 /* Catalog cutouts and in-memory camera frames intentionally bypass image optimization. */
 /* eslint-disable @next/next/no-img-element */
 
-import { useCallback, useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { createPortal } from "react-dom";
 import { ArrowRight, Camera, ChevronLeft, ChevronRight, Download, Mic, MicOff, Pause, Play, Undo2, X } from "lucide-react";
 import { formatPrice } from "@/lib/cart/context";
 import type { CostumeView } from "@/lib/types";
-import type { MirrorCommand, MirrorOutfit } from "@/lib/live-mirror/types";
+import type { MirrorCatalogContext, MirrorCatalogLook, MirrorCatalogResults, MirrorCommand, MirrorOutfit } from "@/lib/live-mirror/types";
 import { costumes } from "@/lib/costumes";
 import { applyActions, createOutfit, outfitTotal } from "@/lib/live-mirror/state";
 import { sendMirrorCommand, useLiveVoice } from "@/lib/live-mirror/use-live-voice";
@@ -39,6 +39,12 @@ function MirrorRoom({ costume: initialCostume, initialOutfit, onApply, onClose }
   const lookCache = useRef(new Map([[initialCostume.costume.slug, initialCostume]]));
   const lookRequest = useRef<AbortController | null>(null);
   const [switchingLook, setSwitchingLook] = useState(false);
+  const [catalogLooks, setCatalogLooks] = useState<MirrorCatalogLook[]>(() => costumes.map(look => ({ ...look, pieces: [] })));
+  const [catalogResults, setCatalogResults] = useState<MirrorCatalogResults | null>(null);
+  const catalogContext = useMemo<MirrorCatalogContext | undefined>(() => catalogResults ? {
+    query: catalogResults.query,
+    matches: catalogResults.matches.map(({ costumeSlug, pieceId, productId }) => ({ costumeSlug, pieceId, productId })),
+  } : undefined, [catalogResults]);
   const swipeStart = useRef<{ x: number; y: number } | null>(null);
   const [outfit, setOutfit] = useState(() => createOutfit(costume, initialOutfit));
   const outfitRef = useRef(outfit);
@@ -68,7 +74,7 @@ function MirrorRoom({ costume: initialCostume, initialOutfit, onApply, onClose }
   const previousPhone = useRef<MediaStream | null>(phoneStream);
   const video = useLiveVideo({ costume, outfit }, phoneStream);
   const { start: startVideo, stop: stopVideo } = video;
-  const voice = useLiveVoice({ costume, outfit, microphone: phoneStream, onFocus: setFocusedPiece, onCommand: (command) => commandHandler.current(command), onTranscript: transcript.receive });
+  const voice = useLiveVoice({ costume, outfit, microphone: phoneStream, catalogContext, pendingLook: switchingLook, onFocus: setFocusedPiece, onCommand: (command) => commandHandler.current(command), onTranscript: transcript.receive });
   const stopRef = useRef({ video: video.stop, voice: voice.stop });
   useEffect(() => {
     if (previousPhone.current !== phoneStream) {
@@ -77,6 +83,17 @@ function MirrorRoom({ costume: initialCostume, initialOutfit, onApply, onClose }
     }
   }, [phoneStream]);
   useEffect(() => { stopRef.current = { video: video.stop, voice: voice.stop }; }, [video.stop, voice.stop]);
+
+  useEffect(() => {
+    const controller = new AbortController();
+    void fetch("/api/live-mirror/catalog", { signal: controller.signal }).then(async response => {
+      if (!response.ok) throw new Error("The costume list could not load.");
+      const result = await response.json() as { looks: MirrorCatalogLook[] };
+      if (!Array.isArray(result.looks) || !result.looks.length) throw new Error("The costume list is unavailable.");
+      if (!controller.signal.aborted) setCatalogLooks(result.looks);
+    }).catch(() => { if (!controller.signal.aborted) setNotice("The full costume list could not load. You can still search for a costume or piece."); });
+    return () => controller.abort();
+  }, []);
 
   useEffect(() => {
     // A swipe on the non-focusable preview can move keyboard focus to the body.
@@ -179,8 +196,8 @@ function MirrorRoom({ costume: initialCostume, initialOutfit, onApply, onClose }
     void startVideo();
   }, [consent, availability?.videoAvailable, startVideo]);
 
-  const switchLook = useCallback(async (slug: string) => {
-    if (!costumes.some(look => look.slug === slug)) return;
+  const switchLook = useCallback(async (slug: string, selection?: Record<string, string>) => {
+    if (!slug) return;
     lookRequest.current?.abort();
     const controller = new AbortController();
     lookRequest.current = controller;
@@ -189,7 +206,7 @@ function MirrorRoom({ costume: initialCostume, initialOutfit, onApply, onClose }
     revisionRef.current++;
     setSwitchingLook(true);
     try {
-      let next = lookCache.current.get(slug);
+      let next = selection ? undefined : lookCache.current.get(slug);
       if (!next) {
         const response = await fetch(`/api/live-mirror/catalog?slug=${encodeURIComponent(slug)}`, { signal: controller.signal });
         if (!response.ok) throw new Error("This costume could not load. Please try again.");
@@ -198,13 +215,19 @@ function MirrorRoom({ costume: initialCostume, initialOutfit, onApply, onClose }
         lookCache.current.set(slug, next);
       }
       if (controller.signal.aborted) return;
-      const nextOutfit = createOutfit(next, slug === initialCostume.costume.slug ? initialOutfit : {});
+      if (selection && Object.entries(selection).some(([pieceId, productId]) => !next.pieces.some(view => view.piece.id === pieceId && view.options.some(option => option.product.id === productId && option.product.availability !== "out_of_stock")))) {
+        throw new Error("That search result changed. Search for the item again.");
+      }
+      const base: Partial<MirrorOutfit> = slug === costumeRef.current.costume.slug ? outfitRef.current : slug === initialCostume.costume.slug ? initialOutfit : {};
+      const nextOutfit = createOutfit(next, { ...base, budget: outfitRef.current.budget, selection: { ...base.selection, ...selection } });
       costumeRef.current = next;
       outfitRef.current = nextOutfit;
       historyRef.current = [];
       setHistory([]);
       setCostume(next);
       setOutfit(nextOutfit);
+      if (slug === initialCostume.costume.slug) applyRef.current(copyOutfit(nextOutfit));
+      setCatalogLooks(previous => previous.some(look => look.slug === next.costume.slug) ? previous : [...previous, { ...next.costume, pieces: next.pieces.map(({ piece }) => ({ id: piece.id, name: piece.name, category: piece.category })) }]);
       setFocusedPiece(null);
       setNotice(`Trying ${next.costume.name}.`);
     } catch (error) {
@@ -215,16 +238,21 @@ function MirrorRoom({ costume: initialCostume, initialOutfit, onApply, onClose }
   }, [initialCostume.costume.slug, initialOutfit]);
 
   const cycleLook = (direction: number) => {
-    const index = costumes.findIndex(look => look.slug === costume.costume.slug);
-    void switchLook(costumes[(index + direction + costumes.length) % costumes.length].slug);
+    const index = catalogLooks.findIndex(look => look.slug === costume.costume.slug);
+    void switchLook(catalogLooks[(index + direction + catalogLooks.length) % catalogLooks.length].slug);
   };
-  const nextLook = costumes[(costumes.findIndex(look => look.slug === costume.costume.slug) + 1) % costumes.length];
+  const nextLook = catalogLooks[(catalogLooks.findIndex(look => look.slug === costume.costume.slug) + 1) % catalogLooks.length];
 
   const handleCommand = useCallback(async (command: MirrorCommand) => {
+    if (command.catalogResults) {
+      setCatalogResults(command.catalogResults);
+      revisionRef.current++;
+      setNotice("");
+    }
     const newLook = command.actions.find(action => action.type === "try_look");
-    if (newLook?.type === "try_look") { await switchLook(newLook.costumeSlug); return; }
+    if (newLook?.type === "try_look") { await switchLook(newLook.costumeSlug, newLook.selection); return; }
     if (lookRequest.current) return;
-    if (command.message) setNotice(command.message);
+    if (command.message && !command.catalogResults) setNotice(command.message);
     const edits = command.actions.filter((action) => !["undo", "save", "freeze", "resume"].includes(action.type));
     if (edits.length) {
       const result = applyActions(costume, outfitRef.current, edits);
@@ -253,7 +281,7 @@ function MirrorRoom({ costume: initialCostume, initialOutfit, onApply, onClose }
     transcript.append(text, "user");
     setCommandText("");
     try {
-      const command = await sendMirrorCommand({ costumeSlug: costume.costume.slug, outfit: outfitRef.current, text }, controller.signal);
+      const command = await sendMirrorCommand({ costumeSlug: costume.costume.slug, outfit: outfitRef.current, text, catalogContext }, controller.signal);
       if (controller.signal.aborted) return;
       if (revision !== revisionRef.current) { setNotice("Your look changed while that request was running. Please try it again."); return; }
       await handleCommand(command);
@@ -311,7 +339,7 @@ function MirrorRoom({ costume: initialCostume, initialOutfit, onApply, onClose }
         </div>
         <nav className="mirror-look-switch" aria-label="Switch costume">
           <button className="mirror-icon-button" onClick={() => cycleLook(-1)} disabled={switchingLook} aria-label="Previous costume"><ChevronLeft size={20} /></button>
-          <div><label className="mirror-sr-only" htmlFor="mirror-look">Costume</label><select id="mirror-look" value={costume.costume.slug} onChange={event => void switchLook(event.target.value)}>{costumes.map(look => <option key={look.slug} value={look.slug}>{look.name}</option>)}</select><p>{switchingLook ? "Loading costume…" : "Swipe up on the mirror to switch"}</p></div>
+          <div><label className="mirror-sr-only" htmlFor="mirror-look">Costume</label><select id="mirror-look" value={costume.costume.slug} onChange={event => void switchLook(event.target.value)}>{catalogLooks.map(look => <option key={look.slug} value={look.slug}>{look.name}</option>)}</select><p>{switchingLook ? "Loading costume…" : "Swipe up on the mirror to switch"}</p></div>
           <button className="mirror-icon-button" onClick={() => cycleLook(1)} disabled={switchingLook} aria-label="Next costume"><ChevronRight size={20} /></button>
         </nav>
         <div className="mirror-below-stage">
@@ -335,7 +363,7 @@ function MirrorRoom({ costume: initialCostume, initialOutfit, onApply, onClose }
         <div className="mirror-voice-box">
           <form onSubmit={submitCommand} className="mirror-command-form">
             <label className="mirror-sr-only" htmlFor="mirror-command">Tell us how to change your look</label>
-            <input id="mirror-command" value={commandText} onChange={(event) => setCommandText(event.target.value)} placeholder="Or type a change to your look…" maxLength={1000} />
+            <input id="mirror-command" value={commandText} onChange={(event) => setCommandText(event.target.value)} placeholder="Search any costume or piece…" maxLength={1000} />
             <button type="submit" className="mirror-icon-button" disabled={sending || !commandText.trim()} aria-label={sending ? "Applying your request" : "Send styling request"}><ArrowRight size={19} /></button>
             {availability?.voiceAvailable && <button type="button" className={`mirror-icon-button${voice.status === "live" && !voice.muted ? " mirror-mic-on" : ""}`} disabled={!consent || voice.status === "connecting"} onClick={() => voice.status === "live" ? voice.toggleMute() : void voice.start()} aria-label={voice.status === "live" ? voice.muted ? "Unmute microphone" : "Mute microphone" : "Start voice styling"}>{voice.status === "live" && voice.muted ? <MicOff size={19} /> : <Mic size={19} />}</button>}
           </form>
@@ -343,6 +371,16 @@ function MirrorRoom({ costume: initialCostume, initialOutfit, onApply, onClose }
           {availability?.voiceAvailable && <VoiceStateIndicator status={voice.status} activity={voice.activity} muted={voice.muted} onStop={voice.stop} />}
           <LiveTranscript entries={transcript.entries} latestId={transcript.latestId} />
         </div>
+        {catalogResults && <section className="mirror-catalog-results" aria-label="Catalog search results" aria-live="polite">
+          {catalogResults.matches.length > 0 && <ul>{catalogResults.matches.map(match => <li key={`${match.costumeSlug}:${match.pieceId}:${match.productId}`}>
+            <img src={match.option.product.merchantImage ?? match.option.product.image} alt={match.option.product.title} loading="lazy" />
+            <div><p className="mirror-muted">{match.costumeName} · {match.pieceName}</p>
+              <a href={match.option.product.url} target="_blank" rel="noopener noreferrer">{match.option.product.title}</a>
+              <p>{formatPrice(match.option.product.priceCents)} · {match.option.merchant.name}{match.option.product.availability === "out_of_stock" ? " · Out of stock" : match.option.product.availability === "unknown" ? " · Stock unconfirmed" : ""}</p>
+              <button type="button" className="mirror-link" disabled={switchingLook || match.option.product.availability === "out_of_stock"} onClick={() => void switchLook(match.costumeSlug, { [match.pieceId]: match.productId })} aria-label={`Try ${match.costumeName} with ${match.option.product.title}`}>Try this look<ArrowRight size={13} aria-hidden="true" /></button>
+            </div>
+          </li>)}</ul>}
+        </section>}
         <div className="mirror-pieces" aria-label="Selected costume pieces">
           {costume.pieces.map(({ piece, options }) => {
             const selectedOption = options.find(option => option.product.id === outfit.selection[piece.id]);

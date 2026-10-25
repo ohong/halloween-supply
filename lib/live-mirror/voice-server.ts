@@ -2,6 +2,7 @@ import "server-only";
 import { createHash } from "node:crypto";
 import { z } from "zod";
 import { getCostume } from "@/lib/catalog";
+import type { CostumeView } from "@/lib/types";
 import type { MirrorOutfit } from "./types";
 
 export class VoiceError extends Error {
@@ -12,7 +13,11 @@ export const outfitSchema = z.object({
   selection: z.record(id, id), uses: z.record(id, z.enum(["buy", "owned", "skip"])),
   locked: z.array(id).max(20), budget: z.string().max(20).refine(value => !value.trim() || (/^\d+(\.\d{1,2})?$/.test(value) && Number(value) <= 1000000)),
 }).strict();
-export const requestBase = z.object({ costumeSlug: id, outfit: outfitSchema });
+const catalogContextSchema = z.object({
+  query: z.string().max(2000),
+  matches: z.array(z.object({ costumeSlug: id, pieceId: id, productId: id }).strict()).max(8),
+}).strict();
+export const requestBase = z.object({ costumeSlug: id, outfit: outfitSchema, catalogContext: catalogContextSchema.optional() });
 const rates = new Map<string, { count: number; expires: number }>();
 export function voiceResponse(body: object, status = 200) {
   return Response.json(body, { status, headers: { "Cache-Control": "private, no-store", "X-Content-Type-Options": "nosniff" } });
@@ -57,8 +62,8 @@ export async function readVoiceRequest(request: Request, kind: "session" | "comm
   }
   return JSON.parse(Buffer.concat(chunks).toString("utf8")) as unknown;
 }
-export async function validatedCostume(slug: string, outfit: MirrorOutfit) {
-  const costume = await getCostume(slug);
+export async function validatedCostume(slug: string, outfit: MirrorOutfit, inventory?: CostumeView[]) {
+  const costume = inventory ? inventory.find(view => view.costume.slug === slug) : await getCostume(slug);
   if (!costume) throw new VoiceError(400, "Choose a costume from the gallery.");
   const ids = new Set(costume.pieces.map(({ piece }) => piece.id));
   if ([...Object.keys(outfit.selection), ...Object.keys(outfit.uses), ...outfit.locked].some(key => !ids.has(key))) throw new VoiceError(400, "An outfit piece is no longer available.");
