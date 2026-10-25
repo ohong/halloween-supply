@@ -24,6 +24,10 @@ for(const page of [desktop,phone]) {
  page.on('pageerror', error=>errors.push(error.message));
  await page.addInitScript(forceRelay=>{
   window.cameraTest={peers:[],tracks:[],requests:[],events:[],peerEvents:[]};
+  window.cameraTest.cutoffs=new Map();
+  const schedule=window.setTimeout.bind(window),cancel=window.clearTimeout.bind(window);
+  window.setTimeout=(callback,delay,...args)=>{const id=schedule(callback,delay,...args);if(delay>=170000&&delay<=610000)window.cameraTest.cutoffs.set(id,delay);return id;};
+  window.clearTimeout=id=>{window.cameraTest.cutoffs.delete(id);return cancel(id);};
   const Peer=window.RTCPeerConnection;
   window.RTCPeerConnection=class extends Peer {constructor(...args){if(forceRelay && args[0]?.iceServers?.some(s=>JSON.stringify(s.urls).includes('cloudflare.com')))args[0]={...args[0],iceTransportPolicy:'relay'};super(...args);window.cameraTest.peers.push(this); const index=window.cameraTest.peers.length-1; this.addEventListener("connectionstatechange",()=>window.cameraTest.peerEvents.push({index,state:this.connectionState,at:performance.now()})); this.addEventListener("icecandidate",event=>{if(event.candidate)window.cameraTest.peerEvents.push({index,candidateType:event.candidate.type,protocol:event.candidate.protocol,at:performance.now()});});} close(){window.cameraTest.peerEvents.push({close:window.cameraTest.peers.indexOf(this),at:performance.now(),stack:new Error().stack}); return super.close();}createDataChannel(...args){const channel=super.createDataChannel(...args);channel.addEventListener('message',({data})=>{try{const event=JSON.parse(data);window.cameraTest.events.push({type:event.type,delta:event.delta});}catch{}});return channel;}};
   const replace=RTCRtpSender.prototype.replaceTrack;
@@ -47,6 +51,10 @@ try{
  await desktop.getByText('Phone camera connected',{exact:true}).waitFor({timeout:40000});
  await desktop.waitForFunction(()=>document.querySelector('video[aria-label="Phone camera preview"]')?.videoWidth>0);
  log('phone-video-on-desktop-without-desktop-camera');
+ if(process.env.PHONE_TESTING_MODE==='1') {
+  for(const page of [desktop,phone])assert.equal(await page.evaluate(()=>[...window.cameraTest.cutoffs.values()].some(delay=>delay>500000)),false,'Connected demo phone must clear its ten-minute cutoff.');
+  log('testing-mode-clears-connected-phone-cutoff');
+ }
  if(process.env.PHONE_FORCE_RELAY==='1') {
   const candidate=await phone.evaluate(async()=>{const stats=await window.cameraTest.peers[0].getStats();for(const stat of stats.values())if(stat.type==='transport'&&stat.selectedCandidatePairId){const pair=stats.get(stat.selectedCandidatePairId);return stats.get(pair.localCandidateId)?.candidateType;}});
   assert.equal(candidate,'relay');log('forced-turn-relay',{candidate});
@@ -100,6 +108,10 @@ try{
   assert.equal(await desktop.evaluate(()=>window.cameraTest.requests.length),0);
   const stats=await desktop.evaluate(async()=>{const result=[];for(const peer of window.cameraTest.peers)for(const stat of (await peer.getStats()).values())if(stat.type==='inbound-rtp')result.push({kind:stat.kind,framesDecoded:stat.framesDecoded,totalSamplesReceived:stat.totalSamplesReceived});return result;});
   log(voiceOnly?'real-gpt-live-uses-phone-media':'real-lucy-and-gpt-live-use-phone-media',{stats});
+  if(process.env.PHONE_TESTING_MODE==='1') {
+   assert.equal(await desktop.evaluate(()=>[...window.cameraTest.cutoffs.values()].includes(180000)),false,'Demo mirror must not schedule a three-minute cutoff.');
+   log('testing-mode-has-no-three-minute-mirror-cutoff');
+  }
   assert.equal(await desktop.evaluate(()=>window.cameraTest.peers.filter(peer=>peer.connectionState==='connected').length),voiceOnly?2:3);
   await mirror.evaluate(element=>element.scrollTo(0,0));
   await desktop.screenshot({path:path.join(output,'live-result.png')});

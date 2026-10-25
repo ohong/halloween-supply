@@ -3,6 +3,7 @@ import { createHash, randomBytes } from "node:crypto";
 import { videoRequestOrigin, VideoError } from "@/lib/live-mirror/video-server";
 import { z } from "zod";
 import { getDatabase } from "@/lib/db/client";
+import { isTryOnTesting } from "@/lib/try-on-policy";
 
 export const lifetime = 10 * 60_000;
 const hash = (value: string) => createHash("sha256").update(value).digest("hex");
@@ -21,7 +22,7 @@ export async function createPair() {
   const db = await database();
   const id = token(), host = token(), phone = token(), expires = Date.now() + lifetime;
   await db.execute({ sql: "INSERT INTO camera_pair (id, host, phone, expires) VALUES (?, ?, ?, ?)", args: [id, hash(host), hash(phone), expires] });
-  return { id, host, phone, expires, relayAvailable: Boolean(process.env.CLOUDFLARE_TURN_KEY_ID && process.env.CLOUDFLARE_TURN_API_TOKEN) };
+  return { id, host, phone, expires, unlimitedSession: isTryOnTesting(), relayAvailable: Boolean(process.env.CLOUDFLARE_TURN_KEY_ID && process.env.CLOUDFLARE_TURN_API_TOKEN) };
 }
 export class PairError extends Error { constructor(public status: number, message: string) { super(message); } }
 export function sameOrigin(request: Request) {

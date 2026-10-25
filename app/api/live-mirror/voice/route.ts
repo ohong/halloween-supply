@@ -1,4 +1,5 @@
 import { z } from "zod";
+import { mirrorSessionSeconds } from "@/lib/try-on-policy";
 import { inventoryOverview, readMirrorInventory } from "@/lib/live-mirror/catalog-server";
 import { focusQuestion, outfitQuestions, outfitSnapshot } from "@/lib/live-mirror/voice-decisions";
 import { readVoiceRequest, requestBase, validatedCostume, voiceFailure, voiceOpenAI, voiceResponse, VoiceError } from "@/lib/live-mirror/voice-server";
@@ -23,6 +24,6 @@ export async function POST(request: Request) {
       transport: { type: "webrtc", sdp },
     }, request.signal));
     if (!result.success) throw new VoiceError(502, "The voice connection returned an invalid answer. Please try again.");
-    return voiceResponse({ ...result.data, catalog: inventory.looks }, 201);
+    return voiceResponse({ ...result.data, catalog: inventory.looks, maxSessionSeconds: mirrorSessionSeconds() }, 201);
   } catch (error) { return voiceFailure(error); }
 }

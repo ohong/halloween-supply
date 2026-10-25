@@ -25,7 +25,7 @@ The alternative was to run Lucy on the phone and forward its output. Keeping inf
 
 The photo stylist edits the current costume's choices. Generating or refreshing a photo remains an explicit button press. Full-costume cycling stays in the live mirror.
 
-Both tabs must remain visible. Hiding either tab or locking the phone stops sharing. A pairing expires after ten minutes. Lucy and GPT Live retain their existing three-minute session caps. Freezing Lucy stops its paid connection while the phone's raw preview stays connected; the interface states that distinction.
+Both tabs must remain visible. Hiding either tab or locking the phone stops sharing. Unused pairing links expire after ten minutes. In testing mode, connected phone cameras and Lucy/GPT Live sessions have no app-imposed duration cutoff. Outside testing mode, phone streams end after ten minutes and mirror sessions after three minutes. See [testing policy](./mirror-session-limits.md). Freezing Lucy stops its paid connection while the phone's raw preview stays connected; the interface states that distinction.
 
 ## Configuration
 

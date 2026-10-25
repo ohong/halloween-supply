@@ -74,6 +74,8 @@ export function PhoneCameraProvider({ children }: { children: React.ReactNode })
         const channel = event.channel; channel.binaryType = "arraybuffer"; session.channel = channel;
         channel.onopen = () => {
           if (sessionRef.current !== session) return;
+          // The one-use link still expires; an established demo stream does not.
+          if (pair.unlimitedSession) clearTimeout(session.expiry);
           setStatus("connected"); setUrl(""); session.lastPing = Date.now();
           session.heartbeat = setInterval(() => {
             if (Date.now() - session.lastPing > 12_000) { fail("Your phone stopped responding. Keep its camera page open and connect again."); return; }

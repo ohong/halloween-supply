@@ -131,6 +131,11 @@ export function VirtualTryOn({ costumeSlug, selection = [], ownedPieceIds = [], 
       const response = await fetch("/api/try-on", { method: "POST", body: form, signal: requestController.signal });
       const data: unknown = await response.json().catch(() => null);
       if (data && typeof data === "object" && "error" in data && typeof data.error === "string") throw new Error(data.error);
+      // Edge responses can be HTML and never reach the image-generation route.
+      if (response.status === 429) throw new Error("Photo previews are temporarily rate limited. Please try again later.");
+      if (response.status === 403) throw new Error("The site blocked this photo request. Refresh the page and try again.");
+      if (response.status === 413) throw new Error("This upload is too large. Choose a smaller photo.");
+      if (response.status === 504) throw new Error("The preview took too long. Please try again.");
       if (!response.ok || !data || typeof data !== "object" || !("image" in data) || typeof data.image !== "string" || !data.image.startsWith("data:image/jpeg;base64,")) throw new Error("The preview could not be created. Please try again.");
       if (!requestController.signal.aborted) {
         const offer = "render3d" in data ? data.render3d as RenderOffer | null : null;
