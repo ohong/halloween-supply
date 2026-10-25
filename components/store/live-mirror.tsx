@@ -16,18 +16,20 @@ import { useLiveVideo } from "@/lib/live-mirror/use-live-video";
 import { VoiceStateIndicator } from "./voice-state-indicator";
 import { LiveTranscript, useLiveTranscript } from "./live-transcript";
 import "./live-mirror.css";
+import { PhoneCameraControls, usePhoneCamera } from "./phone-camera";
 
 type Props = { costume: CostumeView; initialOutfit: MirrorOutfit; onApply: (outfit: MirrorOutfit) => void };
 const copyOutfit = (outfit: MirrorOutfit): MirrorOutfit => ({ ...outfit, selection: { ...outfit.selection }, uses: { ...outfit.uses }, locked: [...outfit.locked] });
 
 export function LiveMirror(props: Props) {
+  const phone = usePhoneCamera();
   const [open, setOpen] = useState(false);
   const launchRef = useRef<HTMLButtonElement>(null);
   return <>
     <div className="mirror-launch">
-      <button ref={launchRef} className="btn btn-ghost" onClick={() => setOpen(true)}><Camera size={17} aria-hidden="true" />Try it on live</button>
+      <button ref={launchRef} className="btn btn-ghost" onClick={() => { phone.setMode("live"); setOpen(true); }}><Camera size={17} aria-hidden="true" />Try it on live</button>
     </div>
-    {open && createPortal(<MirrorRoom {...props} onClose={() => { setOpen(false); requestAnimationFrame(() => launchRef.current?.focus()); }} />, document.body)}
+    {open && createPortal(<MirrorRoom {...props} onClose={() => { phone.setMode("photo"); setOpen(false); requestAnimationFrame(() => launchRef.current?.focus()); }} />, document.body)}
   </>;
 }
 
@@ -67,10 +69,19 @@ function MirrorRoom({ costume: initialCostume, initialOutfit, onApply, onClose }
   const requestRef = useRef<AbortController | null>(null);
   const revisionRef = useRef(0);
   const commandHandler = useRef<(command: MirrorCommand) => void | Promise<void>>(() => {});
-  const video = useLiveVideo({ costume, outfit });
+  const phone = usePhoneCamera();
+  const phoneStream = phone.status === "connected" ? phone.stream : null;
+  const previousPhone = useRef<MediaStream | null>(phoneStream);
+  const video = useLiveVideo({ costume, outfit }, phoneStream);
   const { start: startVideo, stop: stopVideo } = video;
-  const voice = useLiveVoice({ costume, outfit, catalogContext, pendingLook: switchingLook, onFocus: setFocusedPiece, onCommand: (command) => commandHandler.current(command), onTranscript: transcript.receive });
+  const voice = useLiveVoice({ costume, outfit, microphone: phoneStream, catalogContext, pendingLook: switchingLook, onFocus: setFocusedPiece, onCommand: (command) => commandHandler.current(command), onTranscript: transcript.receive });
   const stopRef = useRef({ video: video.stop, voice: voice.stop });
+  useEffect(() => {
+    if (previousPhone.current !== phoneStream) {
+      stopRef.current.video(); stopRef.current.voice();
+      previousPhone.current = phoneStream;
+    }
+  }, [phoneStream]);
   useEffect(() => { stopRef.current = { video: video.stop, voice: voice.stop }; }, [video.stop, voice.stop]);
 
   useEffect(() => {
@@ -91,11 +102,12 @@ function MirrorRoom({ costume: initialCostume, initialOutfit, onApply, onClose }
       event.preventDefault();
       stopRef.current.video();
       stopRef.current.voice();
+      phone.disconnect();
       onClose();
     };
     document.addEventListener("keydown", escape);
     return () => document.removeEventListener("keydown", escape);
-  }, [onClose]);
+  }, [onClose, phone]);
 
   useEffect(() => {
     const previousOverflow = document.body.style.overflow;
@@ -173,8 +185,8 @@ function MirrorRoom({ costume: initialCostume, initialOutfit, onApply, onClose }
     frozenRef.current = frame;
     setFrozen(frame);
     stopVideo();
-    setNotice("Preview frozen. Camera is off; you can keep editing your pieces.");
-  }, [capture, stopVideo, video.isCurrent]);
+    setNotice(phoneStream ? "Preview frozen. Live processing stopped; your phone preview stays connected." : "Preview frozen. Camera is off; you can keep editing your pieces.");
+  }, [capture, stopVideo, video.isCurrent, phoneStream]);
 
   const resume = useCallback(() => {
     if (!consent || !availability?.videoAvailable) { setNotice("Allow camera processing and start your preview first."); return; }
@@ -256,7 +268,7 @@ function MirrorRoom({ costume: initialCostume, initialOutfit, onApply, onClose }
   }, [costume, remember, undo, saveLook, freeze, resume, switchLook]);
   useEffect(() => { commandHandler.current = handleCommand; }, [handleCommand]);
 
-  function close() { video.stop(); voice.stop(); onClose(); }
+  function close() { video.stop(); voice.stop(); phone.disconnect(); onClose(); }
   async function submitCommand(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
     const text = commandText.trim();
@@ -294,7 +306,7 @@ function MirrorRoom({ costume: initialCostume, initialOutfit, onApply, onClose }
   });
   const live = video.status === "live";
   const connecting = video.status === "connecting" || voice.status === "connecting";
-  const canStart = consent && availability && (availability.videoAvailable || availability.voiceAvailable);
+  const canStart = consent && !["waiting", "connecting"].includes(phone.status) && availability && (availability.videoAvailable || availability.voiceAvailable);
   const startSession = () => {
     if (!canStart) return;
     if (availability.videoAvailable && !live) { frozenRef.current = null; setFrozen(null); void video.start(); }
@@ -304,7 +316,7 @@ function MirrorRoom({ costume: initialCostume, initialOutfit, onApply, onClose }
   return <div className="mirror-room" ref={roomRef} role="dialog" aria-modal="true" aria-labelledby="mirror-room-title" onKeyDown={trapFocus}>
     <header className="mirror-header">
       <div><h2 id="mirror-room-title">Costume Mirror<span>{costume.costume.name}</span></h2></div>
-      <button ref={closeRef} className="mirror-icon-button" onClick={close} aria-label="Close costume mirror"><X size={22} /></button>
+      <div className="mirror-header-actions"><button className="mirror-link" onClick={() => { video.stop(); voice.stop(); onClose(); }}>Use photo mode</button><button ref={closeRef} className="mirror-icon-button" onClick={close} aria-label="Close costume mirror"><X size={22} /></button></div>
     </header>
     <div className="mirror-body">
       <section className="mirror-visual" aria-label="Costume preview">
@@ -321,7 +333,7 @@ function MirrorRoom({ costume: initialCostume, initialOutfit, onApply, onClose }
             <div className="mirror-stage-products" aria-hidden="true">{costume.pieces.slice(0, 4).map(({ piece, options }) => { const product = options.find(({ product }) => product.id === outfit.selection[piece.id])?.product ?? options[0]?.product; return product ? <img key={piece.id} src={product.cutout ?? product.image} alt="" /> : null; })}</div>
           </div>}
           {video.cameraStream && <video ref={cameraRef} className="mirror-original" autoPlay playsInline muted aria-label="Original camera" />}
-          <div className="mirror-stage-label" role="status"><span className={live ? "mirror-dot is-live" : "mirror-dot"} />{frozen ? "Frozen preview · camera off" : live ? "Live preview" : connecting ? video.stream ? "Updating your look…" : "Connecting…" : "Your preview"}</div>
+          <div className="mirror-stage-label" role="status"><span className={live ? "mirror-dot is-live" : "mirror-dot"} />{frozen ? (phoneStream ? "Frozen preview · phone connected" : "Frozen preview · camera off") : live ? "Live preview" : connecting ? video.stream ? "Updating your look…" : "Connecting…" : "Your preview"}</div>
           {video.stream && !frozen && <button className="mirror-next-look" onClick={() => cycleLook(1)} disabled={switchingLook} aria-label={`Switch to ${nextLook.name}`}><img src={nextLook.image} alt="" /><span>{switchingLook ? "Loading…" : "Swipe up to switch"}</span></button>}
           {(video.stream || frozen) && <button className="mirror-freeze" disabled={!frozen && !video.isCurrent} onClick={frozen ? resume : freeze}>{frozen ? <Play size={15} /> : <Pause size={15} />}{frozen ? "Resume camera" : "Freeze look"}</button>}
         </div>
@@ -337,6 +349,7 @@ function MirrorRoom({ costume: initialCostume, initialOutfit, onApply, onClose }
             {availability && !availability.videoAvailable && <p className="mirror-notice">Live camera try-on isn’t available right now. {availability.voiceAvailable ? "You can still change your look by voice, or " : "You can "} <button className="mirror-link" onClick={() => { close(); requestAnimationFrame(() => document.querySelector(".try-on")?.scrollIntoView({ behavior: "smooth", block: "start" })); }}>use photo try-on</button>.</p>}
             {configError && <p className="mirror-notice">{configError}</p>}
             {availability && (availability.videoAvailable || availability.voiceAvailable) && <>
+              <PhoneCameraControls compact /><p className="mirror-muted">{phoneStream ? `Using your phone camera. ${phoneStream.getAudioTracks().length ? "Voice uses your phone microphone." : "Voice uses this computer’s microphone."}` : "Use this device’s camera, or connect your phone above."}</p>
               <label className="mirror-consent"><input type="checkbox" checked={consent} onChange={(event) => setConsent(event.target.checked)} /><span>{availability.videoAvailable ? "Allow my camera video to be processed by Decart, connected through fal, for live try-on. " : ""}{availability.voiceAvailable ? "Allow my microphone audio to be processed by OpenAI for voice controls. " : ""}Media stops when I close the mirror.</span></label>
               <button className="btn" disabled={!canStart || connecting} onClick={startSession}><Camera size={17} />{connecting ? "Connecting…" : availability.videoAvailable ? "Start my mirror" : "Start voice styling"}</button>
             </>}

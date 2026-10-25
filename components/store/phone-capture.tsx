@@ -1,40 +1,141 @@
 "use client";
 
-import { useRef, useState, type ChangeEvent } from "react";
-import { preparePhoto } from "@/lib/photo/prepare";
+import { useEffect, useRef, useState } from "react";
+import { frame, gather, pairRequest, sendPhoto } from "@/lib/phone-camera/connection";
 import "./virtual-try-on.css";
+import "./phone-camera.css";
 
-// Opened from the desktop QR code (/capture#<id>): the phone takes the photo and hands it over.
+type Session = { id: string; token: string; controller: AbortController; peer?: RTCPeerConnection; channel?: RTCDataChannel; stream?: MediaStream; timer?: ReturnType<typeof setTimeout>; expiry?: ReturnType<typeof setTimeout>; heartbeat?: ReturnType<typeof setInterval>; lastPing: number };
 export function PhoneCapture() {
-  const input = useRef<HTMLInputElement>(null);
-  const [state, setState] = useState<"idle" | "sending" | "sent">("idle");
+  const sessionRef = useRef<Session | null>(null);
+  const video = useRef<HTMLVideoElement>(null);
+  const [status, setStatus] = useState<"idle" | "connecting" | "connected">("idle");
   const [error, setError] = useState("");
-
-  async function send(event: ChangeEvent<HTMLInputElement>) {
-    const file = event.target.files?.[0];
-    event.target.value = "";
-    if (!file) return;
-    const id = location.hash.slice(1);
-    setState("sending"); setError("");
+  const [note, setNote] = useState("");
+  const [audio, setAudio] = useState(false);
+  const [facing, setFacing] = useState<"user" | "environment">("environment");
+  const [switching, setSwitching] = useState(false);
+  const takingPhoto = useRef(false);
+  const capturePending = useRef<ReturnType<typeof setTimeout> | null>(null);
+  function stop(message = "Camera sharing stopped.") {
+    const session = sessionRef.current; sessionRef.current = null;
+    if (session) {
+      if (session.channel?.readyState === "open") session.channel.send(JSON.stringify({ type: "stop" }));
+      session.controller.abort(); clearTimeout(session.timer); clearTimeout(session.expiry); clearInterval(session.heartbeat);
+      session.stream?.getTracks().forEach(track => track.stop()); session.peer?.close();
+      void fetch(`/api/camera-pair/${session.id}`, { method: "DELETE", headers: { Authorization: `Bearer ${session.token}` }, keepalive: true }).catch(() => {});
+    }
+    takingPhoto.current = false;
+    if (capturePending.current) clearTimeout(capturePending.current);
+    if (video.current) video.current.srcObject = null;
+    setStatus("idle"); setNote(message);
+  }
+  useEffect(() => {
+    const hidden = () => { if (document.hidden) stop("Sharing stopped because this page was hidden. Scan a new code to reconnect."); };
+    const leave = () => stop();
+    document.addEventListener("visibilitychange", hidden); window.addEventListener("pagehide", leave);
+    return () => { document.removeEventListener("visibilitychange", hidden); window.removeEventListener("pagehide", leave); stop(); };
+  }, []);
+  async function start() {
+    if (sessionRef.current) return;
+    setError(""); setNote(""); setStatus("connecting");
+    const [id, token] = location.hash.slice(1).split(".");
+    if (!/^[a-f0-9]{64}$/.test(id ?? "") || !/^[a-f0-9]{64}$/.test(token ?? "")) { setStatus("idle"); setError("Scan a new QR code from the costume page on your computer."); return; }
+    const session: Session = { id, token, controller: new AbortController(), lastPing: Date.now() }; sessionRef.current = session;
+    const current = () => sessionRef.current === session;
+    const fail = (message: string) => { if (current()) { stop(""); setError(message); } };
     try {
-      const photo = await preparePhoto(file);
-      const response = await fetch(`/api/capture/${id}`, { method: "POST", headers: { "Content-Type": "image/jpeg" }, body: photo });
-      const data: unknown = await response.json().catch(() => null);
-      if (!response.ok) throw new Error(data && typeof data === "object" && "error" in data && typeof data.error === "string" ? data.error : "The photo could not be sent. Try again.");
-      setState("sent");
-    } catch (caught) {
-      setState("idle");
-      setError(caught instanceof Error ? caught.message : "The photo could not be sent. Try again.");
+      const claimant = crypto.randomUUID();
+      const config = await pairRequest<{ iceServers: RTCIceServer[]; expires: number }>(id, token, { action: "claim", claimant }, session.controller.signal);
+      if (!current()) return;
+      const stream = await navigator.mediaDevices.getUserMedia({ video: { facingMode: facing, width: { ideal: 1280 }, height: { ideal: 720 }, frameRate: { ideal: 24, max: 30 } }, audio: audio ? { echoCancellation: true, noiseSuppression: true } : false });
+      if (!current()) { stream.getTracks().forEach(track => track.stop()); return; }
+      session.stream = stream;
+      if (video.current) { video.current.srcObject = stream; await video.current.play(); }
+      const peer = new RTCPeerConnection({ iceServers: config.iceServers }); session.peer = peer;
+      stream.getTracks().forEach(track => { peer.addTrack(track, stream); track.addEventListener("ended", () => fail("Your camera stopped. Scan a new code to reconnect."), { once: true }); });
+      const channel = peer.createDataChannel("camera-control"); session.channel = channel;
+      channel.onopen = () => {
+        if (!current()) return;
+        setStatus("connected"); setNote("Your camera is visible on the computer."); session.lastPing = Date.now();
+        session.heartbeat = setInterval(() => { if (Date.now() - session.lastPing > 12_000) fail("Your computer stopped responding. Scan a new code to reconnect."); }, 3000);
+      };
+      channel.onclose = () => fail("Your computer disconnected. Scan a new code to reconnect.");
+      channel.onmessage = event => {
+        try {
+          const message = JSON.parse(event.data);
+          if (message.type === "ping") { session.lastPing = Date.now(); channel.send(JSON.stringify({ type: "pong" })); }
+          if (message.type === "stop") stop("Your computer ended camera sharing.");
+          if (message.type === "capture-request") void capture();
+          if (message.type === "captured") { takingPhoto.current = false; if (capturePending.current) clearTimeout(capturePending.current); setNote("Photo received on your computer. You can take another."); }
+          if (message.type === "capture-error") { takingPhoto.current = false; if (capturePending.current) clearTimeout(capturePending.current); setError("The computer could not capture that photo. Try again."); }
+        } catch { /* Ignore malformed peer controls. */ }
+      };
+      peer.onconnectionstatechange = () => { if (peer.connectionState === "failed") fail("The connection failed. Try the same Wi-Fi network, then scan a new code."); };
+      session.expiry = setTimeout(() => fail("This ten-minute connection ended. Scan a new code to continue."), config.expires - Date.now());
+      await peer.setLocalDescription(await peer.createOffer()); await gather(peer, session.controller.signal);
+      if (!current()) return;
+      await pairRequest(id, token, { action: "signal", description: peer.localDescription, claimant }, session.controller.signal);
+      const deadline = Date.now() + 30_000;
+      const poll = async () => {
+        try {
+          const result = await pairRequest<{ description: RTCSessionDescriptionInit | null }>(id, token, undefined, session.controller.signal);
+          if (!current()) return;
+          if (result.description) { await peer.setRemoteDescription(result.description); session.timer = setTimeout(() => { if (peer.connectionState !== "connected") fail("The devices could not connect. Try the same Wi-Fi network, then scan a new code."); }, 20_000); }
+          else if (Date.now() < deadline) session.timer = setTimeout(poll, 1000);
+          else fail("Your computer did not respond. Scan a new code to reconnect.");
+        } catch (error) { if (!session.controller.signal.aborted) fail(error instanceof Error ? error.message : "Connection failed."); }
+      };
+      void poll();
+    } catch (error) { fail(error instanceof DOMException && error.name === "NotAllowedError" ? "Camera access was declined. Allow it in your browser, then scan a new code." : error instanceof Error ? error.message : "The camera could not start."); }
+  }
+  async function switchCamera() {
+    const session = sessionRef.current;
+    if (!session?.stream || !session.peer || switching) return;
+    setSwitching(true); setError("");
+    const next = facing === "user" ? "environment" : "user";
+    // iOS often needs the old camera released before the opposite lens opens.
+    session.stream.getVideoTracks().forEach(track => track.stop());
+    let camera: MediaStream | null = null;
+    try {
+      camera = await navigator.mediaDevices.getUserMedia({ video: { facingMode: { ideal: next }, width: { ideal: 1280 }, height: { ideal: 720 } }, audio: false });
+      if (sessionRef.current !== session) { camera.getTracks().forEach(track => track.stop()); return; }
+      const track = camera.getVideoTracks()[0];
+      await session.peer.getSenders().find(sender => sender.track?.kind === "video")?.replaceTrack(track);
+      if (sessionRef.current !== session) return;
+      session.stream.getVideoTracks().forEach(old => session.stream!.removeTrack(old)); session.stream.addTrack(track);
+      track.addEventListener("ended", () => { if (sessionRef.current === session) { stop(""); setError("Your camera stopped. Scan a new code to reconnect."); } }, { once: true });
+      if (video.current) video.current.srcObject = new MediaStream(session.stream.getTracks());
+      camera = null; // The active session now owns this camera track.
+      setFacing(next);
+    } catch { stop(""); setError("The camera could not switch. Scan a new code to reconnect."); }
+    finally {
+      // Disconnect can finish while replaceTrack is still pending.
+      camera?.getTracks().forEach(track => track.stop());
+      setSwitching(false);
     }
   }
-
+  async function capture() {
+    const session = sessionRef.current, channel = session?.channel;
+    if (channel?.readyState !== "open" || !video.current || takingPhoto.current) return;
+    takingPhoto.current = true;
+    setError(""); setNote("Sending photo to your computer…");
+    try {
+      const photo = await frame(video.current);
+      if (sessionRef.current !== session) return;
+      await sendPhoto(channel, photo, crypto.randomUUID());
+      if (capturePending.current) clearTimeout(capturePending.current);
+      capturePending.current = setTimeout(() => { takingPhoto.current = false; setError("The computer did not confirm the photo. Keep both pages open and try again."); }, 8000);
+    } catch (error) { takingPhoto.current = false; setError(error instanceof Error ? error.message : "Photo transfer failed."); }
+  }
   return <main className="phone-capture">
-    <input ref={input} className="try-on-file" type="file" accept="image/*" capture="environment" onChange={send} tabIndex={-1} aria-hidden="true" />
-    <h1>{state === "sent" ? "Sent. Check your computer." : "Take a full-body photo"}</h1>
-    <p className="try-on-fine">{state === "sent" ? "Your photo is now on your computer screen. You can close this page." : "Stand back so your whole body is in the frame, with just you in the photo."}</p>
-    <button type="button" className="btn btn-block try-on-primary" onClick={() => input.current?.click()} disabled={state === "sending"}>
-      {state === "sending" ? "Sending…" : state === "sent" ? "Take another photo" : "Open camera"}
-    </button>
-    {error && <p className="try-on-error" role="alert">{error}</p>}
+    <h1>Your phone camera</h1>
+    <p className="try-on-fine">Your camera appears on the computer for photos and live costume previews. Keep this page open.</p>
+    <video ref={video} autoPlay playsInline muted aria-label="Your phone camera" />
+    {status === "idle" && <><label><input type="checkbox" checked={audio} onChange={event => setAudio(event.target.checked)} />Share my phone microphone for GPT Live voice styling. OpenAI processes this audio when I start the stylist.</label><p className="try-on-fine">Opening the camera shares video with your paired computer. Live try-on sends it to Decart through fal after you start the mirror.</p><button className="btn btn-block" onClick={() => void start()}>Open camera</button></>}
+    {status === "connecting" && <p role="status">Connecting to your computer…</p>}
+    {status === "connected" && <div className="phone-camera-actions"><button className="btn" onClick={() => void capture()}>Take photo</button><button className="btn btn-ghost" onClick={() => void switchCamera()} disabled={switching}>{switching ? "Switching…" : "Switch camera"}</button></div>}
+    {status !== "idle" && <button className="btn btn-ghost" onClick={() => stop()}>Stop sharing</button>}
+    {note && <p role="status">{note}</p>}{error && <p className="try-on-error" role="alert">{error}</p>}
   </main>;
 }
