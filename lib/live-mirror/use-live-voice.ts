@@ -9,7 +9,7 @@ type VoiceOptions = {
   costume: CostumeView;
   outfit: MirrorOutfit;
   onCommand: (command: MirrorCommand) => void | Promise<void>;
-  onTranscript?: (text: string, role: "user" | "assistant") => void;
+  onTranscript?: (text: string, role: "user" | "assistant", metadata?: { turnId: string }) => void;
   onFocus?: (pieceId: string | null) => void;
 };
 type Session = {
@@ -32,7 +32,7 @@ type Session = {
   lastFocus: number;
   sourceSequence: number;
   pendingReports: Map<string, { delegationId: string; content: string }>;
-  transcript: { user: string; assistant: string; lastInputEnd: number; lastOutputEnd: number };
+  transcript: { user: string; assistant: string; lastInputEnd: number; lastOutputEnd: number; turns: Record<"user" | "assistant", string> };
 };
 
 export async function sendMirrorCommand(input: { costumeSlug: string; outfit: MirrorOutfit; text: string; budgetOnly?: boolean }, signal?: AbortSignal): Promise<MirrorCommand> {
@@ -170,7 +170,7 @@ export function useLiveVoice(options: VoiceOptions) {
     const session: Session = {
       peer, channel, audio, controller: new AbortController(), ready: false, closing: false, timers: new Set(),
       latestDelegation: null, handled: new Set(), delegations: new Map(), sourceOrder: new Map(), lastFocus: -1, sourceSequence: 0,
-      catalogSlug: latest.current.costume.costume.slug, pendingCatalog: null, catalogReports: [], pendingReports: new Map(), transcript: { user: "", assistant: "", lastInputEnd: 0, lastOutputEnd: 0 },
+      catalogSlug: latest.current.costume.costume.slug, pendingCatalog: null, catalogReports: [], pendingReports: new Map(), transcript: { user: "", assistant: "", lastInputEnd: 0, lastOutputEnd: 0, turns: { user: crypto.randomUUID(), assistant: crypto.randomUUID() } },
     };
     sessionRef.current = session;
     const current = () => mounted.current && sessionRef.current === session && !session.closing && generation.current === ticket;
@@ -219,14 +219,17 @@ export function useLiveVoice(options: VoiceOptions) {
         const role = event.type === "session.input_transcript.delta" ? "user" : "assistant";
         const previousEnd = role === "user" ? session.transcript.lastInputEnd : session.transcript.lastOutputEnd;
         const inputStart = typeof event.start_ms === "number" ? event.start_ms : previousEnd;
-        if (inputStart - previousEnd > 1500) session.transcript[role] = "";
+        if (inputStart - previousEnd > 1500) {
+          session.transcript[role] = "";
+          session.transcript.turns[role] = crypto.randomUUID();
+        }
         session.transcript[role] = (session.transcript[role] + event.delta).slice(-2000);
         if (role === "user") {
           session.transcript.lastInputEnd = typeof event.end_ms === "number" ? event.end_ms : inputStart;
           if (typeof event.event_id === "string") session.sourceOrder.set(event.event_id, ++session.sourceSequence);
           if (session.sourceOrder.size > 300) session.sourceOrder.delete(session.sourceOrder.keys().next().value!);
         } else session.transcript.lastOutputEnd = typeof event.end_ms === "number" ? event.end_ms : inputStart;
-        latest.current.onTranscript?.(session.transcript[role], role); return;
+        latest.current.onTranscript?.(session.transcript[role], role, { turnId: session.transcript.turns[role] }); return;
       }
       if (event.type === "session.delegation.created") {
         if (session.pendingCatalog) return;
