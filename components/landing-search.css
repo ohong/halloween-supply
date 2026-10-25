@@ -1,3 +1,10 @@
+.landing-hero { display: grid; grid-template-columns: minmax(0, 1.65fr) minmax(0, 1fr); align-items: center; gap: 32px; }
+.landing-film { min-width: 0; margin: 24px 0 32px; overflow: hidden; border-radius: 12px; background: #eee8df; }
+.landing-film video { display: block; width: 100%; height: auto; aspect-ratio: 16 / 9; }
+@media (max-width: 899px) {
+  .landing-hero { grid-template-columns: minmax(0, 1fr); gap: 0; }
+  .landing-film { width: 100%; max-width: 520px; margin: 0 auto 28px; }
+}
 .home-page { max-width: 1360px; margin-inline: auto; padding-bottom: 40px; }
 .landing-search { max-width: 760px; padding-block: 40px 32px; }
 .landing-search h1 { color: var(--ink); font-size: clamp(30px, 3.5vw, 40px); line-height: 1.15; font-weight: 400; letter-spacing: -.035em; }
