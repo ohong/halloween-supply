@@ -52,6 +52,7 @@ function quotaError(status: number) {
   if (status === 429) return new PreviewError(503, "The clip analyzer is out of quota right now. Please try again later.");
   if (status === 401 || status === 403) return new PreviewError(503, "The clip analyzer isn’t available yet.");
   if (status === 404) return new PreviewError(503, "The clip analyzer model isn’t available yet.");
+  if (status >= 500) return new PreviewError(503, "The clip analyzer is busy right now. Please try again in a minute.");
   return new PreviewError(422, "We couldn’t read this clip. Check that a YouTube link is public, or try a shorter clip.");
 }
 
@@ -72,7 +73,10 @@ export async function analyzeClip(source: ClipSource, signal: AbortSignal): Prom
       generationConfig: { responseMimeType: "application/json", responseJsonSchema: schema, maxOutputTokens: 4000 },
     }),
   });
-  if (!response.ok) throw quotaError(response.status);
+  if (!response.ok) {
+    console.error(`Gemini clip analysis failed (${CLIP_MODEL}, HTTP ${response.status}):`, (await response.text().catch(() => "")).slice(0, 400));
+    throw quotaError(response.status);
+  }
   const payload = await response.json() as { candidates?: { finishReason?: string; content?: { parts?: { text?: string; thought?: boolean }[] } }[] };
   const candidate = payload.candidates?.[0];
   const text = candidate?.content?.parts?.filter(part => !part.thought).map(part => part.text ?? "").join("");
