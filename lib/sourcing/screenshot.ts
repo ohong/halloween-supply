@@ -74,12 +74,19 @@ const DETAILS = [
   /\b(moth|luna)\b/i,
   /\b(corduroy|cord)\b/i, /\b(puff|puffed|puffy)\b/i, /\b(ribbed|rib)\b/i,
 ];
+/** Titles can hide a kids' cut that only the size list reveals. No adult size left means no adult product. */
+function adultSizes(piece: ScreenshotPiece, sizes: string[]) {
+  const forChild = (size: string) => CHILD_SIZE.some(kind => kind.test(size)) || /\b(kids?|youth|toddler|infant|baby|child(?:ren)?)\b/i.test(size);
+  if (forChild(`${piece.name} ${piece.query}`)) return sizes;
+  const adult = sizes.filter(size => !forChild(size));
+  return sizes.length && !adult.length ? null : adult;
+}
 const allowedHost = (host: string) => !isBlockedDomain(host) && !isNoiseDomain(host) && !EXCLUDED.some((domain) => host === domain || host.endsWith(`.${domain}`));
+const CHILD_SIZE = [/\b\d+\s*(?:[-–]\s*\d+\s*)?(?:years?|months?|yrs?|mos?)\b/i, /\b\d+\s*[-–]\s*\d+\s*[my]\b|\b\d+\s*[yt]\b/i];
 function wrongAudience(piece: ScreenshotPiece, text: string) {
   if (!supportsWearerAudience(text)) return true;
   return [
-    /\b\d+\s*(?:[-–]\s*\d+\s*)?(?:years?|months?|yrs?|mos?)\b/i,
-    /\b\d+\s*[-–]\s*\d+\s*[my]\b|\b\d+\s*[yt]\b/i,
+    ...CHILD_SIZE,
     /\b(tutorial|download|printable|charm|ornament|keychain|hand fan|yarn|knitting kit|knit kit|sewing kit|knitting pattern|crochet pattern|sewing pattern)\b/i,
     /\b(rent|rental)\b/i,
   ].some((kind) => kind.test(text) && !kind.test(`${piece.name} ${piece.query}`));
@@ -111,12 +118,14 @@ export function matchesScreenshotPiece(piece: ScreenshotPiece, title: string, de
 function relevance(piece: ScreenshotPiece, result: SearchResult & { verifiedHint?: boolean }): number {
   const title = tokens(result.title);
   const kind = kindOf(piece);
-  return (result.verifiedHint ? 12 : 0) + (result.image ? 3 : 0) + (kind?.test(result.title) ? 20 : 0)
+  // Shopify product URLs usually read straight to a cart-ready price; other shops often need a slow browser scrape.
+  return (result.verifiedHint ? 12 : 0) + (result.image ? 3 : 0) + (SHOPIFY.test(urlPath(result.url)) ? 5 : 0) + (kind?.test(result.title) ? 20 : 0)
     + DETAILS.filter((detail) => detail.test(piece.query) && detail.test(`${result.title} ${result.description ?? ""}`)).length * 6
     + desiredColors(piece).filter((group) => wordsMatch(result.title, group)).length * 8
     + tokens(piece.query).filter((word) => word.length > 2 && title.includes(word)).length * 2;
 }
 
+const urlPath = (value: string) => { try { return new URL(value).pathname; } catch { return ""; } };
 function publicUrl(value: string): URL | null {
   try {
     const url = new URL(value);
@@ -132,9 +141,11 @@ const matchFor = (result: SearchResult, piece: ScreenshotPiece): ScreenshotMatch
   availability: "unknown", kind: LISTING.test(new URL(result.url).pathname) ? "browse" : "product", note: noteFor(piece),
 });
 
+// A shop's cart currency is stable, so later screenshots skip this round trip. Failures are retried.
+const currencies = new Map<string, Promise<string | null>>();
+
 export function screenshotSourcing(signal: AbortSignal, log: SourcingLog, reference: Buffer) {
   const searches = new Map<string, Promise<SearchResult[]>>();
-  const currencies = new Map<string, Promise<string | null>>();
   let backupReported = false;
   function search(query: string) {
     let pending = searches.get(query);
@@ -154,6 +165,7 @@ export function screenshotSourcing(signal: AbortSignal, log: SourcingLog, refere
         signal: AbortSignal.any([readSignal, AbortSignal.timeout(2_000)]), headers: { Accept: "application/json" } })
         .then(async response => response.ok ? (await response.json() as { currency?: string }).currency ?? null : null).catch(() => null);
       currencies.set(origin, pending);
+      void pending.then(value => { if (!value) currencies.delete(origin); });
     }
     return pending;
   }
@@ -179,7 +191,8 @@ export function screenshotSourcing(signal: AbortSignal, log: SourcingLog, refere
         const variant = selectShopifyVariants(raw, typeof color === "string" ? color : undefined)[0];
         const image = [variant?.featured_image?.src, ...raw.images].find(value => typeof value === "string" && /^(https:)?\/\//.test(value))?.replace(/^\/\//, "https://") ?? null;
         if (variant) { url.search = ""; url.searchParams.set("variant", String(variant.id)); url.searchParams.set("currency", "USD"); }
-        const sizes = variant ? shopifySizes(raw, variant) : [];
+        const sizes = adultSizes(piece, variant ? shopifySizes(raw, variant) : []);
+        if (!sizes) return null;
         const price = variant && Number.isSafeInteger(variant.price) && variant.price > 0 ? variant.price : null;
         return { match: { ...matchFor(result, piece), title: raw.title, url: url.toString(), image,
           priceCents: money && money === declared ? price : null, currency: money === declared ? money : null, availability: variant ? "in_stock" : "out_of_stock" },
@@ -201,11 +214,13 @@ export function screenshotSourcing(signal: AbortSignal, log: SourcingLog, refere
       if (!publicUrl(page.finalUrl) || registrableDomain(page.finalUrl) !== registrableDomain(url.toString())) return null;
       const product = parseProduct(page.html, page.finalUrl);
       if (!product.title || !matchesScreenshotPiece(piece, product.title, product.description ?? product.title)) return null;
+      const sizes = adultSizes(piece, product.sizes);
+      if (!sizes) return null;
       const image = product.images.find(src => src.startsWith("https://")) ?? null;
       const kind = LISTING.test(new URL(page.finalUrl).pathname) ? "browse" : "product";
       return { match: { ...matchFor(result, piece), title: product.title, url: page.finalUrl, merchant: registrableDomain(page.finalUrl)!,
         image, priceCents: product.currency ? product.priceCents : null, currency: product.currency, availability: product.availability, kind },
-        sizes: product.sizes, cartReady: !!(kind === "product" && image && product.priceCents && product.priceCents > 0 && product.currency === "USD" && product.availability === "in_stock") };
+        sizes, cartReady: !!(kind === "product" && image && product.priceCents && product.priceCents > 0 && product.currency === "USD" && product.availability === "in_stock") };
     } catch { return null; }
   }
   function shortlist(results: SearchResult[], piece: ScreenshotPiece) {

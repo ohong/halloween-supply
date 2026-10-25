@@ -20,11 +20,9 @@ export async function discoverScreenshotWeb(query: string, options: Options): Pr
     }
     catch (error) {
       options.signal.throwIfAborted();
-      if (error instanceof FirecrawlError && [401, 403].includes(error.status)) {
-        primaryRetryAt = Date.now() + 60_000;
-      } else {
-        primaryRetryAt = Date.now() + Math.max(30_000, error instanceof FirecrawlError ? error.retryAfterMs : 0);
-      }
+      // Only quota and auth failures pause the provider. A slow query falls back alone.
+      if (error instanceof FirecrawlError && [401, 403].includes(error.status)) primaryRetryAt = Date.now() + 60_000;
+      else if (error instanceof FirecrawlError && error.status === 429) primaryRetryAt = Date.now() + Math.max(30_000, error.retryAfterMs);
     }
   }
   options.log?.("provider", "Continuing with fresh backup web search…");

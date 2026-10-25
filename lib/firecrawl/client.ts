@@ -3,7 +3,8 @@ import { readCache, writeCache } from "../sourcing/cache";
 import { workQueue } from "../sourcing/work-queue";
 
 const ENDPOINT = (process.env.FIRECRAWL_API_URL || "https://api.firecrawl.dev").replace(/\/$/, "").replace(/\/v2$/, "") + "/v2";
-const providerSlot = workQueue(2);
+// Search is an index lookup; only scrapes hold Firecrawl's small browser-job limit.
+const slots = { search: workQueue(8), scrape: workQueue(2) };
 let retryAt = 0;
 
 export interface SearchResult {
@@ -32,7 +33,7 @@ export class FirecrawlError extends Error {
 async function request<T>(endpoint: "search" | "scrape", body: object, timeoutMs: number, signal?: AbortSignal): Promise<T> {
   const key = process.env.FIRECRAWL_API_KEY;
   if (!key) throw new Error("FIRECRAWL_API_KEY is not configured.");
-  return providerSlot(signal, async () => {
+  return slots[endpoint](signal, async () => {
     if (Date.now() < retryAt) throw new FirecrawlError(429, retryAt - Date.now(), endpoint);
     const response = await fetch(`${ENDPOINT}/${endpoint}`, {
       method: "POST",
