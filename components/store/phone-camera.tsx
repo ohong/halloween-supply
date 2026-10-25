@@ -3,10 +3,10 @@
 import { createContext, useCallback, useContext, useEffect, useRef, useState } from "react";
 import { preparePhoto } from "@/lib/photo/prepare";
 import { renderSVG } from "uqr";
-import { gather, pairRequest, type Pair } from "@/lib/phone-camera/connection";
+import { connectPeer, pairRequest, type Pair } from "@/lib/phone-camera/connection";
 import "./phone-camera.css";
 
-type Connection = { pair: Pair; peer: RTCPeerConnection; controller: AbortController; channel?: RTCDataChannel; timer?: ReturnType<typeof setTimeout>; heartbeat?: ReturnType<typeof setInterval>; expiry?: ReturnType<typeof setTimeout>; lastPing: number; incoming?: { id: string; size: number; received: number; chunks: ArrayBuffer[] }; pendingCapture?: { resolve: () => void; reject: (error: Error) => void; timer: ReturnType<typeof setTimeout> } };
+type Connection = { pair: Pair; peer: RTCPeerConnection; controller: AbortController; channel?: RTCDataChannel; heartbeat?: ReturnType<typeof setInterval>; expiry?: ReturnType<typeof setTimeout>; lastPing: number; incoming?: { id: string; size: number; received: number; chunks: ArrayBuffer[] }; pendingCapture?: { resolve: () => void; reject: (error: Error) => void; timer: ReturnType<typeof setTimeout> } };
 type Camera = {
   mode: "photo" | "live"; setMode: (mode: "photo" | "live") => void;
   stream: MediaStream | null; photo: { blob: Blob; id: string } | null;
@@ -18,7 +18,7 @@ export function usePhoneCamera() { const value = useContext(CameraContext); if (
 function release(session: Connection) {
   if (session.channel?.readyState === "open") session.channel.send(JSON.stringify({ type: "stop" }));
   if (session.pendingCapture) { clearTimeout(session.pendingCapture.timer); session.pendingCapture.reject(new Error("Phone disconnected.")); }
-  session.controller.abort(); clearTimeout(session.timer); clearTimeout(session.expiry); clearInterval(session.heartbeat);
+  session.controller.abort(); clearTimeout(session.expiry); clearInterval(session.heartbeat);
   session.peer.getReceivers().forEach(receiver => receiver.track?.stop()); session.peer.close();
   void fetch(`/api/camera-pair/${session.pair.id}`, { method: "DELETE", headers: { Authorization: `Bearer ${session.pair.host}` }, keepalive: true }).catch(() => {});
 }
@@ -113,20 +113,8 @@ export function PhoneCameraProvider({ children }: { children: React.ReactNode })
           }
         };
       };
-      const poll = async () => {
-        try {
-          const data = await pairRequest<{ description: RTCSessionDescriptionInit | null }>(pair.id, pair.host, undefined, controller.signal);
-          if (sessionRef.current !== session) return;
-          if (!data.description) { session.timer = setTimeout(poll, 1000); return; }
-          setStatus("connecting");
-          await peer.setRemoteDescription(data.description);
-          await peer.setLocalDescription(await peer.createAnswer()); await gather(peer, controller.signal);
-          if (sessionRef.current !== session) return;
-          await pairRequest(pair.id, pair.host, { action: "signal", description: peer.localDescription }, controller.signal);
-          session.timer = setTimeout(() => { if (peer.connectionState !== "connected") fail("The devices could not connect. Try the same Wi-Fi network or create a new connection."); }, 25_000);
-        } catch (error) { if (!controller.signal.aborted) fail(error instanceof Error ? error.message : "Connection failed."); }
-      };
-      void poll();
+      void connectPeer(peer, { id: pair.id, token: pair.host, role: "host", signal: controller.signal, isReady: () => session.channel?.readyState === "open", onRemote: () => setStatus("connecting") })
+        .catch(error => { if (!controller.signal.aborted) fail(error instanceof Error ? error.message : "Connection failed."); });
     } catch (error) { if (generation.current === version) { disconnect(); setError(error instanceof Error ? error.message : "Connection failed."); } }
   }, [disconnect]);
   useEffect(() => {
