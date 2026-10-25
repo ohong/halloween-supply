@@ -49,7 +49,9 @@ Camera ──WebRTC──> Decart Lucy VTON ──WebRTC─> live preview
 The browser receives a 60-second fal token scoped to `decart/lucy2-vton`.
 The permanent key stays on the server. Camera video goes directly to Decart;
 fal relays the connection and outfit controls. Microphone audio goes to OpenAI.
-The app does not persist camera frames or recordings. Saved previews download
+The app does not persist camera frames or recordings. Appearance questions
+send captured preview frames to OpenAI; likeness questions also send the paired
+original camera frame. These requests use the existing processing consent. Saved previews download
 from browser memory only when requested.
 
 `@fal-ai/client` is pinned to `1.11.0-alpha.3`: its official Lucy WebRTC extension
@@ -84,7 +86,8 @@ appearance override for that piece. Undo restores the previous appearance.
 An unspecified request to change costumes advances to a different catalog look.
 GPT Live receives the current costume, selected pieces, appearance overrides,
 and preview status (live, updating, frozen, or failed). This links the conversation
-to the app's state; GPT Live does not inspect the camera's pixels. Video and
+to the app's state; GPT Live receives fresh visual observations only when the shopper requests
+appearance feedback; control state alone is not visual evidence. Video and
 microphone data continue to use their separate providers.
 
 The server describes the complete desired outfit using catalog piece names.
@@ -206,3 +209,64 @@ motion, iPhone Safari, and garment fidelity on a person remain unverified.
 - https://github.com/DecartAI/tryon-examples
 - https://developers.openai.com/api/docs/guides/voice-webrtc?api=live
 - https://developers.openai.com/api/docs/guides/decisions-voice
+
+
+## Visual feedback on request
+
+Ask **“How do I look?”** to assess the currently displayed costume preview.
+Ask **“Has the preview changed my face?”** or **“Compare my likeness with the
+original camera”** to describe visible rendering differences between the
+preview and the original. These questions do not change outfit selections,
+product IDs, appearance overrides, or the shopping cart.
+
+GPT Live remains an audio/text model. A new Decisions choice routes explicit
+visual questions to the browser. The browser captures the display only after
+consent and that request, then calls `/api/live-mirror/feedback`. Styling sends
+one image; likeness sends two. A standalone Responses call with
+`gpt-6-luna` (or `OPENAI_MIRROR_VISION_MODEL`) returns concise observations.
+Those observations return to GPT Live through the existing delegated-result
+channel, and GPT Live speaks the answer. Typed questions show the same feedback
+in the conversation.
+
+```text
+Appearance question → Decisions → browser snapshot → Responses vision
+                                                   │
+GPT Live spoken answer ← fresh visual observations ─┘
+```
+
+There is no periodic visual upload or continuous video feed to OpenAI. Capture
+uses JPEG at a maximum 960-pixel edge. The server bounds the request body,
+requires same-origin JSON and explicit processing consent, rejects remote image
+URLs, validates decoded image dimensions, strips metadata, and uses
+`store: false`. It never writes images to storage. Close, navigation, or session
+cancellation aborts outstanding work. Changed outfits, camera sources, frozen
+frames and superseded spoken questions invalidate older assessments.
+
+Freezing retains a paired original in browser memory before stopping live
+video. A later frozen likeness question compares that original with the frozen
+preview, rather than taking an unrelated later camera frame. The model labels
+frozen feedback and notes that it may predate the latest garment choices.
+If either required image is missing, the app asks the shopper to resume the
+camera. Photo-mode voice controls do not have access to a live mirror image;
+they explain that the live mirror must be opened for this feature.
+
+Feedback describes visible clothing and rendering differences. It does not
+identify or authenticate a person, promise pixel-identical faces or physical
+fit, or infer hidden details. Pose, expression and lighting differences are not
+proof of identity changes. Small, blurred or covered faces limit comparison.
+
+Run the real-provider check with synthetic camera and speech input:
+
+```sh
+LIVE_MIRROR_E2E=1 MIRROR_BASE_URL=http://localhost:3028 node scripts/verify-mirror-feedback.mjs
+```
+
+This checks the actual browser, Lucy, GPT Live, Decisions and vision route.
+It checks consent, image validation, absence of background uploads, style-only
+image selection, frozen paired-original comparison, spoken and typed results,
+unchanged outfit choices, and media cleanup. No personal devices are opened.
+
+Official contracts:
+- https://developers.openai.com/api/docs/models/gpt-live-1
+- https://developers.openai.com/api/docs/models/gpt-6-luna
+- https://developers.openai.com/api/docs/guides/live-delegation

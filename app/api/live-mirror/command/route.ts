@@ -1,5 +1,5 @@
 import { z } from "zod";
-import { commandFromAnswers, mergeCatalogCommand, needsBudget, needsCatalog, needsPreview, outfitQuestions, outfitSnapshot } from "@/lib/live-mirror/voice-decisions";
+import { commandFromAnswers, mergeCatalogCommand, needsBudget, needsCatalog, needsPreview, requestedVisualFeedback, outfitQuestions, outfitSnapshot } from "@/lib/live-mirror/voice-decisions";
 import { previewCommand } from "@/lib/live-mirror/preview-server";
 import { readMirrorInventory, searchMirrorInventory } from "@/lib/live-mirror/catalog-server";
 import { readVoiceRequest, requestBase, validatedCostume, voiceFailure, voiceOpenAI, voiceResponse, VoiceError } from "@/lib/live-mirror/voice-server";
@@ -22,6 +22,8 @@ export async function POST(request: Request) {
     const decisions = budgetOnly || catalogOnly || previewOnly ? { answers: [] } : decisionsSchema.parse(await voiceOpenAI("decisions", {
       model: process.env.OPENAI_DECISION_MODEL || "gpt-6-luna", input, questions: outfitQuestions(costume, inventory.looks),
     }, request.signal));
+    const visualFeedback = requestedVisualFeedback(decisions.answers);
+    if (visualFeedback) return voiceResponse({ actions: [], visualFeedback });
     let command = commandFromAnswers(decisions.answers, costume, outfit, inventory.looks);
     if (previewOnly || needsPreview(decisions.answers)) {
       const preview = await previewCommand(costume, outfit, text, request.signal);
