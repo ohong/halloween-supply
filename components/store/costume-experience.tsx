@@ -21,12 +21,17 @@ import { readLook } from "@/lib/share-card";
 import { PhotoVoiceStylist } from "./photo-voice-stylist";
 import { PhoneCameraProvider } from "./phone-camera";
 import { LiveMirror } from "./live-mirror";
+import { mixSchema } from "@/lib/live-mirror/mix-schema";
+import { z } from "zod";
 import type { MirrorOutfit } from "@/lib/live-mirror/types";
 import { modelImage, useCostumeModel } from "@/lib/model-selection";
 import { WardrobeRail } from "./wardrobe-rail";
 import { CostumePieceInspector } from "./costume-piece-inspector";
 
-export function CostumeExperience({ costume }: { costume: CostumeView }) {
+export function CostumeExperience({ costume: initialCostume }: { costume: CostumeView }) {
+  const [mixedCostume, setMixedCostume] = useState<CostumeView | null>(null);
+  const [mixes, setMixes] = useState<MirrorOutfit["mixes"]>();
+  const costume = mixedCostume ?? initialCostume;
   const { model } = useCostumeModel();
   const cart = useCart();
   const costumeSlug = costume.costume.slug;
@@ -44,23 +49,34 @@ export function CostumeExperience({ costume }: { costume: CostumeView }) {
   const [uses, setUses] = useState<MirrorOutfit["uses"]>({});
   const [mirrorBudget, setMirrorBudget] = useState("");
   useEffect(() => {
-    // A shared look link opens with the sender's exact pieces picked.
-    const look = readLook(window.location.search);
-    if (look.length === 0) return;
-    const next: Record<string, number> = {};
-    for (const view of pieces) {
-      const index = view.options.findIndex(({ product }) => look.includes(product.id) && product.availability !== "out_of_stock");
-      if (index >= 0) next[view.piece.id] = index;
-    }
-    // The URL is only readable on the client.
-    // eslint-disable-next-line react-hooks/set-state-in-effect
-    setChosen(next);
+    const controller = new AbortController();
     const params = new URLSearchParams(window.location.search);
-    const owned = (params.get("owned") ?? "").split(",");
-    const skipped = (params.get("skipped") ?? "").split(",");
-    // Restore only catalog-known choices; required pieces cannot be omitted.
-    setUses(Object.fromEntries(pieces.map(({ piece }) => [piece.id, owned.includes(piece.id) ? "owned" : !piece.required && skipped.includes(piece.id) ? "skip" : "buy"])));
-  }, [pieces]);
+    const look = readLook(window.location.search);
+    if (!look.length && !params.has("mix")) return;
+    void (async () => {
+      let view = initialCostume;
+      let restoredMixes: MirrorOutfit["mixes"];
+      if (params.has("mix")) {
+        restoredMixes = z.array(mixSchema).max(12).parse(JSON.parse(params.get("mix")!));
+        const response = await fetch(`/api/live-mirror/catalog?slug=${encodeURIComponent(initialCostume.costume.slug)}&mix=${encodeURIComponent(JSON.stringify(restoredMixes))}`, { signal: controller.signal });
+        if (!response.ok) throw new Error("That mixed outfit could not be restored.");
+        view = await response.json() as CostumeView;
+      }
+      if (controller.signal.aborted) return;
+      const next: Record<string, number> = {};
+      for (const row of view.pieces) {
+        const index = row.options.findIndex(({ product }) => look.includes(product.id) && product.availability !== "out_of_stock");
+        if (index >= 0) next[row.piece.id] = index;
+      }
+      const owned = (params.get("owned") ?? "").split(",");
+      const skipped = (params.get("skipped") ?? "").split(",");
+      setMixedCostume(restoredMixes?.length ? view : null);
+      setMixes(restoredMixes);
+      setChosen(next);
+      setUses(Object.fromEntries(view.pieces.map(({ piece }) => [piece.id, owned.includes(piece.id) ? "owned" : !piece.required && skipped.includes(piece.id) ? "skip" : "buy"])));
+    })().catch(() => { /* Invalid shared references never become outfit state. */ });
+    return () => controller.abort();
+  }, [initialCostume]);
   const sourcingPieces = useMemo(() => pieces.map(({ piece, options }) => ({
     id: piece.id, name: piece.name, queries: piece.queries, options,
   })), [pieces]);
@@ -155,12 +171,20 @@ export function CostumeExperience({ costume }: { costume: CostumeView }) {
     cart.setOpen(true);
   }
 
-  function applyMirror(outfit: MirrorOutfit) {
+  function applyMirror(outfit: MirrorOutfit, nextCostume = costume) {
+    setMixedCostume(nextCostume);
+    setMixes(outfit.mixes);
+    const nextPieces = nextCostume.pieces;
+    if (ownsCart) {
+      for (const old of pieces) if (!nextPieces.some(row => row.piece.id === old.piece.id)) cart.remove(old.piece.id);
+    }
     const nextChosen: Record<string, number> = {};
-    for (const view of pieces) {
+    for (const view of nextPieces) {
       const index = view.options.findIndex(({ product }) => product.id === outfit.selection[view.piece.id]);
       if (index >= 0) nextChosen[view.piece.id] = index;
-      const current = ownsCart ? cart.items.find((item) => item.pieceId === view.piece.id) : undefined;
+      const replaced = outfit.mixes?.find(ref => ref.pieceId === view.piece.id)?.replacesPieceId;
+      const restored = mixes?.find(ref => ref.replacesPieceId === view.piece.id)?.pieceId;
+      const current = ownsCart ? cart.items.find(item => [view.piece.id, replaced, restored].includes(item.pieceId)) : undefined;
       if (current) {
         rememberCartSize(view);
         if (outfit.uses[view.piece.id] !== "buy") cart.remove(view.piece.id);
@@ -198,9 +222,9 @@ export function CostumeExperience({ costume }: { costume: CostumeView }) {
         },
       }} /></TabsContent>
       <TabsContent value="try-on" forceMount><PhoneCameraProvider>
-        <VirtualTryOn costumeSlug={costumeSlug} pieces={pieces.map(({ piece }) => ({ id: piece.id, name: piece.name, category: piece.category }))} selection={pickedOptions.map(({ view, option }) => ({ pieceId: view.piece.id, productId: option.product.id }))} ownedPieceIds={pieces.filter(({ piece }) => uses[piece.id] === "owned").map(({ piece }) => piece.id)} skippedPieceIds={pieces.filter(({ piece }) => uses[piece.id] === "skip").map(({ piece }) => piece.id)} totalCents={total} />
-        <PhotoVoiceStylist costume={costume} outfit={{ selection: Object.fromEntries(pieces.flatMap((view) => { const option = picked.get(view.piece.id); return option ? [[view.piece.id, option.product.id]] : []; })), uses, locked: [], budget: mirrorBudget }} onApply={applyMirror} />
-        <div className="costume-live-option"><span>Prefer a live preview?</span><LiveMirror costume={costume} initialOutfit={{ selection: Object.fromEntries(pieces.flatMap((view) => { const option = picked.get(view.piece.id); return option ? [[view.piece.id, option.product.id]] : []; })), uses, locked: [], budget: mirrorBudget }} onApply={applyMirror} /></div>
+        <VirtualTryOn mixes={mixes} costumeSlug={costumeSlug} pieces={pieces.map(({ piece }) => ({ id: piece.id, name: piece.name, category: piece.category }))} selection={pickedOptions.map(({ view, option }) => ({ pieceId: view.piece.id, productId: option.product.id }))} ownedPieceIds={pieces.filter(({ piece }) => uses[piece.id] === "owned").map(({ piece }) => piece.id)} skippedPieceIds={pieces.filter(({ piece }) => uses[piece.id] === "skip").map(({ piece }) => piece.id)} totalCents={total} />
+        <PhotoVoiceStylist costume={costume} outfit={{ mixes, selection: Object.fromEntries(pieces.flatMap((view) => { const option = picked.get(view.piece.id); return option ? [[view.piece.id, option.product.id]] : []; })), uses, locked: [], budget: mirrorBudget }} onApply={applyMirror} />
+        <div className="costume-live-option"><span>Prefer a live preview?</span><LiveMirror costume={costume} initialOutfit={{ mixes, selection: Object.fromEntries(pieces.flatMap((view) => { const option = picked.get(view.piece.id); return option ? [[view.piece.id, option.product.id]] : []; })), uses, locked: [], budget: mirrorBudget }} onApply={applyMirror} /></div>
       </PhoneCameraProvider></TabsContent>
     </Tabs>
 

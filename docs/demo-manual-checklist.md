@@ -51,7 +51,7 @@ Speech recognition with your voice, turn-taking, speaker volume, Bluetooth routi
 6. In a separate run, hide the tab or lock the phone. Confirm media stops. Return and restart explicitly.
 7. During testing mode, confirm the session continues beyond three minutes and stops when you close it. Outside testing mode, confirm the three-minute cutoff. See [testing policy](./mirror-session-limits.md).
 
-Run permission and connection failure tests after the main rehearsal. Starting or resuming live previews consumes provider credits even though checkout remains in Stripe test mode. See [current live-session limits](./mirror-session-limits.md).
+Starting or resuming live previews consumes provider credits even though checkout remains in Stripe test mode. Repeated sessions have no hourly app or project firewall quota. See [current session behavior](./mirror-session-limits.md).
 
 ## 5. Phone photo and desktop QR handoff
 

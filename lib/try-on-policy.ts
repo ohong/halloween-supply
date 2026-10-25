@@ -1,6 +1,6 @@
 import "server-only";
 
-/** Temporary demo policy. Restoring quotas also requires enabling the WAF rules. */
+/** Server-only rehearsal policy for session timers and simultaneous photo work. */
 export function isTryOnTesting() {
   return process.env.TRY_ON_TESTING_MODE === "1";
 }

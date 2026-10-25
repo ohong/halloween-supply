@@ -1,8 +1,9 @@
 import { readFile } from "node:fs/promises";
 import path from "node:path";
 import sharp from "sharp";
-import { getCostume } from "@/lib/catalog";
-import { readVideoJson, reserveVideoRequest, VideoError, videoFailure, videoResponse } from "@/lib/live-mirror/video-server";
+import { readMirrorInventory } from "@/lib/live-mirror/catalog-server";
+import { composeMirrorCostume } from "@/lib/live-mirror/mixed-outfit";
+import { readVideoJson, VideoError, videoFailure, videoResponse } from "@/lib/live-mirror/video-server";
 import { resolveVideoOutfit, videoOutfitPrompt, videoOutfitSchema } from "@/lib/live-mirror/video-outfit";
 
 export const maxDuration = 30;
@@ -12,14 +13,14 @@ export async function POST(request: Request) {
   let reserved = false;
   try {
     const input = videoOutfitSchema.parse(await readVideoJson(request));
-    reserveVideoRequest(request, "reference");
     if (active >= 3) throw new VideoError(429, "The fitting room is busy. Try again shortly.");
     active++; reserved = true;
-    const costume = await getCostume(input.costumeSlug);
-    if (!costume) throw new VideoError(400, "Choose a costume from the gallery.");
+    const inventory = await readMirrorInventory();
+    const base = inventory.views.find(view => view.costume.slug === input.costumeSlug);
+    if (!base) throw new VideoError(400, "Choose a costume from the gallery.");
     let outfit: ReturnType<typeof resolveVideoOutfit>;
     let prompt: string;
-    try { outfit = resolveVideoOutfit(costume, input); prompt = videoOutfitPrompt(outfit); }
+    try { const costume = composeMirrorCostume(base, input.mixes ?? [], inventory.views); outfit = resolveVideoOutfit(costume, input); prompt = videoOutfitPrompt(outfit); }
     catch (error) { throw new VideoError(400, error instanceof Error ? error.message : "Choose a valid outfit."); }
     const root = path.resolve(process.cwd(), "public");
     const cellWidth = 340;

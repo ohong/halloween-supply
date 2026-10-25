@@ -12,6 +12,8 @@ import type { FocusPiece, RenderOffer } from "@/lib/try-on-3d/types";
 import { preparePhoto } from "@/lib/photo/prepare";
 import { PhoneCameraControls, usePhoneCamera } from "./phone-camera";
 
+import type { MirrorMix } from "@/lib/live-mirror/types";
+
 type Selection = { pieceId: string; productId: string }[];
 
 const Icon = ({ d, size = 22 }: { d: string; size?: number }) => <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d={d} /></svg>;
@@ -21,8 +23,8 @@ const SAVE = "M12 4v11m0 0l-4-4m4 4l4-4M5 20h14";
 const CLOSE = "M6 6l12 12M18 6L6 18";
 const SHARE = "M12 15V4m0 0L8 8m4-4l4 4M5 13v5a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-5";
 
-export function VirtualTryOn({ costumeSlug, selection = [], ownedPieceIds = [], skippedPieceIds = [], totalCents = 0, pieces }: {
-  costumeSlug: string; selection?: Selection; ownedPieceIds?: string[]; skippedPieceIds?: string[]; totalCents?: number; pieces?: FocusPiece[];
+export function VirtualTryOn({ costumeSlug, selection = [], ownedPieceIds = [], skippedPieceIds = [], totalCents = 0, pieces, mixes }: {
+  costumeSlug: string; mixes?: MirrorMix[]; selection?: Selection; ownedPieceIds?: string[]; skippedPieceIds?: string[]; totalCents?: number; pieces?: FocusPiece[];
 }) {
   const [photo, setPhoto] = useState<Blob | null>(null);
   const [photoUrl, setPhotoUrl] = useState("");
@@ -36,7 +38,7 @@ export function VirtualTryOn({ costumeSlug, selection = [], ownedPieceIds = [], 
   const fileInput = useRef<HTMLInputElement>(null);
   const cameraInput = useRef<HTMLInputElement>(null);
   const costume = costumes.find((item) => item.slug === costumeSlug)!;
-  const outfitKey = JSON.stringify([costumeSlug, selection, ownedPieceIds, skippedPieceIds]);
+  const outfitKey = JSON.stringify([costumeSlug, selection, ownedPieceIds, skippedPieceIds, mixes]);
   const current = result?.key === outfitKey ? result : null;
   useEffect(() => () => { controller.current?.abort(); }, []);
   useEffect(() => () => { if (photoUrl) URL.revokeObjectURL(photoUrl); }, [photoUrl]);
@@ -58,7 +60,7 @@ export function VirtualTryOn({ costumeSlug, selection = [], ownedPieceIds = [], 
 
   async function share() {
     if (!readyCard) return;
-    const url = lookUrl(location.origin, costumeSlug, selection.map((item) => item.productId));
+    const url = lookUrl(location.origin, costumeSlug, selection.map((item) => item.productId), mixes);
     const data = { files: [readyCard], title: costume.name, text: `Me as the ${costume.name}`, url };
     if (navigator.canShare?.(data)) {
       try { await navigator.share(data); } catch (caught) {
@@ -125,6 +127,7 @@ export function VirtualTryOn({ costumeSlug, selection = [], ownedPieceIds = [], 
     const form = new FormData();
     form.set("photo", photo, "photo.jpg"); form.set("costumeSlug", costumeSlug); form.set("consent", "true");
     form.set("selection", JSON.stringify(selection));
+    form.set("mixes", JSON.stringify(mixes ?? []));
     form.set("ownedPieceIds", JSON.stringify(ownedPieceIds));
     form.set("skippedPieceIds", JSON.stringify(skippedPieceIds));
     try {

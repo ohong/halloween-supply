@@ -1,7 +1,7 @@
 /** Real HTTP/database checks. --live also calls Decisions and the catalog reasoning backend. */
 import assert from "node:assert/strict";
 import type { CostumeView } from "../lib/types";
-import type { MirrorCatalogLook, MirrorCommand } from "../lib/live-mirror/types";
+import type { MirrorCatalogLook, MirrorCommand, MirrorOutfit } from "../lib/live-mirror/types";
 import { createOutfit } from "../lib/live-mirror/state";
 
 const origin = process.argv.find(value => /^https?:\/\//.test(value)) ?? "http://localhost:3412";
@@ -50,9 +50,53 @@ if (process.argv.includes("--live")) {
     query: results.query, matches: results.matches.map(({ costumeSlug, pieceId, productId }) => ({ costumeSlug, pieceId, productId })),
   } });
   assert.equal(followup.status, 200, JSON.stringify(followup.body));
-  const action = followup.body.actions.find(action => action.type === "try_look");
-  assert(action?.type === "try_look", JSON.stringify(followup.body));
-  assert.equal(action.costumeSlug, second.costumeSlug);
-  assert.equal(action.selection?.[second.pieceId], second.productId);
-  console.log("PASS conversational follow-up resolves the second result to its exact costume and SKU");
+  const action = followup.body.actions.find(action => action.type === "mix");
+  assert(action?.type === "mix", JSON.stringify(followup.body));
+  assert.equal(action.source.costumeSlug, second.costumeSlug);
+  assert.equal(action.source.productId, second.productId);
+  const boot = view.pieces.find(row => row.piece.sizeKind === "shoe")!;
+  assert.equal(action.replacesPieceId, boot.piece.id);
+  async function mix(outfit: MirrorOutfit, actions: MirrorCommand["actions"]) {
+    const response = await fetch(`${origin}/api/live-mirror/mix`, { method: "POST", headers,
+      body: JSON.stringify({ costumeSlug: base.costumeSlug, outfit, actions }) });
+    return { status: response.status, body: await response.json() as { costume: CostumeView; outfit: MirrorOutfit } };
+  }
+  const applied = await mix(base.outfit, [action]);
+  assert.equal(applied.status, 200, JSON.stringify(applied.body));
+  assert.equal(applied.body.costume.costume.slug, base.costumeSlug);
+  assert.equal(applied.body.outfit.selection[second.pieceId], second.productId);
+  assert.equal(applied.body.outfit.selection[boot.piece.id], undefined);
+  for (const row of view.pieces.filter(row => row.piece.id !== boot.piece.id)) assert.equal(applied.body.outfit.selection[row.piece.id], base.outfit.selection[row.piece.id]);
+  assert.equal(applied.body.costume.pieces.length, view.pieces.length);
+  console.log("PASS ordinal follow-up replaces only boots, preserving current costume and all other selections");
+  assert.equal((await mix({ ...base.outfit, locked: [boot.piece.id] }, [action])).status, 409);
+  assert.equal((await mix(base.outfit, [{ ...action, source: { ...action.source, productId: "forged" } }])).status, 409);
+  const forged = await command({ ...base, outfit: { ...applied.body.outfit, mixes: [{ ...applied.body.outfit.mixes![0], productId: "forged" }] }, text: "What am I wearing?" });
+  assert.equal(forged.status, 400);
+  console.log("PASS locked slots and forged import references are rejected");
+  const vague = await command({ costumeSlug: base.costumeSlug, outfit: applied.body.outfit,
+    text: "Give me the cheapest pirate captain's headwear from another costume, while keeping my cape and everything else." });
+  assert.equal(vague.status, 200, JSON.stringify(vague.body));
+  const hat = vague.body.actions.find(action => action.type === "mix");
+  assert(hat?.type === "mix", JSON.stringify(vague.body));
+  assert.equal(hat.replacesPieceId, null);
+  const withHat = await mix(applied.body.outfit, [hat]);
+  assert.equal(withHat.status, 200, JSON.stringify(withHat.body));
+  assert.equal(withHat.body.costume.costume.slug, base.costumeSlug);
+  assert.equal(withHat.body.costume.pieces.length, view.pieces.length + 1);
+  assert.equal(withHat.body.outfit.selection[second.pieceId], second.productId);
+  assert.equal(withHat.body.outfit.selection[hat.source.pieceId], hat.source.productId);
+  console.log("PASS semantic headwear request resolves without exact names and adds an accessory without losing mixed boots");
+  const restore = await fetch(`${origin}/api/live-mirror/catalog?slug=${base.costumeSlug}&mix=${encodeURIComponent(JSON.stringify(withHat.body.outfit.mixes))}`);
+  assert.equal(restore.status, 200);
+  const restored = await restore.json() as CostumeView;
+  assert.deepEqual(restored.pieces.map(row => row.piece.id), withHat.body.costume.pieces.map(row => row.piece.id));
+  const reference = await fetch(`${origin}/api/live-mirror/reference`, { method: "POST", headers, body: JSON.stringify({
+    costumeSlug: base.costumeSlug, selection: withHat.body.outfit.selection, uses: withHat.body.outfit.uses, mixes: withHat.body.outfit.mixes,
+  }) });
+  assert.equal(reference.status, 200, `Mixed reference failed: ${reference.status}`);
+  const board = await reference.json() as { prompt: string; image: string };
+  assert(board.image.startsWith("data:image/jpeg;base64,"));
+  assert(board.prompt.includes(withHat.body.costume.pieces.find(row => row.piece.id === hat.source.pieceId)!.piece.name));
+  console.log("PASS mixed outfit restores from references and produces a real preview board");
 } else console.log("INFO --live enables the real inference checks; no provider calls made");

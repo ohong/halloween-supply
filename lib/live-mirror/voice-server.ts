@@ -1,17 +1,18 @@
 import "server-only";
-import { createHash } from "node:crypto";
 import { z } from "zod";
+import { mixSchema } from "./mix-schema";
 import { getCostume } from "@/lib/catalog";
 import type { CostumeView } from "@/lib/types";
+import { composeMirrorCostume } from "./mixed-outfit";
 import type { MirrorOutfit } from "./types";
-import { MIRROR_SESSION_STARTS_PER_HOUR } from "./session-limits";
-import { isTryOnTesting } from "@/lib/try-on-policy";
 
 export class VoiceError extends Error {
   constructor(public status: number, message: string) { super(message); }
 }
 const id = z.string().min(1).max(150);
+export { mixSchema } from "./mix-schema";
 export const outfitSchema = z.object({
+  mixes: z.array(mixSchema).max(12).optional(),
   selection: z.record(id, id), uses: z.record(id, z.enum(["buy", "owned", "skip"])),
   locked: z.array(id).max(20), budget: z.string().max(20).refine(value => !value.trim() || (/^\d+(\.\d{1,2})?$/.test(value) && Number(value) <= 1000000)),
 }).strict();
@@ -20,7 +21,6 @@ const catalogContextSchema = z.object({
   matches: z.array(z.object({ costumeSlug: id, pieceId: id, productId: id }).strict()).max(8),
 }).strict();
 export const requestBase = z.object({ costumeSlug: id, outfit: outfitSchema, catalogContext: catalogContextSchema.optional() });
-const rates = new Map<string, { count: number; expires: number }>();
 export function voiceResponse(body: object, status = 200) {
   return Response.json(body, { status, headers: { "Cache-Control": "private, no-store", "X-Content-Type-Options": "nosniff" } });
 }
@@ -42,19 +42,10 @@ export function voiceRequestOrigin(request: Request) {
     return parsed.origin;
   } catch { throw new VoiceError(403, "Open the mirror from this site."); }
 }
-export async function readVoiceRequest(request: Request, kind: "session" | "command") {
+export async function readVoiceRequest(request: Request) {
   voiceRequestOrigin(request);
   if (!request.headers.get("content-type")?.startsWith("application/json")) throw new VoiceError(415, "Send a JSON request.");
   if (!process.env.OPENAI_API_KEY) throw new VoiceError(503, "Voice styling is not available yet. You can still choose pieces below.");
-  if (!isTryOnTesting()) {
-    const now = Date.now();
-    for (const [key, item] of rates) if (item.expires <= now) rates.delete(key);
-    const address = request.headers.get("x-real-ip") ?? request.headers.get("x-forwarded-for")?.split(",")[0] ?? "local";
-    const key = createHash("sha256").update(`${kind}:${address}`).digest("hex");
-    const record = rates.get(key) ?? { count: 0, expires: now + 3600000 };
-    if (record.count >= (kind === "session" ? MIRROR_SESSION_STARTS_PER_HOUR : 120) || rates.size >= 2000) throw new VoiceError(429, "The styling room has reached its hourly request limit. Please try again later.");
-    rates.set(key, { ...record, count: record.count + 1 });
-  }
   const reader = request.body?.getReader();
   if (!reader) throw new VoiceError(400, "The request is empty.");
   const chunks: Uint8Array[] = []; let size = 0;
@@ -67,8 +58,13 @@ export async function readVoiceRequest(request: Request, kind: "session" | "comm
   return JSON.parse(Buffer.concat(chunks).toString("utf8")) as unknown;
 }
 export async function validatedCostume(slug: string, outfit: MirrorOutfit, inventory?: CostumeView[]) {
-  const costume = inventory ? inventory.find(view => view.costume.slug === slug) : await getCostume(slug);
-  if (!costume) throw new VoiceError(400, "Choose a costume from the gallery.");
+  const base = inventory ? inventory.find(view => view.costume.slug === slug) : await getCostume(slug);
+  if (!base) throw new VoiceError(400, "Choose a costume from the gallery.");
+  let costume = base;
+  try { if (outfit.mixes?.length) {
+    if (!inventory) throw new Error("Inventory is required to resolve mixed pieces.");
+    costume = composeMirrorCostume(base, outfit.mixes, inventory);
+  } } catch (error) { throw new VoiceError(400, error instanceof Error ? error.message : "Invalid outfit pieces."); }
   const ids = new Set(costume.pieces.map(({ piece }) => piece.id));
   if ([...Object.keys(outfit.selection), ...Object.keys(outfit.uses), ...outfit.locked].some(key => !ids.has(key))) throw new VoiceError(400, "An outfit piece is no longer available.");
   for (const { piece, options } of costume.pieces) {

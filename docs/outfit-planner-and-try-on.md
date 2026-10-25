@@ -72,11 +72,11 @@ images under its API data policies. Downloads are saved only at the shopper's re
 Generated images approximate appearance. They do not verify fit, measurements,
 fabric behavior, product accuracy, stock, or delivery.
 
-Requests use origin checks, bounded uploads and provider timeouts. Demo testing
-mode disables the per-process photo quota and concurrency guard; the production
-photo firewall rule is also disabled. Outside testing mode, the app allows three
-attempts per client address per hour and two concurrent requests per process.
-See [testing policy and restoration steps](./mirror-session-limits.md).
+Requests use origin checks, bounded uploads, timeouts, and at most two
+simultaneous requests per process. Repeated previews have no hourly app quota.
+Testing mode also bypasses the simultaneous-work guard. The former hourly
+firewall rule for photo try-on was removed. Provider-side limits can still
+return a busy response.
 
 ## Verification
 
