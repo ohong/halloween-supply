@@ -1,10 +1,12 @@
 // Step 7: assemble the CostumeSnapshot, write data/costumes/<slug>.json, save to Turso.
-import { createHash } from "node:crypto";
+import { createHash, randomUUID } from "node:crypto";
 import { existsSync } from "node:fs";
-import { mkdir, readFile, writeFile } from "node:fs/promises";
+import { mkdir, readFile, rename, rm, writeFile } from "node:fs/promises";
 import path from "node:path";
 import type { Costume, CostumeSnapshot, Merchant, Neighborhood, Piece, Product, SnapshotPiece, Tag } from "../../lib/types";
 import type { RankedPick } from "./rank";
+import { validateSnapshot } from "../../lib/catalog/validate";
+import { validatePublicationImages } from "../../lib/catalog/publication-images";
 
 export const snapshotPath = (slug: string) => path.join(process.cwd(), "data", "costumes", `${slug}.json`);
 
@@ -109,10 +111,23 @@ export async function loadExisting(slug: string): Promise<CostumeSnapshot | null
 }
 
 export async function writeSnapshotFile(s: CostumeSnapshot): Promise<string> {
-  const file = snapshotPath(s.costume.slug);
+  const snapshot = validateSnapshot(s);
+  await validatePublicationImages(snapshot);
+  const file = snapshotPath(snapshot.costume.slug);
   await mkdir(path.dirname(file), { recursive: true });
-  await writeFile(file, `${JSON.stringify(s, null, 2)}\n`);
+  const pending = `${file}.${randomUUID()}.tmp`;
+  try {
+    await writeFile(pending, `${JSON.stringify(snapshot, null, 2)}\n`);
+    await rename(pending, file);
+  } finally { await rm(pending, { force: true }); }
   return file;
+}
+
+/** Drafts may be incomplete; keep them out of the bundled fallback catalog. */
+export async function writeCheckpoint(s: CostumeSnapshot): Promise<void> {
+  const folder = path.join(process.cwd(), "data", "cache", "source-checkpoints");
+  await mkdir(folder, { recursive: true });
+  await writeFile(path.join(folder, `${s.costume.slug}.json`), `${JSON.stringify(s, null, 2)}\n`);
 }
 
 export async function saveToDatabase(s: CostumeSnapshot, log: (m: string) => void): Promise<void> {

@@ -2,6 +2,7 @@
 import { readdir } from "node:fs/promises";
 import { loadSnapshot } from "../lib/catalog/load";
 import { ensureSchema, upsertSnapshot } from "../lib/db/catalog";
+import { CatalogImageError } from "../lib/catalog/publication-images";
 
 try {
   await ensureSchema();
@@ -13,7 +14,7 @@ try {
     await upsertSnapshot(snapshot);
     console.log(`Saved ${snapshot.costume.slug}: ${snapshot.pieces.length} pieces, ${snapshot.products.length} products.`);
   }
-} catch {
-  console.error("Catalog seed failed. Check database configuration and snapshot validity.");
+} catch (error) {
+  console.error(error instanceof CatalogImageError ? error.message : "Catalog seed failed. Check database configuration and snapshot validity.");
   process.exitCode = 1;
 }
