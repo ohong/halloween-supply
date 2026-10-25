@@ -4,7 +4,7 @@ The screenshot route analyzes one reference image, then streams real merchant of
 
 ## Image understanding and identity
 
-Screenshot analysis now defaults to **OpenAI `gpt-6.1-sol`**, with high-detail images up to 1600 pixels and structured JSON output. The earlier route used `gpt-4.1`, low-detail images, and a 768-pixel resize. GPT-6.1 Sol also handles identity corroboration, search refinement and product-photo review. `OPENAI_VISION_MODEL` can override the default. The response's `X-Vision-Model` header identifies the effective model without exposing credentials.
+Screenshot analysis now defaults to **OpenAI `gpt-6.1-sol`**, with high-detail images up to 1600 pixels and structured JSON output. GPT-6.1 Sol also handles identity corroboration, search refinement and product-photo review. `OPENAI_VISION_MODEL` can override the default. The response's `X-Vision-Model` header identifies the effective model without exposing credentials.
 
 The model audits the visible outfit head to toe and returns up to ten independent purchases, exact appearance notes, at most three essential features, flexible details and three distinct retail queries per piece. Visually separate retail layers, such as moth wings and a fur collar, remain separate purchases. Openings, attached trim and printed decorations stay part of the garment instead of becoming invented purchases. It must not invent wigs from natural hair, hidden shoes, or the character's usual accessories. Uploaded UI titles and search logs are ignored when analyzing a reference picture.
 
