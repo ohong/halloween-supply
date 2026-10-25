@@ -5,13 +5,15 @@ import type { CostumeView } from "@/lib/types";
 import type { MirrorCatalogContext, MirrorCatalogLook, MirrorCommand, MirrorOutfit, MirrorStatus } from "./types";
 import { commandFromAnswers, focusQuestion, needsBudget, needsCatalog, outfitQuestions, outfitSnapshot, type DecisionAnswer } from "./voice-decisions";
 
+export type VoiceActivity = "listening" | "thinking" | "speaking";
+
 type VoiceOptions = {
   costume: CostumeView;
   outfit: MirrorOutfit;
   catalogContext?: MirrorCatalogContext;
   pendingLook?: boolean;
   onCommand: (command: MirrorCommand) => void | Promise<void>;
-  onTranscript?: (text: string, role: "user" | "assistant") => void;
+  onTranscript?: (text: string, role: "user" | "assistant", metadata?: { turnId: string }) => void;
   onFocus?: (pieceId: string | null) => void;
 };
 type Session = {
@@ -29,13 +31,15 @@ type Session = {
   closing: boolean;
   timers: Set<ReturnType<typeof setTimeout>>;
   latestDelegation: string | null;
+  pendingDelegation: string | null;
+  outputActive: boolean;
   handled: Set<string>;
   delegations: Map<string, { text: string; snapshot: string }>;
   sourceOrder: Map<string, number>;
   lastFocus: number;
   sourceSequence: number;
   pendingReports: Map<string, { delegationId: string; content: string }>;
-  transcript: { user: string; assistant: string; lastInputEnd: number; lastOutputEnd: number };
+  transcript: { user: string; assistant: string; lastInputEnd: number; lastOutputEnd: number; turns: Record<"user" | "assistant", string> };
 };
 
 export async function sendMirrorCommand(input: { costumeSlug: string; outfit: MirrorOutfit; text: string; budgetOnly?: boolean; catalogOnly?: boolean; catalogContext?: MirrorCatalogContext }, signal?: AbortSignal): Promise<MirrorCommand> {
@@ -98,6 +102,7 @@ export function useLiveVoice(options: VoiceOptions) {
   const [status, setStatus] = useState<MirrorStatus>("idle");
   const [error, setError] = useState<string | null>(null);
   const [muted, setMuted] = useState(false);
+  const [activity, setActivity] = useState<VoiceActivity>("listening");
   useEffect(() => { latest.current = options; });
 
   const syncOutfit = useCallback((session: Session, report?: { delegationId: string; content: string }) => {
@@ -106,6 +111,8 @@ export function useLiveVoice(options: VoiceOptions) {
       session.catalogSlug = latest.current.costume.costume.slug;
       session.pendingCatalog = `catalog_${crypto.randomUUID()}`;
       session.latestDelegation = null;
+      session.pendingDelegation = null;
+      setActivity(session.outputActive ? "speaking" : "listening");
       session.delegations.clear();
       session.pendingReports.clear();
       latest.current.onFocus?.(null);
@@ -151,7 +158,7 @@ export function useLiveVoice(options: VoiceOptions) {
         after(session, () => release(session), 3000);
       } else release(session);
     }
-    if (mounted.current) { setStatus("idle"); setMuted(false); }
+    if (mounted.current) { setStatus("idle"); setMuted(false); setActivity("listening"); }
     latest.current.onFocus?.(null);
   }, []);
 
@@ -170,17 +177,56 @@ export function useLiveVoice(options: VoiceOptions) {
     }
     starting.current = true;
     const ticket = ++generation.current;
-    setStatus("connecting"); setError(null); setMuted(false);
+    setStatus("connecting"); setError(null); setMuted(false); setActivity("listening");
     const peer = new RTCPeerConnection();
     const channel = peer.createDataChannel("oai-events");
     const audio = new Audio(); audio.autoplay = true;
     const session: Session = {
       peer, channel, audio, controller: new AbortController(), ready: false, closing: false, timers: new Set(),
-      latestDelegation: null, handled: new Set(), delegations: new Map(), sourceOrder: new Map(), lastFocus: -1, sourceSequence: 0,
-      catalogSlug: latest.current.costume.costume.slug, catalog: [], pendingCatalog: null, catalogReports: [], pendingReports: new Map(), transcript: { user: "", assistant: "", lastInputEnd: 0, lastOutputEnd: 0 },
+      latestDelegation: null, pendingDelegation: null, outputActive: false, handled: new Set(), delegations: new Map(), sourceOrder: new Map(), lastFocus: -1, sourceSequence: 0,
+      catalogSlug: latest.current.costume.costume.slug, catalog: [], pendingCatalog: null, catalogReports: [], pendingReports: new Map(), transcript: { user: "", assistant: "", lastInputEnd: 0, lastOutputEnd: 0, turns: { user: crypto.randomUUID(), assistant: crypto.randomUUID() } },
     };
     sessionRef.current = session;
     const current = () => mounted.current && sessionRef.current === session && !session.closing && generation.current === ticket;
+    const updateActivity = () => {
+      if (current()) setActivity(session.outputActive ? "speaking" : session.pendingDelegation ? "thinking" : "listening");
+    };
+    const finishDecision = (delegationId: string) => {
+      if (session.pendingDelegation === delegationId) session.pendingDelegation = null;
+      updateActivity();
+    };
+    let playbackActive = false;
+    const audioSamples = new Map<string, { energy: number; duration: number }>();
+    const clearOutput = () => { playbackActive = false; session.outputActive = false; updateActivity(); };
+    audio.addEventListener("playing", () => { playbackActive = true; });
+    for (const event of ["pause", "waiting", "ended", "emptied"]) audio.addEventListener(event, clearOutput);
+    const sampleOutput = async () => {
+      if (!current()) return;
+      let level = 0;
+      if (playbackActive && !audio.paused) {
+        try {
+          const receiver = peer.getReceivers().find(({ track }) => track?.kind === "audio");
+          const report = await receiver?.getStats();
+          if (!current()) return;
+          report?.forEach((stat: RTCInboundRtpStreamStats) => {
+            if (stat.type !== "inbound-rtp" || stat.kind !== "audio") return;
+            if (typeof stat.totalAudioEnergy === "number" && typeof stat.totalSamplesDuration === "number") {
+              const previous = audioSamples.get(stat.id);
+              audioSamples.set(stat.id, { energy: stat.totalAudioEnergy, duration: stat.totalSamplesDuration });
+              if (previous && stat.totalSamplesDuration > previous.duration) {
+                level = Math.max(level, Math.sqrt(Math.max(0, stat.totalAudioEnergy - previous.energy) / (stat.totalSamplesDuration - previous.duration)));
+              }
+            }
+          });
+        } catch { /* Unsupported receiver statistics leave the status at Listening. */ }
+      }
+      if (!current()) return;
+      // A WebRTC track keeps playing through silence. Only received audio energy
+      // above -40 dBFS marks speech; transcript delivery is not a playback signal.
+      session.outputActive = playbackActive && !audio.paused && level > .01;
+      updateActivity();
+      after(session, () => void sampleOutput(), 250);
+    };
     const fail = (message: string) => {
       if (!current()) return;
       stop();
@@ -202,7 +248,7 @@ export function useLiveVoice(options: VoiceOptions) {
       let event: Record<string, unknown>;
       try { event = JSON.parse(data); } catch { return; }
       if (event.type === "session.closed") {
-        if (current()) { sessionRef.current = null; starting.current = false; setStatus("idle"); setMuted(false); }
+        if (current()) { sessionRef.current = null; starting.current = false; setStatus("idle"); setMuted(false); setActivity("listening"); }
         release(session); return;
       }
       if (!current()) return;
@@ -215,6 +261,7 @@ export function useLiveVoice(options: VoiceOptions) {
       }
       if (event.type === "session.started") {
         session.ready = true; starting.current = false; setStatus("live");
+        void sampleOutput();
         syncOutfit(session);
         emit(session, { type: "session.commentary.append", delegation_id: null, event_id: `hello_${crypto.randomUUID()}`, content: "The mirror controls are ready. Greet the shopper in one short sentence: What would you like to change? Then listen." });
         after(session, () => { if (current()) { stop(); setError("Your voice session has ended. Tap the microphone to start another."); } }, 180000);
@@ -226,20 +273,25 @@ export function useLiveVoice(options: VoiceOptions) {
         const role = event.type === "session.input_transcript.delta" ? "user" : "assistant";
         const previousEnd = role === "user" ? session.transcript.lastInputEnd : session.transcript.lastOutputEnd;
         const inputStart = typeof event.start_ms === "number" ? event.start_ms : previousEnd;
-        if (inputStart - previousEnd > 1500) session.transcript[role] = "";
+        if (inputStart - previousEnd > 1500) {
+          session.transcript[role] = "";
+          session.transcript.turns[role] = crypto.randomUUID();
+        }
         session.transcript[role] = (session.transcript[role] + event.delta).slice(-2000);
         if (role === "user") {
           session.transcript.lastInputEnd = typeof event.end_ms === "number" ? event.end_ms : inputStart;
           if (typeof event.event_id === "string") session.sourceOrder.set(event.event_id, ++session.sourceSequence);
           if (session.sourceOrder.size > 300) session.sourceOrder.delete(session.sourceOrder.keys().next().value!);
         } else session.transcript.lastOutputEnd = typeof event.end_ms === "number" ? event.end_ms : inputStart;
-        latest.current.onTranscript?.(session.transcript[role], role); return;
+        latest.current.onTranscript?.(session.transcript[role], role, { turnId: session.transcript.turns[role] }); return;
       }
       if (event.type === "session.delegation.created") {
         if (session.pendingCatalog) return;
         const delegation = event.delegation as { id?: string } | undefined;
         if (typeof delegation?.id === "string") {
           session.latestDelegation = delegation.id;
+          session.pendingDelegation = delegation.id;
+          updateActivity();
           session.delegations.set(delegation.id, { text: session.transcript.user, snapshot: voiceSnapshot(latest.current) });
         }
         return;
@@ -270,6 +322,7 @@ export function useLiveVoice(options: VoiceOptions) {
       session.handled.add(delegationId);
       const delegated = session.delegations.get(delegationId);
       if (delegated && delegated.snapshot !== voiceSnapshot(latest.current)) {
+        finishDecision(delegationId);
         syncOutfit(session, { delegationId, content: "The shopper changed the outfit manually while that request was processing. The older voice change was not applied. Ask whether they still want it." }); return;
       }
       let command = commandFromAnswers(answers, latest.current.costume, latest.current.outfit, session.catalog);
@@ -304,7 +357,7 @@ export function useLiveVoice(options: VoiceOptions) {
         if (!current()) return;
         setError(error instanceof Error ? error.message : "That change couldn't be applied. Try again.");
         syncOutfit(session, { delegationId, content: "That request failed and was not applied. Ask the shopper to try again or choose pieces manually." });
-      }
+      } finally { finishDecision(delegationId); }
     });
     try {
       const stream = await navigator.mediaDevices.getUserMedia({ audio: { echoCancellation: true, noiseSuppression: true, autoGainControl: true } });
@@ -343,5 +396,5 @@ export function useLiveVoice(options: VoiceOptions) {
     setMuted(next);
   }, []);
 
-  return { status, error, start, stop, muted, toggleMute };
+  return { status, activity, error, start, stop, muted, toggleMute };
 }

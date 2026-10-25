@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState, type MouseEvent } from "react";
 import Link from "next/link";
 import { ArrowLeft, ArrowRight, Check, ChevronDown, ChevronRight, ShoppingBag, Sparkles } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -9,7 +9,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import "./costume-experience.css";
 import { AssistantPanel } from "@/components/assistant/panel";
 import { formatPrice, useCart } from "@/lib/cart/context";
-import { toCartItem } from "@/lib/cart/item";
+import { compatibleSize, toCartItem } from "@/lib/cart/item";
 import type { CostumeView, PieceView, ProductOption } from "@/lib/types";
 import { SaveLook } from "@/components/saved-looks";
 import { Carousel, type Slide } from "./carousel";
@@ -21,6 +21,8 @@ import { readLook } from "@/lib/share-card";
 import { LiveMirror } from "./live-mirror";
 import type { MirrorOutfit } from "@/lib/live-mirror/types";
 import { modelImage, useCostumeModel } from "@/lib/model-selection";
+import { WardrobeRail } from "./wardrobe-rail";
+import { CostumePieceInspector } from "./costume-piece-inspector";
 
 export function CostumeExperience({ costume }: { costume: CostumeView }) {
   const { model } = useCostumeModel();
@@ -34,6 +36,9 @@ export function CostumeExperience({ costume }: { costume: CostumeView }) {
   }, [ready, reconcile, pieces, costumeSlug]);
   // Chosen option index per piece; 0 is the default pick.
   const [chosen, setChosen] = useState<Record<string, number>>({});
+  const [draftSizes, setDraftSizes] = useState<Record<string, string | null>>({});
+  const [inspectedPieceId, setInspectedPieceId] = useState<string>();
+  const inspectionTrigger = useRef<HTMLButtonElement | null>(null);
   const [uses, setUses] = useState<MirrorOutfit["uses"]>({});
   const [mirrorBudget, setMirrorBudget] = useState("");
   useEffect(() => {
@@ -66,24 +71,59 @@ export function CostumeExperience({ costume }: { costume: CostumeView }) {
     return savedIndex >= 0 ? savedIndex : 0;
   }
 
+  function sizeFor(view: PieceView, option: ProductOption): string | null {
+    const item = toCartItem(view.piece, option);
+    const current = ownsCart ? cart.items.find((line) => line.pieceId === view.piece.id) : undefined;
+    // An explicit cart size, including an empty one, wins over an older draft.
+    if (current?.productId === option.product.id) return compatibleSize(item, current.size);
+    if (Object.hasOwn(draftSizes, option.product.id)) return compatibleSize(item, draftSizes[option.product.id]);
+    return compatibleSize(item, current?.size);
+  }
+
+  function changeSize(view: PieceView, option: ProductOption, next: string) {
+    const size = compatibleSize(toCartItem(view.piece, option), next);
+    setDraftSizes((current) => ({ ...current, [option.product.id]: size }));
+    if (ownsCart && cart.items.some((line) => line.pieceId === view.piece.id && line.productId === option.product.id)) cart.setSize(view.piece.id, size);
+  }
+
+  function rememberCartSize(view: PieceView) {
+    const current = ownsCart ? cart.items.find((line) => line.pieceId === view.piece.id) : undefined;
+    if (current) setDraftSizes((sizes) => ({ ...sizes, [current.productId]: current.size }));
+  }
+
+  function hasExplicitSize(view: PieceView, option: ProductOption): boolean {
+    return Object.hasOwn(draftSizes, option.product.id)
+      || ownsCart && cart.items.some((line) => line.pieceId === view.piece.id && line.productId === option.product.id);
+  }
+
+  function addPiece(view: PieceView, option: ProductOption) {
+    const item = toCartItem(view.piece, option, sizeFor(view, option));
+    cart.add(item, costumeSlug);
+    // Preserve explicit clears while letting untouched products use saved preferences.
+    if (hasExplicitSize(view, option)) cart.setSize(item.pieceId, item.size);
+  }
+
   const picked = new Map<string, ProductOption | undefined>(
     pieces.map((view) => [view.piece.id, view.options[selectedIndex(view)] ?? view.options[0]]),
   );
 
   const needed = pieces.filter(({ piece }) => !uses[piece.id] || uses[piece.id] === "buy");
+  const inspectedPiece = needed.find(({ piece }) => piece.id === inspectedPieceId);
+  const inspectedOption = inspectedPiece && picked.get(inspectedPiece.piece.id);
   const flatlayItems = needed.flatMap((view) => {
     const option = picked.get(view.piece.id);
-    return option?.product.cutout ? [{ key: view.piece.id, src: option.product.cutout, alt: `${view.piece.name}: ${option.product.title}`, scale: flatlayScale(view.piece) }] : [];
+    if (!option) return [];
+    return [{ key: view.piece.id, slideKey: `piece:${view.piece.id}`, name: view.piece.name, src: option.product.cutout ?? shot(option.product), alt: option.product.title, scale: option.product.cutout ? flatlayScale(view.piece) : 1, photo: !option.product.cutout }];
   });
 
   const slides: Slide[] = [
     { kind: "image", key: "complete-look", src: modelImage(costumeSlug, model), alt: `${costume.costume.name} worn by our ${model} model`, caption: `${costume.costume.name} · the complete look`, local: true, editorial: true },
     ...needed.flatMap((view) => {
       const option = picked.get(view.piece.id);
-      return option ? [{ kind: "image" as const, key: `${view.piece.id}:${option.product.id}`, src: shot(option.product), alt: option.product.title, caption: `${view.piece.name} · ${option.merchant.name}` }] : [];
+      return option ? [{ kind: "image" as const, key: `piece:${view.piece.id}`, src: shot(option.product), alt: option.product.title, caption: `${view.piece.name} · ${option.merchant.name}` }] : [];
     }),
-    ...(flatlayItems.length > 0 && flatlayItems.length === needed.length
-      ? [{ kind: "flatlay" as const, key: "flat-lay", items: flatlayItems, caption: `${flatlayItems.length} selected pieces` }]
+    ...(flatlayItems.length > 0
+      ? [{ kind: "flatlay" as const, key: "flat-lay", items: flatlayItems, caption: `${flatlayItems.length} selected pieces · select one for a closer look` }]
       : []),
   ];
 
@@ -99,12 +139,17 @@ export function CostumeExperience({ costume }: { costume: CostumeView }) {
   function choose(view: PieceView, index: number) {
     if (!view.options[index] || view.options[index].product.availability === "out_of_stock") return;
     setChosen((current) => ({ ...current, [view.piece.id]: index }));
+    rememberCartSize(view);
     // A piece already in the cart follows the swap.
-    if (ownsCart && cart.items.some((line) => line.pieceId === view.piece.id)) cart.add(toCartItem(view.piece, view.options[index], cart.items.find((line) => line.pieceId === view.piece.id)?.size ?? null), costumeSlug);
+    if (ownsCart && cart.items.some((line) => line.pieceId === view.piece.id)) addPiece(view, view.options[index]);
   }
 
   function addAll() {
-    cart.addMany(pickedOptions.map(({ view, option }) => toCartItem(view.piece, option, cart.items.find((line) => line.pieceId === view.piece.id)?.size ?? null)), costumeSlug);
+    const items = pickedOptions.map(({ view, option }) => toCartItem(view.piece, option, sizeFor(view, option)));
+    cart.addMany(items, costumeSlug);
+    pickedOptions.forEach(({ view, option }, index) => {
+      if (hasExplicitSize(view, option)) cart.setSize(items[index].pieceId, items[index].size);
+    });
     cart.setOpen(true);
   }
 
@@ -115,8 +160,9 @@ export function CostumeExperience({ costume }: { costume: CostumeView }) {
       if (index >= 0) nextChosen[view.piece.id] = index;
       const current = ownsCart ? cart.items.find((item) => item.pieceId === view.piece.id) : undefined;
       if (current) {
+        rememberCartSize(view);
         if (outfit.uses[view.piece.id] !== "buy") cart.remove(view.piece.id);
-        else if (index >= 0) cart.add(toCartItem(view.piece, view.options[index], current.size), costumeSlug);
+        else if (index >= 0) addPiece(view, view.options[index]);
       }
     }
     setChosen(nextChosen);
@@ -140,7 +186,15 @@ export function CostumeExperience({ costume }: { costume: CostumeView }) {
         <TabsTrigger value="try-on"><Sparkles size={15} aria-hidden="true" />Try it on</TabsTrigger>
       </TabsList>
       {/* Keep photos and gallery position in memory when switching tabs. */}
-      <TabsContent value="look" forceMount><Carousel slides={slides} /></TabsContent>
+      <TabsContent value="look" forceMount><Carousel slides={slides} hotspots={{
+        items: pickedOptions.map(({ view, option }) => ({ pieceId: view.piece.id, name: view.piece.name, priceCents: option.product.priceCents, merchantName: option.merchant.name })),
+        selectedPieceId: inspectedPiece?.piece.id,
+        onSelect: (pieceId, trigger) => {
+          inspectionTrigger.current = trigger;
+          setInspectedPieceId(pieceId);
+          if (pieceId === inspectedPieceId) document.getElementById("costume-piece-inspection")?.focus();
+        },
+      }} /></TabsContent>
       <TabsContent value="try-on" forceMount>
         <VirtualTryOn costumeSlug={costumeSlug} pieces={pieces.map(({ piece }) => ({ id: piece.id, name: piece.name, category: piece.category }))} selection={pickedOptions.map(({ view, option }) => ({ pieceId: view.piece.id, productId: option.product.id }))} ownedPieceIds={pieces.filter(({ piece }) => uses[piece.id] === "owned").map(({ piece }) => piece.id)} skippedPieceIds={pieces.filter(({ piece }) => uses[piece.id] === "skip").map(({ piece }) => piece.id)} totalCents={total} />
         <div className="costume-live-option"><span>Prefer a live preview?</span><LiveMirror costume={costume} initialOutfit={{ selection: Object.fromEntries(pieces.flatMap((view) => { const option = picked.get(view.piece.id); return option ? [[view.piece.id, option.product.id]] : []; })), uses, locked: [], budget: mirrorBudget }} onApply={applyMirror} /></div>
@@ -148,6 +202,10 @@ export function CostumeExperience({ costume }: { costume: CostumeView }) {
     </Tabs>
 
     <div className="costume-info">
+      {inspectedPiece && inspectedOption && <CostumePieceInspector costumeSlug={costumeSlug} view={inspectedPiece} index={selectedIndex(inspectedPiece)} size={sizeFor(inspectedPiece, inspectedOption)} onSizeChange={(size) => changeSize(inspectedPiece, inspectedOption, size)} onAdd={() => addPiece(inspectedPiece, inspectedOption)} onChoose={(index) => choose(inspectedPiece, index)} onClose={() => {
+        setInspectedPieceId(undefined);
+        inspectionTrigger.current?.focus();
+      }} />}
       {pickedOptions.length > 0
         ? <div className="costume-purchase" id="selected-outfit">
             <div className="costume-total"><span>{formatPrice(total)}<small>USD</small></span><p>{pickedOptions.length} pieces · {shopCount} {shopCount === 1 ? "shop" : "shops"}</p></div>
@@ -159,7 +217,10 @@ export function CostumeExperience({ costume }: { costume: CostumeView }) {
 
       <div className="costume-pieces-heading"><h2>Complete the look</h2><span>Change any piece</span></div>
       <ul className="outfit-pieces">
-        {needed.map((view) => <PieceRow key={view.piece.id} costumeSlug={costumeSlug} view={view} index={selectedIndex(view)} onChoose={(i) => choose(view, i)} />)}
+        {needed.map((view) => {
+          const option = picked.get(view.piece.id);
+          return <PieceRow key={view.piece.id} costumeSlug={costumeSlug} view={view} index={selectedIndex(view)} onAdd={() => { if (option) addPiece(view, option); }} onChoose={(i) => choose(view, i)} />;
+        })}
       </ul>
 
       <div className="costume-help">
@@ -187,7 +248,17 @@ export function CostumeExperience({ costume }: { costume: CostumeView }) {
   </div>;
 }
 
-function PieceRow({ costumeSlug, view, index, onChoose }: { costumeSlug: string; view: PieceView; index: number; onChoose: (index: number) => void }) {
+function openMerchant(event: MouseEvent<HTMLAnchorElement>) {
+  if (event.defaultPrevented || event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
+  const popup = window.open("", "_blank", "popup,width=1100,height=800");
+  // Keep the native link fallback when popups are blocked. Isolate the new window before loading the merchant.
+  if (!popup) return;
+  popup.opener = null;
+  popup.location.replace(event.currentTarget.href);
+  event.preventDefault();
+}
+
+function PieceRow({ costumeSlug, view, index, onAdd, onChoose }: { costumeSlug: string; view: PieceView; index: number; onAdd: () => void; onChoose: (index: number) => void }) {
   const cart = useCart();
   const [open, setOpen] = useState(false);
   const { piece, options } = view;
@@ -197,29 +268,25 @@ function PieceRow({ costumeSlug, view, index, onChoose }: { costumeSlug: string;
 
   return <li className="outfit-piece">
     <Dialog open={open} onOpenChange={setOpen}>
-      <DialogTrigger asChild>
-        <button type="button" className="outfit-piece-trigger" aria-label={`Change ${piece.name}`}>
+      <div className="outfit-piece-row">
+        <a className="outfit-piece-trigger" href={option.product.url} target="_blank" rel="noopener noreferrer" onClick={openMerchant} aria-label={`View ${piece.name} at ${option.merchant.name} (opens in a new window)`}>
           <span className="outfit-piece-image"><ProductImage src={shot(option.product)} alt="" /></span>
           <span className="outfit-piece-copy"><span className="outfit-piece-name">{piece.name}</span><span className="outfit-piece-product">{option.product.title}</span><span className="outfit-piece-merchant">{option.merchant.name}{option.pick.isLocal ? " · Local" : ""}{option.product.availability === "out_of_stock" ? " · Sold out" : ""}</span></span>
-          <span className="outfit-piece-side"><span>{formatPrice(option.product.priceCents)}</span><span className="outfit-piece-change">Change<ChevronRight size={14} aria-hidden="true" /></span></span>
-        </button>
-      </DialogTrigger>
-      <DialogContent className="piece-dialog">
-        <div className="piece-dialog-heading"><DialogTitle>{piece.name}</DialogTitle><DialogDescription>Choose the piece that suits your style and budget.</DialogDescription></div>
-        <div className="piece-options" role="group" aria-label={`Options for ${piece.name}`}>
-          {[...options].sort((a, b) => a.product.priceCents - b.product.priceCents).map((candidate) => {
-            const selected = candidate.product.id === option.product.id;
-            return <button type="button" className="piece-option" key={candidate.product.id} aria-pressed={selected} disabled={candidate.product.availability === "out_of_stock"} onClick={() => onChoose(options.indexOf(candidate))}>
-              <span className="piece-option-image"><ProductImage src={shot(candidate.product)} alt="" /></span>
-              <span className="piece-option-copy"><span className="piece-option-title">{candidate.product.title}</span><span className="piece-option-merchant">{candidate.merchant.name}{candidate.pick.isLocal ? " · Local" : ""}</span><span className="piece-option-price">{formatPrice(candidate.product.priceCents)}{candidate.product.availability === "out_of_stock" ? " · Sold out" : candidate.product.availability === "unknown" ? " · Check stock" : ""}</span></span>
-              <span className="piece-option-check" aria-hidden="true">{selected && <Check size={14} />}</span>
-            </button>;
-          })}
+        </a>
+        <div className="outfit-piece-side">
+          <a href={option.product.url} target="_blank" rel="noopener noreferrer" onClick={openMerchant} aria-label={`View ${piece.name} for ${formatPrice(option.product.priceCents)} (opens in a new window)`}>{formatPrice(option.product.priceCents)}</a>
+          <DialogTrigger asChild>
+            <button type="button" className="outfit-piece-change" aria-label={`Change ${piece.name}`}>Change<ChevronRight size={14} aria-hidden="true" /></button>
+          </DialogTrigger>
         </div>
+      </div>
+      <DialogContent className="piece-dialog wardrobe-rail-dialog">
+        <div className="piece-dialog-heading"><DialogTitle>{piece.name}</DialogTitle><DialogDescription>Choose the piece that suits your style and budget.</DialogDescription></div>
+        <WardrobeRail view={view} selectedId={option.product.id} onChoose={onChoose} />
         <details className="piece-reason"><summary>Why this pick?</summary><p>{option.pick.reason}</p></details>
-        <a className="piece-merchant-link" href={option.product.url} target="_blank" rel="noopener noreferrer">View at {option.merchant.name}<ArrowRight size={14} aria-hidden="true" /></a>
+        <a className="piece-merchant-link" href={option.product.url} target="_blank" rel="noopener noreferrer" onClick={openMerchant}>View at {option.merchant.name}<ArrowRight size={14} aria-hidden="true" /></a>
         <div className="piece-dialog-footer">
-          <Button variant="outline" disabled={!cart.ready || inCart || option.product.availability === "out_of_stock"} onClick={() => cart.add(toCartItem(piece, option), costumeSlug)}>{inCart ? <><Check aria-hidden="true" />In cart</> : "Add this piece"}</Button>
+          <Button variant="outline" disabled={!cart.ready || inCart || option.product.availability === "out_of_stock"} onClick={onAdd}>{inCart ? <><Check aria-hidden="true" />In cart</> : "Add this piece"}</Button>
           <DialogClose asChild><Button>Done</Button></DialogClose>
         </div>
       </DialogContent>
