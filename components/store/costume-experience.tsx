@@ -9,7 +9,7 @@ import type { CostumeView, PieceView, ProductOption } from "@/lib/types";
 import { SaveLook } from "@/components/saved-looks";
 import { Carousel, type Slide } from "./carousel";
 import { suggestConsolidation } from "./consolidate";
-import { ProductImage } from "./product-image";
+import { ProductImage, shot } from "./product-image";
 import { ShopForMe } from "./shop-for-me";
 import { flatlayScale } from "@/lib/products/flatlay";
 import { OutfitPlanner } from "./outfit-planner";
@@ -57,7 +57,7 @@ export function CostumeExperience({ costume, editorial }: { costume: CostumeView
       : { kind: "image", key: "flat-lay", src: costume.costume.image, alt: costume.costume.alt, caption: `${costume.costume.name} · the complete look`, local: costume.costume.image.startsWith("/") },
     ...pieces.flatMap((view) => {
       const option = picked.get(view.piece.id);
-      return option ? [{ kind: "image" as const, key: `${view.piece.id}:${option.product.id}`, src: option.product.image, alt: option.product.title, caption: `${view.piece.name} · ${option.merchant.name}` }] : [];
+      return option ? [{ kind: "image" as const, key: `${view.piece.id}:${option.product.id}`, src: shot(option.product), alt: option.product.title, caption: `${view.piece.name} · ${option.merchant.name}` }] : [];
     }),
     ...(editorial ? [{ kind: "image" as const, key: "editorial-reference", src: editorial.image, alt: editorial.alt, caption: `${costume.costume.name} · editorial reference`, local: editorial.image.startsWith("/"), editorial: true }] : []),
   ];
@@ -179,7 +179,7 @@ function PieceRow({ costumeSlug, view, use, size, index, onChoose }: { costumeSl
     {header}
     <div className="piece-main">
       <a href={option.product.url} target="_blank" rel="noopener noreferrer" className="piece-thumb" aria-label={`${option.product.title} at ${option.merchant.name}`}>
-        <ProductImage src={option.product.image} alt="" />
+        <ProductImage src={shot(option.product)} alt="" />
       </a>
       <div className="piece-body">
         <p className="piece-title">{option.product.title}</p>
@@ -214,7 +214,7 @@ function PieceRow({ costumeSlug, view, use, size, index, onChoose }: { costumeSl
     {swapOpen && <div className="swap" role="group" aria-label={`Choose ${piece.name}`}>
       {options.map((candidate, i) => <button type="button" aria-pressed={i === index} key={candidate.product.id} disabled={candidate.product.availability === "out_of_stock"}
         className={`swap-option ${i === index ? "is-current" : ""}`} onClick={() => onChoose(i)}>
-        <span className="swap-thumb"><ProductImage src={candidate.product.image} alt="" /></span>
+        <span className="swap-thumb"><ProductImage src={shot(candidate.product)} alt="" /></span>
         <span className="swap-label">{i === 0 ? "Our pick" : `Alternative ${i}`}</span>
         <span className="swap-title">{candidate.product.title}</span>
         <span className="swap-meta">{candidate.merchant.name} · {formatPrice(candidate.product.priceCents)}{candidate.pick.isLocal ? " · local" : ""}{candidate.product.availability === "out_of_stock" ? " · sold out" : ""}</span>

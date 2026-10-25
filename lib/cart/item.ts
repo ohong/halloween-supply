@@ -17,7 +17,7 @@ export function toCartItem(piece: Piece, option: ProductOption, size: string | n
     productId: option.product.id,
     title: option.product.title,
     productUrl: option.product.url,
-    image: option.product.image,
+    image: option.product.cutout ?? option.product.image,
     merchantId: option.merchant.id,
     merchantName: option.merchant.name,
     priceCents: option.product.priceCents,
