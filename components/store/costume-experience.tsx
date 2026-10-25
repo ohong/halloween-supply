@@ -16,7 +16,7 @@ import { OutfitPlanner } from "./outfit-planner";
 import { VirtualTryOn } from "./virtual-try-on";
 import { LiveMirror } from "./live-mirror";
 import type { MirrorOutfit } from "@/lib/live-mirror/types";
-import { emptyBrief, sizeMatches, type OutfitPlan, type PieceUse } from "@/lib/outfits";
+import { emptyBrief, requestedSize, sizeMatches, type OutfitPlan, type PieceUse } from "@/lib/outfits";
 
 export function CostumeExperience({ costume, editorial }: { costume: CostumeView; editorial?: { image: string; alt: string } }) {
   const cart = useCart();
@@ -54,14 +54,13 @@ export function CostumeExperience({ costume, editorial }: { costume: CostumeView
   });
 
   const slides: Slide[] = [
-    flatlayItems.length > 0 && flatlayItems.length === pieces.length
-      ? { kind: "flatlay", key: "flat-lay", items: flatlayItems, caption: `${costume.costume.name} · ${flatlayItems.length} selected pieces` }
-      : { kind: "image", key: "flat-lay", src: costume.costume.image, alt: costume.costume.alt, caption: `${costume.costume.name} · the complete look`, local: costume.costume.image.startsWith("/") },
+    { kind: "image", key: "costume-reference", src: editorial?.image ?? costume.costume.image, alt: editorial?.alt ?? costume.costume.alt,
+      caption: `${costume.costume.name} · the costume`, local: (editorial?.image ?? costume.costume.image).startsWith("/"), editorial: true },
     ...pieces.flatMap((view) => {
       const option = picked.get(view.piece.id);
       return option ? [{ kind: "image" as const, key: `${view.piece.id}:${option.product.id}`, src: shot(option.product), alt: option.product.title, caption: `${view.piece.name} · ${option.merchant.name}` }] : [];
     }),
-    ...(editorial ? [{ kind: "image" as const, key: "editorial-reference", src: editorial.image, alt: editorial.alt, caption: `${costume.costume.name} · editorial reference`, local: editorial.image.startsWith("/"), editorial: true }] : []),
+    ...(flatlayItems.length > 0 && flatlayItems.length === pieces.length ? [{ kind: "flatlay" as const, key: "flat-lay", items: flatlayItems, caption: `${costume.costume.name} · selected pieces` }] : []),
   ];
 
   const pickedOptions = pieces.flatMap((view) => {
@@ -71,7 +70,7 @@ export function CostumeExperience({ costume, editorial }: { costume: CostumeView
   });
   const total = pickedOptions.reduce((sum, { option }) => sum + option.product.priceCents, 0);
   const withinBudget = !brief.budget.trim() || total <= Math.round(Number(brief.budget) * 100);
-  const sizesMatch = pickedOptions.every(({ view, option }) => sizeMatches(option, brief.sizes[view.piece.sizeKind] ?? ""));
+  const sizesMatch = pickedOptions.every(({ view, option }) => sizeMatches(option, requestedSize(brief, view.piece)));
   const shopCount = new Set(pickedOptions.map(({ option }) => option.merchant.id)).size;
   const needed = pieces.filter(({ piece }) => !uses[piece.id] || uses[piece.id] === "buy");
   const complete = pickedOptions.length > 0 && pickedOptions.length === needed.length && pickedOptions.every(({ option }) => option.product.availability !== "out_of_stock");
@@ -82,11 +81,11 @@ export function CostumeExperience({ costume, editorial }: { costume: CostumeView
     setChosen((current) => ({ ...current, [view.piece.id]: index }));
     setApplied("");
     // A piece already in the cart follows the swap.
-    if (ownsCart && cart.items.some((line) => line.pieceId === view.piece.id) && (!uses[view.piece.id] || uses[view.piece.id] === "buy")) cart.add(toCartItem(view.piece, view.options[index], brief.sizes[view.piece.sizeKind]?.trim() || null), costumeSlug);
+    if (ownsCart && cart.items.some((line) => line.pieceId === view.piece.id) && (!uses[view.piece.id] || uses[view.piece.id] === "buy")) cart.add(toCartItem(view.piece, view.options[index], requestedSize(brief, view.piece) || null), costumeSlug);
   }
 
   function addAll() {
-    cart.addMany(pickedOptions.map(({ view, option }) => toCartItem(view.piece, option, brief.sizes[view.piece.sizeKind]?.trim() || null)), costumeSlug);
+    cart.addMany(pickedOptions.map(({ view, option }) => toCartItem(view.piece, option, requestedSize(brief, view.piece) || null)), costumeSlug);
     cart.setOpen(true);
   }
 
@@ -99,7 +98,7 @@ export function CostumeExperience({ costume, editorial }: { costume: CostumeView
   function applyPlan(plan: OutfitPlan) {
     setChosen(Object.fromEntries(plan.lines.flatMap(({ view, option }) => option ? [[view.piece.id, view.options.findIndex((candidate) => candidate.product.id === option.product.id)]] : [])));
     for (const { view, option } of plan.lines) {
-      if (ownsCart && option && cart.items.some((item) => item.pieceId === view.piece.id)) cart.add(toCartItem(view.piece, option, brief.sizes[view.piece.sizeKind]?.trim() || null), costumeSlug);
+      if (ownsCart && option && cart.items.some((item) => item.pieceId === view.piece.id)) cart.add(toCartItem(view.piece, option, requestedSize(brief, view.piece) || null), costumeSlug);
     }
     setApplied(`${plan.title} selected. Review your pieces above, or preview them on your photo.`);
   }
@@ -111,7 +110,7 @@ export function CostumeExperience({ costume, editorial }: { costume: CostumeView
       if (index >= 0) nextChosen[view.piece.id] = index;
       if (ownsCart && cart.items.some((item) => item.pieceId === view.piece.id)) {
         if (outfit.uses[view.piece.id] !== "buy") cart.remove(view.piece.id);
-        else if (index >= 0) cart.add(toCartItem(view.piece, view.options[index], brief.sizes[view.piece.sizeKind]?.trim() || null), costumeSlug);
+        else if (index >= 0) cart.add(toCartItem(view.piece, view.options[index], requestedSize(brief, view.piece) || null), costumeSlug);
       }
     }
     setChosen(nextChosen);
@@ -152,7 +151,7 @@ export function CostumeExperience({ costume, editorial }: { costume: CostumeView
       </p>}
 
       <ul className="piece-list">
-        {pieces.map((view) => <PieceRow key={view.piece.id} costumeSlug={costumeSlug} view={view} size={brief.sizes[view.piece.sizeKind]?.trim()} use={uses[view.piece.id] ?? "buy"} index={selectedIndex(view)} onChoose={(i) => choose(view, i)} />)}
+        {pieces.map((view) => <PieceRow key={view.piece.id} costumeSlug={costumeSlug} view={view} size={requestedSize(brief, view.piece)} use={uses[view.piece.id] ?? "buy"} index={selectedIndex(view)} onChoose={(i) => choose(view, i)} />)}
       </ul>
 
       <div className="costume-actions"><SaveLook slug={costume.costume.slug} name={costume.costume.name} showLabel /></div>
@@ -204,8 +203,10 @@ function PieceRow({ costumeSlug, view, use, size, index, onChoose }: { costumeSl
         <p className="piece-merchant">{option.merchant.name}{hood ? ` · ${hood.name}` : ""}</p>
         <div className="piece-tags">
           {option.pick.isLocal && <span className="pill pill-local">Support local</span>}
-          {option.pick.isCheapest && <span className="pill">Cheapest</span>}
+          <span className="pill" aria-label={`Price point ${option.pick.priceTier}`}>{option.pick.priceTier}</span>
           {option.product.availability === "out_of_stock" && <span className="pill">Sold out</span>}
+          {option.product.availability === "unknown" && <span className="pill">Check stock</span>}
+          {/made[ -]to[ -]order/i.test(option.product.description) && <span className="pill">Made to order</span>}
         </div>
       </div>
       <p className="piece-price">{formatPrice(option.product.priceCents)}</p>
@@ -219,6 +220,14 @@ function PieceRow({ costumeSlug, view, use, size, index, onChoose }: { costumeSl
       </ul>
     </details>
 
+    <div className="piece-price-tiers" role="group" aria-label={`Price points for ${piece.name}`}>
+      {[...options].sort((a, b) => a.product.priceCents - b.product.priceCents).map((candidate) => <button
+        type="button" key={candidate.product.id} aria-pressed={candidate.product.id === option.product.id}
+        aria-label={`${candidate.pick.priceTier} ${candidate.product.title}, ${formatPrice(candidate.product.priceCents)}`}
+        disabled={candidate.product.availability === "out_of_stock"}
+        onClick={() => onChoose(options.findIndex(({ product }) => product.id === candidate.product.id))}
+      ><span>{candidate.pick.priceTier}</span><span>{formatPrice(candidate.product.priceCents)}</span></button>)}
+    </div>
     <div className="piece-actions">
       <button type="button" className="btn btn-small" disabled={use !== "buy" || !cart.ready || inCart || option.product.availability === "out_of_stock"}
         onClick={() => cart.add(toCartItem(piece, option, size || null), costumeSlug)}>
@@ -233,7 +242,7 @@ function PieceRow({ costumeSlug, view, use, size, index, onChoose }: { costumeSl
       {options.map((candidate, i) => <button type="button" aria-pressed={i === index} key={candidate.product.id} disabled={candidate.product.availability === "out_of_stock"}
         className={`swap-option ${i === index ? "is-current" : ""}`} onClick={() => onChoose(i)}>
         <span className="swap-thumb"><ProductImage src={shot(candidate.product)} alt="" /></span>
-        <span className="swap-label">{i === 0 ? "Our pick" : `Alternative ${i}`}</span>
+        <span className="swap-label">{candidate.pick.priceTier}{i === 0 ? " · Our pick" : ""}</span>
         <span className="swap-title">{candidate.product.title}</span>
         <span className="swap-meta">{candidate.merchant.name} · {formatPrice(candidate.product.priceCents)}{candidate.pick.isLocal ? " · local" : ""}{candidate.product.availability === "out_of_stock" ? " · sold out" : ""}</span>
       </button>)}

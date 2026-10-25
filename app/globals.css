@@ -135,6 +135,10 @@ ul, ol { list-style: none; }
 .pick-facts { display: flex; flex-wrap: wrap; gap: 4px 12px; margin-top: 8px; font-size: 12px; color: var(--fg); }
 .pick-facts:empty { display: none; }
 .piece-actions { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 14px; }
+.piece-price-tiers { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 6px; margin-top: 16px; }
+.piece-price-tiers button { display: flex; justify-content: space-between; align-items: center; gap: 4px; min-height: 44px; padding: 8px 10px; border: 1px solid var(--line); border-radius: 4px; background: var(--bg); color: var(--mid); font-size: 12px; font-variant-numeric: tabular-nums; }
+.piece-price-tiers button[aria-pressed="true"] { border-color: var(--ink); color: var(--ink); background: var(--grey); }
+.piece-price-tiers button:disabled { opacity: .45; cursor: not-allowed; }
 .swap { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; margin-top: 12px; }
 .swap-option { display: flex; flex-direction: column; align-items: stretch; gap: 4px; text-align: left; padding: 8px; border: 1px solid var(--line); border-radius: 4px; background: var(--bg); color: var(--fg); transition: border-color var(--t), background-color var(--t); }
 .swap-option:active { background: var(--grey); }

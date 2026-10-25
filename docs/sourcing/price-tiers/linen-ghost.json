@@ -1,0 +1,372 @@
+{
+  "costumeSlug": "linen-ghost",
+  "checkedAt": "2026-10-25T07:02:46.718Z",
+  "pieces": [
+    {
+      "pieceId": "ghost-linen-drape",
+      "pieceName": "Off-white linen sheet to drape",
+      "options": [
+        {
+          "tier": "$",
+          "title": "Linen Flat Sheet - Basic Style — White / Queen",
+          "url": "https://www.simpleopulence.com/products/linen-flat-sheet-basic-style?variant=42899685540064",
+          "priceCents": 6499,
+          "currency": "USD",
+          "merchantName": "Simple&Opulence",
+          "merchantDomain": "simpleopulence.com",
+          "imageUrl": "https://cdn.shopify.com/s/files/1/0641/8432/0224/files/A47A3336.jpg?v=1718270829",
+          "sizes": [
+            "Queen 90 x 102 in"
+          ],
+          "availability": "in_stock",
+          "evidenceUrl": "https://www.simpleopulence.com/products/linen-flat-sheet-basic-style.js",
+          "notes": "100% stonewashed linen; white rather than cream. Current variant feed confirms White Queen in stock at $64.99. Larger white sizes are not available. Requires DIY draping and openings.",
+          "localMerchantImage": "/products/price-tiers/p-734febc080.webp"
+        },
+        {
+          "tier": "$$",
+          "existingProductId": "p-70b91ecda7",
+          "title": "Bed Linen Flat Sheet Natural Undyed",
+          "url": "https://linen-shed.com/products/bed-linen-flat-sheet-natural-undyed?variant=647362221",
+          "priceCents": 10560,
+          "currency": "USD",
+          "merchantName": "Linenshed",
+          "merchantDomain": "linen-shed.com",
+          "imageUrl": "https://cdn.shopify.com/s/files/1/0407/1833/files/LSNaturalflatsheet.png?v=1702362099",
+          "sizes": [
+            "USA Twin 72 x 102 in"
+          ],
+          "availability": "in_stock",
+          "evidenceUrl": "https://linen-shed.com/products/bed-linen-flat-sheet-natural-undyed.js",
+          "notes": "Natural undyed unbleached flax linen. Twin measures 72 x 102 inches; selected Twin is $105.60. Other sheet sizes cost more. Real linen sheet requires DIY draping and openings.",
+          "localMerchantImage": "/products/price-tiers/p-70b91ecda7.webp"
+        },
+        {
+          "tier": "$$$",
+          "existingProductId": "p-ade84082ca",
+          "title": "Orkney Linen Flat Sheet — off-white",
+          "url": "https://roughlinen.com/products/orkney-linen-flat-sheet?variant=41055310413921",
+          "priceCents": 20200,
+          "currency": "USD",
+          "merchantName": "Rough Linen",
+          "merchantDomain": "roughlinen.com",
+          "imageUrl": "https://cdn.shopify.com/s/files/1/1084/5358/products/orkney_off_white_fitted_and_flat_sheets.jpg?v=1742929067",
+          "sizes": [
+            "twin"
+          ],
+          "availability": "in_stock",
+          "evidenceUrl": "https://roughlinen.com/products/orkney-linen-flat-sheet.js",
+          "notes": "Off-white, heavyweight homespun-textured 100% flax linen. Selected twin is $202; larger sizes cost more.",
+          "localMerchantImage": "/products/price-tiers/p-ade84082ca.webp"
+        }
+      ],
+      "gaps": []
+    },
+    {
+      "pieceId": "ghost-light-top",
+      "pieceName": "Comfortable light base top",
+      "options": [
+        {
+          "tier": "$",
+          "title": "Gildan 5000 Heavy Cotton Adult T-shirt — Natural",
+          "url": "https://wprintables.com/products/g5000-nat?variant=40843710365731",
+          "priceCents": 356,
+          "currency": "USD",
+          "merchantName": "Wearable Printables",
+          "merchantDomain": "wprintables.com",
+          "imageUrl": "https://cdn.shopify.com/s/files/1/0716/4850/9987/files/5000_2309C_031_G2023_F_24005_8c35a37b-af2b-463f-a7dc-ce3c50beee51.jpg?v=1792514348",
+          "sizes": [
+            "S",
+            "M",
+            "L",
+            "XL"
+          ],
+          "availability": "in_stock",
+          "evidenceUrl": "https://wprintables.com/products/g5000-nat.js",
+          "notes": "Plain natural 100% US cotton crew tee. Current merchant feed lists $3.56 for S–XL; 2XL costs $4.80 and 3XL–5XL cost $5.45. Built-in web result had an older $2.88 price; live variant feed takes precedence. One shirt, no minimum pack shown.",
+          "localMerchantImage": "/products/price-tiers/p-5976418d90.webp"
+        },
+        {
+          "tier": "$$",
+          "title": "The 1801 Garment Dye Crew Neck T-Shirt — Off White",
+          "url": "https://losangelesapparel.net/products/the-1801-garment-dye?variant=44681004974259",
+          "priceCents": 2600,
+          "currency": "USD",
+          "merchantName": "Los Angeles Apparel",
+          "merchantDomain": "losangelesapparel.net",
+          "imageUrl": "https://cdn.shopify.com/s/files/1/2152/0639/files/1801GD-OFFWHITE-FRONT_1.jpg?v=1792440885",
+          "sizes": [
+            "XS",
+            "S",
+            "M",
+            "L",
+            "XL",
+            "2XL"
+          ],
+          "availability": "in_stock",
+          "evidenceUrl": "https://losangelesapparel.net/products/the-1801-garment-dye?option_values=3293259759795,816639541427",
+          "notes": "Off-white 100% cotton, 6.5 oz garment-dyed unisex crew. More substantial than the brief’s lightweight tee, but color and plain cut fit. Exact selected-variant JSON verified for XS–2XL at $26; 3XL in stock at $28. Shopify .js returns only first 250 variants, omitting Off White, so selected-page variant JSON is the stock evidence.",
+          "localMerchantImage": "/products/price-tiers/p-8e381289e9.webp"
+        },
+        {
+          "tier": "$$$",
+          "existingProductId": "p-883971c192",
+          "title": "Men's Organic Crew Tee in Natural",
+          "url": "https://harvestandmill.com/products/mens-crew?variant=39547855568970",
+          "priceCents": 5400,
+          "currency": "USD",
+          "merchantName": "Harvest & Mill",
+          "merchantDomain": "harvestandmill.com",
+          "imageUrl": "https://cdn.shopify.com/s/files/1/0550/6478/9066/products/JV_H_26M_ECM-6292.jpg?v=1640040456",
+          "sizes": [
+            "x-small",
+            "small",
+            "medium",
+            "large",
+            "x-large"
+          ],
+          "availability": "in_stock",
+          "evidenceUrl": "https://harvestandmill.com/products/mens-crew.js",
+          "notes": "Undyed natural, 4.3 oz organic cotton jersey; plain slim base layer. USA-grown cotton, sewn in Bay Area, per merchant.",
+          "localMerchantImage": "/products/price-tiers/p-883971c192.webp"
+        }
+      ],
+      "gaps": []
+    },
+    {
+      "pieceId": "ghost-base-pants",
+      "pieceName": "Comfortable light base pants",
+      "options": [
+        {
+          "tier": "$",
+          "title": "100% European Linen Pants — White",
+          "url": "https://www.quince.com/women/linen-pants?color=white&size=l",
+          "priceCents": 4200,
+          "currency": "USD",
+          "merchantName": "Quince",
+          "merchantDomain": "quince.com",
+          "imageUrl": "https://images.quince.com/1b9zqjjnnVBViU98thA2Wp/a90f82d4f75eb98ca2ee11692ab56d19/Nicole_Chavez_Editorial_01-224_245_EDITED.jpg?fm=webP&q=90&w=1600",
+          "sizes": [
+            "XS",
+            "L",
+            "XL"
+          ],
+          "availability": "in_stock",
+          "evidenceUrl": "https://www.quince.com/women/linen-pants?color=white",
+          "notes": "White 100% European flax linen, relaxed fit and elastic waist, women’s sizing. Exact JSON-LD variants show XS, L, XL in stock; S and M are sold out. Selected L is $42. Useful hidden layer; lower price does not imply lower linen content.",
+          "localMerchantImage": "/products/price-tiers/p-6c68216fba.webp"
+        },
+        {
+          "tier": "$$",
+          "existingProductId": "p-41e32b9102",
+          "title": "Men's Organic Straight Leg Lounge Pants in Natural",
+          "url": "https://harvestandmill.com/products/mens-organic-straight-leg-lounge-pants-in-natural?variant=42275062218826",
+          "priceCents": 7600,
+          "currency": "USD",
+          "merchantName": "Harvest & Mill",
+          "merchantDomain": "harvestandmill.com",
+          "imageUrl": "https://cdn.shopify.com/s/files/1/0550/6478/9066/files/Harvest_and_Mill_organic_cotton_mens_organic_lounge_pants_dye_free_11.jpg?v=1752509147",
+          "sizes": [
+            "small",
+            "medium",
+            "large",
+            "x-large"
+          ],
+          "availability": "in_stock",
+          "evidenceUrl": "https://harvestandmill.com/products/mens-organic-straight-leg-lounge-pants-in-natural.js",
+          "notes": "Undyed natural organic cotton jersey, straight leg and elastic waistband. No drawstring. Hidden base layer; an upgrade here does not change the visible costume much.",
+          "localMerchantImage": "/products/price-tiers/p-41e32b9102.webp"
+        },
+        {
+          "tier": "$$$",
+          "existingProductId": "p-1192c69a2d",
+          "title": "Linen Drawstring Pant — White",
+          "url": "https://larelaxed.com/products/linen-drawstring-pant?variant=46699949916389",
+          "priceCents": 13800,
+          "currency": "USD",
+          "merchantName": "LA Relaxed",
+          "merchantDomain": "larelaxed.com",
+          "imageUrl": "https://cdn.shopify.com/s/files/1/0771/8275/files/Black_square_tank_full.jpg?v=1776369060",
+          "sizes": [
+            "XS",
+            "S",
+            "M",
+            "L",
+            "XL"
+          ],
+          "availability": "in_stock",
+          "evidenceUrl": "https://larelaxed.com/products/linen-drawstring-pant.js",
+          "notes": "White 100% linen with drawstring waist. Merchant feed marks XS through XL available at $138.",
+          "localMerchantImage": "/products/price-tiers/p-1192c69a2d.webp"
+        }
+      ],
+      "gaps": [
+        "Budget Quince white pants only XS, L and XL are currently in stock; do not offer S or M."
+      ]
+    },
+    {
+      "pieceId": "brown-lace-up-boots",
+      "pieceName": "Brown leather lace-up boots",
+      "options": [
+        {
+          "tier": "$",
+          "title": "Karnak Plain Toe Boot — Brown CH",
+          "url": "https://www.nunnbush.com/shop/style/85088-215.html",
+          "priceCents": 8995,
+          "currency": "USD",
+          "merchantName": "Nunn Bush",
+          "merchantDomain": "nunnbush.com",
+          "imageUrl": "https://www.nunnbush.com/shop/images/w590/85088-215.jpg",
+          "sizes": [
+            "7",
+            "7.5",
+            "8",
+            "8.5",
+            "9",
+            "9.5",
+            "10",
+            "10.5",
+            "11",
+            "11.5",
+            "12",
+            "13",
+            "14"
+          ],
+          "availability": "in_stock",
+          "evidenceUrl": "https://www.nunnbush.com/shop/style/85088-215.html",
+          "notes": "Live direct merchant HTML confirms Brown CH style 85088-215, $89.95, and sizes 7–14 displayed In Stock. Genuine crazy-horse/tumbled leather PLUS man-made upper, not full leather. Brown lace-up rounded plain toe suits hem reveal; lug wedge sole is more modern than Victorian. Medium and wide offered; width-specific availability must be selected before purchase. Built-in web fetch redirect was unreliable; direct merchant HTML was successfully read.",
+          "localMerchantImage": "/products/price-tiers/p-3b0a976509.webp"
+        },
+        {
+          "tier": "$$",
+          "existingProductId": "p-d17b6f67bc",
+          "title": "Captain | Brown — Standard",
+          "url": "https://thursdayboots.com/products/mens-brown-captain?variant=7609600581",
+          "priceCents": 19900,
+          "currency": "USD",
+          "merchantName": "Thursday Boot Company",
+          "merchantDomain": "thursdayboots.com",
+          "imageUrl": "https://cdn.shopify.com/s/files/1/0419/1525/files/1024x1024-Men-Captain-Brown-081226-3.4-d17ac2.jpg?v=1790357464",
+          "sizes": [
+            "6",
+            "6.5",
+            "7",
+            "7.5",
+            "8",
+            "8.5",
+            "9",
+            "9.5",
+            "10",
+            "10.5",
+            "11",
+            "11.5",
+            "12",
+            "12.5",
+            "13",
+            "13.5",
+            "14",
+            "15",
+            "16"
+          ],
+          "availability": "in_stock",
+          "evidenceUrl": "https://thursdayboots.com/products/mens-brown-captain.js",
+          "notes": "Brown leather lace-up cap-toe, low heel, studded sole. New boots; do not describe as vintage or already scuffed. Selected standard width, all listed sizes available at $199.",
+          "localMerchantImage": "/products/price-tiers/p-d17b6f67bc.webp"
+        },
+        {
+          "tier": "$$$",
+          "existingProductId": "p-e7257a048c",
+          "title": "Diesel Boot Saddle Tan — D (Standard)",
+          "url": "https://grantstoneshoes.com/products/diesel-boot-saddle-tan?variant=12617336651840",
+          "priceCents": 43500,
+          "currency": "USD",
+          "merchantName": "Grant Stone",
+          "merchantDomain": "grantstoneshoes.com",
+          "imageUrl": "https://cdn.shopify.com/s/files/1/1163/3390/files/GRANT2SIDE2-Edit-Edit_27ba84f7-bb9a-4473-89e4-2683d625de2f.jpg?v=1783616239",
+          "sizes": [
+            "6",
+            "6.5",
+            "7",
+            "7.5",
+            "8",
+            "8.5",
+            "9",
+            "9.5",
+            "10",
+            "10.5",
+            "11",
+            "11.5",
+            "12",
+            "13"
+          ],
+          "availability": "in_stock",
+          "evidenceUrl": "https://grantstoneshoes.com/products/diesel-boot-saddle-tan.js",
+          "notes": "Saddle tan vegetable-tanned leather plain-toe lace-up. Leather construction and patina potential are merchant facts; higher price does not prove a better costume match. Standard D width listed here.",
+          "localMerchantImage": "/products/price-tiers/p-e7257a048c.webp"
+        }
+      ],
+      "gaps": [
+        "Budget boot uses a leather and man-made mixed upper and modern wedge sole; all-leather Victorian styling costs more. Width-specific stock needs final selection."
+      ]
+    },
+    {
+      "pieceId": "ghost-drape-fastener",
+      "pieceName": "Optional shawl pin or drape fastener",
+      "options": [
+        {
+          "tier": "$",
+          "title": "3-inch Nickel Kilt Pin",
+          "url": "https://www.moodfabrics.com/products/3-nickel-kilt-pin-16553?variant=54584393039945",
+          "priceCents": 99,
+          "currency": "USD",
+          "merchantName": "Mood Fabrics",
+          "merchantDomain": "moodfabrics.com",
+          "imageUrl": "https://cdn.shopify.com/s/files/1/0920/6153/2233/files/16553.jpg?v=1756429038",
+          "sizes": [
+            "one size"
+          ],
+          "availability": "in_stock",
+          "evidenceUrl": "https://www.moodfabrics.com/products/3-nickel-kilt-pin-16553.js",
+          "notes": "Single 3-inch silver-tone nickel kilt pin, $0.99; direct merchant variant feed marks available. Practical discreet fastener; not antique brass or pewter. Pins can leave holes in linen.",
+          "localMerchantImage": "/products/price-tiers/p-486eadad95.webp"
+        },
+        {
+          "tier": "$$",
+          "title": "Antique Brass Kilt Pin",
+          "url": "https://www.mohairandmore.com/products/antique-brass-kilt-pin?variant=21788637331539",
+          "priceCents": 2200,
+          "currency": "USD",
+          "merchantName": "Mohair & More",
+          "merchantDomain": "mohairandmore.com",
+          "imageUrl": "https://cdn.shopify.com/s/files/1/1914/9621/products/antique-brass-kilt-pin-mohair-and-more.jpg?v=1670484908",
+          "sizes": [
+            "one size"
+          ],
+          "availability": "in_stock",
+          "evidenceUrl": "https://www.mohairandmore.com/products/antique-brass-kilt-pin.js",
+          "notes": "Antique-brass kilt pin, 3 x 3/4 inches, specifically sold for shawls and kilts. Current Shopify variant marks available at $22. No functional claim that it holds better than the $0.99 pin.",
+          "localMerchantImage": "/products/price-tiers/p-348ad9a230.webp"
+        },
+        {
+          "tier": "$$$",
+          "existingProductId": "p-e918d81b72",
+          "title": "White Brass Shawl Pin — Round",
+          "url": "https://needlesnpinsyarnshoppe.com/products/white-brass-shawl-pin?variant=44604404072471",
+          "priceCents": 3400,
+          "currency": "USD",
+          "merchantName": "Needles 'n Pins Yarn Shoppe",
+          "merchantDomain": "needlesnpinsyarnshoppe.com",
+          "imageUrl": "https://cdn.shopify.com/s/files/1/2363/7221/files/Circle_Shawl_Pin.jpg?v=1771532065",
+          "sizes": [
+            "one size"
+          ],
+          "availability": "in_stock",
+          "evidenceUrl": "https://needlesnpinsyarnshoppe.com/products/white-brass-shawl-pin.js",
+          "notes": "White-brass Jul Designs round shawl pin, 2-inch ring and 4-inch stick. Metal supports antique look; merchant does not call it pewter.",
+          "localMerchantImage": "/products/price-tiers/p-e918d81b72.webp"
+        }
+      ],
+      "gaps": []
+    }
+  ]
+}

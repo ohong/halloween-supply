@@ -1,7 +1,7 @@
 # Halloween Supply
 
 A curated costume store built from individual pieces at independent merchants.
-Five costumes have saved shopping catalogs with three options for each piece.
+Five costumes have saved shopping catalogs with three distinct price points for each piece: $, $$, and $$$.
 Twenty additional style guides include AI-generated outfit images, five-piece
 lists, and practical styling tips. Every look can be opened and saved from the gallery.
 
@@ -26,11 +26,23 @@ atomic and reuses the same queries for live data and the bundled fallback.
 checkout. Checkout always rechecks the merchant's current price, stock, and size.
 Customers approve price changes before continuing.
 
+The current 75-product catalog was researched with built-in web search and direct
+merchant evidence, with no Firecrawl used for this research pass. Research records
+and exact merchant photographs are in `docs/sourcing/price-tiers/`.
+
+The budget stylist at `/api/outfits` uses OpenAI Decisions (`gpt-6-luna`) to compare
+complete affordable outfits. It receives the costume reference, merchant photos,
+product facts, and the shopper's budget, sizes, owned pieces, event date, and notes.
+Code enforces constraints before the model chooses a catalog outfit. It never
+invents products or prices, spends beyond the pieces budget, or pretends an API
+failure is an AI recommendation. Explicitly late production times are excluded;
+arrival remains unconfirmed. Chat continues to use Anthropic directly.
+
 The assistant records sizes and updates the guest cart. Stripe collects email and
 a US shipping address. The concierge can read merchant, product URL, and size from
 each Stripe product's metadata. Fulfillment remains manual.
 
-Required variables: `ANTHROPIC_API_KEY`, `FIRECRAWL_API_KEY`, `TURSO_DATABASE_URL`,
+Required variables: `ANTHROPIC_API_KEY`, `OPENAI_API_KEY`, `FIRECRAWL_API_KEY`, `TURSO_DATABASE_URL`,
 `TURSO_AUTH_TOKEN`, `STRIPE_SECRET_KEY`, and `CRON_SECRET`. Keep credentials in
 `.env.local` and Vercel environments. Never commit them.
 
@@ -68,6 +80,7 @@ bun run start
 # In another terminal, with the production build running:
 bun scripts/verify-v1.ts http://localhost:3000 --checkout
 bun scripts/verify-chat.ts http://localhost:3000
+bun --env-file=.env.local scripts/verify-stylist.ts http://localhost:3000
 ```
 
 Verification calls the real app, Turso, Anthropic, merchant pages, and Stripe.

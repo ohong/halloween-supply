@@ -18,6 +18,9 @@ export async function GET() {
       products: new Set(view?.pieces.flatMap((piece) => piece.options.map((option) => option.product.id))).size,
       complete: Boolean(view?.pieces.length) && (view?.pieces.every(({ options }) => options.length === 3 &&
         options.every(({ product }) => Boolean(product.image && product.sourceImages.length))) ?? false),
+      pricePointsComplete: Boolean(view?.pieces.length) && (view?.pieces.every(({ options }) =>
+        options.length === 3 && new Set(options.map(({ product }) => product.priceCents)).size === 3 &&
+        new Set(options.map(({ pick }) => pick.priceTier)).size === 3 && options.every(({ product }) => Boolean(product.merchantImage))) ?? false),
     };
   }));
   const complete = catalogs.length > 0 && catalogs.every((item) => item.complete);
@@ -28,6 +31,7 @@ export async function GET() {
     buildCommit: process.env.VERCEL_GIT_COMMIT_SHA ?? null,
     env: {
       ANTHROPIC_API_KEY: set("ANTHROPIC_API_KEY"), FIRECRAWL_API_KEY: set("FIRECRAWL_API_KEY"),
+      OPENAI_API_KEY: set("OPENAI_API_KEY"),
       TURSO_DATABASE_URL: set("TURSO_DATABASE_URL"), TURSO_AUTH_TOKEN: set("TURSO_AUTH_TOKEN"),
       STRIPE_SECRET_KEY: Boolean(key), STRIPE_SECRET_KEY_IS_TEST: key.startsWith("sk_test_"), CRON_SECRET: set("CRON_SECRET"),
     },

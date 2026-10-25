@@ -1,11 +1,14 @@
-import type { CostumeView, PieceView, ProductOption } from "./types";
+import type { CostumeView, Piece, PieceView, ProductOption } from "./types";
+import { isExplicitlyTooLate } from "./stylist/timing";
 
 export type PieceUse = "buy" | "owned" | "skip";
 export type ShoppingBrief = {
   budget: string;
   eventDate: string;
+  notes?: string;
   preference: "styling" | "local" | "secondhand";
   sizes: Partial<Record<string, string>>;
+  pieceSizes?: Record<string, string>;
 };
 export type OutfitLine = { view: PieceView; option?: ProductOption; use: PieceUse };
 export type OutfitPlan = {
@@ -22,6 +25,10 @@ export type OutfitPlan = {
 };
 
 export const emptyBrief: ShoppingBrief = { budget: "", eventDate: "", preference: "styling", sizes: {} };
+
+export function requestedSize(brief: ShoppingBrief, piece: Pick<Piece, "id" | "sizeKind">) {
+  return (brief.pieceSizes?.[piece.id] ?? brief.sizes[piece.sizeKind] ?? "").trim();
+}
 
 export function sizeMatches(option: ProductOption, size: string) {
   const normalize = (value: string) => value.trim().toLowerCase().replace(/\s+/g, " ");
@@ -44,10 +51,10 @@ export function compareOutfits(costume: CostumeView, brief: ShoppingBrief, uses:
   const rows = costume.pieces.map((view) => {
     const requested = uses[view.piece.id] ?? "buy";
     const use = requested === "skip" && view.piece.required ? "buy" : requested;
-    const size = brief.sizes[view.piece.sizeKind] ?? "";
+    const size = requestedSize(brief, view.piece);
     const options = use === "buy" ? view.options.filter((option) =>
       option.product.availability !== "out_of_stock" && Number.isSafeInteger(option.product.priceCents)
-      && option.product.priceCents >= 0 && sizeMatches(option, size),
+      && option.product.priceCents > 0 && sizeMatches(option, size) && !isExplicitlyTooLate(option.product, brief.eventDate),
     ) : [];
     return { view, use, options };
   });
@@ -85,7 +92,7 @@ export function compareOutfits(costume: CostumeView, brief: ShoppingBrief, uses:
     id, title, explanation, lines: state.lines, total: state.total, shops: state.merchants.size,
     missing: state.lines.filter((line) => line.use === "buy" && !line.option).map((line) => line.view.piece.name),
     unknownSizes: state.lines.filter((line) => line.use === "buy" && line.option && line.view.piece.sizeKind !== "one_size"
-      && (!brief.sizes[line.view.piece.sizeKind] || !line.option.product.sizes.length)).map((line) => line.view.piece.name),
+      && (!requestedSize(brief, line.view.piece) || !line.option.product.sizes.length)).map((line) => line.view.piece.name),
     unknownStock: state.lines.some((line) => line.option?.product.availability === "unknown"),
     overBudget: state.total > budget,
   }));

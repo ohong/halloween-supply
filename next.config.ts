@@ -7,6 +7,10 @@ const nextConfig: NextConfig = {
   },
   cacheComponents: true,
   partialPrefetching: true,
+  outputFileTracingIncludes: {
+    "/api/outfits": ["./public/costumes/**", "./public/products/price-tiers/**"],
+    "/api/chat": ["./public/costumes/**", "./public/products/price-tiers/**"],
+  },
   turbopack: {
     rules: {
       "*.css": {

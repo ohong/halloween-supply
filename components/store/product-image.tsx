@@ -4,5 +4,5 @@ export function ProductImage({ src, alt, className = "" }: { src: string; alt: s
   return <img src={src} alt={alt} className={className} loading="lazy" decoding="async" referrerPolicy="no-referrer" />;
 }
 
-/** The background-removed cutout when we have one, so every piece sits on the same grey. */
-export const shot = (product: { cutout?: string; image: string }) => product.cutout ?? product.image;
+/** Research imports use the actual merchant photo; legacy products retain their reviewed cutout. */
+export const shot = (product: { merchantImage?: string; cutout?: string; image: string }) => product.merchantImage ?? product.cutout ?? product.image;

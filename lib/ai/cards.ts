@@ -1,4 +1,4 @@
-import type { ProductOption } from "../types";
+import type { PriceTier, ProductOption } from "../types";
 
 /** The slim product shape sent to both the model and the product cards. */
 export interface ProductCard {
@@ -17,6 +17,7 @@ export interface ProductCard {
   location: string | null;
   isLocal: boolean;
   isCheapest: boolean;
+  priceTier: PriceTier;
   /** 0 = default pick. */
   rank: number;
   reason: string;
@@ -41,6 +42,7 @@ export function toCard(option: ProductOption): ProductCard {
     location: neighborhood ? `${neighborhood.name}, ${neighborhood.city}` : null,
     isLocal: pick.isLocal,
     isCheapest: pick.isCheapest,
+    priceTier: pick.priceTier,
     rank: pick.rank,
     reason: pick.reason,
     path: pick.path.map((step) => step.label),

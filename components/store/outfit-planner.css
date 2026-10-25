@@ -2,7 +2,6 @@
 .outfit-planner-link { display: inline-block; margin-bottom: 18px; text-decoration: underline; text-underline-offset: 4px; }
 .costume-layout-planned .costume-media { position: static; }
 .outfit-planner-intro { margin-bottom: 30px; }
-.outfit-planner-eyebrow { font-size: 11px; text-transform: uppercase; letter-spacing: .12em; margin-bottom: 12px; color: var(--mid); }
 .outfit-planner-intro h2 { font-size: clamp(25px, 3vw, 38px); font-weight: 300; line-height: 1.2; margin-bottom: 10px; color: var(--ink); }
 .outfit-planner-intro > p:last-child { font-size: 14px; color: var(--mid); }
 .outfit-planner-brief { display: grid; gap: 28px; margin-bottom: 36px; }
@@ -34,3 +33,13 @@
 .outfit-planner-warning { font-size: 12px; color: #8a351a; line-height: 1.6; }
 .outfit-planner-plan > button { margin-top: auto; }
 @media (min-width: 768px) { .outfit-planner-brief { grid-template-columns: 1fr 1fr; gap: 56px; } .outfit-planner-comparisons { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 28px; } }
+
+.outfit-planner-fields .outfit-planner-notes { grid-column: 1 / -1; }
+.outfit-stylist-submit { display: flex; justify-content: space-between; gap: 40px; width: min(100%, 420px); }
+.outfit-stylist-result { margin-block: 20px 28px; }
+.outfit-planner-recommended { max-width: 760px; }
+.outfit-planner-recommended .outfit-planner-planHead { justify-content: space-between; flex-wrap: wrap; }
+.outfit-planner-recommended .outfit-planner-price { font-size: 24px; }
+.outfit-planner-other > summary { cursor: pointer; padding-block: 16px; font-size: 13px; text-underline-offset: 4px; }
+.outfit-planner-other[open] > summary { margin-bottom: 18px; }
+.outfit-planner-lines > li > span:last-child { flex-shrink: 0; font-variant-numeric: tabular-nums; }

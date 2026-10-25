@@ -79,7 +79,7 @@ export async function POST(req: Request) {
   if (Object.keys(ctx.pieceSizes).some((pieceId) => !view.pieces.some(({ piece }) => piece.id === pieceId && piece.sizeKind !== "one_size"))) return fail(400, "The saved sizes contain a piece outside this costume or a one-size accessory.");
   if (new Set(ctx.cart.map((line) => line.pieceId)).size !== ctx.cart.length || ctx.cart.some((line) => !view.pieces.some(({ piece, options }) => piece.id === line.pieceId && options.some(({ product }) => product.id === line.productId)))) return fail(400, "The cart contains a product outside this costume.");
 
-  const tools = createTools(view);
+  const tools = createTools(view, ctx);
   const validated = await safeValidateUIMessages({ messages, tools });
   if (!validated.success) return fail(400, "The conversation contains an invalid message or cart action.");
 

@@ -95,8 +95,9 @@ function merge(current: CartItem[], incoming: CartItem[]): CartItem[] {
     const index = next.findIndex((line) => line.pieceId === item.pieceId);
     const saved = savedSizes[item.sizeKind];
     const pieceSize = savedPieceSizes[item.pieceId];
-    const requested = (typeof pieceSize === "string" && pieceSize.trim().length > 0 && pieceSize.length <= 80 ? pieceSize : null)
-      ?? item.size ?? (index >= 0 ? next[index].size : null) ?? (typeof saved === "string" ? saved : null);
+    const requested = item.size
+      ?? (typeof pieceSize === "string" && pieceSize.trim().length > 0 && pieceSize.length <= 80 ? pieceSize : null)
+      ?? (index >= 0 ? next[index].size : null) ?? (typeof saved === "string" ? saved : null);
     // Select the preference first, then validate it. Falling through to a different
     // preference after a mismatch would silently choose another garment size.
     const size = compatibleSize(item, requested);

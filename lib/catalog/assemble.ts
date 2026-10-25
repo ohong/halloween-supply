@@ -61,12 +61,13 @@ export function buildOption(raw: RawMatch): ProductOption {
     path: buildPath({ ...raw, tags }),
     isLocal: raw.regionName === LOCAL_REGION,
     isCheapest: raw.cheaper === 0,
+    priceTier: raw.cheaper === 0 ? "$" : raw.cheaper === 1 ? "$$" : "$$$",
   };
   return {
     product: {
       ...raw.product,
       // Preserve the merchant photo. Automated cutouts can remove clothing details.
-      image: raw.product.sourceImages.find((src) => /^https?:\/\//i.test(src))?.replace(/^http:/i, "https:") ?? raw.product.image,
+      image: raw.product.merchantImage ?? raw.product.sourceImages.find((src) => /^https?:\/\//i.test(src))?.replace(/^http:/i, "https:") ?? raw.product.image,
       merchantId: raw.merchant.id,
       tagSlugs: tags.map((t) => t.slug),
     },

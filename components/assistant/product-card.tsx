@@ -27,8 +27,8 @@ export function ProductCard({ card, inCart, onAdd }: { card: Card; inCart: boole
         </p>
         <div className="flex flex-wrap items-center gap-1.5">
           <span className="text-[13px] text-[#333]">{formatPrice(card.priceCents)}</span>
+          <Tag>{card.priceTier}</Tag>
           {card.isLocal && <Tag>Support local</Tag>}
-          {card.isCheapest && <Tag>Cheapest</Tag>}
           {soldOut && <Tag>Sold out</Tag>}
         </div>
         <button

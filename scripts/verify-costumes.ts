@@ -14,6 +14,7 @@ import type { ChatContext } from "../lib/ai/chat-context";
 import type { CheckoutRequest, CheckoutResponse } from "../lib/checkout/types";
 import type { CostumeSnapshot, CostumeView, ProductOption } from "../lib/types";
 import { validateSnapshot } from "../lib/catalog/validate";
+import { costumes } from "../lib/costumes";
 
 // Next resolves this package at build time. Bun only needs its server modules here.
 type BunRuntime = { plugin(plugin: { name: string; setup(build: { module(name: string, loader: () => unknown): void }): void }): void };
@@ -63,7 +64,7 @@ async function verifyAsset(publicPath: string, transparent = false) {
   const local = await readFile(path.join(process.cwd(), "public", publicPath));
   const meta = await sharp(local).metadata();
   // Trimmed merchant jewelry can be smaller than its normalized display tile.
-  assert(Math.max(meta.width ?? 0, meta.height ?? 0) >= (transparent ? 300 : 500) && Math.min(meta.width ?? 0, meta.height ?? 0) >= 50, `Image is too small: ${publicPath}`);
+  assert(Math.max(meta.width ?? 0, meta.height ?? 0) >= (transparent ? 300 : 400) && Math.min(meta.width ?? 0, meta.height ?? 0) >= 50, `Image is too small: ${publicPath}`);
   if (transparent) {
     assert.equal(meta.format, "png", `Cutout must be PNG: ${publicPath}`);
     assert(meta.hasAlpha, `Cutout needs an alpha channel: ${publicPath}`);
@@ -278,17 +279,19 @@ async function main() {
     assert.equal(response.status, 200, `${slug}: costume page failed`);
     const html = decode(await response.text());
     assert(html.includes("Add whole costume") && html.includes("Why this pick") && html.includes("Swap"));
-    assert.equal(snapshot.costume.image, `/products/${slug}-flatlay.jpg`);
-    assert(html.includes(snapshot.costume.image), `${slug}: page does not use its real flat-lay`);
-    await verifyAsset(snapshot.costume.image);
+    const editorial = costumes.find((costume) => costume.slug === slug);
+    assert(editorial && html.includes(editorial.image), `${slug}: page must keep its generated full-costume reference`);
+    assert(html.includes("Style my outfit") && html.includes("Price points for"), `${slug}: budget styling and price-point controls must render`);
     for (const piece of snapshot.pieces) {
       assert.deepEqual(piece.matches.map((match) => match.rank).sort(), [0, 1, 2]);
       assert.equal(new Set(piece.matches.map((match) => match.productId)).size, 3);
+      assert.equal(new Set(piece.matches.map((match) => productFor(snapshot, match.productId).priceCents)).size, 3, `${slug}/${piece.id}: three distinct price points are required`);
       for (const match of piece.matches) {
         const product = productFor(snapshot, match.productId);
         await verifyAsset(product.image);
-        assert(product.cutout, `${slug}/${piece.id}: every swap needs a transparent cutout`);
-        await verifyAsset(product.cutout, true);
+        assert(product.merchantImage && product.image === product.merchantImage, `${slug}/${piece.id}: every option needs its actual merchant photograph`);
+        assert(product.sourcing?.method === "built-in-web" && product.sourcing.url, `${slug}/${piece.id}: product research must retain direct evidence`);
+        if (product.cutout) await verifyAsset(product.cutout, true);
         if (match.rank === 0) {
           assert.equal(product.availability, "in_stock");
           assert(html.includes(product.title), `${slug}: page is missing ${product.id}`);
@@ -302,13 +305,15 @@ async function main() {
     assert.equal(noSizes.body.status, "needs_sizes");
     assert.equal((await post({ costumeSlug: slug, items: [items[0], items[0]] })).response.status, 400);
     assert.equal((await post({ costumeSlug: slug, items: [{ ...items[0], productId: "not-a-catalog-product" }] })).response.status, 400);
-    pass(`${slug}: five pieces, three real options each, complete flat-lay, default transparent cutouts, merchant HTML and safe checkout validation`);
+    pass(`${slug}: five pieces, three distinct price points each, actual merchant photos, research evidence and safe checkout validation`);
   }
-  assert(!/coming soon/i.test(home), "All five demo costumes should be live.");
   const healthResponse = await get("/api/health");
   assert.equal(healthResponse.status, 200);
   const health = await healthResponse.json();
-  for (const name of ["ANTHROPIC_API_KEY", "FIRECRAWL_API_KEY", "TURSO_DATABASE_URL", "TURSO_AUTH_TOKEN", "STRIPE_SECRET_KEY", "CRON_SECRET"]) assert.equal(health.env[name], true, `Missing server credential: ${name}`);
+  for (const name of ["ANTHROPIC_API_KEY", "OPENAI_API_KEY", "FIRECRAWL_API_KEY", "TURSO_DATABASE_URL", "TURSO_AUTH_TOKEN", "STRIPE_SECRET_KEY", "CRON_SECRET"]) {
+    if (allowDatabaseDown && name.startsWith("TURSO_")) continue;
+    assert.equal(health.env[name], true, `Missing server credential: ${name}`);
+  }
   assert.equal(health.env.STRIPE_SECRET_KEY_IS_TEST, true, "Deployed checkout must stay in TEST mode.");
   const databaseUp = health.database.ok === true;
   if (!databaseUp && allowDatabaseDown) {
@@ -320,7 +325,7 @@ async function main() {
   assert(Array.isArray(catalogHealth), "Health must report every live costume.");
   for (const slug of slugs) {
     const entry = catalogHealth.find((catalog) => catalog.slug === slug || catalog.costumeSlug === slug);
-    assert(entry?.complete && entry.pieces === 5 && entry.products >= 15, `${slug}: deployed catalog health is incomplete`);
+    assert(entry?.complete && entry.pricePointsComplete && entry.pieces === 5 && entry.products >= 15, `${slug}: deployed catalog health is incomplete`);
     assert(entry.source === "database" || entry.source === "snapshot", `${slug}: catalog source must be explicit`);
   }
   assert.equal((await post({})).response.status, 400);

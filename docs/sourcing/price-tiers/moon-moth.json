@@ -1,0 +1,395 @@
+{
+  "costumeSlug": "moon-moth",
+  "checkedAt": "2026-10-25T07:07:04.071733+00:00",
+  "researchMethod": "Built-in web search for discovery and primary-page verification; direct public Shopify/Squarespace variant feeds for precise live price, stock, currency, images. No Firecrawl.",
+  "pieces": [
+    {
+      "pieceId": "moon-wing-cape",
+      "pieceName": "Moth wing cape",
+      "options": [
+        {
+          "tier": "$",
+          "title": "Luna Moth Wings Cape — Small",
+          "url": "https://www.costureroreal.es/products/luna-moth-wings-cape-adult-costume-chiffon-dance-shawl?currency=USD&variant=54691929555285",
+          "priceCents": 6100,
+          "currency": "USD",
+          "merchantName": "Costurero Real",
+          "merchantDomain": "costureroreal.es",
+          "imageUrl": "https://cdn.shopify.com/s/files/1/0883/3630/2421/files/il_fullxfull.985642364_byqp.jpg?v=1787136353",
+          "sizes": [
+            "one size"
+          ],
+          "availability": "in_stock",
+          "evidenceUrl": "https://www.costureroreal.es/products/luna-moth-wings-cape-adult-costume-chiffon-dance-shawl.js?currency=USD",
+          "notes": "Light, sheer printed Luna-moth synthetic chiffon. Short small cape: shorter tails than the full costume reference. Exact Shopify variant reports available true. Price is merchant USD currency, not converted EUR. Ships from Spain; delivery by Halloween is unverified.",
+          "existingProductId": "p-6969a5c537",
+          "localMerchantImage": "/products/price-tiers/p-6969a5c537.webp"
+        },
+        {
+          "tier": "$$",
+          "title": "Large Luna Moth Costume Wings",
+          "url": "https://www.moonmothwings.com/products/large-luna-moth-fairy-wings-costume-fairy-halloween-costume-wings-moth-costume-adult-butterfly-wings-butterfly-fairy-costume-349137773?variant=39909117984826",
+          "priceCents": 22900,
+          "currency": "USD",
+          "merchantName": "Moon Moth Wings",
+          "merchantDomain": "moonmothwings.com",
+          "imageUrl": "https://cdn.shopify.com/s/files/1/1790/2341/products/il_fullxfull.3233355900_fcoo.jpg?v=1685201812",
+          "sizes": [
+            "one size"
+          ],
+          "availability": "in_stock",
+          "evidenceUrl": "https://www.moonmothwings.com/products/large-luna-moth-fairy-wings-costume-fairy-halloween-costume-wings-moth-costume-adult-butterfly-wings-butterfly-fairy-costume-349137773.js",
+          "notes": "Green Luna moth cotton wings supported by plastic-coated steel wire; two elastic shoulder straps. Structured backpack wings instead of draping chiffon. Exact Shopify variant reports available true. Merchant states current turnaround 2–3 weeks, so do not promise Halloween arrival.",
+          "localMerchantImage": "/products/price-tiers/p-a74e609ee5.webp"
+        },
+        {
+          "tier": "$$$",
+          "title": "Luna Moth Cape — Hand Felted",
+          "url": "https://missfitt.com/wings-and-capes/luna-moth-cape?Color=As+Pictured",
+          "priceCents": 65000,
+          "currency": "USD",
+          "merchantName": "Miss Fitt & Co. / Moss Fête",
+          "merchantDomain": "missfitt.com",
+          "imageUrl": "https://images.squarespace-cdn.com/content/v1/5dc5b59132ef081214cf0172/1575320238578-C6YMQQM0UTJV75DR82BL/mothcape%3Aozma_back.jpg",
+          "sizes": [
+            "made to measure"
+          ],
+          "availability": "in_stock",
+          "evidenceUrl": "https://missfitt.com/wings-and-capes/luna-moth-cape?format=json",
+          "notes": "Green hand-felted wool cape with heel-length back wings and angora-goat-curl ties. Merchant asks nape-to-floor measurement; not chiffon and not vegan. Public merchant variant: USD650.00, onSale false, unlimited true (made to order; qtyInStock0 does not mean unavailable). Shipping included. Production/arrival date is not stated.",
+          "localMerchantImage": "/products/price-tiers/p-f0f83c316a.webp"
+        }
+      ],
+      "gaps": [
+        "No verified cheaper green Luna-moth cape found below $61; cheap brown/black wings were excluded for color mismatch.",
+        "The $229 structured wings and $650 wool cape change material and silhouette; high price is not a quality claim.",
+        "Made-to-order wing lead times can exceed Halloween; no arrival guarantee."
+      ]
+    },
+    {
+      "pieceId": "moon-unitard",
+      "pieceName": "Dark fitted unitard",
+      "options": [
+        {
+          "tier": "$",
+          "title": "Zip Front Spandex Long Sleeve Turtleneck Unitard — Black",
+          "url": "https://www.speerise.com/products/speerise-ladies-spandex-long-sleeve-turtleneck-unitard?variant=39728194715781",
+          "priceCents": 4299,
+          "currency": "USD",
+          "merchantName": "Speerise",
+          "merchantDomain": "speerise.com",
+          "imageUrl": "https://cdn.shopify.com/s/files/1/0365/8003/2645/products/speerise-zip-front-spandex-long-sleeve-turtleneck-unitard-black.jpg?v=1760671730",
+          "sizes": [
+            "XS",
+            "S",
+            "M",
+            "L",
+            "XL",
+            "2XL",
+            "3XL",
+            "4XL",
+            "5XL",
+            "6XL"
+          ],
+          "availability": "in_stock",
+          "evidenceUrl": "https://www.speerise.com/products/speerise-ladies-spandex-long-sleeve-turtleneck-unitard.js",
+          "notes": "Long sleeve full-length fitted black unitard. 85% nylon/15% spandex rather than cotton; front zipper and mock neck. All ten black XS–6XL variants available at USD42.99. Broad low-tier coverage. Merchant does not explicitly call finish matte; avoid claiming finish beyond plain nonmetallic black.",
+          "localMerchantImage": "/products/price-tiers/p-b2b40f4575.webp"
+        },
+        {
+          "tier": "$$",
+          "title": "83028GD - Garment Dye Long Sleeve Unitard",
+          "url": "https://losangelesapparel.net/products/83028gd-garment-dye-long-sleeve-unitard?variant=37888203161779",
+          "priceCents": 7000,
+          "currency": "USD",
+          "merchantName": "Los Angeles Apparel",
+          "merchantDomain": "losangelesapparel.net",
+          "imageUrl": "https://cdn.shopify.com/s/files/1/2152/0639/products/black1_1_4984a0ae-5411-4aea-a78b-eb4b02ab8afa.jpg?v=1721953708",
+          "sizes": [
+            "XS",
+            "S",
+            "M",
+            "L",
+            "XL"
+          ],
+          "availability": "in_stock",
+          "evidenceUrl": "https://losangelesapparel.net/products/83028gd-garment-dye-long-sleeve-unitard.js",
+          "notes": "Matte cotton base match; heavyweight garment-dyed cotton spandex, long sleeves/full length legs, black XS-XL all available. Retain existing reviewed photo/cutout if preserving product.",
+          "existingProductId": "p-33ba42bb05",
+          "localMerchantImage": "/products/price-tiers/p-33ba42bb05.webp"
+        },
+        {
+          "tier": "$$$",
+          "title": "Second Skin Catsuit Style5010 — Black",
+          "url": "https://www.welovecolors.com/shop/womens/sale/second-skin-catsuit/black",
+          "priceCents": 9500,
+          "currency": "USD",
+          "merchantName": "We Love Colors",
+          "merchantDomain": "welovecolors.com",
+          "imageUrl": "https://www.welovecolors.com/images/product/full/5010-w-black-second-skin-catsuit.jpg",
+          "sizes": [
+            "One Size"
+          ],
+          "availability": "in_stock",
+          "evidenceUrl": "https://www.welovecolors.com/shop/womens/sale/second-skin-catsuit/black",
+          "notes": "Explicit matte, opaque 93% nylon/7% spandex full-body long-sleeve catsuit. Includes fingers and toes; garment can be cut at wrists/ankles without running per merchant. One Size fits XS–XL; Plus Size fits up to4X but black Plus has ColorQty0, so excluded as in-stock. Live merchant embedded variant inventory object: Black, Size One Size, ColorQty3, QtyCompleted5, WebPrice95, Discontinuedfalse, production ship dateMonday10/26. One Size black stock verified, rather than inferring stock from selector. No size-specific permalink provided by merchant; URL fixes black color.",
+          "localMerchantImage": "/products/price-tiers/p-efd5b81469.webp"
+        }
+      ],
+      "gaps": [
+        "We Love Colors includes fingers and toes and needs trimming for open hands/feet. It is a premium-price theatrical base, not equivalent everyday cotton garment.",
+        "We Love Colors One Size fits XS–XL. Black Plus Size has zero dyed-stock units and should not be advertised in stock.",
+        "Speerise fabric finish is not explicitly labeled matte, though plain black nonmetallic."
+      ]
+    },
+    {
+      "pieceId": "moon-fur-collar",
+      "pieceName": "Soft ivory faux fur collar",
+      "options": [
+        {
+          "tier": "$",
+          "title": "Faux Fur Collar — Beige & Ivory",
+          "url": "https://dejmo.com/products/fur-collar?currency=USD&variant=32744541454463",
+          "priceCents": 2900,
+          "currency": "USD",
+          "merchantName": "Dejmo",
+          "merchantDomain": "dejmo.com",
+          "imageUrl": "https://cdn.shopify.com/s/files/1/0070/3833/7151/products/Ergi_FurCollar_Cream_Ivory.jpg?v=1599837590",
+          "sizes": [
+            "one size"
+          ],
+          "availability": "in_stock",
+          "evidenceUrl": "https://dejmo.com/products/fur-collar.js?currency=USD",
+          "notes": "Handmade acrylic faux fur, cotton lining and polyester ribbon. Exact Beige & Ivory variant is available at USD29. Ships from Sweden; current merchant notice says still ships outside EU. Low-stock message; confirm delivery date before purchase. Generic page includes hidden sold-out text, but selected variant available true.",
+          "existingProductId": "p-3850171d93",
+          "localMerchantImage": "/products/price-tiers/p-3850171d93.webp"
+        },
+        {
+          "tier": "$$",
+          "title": "47.2-inch Faux Fur Shoulder Collar Scarf — Creamy Ivory",
+          "url": "https://babeyond.com/products/babeyond-womens-faux-fur-shawl-faux-fur-scarf-wrap-evening-cape-for-winter-coat-47-2?variant=43960664129757",
+          "priceCents": 4400,
+          "currency": "USD",
+          "merchantName": "BABEYOND",
+          "merchantDomain": "babeyond.com",
+          "imageUrl": "https://cdn.shopify.com/s/files/1/0015/8937/9159/products/6-3.jpg?v=1750323916",
+          "sizes": [
+            "one size"
+          ],
+          "availability": "in_stock",
+          "evidenceUrl": "https://babeyond.com/products/babeyond-womens-faux-fur-shawl-faux-fur-scarf-wrap-evening-cape-for-winter-coat-47-2.js",
+          "notes": "Faux fur scarf/collar, 120cm ×15cm, with hidden pass-through hole. Exact Creamy Ivory variant reports available true at USD44. More elongated than compact moth ruff. Merchant gives 1–2 business days processing plus US ground10–12 business days; do not promise Halloween arrival.",
+          "localMerchantImage": "/products/price-tiers/p-39ce60e414.webp"
+        },
+        {
+          "tier": "$$$",
+          "title": "Penny Blanc Ivory Faux Fur Collar",
+          "url": "https://jennafergracecollection.com/products/penny-blanc-faux-fur-collar?variant=43246681686265",
+          "priceCents": 5800,
+          "currency": "USD",
+          "merchantName": "Jennafer Grace",
+          "merchantDomain": "jennafergracecollection.com",
+          "imageUrl": "https://cdn.shopify.com/s/files/1/0658/3425/4585/files/Faux-Fur-Collar-Penny-Blanc-Fleur-De-Peche-Flutter-Wrap-Dress-002.jpg?v=1762654297",
+          "sizes": [
+            "one size"
+          ],
+          "availability": "in_stock",
+          "evidenceUrl": "https://jennafergracecollection.com/products/penny-blanc-faux-fur-collar.js",
+          "notes": "Plush faux fur collar approximately24in long from center back to tip and6in wide. Exact variant reports available true at USD58. Page calls it ivory, but one customer reports stark white; keep this color uncertainty visible. Merchant no longer promises fixed processing days in current policy.",
+          "existingProductId": "p-3afdfbc4a6",
+          "localMerchantImage": "/products/price-tiers/p-3afdfbc4a6.webp"
+        }
+      ],
+      "gaps": [
+        "Price tiers are relative to this accessory: $29/$44/$58. No claim that the more expensive collar is higher quality.",
+        "Penny Blanc color may appear white rather than ivory according to a verified review.",
+        "Closure not specified for Penny Blanc; only BABEYOND hidden-hole and Dejmo ribbon are confirmed."
+      ]
+    },
+    {
+      "pieceId": "moon-antennae",
+      "pieceName": "Insect antenna headband",
+      "options": [
+        {
+          "tier": "$",
+          "title": "Silver Alien Antenna Headband with Chunky Glitter",
+          "url": "https://www.funcredible.net/products/funcredible-alien-headband-with-chunky-glitter-alien-martian-antenna-and-holographic-glitter-halloween-cosplay-space-theme-alien-costume-party-accessories-for-women-girls-adults-kids-silver?variant=43326222368921",
+          "priceCents": 1299,
+          "currency": "USD",
+          "merchantName": "Funcredible",
+          "merchantDomain": "funcredible.net",
+          "imageUrl": "https://cdn.shopify.com/s/files/1/0422/3097/2569/files/Alien-Kapak-Gri.jpg?v=1721208938",
+          "sizes": [
+            "one size"
+          ],
+          "availability": "in_stock",
+          "evidenceUrl": "https://www.funcredible.net/products/funcredible-alien-headband-with-chunky-glitter-alien-martian-antenna-and-holographic-glitter-halloween-cosplay-space-theme-alien-costume-party-accessories-for-women-girls-adults-kids-silver.js",
+          "notes": "Budget style compromise: silver glitter ball boppers on coiled silver springs and black plastic headband; not feathered/plumed moth antennae. Includes one headband plus one10g chunkyglitter jar. Merchant photo personally inspected and matches silver antenna, not a wrongcolor. Current primary Shopify variant43326222368921 price1299USD availabletrue. Search-rendered product page had stale11.99 (compare_at_price), collection and live variant feed correctly12.99. One flexible size for adults/children per brand category descriptions.",
+          "localMerchantImage": "/products/price-tiers/p-7208c46a92.webp"
+        },
+        {
+          "tier": "$$",
+          "title": "Custom Posable Moth Antennae — White Faux Fur",
+          "url": "https://www.etsy.com/listing/4596956691/choose-your-colour-custom-handmade",
+          "priceCents": 3000,
+          "currency": "USD",
+          "merchantName": "Kaijukin Studios Store",
+          "merchantDomain": "etsy.com",
+          "imageUrl": "https://i.etsystatic.com/68005861/r/il/930c53/8690356004/il_794xN.8690356004_nxgr.jpg",
+          "sizes": [
+            "one size"
+          ],
+          "availability": "in_stock",
+          "evidenceUrl": "https://www.etsy.com/listing/4596956691/choose-your-colour-custom-handmade",
+          "notes": "White faux-fur moth antennae on a thin metal headband, about6in tall, posable wire core. Listing is buyable at USD30, made to order; seller says listed colors are readily available. Select white fur and silver headband. Etsy does not provide a stable per-variant URL here; current selectable color labels need checkout confirmation. Seller says ships within a week or less; no arrival guarantee. New shop with0sales/reviews. Main listing photo directly shows white option. Orderable made-to-order, not confirmed on-hand stock. White option is visibly photographed. ",
+          "localMerchantImage": "/products/price-tiers/p-65edab9ec7.webp"
+        },
+        {
+          "tier": "$$$",
+          "title": "Custom Feather Moth Antennae Headband — White",
+          "url": "https://www.etsy.com/listing/4547405694/custom-moth-butterfly-insect-hard",
+          "priceCents": 6000,
+          "currency": "USD",
+          "merchantName": "Wild Plum Boutique",
+          "merchantDomain": "etsy.com",
+          "imageUrl": "https://i.etsystatic.com/7159449/r/il/d1f590/8417025636/il_794xN.8417025636_3vzn.jpg",
+          "sizes": [
+            "one size"
+          ],
+          "availability": "unknown",
+          "evidenceUrl": "https://www.etsy.com/listing/4547405694/custom-moth-butterfly-insect-hard",
+          "notes": "Made-to-order white ostrich-feather feelers on a polymer-clay base and hard headband covered in fuzzy white marabou. Seller lists White, Black, Gray, Pink as available choices and product is orderable atUSD60 (one custom-order slot shown). Not confirmed on-hand stock. Real feathers: not vegan. Feelers approximately10–12in; much taller than the quiet original antennae. Select White. Official White photo downloaded and visually inspected: white plumes and white fuzzy band, with warm ivory natural quills. Merchant specifies1.5–2.5 weeks creation plusUSPS Ground Advantage2–6 business days. Do not promise Halloween arrival. Etsy has no stable per-variant URL exposed; White selection is required on listing. Some hidden generic per-photo sold-out template strings appear in rendered page; seller description explicitly offers WHITE and listing Add to cart remains available, but selected-White inventory is not separately exposed. Exact selected White inventory is unconfirmed; this is an orderable custom item, not confirmed finished stock.",
+          "localMerchantImage": "/products/price-tiers/p-a8d665b529.webp"
+        }
+      ],
+      "gaps": [
+        "Budget option is explicitly a silver ball-bopper alien headband, not feathered moth antennae.",
+        "White handmade options are made to order, not confirmed on-hand stock. Wild Plum creation1.5–2.5weeks plus2–6businessdays US transit; Kaiju says shipswithinoneweek. Neither is guaranteed to arrive byHalloween.",
+        "Etsy links identify exact listings; buyers must selectWhite. Selected-White inventory is not separately exposed by public renderer.",
+        "Kaiju is a newshop with0sales/reviews at check.",
+        "Wild Plum uses real ostrich/marabou feathers; unsuitable if user requests vegan materials."
+      ]
+    },
+    {
+      "pieceId": "moon-boots",
+      "pieceName": "Dark ankle boots",
+      "options": [
+        {
+          "tier": "$",
+          "title": "Classic Chelsea Ankle Booties — Black PU",
+          "url": "https://www.dreampairs.com/products/dab213?kid=23928",
+          "priceCents": 4999,
+          "currency": "USD",
+          "merchantName": "DREAM PAIRS",
+          "merchantDomain": "dreampairs.com",
+          "imageUrl": "https://cdnimg.dreampairs.com/dreampairshoes/product/product/DAB213/BLACK%20PU/1.jpg",
+          "sizes": [
+            "5",
+            "5.5",
+            "6",
+            "6.5",
+            "7",
+            "7.5",
+            "8",
+            "8.5",
+            "9",
+            "9.5",
+            "10",
+            "11"
+          ],
+          "availability": "in_stock",
+          "evidenceUrl": "https://www.dreampairs.com/products/dab213?color=2038",
+          "notes": "Budget material compromise: imitation synthetic leather rather than genuine leather. Ankle-high Chelsea, 1.25 inch heel, 0.75 inch platform. Merchant JSON-LD lists black USD49.99 InStock; live HTML exact-size inventory counts positive for all 12 listed US sizes. Size8 kid23928 count1806. Hidden generic SOLD OUT text is contradicted by variant inventory and InStock offer; verified source HTML retained /tmp/dreampairs-moon-boots.html.",
+          "localMerchantImage": "/products/price-tiers/p-da7d00ef0d.webp"
+        },
+        {
+          "tier": "$$",
+          "title": "Duchess | Black",
+          "url": "https://thursdayboots.com/products/womens-duchess-black-chelsea-boot?variant=41611980701786",
+          "priceCents": 16000,
+          "currency": "USD",
+          "merchantName": "Thursday Boot Company",
+          "merchantDomain": "thursdayboots.com",
+          "imageUrl": "https://cdn.shopify.com/s/files/1/0419/1525/products/1024x1024-Women-Duchess-Black-Side.jpg?v=1591637693",
+          "sizes": [
+            "4",
+            "4.5",
+            "5",
+            "5.5",
+            "6",
+            "6.5",
+            "7",
+            "7.5",
+            "8",
+            "8.5",
+            "9",
+            "9.5",
+            "10",
+            "10.5",
+            "11",
+            "11.5",
+            "12",
+            "12.5",
+            "13"
+          ],
+          "availability": "in_stock",
+          "evidenceUrl": "https://thursdayboots.com/products/womens-duchess-black-chelsea-boot.js",
+          "notes": "Genuine black leather upper, glove leather lining, 1.25 inch stacked leather heel, elastic gores. All Standard US4-13 in half sizes available. Broad sizes; exact variant default is US4, shopper must choose correct size.",
+          "localMerchantImage": "/products/price-tiers/p-fa88c71724.webp"
+        },
+        {
+          "tier": "$$$",
+          "title": "Women's Originals #510",
+          "url": "https://www.blundstone.com/products/black-premium-leather-v-cut-boots-womens-style-510?variant=53192323596595",
+          "priceCents": 20995,
+          "currency": "USD",
+          "merchantName": "Blundstone",
+          "merchantDomain": "blundstone.com",
+          "imageUrl": "https://cdn.shopify.com/s/files/1/0903/6349/4707/files/product-image_2026-10-12_510_p_usa_hero.jpg?v=1791961602",
+          "sizes": [
+            "6",
+            "6.5",
+            "7",
+            "7.5",
+            "8",
+            "8.5",
+            "9",
+            "9.5",
+            "10",
+            "10.5",
+            "11",
+            "11.5",
+            "12",
+            "12.5",
+            "13",
+            "13.5",
+            "14",
+            "15",
+            "16",
+            "5"
+          ],
+          "availability": "in_stock",
+          "evidenceUrl": "https://www.blundstone.com/products/black-premium-leather-v-cut-boots-womens-style-510.js",
+          "notes": "Black premium water-resistant leather classic flat Chelsea boot. Live public feed USD209.95, not stale search result199.95. Available USwomen5-16; two equivalent AU/UK label sets in merchant variants, deduplicate before display. Exact first available variant is USwomen6.",
+          "localMerchantImage": "/products/price-tiers/p-862b138943.webp"
+        }
+      ],
+      "gaps": [
+        "Budget option substitutes faux leather for genuine leather; preserve this distinction in stylist explanations."
+      ]
+    }
+  ],
+  "rejectedAntennaOptions": [
+    {
+      "title": "Luna Moth Antennae Headband — Cold White",
+      "url": "https://www.lostcreaturescove.com/shop-by-category/p/luna-moth-ears-costume-headband-handmade-american-moon-moth-tiara-spooky-halloween-cosplay-accessory?Antennae+Color=Cold+White",
+      "reason": "Cold White variant exists but merchant photos show gold/yellow. Excluded to prevent wrong-color images."
+    },
+    {
+      "title": "Luna Moth Flower Crown — Cold White Antennae",
+      "url": "https://www.lostcreaturescove.com/shop-by-category/p/luna-moth-ears-costume-flower-headband-handmade-american-moon-moth-crown-halloween-cosplay-accessory?Custom+Options=Design+As+Is&Antennae+Color=Cold+White",
+      "reason": "Cold White variant exists but merchant photos show gold/yellow. Excluded to prevent wrong-color images."
+    }
+  ],
+  "availabilityMeaning": "in_stock denotes currently orderable listings or available merchant variants. For made-to-order products this does not claim finished goods are on hand; production lead times are in option notes."
+}

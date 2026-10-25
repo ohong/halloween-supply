@@ -3,6 +3,8 @@
 
 /** Prices are always integer US cents. */
 export type Cents = number;
+/** Relative price within one piece's three merchant options. */
+export type PriceTier = "$" | "$$" | "$$$";
 
 export type CostumeStatus = "live" | "coming_soon";
 
@@ -79,6 +81,8 @@ export interface Product {
   image: string;
   /** Reviewed transparent product silhouette used by the selectable flat-lay. */
   cutout?: string;
+  /** Local copy of the actual merchant photograph, distinct from generated cutouts. */
+  merchantImage?: string;
   /** Remote source images as found on the merchant page. */
   sourceImages: string[];
   availability: Availability;
@@ -90,6 +94,8 @@ export interface Product {
   description: string;
   /** ISO timestamp of the last time price/stock was confirmed. */
   checkedAt: string;
+  /** Original research evidence, retained when routine price checks update checkedAt. */
+  sourcing?: { method: "built-in-web"; checkedAt: string; url: string; notes: string };
 }
 
 /** One piece-to-product match. Rank 0 is the default pick. */
@@ -122,6 +128,7 @@ export interface PickReason {
   isLocal: boolean;
   /** True when this is the cheapest of the piece's matches. */
   isCheapest: boolean;
+  priceTier: PriceTier;
 }
 
 /** Everything about one costume, as written by the pipeline and loaded by the seed. */
@@ -137,6 +144,7 @@ export interface CostumeSnapshot {
     method: "pipeline" | "manual-research";
     generatedAt: string;
     notes?: string;
+    priceTiers?: boolean;
   };
 }
 
