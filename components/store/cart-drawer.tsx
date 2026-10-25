@@ -3,7 +3,7 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { formatPrice, useCart } from "@/lib/cart/context";
+import { formatExactPrice, formatPrice, useCart } from "@/lib/cart/context";
 import { costumes } from "@/lib/costumes";
 import type { CheckoutRequest, CheckoutResponse, PriceChange } from "@/lib/checkout/types";
 import type { CartItem } from "@/lib/types";
@@ -177,8 +177,8 @@ export function CartDrawer() {
         {currentStatus.kind === "message" && <p className="notice" role="alert">{currentStatus.text}</p>}
         {currentStatus.kind === "price_changed" && <div className="notice" role="alert">
           <p>{currentStatus.text}</p>
-          <ul>{currentStatus.changes.map((change) => <li key={change.pieceId}>{change.pieceName}: {formatPrice(change.oldCents)} → {formatPrice(change.newCents)}</li>)}</ul>
-          <p>New subtotal: {formatPrice(items.reduce((sum, line) => sum + (currentStatus.changes.find((change) => change.pieceId === line.pieceId && change.productId === line.productId)?.newCents ?? line.priceCents), 0))}</p>
+          <ul>{currentStatus.changes.map((change) => <li key={change.pieceId}>{change.pieceName}: {formatExactPrice(change.oldCents)} → {formatExactPrice(change.newCents)}</li>)}</ul>
+          <p>New subtotal: {formatExactPrice(items.reduce((sum, line) => sum + (currentStatus.changes.find((change) => change.pieceId === line.pieceId && change.productId === line.productId)?.newCents ?? line.priceCents), 0))}</p>
         </div>}
         {currentStatus.kind === "redirecting" && <p className="notice" role="status">Taking you to checkout…</p>}
         <button type="button" className="btn btn-block" onClick={() => void checkout(currentStatus.kind === "price_changed")} disabled={busy || missingSizes > 0}>
