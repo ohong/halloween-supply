@@ -17,6 +17,10 @@ const PRODUCT_PATH = /\/(listing|listings|products?|item|itm|p|dp|shop\/[^/]+\/[
 const LISTING_PATH = /\/(market|search|c|category|categories|collections\/[^/]+\/?$|tag|shop\/?$)(\/|\?|$)/i;
 
 type Product = { title: string; url: string; merchant: string; price?: string; image?: string };
+type ProviderError = { error?: { message?: string } };
+type ImageEditResponse = ProviderError & { data: { b64_json: string }[] };
+type MessageResponse = ProviderError & { content: { type: string; text?: string }[] };
+type FirecrawlResponse<T> = { success?: boolean; data: T };
 
 async function editImage(prompt: string, image: Blob): Promise<string> {
   const form = new FormData();
@@ -30,7 +34,7 @@ async function editImage(prompt: string, image: Blob): Promise<string> {
     headers: { Authorization: `Bearer ${process.env.OPENAI_API_KEY}` },
     body: form,
   });
-  const body = await res.json() as any;
+  const body = await res.json() as ImageEditResponse;
   if (!res.ok) throw new Error(`image edit failed (${res.status}): ${body?.error?.message ?? "unknown"}`);
   return `data:image/png;base64,${body.data[0].b64_json}`;
 }
@@ -50,9 +54,9 @@ async function extractPiece(prompt: string, history: string[]): Promise<{ piece:
       messages: [{ role: "user", content: `Earlier edits: ${history.join("; ") || "none"}\nNew edit: ${prompt}` }],
     }),
   });
-  const body = await res.json() as any;
+  const body = await res.json() as MessageResponse;
   if (!res.ok) throw new Error(`Claude failed (${res.status}): ${body?.error?.message ?? "unknown"}`);
-  const text: string = body.content.find((c: any) => c.type === "text")?.text ?? "";
+  const text: string = body.content.find((c) => c.type === "text")?.text ?? "";
   const json = text.match(/\{[\s\S]*\}/)?.[0];
   if (!json) throw new Error(`Claude returned no JSON: ${text.slice(0, 200)}`);
   return JSON.parse(json);
@@ -65,9 +69,9 @@ async function firecrawl<T>(endpoint: "search" | "scrape", payload: object): Pro
     body: JSON.stringify(payload),
     signal: AbortSignal.timeout(30_000),
   });
-  const body = await res.json() as any;
+  const body = await res.json() as FirecrawlResponse<T>;
   if (!res.ok || body.success !== true) throw new Error(`Firecrawl ${endpoint} failed (${res.status})`);
-  return body.data as T;
+  return body.data;
 }
 
 // Pull og:image and a price from the product page; failures just leave the card bare.

@@ -19,6 +19,8 @@ type Piece = { name: string; slot: "head" | "top" | "outer" | "bottom" | "feet" 
 type Look = { character: string; summary: string; pieces: Piece[] };
 type Found = { title: string; url: string; merchant: string; priceCents: number; image: string };
 type Emit = (event: Record<string, unknown>) => void;
+type MessageResponse = { error?: { message?: string }; content: { type: string; text?: string }[] };
+type FirecrawlResponse<T> = { success?: boolean; data: T };
 
 async function decompose(dataUrl: string): Promise<Look> {
   const [, mediaType, data] = dataUrl.match(/^data:(image\/[\w+.-]+);base64,(.+)$/) ?? [];
@@ -42,9 +44,9 @@ async function decompose(dataUrl: string): Promise<Look> {
       ] }],
     }),
   });
-  const body = await res.json() as any;
+  const body = await res.json() as MessageResponse;
   if (!res.ok) throw new Error(`Claude failed (${res.status}): ${body?.error?.message ?? "unknown"}`);
-  const text: string = body.content.find((c: any) => c.type === "text")?.text ?? "";
+  const text: string = body.content.find((c) => c.type === "text")?.text ?? "";
   const json = text.match(/\{[\s\S]*\}/)?.[0];
   if (!json) throw new Error(`Claude returned no JSON: ${text.slice(0, 200)}`);
   return JSON.parse(json);
@@ -57,9 +59,9 @@ async function firecrawl<T>(endpoint: "search" | "scrape", payload: object): Pro
     body: JSON.stringify(payload),
     signal: AbortSignal.timeout(30_000),
   });
-  const body = await res.json() as any;
+  const body = await res.json() as FirecrawlResponse<T>;
   if (!res.ok || body.success !== true) throw new Error(`Firecrawl ${endpoint} failed (${res.status})`);
-  return body.data as T;
+  return body.data;
 }
 
 // A candidate only counts when its page yields both an image and a price.
