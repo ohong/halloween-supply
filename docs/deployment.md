@@ -12,14 +12,15 @@ Cache Components selects that runtime; route files must not export `runtime`.
 Production needs these variables:
 
 - `ANTHROPIC_API_KEY`
-- `BRIGHTDATA_API_KEY`
-- `BRIGHTDATA_SERP_ZONE`
-- `BRIGHTDATA_UNLOCKER_ZONE`
-- `FALKORDB_URL`
+- `FIRECRAWL_API_KEY`
+- `TURSO_DATABASE_URL`
+- `TURSO_AUTH_TOKEN`
 - `STRIPE_SECRET_KEY`
 - `CRON_SECRET`
 
-On October 24, 2026, all seven were already present as production secrets.
+Turso injects its connection variables through the Vercel Marketplace integration.
+The dedicated database uses the Starter plan ($0/month) in iad1.
+Firecrawl uses the existing account key, saved as a Vercel Secret.
 The existing CLI login can manage this project without a `VERCEL_TOKEN`.
 The connected Vercel tool can inspect deployments and domains; its environment permissions are restricted.
 Use the authenticated CLI for environment metadata:
@@ -37,9 +38,9 @@ Stripe remains in test mode for the five-costume demo. Do not replace the produc
 Vercel sends `Authorization: Bearer <CRON_SECRET>` automatically.
 The handler rejects missing or incorrect credentials and never caches responses.
 
-The refresh reads the live graph, checks merchant prices and stock, and updates verified products.
-It expires the `catalog` cache tag after graph writes.
-An unreachable graph or zero verified products returns HTTP 503.
+The refresh reads the live database, checks merchant prices and stock, and updates verified products.
+It expires the `catalog` cache tag after database writes.
+An unreachable database or zero verified products returns HTTP 503.
 A partial merchant refresh returns HTTP 207 with counts and failed product IDs.
 A full refresh returns HTTP 200.
 
@@ -54,13 +55,13 @@ Never place the secret in the URL or paste it into logs.
 3. Push the reviewed commits to `main`.
 4. Inspect the resulting Vercel deployment and confirm the commit and `READY` state.
 5. Check `https://halloween.supply/api/health`.
-6. Seed any updated live graph catalogs after their image assets resolve on the production host.
+6. Seed any updated live database catalogs after their image assets resolve on the production host.
 7. Run `bun scripts/verify-costumes.ts https://halloween.supply --checkout --all-options --chat`. Every verification session is test-only and expires unpaid.
 
-`/api/health` returns names and booleans for environment variables, graph counts,
+`/api/health` returns names and booleans for environment variables, database counts,
 completeness and source for each of the five catalogs, and the deployed Git commit.
 It returns HTTP 503 when the served catalog lacks a default and two alternatives per piece.
-An available snapshot with an unreachable graph reports `degraded` instead of claiming graph success.
+An available snapshot with an unreachable database reports `degraded` instead of claiming database success.
 
-The health check does not test Anthropic, Bright Data, or Stripe credentials.
+The health check does not test Anthropic, Firecrawl, or Stripe credentials.
 Their names being present is not evidence that provider requests succeed.

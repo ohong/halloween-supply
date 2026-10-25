@@ -1,15 +1,19 @@
-// bun run seed [slug|path/to/snapshot.json]  (default: cosmic-cowboy)
-import { resetGraph } from "../lib/graph/client";
-import { loadSnapshot } from "../lib/graph/load";
-import { upsertSnapshot } from "../lib/graph/upsert";
+// bun run seed [slug|path/to/snapshot.json|--all]
+import { readdir } from "node:fs/promises";
+import { loadSnapshot } from "../lib/catalog/load";
+import { ensureSchema, upsertSnapshot } from "../lib/db/catalog";
 
 try {
-  const snapshot = await loadSnapshot(process.argv[2]);
-  const counts = await upsertSnapshot(snapshot);
-  console.log(`Seeded "${snapshot.costume.slug}":`, counts);
-} catch (e) {
-  console.error("Seed failed:", e instanceof Error ? e.message : e);
+  await ensureSchema();
+  const inputs = process.argv.includes("--all")
+    ? (await readdir("data/costumes")).filter((file) => file.endsWith(".json")).map((file) => `data/costumes/${file}`)
+    : [process.argv[2]];
+  for (const input of inputs) {
+    const snapshot = await loadSnapshot(input);
+    await upsertSnapshot(snapshot);
+    console.log(`Saved ${snapshot.costume.slug}: ${snapshot.pieces.length} pieces, ${snapshot.products.length} products.`);
+  }
+} catch {
+  console.error("Catalog seed failed. Check database configuration and snapshot validity.");
   process.exitCode = 1;
-} finally {
-  await resetGraph();
 }

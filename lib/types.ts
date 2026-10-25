@@ -1,4 +1,4 @@
-// Shared catalog types. Every module (graph, pipeline, storefront, assistant,
+// Shared catalog types. Every module (catalog, pipeline, storefront, assistant,
 // checkout) builds against these. Change them only through the lead.
 
 /** Prices are always integer US cents. */
@@ -25,7 +25,7 @@ export interface Piece {
   name: string;
   category: string;
   required: boolean;
-  /** Display order within the costume (NEEDS.order). */
+  /** Display order within the costume (ascending). */
   order: number;
   styleNotes: string;
   queries: string[];
@@ -92,7 +92,7 @@ export interface Product {
   checkedAt: string;
 }
 
-/** One (:Piece)-[:MATCHED_BY {rank, reason}]->(:Product) edge. rank 0 = default pick. */
+/** One piece-to-product match. Rank 0 is the default pick. */
 export interface Match {
   productId: string;
   rank: number;
@@ -110,12 +110,12 @@ export interface PickPathStep {
   label: string;
 }
 
-/** The graph path behind "why this pick". */
+/** The catalog evidence behind "why this pick". */
 export interface PickReason {
   productId: string;
   pieceId: string;
   rank: number;
-  /** The ranker's written reason (MATCHED_BY.reason). */
+  /** The ranker's written reason for the match. */
   reason: string;
   path: PickPathStep[];
   /** True when the merchant is in the Bay Area region (support-local badge). */
@@ -166,7 +166,7 @@ export interface SharedMerchant {
   productIds: string[];
 }
 
-/** Filters shared by the graph, snapshot, and assistant catalog queries. */
+/** Filters shared by the catalog, snapshot, and assistant catalog queries. */
 export interface AlternativeFilters {
   localOnly?: boolean;
   /** Inclusive limit in integer US cents. */

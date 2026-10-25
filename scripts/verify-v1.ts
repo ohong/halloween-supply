@@ -57,11 +57,11 @@ async function main() {
   pass("costume HTML renders merchant picks, explanations, swaps, whole-costume cart action");
 
   const health = await (await fetch(new URL("/api/health", base))).json();
-  assert(health.graph.ok && health.graph.costume, "Graph must connect and contain the cowboy");
-  for (const key of ["ANTHROPIC_API_KEY", "BRIGHTDATA_API_KEY", "BRIGHTDATA_SERP_ZONE", "BRIGHTDATA_UNLOCKER_ZONE", "FALKORDB_URL", "STRIPE_SECRET_KEY"]) {
+  assert(health.database.ok && health.catalog.complete, "Database must connect and contain the complete cowboy catalog");
+  for (const key of ["ANTHROPIC_API_KEY", "FIRECRAWL_API_KEY", "TURSO_DATABASE_URL", "TURSO_AUTH_TOKEN", "STRIPE_SECRET_KEY"]) {
     assert.equal(health.env[key], true, `Missing server ${key}`);
   }
-  pass("server credentials present by name; FalkorDB reachable and seeded");
+  pass("server credentials present by name; Turso reachable and seeded");
 
   const malformed = await jsonPost("/api/checkout", {});
   assert.equal(malformed.response.status, 400);

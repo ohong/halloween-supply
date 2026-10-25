@@ -1,7 +1,7 @@
 // Normalize the already checked catalog without spending search/model credits.
 // bun --env-file=.env.local scripts/source/images-only.ts cosmic-cowboy [--force] [--defaults]
 import { applyExistingTiles, buildFlatlay, processProductImages } from "./images";
-import { loadExisting, upsertToGraph, writeSnapshotFile } from "./write";
+import { loadExisting, saveToDatabase, writeSnapshotFile } from "./write";
 import { flatlayScale } from "../../lib/products/flatlay";
 
 const slug = process.argv[2] ?? "cosmic-cowboy";
@@ -17,5 +17,5 @@ if (await buildFlatlay(slug, defaults, cutouts, console.log, snapshot.pieces.map
   snapshot.costume.alt = `${snapshot.costume.name}: ${snapshot.pieces.map((piece) => piece.name.toLowerCase()).join(", ")}, arranged on pale grey.`;
 }
 await writeSnapshotFile(snapshot);
-await upsertToGraph(snapshot, console.log);
+await saveToDatabase(snapshot, console.log);
 console.log(`Saved ${snapshot.products.filter((p) => p.image.startsWith("/products/")).length}/${snapshot.products.length} normalized product photos.`);

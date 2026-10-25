@@ -1,5 +1,5 @@
 // Merchant product pages discovered from live independent-store catalogs.
-// These supplement Google Shopping cards that link back to Google instead of the shop.
+// These supplement search results with reviewed independent merchants.
 import type { Candidate } from "./search";
 import { products as linenGhostProducts } from "./costumes/linen-ghost";
 import { products as vampireProducts } from "./costumes/velvet-vampire";
@@ -45,7 +45,7 @@ const products: Record<string, Array<[string, string, string?]>> = {
 
 export function curatedCandidates(pieceId: string): Candidate[] {
   return (products[pieceId] ?? []).map(([url, title, preferredColor]) => ({
-    url, title, via: "organic", source: "merchant catalog discovery", preferredColor,
+    url, title, source: "merchant catalog discovery", preferredColor,
   }));
 }
 

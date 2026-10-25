@@ -1,5 +1,5 @@
-// Step 2: SERP search per piece (shopping + organic), blocklist applied.
-import { serpSearch } from "../../lib/brightdata/client";
+// Discover product pages with Firecrawl, then apply merchant filters.
+import { searchWeb } from "../../lib/firecrawl/client";
 import { hostnameOf, isBlockedDomain, isNoiseDomain } from "../../lib/sourcing/blocklist";
 import { mapLimit } from "../../lib/sourcing/pool";
 import type { Piece } from "../../lib/types";
@@ -8,10 +8,7 @@ import { curatedCandidates } from "./curated";
 export interface Candidate {
   url: string;
   title: string;
-  /** Price shown in the SERP, if any (cents). */
-  serpPriceCents?: number;
   source?: string;
-  via: "shopping" | "organic";
   /** Preserve a researched color when the merchant groups colors on one page. */
   preferredColor?: string;
 }
@@ -54,34 +51,25 @@ export interface SearchOptions {
   log?: (msg: string) => void;
 }
 
-/** Run every query for a piece (shopping + organic), drop blocked/noise domains, dedupe, cap per domain. */
+/** Search each query once; merchant prices are confirmed from the product page. */
 export async function searchPiece(piece: Piece, opts: SearchOptions = {}): Promise<Candidate[]> {
   const max = opts.maxCandidates ?? 10;
   const perDomain = opts.perDomain ?? 2;
-  const jobs = piece.queries.flatMap((q) => [
-    { q, shopping: true },
-    { q, shopping: false },
-  ]);
-  const settled = await mapLimit(jobs, 3, (j) => serpSearch(j.q, { shopping: j.shopping, cache: true, timeoutMs: 25_000, retries: 0 }));
-
-  const shopping: Candidate[] = [];
-  const organic: Candidate[] = [];
+  const settled = await mapLimit(piece.queries, 2, (query) => searchWeb(query, { cache: true, timeoutMs: 25_000 }));
+  const discovered: Candidate[] = [];
   let dropped = 0;
-  settled.forEach((r, i) => {
-    if (!r.ok) {
-      opts.log?.(`  search failed for "${jobs[i].q}" (${jobs[i].shopping ? "shopping" : "organic"}): ${(r.error as Error).message}`);
+  settled.forEach((result, i) => {
+    if (!result.ok) {
+      opts.log?.(`  search failed for "${piece.queries[i]}": ${(result.error as Error).message}`);
       return;
     }
-    for (const s of r.value.shopping) {
-      shopping.push({ url: s.link, title: s.title, serpPriceCents: s.priceCents, source: s.source, via: "shopping" });
-    }
-    for (const o of r.value.organic) organic.push({ url: o.link, title: o.title, via: "organic" });
+    for (const item of result.value) discovered.push({ url: item.url, title: item.title, source: "Firecrawl search" });
   });
 
   const seen = new Set<string>();
   const perHost = new Map<string, number>();
   const out: Candidate[] = [];
-  for (const c of [...curatedCandidates(piece.id), ...shopping, ...organic]) {
+  for (const c of [...curatedCandidates(piece.id), ...discovered]) {
     const url = canonicalUrl(c.url);
     if (!url) continue;
     if (isBlockedDomain(url)) {
@@ -97,6 +85,6 @@ export async function searchPiece(piece: Piece, opts: SearchOptions = {}): Promi
     out.push({ ...c, url });
     if (out.length >= max) break;
   }
-  opts.log?.(`  ${piece.id}: ${shopping.length} shopping + ${organic.length} organic results, ${dropped} blocked, ${out.length} candidates`);
+  opts.log?.(`  ${piece.id}: ${discovered.length} search results, ${dropped} blocked, ${out.length} candidates`);
   return out;
 }

@@ -1,6 +1,7 @@
 import "server-only";
 
-import { getGraph, isGraphConfigured } from "../graph/client";
+import { isDatabaseConfigured } from "../db/client";
+import { readSnapshots, updateProducts, type ProductUpdate } from "../db/catalog";
 import type { Product } from "../types";
 import { verifyProduct } from "./verify";
 
@@ -16,8 +17,8 @@ export interface RefreshSummary {
   verified: number;
   unverified: { productId: string; reason: string }[];
   changes: RefreshChange[];
-  graphWritten: number;
-  graphError?: string;
+  databaseWritten: number;
+  databaseError?: string;
 }
 
 const CONCURRENCY = 5;
@@ -36,26 +37,22 @@ async function mapLimit<T, R>(items: T[], limit: number, fn: (t: T) => Promise<R
   return out;
 }
 
-/** Re-check price and stock for every product of every live costume; write results to the graph. */
+/** Re-check price and stock for every product of every live costume; write results to the database. */
 export async function refreshAllProducts(): Promise<RefreshSummary> {
-  const summary: RefreshSummary = { checked: 0, verified: 0, unverified: [], changes: [], graphWritten: 0 };
-  if (!isGraphConfigured()) return { ...summary, graphError: "The graph connection is not configured." };
+  const summary: RefreshSummary = { checked: 0, verified: 0, unverified: [], changes: [], databaseWritten: 0 };
+  if (!isDatabaseConfigured()) return { ...summary, databaseError: "The database connection is not configured." };
   let products: Product[];
   try {
-    const graph = await getGraph();
-    const result = await graph.roQuery<{ p: { properties: Product } }>(
-      `MATCH (c:Costume {status: 'live'})-[:NEEDS]->(:Piece)-[m:MATCHED_BY]->(p:Product)
-       WHERE m.costume = c.slug
-       RETURN DISTINCT p`,
-    );
-    products = (result.data ?? []).map((row) => row.p.properties);
+    const snapshots = await readSnapshots();
+    products = [...new Map(snapshots.filter((s) => s.costume.status === "live")
+      .flatMap((s) => s.products).map((p) => [p.id, p])).values()];
     summary.checked = products.length;
   } catch {
-    console.error("[cron/refresh] graph catalog read failed");
-    return { ...summary, graphError: "The graph catalog could not be read." };
+    console.error("[cron/refresh] database catalog read failed");
+    return { ...summary, databaseError: "The database catalog could not be read." };
   }
-  if (!products.length) return { ...summary, graphError: "The graph has no live catalog products to refresh." };
-  const updates: { id: string; priceCents: number; availability: string; sizes: string[]; checkedAt: string }[] = [];
+  if (!products.length) return { ...summary, databaseError: "The database has no live catalog products to refresh." };
+  const updates: ProductUpdate[] = [];
 
   await mapLimit(products, CONCURRENCY, async (p) => {
     try {
@@ -76,20 +73,11 @@ export async function refreshAllProducts(): Promise<RefreshSummary> {
 
   if (updates.length) {
     try {
-      const graph = await getGraph();
-      const result = await graph.query<{ updated: number }>(
-        `UNWIND $rows AS row
-         MATCH (p:Product {id: row.id})
-         SET p.priceCents = row.priceCents, p.availability = row.availability,
-             p.sizes = row.sizes, p.checkedAt = row.checkedAt
-         RETURN count(p) AS updated`,
-        { params: { rows: updates } as never },
-      );
-      summary.graphWritten = Number(result.data?.[0]?.updated ?? 0);
-      if (summary.graphWritten !== updates.length) summary.graphError = "Some verified products could not be updated in the graph.";
+      summary.databaseWritten = await updateProducts(updates);
+      if (summary.databaseWritten !== updates.length) summary.databaseError = "Some verified products could not be updated in the database.";
     } catch {
-      summary.graphError = "The verified products could not be saved to the graph.";
-      console.error("[cron/refresh] graph write failed");
+      summary.databaseError = "The verified products could not be saved to the database.";
+      console.error("[cron/refresh] database write failed");
     }
   }
   return summary;

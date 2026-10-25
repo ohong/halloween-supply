@@ -1,4 +1,4 @@
-// Disk cache for raw SERP / Unlocker / Claude responses, keyed by a hash of the request.
+// Disk cache for Firecrawl and Claude responses, keyed by request hash.
 // Reruns of the pipeline spend no credits. data/cache/ is gitignored.
 import { createHash } from "node:crypto";
 import { mkdir, readFile, stat, writeFile } from "node:fs/promises";
@@ -16,7 +16,7 @@ export async function readCache<T>(namespace: string, key: unknown): Promise<T |
   try {
     const file = path.join(process.cwd(), "data", "cache", namespace, `${hashKey(key)}.json`);
     // Product facts expire quickly; repeated runs must not re-date old stock.
-    const maxAge = namespace === "unlocker" || namespace === "shopify" ? 15 * 60_000 : namespace === "serp" ? 24 * 60 * 60_000 : Infinity;
+    const maxAge = namespace === "firecrawl-pages" || namespace === "shopify" ? 15 * 60_000 : namespace === "firecrawl-search" ? 24 * 60 * 60_000 : Infinity;
     if (Date.now() - (await stat(file)).mtimeMs > maxAge) return undefined;
     const raw = await readFile(file, "utf8");
     return JSON.parse(raw) as T;

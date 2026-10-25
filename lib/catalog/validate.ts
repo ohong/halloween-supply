@@ -61,8 +61,8 @@ const schema = z.object({
   }),
 });
 
-/** Reject broken links and unpublishable live catalogs before the first graph write. */
-export function validateSnapshot(value: unknown): CostumeSnapshot {
+/** Reject broken links and unpublishable live catalogs before a catalog write. */
+export function validateSnapshot(value: unknown, requireInStockDefault = true): CostumeSnapshot {
   const snapshot = schema.parse(value);
   const { costume, pieces, products, merchants, neighborhoods, tags } = snapshot;
   const errors: string[] = [];
@@ -101,7 +101,7 @@ export function validateSnapshot(value: unknown): CostumeSnapshot {
     if (costume.status === "live") {
       assert(piece.matches.length === 3 && piece.matches.every((match) => match.rank <= 2), `Live piece ${piece.id} needs ranks 0, 1, and 2`);
       const defaultPick = piece.matches.find((match) => match.rank === 0);
-      assert(!!defaultPick && productById.get(defaultPick.productId)?.availability === "in_stock", `Live piece ${piece.id} needs an in-stock default`);
+      assert(!requireInStockDefault || (!!defaultPick && productById.get(defaultPick.productId)?.availability === "in_stock"), `Live piece ${piece.id} needs an in-stock default`);
     }
   }
   if (errors.length) throw new Error(`Invalid catalog snapshot: ${errors.join("; ")}`);
