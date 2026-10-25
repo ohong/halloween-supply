@@ -25,6 +25,10 @@ globalThis.fetch = async (url, options) => {
       assert.equal(input.target_polycount, 40000);
       assert.equal(input.should_texture, true);
       assert.equal(input.enable_safety_checker, true);
+    } else if (String(url).includes("trellis-2")) {
+      assert.equal(input.image_url, image);
+      assert.equal(input.decimation_target, 40000);
+      assert.equal(input.texture_size, 1024);
     } else {
       assert.equal(input.face_count, 40000);
       assert.equal(input.generate_type, "Normal");
@@ -33,7 +37,9 @@ globalThis.fetch = async (url, options) => {
     return Response.json({ request_id: `fal-${sequence++}` });
   }
   if (String(url).endsWith("/status")) return Response.json({ status: { queued: "IN_QUEUE", processing: "IN_PROGRESS", ready: "COMPLETED", failed: "COMPLETED" }[providerState] });
-  return Response.json(providerState === "failed" ? { error: "private details" } : { model_glb: { url: "https://v3.fal.media/test.glb" } });
+  // fal reports a failed job as COMPLETED and answers its result with an HTTP error.
+  if (providerState === "failed") return new Response("private details", { status: 500 });
+  return Response.json({ model_glb: { url: "https://v3.fal.media/test.glb" } });
 };
 function request(body, origin = "http://localhost") { return new Request("http://localhost/api/try-on/3d", { method: "POST", headers: { origin, "Content-Type": "application/json" }, body: JSON.stringify(body) }); }
 async function expect(handler, body, code, origin) {
@@ -44,7 +50,9 @@ async function expect(handler, body, code, origin) {
 }
 try {
   process.env.TRY_ON_3D_PROVIDER = "";
-  assert.equal(configuredProvider(), "meshy");
+  assert.equal(configuredProvider(), "trellis");
+  process.env.TRY_ON_3D_PROVIDER = "unknown";
+  assert.equal(configuredProvider(), "trellis");
   delete process.env.FAL_KEY;
   assert.equal(configuredProvider(), null);
   process.env.FAL_KEY = "test-only-fal";
@@ -55,11 +63,11 @@ try {
   await expect(create, { ...body, image: image + "changed" }, 403);
   await expect(create, { ...body, ticket: body.ticket + "invalid" }, 403);
   await expect(status, { token: body.ticket }, 403);
-  const huge = new Request("http://localhost/api/try-on/3d", { method: "POST", body: "x".repeat(6_100_001), headers: { "Content-Type": "application/json" } });
+  const huge = new Request("http://localhost/api/try-on/3d", { method: "POST", body: "x".repeat(4_500_001), headers: { "Content-Type": "application/json" } });
   assert.equal((await create(huge)).status, 413);
   assert.equal(calls.length, 0, "Invalid requests must not create provider costs");
   console.log("PASS consent, origin, image binding, token tampering, token purpose, streamed body limit and provider selection");
-  for (const provider of ["meshy", "hunyuan"]) {
+  for (const provider of ["trellis", "meshy", "hunyuan"]) {
     process.env.TRY_ON_3D_PROVIDER = provider;
     const offer = offer3d(image), body = { image, ticket: offer.ticket, consent: true };
     const before = calls.length;

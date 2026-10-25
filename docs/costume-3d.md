@@ -6,20 +6,30 @@ The viewer supports orbit, zoom, keyboard rotation, whole-look reset, and an ite
 
 ## Provider decision — October 25, 2026
 
-The default is **Meshy 7.1 through fal**. Both Meshy and the optional Hunyuan 3D 3.1 Pro endpoint use the existing `FAL_KEY`. No separate Meshy account key is needed.
+The default is **TRELLIS.2 through fal**. Meshy 7.1 and Hunyuan 3D 3.1 Pro stay available behind `TRY_ON_3D_PROVIDER`. All three use the existing `FAL_KEY`.
 
-Meshy uses standard geometry, textures, remeshing, a 40,000 target polygon count, and safety checking. Hunyuan uses textured output and 40,000 target faces. Neither requests PBR materials. These settings aim to keep browser rendering practical; no head-to-head quality benchmark has been completed.
+We ran one dressed try-on image (the knit model) through each model and compared the GLBs side by side:
+
+| Model | Cost per generation | Settings | Result |
+| --- | --- | --- | --- |
+| TRELLIS.2 | $0.30 (1024p) | 40k vertices, 1024px texture | Faithful colors, best face and hair detail. 1.6 MB, 53 s on the knit photo. |
+| Hunyuan 3D 3.1 Pro | $0.525 (with `face_count`) | 40k faces | Faithful colors, softer detail. 53.6 MB at default settings. |
+| Rodin 2.5 | $0.40 | PBR | Washed-out, near-white textures. Not wired in. |
+| Meshy 7.1 | $1.20 (textured) | 40k polygons, remeshed | Good shape, but the slowest (198 s) at 4× the TRELLIS price. 4.4 MB. |
+
+TRELLIS.2 gives the best detail for the lowest price. Its default output (500k vertices, 2048px texture) was 17 MB, which is too heavy for phones, so the app requests 40k vertices and a 1024px texture.
 
 Sources:
 
+- [TRELLIS.2 on fal: request and response schema](https://fal.ai/models/fal-ai/trellis-2/api)
 - [Meshy 7.1 on fal: request and response schema](https://fal.ai/models/meshy/v7.1/image-to-3d/api)
 - [Hunyuan input/output schema](https://fal.ai/models/fal-ai/hunyuan-3d/v3.1/pro/image-to-3d/api)
 - [Interaction reference](https://www.paradigm.xyz/frontiers-2026/merch)
 
 ## Configuration
 
-- `FAL_KEY`: enables 3D generation for both providers.
-- `TRY_ON_3D_PROVIDER`: optional `meshy` (default) or `hunyuan`.
+- `FAL_KEY`: enables 3D generation for every provider.
+- `TRY_ON_3D_PROVIDER`: optional `trellis` (default), `meshy` or `hunyuan`. An unknown value falls back to `trellis`.
 - `TRY_ON_3D_SIGNING_SECRET`: optional dedicated signing key, stable across deployment instances. Falls back to `FAL_KEY`.
 
 No provider key reaches the browser. Without `FAL_KEY`, photo try-on remains available and 3D reports its unavailable state.
@@ -48,11 +58,11 @@ Two approaches were considered. A reusable avatar with separately fitted garment
 
 For the viewer, a custom Three.js camera provides direct control over focus animation and projecting borders onto the screen. It avoids a second React rendering layer. The renderer only draws on load, resize, camera movement, or transitions, and releases GPU resources when removed. Three.js loads only after a model is ready. Draco decoders are served locally under `public/draco`.
 
-The source preview ticket expires after one hour and binds the exact image digest and provider. The model token grants status access for 24 hours. Requests use bounded bodies, same-origin checks, consent validation, and no-store responses. Arbitrary image URLs and arbitrary provider task IDs are not accepted from clients. Provider error text is not exposed.
+The source preview ticket expires after one hour and binds the exact image digest and provider. The model token grants status access for 24 hours. Requests use bounded bodies (4.4 MB images, below Vercel's 4.5 MB function body limit), same-origin checks, consent validation, and no-store responses. Arbitrary image URLs and arbitrary provider task IDs are not accepted from clients. Provider error text is not exposed.
 
 Duplicate submissions for one preview share a promise **within one server instance**. The existing photo-try-on quota is also instance-local. Production-wide cost control and idempotency require a shared store or hosting firewall. This work does not claim distributed enforcement.
 
-Transient status failures retry the existing job. Pausing updates stops polling, not the provider job. Polling can resume from the same token within the page. Reloading or leaving loses the local result; this app does not persist personal photos, previews, models, or job tokens. Provider retention is separate and is disclosed before submission.
+fal reports a failed job as `COMPLETED` and answers its result request with an HTTP error. The status route treats that as a failed generation and stops polling, instead of retrying forever. Transient status failures retry the existing job. Pausing updates stops polling, not the provider job. Polling can resume from the same token within the page. Reloading or leaving loses the local result; this app does not persist personal photos, previews, models, or job tokens. Provider retention is separate and is disclosed before submission.
 
 ## Limits and validation
 
@@ -64,7 +74,7 @@ Checked locally:
 - TypeScript and ESLint on the changed feature files.
 - `bun scripts/verify-try-on.mjs`: existing photo path, costume/product validation, rejection handling, quota, and missing-key behavior. OpenAI HTTP is simulated.
 - `bun scripts/verify-try-on-3d.mjs`: real route handlers with simulated provider HTTP; tests consent, origin, signed image binding, token tampering/purpose/expiry, body limits, concurrent deduplication, provider settings, progress, completion, failures, and transient errors.
-- One real fal generation from the synthetic Cosmic Cowboy catalog image. No personal photo was used in this validation. The running Next.js status endpoint returned HTTP 200 with the completed model.
-- The resulting real GLB was exercised in the local browser: hat and footwear focus, orbit, keyboard rotation/reset, resize, and a measured 480 CSS-pixel layout with no horizontal overflow. Browser console had no warnings/errors during that viewer check.
+- Real end-to-end run through the local dev server with a synthetic photo (no personal photo): photo try-on (17 s), TRELLIS.2 submit, status ready after 27 s, 2.3 MB GLB.
+- The same flow in the local browser on Velvet Vampire: the TRELLIS GLB renders in the viewer, selecting the waistcoat moves the camera and draws its focus box, and the console has no errors.
 
-Not established: a head-to-head quality/latency benchmark, personal likeness on a real shopper photo, physical mobile GPU behavior, or a deployed release.
+Not established: a multi-image quality benchmark, personal likeness on a real shopper photo, or physical mobile GPU behavior.
