@@ -1,7 +1,9 @@
 # Halloween Supply
 
 A curated costume store built from individual pieces at independent merchants.
-Five costumes have saved catalogs with three options for each piece.
+Five costumes have saved shopping catalogs with three options for each piece.
+Twenty additional style guides include AI-generated outfit images, five-piece
+lists, and practical styling tips. Every look can be opened and saved from the gallery.
 
 ## Run
 
@@ -39,8 +41,9 @@ bun --env-file=.env.local scripts/source/index.ts cosmic-cowboy --skip-images
 ```
 
 Original editorial images are in `public/costumes/`. Their prompts are recorded
-in `docs/design/costume-image-prompts.json`. Product images come from the checked
-merchant listings.
+in `docs/design/costume-image-prompts.json`. Prompts for the twenty style guides
+are recorded in `docs/design/new-costume-image-prompts.json`. Product images come
+from the checked merchant listings.
 
 ## Checks
 

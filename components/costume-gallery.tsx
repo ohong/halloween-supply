@@ -27,13 +27,11 @@ export function CostumeGallery() {
           <Image src={costume.image} alt={costume.alt} fill sizes="(min-width: 1200px) 20vw, (min-width: 768px) 33vw, 50vw" preload={index === 0} />
           <span className="tile-caption">
             <span className="tile-name">{costume.name}</span>
-            {!live && <span className="tile-soon">Coming soon</span>}
+            {!live && <span className="tile-kind">Style guide</span>}
           </span>
         </>;
-        return <div className={`tile ${live ? "" : "tile-soon-state"}`} key={costume.slug}>
-          {live
-            ? <Link href={`/costumes/${costume.slug}`} className="tile-body" aria-label={`View ${costume.name}`}>{picture}</Link>
-            : <div className="tile-body">{picture}</div>}
+        return <div className="tile" key={costume.slug}>
+          <Link href={`/costumes/${costume.slug}`} className="tile-body" aria-label={`View ${costume.name}${live ? "" : " style guide"}`}>{picture}</Link>
           <SaveLook slug={costume.slug} name={costume.name} />
         </div>;
       })}

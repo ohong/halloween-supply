@@ -1,0 +1,127 @@
+{
+  "tool": "built-in image_gen",
+  "skill": "OpenAI imagegen",
+  "transparentBackground": true,
+  "prompts": [
+    {
+      "slug": "starlight-witch",
+      "prompt": "Use case: product-mockup. Asset type: a single costume cutout for a restrained, design-led Halloween costume gallery. Style: photorealistic premium catalog product photography, highly tactile cloth and physically believable construction, soft even studio light. Composition: entire outfit centered in a square canvas, front-on on an invisible mannequin, generous clear margins around the complete silhouette. No human, face, skin, visible mannequin, stand, backdrop, floor, exterior cast shadow, text, watermark, or collage. Genuinely transparent alpha background. Produce exactly one cohesive wearable adult outfit. Subject: A starlight witch costume: midnight velvet pointed witch hat floating above a navy cape embroidered with delicate silver stars, flowing midnight-blue dress, black lace-up ankle boots, and a small silver crescent pendant. Elegant tactile velvet and subtle celestial embroidery.",
+      "path": "/workspace/halloween-supply/public/costumes/starlight-witch.png",
+      "publicPath": "/costumes/starlight-witch.png"
+    },
+    {
+      "slug": "clockwork-aviator",
+      "prompt": "Use case: product-mockup. Asset type: a single costume cutout for a restrained, design-led Halloween costume gallery. Style: photorealistic premium catalog product photography, highly tactile cloth and physically believable construction, soft even studio light. Composition: entire outfit centered in a square canvas, front-on on an invisible mannequin, generous clear margins around the complete silhouette. No human, face, skin, visible mannequin, stand, backdrop, floor, exterior cast shadow, text, watermark, or collage. Genuinely transparent alpha background. Produce exactly one cohesive wearable adult outfit. Subject: A clockwork aviator costume: brown leather flight cap with brass-rimmed goggles floating above a caramel shearling-lined flight jacket, cream shirt, brown utility trousers, and dark brown lace-up boots. Tactile vintage leather and cream shearling, understated brass details.",
+      "path": "/workspace/halloween-supply/public/costumes/clockwork-aviator.png",
+      "publicPath": "/costumes/clockwork-aviator.png"
+    },
+    {
+      "slug": "autumn-scarecrow",
+      "prompt": "Use case: product-mockup. Asset type: a single costume cutout for a restrained, design-led Halloween costume gallery. Style: photorealistic premium catalog product photography, highly tactile cloth and physically believable construction, soft even studio light. Composition: entire outfit centered in a square canvas, front-on on an invisible mannequin, generous clear margins around the complete silhouette. No human, face, skin, visible mannequin, stand, backdrop, floor, exterior cast shadow, text, watermark, or collage. Genuinely transparent alpha background. Produce exactly one cohesive wearable adult outfit. Subject: An autumn scarecrow costume: soft rust patchwork pointed hat, ochre plaid shirt, patched denim overalls, straw-colored cloth tufts at cuffs, brown lace-up boots. Charming handcrafted fabric construction, warm harvest tones.",
+      "path": "/workspace/halloween-supply/public/costumes/autumn-scarecrow.png",
+      "publicPath": "/costumes/autumn-scarecrow.png"
+    },
+    {
+      "slug": "midnight-pirate",
+      "prompt": "Use case: product-mockup. Asset type: a single costume cutout for a restrained, design-led Halloween costume gallery. Style: photorealistic premium catalog product photography, highly tactile cloth and physically believable construction, soft even studio light. Composition: entire outfit centered in a square canvas, front-on on an invisible mannequin, generous clear margins around the complete silhouette. No human, face, skin, visible mannequin, stand, backdrop, floor, exterior cast shadow, text, watermark, or collage. Genuinely transparent alpha background. Produce exactly one cohesive wearable adult outfit. Subject: A midnight pirate costume: black tricorn hat above ivory billowy shirt, midnight-blue brocade long coat, burgundy fabric sash at waist, black trousers and black buckled boots. Beautiful fabric detail, no weapons.",
+      "path": "/workspace/halloween-supply/public/costumes/midnight-pirate.png",
+      "publicPath": "/costumes/midnight-pirate.png"
+    },
+    {
+      "slug": "enchanted-jester",
+      "prompt": "Use case: product-mockup. Asset type: a single costume cutout for a restrained, design-led Halloween costume gallery. Style: photorealistic premium catalog product photography, highly tactile cloth and physically believable construction, soft even studio light. Composition: entire outfit centered in a square canvas, front-on on an invisible mannequin, generous clear margins around the complete silhouette. No human, face, skin, visible mannequin, stand, backdrop, floor, exterior cast shadow, text, watermark, or collage. Genuinely transparent alpha background. Produce exactly one cohesive wearable adult outfit. Subject: An enchanted jester costume: plum and sage two-point jester cap floating above a plum-and-sage velvet diamond-pattern tunic, cream ruff collar, fitted plum trousers, curled dark ankle boots. Restrained theatrical textile design.",
+      "path": "/workspace/halloween-supply/public/costumes/enchanted-jester.png",
+      "publicPath": "/costumes/enchanted-jester.png"
+    },
+    {
+      "slug": "forest-sprite",
+      "prompt": "Use case: product-mockup. Asset type: a single costume cutout for a restrained, design-led Halloween costume gallery. Style: photorealistic premium catalog product photography, highly tactile cloth and physically believable construction, soft even studio light. Composition: entire outfit centered in a square canvas, front-on on an invisible mannequin, no human, face, skin, visible mannequin or stand, generous clear margins. Scene: genuinely transparent alpha background, no studio backdrop, floor, cast shadow outside garment, text, watermark or collage. Exactly one cohesive wearable adult forest sprite outfit: leaf-green layered organza tunic, moss-green cape, twig and fabric-leaf crown hovering over collar, olive leggings and brown leather ankle boots. Elegant woodland palette, beautifully layered natural textures.",
+      "path": "/workspace/halloween-supply/public/costumes/forest-sprite.png",
+      "publicPath": "/costumes/forest-sprite.png"
+    },
+    {
+      "slug": "celestial-sorcerer",
+      "prompt": "Use case: product-mockup. Asset type: one costume cutout for a restrained, design-led Halloween costume gallery. Scene: genuinely transparent alpha background. Subject: a cohesive wearable adult celestial sorcerer costume: a deep midnight-blue long robe embroidered with delicate silver constellations, matching pointed wizard hat floating above the collar, silver rope belt, small silver moon pendant and black boots visible below robe. Style: photorealistic premium catalog product photography, tactile velvet and embroidery, believable construction, soft even studio light. Composition: entire outfit centered square canvas with generous clear margins, front-on invisible mannequin, no human, face, skin, visible mannequin or stand. No backdrop, floor, cast shadow outside garment, text, watermark or collage. Exactly one complete outfit.",
+      "path": "/workspace/halloween-supply/public/costumes/celestial-sorcerer.png",
+      "publicPath": "/costumes/celestial-sorcerer.png"
+    },
+    {
+      "slug": "pumpkin-harlequin",
+      "prompt": "Use case: product-mockup. Asset type: a single costume cutout for a restrained, design-led Halloween costume gallery. Scene: transparent alpha background. Subject: one cohesive wearable adult pumpkin harlequin costume: burnt-orange and charcoal diamond-patterned tailored jumpsuit, orange ruffled collar, fitted black pointed ankle boots, small sculptural pumpkin-shaped beret hovering above collar. The jumpsuit has long sleeves and tapered trousers with tasteful velvet diamond panels. Style: photorealistic premium catalog product photography, tactile fabric and believable sewing, soft even studio light. Composition: entire outfit centered front-on in square canvas on invisible mannequin with generous clear margins. No human, face, skin, visible mannequin, stand, backdrop, floor, cast shadow outside garment, text, watermark or collage. Exactly one complete outfit.",
+      "path": "/workspace/halloween-supply/public/costumes/pumpkin-harlequin.png",
+      "publicPath": "/costumes/pumpkin-harlequin.png"
+    },
+    {
+      "slug": "victorian-detective",
+      "prompt": "Use case: product-mockup. Asset type: one costume cutout for a restrained, design-led Halloween costume gallery. Scene: genuinely transparent alpha background. Subject: a complete wearable adult Victorian detective outfit: brown herringbone tweed deerstalker cap hovering above collar, matching brown tweed Inverness cape, cream cotton shirt, dark brown tailored waistcoat, brown tweed trousers and polished brown leather brogues. No weapons or handheld props. Style: photorealistic premium catalog product photography, tactile wool and cotton, historically inspired believable construction, soft even studio light. Composition: entire cohesive outfit centered front-on on invisible mannequin, square canvas generous clear margins. No human, face, skin, visible mannequin, stand, backdrop, floor, cast shadow outside garment, text, watermark or collage.",
+      "path": "/workspace/halloween-supply/public/costumes/victorian-detective.png",
+      "publicPath": "/costumes/victorian-detective.png"
+    },
+    {
+      "slug": "storm-chaser",
+      "prompt": "Use case: product-mockup. Asset type: one costume cutout for a restrained, design-led Halloween costume gallery. Scene: genuinely transparent alpha background. Subject: a complete wearable adult storm chaser costume: mustard-yellow hooded raincoat worn open over navy and ivory striped sweater, dark navy waterproof trousers, black rubber rain boots, tiny polished silver lightning-bolt brooch pinned to coat. Hood has empty invisible mannequin interior, no person. Style: photorealistic premium catalog product photography, tactile raincoat fabric, knit and rubber, believable construction, soft even studio light. Composition: entire cohesive outfit front-on and centered in square canvas with at least 8 percent empty margin on every side, invisible mannequin. No human, face, skin, visible mannequin, stand, backdrop, floor, cast shadow outside garment, text, watermark or collage. Exactly one complete outfit.",
+      "path": "/workspace/halloween-supply/public/costumes/storm-chaser.png",
+      "publicPath": "/costumes/storm-chaser.png"
+    },
+    {
+      "slug": "disco-phantom",
+      "prompt": "Use case: product-mockup. Asset type: a single costume cutout for a restrained, design-led Halloween costume gallery. Style: photorealistic premium catalog product photography, highly tactile cloth and physically believable construction, soft even studio light. Composition: entire outfit centered in a square canvas, shown front-on on an INVISIBLE mannequin, no human, no face, no skin, no visible mannequin or stand. Costume floats naturally with shape, generous clear margins. Scene: transparent alpha background, no studio backdrop, no floor, no cast shadow outside the garment, no text, no watermark, no collage. Produce exactly ONE cohesive wearable adult outfit. Subject: Disco Phantom: pearl silver sequined hooded cape open enough to reveal an ivory satin flared jumpsuit, silver platform ankle boots, and shimmering silver gloves. The hood is empty and dark inside, with no face. Elegant luminous fabric detail and late-night disco silhouette.",
+      "path": "/workspace/halloween-supply/public/costumes/disco-phantom.png",
+      "publicPath": "/costumes/disco-phantom.png"
+    },
+    {
+      "slug": "garden-beekeeper",
+      "prompt": "Use case: product-mockup. Asset type: a single costume cutout for a restrained, design-led Halloween costume gallery. Style: photorealistic premium catalog product photography, highly tactile cloth and physically believable construction, soft even studio light. Composition: entire outfit centered in a square canvas, shown front-on on an INVISIBLE mannequin, no human, no face, no skin, no visible mannequin or stand. Costume floats naturally with shape, generous clear margins. Scene: transparent alpha background, no studio backdrop, no floor, no cast shadow outside the garment, no text, no watermark, no collage. Produce exactly ONE cohesive wearable adult outfit. Subject: Garden Beekeeper: cream cotton beekeeper jacket with a round protective mesh veil hood, cream utility trousers with realistic pockets, tan work gloves, brown ankle boots, and a small fabric bee brooch. The veil contains empty darkness rather than a face. Soft natural cotton texture, charming practical garden costume.",
+      "path": "/workspace/halloween-supply/public/costumes/garden-beekeeper.png",
+      "publicPath": "/costumes/garden-beekeeper.png"
+    },
+    {
+      "slug": "coral-mermaid",
+      "prompt": "Use case: product-mockup. Asset type: a single costume cutout for a restrained, design-led Halloween costume gallery. Style: photorealistic premium catalog product photography, highly tactile cloth and physically believable construction, soft even studio light. Composition: entire outfit centered in a square canvas, shown front-on on an INVISIBLE mannequin, no human, no face, no skin, no visible mannequin or stand. Costume floats naturally with shape, generous clear margins. Scene: transparent alpha background, no studio backdrop, no floor, no cast shadow outside the garment, no text, no watermark, no collage. Produce exactly ONE cohesive wearable adult outfit. Subject: Coral Mermaid: teal scale-textured long skirt flaring dramatically at the hem like a wearable mermaid tail, seafoam green draped blouse, coral pink embroidered cropped jacket, delicate shell crown hovering above the empty neckline, and a sea glass pendant. Refined theatrical seacoast textures, coral and teal color contrast, clearly garments rather than an actual sea creature.",
+      "path": "/workspace/halloween-supply/public/costumes/coral-mermaid.png",
+      "publicPath": "/costumes/coral-mermaid.png"
+    },
+    {
+      "slug": "snow-owl",
+      "prompt": "Use case: product-mockup. Asset type: a single costume cutout for a restrained, design-led Halloween costume gallery. Style: photorealistic premium catalog product photography, highly tactile cloth and physically believable construction, soft even studio light. Composition: entire outfit centered in a square canvas, shown front-on on an INVISIBLE mannequin, no human, no face, no skin, no visible mannequin or stand. Costume floats naturally with shape, generous clear margins. Scene: transparent alpha background, no studio backdrop, no floor, no cast shadow outside the garment, no text, no watermark, no collage. Produce exactly ONE cohesive wearable adult outfit. Subject: Snow Owl: ivory feather-textured cape with subtle taupe speckles, sculptural feather layers suggesting folded owl wings, a simple cream tunic and ivory trousers, brown ankle boots, and a sculptural owl-inspired feather headband hovering above the empty neckline. Cozy wintry cream and taupe materials. The headband is wearable, not a human face or actual bird.",
+      "path": "/workspace/halloween-supply/public/costumes/snow-owl.png",
+      "publicPath": "/costumes/snow-owl.png"
+    },
+    {
+      "slug": "velvet-ringmaster",
+      "prompt": "Use case: product-mockup. Asset type: a single costume cutout for a restrained, design-led Halloween costume gallery. Style: photorealistic premium catalog product photography, highly tactile cloth and physically believable construction, soft even studio light. Composition: entire outfit centered in a square canvas, shown front-on on an INVISIBLE mannequin, no human, no face, no skin, no visible mannequin or stand. Costume floats naturally with shape, generous clear margins. Scene: transparent alpha background, no studio backdrop, no floor, no cast shadow outside the garment, no text, no watermark, no collage. Produce exactly ONE cohesive wearable adult outfit. Subject: Velvet Ringmaster: deep red velvet tailcoat with elegant gold braid trim, cream ruffled shirt, black high-waisted tailored trousers, black top hat hovering above the empty collar, and polished black boots. Beautiful rich red velvet pile against warm gold braid. Sophisticated vintage theatrical ensemble. No whip, no animals, no props or weapons.",
+      "path": "/workspace/halloween-supply/public/costumes/velvet-ringmaster.png",
+      "publicPath": "/costumes/velvet-ringmaster.png"
+    },
+    {
+      "slug": "desert-alchemist",
+      "prompt": "Use case: product-mockup. Asset type: a single costume cutout for a restrained, design-led Halloween costume gallery. Style: photorealistic premium catalog product photography, tactile cloth and physically believable construction, soft even studio light. Composition: entire cohesive outfit centered in a square canvas, front-on on an INVISIBLE mannequin, generous clear margins around all garments. Scene: genuinely transparent alpha background, no backdrop, no floor, no cast shadow outside the garment. Constraints: no human, no skin, no face, no visible mannequin or stand, no text, no logos, no watermark, no collage. Produce exactly ONE full wearable adult outfit. Subject: A desert alchemist costume: sand linen hooded cloak, terracotta long tunic, dark brown wide belt with little glass bottle pouches, cream trousers and brown leather boots. Warm earthy fabrics and small clear potion bottles.",
+      "path": "/workspace/halloween-supply/public/costumes/desert-alchemist.png",
+      "publicPath": "/costumes/desert-alchemist.png"
+    },
+    {
+      "slug": "rose-garden-queen",
+      "prompt": "Use case: product-mockup. Asset type: a single costume cutout for a restrained, design-led Halloween costume gallery. Style: photorealistic premium catalog product photography, tactile cloth and physically believable construction, soft even studio light. Composition: entire cohesive outfit centered in a square canvas, front-on on an INVISIBLE mannequin, generous clear margins around all garments. Scene: genuinely transparent alpha background, no backdrop, no floor, no cast shadow outside the garment. Constraints: no human, no skin, no face, no visible mannequin or stand, no text, no logos, no watermark, no collage. Produce exactly ONE full wearable adult outfit. Subject: A rose garden queen costume: burgundy velvet gown with embroidered fabric rose details, sage green short cape, delicate brass rose crown hovering above the collar, burgundy gloves and dark ankle boots.",
+      "path": "/workspace/halloween-supply/public/costumes/rose-garden-queen.png",
+      "publicPath": "/costumes/rose-garden-queen.png"
+    },
+    {
+      "slug": "retro-astronaut",
+      "prompt": "Use case: product-mockup. Asset type: a single costume cutout for a restrained, design-led Halloween costume gallery. Style: photorealistic premium catalog product photography, tactile cloth and physically believable construction, soft even studio light. Composition: entire cohesive outfit centered in a square canvas, front-on on an INVISIBLE mannequin, generous clear margins around all garments. Scene: genuinely transparent alpha background, no backdrop, no floor, no cast shadow outside the garment. Constraints: no human, no skin, no face, no visible mannequin or stand, no text, no logos, no watermark, no collage. Produce exactly ONE full wearable adult outfit. Subject: A retro astronaut costume: cream padded flight jumpsuit with burnt orange panels, silver rounded helmet with a completely dark blank visor, silver boots, cream gloves and fabric utility belt. No logos, text or flags.",
+      "path": "/workspace/halloween-supply/public/costumes/retro-astronaut.png",
+      "publicPath": "/costumes/retro-astronaut.png"
+    },
+    {
+      "slug": "raven-scholar",
+      "prompt": "Use case: product-mockup. Asset type: a single costume cutout for a restrained, design-led Halloween costume gallery. Style: photorealistic premium catalog product photography, tactile cloth and physically believable construction, soft even studio light. Composition: entire cohesive outfit centered in a square canvas, front-on on an INVISIBLE mannequin, generous clear margins around all garments. Scene: genuinely transparent alpha background, no backdrop, no floor, no cast shadow outside the garment. Constraints: no human, no skin, no face, no visible mannequin or stand, no text, no logos, no watermark, no collage. Produce exactly ONE full wearable adult outfit. Subject: A raven scholar costume: black feather-textured shoulder cape, charcoal waistcoat over ivory high collar shirt, black long skirt, black boots and a small black bird-shaped headpiece hovering above the collar.",
+      "path": "/workspace/halloween-supply/public/costumes/raven-scholar.png",
+      "publicPath": "/costumes/raven-scholar.png"
+    },
+    {
+      "slug": "candy-corn-sorceress",
+      "prompt": "Use case: product-mockup. Asset type: a single costume cutout for a restrained, design-led Halloween costume gallery. Style: photorealistic premium catalog product photography, tactile cloth and physically believable construction, soft even studio light. Composition: entire cohesive outfit centered in a square canvas, front-on on an INVISIBLE mannequin, generous clear margins around all garments. Scene: genuinely transparent alpha background, no backdrop, no floor, no cast shadow outside the garment. Constraints: no human, no skin, no face, no visible mannequin or stand, no text, no logos, no watermark, no collage. Produce exactly ONE full wearable adult outfit. Subject: A candy corn sorceress costume: witch pointed hat colorblocked ivory, orange and golden yellow, matching three-tone tiered dress, short black velvet cape, black lace-up boots and striped stockings.",
+      "path": "/workspace/halloween-supply/public/costumes/candy-corn-sorceress.png",
+      "publicPath": "/costumes/candy-corn-sorceress.png"
+    }
+  ]
+}
