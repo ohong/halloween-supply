@@ -121,6 +121,10 @@ behavior, no silent duplicate inference. All terminal states persist.
 
 One verified product per component is the first release. No artificial delays,
 simulated progress, fixed-duration theater, or automatic image-generation spend.
+The two preview models are adults. Plan adult-size products unless the shopper
+explicitly names another wearer. Reject incompatible sizes and unsupported visual
+details before accepting an offer. Search each component at most twice; broaden
+once when the first pass has no reliable match.
 No-result creation ends with a clear retryable error, not a purchasable success.
 The server route loads a saved CustomLook and renders CustomLookView.
 Invalid/missing IDs render the native not-found page. Next.js can send HTTP 200

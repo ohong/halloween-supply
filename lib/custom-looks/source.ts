@@ -6,6 +6,7 @@ import { hostnameOf, isBlockedDomain, isNoiseDomain, registrableDomain } from ".
 import type { CartItem } from "../types";
 import type { CustomPiece } from "./types";
 import { chooseRelevantProduct } from "./relevance";
+import { supportsWearerAudience, type WearerAudience } from "./audience";
 
 type Look = { pieces: CustomPiece[] };
 
@@ -16,7 +17,7 @@ const WHOLESALE = /(^|\.)(alibaba|dhgate|made-in-china)\.com$/;
 
 export type Found = { title: string; image: string; url: string; priceCents: number; merchant: string; sizes: string[]; description?: string; variant?: string };
 export type SourceLog = (kind: string, text: string) => void;
-type SourceOptions = { strictRelevance?: boolean };
+type SourceOptions = { strictRelevance?: boolean; audience?: WearerAudience };
 
 const SHOPIFY_PATH = /\/products\/[^/]+\/?$/;
 
@@ -136,13 +137,15 @@ async function source(piece: CustomPiece, log: SourceLog, broad: boolean, signal
       if (fallback && !candidates.some((candidate) => candidate.url === fallback.url)) candidates.push(fallback);
     }
     signal?.throwIfAborted();
+    const suitable = candidates.filter((candidate) => supportsWearerAudience(candidate.title, options.audience));
+    if (suitable.length !== candidates.length) console.info("[custom-look-source] audience_rejected", { pass: broad ? "broad" : "filtered", candidates: candidates.length - suitable.length });
     let selected: Found | null = null;
-    if (candidates.length) {
-      log("compare", `${piece.name}: checking ${candidates.length} verified ${candidates.length === 1 ? "offer" : "offers"} against the costume.`);
+    if (suitable.length) {
+      log("compare", `${piece.name}: checking ${suitable.length} verified ${suitable.length === 1 ? "offer" : "offers"} against the costume.`);
       try {
-        selected = await chooseRelevantProduct(piece, candidates, signal);
+        selected = await chooseRelevantProduct(piece, suitable, signal, options.audience);
         if (!selected) {
-          console.info("[custom-look-source] relevance_rejected", { pass: broad ? "broad" : "filtered", candidates: candidates.length });
+          console.info("[custom-look-source] relevance_rejected", { pass: broad ? "broad" : "filtered", candidates: suitable.length });
           log("fail", `${piece.name}: no offer supports the identifying costume details.`);
         }
       } catch (error) {

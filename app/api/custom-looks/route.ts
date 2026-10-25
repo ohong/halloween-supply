@@ -145,7 +145,7 @@ export async function POST(request: Request) {
         await persist();
         emit({ t: "look", ...plan });
         const sourcing = Promise.allSettled(plan.pieces.map(async (piece, i) => {
-          const found = await sourcePiece(piece, log, signal, { strictRelevance: true });
+          const found = await sourcePiece(piece, log, signal, { strictRelevance: true, audience: plan.audience });
           signal.throwIfAborted();
           if (!found) { emit({ t: "miss", i }); return; }
           let item;
