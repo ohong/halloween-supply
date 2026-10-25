@@ -2,7 +2,7 @@
 
 import { useEffect, useMemo, useRef, useState, type MouseEvent } from "react";
 import Link from "next/link";
-import { ArrowLeft, ArrowRight, Check, ChevronDown, ChevronRight, ShoppingBag, Sparkles } from "lucide-react";
+import { ArrowLeft, ArrowRight, Camera, Check, ChevronDown, ChevronRight, ShoppingBag, Sparkles } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Dialog, DialogClose, DialogContent, DialogDescription, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
@@ -226,8 +226,15 @@ export function CostumeExperience({ costume: initialCostume }: { costume: Costum
       <TabsContent value="try-on" forceMount>{restoreState === "loading" ? <p role="status">Restoring your look…</p> : <PhoneCameraProvider>
         {restoreState === "error" && <p role="alert">This shared look could not be restored. Showing the original costume.</p>}
         <VirtualTryOn mixes={mixes} costumeSlug={costumeSlug} pieces={pieces.map(({ piece }) => ({ id: piece.id, name: piece.name, category: piece.category }))} selection={pickedOptions.map(({ view, option }) => ({ pieceId: view.piece.id, productId: option.product.id }))} ownedPieceIds={pieces.filter(({ piece }) => uses[piece.id] === "owned").map(({ piece }) => piece.id)} skippedPieceIds={pieces.filter(({ piece }) => uses[piece.id] === "skip").map(({ piece }) => piece.id)} totalCents={total} />
-        <PhotoVoiceStylist costume={costume} outfit={{ mixes, selection: Object.fromEntries(pieces.flatMap((view) => { const option = picked.get(view.piece.id); return option ? [[view.piece.id, option.product.id]] : []; })), uses, locked: [], budget: mirrorBudget }} onApply={applyMirror} />
-        <div className="costume-live-option"><span>Prefer a live preview?</span><LiveMirror costume={costume} initialOutfit={{ mixes, selection: Object.fromEntries(pieces.flatMap((view) => { const option = picked.get(view.piece.id); return option ? [[view.piece.id, option.product.id]] : []; })), uses, locked: [], budget: mirrorBudget }} onApply={applyMirror} /></div>
+        <section className="try-on-more" aria-labelledby="try-on-more-title">
+          <h3 id="try-on-more-title">More ways to try it on</h3>
+          <div className="try-on-option">
+            <span className="try-on-option-icon" aria-hidden="true"><Camera size={18} /></span>
+            <div><p>Live mirror</p><p className="try-on-option-hint">See the look on your camera in real time.</p></div>
+            <LiveMirror costume={costume} initialOutfit={{ mixes, selection: Object.fromEntries(pieces.flatMap((view) => { const option = picked.get(view.piece.id); return option ? [[view.piece.id, option.product.id]] : []; })), uses, locked: [], budget: mirrorBudget }} onApply={applyMirror} />
+          </div>
+          <PhotoVoiceStylist costume={costume} outfit={{ mixes, selection: Object.fromEntries(pieces.flatMap((view) => { const option = picked.get(view.piece.id); return option ? [[view.piece.id, option.product.id]] : []; })), uses, locked: [], budget: mirrorBudget }} onApply={applyMirror} />
+        </section>
       </PhoneCameraProvider>}</TabsContent>
     </Tabs>
 

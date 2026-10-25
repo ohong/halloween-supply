@@ -129,6 +129,8 @@ export function PhoneCameraControls({ compact = false, showPreview = true }: { c
   const video = useRef<HTMLVideoElement>(null);
   const [captureError, setCaptureError] = useState("");
   useEffect(() => { if (video.current) video.current.srcObject = phone.stream; }, [phone.stream, showPreview]);
+  // Outside the mirror, "Take photo" starts the pairing, so an idle panel would only repeat it.
+  if (!compact && phone.status === "idle" && !phone.error && !captureError) return null;
   return <section className={`phone-camera-controls${compact ? " is-compact" : ""}`} aria-label="Phone camera connection">
     {phone.stream && showPreview && <video ref={video} autoPlay playsInline muted aria-label="Phone camera preview" />}
     {phone.status === "idle" ? <button type="button" className="btn btn-ghost" onClick={() => void phone.connect()}>Use phone camera</button> : <>

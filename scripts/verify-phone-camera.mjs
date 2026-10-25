@@ -40,7 +40,7 @@ try{
  if(process.env.MIRROR_ACCESS_URL){await desktop.goto(process.env.MIRROR_ACCESS_URL);await phone.goto(process.env.MIRROR_ACCESS_URL);}
  await desktop.goto(`${origin}/costumes/cosmic-cowboy`);
  await desktop.getByRole('tab',{name:'Try it on',exact:true}).click();
- await desktop.getByRole('button',{name:'Use phone camera',exact:true}).click();
+ await desktop.getByRole('button',{name:'Take photo',exact:true}).click();
  const link=desktop.getByRole('link',{name:'Open phone camera link'});
  await link.waitFor({timeout:20000});
  const url=await link.getAttribute('href');
@@ -154,7 +154,6 @@ try{
   await picker.getByRole('button').filter({hasText:jacket.options.find(option=>option.product.id!==cheap).product.title}).click();
   await picker.getByRole('button',{name:'Close',exact:true}).click();
   const stylist=desktop.getByRole('region',{name:'Photo voice styling'});
-  await stylist.getByRole('checkbox').check();
   const transcripts=await desktop.evaluate(()=>window.cameraTest.events.filter(event=>event.type==='session.input_transcript.delta').length);
   await stylist.getByRole('button',{name:'Start photo voice styling'}).click();
   await desktop.waitForFunction(n=>window.cameraTest.events.filter(event=>event.type==='session.input_transcript.delta').length>n,transcripts,{timeout:30000});

@@ -173,8 +173,8 @@ export function VirtualTryOn({ costumeSlug, selection = [], ownedPieceIds = [], 
     {current && <TryOn3D key={current.key} image={current.image} offer={current.render3d} pieces={(pieces ?? costume.pieces.map((name, index) => ({ id: String(index), name }))).filter((piece) => !skippedPieceIds.includes(piece.id))} />}
     {!busy && <>
       <div className="try-on-actions try-on-photo-actions">
+        <button type="button" className={photoUrl ? "btn btn-ghost" : "btn"} onClick={() => fileInput.current?.click()} disabled={preparing}>{photoUrl ? "Change photo" : "Upload photo"}</button>
         <button type="button" className="btn btn-ghost try-on-camera" onClick={takePhoto} disabled={preparing}><Icon d={CAMERA} size={18} />{photoUrl ? "Retake photo" : "Take photo"}</button>
-        <button type="button" className="btn btn-ghost" onClick={() => fileInput.current?.click()} disabled={preparing}>{photoUrl ? "Change photo" : "Upload photo"}</button>
       </div>
       {!photoUrl && <p className="try-on-fine" role="status">{preparing ? "Preparing your photo…" : "Use a photo of yourself. We’ll focus on the main person."}</p>}
     </>}

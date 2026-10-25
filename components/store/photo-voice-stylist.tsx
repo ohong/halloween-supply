@@ -1,5 +1,6 @@
 "use client";
 import { useEffect, useState } from "react";
+import { Mic } from "lucide-react";
 import type { CostumeView } from "@/lib/types";
 import type { MirrorCatalogContext, MirrorOutfit } from "@/lib/live-mirror/types";
 import { applyActions } from "@/lib/live-mirror/state";
@@ -8,7 +9,6 @@ import { usePhoneCamera } from "./phone-camera";
 
 export function PhotoVoiceStylist({ costume, outfit, onApply }: { costume: CostumeView; outfit: MirrorOutfit; onApply: (outfit: MirrorOutfit, costume?: CostumeView) => void }) {
   const phone = usePhoneCamera();
-  const [consent, setConsent] = useState(false);
   const [locked, setLocked] = useState<string[]>([]);
   const [transcript, setTranscript] = useState("");
   const currentOutfit = { ...outfit, locked };
@@ -36,15 +36,15 @@ export function PhotoVoiceStylist({ costume, outfit, onApply }: { costume: Costu
   const stop = voice.stop;
   useEffect(() => { if (phone.mode === "live") stop(); }, [phone.mode, stop]);
   useEffect(() => { return () => stop(); }, [phone.stream, stop]);
-  return <section className="phone-camera-controls" aria-label="Photo voice styling">
-    <p>Style your photo with GPT Live</p>
-    {voice.status === "live" ? <button className="btn btn-ghost" onClick={voice.stop}>Stop voice styling</button> : <>
-      <label className="mirror-consent"><input type="checkbox" checked={consent} onChange={event => setConsent(event.target.checked)} />Allow OpenAI to process my microphone audio for voice styling.</label>
-      <p className="try-on-fine">{phone.stream?.getAudioTracks().length ? "Uses your phone microphone." : "Uses this device’s microphone."} Try “choose the cheapest jacket.”</p>
-      <button className="btn btn-ghost" disabled={!consent || voice.status === "connecting" || phone.mode === "live"} onClick={() => void voice.start()}>{voice.status === "connecting" ? "Connecting stylist…" : "Start photo voice styling"}</button>
-    </>}
-    {transcript && <p className="try-on-fine">{transcript}</p>}
-    {notice && <p role="status" className="try-on-fine">{notice}</p>}
+  const live = voice.status === "live";
+  return <section className="try-on-option" aria-label="Photo voice styling">
+    <span className="try-on-option-icon" aria-hidden="true"><Mic size={18} /></span>
+    <div><p>Voice stylist</p><p className="try-on-option-hint">Say “choose the cheapest jacket” to swap pieces.</p></div>
+    {live ? <button className="btn btn-ghost btn-small" onClick={voice.stop}>Stop</button>
+      : <button className="btn btn-ghost btn-small" aria-label="Start photo voice styling" disabled={voice.status === "connecting" || phone.mode === "live"} onClick={() => void voice.start()}>{voice.status === "connecting" ? "Connecting…" : "Start"}</button>}
+    {!live && <p className="try-on-option-note">Starting sends {phone.stream?.getAudioTracks().length ? "your phone microphone" : "this device’s microphone"} audio to OpenAI.</p>}
+    {transcript && <p className="try-on-option-note">{transcript}</p>}
+    {notice && <p role="status" className="try-on-option-note">{notice}</p>}
     {voice.error && <p role="alert" className="try-on-error">{voice.error}</p>}
   </section>;
 }

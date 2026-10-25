@@ -64,7 +64,18 @@
 .costume-shop .try-on-empty { border: 1px dashed #ccc; background: #fafafa; }
 .costume-shop .try-on-cta { width: 56px; height: 56px; box-shadow: none; animation: none; }
 .costume-shop .try-on-ghost { opacity: .08; }
-.costume-live-option { display: grid; gap: 10px; margin-top: 20px; padding-top: 20px; border-top: 1px solid #e9e9e9; text-align: center; font-size: 12px; color: var(--mid); }
+.try-on-more { margin-top: 32px; }
+.try-on-more h3 { margin-bottom: 4px; font-size: 12px; font-weight: 400; color: var(--mid); }
+.try-on-option { display: grid; grid-template-columns: 36px minmax(0, 1fr) auto; align-items: center; gap: 4px 12px; padding-block: 14px; border-top: 1px solid #e9e9e9; }
+.try-on-option:last-child { border-bottom: 1px solid #e9e9e9; }
+.try-on-option p { margin: 0; font-size: 14px; }
+.try-on-option .try-on-option-hint { font-size: 12px; line-height: 1.4; color: var(--mid); }
+.try-on-option-icon { display: grid; place-items: center; width: 36px; height: 36px; border-radius: 8px; background: var(--grey); color: var(--ink); }
+.try-on-option > :nth-child(n + 4) { grid-column: 2 / -1; }
+.try-on-option .try-on-option-note { font-size: 11px; line-height: 1.5; color: var(--soft); }
+.try-on-option .mirror-launch { margin: 0; }
+.try-on-option .mirror-launch > button { width: auto; min-height: 36px; padding: 0 14px; font-size: 13px; }
+.try-on-option .mirror-launch svg { display: none; }
 .costume-shop .mirror-launch { margin: 0; }
 .costume-shop .mirror-launch .btn { width: 100%; }
 
