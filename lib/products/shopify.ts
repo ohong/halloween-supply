@@ -7,6 +7,9 @@ interface ShopifyVariant {
   available: boolean;
   price: number;
   options?: string[];
+  option1?: string | null;
+  option2?: string | null;
+  option3?: string | null;
   featured_image?: { src?: string } | null;
 }
 interface ShopifyProduct {
@@ -14,6 +17,26 @@ interface ShopifyProduct {
   description?: string;
   images: string[];
   variants: ShopifyVariant[];
+  options: Array<string | { name: string }>;
+}
+
+const optionNames = (product: ShopifyProduct) => product.options.map((option) => typeof option === "string" ? option : option.name);
+const optionValue = (variant: ShopifyVariant, index: number): string | null => {
+  const value = ([variant.option1, variant.option2, variant.option3][index] ?? variant.options?.[index]);
+  return typeof value === "string" && value.trim() ? value : null;
+};
+const sameLabel = (a: string | null, b: string) => a?.trim().toLowerCase() === b.trim().toLowerCase();
+
+function variantFamily(product: ShopifyProduct, anchor: ShopifyVariant): ShopifyVariant[] {
+  const names = optionNames(product);
+  const sizeIndex = names.findIndex((name) => /\bsize\b/i.test(name));
+  return product.variants.filter((variant) => names.every((_, index) => index === sizeIndex || optionValue(variant, index) === optionValue(anchor, index)));
+}
+
+/** Match checkout's labels and preserve the selected color, width and other non-size options. */
+export function shopifySizes(product: ShopifyProduct, anchor: ShopifyVariant): string[] {
+  const sizeIndex = optionNames(product).findIndex((name) => /\bsize\b/i.test(name));
+  return [...new Set(variantFamily(product, anchor).filter((variant) => variant.available).map((variant) => sizeIndex < 0 ? "one size" : optionValue(variant, sizeIndex)).filter((size): size is string => size !== null))];
 }
 
 /** Public merchant data. No admin credentials or inventory guesses. */
@@ -27,15 +50,22 @@ export async function readShopifyProduct(url: string, useCache = true): Promise<
       const res = await fetch(u, { signal: AbortSignal.timeout(10_000), headers: { Accept: "application/json" } });
       if (!res.ok) return null;
       const data = await res.json();
-      if (!Array.isArray(data.variants) || !data.variants.every((v: ShopifyVariant) => Number.isInteger(v.price) && typeof v.available === "boolean")) return null;
+      if (!Array.isArray(data.variants) || !data.variants.every((v: ShopifyVariant) => Number.isInteger(v.price) && typeof v.available === "boolean") ||
+        !Array.isArray(data.options) || !data.options.every((option: unknown) => typeof option === "string" || typeof option === "object" && option !== null && "name" in option && typeof option.name === "string")) return null;
       return data as ShopifyProduct;
     } catch { return null; }
   };
   return useCache ? cached("shopify", { url: u.toString() }, load) : load();
 }
 
-export function selectShopifyVariants(product: ShopifyProduct, color?: string) {
-  const available = product.variants.filter((v) => v.available && (!color || v.title.split(" / ").some((p) => p.toLowerCase() === color.toLowerCase())));
+export function selectShopifyVariants(product: ShopifyProduct, color?: string, pinnedVariantId?: string | null) {
+  const names = optionNames(product);
+  const sizeIndex = names.findIndex((name) => /\bsize\b/i.test(name));
+  const matchesColor = (variant: ShopifyVariant) => !color || names.some((_, index) => index !== sizeIndex && sameLabel(optionValue(variant, index), color));
+  const candidates = product.variants.filter((variant) => variant.available && matchesColor(variant)).sort((a, b) => a.price - b.price);
+  const anchor = product.variants.find((variant) => String(variant.id) === pinnedVariantId) ?? candidates[0];
+  if (!anchor || !matchesColor(anchor)) return [];
+  const available = variantFamily(product, anchor).filter((variant) => variant.available && matchesColor(variant));
   const lowest = Math.min(...available.map((v) => v.price));
   return available.filter((v) => v.price === lowest && parsePriceToCents(v.price / 100) === v.price);
 }

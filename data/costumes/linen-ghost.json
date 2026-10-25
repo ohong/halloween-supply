@@ -183,7 +183,12 @@
       ],
       "availability": "in_stock",
       "sizes": [
-        "USA Twin W.72\"xL.102\" / 183 x 260 cm"
+        "USA Twin W.72\"xL.102\" / 183 x 260 cm",
+        "USA Twin XL W.72\"xL.108” / 183 x 275cm",
+        "USA Full/Double W.81\"xL.102\" / 206 x 260 cm",
+        "USA Full XL W.81\"xL.108” / 206 x 275 cm",
+        "USA Queen W.100\"xL.108\" / 254 x 275 cm",
+        "USA King/CalKing W.118\"xL.108\" / 300 x 275 cm"
       ],
       "merchantId": "linen-shed-com",
       "tagSlugs": [
@@ -194,7 +199,7 @@
         "french-linen"
       ],
       "description": "This natural washed bed linen sheet did not undergo any bleaching so it is guaranteed to last for a long time, it’s more eco-friendly as well. Made from the highest quality of flax fiber, this French linen sheet is great for people looking for a real natural alternative for their bedding. You can have this vintage washed sheet tailored to fit the specified size of your bed. While little rough at first, it’s reaching softness washings after washings. If you have a very sensitive skin, it’s advised to choose one of our dyed linen products instead, each one having it’s own texture due to each dy…",
-      "checkedAt": "2026-10-24T23:09:21.778Z",
+      "checkedAt": "2026-10-25T04:02:23.745Z",
       "cutout": "/products/p-70b91ecda7-cutout.png"
     },
     {
@@ -214,7 +219,12 @@
       ],
       "availability": "in_stock",
       "sizes": [
-        "off-white / twin"
+        "twin",
+        "full",
+        "queen",
+        "king",
+        "cal king",
+        "supersize"
       ],
       "merchantId": "roughlinen-com",
       "tagSlugs": [
@@ -225,7 +235,7 @@
         "bedding"
       ],
       "description": "Homespun, textured, heavyweight linen bedding sheet. 100% pure natural flax. Oversized, flat sheet top or bottom sheet. Fits any size mattress even extra deep, tuck hospital corners as fitted sheet. Hotel quality. Washed, organic, non-toxic, breathable modern minimalist.",
-      "checkedAt": "2026-10-24T23:09:21.778Z",
+      "checkedAt": "2026-10-25T04:02:24.180Z",
       "cutout": "/products/p-ade84082ca-cutout.png"
     },
     {
@@ -246,8 +256,12 @@
       ],
       "availability": "in_stock",
       "sizes": [
-        "US / Twin",
-        "US / Twin XL"
+        "Twin",
+        "Twin XL",
+        "Full / Double",
+        "Queen",
+        "King",
+        "CAL King"
       ],
       "merchantId": "magiclinen-com",
       "tagSlugs": [
@@ -258,7 +272,7 @@
         "neutral"
       ],
       "description": "Linen flat sheet in natural linen color (oatmeal). Luxuriously soft and breathable linen sheets will become a staple of every modern bedroom. The natural thermoregulating and moisture-wicking properties of linen guarantee the feeling of comfort all year round. Flat sheets can be used as top sheets or bedcovers as well. Please note that due to the many variations in monitors and browsers, actual colors may vary. Note: We use wide fabric to make our bedding so there won't be any additional seams in the middle.",
-      "checkedAt": "2026-10-24T23:09:21.778Z",
+      "checkedAt": "2026-10-25T04:02:24.728Z",
       "cutout": "/products/p-4e51868ea7-cutout.png"
     },
     {
@@ -294,7 +308,7 @@
         "undyed"
       ],
       "description": "Natural version of our modern men’s crew. Made to be your daily wearer. Built with 4.3 ounce 100% organic cotton jersey, this fabric is the perfect weight and ideal for tee shirts. Soft, flexible feel on the body with rib collar for a clean look. Fits true to size.Origins: Organic cotton grown in USA, yarn spun and knit in USA, sewn in the San Francisco Bay Area. Color: Undyed, unbleached clean finish. Richer in tone than stark bleached optic white. This is the real color of white cotton. Questions? We would love to help hello@harvestandmill.com",
-      "checkedAt": "2026-10-24T23:09:21.778Z",
+      "checkedAt": "2026-10-25T04:02:24.019Z",
       "cutout": "/products/p-883971c192-cutout.png"
     },
     {
@@ -314,8 +328,8 @@
       ],
       "availability": "in_stock",
       "sizes": [
-        "No-bleach White / XS/S",
-        "No-bleach White / M/L"
+        "XS/S",
+        "M/L"
       ],
       "merchantId": "groceriesapparel-com",
       "tagSlugs": [
@@ -325,7 +339,7 @@
         "lightweight"
       ],
       "description": "Oversized exactly where you want it for a look that’s perfectly slouchy, yet surprisingly streamlined. Spring-weight and cloud soft in lightweight organic cotton make it as irresistible as it is effortless.",
-      "checkedAt": "2026-10-24T23:09:21.778Z",
+      "checkedAt": "2026-10-25T04:02:23.989Z",
       "cutout": "/products/p-3ead2de5c8-cutout.png"
     },
     {
@@ -345,9 +359,9 @@
       ],
       "availability": "in_stock",
       "sizes": [
-        "S / White",
-        "M / White",
-        "XL / White"
+        "S",
+        "M",
+        "XL"
       ],
       "merchantId": "larelaxed-com",
       "tagSlugs": [
@@ -357,7 +371,7 @@
         "cropped"
       ],
       "description": "A classic fitted short sleeve tee made of a delicate ribbed needlepoint fabric. It features a chunky neck binding with a scalloped effect. Made of a locally knit and dyed Organic Cotton. Size up one for a less cropped fit. Details: - Ribbed textured fabric. - Dyed with AZO-free dyes. - Pre-shrunk and garment washed. 100% Organic Cotton Alivia is 5'9\" and wears size S. Manuella is 5'6\" and wears XS.",
-      "checkedAt": "2026-10-24T23:09:21.778Z",
+      "checkedAt": "2026-10-25T04:02:24.212Z",
       "cutout": "/products/p-d2949e96ef-cutout.png"
     },
     {
@@ -377,11 +391,11 @@
       ],
       "availability": "in_stock",
       "sizes": [
-        "XS / White",
-        "S / White",
-        "M / White",
-        "L / White",
-        "XL / White"
+        "XS",
+        "S",
+        "M",
+        "L",
+        "XL"
       ],
       "merchantId": "larelaxed-com",
       "tagSlugs": [
@@ -392,7 +406,7 @@
         "garment-washed"
       ],
       "description": "These classic and simple linen pants feature a straight leg fit with a drawstring waistband and hip pockets. Inseam is 31\". Details: - Adjustable drawstring waist. - Dyed with AZO-free dyes. - Garment washed to increase softness and remove shrinkage. 100% Linen sourced in California Anissa is 5'6\" and wears size Small. Manuella is 5'6\" and wears size Small.",
-      "checkedAt": "2026-10-24T23:09:21.778Z",
+      "checkedAt": "2026-10-25T04:02:24.273Z",
       "cutout": "/products/p-1192c69a2d-cutout.png"
     },
     {
@@ -412,10 +426,10 @@
       ],
       "availability": "in_stock",
       "sizes": [
-        "No-bleach White / XS",
-        "No-bleach White / S",
-        "No-bleach White / M",
-        "No-bleach White / L"
+        "XS",
+        "S",
+        "M",
+        "L"
       ],
       "merchantId": "groceriesapparel-com",
       "tagSlugs": [
@@ -426,7 +440,7 @@
         "lounge"
       ],
       "description": "Our most versatile spring pant. Cozy to lounge in yet sleek to leave the house. A relaxed fit, elastic mid-rise waistband and adjustable drawstring make these simple to slip into anytime.",
-      "checkedAt": "2026-10-24T23:09:21.778Z",
+      "checkedAt": "2026-10-25T04:02:24.291Z",
       "cutout": "/products/p-7bfcf10aa3-cutout.png"
     },
     {
@@ -461,7 +475,7 @@
         "natural"
       ],
       "description": "Made with our 100% organic cotton 5.4 oz jersey fabric. Lighter than our fleece fabric, our jersey is the perfect weight for casual pants. Naturally flexible and breathable, soft enough to be lounge pants and structured enough to wear out. This relaxed style is designed with a straight leg, open-hem leg cuffs and stretchy waistband. Featuring 2 large side pockets and a back patch pocket. Style #LP03N Fabric: 100% organic cotton USA grown Origins: Organic cotton grown in the USA, yarn spun and knit in the USA, sewn in the San Francisco Bay Area. Entirely USA domestic supply chain Color: Undyed…",
-      "checkedAt": "2026-10-24T23:09:21.778Z",
+      "checkedAt": "2026-10-25T04:02:24.438Z",
       "cutout": "/products/p-41e32b9102-cutout.png"
     },
     {
@@ -481,20 +495,20 @@
       ],
       "availability": "in_stock",
       "sizes": [
-        "6 / D (Standard)",
-        "6.5 / D (Standard)",
-        "7 / D (Standard)",
-        "7.5 / D (Standard)",
-        "8 / D (Standard)",
-        "8.5 / D (Standard)",
-        "9 / D (Standard)",
-        "9.5 / D (Standard)",
-        "10 / D (Standard)",
-        "10.5 / D (Standard)",
-        "11 / D (Standard)",
-        "11.5 / D (Standard)",
-        "12 / D (Standard)",
-        "13 / D (Standard)"
+        "6",
+        "6.5",
+        "7",
+        "7.5",
+        "8",
+        "8.5",
+        "9",
+        "9.5",
+        "10",
+        "10.5",
+        "11",
+        "11.5",
+        "12",
+        "13"
       ],
       "merchantId": "grantstoneshoes-com",
       "tagSlugs": [
@@ -505,7 +519,7 @@
         "lace-up"
       ],
       "description": "The word \"Diesel\" reminds us of something that may not be flashy but an object that is built for strength and longevity. This is our rendition of the basic plain toe boot pattern made with proven leather uppers, lining, insole, and outsole. The kicker is the Leo last being utilized on a boot pattern, which offers exceptional support and comfort. The Badalassi Carlo Tannery's Minerva leather is one of our favorites. This boutique Italian tannery specializes in vegetable tanning. During the process, the leather is placed in a 'Bottali,' a large barrel that rotates, allowing the organic tanning…",
-      "checkedAt": "2026-10-24T23:09:21.778Z",
+      "checkedAt": "2026-10-25T04:02:24.986Z",
       "cutout": "/products/p-e7257a048c-cutout.png"
     },
     {
@@ -525,20 +539,20 @@
       ],
       "availability": "in_stock",
       "sizes": [
-        "Standard (D) / 6",
-        "Standard (D) / 7",
-        "Standard (D) / 8",
-        "Standard (D) / 8.5",
-        "Standard (D) / 9",
-        "Standard (D) / 9.5",
-        "Standard (D) / 10",
-        "Standard (D) / 10.5",
-        "Standard (D) / 11",
-        "Standard (D) / 11.5",
-        "Standard (D) / 12",
-        "Standard (D) / 13",
-        "Standard (D) / 14",
-        "Standard (D) / 15"
+        "6",
+        "7",
+        "8",
+        "8.5",
+        "9",
+        "9.5",
+        "10",
+        "10.5",
+        "11",
+        "11.5",
+        "12",
+        "13",
+        "14",
+        "15"
       ],
       "merchantId": "helmboots-com",
       "tagSlugs": [
@@ -549,7 +563,7 @@
         "boots"
       ],
       "description": "Blending elements from two customer favorites, the Zind is a boot made to pair with jeans on the weekend or a suit at the office during the week. Using elegant and rich Krumenauer leather, it steps away from the work-boot style and into a class of its own. The Dakota sole offers grip and traction with a dressy profile, while the 415 last gives it a narrow and refined form, making it a style versatile enough to accompany all of your wardrobe.",
-      "checkedAt": "2026-10-24T23:09:21.778Z",
+      "checkedAt": "2026-10-25T04:02:24.667Z",
       "cutout": "/products/p-aeae870a1f-cutout.png"
     },
     {
@@ -569,25 +583,25 @@
       ],
       "availability": "in_stock",
       "sizes": [
-        "Standard / 6",
-        "Standard / 6.5",
-        "Standard / 7",
-        "Standard / 7.5",
-        "Standard / 8",
-        "Standard / 8.5",
-        "Standard / 9",
-        "Standard / 9.5",
-        "Standard / 10",
-        "Standard / 10.5",
-        "Standard / 11",
-        "Standard / 11.5",
-        "Standard / 12",
-        "Standard / 12.5",
-        "Standard / 13",
-        "Standard / 13.5",
-        "Standard / 14",
-        "Standard / 15",
-        "Standard / 16"
+        "6",
+        "6.5",
+        "7",
+        "7.5",
+        "8",
+        "8.5",
+        "9",
+        "9.5",
+        "10",
+        "10.5",
+        "11",
+        "11.5",
+        "12",
+        "12.5",
+        "13",
+        "13.5",
+        "14",
+        "15",
+        "16"
       ],
       "merchantId": "thursdayboots-com",
       "tagSlugs": [
@@ -598,7 +612,7 @@
         "brown"
       ],
       "description": "Product Features Brown Thursday Chrome Leather Goodyear Welt Construction for Longevity Fully Lined Supple Glove Leather Interior Premium Flat Waxed Cotton Laces Custom Developed Reinforced Eyelets Poron® Antimicrobial Shock Absorbing Insoles Cork-Bed Midsoles that Form to Your Feet DuraEVA™ Comfort Strip Durable Studded Rubber Outsoles Handcrafted with Integrity Shipping Info Free domestic U.S. ground shipping Free domestic U.S. returns. See our full policy International shipping available Expedited shipping options available at checkout",
-      "checkedAt": "2026-10-24T23:09:21.778Z",
+      "checkedAt": "2026-10-25T04:02:24.909Z",
       "cutout": "/products/p-d17b6f67bc-cutout.png"
     },
     {
@@ -618,7 +632,7 @@
       ],
       "availability": "in_stock",
       "sizes": [
-        "Round"
+        "one size"
       ],
       "merchantId": "needlesnpinsyarnshoppe-com",
       "tagSlugs": [
@@ -629,7 +643,7 @@
         "accessory"
       ],
       "description": "From Jul Designs. White Brass. Approx. 2\" in diameter. Pin is 4\" long. Made in Indonesia.",
-      "checkedAt": "2026-10-24T23:09:21.778Z",
+      "checkedAt": "2026-10-25T04:02:24.798Z",
       "cutout": "/products/p-e918d81b72-cutout.png"
     },
     {
@@ -646,7 +660,7 @@
       ],
       "availability": "in_stock",
       "sizes": [
-        "Default Title"
+        "one size"
       ],
       "merchantId": "needlesnpinsyarnshoppe-com",
       "tagSlugs": [
@@ -656,7 +670,7 @@
         "accessory"
       ],
       "description": "From Jul Designs. Classic Off Center Shawl Pin---Rosewood Made in Indonesia.",
-      "checkedAt": "2026-10-24T23:09:21.778Z",
+      "checkedAt": "2026-10-25T04:02:25.103Z",
       "cutout": "/products/p-2a93dfe671-cutout.png"
     },
     {
@@ -677,7 +691,7 @@
       ],
       "availability": "in_stock",
       "sizes": [
-        "Whiskey"
+        "one size"
       ],
       "merchantId": "threadandmaple-com",
       "tagSlugs": [
@@ -688,7 +702,7 @@
         "accessory"
       ],
       "description": "Adorn your favorite shawl with this simple & elegant shawl cuff. Handmade from genuine leather, these cuffs close with simple snaps.� They come in a length of 19cm [7.5\"], allowing for a 5cm [2\"] circular diameter when closed, which will work well with most yarn weights - light, medium and bulky.",
-      "checkedAt": "2026-10-24T23:09:21.778Z",
+      "checkedAt": "2026-10-25T04:02:25.337Z",
       "cutout": "/products/p-880e0f00e7-cutout.png"
     }
   ],

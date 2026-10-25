@@ -2,7 +2,7 @@
 import { fetchProductPage } from "../../lib/firecrawl/client";
 import { extractMerchantHints, type MerchantHints } from "../../lib/products/hints";
 import { extractProductWithClaude, htmlToText, parseProduct, type ParsedProduct } from "../../lib/products/parse";
-import { readShopifyProduct, selectShopifyVariants } from "../../lib/products/shopify";
+import { readShopifyProduct, selectShopifyVariants, shopifySizes } from "../../lib/products/shopify";
 import { cached, hashKey } from "../../lib/sourcing/cache";
 import { isBlockedDomain, registrableDomain } from "../../lib/sourcing/blocklist";
 import { mapLimit } from "../../lib/sourcing/pool";
@@ -40,7 +40,8 @@ export async function gatherCandidates(candidates: Candidate[], opts: GatherOpti
     let productUrl = finalUrl;
     const pageCurrency = parsed.currency ?? page.html.match(/Shopify\.currency\s*=\s*\{[^}]*"active"\s*:\s*"([A-Z]{3})"/)?.[1];
     if (shopify && pageCurrency === "USD") {
-      const variants = selectShopifyVariants(shopify, c.preferredColor);
+      const pinnedVariantId = new URL(c.url).searchParams.get("variant") ?? new URL(finalUrl).searchParams.get("variant");
+      const variants = selectShopifyVariants(shopify, c.preferredColor, pinnedVariantId);
       if (!variants.length) {
         opts.log?.(`  skip ${c.url}: no in-stock variants${c.preferredColor ? ` in ${c.preferredColor}` : ""}`);
         return null;
@@ -51,7 +52,7 @@ export async function gatherCandidates(candidates: Candidate[], opts: GatherOpti
       productUrl = chosen.toString();
       const src = first.featured_image?.src;
       parsed = { ...parsed, title: c.preferredColor ? `${shopify.title} — ${c.preferredColor}` : shopify.title,
-        priceCents: first.price, currency: "USD", availability: "in_stock", sizes: variants.map((v) => v.title), via: "shopify",
+        priceCents: first.price, currency: "USD", availability: "in_stock", sizes: shopifySizes(shopify, first), via: "shopify",
         description: parsed.description ?? htmlToText(shopify.description ?? "").slice(0,600),
         images: [...new Set([...(src ? [new URL(src, finalUrl).toString()] : []), ...parsed.images, ...shopify.images.map((i) => new URL(i, finalUrl).toString())])],
       };
