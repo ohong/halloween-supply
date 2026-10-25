@@ -54,9 +54,9 @@
       "sizeKind": "apparel",
       "matches": [
         {
-          "productId": "p-c2362342ad",
+          "productId": "p-b51856d12a",
           "rank": 0,
-          "reason": "Leonardo Carbone LC-DRW, 100% cotton with ruffled laced placket and wrists. Live browser selections: L: 4 in stock; XL: 1; 2XL: 1; 3XL: 1. S and M explicitly backordered 3–4 weeks, despite all generic WooCommerce variant flags claiming is_in_stock=true. Exact variation IDs: L 1280776; XL 1280775; 2XL 1280774; 3XL 1280773."
+          "reason": "Historical reproduction in white cotton, bone button cuffs and neck, ruffled bosom slit, underarm triangle gussets. All six regular sizes currently available in live merchant feed. Less flamboyant cuffs than the generated jabot shirt."
         },
         {
           "productId": "p-3917412b3f",
@@ -64,9 +64,9 @@
           "reason": "SKU FM-64755. White poly-cotton shirt, front ruffle, lace-trimmed full sleeves. Read in live browser: product has instock/purchasable classes and enabled cart form, quantity maximum 6. One standard size only; do not treat it as a flexible S–XL range."
         },
         {
-          "productId": "p-b51856d12a",
+          "productId": "p-c2362342ad",
           "rank": 2,
-          "reason": "Historical reproduction in white cotton, bone button cuffs and neck, ruffled bosom slit, underarm triangle gussets. All six regular sizes currently available in live merchant feed. Less flamboyant cuffs than the generated jabot shirt."
+          "reason": "Leonardo Carbone LC-DRW, 100% cotton with ruffled laced placket and wrists. Live browser selections: L: 4 in stock; XL: 1; 2XL: 1; 3XL: 1. S and M explicitly backordered 3–4 weeks, despite all generic WooCommerce variant flags claiming is_in_stock=true. Exact variation IDs: L 1280776; XL 1280775; 2XL 1280774; 3XL 1280773."
         }
       ]
     },
