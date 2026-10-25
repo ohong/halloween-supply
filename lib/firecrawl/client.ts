@@ -1,6 +1,10 @@
 import { readCache, writeCache } from "../sourcing/cache";
 
-const ENDPOINT = "https://api.firecrawl.dev/v2";
+import { workQueue } from "../sourcing/work-queue";
+
+const ENDPOINT = (process.env.FIRECRAWL_API_URL || "https://api.firecrawl.dev").replace(/\/$/, "").replace(/\/v2$/, "") + "/v2";
+const providerSlot = workQueue(2);
+let retryAt = 0;
 
 export interface SearchResult {
   title: string;
@@ -28,21 +32,25 @@ export class FirecrawlError extends Error {
 async function request<T>(endpoint: "search" | "scrape", body: object, timeoutMs: number, signal?: AbortSignal): Promise<T> {
   const key = process.env.FIRECRAWL_API_KEY;
   if (!key) throw new Error("FIRECRAWL_API_KEY is not configured.");
-  const response = await fetch(`${ENDPOINT}/${endpoint}`, {
-    method: "POST",
-    headers: { Authorization: `Bearer ${key}`, "Content-Type": "application/json" },
-    body: JSON.stringify(body),
-    cache: "no-store",
-    signal: AbortSignal.any([AbortSignal.timeout(timeoutMs + 2000), ...(signal ? [signal] : [])]),
+  return providerSlot(signal, async () => {
+    if (Date.now() < retryAt) throw new FirecrawlError(429, retryAt - Date.now(), endpoint);
+    const response = await fetch(`${ENDPOINT}/${endpoint}`, {
+      method: "POST",
+      headers: { Authorization: `Bearer ${key}`, "Content-Type": "application/json" },
+      body: JSON.stringify(body),
+      cache: "no-store",
+      signal: AbortSignal.any([AbortSignal.timeout(timeoutMs + 2000), ...(signal ? [signal] : [])]),
+    });
+    if (!response.ok) {
+      const retry = response.headers.get("retry-after");
+      const milliseconds = retry && /^\d+(\.\d+)?$/.test(retry) ? Number(retry) * 1000 : retry ? Date.parse(retry) - Date.now() : 0;
+      if (response.status === 429) retryAt = Date.now() + Math.max(30_000, milliseconds || 0);
+      throw new FirecrawlError(response.status, Math.max(0, milliseconds || 0), endpoint);
+    }
+    const payload = await response.json() as { success?: boolean; data?: T };
+    if (payload.success !== true || !payload.data) throw new Error(`Firecrawl ${endpoint} returned no data.`);
+    return payload.data;
   });
-  if (!response.ok) {
-    const retry = response.headers.get("retry-after");
-    const milliseconds = retry && /^\d+(\.\d+)?$/.test(retry) ? Number(retry) * 1000 : retry ? Date.parse(retry) - Date.now() : 0;
-    throw new FirecrawlError(response.status, Math.max(0, milliseconds || 0), endpoint);
-  }
-  const payload = await response.json() as { success?: boolean; data?: T };
-  if (payload.success !== true || !payload.data) throw new Error(`Firecrawl ${endpoint} returned no data.`);
-  return payload.data;
 }
 
 /** Discover merchant URLs, then scrape only shortlisted product pages. */

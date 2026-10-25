@@ -1,4 +1,5 @@
-import { FirecrawlError, fetchProductPage, searchWeb, type SearchResult } from "../firecrawl/client";
+import { fetchProductPage, type SearchResult } from "../firecrawl/client";
+import { discoverScreenshotWeb } from "./discovery";
 import { htmlToText, parseProduct } from "../products/parse";
 import { readShopifyProduct, selectShopifyVariants, shopifySizes } from "../products/shopify";
 import { BLOCKED_DOMAINS, NOISE_DOMAINS, isBlockedDomain, isNoiseDomain, registrableDomain } from "./blocklist";
@@ -13,7 +14,8 @@ export interface ScreenshotProduct { title: string; image: string; url: string; 
 export type SourcingLog = (kind: string, text: string) => void;
 type Details = { match: ScreenshotMatch; sizes: string[]; cartReady: boolean };
 
-const EXCLUDED = [...BLOCKED_DOMAINS, ...NOISE_DOMAINS, "alibaba.com", "dhgate.com", "made-in-china.com"];
+const EXCLUDED = [...BLOCKED_DOMAINS, ...NOISE_DOMAINS, "alibaba.com", "dhgate.com", "made-in-china.com",
+  "alamy.com", "dreamstime.com", "gettyimages.com", "shutterstock.com", "depositphotos.com", "istockphoto.com"];
 // Search exclusions reduce noise; the full merchant policy still applies after discovery.
 const SEARCH_EXCLUDED = ["amazon.com", "ebay.com", "pinterest.com"];
 const SHOPIFY = /\/products\/[^/]+\/?$/i;
@@ -24,20 +26,21 @@ const tokens = (s: string) => s.toLowerCase().replace(/[^a-z0-9]+/g, " ").trim()
 // Check garment nouns in the merchant title, not a snippet describing related products.
 // Specific categories precede broad terms: a dress shirt is a shirt, not a dress.
 const KINDS = [
-  /\b(boots?|booties)\b/i, /\b(shoes?|heels?|loafers?|sneakers?|pumps?|sandals?)\b/i,
-  /\b(headbands?|headpieces?|tiaras?|crowns?|circlets?)\b/i, /\b(hats?|beanies?|berets?|caps?|bonnets?|helmets?)\b/i,
+  /\b(boots?|booties|cleats?)\b/i, /\b(shoes?|heels?|loafers?|sneakers?|pumps?|sandals?)\b/i,
+  /\b(headbands?|headpieces?|tiaras?|crowns?|circlets?)\b/i, /\b(hats?|beanies?|berets?|caps?|bonnets?|helmets?|fedoras?|trilb(?:y|ies))\b/i,
   /\b(wigs?)\b/i, /\b(masks?)\b/i, /\b(wrist[ -]?(?:bands?|straps?|cuffs?)|sweat[ -]?bands?)\b/i, /\b(glasses|sunglasses|spectacles|eyeglasses)\b/i, /\b(goggles)\b/i,
   /\b(collars?)\b/i, /\b(scarf|scarves|neckerchiefs?|bandanas?|wild\s?rags?)\b/i,
   /\b(harness|harnesses|vests?|waistcoats?)\b/i,
-  /\b(cardigans?|sweaters?|knitwear|jumpers?)\b/i, /\b(shirts?|blouses?|tops?)\b/i,
+  /\b(cardigans?|sweaters?|knitwear|jumpers?)\b/i, /\b(shirts?|jerseys?|blouses?|tops?)\b/i,
   /\b(overalls?|shortalls?|dungarees|pinafores?|rompers?)\b/i,
   /\b(pants?|trousers?|leggings?|jeans|bottoms?|breeches|shorts?)\b/i,
   /\b(catsuits?|unitards?|jumpsuits?)\b/i, /\b(bodysuits?|leotards?)\b/i,
   /\b(wings?)\b/i, /\b(sheets?|ghost costumes?|ghost ponchos?)\b/i, /\b(capes?|cloaks?)\b/i, /\b(jackets?|coats?|blazers?|tunics?)\b/i,
   /\b(skirts?)\b/i, /\b(dresses|dress|gowns?)\b/i, /\b(gloves?|gauntlets?)\b/i,
-  /\b(belts?|sashes?)\b/i, /\b(brooch|brooches|pins?)\b/i, /\b(necklaces?|pendants?|chokers?)\b/i,
+  /\b(belts?|cross[ -]?belts?|sashes?)\b/i, /\b(medals?|decorations?|ribbon (?:bars?|racks?))\b/i, /\b(brooch|brooches|pins?)\b/i, /\b(necklaces?|pendants?|chokers?)\b/i,
   /\b(chains?|fobs?|watches|watch)\b/i, /\b(earrings?)\b/i,
   /\b(tights|stockings|socks?)\b/i, /\b(bags?|purses?|satchels?)\b/i,
+  /\b(straps?)\b/i,
 ];
 const COLORS = [
   ["black", "ebony"], ["white", "ivory", "cream", "ecru", "oatmeal", "beige"], ["silver", "pewter"], ["gold", "golden"],
@@ -53,10 +56,13 @@ const desiredColors = (piece: ScreenshotPiece) => COLORS.filter((group) => words
     && /\b(wire|thin|delicate)\b/i.test(`${piece.name} ${piece.query} ${piece.appearance ?? ""}`)
     && ["gold", "silver"].includes(group[0]) ? ["gold", "golden", "silver", "pewter"] : group);
 // The item noun wins: a waistcoat chain is a chain; a ruffled-collar shirt is a shirt.
-const kindOf = (piece: ScreenshotPiece) => KINDS.find((kind) => kind.test(tokens(piece.name).at(-1) ?? ""))
+const hornedHeadwear = (piece: ScreenshotPiece) => /\b(horns?|horned|viking)\b/i.test(`${piece.name} ${piece.query}`)
+  && /\b(headbands?|headpieces?|helmets?|hats?|crowns?)\b/i.test(`${piece.name} ${piece.query}`);
+const kindOf = (piece: ScreenshotPiece) => hornedHeadwear(piece) ? /\b(headbands?|headpieces?|helmets?|hats?|horns?)\b/i : KINDS.find((kind) => kind.test(tokens(piece.name).at(-1) ?? ""))
   ?? KINDS.find((kind) => kind.test(piece.name)) ?? KINDS.find((kind) => kind.test(piece.query));
 
 const DETAILS = [
+  /\b(fedora|trilby)\b/i, /\b(bomber|flight|aviator)\b/i, /\b(solid|plain)\b/i,
   /\b(denim|jeans)\b/i,
   /\b(fox|wolf|canine|animal)\b/i, /\b(ringer|contrast trim|contrast neck)\b/i, /\b(harness|restraint)\b/i,
   /\b(fringe|fringed|tassels?|tasseled)\b/i, /\b(ruffle[ds]?|frill[sy]?|jabot)\b/i,
@@ -83,6 +89,17 @@ export function matchesScreenshotPiece(piece: ScreenshotPiece, title: string, de
   if (wrongAudience(piece, title)) return false;
   if (/\b(glasses|spectacles|eyeglasses)\b/i.test(piece.name) && /\b(goggles)\b/i.test(title)) return false;
   if (/\b(clear|transparent|eyeglasses)\b/i.test(piece.query) && /\b(sunglasses|tinted|opaque)\b/i.test(title)) return false;
+  const wanted = `${piece.name} ${piece.query}`;
+  const tee = /\b(t[ -]?shirts?|tees?)\b/i;
+  const buttonShirt = /\b(dress shirt|button[ -]?(?:front|up|down)?(?: shirt)?|polo|henley)\b/i;
+  if (tee.test(wanted) && buttonShirt.test(title) && !tee.test(title)) return false;
+  if (buttonShirt.test(wanted) && tee.test(title) && !buttonShirt.test(title)) return false;
+  if (hornedHeadwear(piece) && !/\b(horns?|horned|viking|devil|demon)\b/i.test(title)) return false;
+  if (/\bshorts\b/i.test(wanted) && /\b(pants|trousers|jeans|leggings)\b/i.test(title) && !/\bshorts\b/i.test(title)) return false;
+  if (hornedHeadwear(piece) && !/\bunicorn\b/i.test(wanted) && /\bunicorn\b/i.test(title)) return false;
+  if (/\b(solid|plain)\b/i.test(wanted) && /\b(plaid|striped|floral)\b/i.test(title) && !/\b(plaid|striped|floral)\b/i.test(wanted)) return false;
+  if (/\b(fedora|trilby)\b/i.test(wanted) && /\b(bucket|baseball|beanie|sunhat)\b/i.test(title)) return false;
+  if (/\b(flight|bomber)\b/i.test(wanted) && /\b(biker|motorcycle|racer)\b/i.test(title) && !/\b(flight|bomber|aviator)\b/i.test(title)) return false;
   const kind = kindOf(piece);
   if (kind && !kind.test(title) && KINDS.some(other => other.test(title))) return false;
   const noun = tokens(piece.name).at(-1)?.replace(/s$/, "");
@@ -100,24 +117,6 @@ function relevance(piece: ScreenshotPiece, result: SearchResult & { verifiedHint
     + tokens(piece.query).filter((word) => word.length > 2 && title.includes(word)).length * 2;
 }
 
-// Queues share the route's deadline; a busy provider never starts a long retry loop.
-let activeSearches = 0;
-const waiting: { run: () => void; signal: AbortSignal }[] = [];
-async function searchSlot(signal: AbortSignal) {
-  signal.throwIfAborted();
-  if (activeSearches < 6) { activeSearches++; return; }
-  await new Promise<void>((resolve, reject) => {
-    const abort = () => { const i = waiting.indexOf(entry); if (i >= 0) waiting.splice(i, 1); reject(signal.reason); };
-    const entry = { signal, run: () => { signal.removeEventListener("abort", abort); activeSearches++; resolve(); } };
-    waiting.push(entry);
-    signal.addEventListener("abort", abort, { once: true });
-  });
-}
-function releaseSearch() {
-  activeSearches--;
-  let next;
-  while ((next = waiting.shift())) if (!next.signal.aborted) { next.run(); break; }
-}
 function publicUrl(value: string): URL | null {
   try {
     const url = new URL(value);
@@ -136,17 +135,14 @@ const matchFor = (result: SearchResult, piece: ScreenshotPiece): ScreenshotMatch
 export function screenshotSourcing(signal: AbortSignal, log: SourcingLog, reference: Buffer) {
   const searches = new Map<string, Promise<SearchResult[]>>();
   const currencies = new Map<string, Promise<string | null>>();
+  let backupReported = false;
   function search(query: string) {
     let pending = searches.get(query);
     if (!pending) {
-      pending = (async () => {
-        await searchSlot(signal);
-        try {
-          log("search", `“${query}”`);
-          return await searchWeb(query, { cache: false, limit: 10, timeoutMs: 6_000, signal,
-            excludeDomains: SEARCH_EXCLUDED, highlights: false, images: true });
-        } finally { releaseSearch(); }
-      })();
+      log("search", `“${query}”`);
+      pending = discoverScreenshotWeb(query, { signal, limit: 10, timeoutMs: 4_000,
+        excludeDomains: SEARCH_EXCLUDED, highlights: false, images: true,
+        log: (kind, text) => { if (!backupReported) { backupReported = true; log(kind, text); } } });
       searches.set(query, pending);
     }
     return pending;
@@ -173,8 +169,14 @@ export function screenshotSourcing(signal: AbortSignal, log: SourcingLog, refere
       ]);
       if (raw?.title && matchesScreenshotPiece(piece, raw.title, htmlToText(raw.description ?? ""))) {
         const colors = desiredColors(piece);
-        const color = colors[0] && raw.variants.flatMap(variant => [variant.option1, variant.option2, variant.option3]).find(value => value && wordsMatch(value, colors[0]));
-        const variant = selectShopifyVariants(raw, color ?? undefined)[0];
+        const colorIndex = raw.options.findIndex(option => /colou?r/i.test(typeof option === "string" ? option : option.name));
+        const enforceColor = !hornedHeadwear(piece) && colorIndex >= 0 && colors.length > 0;
+        const color = enforceColor ? raw.variants.filter(variant => variant.available)
+          .map(variant => [variant.option1, variant.option2, variant.option3][colorIndex] ?? variant.options?.[colorIndex])
+          .find(value => value && wordsMatch(value, colors[0])) : undefined;
+        // A truncated merchant feed may omit the requested color. Never silently buy its default color.
+        if (enforceColor && !color) return null;
+        const variant = selectShopifyVariants(raw, typeof color === "string" ? color : undefined)[0];
         const image = [variant?.featured_image?.src, ...raw.images].find(value => typeof value === "string" && /^(https:)?\/\//.test(value))?.replace(/^\/\//, "https://") ?? null;
         if (variant) { url.search = ""; url.searchParams.set("variant", String(variant.id)); url.searchParams.set("currency", "USD"); }
         const sizes = variant ? shopifySizes(raw, variant) : [];
@@ -185,15 +187,25 @@ export function screenshotSourcing(signal: AbortSignal, log: SourcingLog, refere
       }
     }
     try {
-      const page = await fetchProductPage(url.toString(), { cache: false, timeoutMs: 3_500, signal: readSignal });
-      if (!publicUrl(page.finalUrl)) return null;
+      let page: Awaited<ReturnType<typeof fetchProductPage>>;
+      try {
+        // Most shops already expose product facts in public HTML. Reserve browser jobs for the rest.
+        const response = await fetch(url, { cache: "no-store", redirect: "error", headers: { Accept: "text/html" },
+          signal: AbortSignal.any([readSignal, AbortSignal.timeout(2_000)]) });
+        if (!response.ok) throw new Error("Merchant HTML unavailable");
+        const html = (await response.text()).slice(0, 2_000_000);
+        const facts = parseProduct(html, url.toString());
+        if (!facts.title || !facts.priceCents || !facts.images.length) throw new Error("Rendered facts needed");
+        page = { url: url.toString(), finalUrl: url.toString(), status: response.status, html };
+      } catch { page = await fetchProductPage(url.toString(), { cache: false, timeoutMs: 3_500, signal: readSignal }); }
+      if (!publicUrl(page.finalUrl) || registrableDomain(page.finalUrl) !== registrableDomain(url.toString())) return null;
       const product = parseProduct(page.html, page.finalUrl);
       if (!product.title || !matchesScreenshotPiece(piece, product.title, product.description ?? product.title)) return null;
       const image = product.images.find(src => src.startsWith("https://")) ?? null;
       const kind = LISTING.test(new URL(page.finalUrl).pathname) ? "browse" : "product";
       return { match: { ...matchFor(result, piece), title: product.title, url: page.finalUrl, merchant: registrableDomain(page.finalUrl)!,
         image, priceCents: product.currency ? product.priceCents : null, currency: product.currency, availability: product.availability, kind },
-        sizes: product.sizes, cartReady: !!(kind === "product" && image && product.priceCents && product.priceCents > 0 && product.currency === "USD" && product.availability !== "out_of_stock") };
+        sizes: product.sizes, cartReady: !!(kind === "product" && image && product.priceCents && product.priceCents > 0 && product.currency === "USD" && product.availability === "in_stock") };
     } catch { return null; }
   }
   function shortlist(results: SearchResult[], piece: ScreenshotPiece) {
@@ -208,14 +220,14 @@ export function screenshotSourcing(signal: AbortSignal, log: SourcingLog, refere
       return true;
     }).sort((a, b) => relevance(piece, b) - relevance(piece, a)).slice(0, 3);
   }
-  return async (piece: ScreenshotPiece, onMatch: (match: ScreenshotMatch) => void, onOffer: (offer: ScreenshotProduct) => void) => {
+  return async (piece: ScreenshotPiece, onMatch: (match: ScreenshotMatch | null) => void, onOffer: (offer: ScreenshotProduct) => void) => {
     let candidates: SearchResult[] = [];
     for (const query of [...new Set([piece.query, piece.alternate].filter((query): query is string => !!query))]) {
       signal.throwIfAborted();
       try { candidates = shortlist(await search(`${query} buy`), piece); }
-      catch (error) {
+      catch {
         signal.throwIfAborted();
-        log("search", `${piece.name}: ${error instanceof FirecrawlError && error.status === 429 ? "search is busy" : "search unavailable"}`);
+        log("search", `${piece.name}: live search is temporarily unavailable`);
         break;
       }
       if (candidates.length) break;
@@ -247,7 +259,7 @@ export function screenshotSourcing(signal: AbortSignal, log: SourcingLog, refere
       if (!verdict || signal.aborted) return;
       const selected = details[verdict.index];
       if (!selected) {
-        onMatch({ ...details[0].match, note: "May differ from the screenshot. Check the product photos at the shop." });
+        onMatch(null);
         return;
       }
       const { match, sizes, cartReady } = selected;
