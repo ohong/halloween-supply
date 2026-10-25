@@ -3,8 +3,7 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { formatExactPrice, formatPrice, useCart } from "@/lib/cart/context";
-import { costumes } from "@/lib/costumes";
+import { SCREENSHOT_SLUG, costumeName, formatExactPrice, formatPrice, useCart } from "@/lib/cart/context";
 import type { CheckoutRequest, CheckoutResponse, PriceChange } from "@/lib/checkout/types";
 import type { CartItem } from "@/lib/types";
 import { ProductImage } from "./product-image";
@@ -117,7 +116,7 @@ export function CartDrawer() {
   if (!isOpen) return null;
   const busy = currentStatus.kind === "loading" || currentStatus.kind === "redirecting";
   const onCostume = costumeSlug !== null && pathname === `/costumes/${costumeSlug}`;
-  const costume = costumes.find((look) => look.slug === costumeSlug);
+  const screenshotLook = costumeSlug === SCREENSHOT_SLUG;
 
   function askForSizes() {
     setOpen(false);
@@ -128,7 +127,7 @@ export function CartDrawer() {
     <div className="drawer-scrim" onClick={() => setOpen(false)} />
     <aside className="drawer" ref={drawerRef} role="dialog" aria-modal="true" aria-label="Cart">
       <div className="drawer-head">
-        <div><h2>Cart</h2>{costume && <p className="meta">{costume.name} · One costume per cart</p>}</div>
+        <div><h2>Cart</h2>{costumeSlug && <p className="meta">{costumeName(costumeSlug)} · One costume per cart</p>}</div>
         <button type="button" className="text-btn" ref={closeRef} onClick={() => setOpen(false)}>Close</button>
       </div>
 
@@ -170,7 +169,9 @@ export function CartDrawer() {
         <p className="meta">Merchant prices only. Shipping address is collected at checkout.</p>
         {sizedPieces > 0 && <div className="size-reminder">
           {missingSizes > 0 && <p className="meta is-needed">{missingSizes} {missingSizes === 1 ? "piece needs" : "pieces need"} a size.</p>}
-          {onCostume
+          {screenshotLook
+            ? <Link className="text-btn" href="/screenshot" onClick={() => setOpen(false)}>{missingSizes > 0 ? "Pick sizes on your look" : "Update sizes on your look"} →</Link>
+            : onCostume
             ? <button type="button" className="text-btn" onClick={askForSizes}>{missingSizes > 0 ? "Tell the assistant your sizes" : "Update sizes with the assistant"} →</button>
             : <Link className="text-btn" href={`/costumes/${costumeSlug}?assistant=sizes`} onClick={() => setOpen(false)}>{missingSizes > 0 ? "Tell the assistant your sizes" : "Update sizes with the assistant"} →</Link>}
         </div>}
