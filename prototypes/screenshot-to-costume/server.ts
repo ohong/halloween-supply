@@ -15,6 +15,9 @@ for (const k of ["ANTHROPIC_API_KEY", "FIRECRAWL_API_KEY"]) {
 const PRODUCT_PATH = /\/(listing|listings|products?|item|itm|p|dp|shop\/[^/]+\/[^/]+)\/|[?&](variant|pid)=|\/[\w-]+-p\d+|\.html?$/i;
 const LISTING_PATH = /\/(market|search|c|category|categories|collections\/[^/]+\/?$|tag|shop\/?$)(\/|\?|$)/i;
 
+// Wholesale marketplaces the shared blocklist misses; per-unit bulk prices read as absurd totals.
+const WHOLESALE = /(^|\.)(alibaba|dhgate|made-in-china)\.com$/;
+
 type Piece = { name: string; slot: "head" | "top" | "outer" | "bottom" | "feet" | "accessory"; query: string };
 type Look = { character: string; summary: string; pieces: Piece[] };
 type Found = { title: string; url: string; merchant: string; priceCents: number; image: string };
@@ -33,7 +36,7 @@ async function decompose(dataUrl: string): Promise<Look> {
         "You turn a picture of a person or character into a Halloween costume built from real, separately bought clothing pieces.",
         "Reply with JSON only: {\"character\": who this is or a short evocative name for the look, \"summary\": one sentence on the look,",
         "\"pieces\": 4 to 6 items, ordered head to toe, each {\"name\": short garment name, \"slot\": one of head|top|outer|bottom|feet|accessory,",
-        "\"query\": a web search query that finds that exact item for sale as a single product page on Etsy, a vintage shop or an independent brand; describe color, material and cut; never name a big-box store}}.",
+        "\"query\": 4 to 8 words phrased like a product title an independent shop would use (color, material, cut, item type), with no store or marketplace names, because naming one returns its category pages instead of products}}.",
         "Pick the pieces that make the look recognizable. Skip underwear, skin and hair.",
       ].join(" "),
       messages: [{ role: "user", content: [
@@ -77,16 +80,22 @@ async function enrich(title: string, url: string): Promise<Found | null> {
   }
 }
 
+// Everyday basics (boots, trousers) mostly surface big-box results, so a miss retries once
+// with "handmade", which steers search toward independent makers.
 async function source(piece: Piece, index: number, emit: Emit): Promise<Found | null> {
+  return (await sourceWith(piece.query, piece, index, emit)) ?? (await sourceWith(`${piece.query} handmade`, piece, index, emit));
+}
+
+async function sourceWith(query: string, piece: Piece, index: number, emit: Emit): Promise<Found | null> {
   const log = (kind: string, text: string) => emit({ t: "log", index, kind, text });
-  log("search", `${piece.name}: searching "${piece.query}"`);
+  log("search", `${piece.name}: searching "${query}"`);
   const data = await firecrawl<{ web?: { title: string; url: string }[] }>("search", {
-    query: piece.query, limit: 12, country: "US", location: "San Francisco,California,United States", timeout: 25_000,
+    query, limit: 12, country: "US", location: "San Francisco,California,United States", timeout: 25_000,
   });
   const candidates: { title: string; url: string }[] = [];
   for (const r of data.web ?? []) {
     const host = hostnameOf(r.url) ?? r.url;
-    if (isBlockedDomain(r.url)) { log("blocked", host); continue; }
+    if (isBlockedDomain(r.url) || WHOLESALE.test(host)) { log("blocked", host); continue; }
     if (isNoiseDomain(r.url)) { log("skip", `${host}, not a shop`); continue; }
     const u = new URL(r.url);
     if (LISTING_PATH.test(u.pathname + u.search) || !PRODUCT_PATH.test(u.pathname + u.search)) { log("skip", `${host}, not a product page`); continue; }
