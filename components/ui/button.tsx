@@ -5,7 +5,7 @@ import { cn } from "@/lib/utils";
 
 // Adapted from shadcn/ui's MIT-licensed Button, using this store's monochrome tokens.
 const buttonVariants = cva(
-  "inline-flex shrink-0 items-center justify-center gap-2 rounded-[4px] text-sm transition-colors duration-150 outline-none focus-visible:ring-2 focus-visible:ring-[#111] focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-45 [&_svg]:pointer-events-none [&_svg]:size-4",
+  "inline-flex shrink-0 items-center justify-center gap-2 rounded-[4px] text-sm transition-colors duration-150 outline-none focus-visible:ring-2 focus-visible:ring-[#111] focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-45 active:opacity-75 [&_svg]:pointer-events-none [&_svg]:size-4",
   {
     variants: {
       variant: {
@@ -13,7 +13,7 @@ const buttonVariants = cva(
         outline: "border border-[#CCC] bg-white text-[#333] hover:bg-[#EFEEEF]",
         ghost: "text-[#666] hover:bg-[#EFEEEF] hover:text-[#111]",
       },
-      size: { default: "min-h-11 px-4", sm: "min-h-9 px-3 text-xs", icon: "size-10" },
+      size: { default: "min-h-11 px-4", sm: "min-h-11 px-3 text-xs", icon: "size-11" },
     },
     defaultVariants: { variant: "default", size: "default" },
   },

@@ -35,7 +35,7 @@ export function ProductCard({ card, inCart, onAdd }: { card: Card; inCart: boole
           type="button"
           disabled={inCart || soldOut}
           onClick={() => onAdd(card)}
-          className="mt-0.5 min-h-8 self-start rounded-[4px] bg-[#111] px-3 text-xs text-white transition-colors duration-150 hover:bg-[#333] disabled:bg-[#EFEEEF] disabled:text-[#666]"
+          className="mt-0.5 min-h-11 self-start rounded-[4px] bg-[#111] px-3 text-xs text-white transition-colors duration-150 hover:bg-[#333] active:opacity-75 disabled:bg-[#EFEEEF] disabled:text-[#666]"
         >
           {inCart ? "In cart" : "Add to cart"}
         </button>

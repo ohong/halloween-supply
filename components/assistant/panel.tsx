@@ -9,7 +9,7 @@ import { pieceSizesSchema, sizesSchema, type ChatContext } from "@/lib/ai/chat-c
 import type { ProductCard } from "@/lib/ai/cards";
 import { addToCartSchema, recordSizesSchema, type RecordSizesInput } from "@/lib/ai/client-tools";
 import { pieceSizesStorageKey, sizesStorageKey, useCart } from "@/lib/cart/context";
-import { toCartItem } from "@/lib/cart/item";
+import { compatibleSize, toCartItem } from "@/lib/cart/item";
 import type { CostumeView, SizeKind } from "@/lib/types";
 import { MessageView } from "./message-view";
 
@@ -46,6 +46,7 @@ export function AssistantPanel({ costume, onChoose }: { costume: CostumeView; on
   const [sizes, setSizes] = useState<Sizes>({});
   const [pieceSizes, setPieceSizes] = useState<Record<string, string>>({});
   const inputRef = useRef<HTMLInputElement>(null);
+  const panelRef = useRef<HTMLElement>(null);
   const triggerRef = useRef<HTMLButtonElement>(null);
   const receipts = useRef(new Map<string, ToolReceipt>());
   const cartRef = useRef(cart);
@@ -88,12 +89,12 @@ export function AssistantPanel({ costume, onChoose }: { costume: CostumeView; on
     const piece = costumeRef.current.pieces.find(({ piece }) => piece.id === pieceId);
     const option = piece?.options.find(({ product }) => product.id === productId);
     if (!piece || !option || option.product.availability === "out_of_stock") throw new Error("That product is not available for this piece.");
-    const size = pieceSizesRef.current[pieceId] ?? sizesRef.current[piece.piece.sizeKind] ?? null;
-    cartRef.current.add(toCartItem(piece.piece, option, size), costumeRef.current.costume.slug);
-    const previous = contextRef.current.cart.find((line) => line.pieceId === pieceId);
+    const item = toCartItem(piece.piece, option, pieceSizesRef.current[pieceId] ?? sizesRef.current[piece.piece.sizeKind] ?? null);
+    const size = item.size;
+    cartRef.current.add(item, costumeRef.current.costume.slug);
     contextRef.current = {
       ...contextRef.current,
-      cart: [...contextRef.current.cart.filter((line) => line.pieceId !== pieceId), { pieceId, productId, size: size ?? previous?.size ?? null }],
+      cart: [...contextRef.current.cart.filter((line) => line.pieceId !== pieceId), { pieceId, productId, size }],
     };
     onChooseRef.current?.(pieceId, productId);
     return { ok: true, title: option.product.title, pieceId, productId, size };
@@ -120,8 +121,10 @@ export function AssistantPanel({ costume, onChoose }: { costume: CostumeView; on
       pieceSizes: Object.fromEntries(activePieces.flatMap((piece) => nextPieces[piece.id] ? [[piece.id, nextPieces[piece.id]]] : [])),
       cart: contextRef.current.cart.map((line) => {
         const piece = activePieces.find((piece) => piece.id === line.pieceId);
-        const size = piece && affected.has(piece.id) ? nextPieces[piece.id] ?? next[piece.sizeKind] : undefined;
-        if (!size) return line;
+        const requested = piece && affected.has(piece.id) ? nextPieces[piece.id] ?? next[piece.sizeKind] : undefined;
+        if (!piece || !requested) return line;
+        const option = costumeRef.current.pieces.find(({ piece: candidate }) => candidate.id === line.pieceId)?.options.find(({ product }) => product.id === line.productId);
+        const size = compatibleSize({ sizeKind: piece.sizeKind, availableSizes: option?.product.sizes ?? [] }, requested);
         cartRef.current.setSize(line.pieceId, size);
         updated.add(line.pieceId);
         return { ...line, size };
@@ -183,10 +186,24 @@ export function AssistantPanel({ costume, onChoose }: { costume: CostumeView; on
   }, []);
   useEffect(() => {
     if (!open) return;
+    const panel = panelRef.current;
+    const previousOverflow = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
     inputRef.current?.focus();
-    const onKey = (event: KeyboardEvent) => { if (event.key === "Escape") close(); };
+    const onKey = (event: KeyboardEvent) => {
+      if (event.key === "Escape") close();
+      if (event.key !== "Tab") return;
+      const controls = panel?.querySelectorAll<HTMLElement>("button:not(:disabled), a[href], input:not(:disabled), [tabindex='0']");
+      const first = controls?.[0];
+      const last = controls?.[controls.length - 1];
+      if (event.shiftKey && document.activeElement === first) { event.preventDefault(); last?.focus(); }
+      else if (!event.shiftKey && document.activeElement === last) { event.preventDefault(); first?.focus(); }
+    };
     window.addEventListener("keydown", onKey);
-    return () => window.removeEventListener("keydown", onKey);
+    return () => {
+      document.body.style.overflow = previousOverflow;
+      window.removeEventListener("keydown", onKey);
+    };
   }, [open, close]);
 
   const send = (text: string) => {
@@ -206,13 +223,15 @@ export function AssistantPanel({ costume, onChoose }: { costume: CostumeView; on
   });
 
   return <>
-    {!open && <Button ref={triggerRef} onClick={() => setOpen(true)} aria-expanded={open} aria-controls="shopping-assistant" className="fixed right-4 bottom-4 z-40">Ask the assistant</Button>}
-    {open && <section id="shopping-assistant" role="dialog" aria-label="Shopping assistant" className="fixed inset-x-0 bottom-0 z-50 flex h-[85dvh] flex-col rounded-t-[4px] border border-[#CCC] bg-white text-[#333] md:inset-x-auto md:right-4 md:bottom-4 md:h-[640px] md:max-h-[calc(100dvh-32px)] md:w-[400px] md:rounded-[4px]">
-      <header className="flex items-center justify-between border-b border-[#CCC] px-4 py-2">
+    {!open && <Button ref={triggerRef} onClick={() => setOpen(true)} aria-expanded={open} aria-controls="shopping-assistant" className="assistant-trigger fixed z-40">Ask the assistant</Button>}
+    {open && <>
+    <div className="fixed inset-0 z-40 bg-black/20" onClick={close} aria-hidden="true" />
+    <section ref={panelRef} id="shopping-assistant" role="dialog" aria-modal="true" aria-label="Shopping assistant" className="fixed inset-x-0 bottom-0 z-50 flex h-[85dvh] flex-col rounded-t-[4px] border border-[#CCC] bg-white text-[#333] md:inset-x-auto md:right-4 md:bottom-4 md:h-[640px] md:max-h-[calc(100dvh-32px)] md:w-[400px] md:rounded-[4px]">
+      <header className="flex shrink-0 items-center justify-between border-b border-[#CCC] px-4 py-2">
         <h2 className="text-sm font-normal text-[#111]">Shopping assistant</h2>
         <Button variant="ghost" onClick={close} aria-label="Close the assistant">Close</Button>
       </header>
-      {savedLabels.length > 0 && <p className="border-b border-[#CCC] px-4 py-2 text-xs leading-relaxed text-[#666]" aria-live="polite">Saved sizes: {savedLabels.join(" · ")}</p>}
+      {savedLabels.length > 0 && <p className="assistant-sizes max-h-[25%] shrink-0 overflow-y-auto border-b border-[#CCC] text-xs leading-relaxed text-[#666]" aria-live="polite">Saved sizes: {savedLabels.join(" · ")}</p>}
       <Conversation aria-label="Conversation with the shopping assistant">
         <ConversationContent>
           {messages.length === 0 && <div className="flex flex-col items-start gap-3">
@@ -229,10 +248,10 @@ export function AssistantPanel({ costume, onChoose }: { costume: CostumeView; on
         </ConversationContent>
         <ConversationScrollButton />
       </Conversation>
-      <form onSubmit={onSubmit} className="flex gap-2 border-t border-[#CCC] p-3">
-        <input ref={inputRef} value={input} onChange={(event) => setInput(event.target.value)} maxLength={6000} autoComplete="off" placeholder="Ask about a piece or share your sizes" aria-label="Message the assistant" className="min-h-11 min-w-0 flex-1 rounded-[4px] border border-[#CCC] bg-white px-3 text-base text-[#333] outline-none placeholder:text-[#999] focus-visible:ring-2 focus-visible:ring-[#111]" />
+      <form onSubmit={onSubmit} className="assistant-form flex shrink-0 gap-2 border-t border-[#CCC] p-3">
+        <input ref={inputRef} value={input} onChange={(event) => setInput(event.target.value)} maxLength={6000} autoComplete="off" enterKeyHint="send" placeholder="Ask about a piece or share your sizes" aria-label="Message the assistant" className="min-h-11 min-w-0 flex-1 rounded-[4px] border border-[#CCC] bg-white px-3 text-base text-[#333] outline-none placeholder:text-[#999] focus-visible:ring-2 focus-visible:ring-[#111]" />
         {busy ? <Button variant="outline" onClick={() => { void stop(); }}>Stop</Button> : <Button type="submit" disabled={!input.trim()}>Send</Button>}
       </form>
-    </section>}
+    </section></>}
   </>;
 }
