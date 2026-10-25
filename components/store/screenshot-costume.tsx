@@ -3,6 +3,7 @@
 import { useCallback, useEffect, useRef, useState, type CSSProperties } from "react";
 import { SCREENSHOT_SLUG, formatPrice, useCart } from "@/lib/cart/context";
 import { compatibleSize } from "@/lib/cart/item";
+import type { ScreenshotMatch } from "@/lib/sourcing/screenshot-types";
 import type { CartItem } from "@/lib/types";
 import { preparePhoto } from "@/lib/photo/prepare";
 import { AssemblyPlaceholder, AssemblyStatus } from "./assembly-status";
@@ -13,12 +14,27 @@ interface LookPiece { name: string; slot: string; query: string; sizeKind: CartI
 type Slot =
   | { state: "looking"; name: string }
   | { state: "found"; name: string; item: CartItem; why?: string }
+  | { state: "candidate"; name: string; match: ScreenshotMatch }
   | { state: "missing"; name: string };
 interface LogLine { kind: string; text: string; ms: number }
 type Phase = "idle" | "running" | "done" | "error";
 
 // Small rotations make the pieces land like a hand-arranged flat-lay.
 const TILT = [-2.5, 1.8, -1.2, 2.4, -1.9, 1.1, -0.8];
+
+function MatchImage({ src, title, merchant }: { src: string | null; title: string; merchant: string }) {
+  const [failed, setFailed] = useState<string | null>(null);
+  if (!src || failed === src) return <span className="shot-discovery-photo"><span>{src ? "Photo unavailable" : "Similar item found"}</span><strong>{merchant}</strong><span>View at shop ↗</span></span>;
+  // eslint-disable-next-line @next/next/no-img-element -- merchant photos can use any public CDN
+  return <img src={src} alt={title} referrerPolicy="no-referrer" onError={() => setFailed(src)} />;
+}
+
+function matchPrice(match: ScreenshotMatch) {
+  if (match.priceCents && match.currency && /^[A-Z]{3}$/.test(match.currency)) {
+    return new Intl.NumberFormat("en-US", { style: "currency", currency: match.currency }).format(match.priceCents / 100);
+  }
+  return "Check price at shop";
+}
 
 export function ScreenshotCostume() {
   const cart = useCart();
@@ -31,7 +47,6 @@ export function ScreenshotCostume() {
   const [error, setError] = useState<string | null>(null);
   const [sizes, setSizes] = useState<Record<string, string | null>>({});
   const [dragging, setDragging] = useState(false);
-  const [shown, setShown] = useState(0);
   const [selectedPieceId, setSelectedPieceId] = useState<string | null>(null);
   const inspectionTrigger = useRef<HTMLButtonElement | null>(null);
   const abort = useRef<AbortController | null>(null);
@@ -43,26 +58,21 @@ export function ScreenshotCostume() {
   const restored = phase === "idle" && cart.ready && cart.costumeSlug === SCREENSHOT_SLUG && slots.length === 0;
   const visible: Slot[] = restored ? cart.items.map((item) => ({ state: "found", name: item.pieceName, item })) : slots;
   const found = visible.flatMap((slot) => slot.state === "found" ? [slot.item] : []);
+  const discovered = visible.filter(slot => slot.state === "found" || slot.state === "candidate").length;
   const selected = found.find((item) => item.pieceId === selectedPieceId) ?? null;
   const total = found.reduce((sum, item) => sum + item.priceCents, 0);
   const inCart = (item: CartItem) => cart.costumeSlug === SCREENSHOT_SLUG && cart.items.some((line) => line.pieceId === item.pieceId && line.productId === item.productId);
   const sizeOf = (item: CartItem) => compatibleSize(item, cart.items.find((line) => cart.costumeSlug === SCREENSHOT_SLUG && line.pieceId === item.pieceId && line.productId === item.productId)?.size ?? sizes[item.pieceId]);
 
-  // Lines arrive in bursts, so drip them out to keep the log readable.
+  // Flush bursts together so the log never trails the results by several seconds.
   useEffect(() => {
     const timer = window.setInterval(() => {
-      const next = queue.current.shift();
-      if (next) setLog((lines) => [...lines, next]);
+      const batch = queue.current.splice(0);
+      if (batch.length) setLog(lines => [...lines, ...batch]);
     }, 60);
     return () => window.clearInterval(timer);
   }, []);
   useEffect(() => { logRef.current?.scrollTo({ top: logRef.current.scrollHeight }); }, [log]);
-
-  useEffect(() => {
-    if (shown === total) return;
-    const frame = requestAnimationFrame(() => setShown((s) => Math.abs(total - s) < 50 ? total : Math.round(s + (total - s) * 0.18)));
-    return () => cancelAnimationFrame(frame);
-  }, [shown, total]);
 
   useEffect(() => () => abort.current?.abort(), []);
 
@@ -81,7 +91,7 @@ export function ScreenshotCostume() {
       const photo = await preparePhoto(file);
       if (controller.signal.aborted) return;
       form.append("photo", photo, "screenshot.jpg");
-      const response = await fetch("/api/screenshot-costume", { method: "POST", body: form, signal: controller.signal });
+      const response = await fetch("/api/screenshot-costume", { method: "POST", body: form, signal: AbortSignal.any([controller.signal, AbortSignal.timeout(35_000)]) });
       if (!response.ok || !response.body) {
         const body = await response.json().catch(() => null) as { error?: string } | null;
         throw new Error(body?.error ?? "The stylist is unavailable right now.");
@@ -104,6 +114,9 @@ export function ScreenshotCostume() {
             setCharacter(String(event.character));
             setSummary(String(event.summary ?? ""));
             setSlots((event.pieces as LookPiece[]).map((piece) => ({ state: "looking", name: piece.name })));
+          } else if (event.t === "candidate") {
+            const match = event.match as ScreenshotMatch;
+            setSlots(current => current.map((slot, i) => i === event.i && slot.state !== "found" ? { state: "candidate", name: slot.name, match } : slot));
           } else if (event.t === "piece") {
             const item = event.item as CartItem;
             setSlots((current) => current.map((slot, i) => i === event.i ? { state: "found", name: slot.name, item, why: typeof event.why === "string" ? event.why : undefined } : slot));
@@ -112,17 +125,18 @@ export function ScreenshotCostume() {
           } else if (event.t === "done") {
             finished = true;
             queue.current.push({ kind: "done", text: `Done in ${(event.ms / 1000).toFixed(1)}s`, ms: event.ms });
+            setSlots(current => current.map(slot => slot.state === "looking" ? { state: "missing", name: slot.name } : slot));
             setPhase("done");
           } else if (event.t === "error") {
             throw new Error(String(event.text));
           }
         }
       }
-      if (!finished) throw new Error("The stylist stopped early. Please try again.");
+      if (!finished) throw new Error("The search stopped early. Matches already found stay on your board.");
     } catch (caught) {
       if (controller.signal.aborted) return;
       // The terminal phase renders pending pieces as unfinished, not verified misses.
-      setError(caught instanceof Error ? caught.message : "The stylist couldn’t finish this look.");
+      setError(caught instanceof Error && caught.name === "TimeoutError" ? "The search reached its time limit. Matches already found stay on your board." : caught instanceof Error ? caught.message : "The stylist couldn’t finish this look.");
       setPhase("error");
     }
   }, []);
@@ -194,19 +208,19 @@ export function ScreenshotCostume() {
       </ol>}
     </aside>
 
-    <section className="shot-result" aria-busy={running}>
+    <section className="shot-result" aria-label="Screenshot results">
       <div className="shot-head">
         <div>
           <p className="meta">Screenshot to costume</p>
           <h1>{character ?? (restored ? "Your screenshot look" : running ? "Reading the look…" : "Turn any screenshot into a costume.")}</h1>
-          <p className="shot-summary">{summary || (restored ? "These pieces are in your cart. Pick sizes, then check out." : !character && !running ? "We spot who it is, break the outfit into the pieces you’d actually buy, and find each one in stock at a real shop." : "")}</p>
+          <p className="shot-summary">{summary || (restored ? "These pieces are in your cart. Pick sizes, then check out." : !character && !running ? "We read the outfit, break it into pieces, and find similar items at real shops. Matches appear as we find them, within 30 seconds." : "")}</p>
         </div>
-        {found.length > 0 && <div className="shot-total"><span className="meta">{found.length} {found.length === 1 ? "piece" : "pieces"}</span><strong>{formatPrice(shown)}</strong></div>}
+        {found.length > 0 && <div className="shot-total"><span className="meta">{found.length} priced {found.length === 1 ? "piece" : "pieces"}</span><strong>{formatPrice(total)}</strong></div>}
       </div>
 
       {error && <p className="notice" role="alert">{error}</p>}
 
-      {(running || visible.length > 0) && <AssemblyStatus found={found.length} total={visible.length} missing={missing} running={running} stopped={phase === "error"} />}
+      {(running || visible.length > 0) && <AssemblyStatus discovery found={discovered} total={visible.length} missing={missing} running={running} stopped={phase === "error"} />}
       {running && visible.length === 0 && <div className="shot-preparing" aria-hidden="true">
         <span className="shot-preparing-sheet" />
         <span className="shot-preparing-sheet" />
@@ -226,8 +240,7 @@ export function ScreenshotCostume() {
                 else setSelectedPieceId(slot.item.pieceId);
               }}>
               <span className="shot-frame">
-                {/* eslint-disable-next-line @next/next/no-img-element -- merchant images come from any shop's CDN */}
-                <img src={slot.item.image} alt={slot.item.title} referrerPolicy="no-referrer" />
+                <MatchImage src={slot.item.image} title={slot.item.title} merchant={slot.item.merchantName} />
               </span>
               <span className="shot-caption">
                 <span className="shot-piece">{slot.name}</span>
@@ -243,7 +256,15 @@ export function ScreenshotCostume() {
                 <option value="">Pick a size</option>
                 {slot.item.availableSizes.map((size) => <option key={size} value={size}>{size}</option>)}
             </select>}
-          </> : <>
+          </> : slot.state === "candidate" ? <a className="shot-inspect" href={slot.match.url} target="_blank" rel="noopener noreferrer">
+            <span className="shot-frame">
+              <MatchImage src={slot.match.image} title={slot.match.title} merchant={slot.match.merchant} />
+            </span>
+            <span className="shot-caption"><span className="shot-piece">{slot.name}</span><span className="shot-title">{slot.match.title}</span>
+              <span className="meta">{slot.match.merchant} · {matchPrice(slot.match)}</span>
+              <span className="meta shot-match">{slot.match.note}</span>
+              <span className="shot-inspect-hint">{slot.match.availability === "out_of_stock" ? "Listed out of stock · check shop ↗" : slot.match.kind === "browse" ? "Browse matches at shop ↗" : "View at shop ↗"}</span></span>
+          </a> : <>
             <div className="shot-frame"><AssemblyPlaceholder state={slot.state === "looking" && phase === "error" ? "stopped" : slot.state} index={i} /></div>
             <div className="shot-caption"><p className="shot-piece">{slot.name}</p></div>
           </>}
@@ -254,11 +275,11 @@ export function ScreenshotCostume() {
           onSizeChange={(size) => chooseSize(selected, size)} onAdd={addSelected} onClose={closeInspection} />}
       </div> : !running && <div className="shot-empty" aria-hidden="true">{TILT.slice(0, 6).map((r, i) => <span key={i} style={{ "--r": `${r}deg` } as CSSProperties} />)}</div>}
 
-      {found.length > 0 && !running && <div className="shot-foot">
-        <p className="meta">{replacesScreenshot ? "This replaces the previous screenshot look in your cart. " : ""}{missing > 0 ? `${missing} ${missing === 1 ? "piece still needs" : "pieces still need"} a verified match. ` : ""}Prices and stock are checked again at checkout.</p>
-        <button type="button" className="btn" disabled={!cart.ready} onClick={allInCart ? () => cart.setOpen(true) : addLook}>
-          {allInCart ? "View cart" : `Add the look to cart · ${formatPrice(total)}`}
-        </button>
+      {discovered > 0 && <div className="shot-foot">
+        <p className="meta">{replacesScreenshot ? "This replaces the previous screenshot look in your cart. " : ""}{discovered > found.length ? "Open shop links for items without confirmed prices. " : ""}{missing > 0 ? `${missing} ${missing === 1 ? "piece needs" : "pieces need"} another search. ` : ""}Prices and stock can change. Checkout checks cart items again.</p>
+        {found.length > 0 && <button type="button" className="btn" disabled={!cart.ready} onClick={allInCart ? () => cart.setOpen(true) : addLook}>
+          {allInCart ? "View cart" : `Add ${found.length < visible.length ? "priced pieces" : "the look"} to cart · ${formatPrice(total)}`}
+        </button>}
       </div>}
     </section>
   </div>;

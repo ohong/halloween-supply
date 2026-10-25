@@ -33,23 +33,25 @@ Selecting a product does not buy it or confirm its size or availability.
 Microphone ──WebRTC──> GPT-Live ──native delegation──> Decisions
                              <── confirmed catalog selection
                                                     │
-Catalog product cutouts ── reference board + prompt ──┤
+Catalog piece names ── clothing-only prompt ─────────┤
                                                     ▼
-Camera ──WebRTC──> Decart Lucy 2.5 ──WebRTC──> live preview
+Camera ──WebRTC──> Decart Lucy VTON ──WebRTC─> live preview
                         ▲
                    fal signaling
 ```
 
 - `FAL_KEY`: server-only fal key. The app uses
-  `decart/lucy-2-5/realtime`. A direct Decart key is no longer required.
+  `decart/lucy2-vton/realtime`, the dedicated try-on endpoint. A direct Decart key is not required.
 - `OPENAI_API_KEY`: server-only OpenAI key with GPT-Live and Decisions access.
 - `OPENAI_LIVE_MODEL`: defaults to `gpt-live-1`, verified available on the account.
 - `OPENAI_DECISION_MODEL`: defaults to `gpt-6-luna`.
 
-The browser receives a 60-second fal token scoped to `decart/lucy-2-5`.
+The browser receives a 60-second fal token scoped to `decart/lucy2-vton`.
 The permanent key stays on the server. Camera video goes directly to Decart;
 fal relays the connection and outfit controls. Microphone audio goes to OpenAI.
-The app does not persist camera frames or recordings. Saved previews download
+The app does not persist camera frames or recordings. Appearance questions
+send captured preview frames to OpenAI; likeness questions also send the paired
+original camera frame. These requests use the existing processing consent. Saved previews download
 from browser memory only when requested.
 
 `@fal-ai/client` is pinned to `1.11.0-alpha.3`: its official Lucy WebRTC extension
@@ -78,19 +80,32 @@ recognizes the intent; a server-side Responses call extracts only current piece
 IDs and appearance properties. These edits are part of outfit history, respect
 kept pieces, and leave product IDs and prices unchanged. The reference request
 includes all appearance overrides, and Lucy's prompt gives those overrides
-priority over the garment board. Selecting another merchant option clears the
+priority over the default clothing description. Selecting another merchant option clears the
 appearance override for that piece. Undo restores the previous appearance.
 
 An unspecified request to change costumes advances to a different catalog look.
 GPT Live receives the current costume, selected pieces, appearance overrides,
 and preview status (live, updating, frozen, or failed). This links the conversation
-to the app's state; GPT Live does not inspect the camera's pixels. Video and
+to the app's state; GPT Live receives fresh visual observations only when the shopper requests
+appearance feedback; control state alone is not visual evidence. Video and
 microphone data continue to use their separate providers.
 
-The server composites the complete desired outfit from local catalog assets.
-Boards are at least 512×512, including single-piece selections. Product files are
-included in the deployed reference function. Every edit sends the full intended
-outfit, preserving owned clothing instead of treating edits as permanent layers.
+The server describes the complete desired outfit using catalog piece names.
+The reference endpoint returns `image: null`; the browser explicitly sends
+`reference_image_url: null` at startup and on every update. Merchant photos can
+include models' faces, hair and makeup. Sending those photos through Lucy's
+shared character-swap/try-on reference input can introduce a competing identity.
+Text-only editing avoids that input, at the cost of exact garment detail.
+Garment images need a separate garment-only review before they can return.
+Every edit sends the full intended outfit, preserving owned clothing.
+
+The app uses the dedicated Lucy VTON endpoint instead of Lucy 2.5 general
+video editing. Face and likeness preservation takes priority over clothing edits. Prompts
+prohibit facial changes, makeup, beauty filters and body reshaping. Prompt
+expansion stays disabled. The voice stylist must acknowledge reported face
+changes and cannot claim the pixels are unchanged or fixed. These controls
+reduce identity-transfer risk; they do not guarantee pixel-level preservation
+in generated video. Real-person visual verification remains required.
 
 ## Lifetime and rendering limits
 
@@ -111,15 +126,24 @@ identity preservation, occlusion, motion, and real-world fit require visual
 assessment with a person. This implementation does not promise sub-second
 speech-to-visible-garment latency.
 
-Fal lists Lucy 2.5 at $0.04 per processed video second: approximately $2.40 per
-minute, or $7.20 for three minutes, plus voice and Decisions usage. Verify current
-provider pricing before changing session duration. Repeated live sessions,
+Live video, voice and Decisions consume provider credits. Verify current
+pricing for the dedicated VTON endpoint before changing session duration. Repeated live sessions,
 resumes, and voice commands have no hourly app or project firewall quota.
 Testing mode disables the app session cutoff. Outside testing mode, each video
 connection ends after three minutes and restarts explicitly.
 See [current session behavior](./mirror-session-limits.md).
 
 ## Reproduce the real-provider test
+
+Check the actual reference routes without paid inference or camera access:
+
+```sh
+MIRROR_BASE_URL=http://localhost:3028 node scripts/verify-mirror-identity.mjs
+```
+
+This checks every published look at three available product tiers, plus color
+and owned-piece changes. It verifies that merchant images are absent and face
+preservation instructions remain present. It does not measure generated likeness.
 
 ```sh
 bun install
@@ -177,6 +201,7 @@ motion, iPhone Safari, and garment fidelity on a person remain unverified.
 
 ## Official contracts
 
+- https://fal.ai/models/decart/lucy2-vton/realtime/api
 - https://fal.ai/models/decart/lucy-2-5/realtime/api
 - https://fal.ai/lucy-2.5
 - https://github.com/fal-ai/fal-js/blob/main/libs/client/src/realtime/lucy.ts
@@ -184,3 +209,64 @@ motion, iPhone Safari, and garment fidelity on a person remain unverified.
 - https://github.com/DecartAI/tryon-examples
 - https://developers.openai.com/api/docs/guides/voice-webrtc?api=live
 - https://developers.openai.com/api/docs/guides/decisions-voice
+
+
+## Visual feedback on request
+
+Ask **“How do I look?”** to assess the currently displayed costume preview.
+Ask **“Has the preview changed my face?”** or **“Compare my likeness with the
+original camera”** to describe visible rendering differences between the
+preview and the original. These questions do not change outfit selections,
+product IDs, appearance overrides, or the shopping cart.
+
+GPT Live remains an audio/text model. A new Decisions choice routes explicit
+visual questions to the browser. The browser captures the display only after
+consent and that request, then calls `/api/live-mirror/feedback`. Styling sends
+one image; likeness sends two. A standalone Responses call with
+`gpt-6-luna` (or `OPENAI_MIRROR_VISION_MODEL`) returns concise observations.
+Those observations return to GPT Live through the existing delegated-result
+channel, and GPT Live speaks the answer. Typed questions show the same feedback
+in the conversation.
+
+```text
+Appearance question → Decisions → browser snapshot → Responses vision
+                                                   │
+GPT Live spoken answer ← fresh visual observations ─┘
+```
+
+There is no periodic visual upload or continuous video feed to OpenAI. Capture
+uses JPEG at a maximum 960-pixel edge. The server bounds the request body,
+requires same-origin JSON and explicit processing consent, rejects remote image
+URLs, validates decoded image dimensions, strips metadata, and uses
+`store: false`. It never writes images to storage. Close, navigation, or session
+cancellation aborts outstanding work. Changed outfits, camera sources, frozen
+frames and superseded spoken questions invalidate older assessments.
+
+Freezing retains a paired original in browser memory before stopping live
+video. A later frozen likeness question compares that original with the frozen
+preview, rather than taking an unrelated later camera frame. The model labels
+frozen feedback and notes that it may predate the latest garment choices.
+If either required image is missing, the app asks the shopper to resume the
+camera. Photo-mode voice controls do not have access to a live mirror image;
+they explain that the live mirror must be opened for this feature.
+
+Feedback describes visible clothing and rendering differences. It does not
+identify or authenticate a person, promise pixel-identical faces or physical
+fit, or infer hidden details. Pose, expression and lighting differences are not
+proof of identity changes. Small, blurred or covered faces limit comparison.
+
+Run the real-provider check with synthetic camera and speech input:
+
+```sh
+LIVE_MIRROR_E2E=1 MIRROR_BASE_URL=http://localhost:3028 node scripts/verify-mirror-feedback.mjs
+```
+
+This checks the actual browser, Lucy, GPT Live, Decisions and vision route.
+It checks consent, image validation, absence of background uploads, style-only
+image selection, frozen paired-original comparison, spoken and typed results,
+unchanged outfit choices, and media cleanup. No personal devices are opened.
+
+Official contracts:
+- https://developers.openai.com/api/docs/models/gpt-live-1
+- https://developers.openai.com/api/docs/models/gpt-6-luna
+- https://developers.openai.com/api/docs/guides/live-delegation

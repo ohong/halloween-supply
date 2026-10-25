@@ -15,6 +15,7 @@ export function PhotoVoiceStylist({ costume, outfit, onApply }: { costume: Costu
   const [catalogContext, setCatalogContext] = useState<MirrorCatalogContext>();
   const [notice, setNotice] = useState("");
   const voice = useLiveVoice({ costume, outfit: currentOutfit, catalogContext, microphone: phone.status === "connected" ? phone.stream : null,
+    onVisualFeedback: async () => { throw new Error("Open the live costume mirror and start a preview to ask for visual feedback."); },
     onTranscript: text => setTranscript(text),
     onCommand: async command => {
       if (command.catalogResults) setCatalogContext({ query: command.catalogResults.query, matches: command.catalogResults.matches.map(({ costumeSlug, pieceId, productId }) => ({ costumeSlug, pieceId, productId })) });

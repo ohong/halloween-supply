@@ -44,7 +44,7 @@ export function voiceRequestOrigin(request: Request) {
     return parsed.origin;
   } catch { throw new VoiceError(403, "Open the mirror from this site."); }
 }
-export async function readVoiceRequest(request: Request) {
+export async function readVoiceRequest(request: Request, maxBytes = 65_536) {
   voiceRequestOrigin(request);
   if (!request.headers.get("content-type")?.startsWith("application/json")) throw new VoiceError(415, "Send a JSON request.");
   if (!process.env.OPENAI_API_KEY) throw new VoiceError(503, "Voice styling is not available yet. You can still choose pieces below.");
@@ -54,7 +54,7 @@ export async function readVoiceRequest(request: Request) {
   while (true) {
     const { value, done } = await reader.read(); if (done) break;
     size += value.byteLength;
-    if (size > 65536) { await reader.cancel(); throw new VoiceError(413, "The request is too large."); }
+    if (size > maxBytes) { await reader.cancel(); throw new VoiceError(413, "The request is too large."); }
     chunks.push(value);
   }
   return JSON.parse(Buffer.concat(chunks).toString("utf8")) as unknown;

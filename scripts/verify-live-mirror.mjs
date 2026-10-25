@@ -151,7 +151,7 @@ try {
   const cowboy = await (await context.request.get(`${origin}/api/live-mirror/catalog?slug=cosmic-cowboy`)).json();
   const jacket = cowboy.pieces.find(({ piece }) => piece.id === "fringe-jacket");
   const cheapJacket = [...jacket.options].sort((a, b) => a.product.priceCents - b.product.priceCents)[0].product.id;
-  await page.getByRole("checkbox").last().check();
+  await page.getByRole("dialog").getByRole("checkbox").check();
   const connectionStart = Date.now();
   await page.getByRole("button", { name: "Start my mirror", exact: true }).click();
   await waitForVideo();

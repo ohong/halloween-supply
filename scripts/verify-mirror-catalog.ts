@@ -95,8 +95,8 @@ if (process.argv.includes("--live")) {
     costumeSlug: base.costumeSlug, selection: withHat.body.outfit.selection, uses: withHat.body.outfit.uses, mixes: withHat.body.outfit.mixes,
   }) });
   assert.equal(reference.status, 200, `Mixed reference failed: ${reference.status}`);
-  const board = await reference.json() as { prompt: string; image: string };
-  assert(board.image.startsWith("data:image/jpeg;base64,"));
+  const board = await reference.json() as { prompt: string; image: null };
+  assert.equal(board.image, null, "Merchant model faces must not reach Lucy");
   assert(board.prompt.includes(withHat.body.costume.pieces.find(row => row.piece.id === hat.source.pieceId)!.piece.name));
-  console.log("PASS mixed outfit restores from references and produces a real preview board");
+  console.log("PASS mixed outfit restores from references and produces a clothing-only prompt without merchant faces");
 } else console.log("INFO --live enables the real inference checks; no provider calls made");

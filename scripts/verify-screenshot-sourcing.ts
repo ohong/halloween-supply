@@ -16,7 +16,7 @@ const checkout = process.argv.includes("--checkout");
 const strict = process.argv.includes("--require-complete");
 if (output) await mkdir(output, { recursive: true });
 
-type Event = { t: string; ms: number; i?: number; kind?: string; cached?: boolean; pieces?: { name: string }[]; found?: number; item?: CartItem };
+type Event = { t: string; ms: number; i?: number; kind?: string; cached?: boolean; pieces?: { name: string }[]; found?: number; priced?: number; receivedMs?: number; match?: { title: string; url: string; merchant: string }; item?: CartItem };
 const summaries: object[] = [];
 for (const slug of samples) {
   const image = await readFile(path.join(process.cwd(), "public/costumes", `${slug}.png`));
@@ -24,20 +24,34 @@ for (const slug of samples) {
     const form = new FormData();
     form.set("photo", new File([image], `${slug}.png`, { type: "image/png" }));
     const start = performance.now();
-    const response = await fetch(`${base}/api/screenshot-costume`, { method: "POST", body: form, signal: AbortSignal.timeout(115_000) });
+    const response = await fetch(`${base}/api/screenshot-costume`, { method: "POST", body: form, signal: AbortSignal.timeout(35_000) });
     assert.equal(response.status, 200);
     assert.match(response.headers.get("content-type") ?? "", /application\/x-ndjson/);
-    const text = await response.text();
+    let text = "", buffer = "";
+    const events: Event[] = [];
+    const reader = response.body!.pipeThrough(new TextDecoderStream()).getReader();
+    while (true) {
+      const { done, value } = await reader.read();
+      if (done) break;
+      text += value; buffer += value;
+      const lines = buffer.split("\n"); buffer = lines.pop() ?? "";
+      for (const line of lines) if (line.trim()) events.push({ ...JSON.parse(line), receivedMs: Math.round(performance.now() - start) });
+    }
     if (output) await writeFile(path.join(output, `${slug}-${attempt}.ndjson`), text);
-    const events: Event[] = text.trim().split("\n").map((line) => JSON.parse(line));
     assert(!events.some((event) => event.t === "error"), `${slug}: sourcing failed`);
     const look = events.find((event) => event.t === "look");
     assert(look?.pieces?.length, `${slug}: missing image analysis`);
     const done = events.find((event) => event.t === "done");
     const items = events.filter((event) => event.t === "piece").map((event) => event.item!);
-    assert.equal(done?.found, items.length);
-    assert(items.length > 0, `${slug}: no verified products`);
-    if (strict) assert.equal(items.length, look.pieces.length, `${slug}: incomplete look`);
+    const candidates = events.filter(event => event.t === "candidate");
+    const matches = new Set([...candidates, ...events.filter(event => event.t === "piece")].map(event => event.i));
+    assert.equal(done?.found, matches.size);
+    assert.equal(done?.priced, items.length);
+    assert(matches.size > 0, `${slug}: no matches`);
+    assert(done && done.ms <= 30500 && done.receivedMs! <= 33000, `${slug}: search exceeded 30 seconds`);
+    assert(candidates[0].receivedMs! < done.receivedMs!, "Matches must arrive before completion");
+    for (const candidate of candidates) assert(candidate.match?.title && candidate.match.url.startsWith("https://") && candidate.match.merchant);
+    if (strict) assert.equal(matches.size, look.pieces.length, `${slug}: incomplete look`);
     for (const item of items) {
       assert(item.title && item.merchantName && item.productUrl.startsWith("https://"));
       assert(!isBlockedDomain(item.productUrl) && !isNoiseDomain(item.productUrl));
@@ -49,13 +63,14 @@ for (const slug of samples) {
     const cached = events.some((event) => event.cached);
     assert(!cached && !events.some((event) => event.kind === "cache" || event.kind === "catalog"), "Every upload must run fresh sourcing, without replay or catalog shortcuts");
     assert(events.some((event) => event.kind === "search"), "Every upload must show real web searches, including repeated images");
-    const summary = { slug, attempt, model: response.headers.get("x-vision-model"), elapsedMs: Math.round(performance.now() - start), streamMs: done?.ms, found: items.length, requested: look.pieces.length,
+    const summary = { slug, attempt, model: response.headers.get("x-vision-model"), elapsedMs: Math.round(performance.now() - start), streamMs: done?.ms, firstMatchMs: candidates[0]?.ms, found: matches.size, priced: items.length, requested: look.pieces.length,
       missingPieces: events.filter((event) => event.t === "miss").map((event) => look.pieces?.[event.i!]?.name),
       searches: events.filter((event) => event.kind === "search").length, cached };
     summaries.push(summary);
     console.log(JSON.stringify(summary));
 
     if (checkout && !attempt) {
+      assert(items.length > 0, "Checkout verification requires at least one priced item");
       const key = process.env.STRIPE_SECRET_KEY;
       assert(key && key.startsWith("sk_test_"), "Checkout verification requires a test key");
       const stripe = new Stripe(key);

@@ -53,12 +53,12 @@ export function resolveVideoOutfit(costume: CostumeView, input: z.infer<typeof v
 
 export function videoOutfitPrompt(outfit: ReturnType<typeof resolveVideoOutfit>) {
   // The complete desired outfit is sent every time: Decart set() replaces state.
-  // Product cutouts provide details, leaving the prompt focused on regions.
+  // Camera identity takes priority over all garment descriptions and overrides.
   const names = outfit.selected.map(({ piece }) => piece.name).join(", ");
   const preserve = outfit.owned.length ? ` Keep the camera clothing for owned pieces: ${outfit.owned.join(", ")}.` : "";
   const skip = outfit.skipped.length ? ` Omit optional pieces: ${outfit.skipped.join(", ")}.` : "";
-  const edits = outfit.appearance?.length ? ` Appearance overrides (take priority over reference colors and cuts): ${outfit.appearance.map(edit => `${edit.name}: ${[edit.color, edit.style].filter(Boolean).join(", ")}`).join("; ")}.` : "";
-  const prompt = `Wear the reference garments: ${names}.${preserve}${skip}${edits} Preserve the person's face, hair, body, skin, pose, background and lighting. References show garments, not identity. Keep all other clothing unchanged.`;
+  const edits = outfit.appearance?.length ? ` Garment-only overrides: ${outfit.appearance.map(edit => `${edit.name}: ${[edit.color, edit.style].filter(Boolean).join(", ")}`).join("; ")}.` : "";
+  const prompt = `Change clothing only. Keep the camera person's exact face and likeness: facial features, skin tone, age, gender presentation, expression, hair and facial hair unchanged. No makeup, beauty filters, face replacement or body reshaping. Dress this same person in: ${names}.${preserve}${skip}${edits} Preserve pose, background, lighting and all other clothing. Identity preservation overrides every clothing edit.`;
   if (prompt.length > 740) throw new Error("This outfit is too complex for the live mirror. Use photo try-on instead.");
   return prompt;
 }

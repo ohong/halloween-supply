@@ -6,7 +6,7 @@ import type { MirrorContext, MirrorStatus } from "./types";
 import { videoOutfitRequest } from "./video-outfit";
 import { readMirrorResponse } from "./read-response";
 
-type Reference = { image: string; prompt: string };
+type Reference = { image: null; prompt: string };
 type FacingMode = "user" | "environment";
 const cameraConstraints = (facingMode: MediaTrackConstraints["facingMode"], deviceId?: string): MediaStreamConstraints => ({
   audio: false,
@@ -33,7 +33,8 @@ async function referenceFor(key: string, signal: AbortSignal) {
     signal: AbortSignal.any([signal, AbortSignal.timeout(20_000)]),
   }));
 }
-const inputFor = (reference: Reference) => ({ prompt: reference.prompt, reference_image_url: reference.image, enable_prompt_expansion: false });
+// Explicit null also clears any previous character reference on outfit updates.
+const inputFor = (reference: Reference) => ({ prompt: reference.prompt, reference_image_url: null, enable_prompt_expansion: false });
 function release(session: VideoSession) {
   session.controller.abort();
   clearTimeout(session.timer);
@@ -195,7 +196,7 @@ export function useLiveVideo({ costume, outfit }: MirrorContext, externalCamera?
       if (sessionRef.current !== session) return;
       if (token.maxSessionSeconds !== null) session.timer = setTimeout(() => fail(session, "This mirror session has ended. Start again to keep trying pieces."), Math.min(token.maxSessionSeconds ?? 180, 180) * 1000);
       session.firstFrameTimer = setTimeout(() => fail(session, "The mirror did not return video in time. Please try again."), 45_000);
-      session.client = fal.realtime.open(lucyRealtime(), {
+      session.client = fal.realtime.open(lucyRealtime({ endpoints: [token.model] }), {
         endpointId: token.model, input: inputFor(reference), localStream: camera,
         abortSignal: session.controller.signal, negotiationTimeoutMs: 30_000,
         peerConnectionFactory: configuration => {

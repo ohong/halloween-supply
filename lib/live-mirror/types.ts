@@ -38,6 +38,7 @@ export type MirrorCatalogResults = {
   counts: { costumes: number; pieces: number; products: number };
   matches: MirrorCatalogMatch[];
 };
-export type MirrorCommand = { actions: MirrorAction[]; message?: string; catalogResults?: MirrorCatalogResults };
+export type VisualFeedbackMode = "style" | "likeness";
+export type MirrorCommand = { actions: MirrorAction[]; message?: string; catalogResults?: MirrorCatalogResults; visualFeedback?: VisualFeedbackMode };
 export type MirrorStatus = "idle" | "connecting" | "live" | "error";
 export type MirrorContext = { costume: CostumeView; outfit: MirrorOutfit };
