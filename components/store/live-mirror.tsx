@@ -294,7 +294,8 @@ function MirrorRoom({ costume: initialCostume, initialOutfit, onApply, onClose }
   }, [remember, undo, saveLook, freeze, resume, switchLook]);
   useEffect(() => { commandHandler.current = handleCommand; }, [handleCommand]);
 
-  function close() { video.stop(); voice.stop(); phone.disconnect(); onClose(); }
+  function returnToPhoto() { video.stop(); voice.stop(); onClose(); }
+  function close() { phone.disconnect(); returnToPhoto(); }
   async function submitCommand(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
     const text = commandText.trim();
@@ -365,7 +366,7 @@ function MirrorRoom({ costume: initialCostume, initialOutfit, onApply, onClose }
   return <div className="mirror-room" ref={roomRef} role="dialog" aria-modal="true" aria-labelledby="mirror-room-title" onKeyDown={trapFocus}>
     <header className="mirror-header">
       <div><h2 id="mirror-room-title">Costume Mirror<span>{costume.costume.name}</span></h2></div>
-      <div className="mirror-header-actions"><button className="mirror-link" onClick={close} aria-label="Use photo mode">Photo mode</button><button ref={closeRef} className="mirror-icon-button" onClick={close} aria-label="Close costume mirror"><X size={22} /></button></div>
+      <div className="mirror-header-actions"><button className="mirror-link" onClick={returnToPhoto} aria-label="Use photo mode">Photo mode</button><button ref={closeRef} className="mirror-icon-button" onClick={close} aria-label="Close costume mirror"><X size={22} /></button></div>
     </header>
     <div className="mirror-body">
       <section className="mirror-visual" aria-label="Costume preview">
@@ -384,7 +385,7 @@ function MirrorRoom({ costume: initialCostume, initialOutfit, onApply, onClose }
             <img className="mirror-idle-look" src={costume.costume.image} alt={costume.costume.name} />
             <div className="mirror-stage-welcome"><h3>Your costume, live.</h3><p>Start the mirror. Say what you want to change.</p></div>
           {!video.stream && !frozen && <div className="mirror-start">
-            {availability && !availability.videoAvailable && <p className="mirror-notice">Live camera try-on isn’t available right now. {availability.voiceAvailable ? "You can still change your look by voice, or " : "You can "} <button className="mirror-link" onClick={() => { close(); requestAnimationFrame(() => document.querySelector(".try-on")?.scrollIntoView({ behavior: "smooth", block: "start" })); }}>use photo try-on</button>.</p>}
+            {availability && !availability.videoAvailable && <p className="mirror-notice">Live camera try-on isn’t available right now. {availability.voiceAvailable ? "You can still change your look by voice, or " : "You can "} <button className="mirror-link" onClick={() => { returnToPhoto(); requestAnimationFrame(() => document.querySelector(".try-on")?.scrollIntoView({ behavior: "smooth", block: "start" })); }}>use photo try-on</button>.</p>}
             {configError && <p className="mirror-notice">{configError}</p>}
             {availability && (availability.videoAvailable || availability.voiceAvailable) && <>
               <p className="mirror-muted">{phoneStream ? `Using your phone camera. ${phoneStream.getAudioTracks().length ? "Voice uses your phone microphone." : "Voice uses this computer’s microphone."}` : "Use this device’s camera. On a phone, you can flip between the front and back cameras."}</p>

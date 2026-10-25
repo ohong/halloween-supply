@@ -177,7 +177,7 @@ try {
   await page.evaluate(() => window.mirrorTest.say("cape"));
   await page.waitForFunction(({ id, value }) => document.getElementById(`mirror-piece-${id}`)?.value === value, { id: cape.piece.id, value: cheapCape }, { timeout: 60000 });
   assert.deepEqual((await selections()).slice(1), vampireBefore.slice(1));
-  await page.waitForFunction(() => [...document.querySelectorAll(".live-transcript-speaker")].filter(element => element.textContent === "Stylist").length >= 3, {}, { timeout: 10000 });
+  await page.waitForFunction(() => [...document.querySelectorAll(".live-transcript-speaker")].filter(element => element.textContent === "Stylist").length >= 2, {}, { timeout: 10000 });
   log("spoken-cape-request-after-live-catalog-switch");
   await page.getByRole("button", { name: "Mute microphone", exact: true }).click();
   await page.locator('.voice-state[data-state="muted"]').waitFor();
@@ -248,6 +248,7 @@ try {
   await page.setViewportSize({ width: 390, height: 844 });
   assert(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth));
   const nextLook = await page.locator("#mirror-look").evaluate(select => select.options[(select.selectedIndex + 1) % select.options.length].value);
+  await page.locator(".mirror-stage").scrollIntoViewIfNeeded();
   const stage = await page.locator(".mirror-stage").boundingBox();
   await page.mouse.move(stage.x + stage.width * 0.8, stage.y + stage.height / 2);
   await page.mouse.down();

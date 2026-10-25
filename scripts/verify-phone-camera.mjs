@@ -98,6 +98,13 @@ try{
  log('camera-switch-keeps-one-live-camera');
  await desktop.screenshot({path:path.join(output,'desktop-phone-preview.png')});
  await phone.screenshot({path:path.join(output,'phone-controls.png')});
+ if(process.env.PHONE_PROVIDER_E2E!=='1'){
+  await desktop.getByRole('button',{name:'Try it on live',exact:true}).click();
+  await desktop.getByRole('button',{name:'Use photo mode',exact:true}).click();
+  await desktop.getByText('Phone camera connected',{exact:true}).waitFor();
+  assert.equal(await desktop.evaluate(()=>window.cameraTest.peers.filter(peer=>peer.connectionState==='connected').length),1);
+  log('photo-mode-retains-paired-phone');
+ }
  if(process.env.PHONE_PROVIDER_E2E==='1'){
   if(process.env.PHONE_SKIP_PHOTO!=='1') {
   await desktop.getByRole('button',{name:'Try it on',exact:true}).click();
