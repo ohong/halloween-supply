@@ -250,9 +250,9 @@ try {
   const nextLook = await page.locator("#mirror-look").evaluate(select => select.options[(select.selectedIndex + 1) % select.options.length].value);
   await page.locator(".mirror-stage").scrollIntoViewIfNeeded();
   const stage = await page.locator(".mirror-stage").boundingBox();
-  await page.mouse.move(stage.x + stage.width / 2, stage.y + stage.height * 0.75);
+  await page.mouse.move(stage.x + stage.width * 0.8, stage.y + stage.height / 2);
   await page.mouse.down();
-  await page.mouse.move(stage.x + stage.width / 2, stage.y + stage.height * 0.25, { steps: 8 });
+  await page.mouse.move(stage.x + stage.width * 0.2, stage.y + stage.height / 2, { steps: 8 });
   await page.mouse.up();
   await page.waitForFunction(slug => document.getElementById("mirror-look")?.value === slug, nextLook);
   await page.screenshot({ path: path.join(evidence, "mobile-mirror.png") });

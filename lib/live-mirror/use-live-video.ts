@@ -7,6 +7,11 @@ import { videoOutfitRequest } from "./video-outfit";
 import { readMirrorResponse } from "./read-response";
 
 type Reference = { image: string; prompt: string };
+type FacingMode = "user" | "environment";
+const cameraConstraints = (facingMode: MediaTrackConstraints["facingMode"], deviceId?: string): MediaStreamConstraints => ({
+  audio: false,
+  video: { ...(deviceId ? { deviceId: { exact: deviceId } } : { facingMode }), frameRate: { ideal: 30 }, width: { ideal: 1280 }, height: { ideal: 720 } },
+});
 type VideoSession = {
   controller: AbortController;
   camera?: MediaStream;
@@ -18,6 +23,9 @@ type VideoSession = {
   appliedKey?: string;
   decoded: boolean;
   updating: boolean;
+  peer?: RTCPeerConnection;
+  switching?: boolean;
+  external: boolean;
 };
 async function referenceFor(key: string, signal: AbortSignal) {
   return readMirrorResponse<Reference>(await fetch("/api/live-mirror/reference", {
@@ -43,6 +51,11 @@ export function useLiveVideo({ costume, outfit }: MirrorContext, externalCamera?
   const [stream, setStream] = useState<MediaStream | null>(null);
   const [cameraStream, setCameraStream] = useState<MediaStream | null>(null);
   const [sentKey, setSentKey] = useState<string | null>(null);
+  const [facingMode, setFacingMode] = useState<FacingMode>("user");
+  const facingRef = useRef<FacingMode>("user");
+  const [canSwitchCamera, setCanSwitchCamera] = useState(false);
+  const [switchingCamera, setSwitchingCamera] = useState(false);
+  const [cameraError, setCameraError] = useState<string | null>(null);
   const sessionRef = useRef<VideoSession | null>(null);
   const mounted = useRef(true);
   const outfitKey = JSON.stringify(videoOutfitRequest(costume, outfit));
@@ -52,14 +65,74 @@ export function useLiveVideo({ costume, outfit }: MirrorContext, externalCamera?
     if (sessionRef.current !== session) return;
     sessionRef.current = null;
     release(session);
-    if (mounted.current) { setStream(null); setCameraStream(null); setSentKey(null); setError(message); setStatus("error"); }
+    if (mounted.current) { setStream(null); setCameraStream(null); setSentKey(null); setSwitchingCamera(false); setCanSwitchCamera(false); setCameraError(null); setError(message); setStatus("error"); }
   }, []);
   const stop = useCallback(() => {
     const session = sessionRef.current;
     sessionRef.current = null;
     if (session) release(session);
-    if (mounted.current) { setStream(null); setCameraStream(null); setSentKey(null); setStatus("idle"); setError(null); }
+    if (mounted.current) { setStream(null); setCameraStream(null); setSentKey(null); setSwitchingCamera(false); setCanSwitchCamera(false); setCameraError(null); setStatus("idle"); setError(null); }
   }, []);
+  const attachCamera = useCallback((session: VideoSession, camera: MediaStream, facing: FacingMode) => {
+    session.camera = camera;
+    const track = camera.getVideoTracks()[0];
+    const actualFacing = track?.getSettings().facingMode;
+    facingRef.current = actualFacing === "user" || actualFacing === "environment" ? actualFacing : facing;
+    setFacingMode(facingRef.current);
+    setCameraStream(camera);
+    track?.addEventListener("ended", () => {
+      if (session.camera === camera) fail(session, "Your camera stopped. Start the mirror again.");
+    }, { once: true });
+    if (!session.external) void navigator.mediaDevices.enumerateDevices().then(devices => {
+      if (sessionRef.current === session) setCanSwitchCamera(devices.filter(device => device.kind === "videoinput").length > 1);
+    }).catch(() => {});
+  }, [fail]);
+
+  const switchCamera = useCallback(async () => {
+    const session = sessionRef.current;
+    const sender = session?.peer?.getSenders().find(sender => sender.track?.kind === "video");
+    if (!session?.camera || session.external || session.switching || !sender) return;
+    const previousFacing = facingRef.current;
+    const previousDevice = session.camera.getVideoTracks()[0]?.getSettings().deviceId;
+    const nextFacing = previousFacing === "user" ? "environment" : "user";
+    session.switching = true;
+    setSwitchingCamera(true);
+    setCameraError(null);
+    // Phones may only open one lens at a time. The sender and voice connection
+    // stay alive while the old camera releases its hardware.
+    const previousCamera = session.camera;
+    session.camera = undefined;
+    previousCamera.getTracks().forEach(track => track.stop());
+    setCameraStream(null);
+    const replace = async (constraints: MediaStreamConstraints, facing: FacingMode) => {
+      const camera = await navigator.mediaDevices.getUserMedia(constraints);
+      try {
+        if (sessionRef.current !== session) return;
+        const track = camera.getVideoTracks()[0];
+        if (!track) throw new Error("No video track");
+        await sender.replaceTrack(track);
+        if (sessionRef.current !== session) return;
+        attachCamera(session, camera, facing);
+      } finally {
+        // Permission and replaceTrack can finish after the room has closed.
+        if (session.camera !== camera) camera.getTracks().forEach(track => track.stop());
+      }
+    };
+    try {
+      await replace(cameraConstraints({ exact: nextFacing }), nextFacing);
+    } catch {
+      if (sessionRef.current !== session) return;
+      try {
+        await replace(cameraConstraints({ ideal: previousFacing }, previousDevice), previousFacing);
+        if (sessionRef.current === session) setCameraError("That camera could not open. Your previous camera is back. Try again.");
+      } catch {
+        fail(session, "Your camera could not restart. Start the mirror again, or try photo mode.");
+      }
+    } finally {
+      session.switching = false;
+      if (sessionRef.current === session) setSwitchingCamera(false);
+    }
+  }, [fail, attachCamera]);
   const onFrame = useCallback(() => {
     const session = sessionRef.current;
     if (!session?.remote) return;
@@ -97,19 +170,17 @@ export function useLiveVideo({ costume, outfit }: MirrorContext, externalCamera?
 
   const start = useCallback(async () => {
     if (sessionRef.current) return;
-    const session: VideoSession = { controller: new AbortController(), updating: false, decoded: false };
+    const session: VideoSession = { controller: new AbortController(), updating: false, decoded: false, external: !!externalCamera };
     sessionRef.current = session;
     setError(null); setStream(null); setCameraStream(null); setSentKey(null); setStatus("connecting");
     try {
       if (!navigator.mediaDevices?.getUserMedia) throw new Error("Use HTTPS and allow camera access, or try photo try-on.");
       const [{ fal }, { lucyRealtime }] = await Promise.all([import("@fal-ai/client"), import("@fal-ai/client/realtime")]);
       if (sessionRef.current !== session) return;
-      const camera = externalCamera ? new MediaStream(externalCamera.getVideoTracks().map(track => track.clone())) : await navigator.mediaDevices.getUserMedia({ audio: false, video: { facingMode: "user", frameRate: { ideal: 30 }, width: { ideal: 1280 }, height: { ideal: 720 } } });
+      const camera = externalCamera ? new MediaStream(externalCamera.getVideoTracks().map(track => track.clone())) : await navigator.mediaDevices.getUserMedia(cameraConstraints({ ideal: facingRef.current }));
       // Permission dialogs cannot be aborted; stop any late result after close.
       if (sessionRef.current !== session) { camera.getTracks().forEach(track => track.stop()); return; }
-      session.camera = camera;
-      setCameraStream(camera);
-      camera.getVideoTracks().forEach(track => track.addEventListener("ended", () => fail(session, "Your camera stopped. Start the mirror again."), { once: true }));
+      attachCamera(session, camera, facingRef.current);
       let key = latestKey.current;
       let reference = await referenceFor(key, session.controller.signal);
       while (sessionRef.current === session && key !== latestKey.current) {
@@ -127,6 +198,11 @@ export function useLiveVideo({ costume, outfit }: MirrorContext, externalCamera?
       session.client = fal.realtime.open(lucyRealtime(), {
         endpointId: token.model, input: inputFor(reference), localStream: camera,
         abortSignal: session.controller.signal, negotiationTimeoutMs: 30_000,
+        peerConnectionFactory: configuration => {
+          const peer = new RTCPeerConnection(configuration);
+          session.peer = peer;
+          return peer;
+        },
         // One token per connection. Reconnect is explicit, never an automatic paid loop.
         tokenProvider: async () => token.token,
         onMedia: remote => {
@@ -167,7 +243,7 @@ export function useLiveVideo({ costume, outfit }: MirrorContext, externalCamera?
           ? "No camera was found. Try photo try-on instead."
           : error instanceof Error ? error.message : "The live mirror could not start.");
     }
-  }, [fail, update, externalCamera]);
+  }, [fail, update, externalCamera, attachCamera]);
 
   useEffect(() => {
     mounted.current = true;
@@ -183,5 +259,6 @@ export function useLiveVideo({ costume, outfit }: MirrorContext, externalCamera?
       if (session) release(session);
     };
   }, [stop]);
-  return { status, error, stream, cameraStream, isCurrent: status === "live" && sentKey === outfitKey, onFrame, start, stop };
+  return { status, error, stream, cameraStream, facingMode, canSwitchCamera, switchingCamera, cameraError, switchCamera,
+    isCurrent: status === "live" && sentKey === outfitKey && !switchingCamera, onFrame, start, stop };
 }

@@ -1,24 +1,24 @@
 .mirror-launch { margin-block: 20px; }
 .mirror-launch > button { width: 100%; }
-.mirror-room { position: fixed; inset: 0; z-index: 100; display: flex; flex-direction: column; background: var(--bg); color: var(--fg); --mirror-line: var(--line); --mirror-muted: var(--mid); isolation: isolate; }
+.mirror-room { position: fixed; inset: 0; height: 100dvh; z-index: 100; display: flex; flex-direction: column; background: var(--bg); color: var(--fg); --mirror-line: var(--line); --mirror-muted: var(--mid); isolation: isolate; }
 .mirror-room button, .mirror-room input, .mirror-room select { font-family: inherit; }
 .mirror-room button { color: inherit; }
 .mirror-room button:disabled { opacity: .45; cursor: default; }
-.mirror-room .btn { color: var(--bg); background: var(--ink); border-color: var(--ink); }
-.mirror-header { display: flex; align-items: center; justify-content: space-between; flex: 0 0 auto; padding: max(12px, env(safe-area-inset-top)) var(--gutter) 12px; border-bottom: 1px solid var(--mirror-line); gap: 16px; }
+.mirror-room .btn:not(.btn-ghost) { color: var(--bg); background: var(--ink); border-color: var(--ink); }
+.mirror-header { display: flex; align-items: center; justify-content: space-between; flex: 0 0 auto; padding: max(12px, env(safe-area-inset-top)) max(var(--gutter), env(safe-area-inset-right)) 12px max(var(--gutter), env(safe-area-inset-left)); border-bottom: 1px solid var(--mirror-line); gap: 16px; }
 .mirror-header h2 { font-size: 20px; font-weight: 300; letter-spacing: -.02em; color: var(--ink); }
 .mirror-header h2 span { display: block; margin-top: 4px; font-size: 12px; color: var(--mirror-muted); letter-spacing: .01em; }
 .mirror-header-actions { display: flex; gap: 20px; align-items: center; }
 .mirror-icon-button { width: 44px; height: 44px; min-width: 44px; display: inline-flex; align-items: center; justify-content: center; padding: 0; border: 0; background: transparent; border-radius: 4px; }
-.mirror-icon-button:hover:not(:disabled) { background: var(--grey); }
-.mirror-body { flex: 1; min-height: 0; overflow-y: auto; overscroll-behavior: contain; padding: 16px var(--gutter) max(24px, env(safe-area-inset-bottom)); }
+
+.mirror-body { flex: 1; min-height: 0; overflow-y: auto; overscroll-behavior: contain; padding: 16px max(var(--gutter), env(safe-area-inset-right)) max(24px, env(safe-area-inset-bottom)) max(var(--gutter), env(safe-area-inset-left)); }
 .mirror-visual { min-width: 0; }
-.mirror-stage { position: relative; height: 68dvh; min-height: 360px; background: var(--grey); overflow: hidden; touch-action: pan-x; }
+.mirror-stage { position: relative; height: 58dvh; min-height: 320px; background: var(--grey); overflow: hidden; touch-action: pan-y pinch-zoom; border-radius: 8px; }
 /* Keep the complete outfit in view, including portrait phone video. */
 .mirror-camera { width: 100%; height: 100%; position: absolute; inset: 0; object-fit: contain; background: #161616; }
 .mirror-hidden { display: none; }
-.mirror-stage-intro { position: relative; display: flex; flex-direction: column; justify-content: flex-end; height: 100%; padding: 72px 24px 24px; }
-.mirror-idle-look { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: contain; opacity: .16; pointer-events: none; }
+.mirror-stage-intro { position: relative; display: flex; flex-direction: column; justify-content: flex-end; height: 100%; padding: 72px 24px 24px; isolation: isolate; }
+.mirror-idle-look { position: absolute; top: 0; right: 0; width: 55%; height: 100%; object-fit: contain; opacity: .3; z-index: -1; pointer-events: none; }
 .mirror-stage-welcome, .mirror-start { position: relative; width: min(100%, 480px); }
 .mirror-stage-welcome { margin-bottom: 24px; }
 .mirror-stage-welcome h3 { font-size: clamp(28px, 3vw, 44px); line-height: 1.1; letter-spacing: -.03em; font-weight: 300; color: var(--ink); }
@@ -26,11 +26,17 @@
 .mirror-stage-label { position: absolute; top: 16px; left: 16px; display: inline-flex; align-items: center; gap: 8px; background: var(--bg); border-radius: 4px; padding: 8px 12px; font-size: 12px; }
 .mirror-dot { display: inline-block; width: 6px; height: 6px; border-radius: 50%; background: var(--soft); flex: 0 0 auto; }
 .mirror-dot.is-live { background: #28764a; }
-.mirror-freeze { position: absolute; bottom: 16px; right: 16px; display: flex; gap: 8px; align-items: center; justify-content: center; padding: 0 16px; min-height: 44px; border: 0; background: var(--bg); border-radius: 4px; font-size: 12px; }
+.mirror-toolbar { display: flex; align-items: center; gap: 8px; padding-block: 12px; border-bottom: 1px solid var(--mirror-line); }
+.mirror-tool { min-height: 44px; display: inline-flex; align-items: center; justify-content: center; gap: 8px; padding: 10px 14px; border: 1px solid var(--mirror-line); border-radius: 6px; background: var(--bg); font-size: 12px; white-space: nowrap; }
+.mirror-toolbar > :first-child { margin-right: auto; }
+.mirror-conversation-toggle { display: none; }
+
 .mirror-below-stage { padding: 8px 0 20px; display: grid; gap: 8px; }
 .mirror-below-stage > p { font-size: 12px; line-height: 1.6; color: var(--mirror-muted); }
 .mirror-start { display: grid; gap: 12px; }
 .mirror-start > button { justify-self: start; }
+.mirror-phone-setup summary { min-height: 44px; padding-block: 12px; cursor: pointer; font-size: 12px; color: var(--mid); }
+.mirror-phone-setup .phone-camera-controls { margin-top: 0; }
 .mirror-consent { display: flex; gap: 12px; align-items: flex-start; font-size: 12px; line-height: 1.5; color: var(--fg); }
 .mirror-consent input { margin-top: 2px; width: 20px; height: 20px; flex: 0 0 20px; accent-color: var(--ink); }
 .mirror-muted, .mirror-notice { font-size: 12px; color: var(--mirror-muted); line-height: 1.6; }
@@ -48,7 +54,8 @@
 .mirror-link { display: inline-flex; align-items: center; gap: 8px; padding: 8px 0; min-height: 36px; border: 0; background: transparent; font-size: 12px; text-decoration: underline; text-underline-offset: 4px; text-align: left; }
 .mirror-feedback { padding-top: 12px; font-size: 13px; color: var(--mid); line-height: 1.5; }
 .mirror-sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0; }
-.mirror-original { position: absolute; width: 16%; min-width: 72px; max-width: 128px; aspect-ratio: 3 / 4; object-fit: cover; top: 16px; right: 16px; border: 2px solid var(--bg); border-radius: 4px; background: var(--ink); transform: scaleX(-1); }
+.mirror-original { position: absolute; width: 16%; min-width: 72px; max-width: 128px; aspect-ratio: 3 / 4; object-fit: cover; top: 16px; right: 16px; border: 2px solid var(--bg); border-radius: 6px; background: var(--ink); }
+.mirror-original.is-mirrored { transform: scaleX(-1); }
 .mirror-details { margin-top: 24px; border-block: 1px solid var(--mirror-line); }
 .mirror-details summary { min-height: 48px; padding-block: 14px; cursor: pointer; font-size: 13px; color: var(--ink); }
 .mirror-catalog-label { display: block; margin-top: 12px; font-size: 12px; color: var(--mid); }
@@ -79,9 +86,6 @@
 .mirror-current-look > span { font-size: 16px; color: var(--ink); }
 .mirror-look-switch p { font-size: 12px; line-height: 1.5; color: var(--mirror-muted); margin-top: 4px; }
 .mirror-shop { display: flex; justify-content: space-between; margin-top: 24px; }
-.mirror-next-look { position: absolute; bottom: 16px; left: 16px; width: 72px; display: grid; gap: 4px; padding: 0; border: 0; background: var(--bg); border-radius: 4px; text-align: left; overflow: hidden; }
-.mirror-next-look img { width: 100%; aspect-ratio: 1; object-fit: cover; object-position: top; }
-.mirror-next-look span { font-size: 10px; line-height: 1.4; padding: 4px; }
 /* The transcript supports the mirror rather than competing with it. */
 .mirror-room .voice-state { color: var(--ink); margin-top: 12px; }
 .mirror-room .voice-state-detail, .mirror-room .live-transcript, .mirror-room .live-transcript-speaker { color: var(--mid); }
@@ -95,7 +99,7 @@
   .mirror-header h2 span { display: inline; margin-left: 20px; }
   .mirror-body { display: grid; grid-template-columns: minmax(0, 1fr) 300px; gap: 32px; padding-top: 20px; }
   .mirror-visual { align-self: start; position: sticky; top: 0; }
-  .mirror-stage { height: calc(100dvh - 220px); min-height: 400px; }
+  .mirror-stage { height: calc(100dvh - 280px); min-height: 400px; }
   .mirror-stage-intro { padding: 72px 40px 32px; }
   .mirror-workbench { padding-top: 0; }
 }
@@ -103,10 +107,57 @@
 @media (max-width: 600px) {
   .mirror-header { gap: 8px; }
   .mirror-header-actions { gap: 12px; }
-  .mirror-header-actions .mirror-link { max-width: 62px; line-height: 1.4; }
-  .mirror-stage.is-idle { height: auto; min-height: 580px; }
-  .mirror-stage-intro { padding-inline: 20px; min-height: 580px; }
-  .mirror-stage-welcome { margin-top: 80px; }
+  .mirror-header-actions .mirror-link { white-space: nowrap; }
+  .mirror-stage.is-idle { height: auto; min-height: 520px; }
+  .mirror-stage-intro { padding: 100px 20px 24px; min-height: 520px; }
+  .mirror-stage-welcome { margin-top: 32px; margin-bottom: 16px; }
+  .mirror-idle-look { width: 140px; height: 180px; right: 8px; opacity: .35; }
   .mirror-original { top: 12px; right: 12px; }
   .mirror-room .live-transcript-viewport { max-height: 240px; }
+}
+
+/* Keep essential controls with the preview; conversation remains secondary. */
+@media (max-width: 899px) {
+  .mirror-header h2 span { display: none; }
+  .mirror-body { padding-top: 12px; }
+  .mirror-toolbar { display: grid; grid-auto-flow: column; grid-auto-columns: minmax(0, 1fr); gap: 8px; }
+  .mirror-toolbar > :first-child { margin-right: 0; }
+  .mirror-toolbar .mirror-tool { width: 100%; flex-direction: column; gap: 6px; padding: 10px 4px; font-size: 11px; border-color: transparent; background: var(--grey); }
+  .mirror-look-switch { gap: 4px; }
+  .mirror-current-look > span { font-size: 15px; }
+  .mirror-current-look p { font-size: 11px; }
+  .mirror-below-stage { padding-bottom: 16px; }
+  .mirror-workbench { padding-top: 16px; border-top: 1px solid var(--mirror-line); }
+  .mirror-voice-hint { margin-bottom: 12px; }
+  .mirror-conversation-toggle { display: flex; align-items: center; gap: 8px; min-height: 44px; width: 100%; padding: 8px 0; border: 0; background: transparent; font-size: 12px; text-align: left; }
+  .mirror-conversation-toggle svg { margin-left: auto; }
+  .mirror-conversation-toggle[aria-expanded="true"] svg { transform: rotate(180deg); }
+  .mirror-conversation-toggle > span { color: var(--mid); font-size: 11px; font-variant-numeric: tabular-nums; }
+  .mirror-conversation:not(.is-open) { display: none; }
+  .mirror-room .live-transcript { margin-block: 0 16px; }
+  .mirror-room .live-transcript-heading > span { display: none; }
+  .mirror-room .live-transcript-heading:has(:only-child) { display: none; }
+  .mirror-room .live-transcript-heading { min-height: 0; justify-content: flex-end; }
+  .mirror-command-form { margin-top: 4px; }
+  .mirror-start > .btn { width: 100%; justify-content: center; }
+  .mirror-room .phone-camera-controls { margin: 0; padding: 12px; border-radius: 6px; gap: 8px; }
+  .mirror-room .phone-camera-controls p { font-size: 12px; }
+}
+@media (pointer: coarse) {
+  .mirror-room :is(input:not([type="checkbox"]), select) { font-size: 16px; }
+  .mirror-room .mirror-link, .mirror-room .live-transcript-heading button { min-height: 44px; }
+}
+/* Pointer presses get tactile feedback. Keyboard actions remain immediate. */
+.mirror-room :is(button, summary) { -webkit-user-select: none; user-select: none; -webkit-touch-callout: none; }
+.mirror-room :is(button, summary):focus-visible { outline: 2px solid var(--ink); outline-offset: 3px; }
+@media (hover: hover) and (pointer: fine) {
+  .mirror-icon-button:hover:not(:disabled), .mirror-tool:hover:not(:disabled) { background: var(--grey); }
+}
+@media (prefers-reduced-motion: no-preference) {
+  .mirror-room button:not(:focus-visible) { transition: transform 140ms cubic-bezier(.23, 1, .32, 1); }
+  .mirror-room button:active:not(:disabled):not(:focus-visible) { transform: scale(.97); }
+}
+@media (max-height: 500px) and (orientation: landscape) {
+  .mirror-header { padding-block: max(6px, env(safe-area-inset-top)) 6px; }
+  .mirror-stage { height: 70dvh; min-height: 200px; }
 }
