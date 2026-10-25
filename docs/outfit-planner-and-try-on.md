@@ -25,6 +25,8 @@ Every generated photo preview uses a white commercial studio style: a seamless
 white backdrop and floor, softbox lighting, natural contact shadows, and full-body
 framing. The shopper remains the identity reference; the original room is removed.
 Selected products and owned or skipped pieces still control the outfit.
+Linen Ghost explicitly covers the head and body with the sheet, with two eye
+openings and boots visible below the hem. It must not become an open cloak.
 
 ```text
 Browser photo → resize + explicit consent → server decode + validation
