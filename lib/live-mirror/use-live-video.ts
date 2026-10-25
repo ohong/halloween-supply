@@ -117,12 +117,12 @@ export function useLiveVideo({ costume, outfit }: MirrorContext, externalCamera?
         reference = await referenceFor(key, session.controller.signal);
       }
       if (sessionRef.current !== session) return;
-      const token = await readMirrorResponse<{ token: string; model: string; maxSessionSeconds: number }>(await fetch("/api/live-mirror/video", {
+      const token = await readMirrorResponse<{ token: string; model: string; maxSessionSeconds: number | null }>(await fetch("/api/live-mirror/video", {
         method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ consent: true }),
         signal: AbortSignal.any([session.controller.signal, AbortSignal.timeout(20_000)]),
       }));
       if (sessionRef.current !== session) return;
-      session.timer = setTimeout(() => fail(session, "This three-minute mirror session has ended. Start again to keep trying pieces."), Math.min(token.maxSessionSeconds, 180) * 1000);
+      if (token.maxSessionSeconds !== null) session.timer = setTimeout(() => fail(session, "This mirror session has ended. Start again to keep trying pieces."), Math.min(token.maxSessionSeconds ?? 180, 180) * 1000);
       session.firstFrameTimer = setTimeout(() => fail(session, "The mirror did not return video in time. Please try again."), 45_000);
       session.client = fal.realtime.open(lucyRealtime(), {
         endpointId: token.model, input: inputFor(reference), localStream: camera,

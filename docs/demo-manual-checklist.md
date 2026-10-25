@@ -49,7 +49,7 @@ Speech recognition with your voice, turn-taking, speaker volume, Bluetooth routi
 4. Save a preview. Confirm a useful file opens on your device.
 5. Close the mirror. Confirm camera and microphone indicators turn off.
 6. In a separate run, hide the tab or lock the phone. Confirm media stops. Return and restart explicitly.
-7. Let a session reach three minutes. Confirm it stops instead of continuing indefinitely.
+7. During testing mode, confirm the session continues beyond three minutes and stops when you close it. Outside testing mode, confirm the three-minute cutoff. See [testing policy](./mirror-session-limits.md).
 
 Starting or resuming live previews consumes provider credits even though checkout remains in Stripe test mode. Repeated sessions have no hourly app or project firewall quota. See [current session behavior](./mirror-session-limits.md).
 

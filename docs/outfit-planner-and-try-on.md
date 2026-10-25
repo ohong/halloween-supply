@@ -74,8 +74,9 @@ fabric behavior, product accuracy, stock, or delivery.
 
 Requests use origin checks, bounded uploads, timeouts, and at most two
 simultaneous requests per process. Repeated previews have no hourly app quota.
-The former hourly firewall rule for photo try-on was removed. Provider-side
-limits can still return a busy response.
+Testing mode also bypasses the simultaneous-work guard. The former hourly
+firewall rule for photo try-on was removed. Provider-side limits can still
+return a busy response.
 
 ## Verification
 

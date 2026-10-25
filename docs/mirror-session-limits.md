@@ -9,9 +9,11 @@ photo try-on, live video, voice, and mirror commands were removed. App-side
 IP counters were removed from these flows and from screenshot sourcing, custom
 looks, outfit styling, and costume search.
 
-Each live video connection still lasts up to three minutes. After it ends,
-start another connection explicitly. Provider errors and provider-side limits
-can still occur; they are reported separately from app request validation.
+`TRY_ON_TESTING_MODE=1` disables app video, voice, and connected-phone session
+cutoffs for rehearsal. It also bypasses the simultaneous photo-work guard.
+Outside testing mode, each video connection lasts up to three minutes.
+Changing the setting does not restore hourly request quotas. Provider errors
+and provider-side limits can still occur and are reported separately.
 
 Origin checks, consent, upload limits, request timeouts, and bounds on
 simultaneous work remain. These do not limit repeated sessions per hour.

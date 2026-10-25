@@ -3,7 +3,6 @@ import "server-only";
 import { z } from "zod";
 
 export const VIDEO_MODEL = "decart/lucy-2-5/realtime";
-export const VIDEO_SESSION_SECONDS = 180;
 
 export class VideoError extends Error {
   constructor(public status: number, message: string) { super(message); }

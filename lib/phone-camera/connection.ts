@@ -1,4 +1,4 @@
-export type Pair = { id: string; host: string; phone: string; expires: number; relayAvailable: boolean };
+export type Pair = { id: string; host: string; phone: string; expires: number; relayAvailable: boolean; unlimitedSession?: boolean };
 export async function pairRequest<T>(id: string, token: string, body?: object, signal?: AbortSignal): Promise<T> {
   const response = await fetch(`/api/camera-pair/${id}`, {
     method: body ? "POST" : "GET", headers: { Authorization: `Bearer ${token}`, "Content-Type": "application/json" },

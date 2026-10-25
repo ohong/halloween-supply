@@ -7,6 +7,7 @@ import sharp from "sharp";
 
 mock.module("server-only", () => ({}));
 process.env.OPENAI_API_KEY = "test-only-not-a-key";
+process.env.TRY_ON_TESTING_MODE = "0";
 process.env.FALKORDB_URL = "";
 const { POST } = await import("../app/api/try-on/route.ts");
 const { costumes } = await import("../lib/costumes.ts");
@@ -87,6 +88,10 @@ await expectStatus(request({ owned: view.pieces.map(({ piece }) => piece.id) }),
 console.log("PASS selected products, owned pieces, duplicate protection, missing pieces and required-piece validation");
 
 for (let i = 0; i < 5; i++) await expectStatus(request({ ip: "repeat-demo" }), 200);
+process.env.TRY_ON_TESTING_MODE = "1";
+for (let i = 0; i < 5; i++) await expectStatus(request({ ip: "repeat-demo" }), 200);
+process.env.TRY_ON_TESTING_MODE = "0";
+await expectStatus(request({ ip: "repeat-demo" }), 200);
 delete process.env.OPENAI_API_KEY;
 await expectStatus(request(), 503);
 console.log("PASS repeated previews from one client and missing-key response");
