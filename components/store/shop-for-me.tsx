@@ -1,9 +1,9 @@
 "use client";
 
-import { useEffect, useMemo, useRef, useState } from "react";
+import { useEffect, useMemo, useRef, useState, type CSSProperties } from "react";
 import { formatPrice } from "@/lib/cart/context";
 import type { ProductOption } from "@/lib/types";
-import { ProductImage } from "./product-image";
+import { AssemblyImage, AssemblyPlaceholder, AssemblyStatus } from "./assembly-status";
 import "./shop-for-me.css";
 
 export type SourcingPiece = {
@@ -13,12 +13,7 @@ export type SourcingPiece = {
   options: ProductOption[];
 };
 const DURATION = 18_000;
-const phases = [
-  "Break down the look",
-  "Find suppliers",
-  "Compare prices",
-  "Put it together",
-];
+const TILT = [-3, 2, -1.5, 2.5, -2, 1];
 
 function getPick(piece: SourcingPiece) {
   return piece.options
@@ -72,13 +67,12 @@ export function ShopForMe({
   ).size;
   const phase =
     elapsed < 2200 ? 0 : elapsed < 10_500 ? 1 : elapsed < 15_000 ? 2 : 3;
-  const active =
-    pieces[
-      Math.min(
-        pieces.length - 1,
-        Math.max(0, Math.floor(((elapsed - 2200) / 8300) * pieces.length)),
-      )
-    ];
+  const assembled = status === "complete" || phase > 1
+    ? pieces.length
+    : Math.max(0, Math.floor(((elapsed - 2200) / 8300) * pieces.length));
+  const active = pieces[Math.min(pieces.length - 1, assembled)];
+  const ready = picks.slice(0, assembled).filter(({ pick }) => pick).length;
+  const missing = picks.slice(0, assembled).filter(({ pick }) => !pick).length;
 
   useEffect(() => {
     onFinish.current = onComplete;
@@ -138,245 +132,49 @@ export function ShopForMe({
         <Icon kind="arrow" />
       </button>
     );
-  if (status === "complete")
-    return (
-      <section
-        className="shop-for-me-complete"
-        ref={panel}
-        tabIndex={-1}
-        aria-label="Sourcing results"
-      >
-        <div className="shop-for-me-complete-heading" role="status">
-          <Icon kind={found.length ? "check" : "search"} />
-          <h2>
-            {found.length === pieces.length && found.length
-              ? "Your picks are ready"
-              : found.length
-                ? `${found.length} of ${pieces.length} pieces sourced`
-                : "No sources saved yet"}
-          </h2>
-        </div>
-        <p className="shop-for-me-result-note">
-          {found.length
-            ? `${formatPrice(total)} for ${found.length} ${found.length === 1 ? "piece" : "pieces"}. Lowest listed prices in our saved catalog, before shipping and tax.`
-            : "The components are ready. Supplier picks will appear here when they’re added to the catalog."}
-        </p>
-        <button type="button" className="text-btn" onClick={start}>
-          Replay sourcing <Icon kind="replay" />
-        </button>
-      </section>
-    );
-
   return (
     <section
-      className="shop-for-me-sequence"
+      className={`shop-for-me-sequence ${status === "complete" ? "is-complete" : ""}`}
       ref={panel}
       tabIndex={-1}
-      aria-label="Costume sourcing replay"
+      aria-label={status === "complete" ? "Sourcing results" : "Costume sourcing replay"}
     >
       <div className="shop-for-me-sequence-head">
         <div className="shop-for-me-activity">
-          <span className="shop-for-me-activity-dot" />
-          <span>Shopping for you</span>
+          <Icon kind={status === "complete" ? "check" : "search"} />
+          <span>Saved sourcing replay</span>
         </div>
-        <button type="button" className="shop-for-me-cancel" onClick={cancel}>
-          Cancel
-        </button>
+        {status === "running" && <button type="button" className="shop-for-me-cancel" onClick={cancel}>Cancel</button>}
       </div>
-      <div
-        className="shop-for-me-progress"
-        role="progressbar"
-        aria-label="Sourcing progress"
-        aria-valuenow={Math.round((elapsed / DURATION) * 100)}
-        aria-valuemin={0}
-        aria-valuemax={100}
-      >
-        <span style={{ transform: `scaleX(${elapsed / DURATION})` }} />
+      <div className="shop-for-me-stage-heading" aria-live="polite" aria-atomic="true">
+        <h2>{status === "complete"
+          ? found.length === pieces.length && found.length ? "Your picks are ready" : found.length ? `${found.length} of ${pieces.length} pieces sourced` : "No sources saved yet"
+          : ["First, the essentials.", "A source for every piece.", "A closer look at the prices.", "Bringing the look together."][phase]}</h2>
+        <p>{status === "complete"
+          ? found.length ? `${formatPrice(total)} before shipping and tax. Select a piece to visit its shop.` : "Supplier picks will appear when they’re added to the catalog."
+          : phase === 1 && active ? `${active.name} · ${active.options.length} saved ${active.options.length === 1 ? "option" : "options"}`
+          : ["Making room for each piece in the look.", "", "Choosing the lowest listed prices. Sold-out options are excluded.", "Your assembled look stays here, ready to shop."][phase]}</p>
       </div>
-      <ol className="shop-for-me-steps" aria-label="Sourcing steps">
-        {phases.map((name, i) => (
-          <li
-            key={name}
-            data-state={i < phase ? "done" : i === phase ? "active" : "waiting"}
-            aria-current={i === phase ? "step" : undefined}
-          >
-            <span className="shop-for-me-step-mark">
-              {i < phase ? <Icon kind="check" /> : <span />}
-            </span>
-            <span>{name}</span>
-          </li>
-        ))}
-      </ol>
-      <div
-        className="shop-for-me-stage-heading"
-        aria-live="polite"
-        aria-atomic="true"
-      >
-        <h2>
-          {
-            [
-              "First, the essentials.",
-              "A source for every piece.",
-              "A closer look at the prices.",
-              "Bringing the look together.",
-            ][phase]
-          }
-        </h2>
-      </div>
-      <div className="shop-for-me-stage" key={phase}>
-        {phase === 0 && (
-          <div className="shop-for-me-breakdown">
-            {pieces.map((piece, i) => (
-              <div
-                className="shop-for-me-component"
-                key={piece.id}
-                style={{ animationDelay: `${i * 65}ms` }}
-              >
-                <Icon kind="check" />
-                <span>{piece.name}</span>
-              </div>
-            ))}
-          </div>
-        )}
-        {phase === 1 && active && (
-          <div className="shop-for-me-search-stage" key={active.id}>
-            <div className="shop-for-me-search-field">
-              <Icon kind="search" />
-              <span>{active.queries[0] ?? active.name}</span>
-              <span className="shop-for-me-search-cursor" />
+      <AssemblyStatus found={ready} total={pieces.length} missing={missing} running={status === "running"} />
+      {pieces.length > 0 && <ul className="shop-for-me-lay" aria-label="Assembling your costume">
+        {picks.map(({ piece, pick }, i) => {
+          const resolved = i < assembled;
+          return <li key={piece.id} className="shop-for-me-piece" data-state={resolved ? pick ? "found" : "missing" : "looking"} style={{ "--r": `${TILT[i % TILT.length]}deg` } as CSSProperties}>
+            <div className="shop-for-me-piece-frame">
+              {resolved && pick ? <a href={pick.option.product.url} target="_blank" rel="noopener noreferrer" aria-label={`${piece.name}: ${pick.option.product.title}, ${formatPrice(pick.option.product.priceCents)} at ${pick.option.merchant.name} (opens in a new tab)`}>
+                <AssemblyImage src={pick.option.product.cutout ?? pick.option.product.merchantImage ?? pick.option.product.image} alt={pick.option.product.title} cutout={Boolean(pick.option.product.cutout)} />
+              </a> : <AssemblyPlaceholder state={resolved ? "missing" : "looking"} index={i} />}
             </div>
-            <div className="shop-for-me-source-head">
-              <h3>{active.name}</h3>
-              <span>
-                {active.options.length}{" "}
-                {active.options.length === 1 ? "option" : "options"}
-              </span>
+            <div className="shop-for-me-piece-caption">
+              <span>{piece.name}</span>
+              {resolved && pick ? <><small>{pick.option.merchant.name}</small><strong>{formatPrice(pick.option.product.priceCents)}</strong></> : <small>{resolved ? "No saved source" : "Saved match pending"}</small>}
             </div>
-            <div className="shop-for-me-candidates">
-              {active.options.length ? (
-                active.options.map((option, i) => (
-                  <div
-                    key={option.product.id}
-                    className="shop-for-me-candidate"
-                    style={{ animationDelay: `${i * 100}ms` }}
-                  >
-                    <div className="shop-for-me-source-image">
-                      <ProductImage src={option.product.image} alt="" />
-                    </div>
-                    <div className="shop-for-me-source-name">
-                      <span>{option.merchant.name}</span>
-                      <small>{option.merchant.domain}</small>
-                    </div>
-                    <span className="shop-for-me-source-price">
-                      {formatPrice(option.product.priceCents)}
-                      {option.product.availability === "out_of_stock" && (
-                        <small>Sold out</small>
-                      )}
-                    </span>
-                  </div>
-                ))
-              ) : (
-                <div className="shop-for-me-no-sources">
-                  <Icon kind="search" />
-                  <p>No saved suppliers for this piece yet.</p>
-                </div>
-              )}
-            </div>
-            <div className="shop-for-me-component-track">
-              {pieces.map((piece) => (
-                <span
-                  key={piece.id}
-                  data-active={piece.id === active.id}
-                  aria-label={piece.name}
-                />
-              ))}
-            </div>
-          </div>
-        )}
-        {phase === 2 && (
-          <div className="shop-for-me-comparison">
-            <div className="shop-for-me-table-head">
-              <span>Component</span>
-              <span>Lowest listed</span>
-            </div>
-            {picks.map(({ piece, pick }, i) => {
-              const highest = Math.max(
-                ...piece.options
-                  .filter(
-                    ({ product }) => product.availability !== "out_of_stock",
-                  )
-                  .map(({ product }) => product.priceCents),
-              );
-              return (
-                <div
-                  className="shop-for-me-comparison-row"
-                  key={piece.id}
-                  style={{ animationDelay: `${i * 65}ms` }}
-                >
-                  <span>
-                    {piece.name}
-                    <small>
-                      {pick ? pick.option.merchant.name : "No saved source"}
-                    </small>
-                  </span>
-                  <span className="shop-for-me-compared-price">
-                    {pick && highest > pick.option.product.priceCents && (
-                      <small>vs {formatPrice(highest)}</small>
-                    )}
-                    <strong>
-                      {pick ? formatPrice(pick.option.product.priceCents) : "—"}
-                    </strong>
-                  </span>
-                </div>
-              );
-            })}
-            <p className="shop-for-me-comparison-note">
-              Comparing saved matches. Sold-out options are excluded.
-            </p>
-          </div>
-        )}
-        {phase === 3 && (
-          <div className="shop-for-me-assembly">
-            {picks.map(({ piece, pick }, i) => (
-              <div
-                key={piece.id}
-                className="shop-for-me-assembly-row"
-                style={{ animationDelay: `${i * 140}ms` }}
-              >
-                <span className="shop-for-me-assembly-mark">
-                  <Icon kind={pick ? "check" : "search"} />
-                </span>
-                <span>
-                  {piece.name}
-                  <small>
-                    {pick
-                      ? pick.option.merchant.name
-                      : "Awaiting a saved source"}
-                  </small>
-                </span>
-                <span className="shop-for-me-source-price">
-                  {pick ? formatPrice(pick.option.product.priceCents) : "—"}
-                </span>
-              </div>
-            ))}
-            {found.length > 0 && (
-              <div className="shop-for-me-total">
-                <span>Pieces subtotal</span>
-                <strong>{formatPrice(total)}</strong>
-              </div>
-            )}
-          </div>
-        )}
-      </div>
+          </li>;
+        })}
+      </ul>}
       <div className="shop-for-me-sequence-foot">
-        <span>
-          Saved sourcing replay
-          {supplierCount > 0 &&
-            ` · ${supplierCount} ${supplierCount === 1 ? "supplier" : "suppliers"}`}
-        </span>
-        <button type="button" onClick={finish}>
-          Show picks now <Icon kind="arrow" />
-        </button>
+        <span>No live search{supplierCount > 0 && ` · ${supplierCount} saved ${supplierCount === 1 ? "supplier" : "suppliers"}`}</span>
+        {status === "running" ? <button type="button" onClick={finish}>Show picks now <Icon kind="arrow" /></button> : <button type="button" onClick={start}>Replay sourcing <Icon kind="replay" /></button>}
       </div>
     </section>
   );
