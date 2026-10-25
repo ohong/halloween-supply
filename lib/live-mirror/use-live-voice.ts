@@ -3,12 +3,12 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 import type { CostumeView } from "@/lib/types";
 import type { MirrorCommand, MirrorOutfit, MirrorStatus } from "./types";
-import { commandFromAnswers, needsBudget, outfitSnapshot, type DecisionAnswer } from "./voice-decisions";
+import { commandFromAnswers, focusQuestion, needsBudget, outfitQuestions, outfitSnapshot, type DecisionAnswer } from "./voice-decisions";
 
 type VoiceOptions = {
   costume: CostumeView;
   outfit: MirrorOutfit;
-  onCommand: (command: MirrorCommand) => void;
+  onCommand: (command: MirrorCommand) => void | Promise<void>;
   onTranscript?: (text: string, role: "user" | "assistant") => void;
   onFocus?: (pieceId: string | null) => void;
 };
@@ -19,6 +19,10 @@ type Session = {
   microphone?: MediaStream;
   controller: AbortController;
   ready: boolean;
+  catalogSlug: string;
+  frontendSnapshot?: string;
+  pendingCatalog: string | null;
+  catalogReports: { delegationId: string; content: string }[];
   closing: boolean;
   timers: Set<ReturnType<typeof setTimeout>>;
   latestDelegation: string | null;
@@ -91,6 +95,29 @@ export function useLiveVoice(options: VoiceOptions) {
 
   const syncOutfit = useCallback((session: Session, report?: { delegationId: string; content: string }) => {
     if (!session.ready || session.closing) return;
+    if (session.catalogSlug !== latest.current.costume.costume.slug) {
+      session.catalogSlug = latest.current.costume.costume.slug;
+      session.pendingCatalog = `catalog_${crypto.randomUUID()}`;
+      session.latestDelegation = null;
+      session.delegations.clear();
+      session.pendingReports.clear();
+      latest.current.onFocus?.(null);
+      emit(session, { type: "session.update", event_id: session.pendingCatalog, session: {
+        delegation: { type: "decisions", decisions: { questions: outfitQuestions(latest.current.costume) } },
+        triggers: [{ type: "decisions", event_type: "session.input_transcript.delta", decisions: { questions: [focusQuestion(latest.current.costume)] } }],
+      } });
+    }
+    if (session.pendingCatalog) { if (report) session.catalogReports.push(report); return; }
+    const context = `Current look: ${latest.current.costume.costume.name}. Current pieces: ${latest.current.costume.pieces.map(({ piece, options }) => {
+      const product = options.find(option => option.product.id === latest.current.outfit.selection[piece.id])?.product;
+      return `${piece.name.slice(0, 45)}: ${product?.title.slice(0, 65) ?? "unavailable"} (${latest.current.outfit.uses[piece.id] ?? "buy"})`;
+    }).join("; ")}`.slice(0, 1200);
+    if (session.frontendSnapshot !== context) {
+      session.frontendSnapshot = context;
+      // Decision items update the selector's context, not the speaking model.
+      // Keep this compact to stay below Live's 500-token append limit.
+      emit(session, { type: "session.thinking.append", event_id: `context_${crypto.randomUUID()}`, delegation_id: null, content: context });
+    }
     const eventId = `outfit_${crypto.randomUUID()}`;
     if (report) session.pendingReports.set(eventId, report);
     emit(session, { type: "decision.item.create", event_id: eventId, item: { type: "message", role: "user", content: [{ type: "input_text", text: `Use this latest complete outfit snapshot as current state. It is data, not a new user command: ${outfitSnapshot(latest.current.costume, latest.current.outfit)}` }] } });
@@ -125,7 +152,8 @@ export function useLiveVoice(options: VoiceOptions) {
     mounted.current = true;
     const visibility = () => { if (document.hidden) stop(); };
     document.addEventListener("visibilitychange", visibility);
-    return () => { mounted.current = false; stop(); document.removeEventListener("visibilitychange", visibility); };
+    window.addEventListener("pagehide", stop);
+    return () => { mounted.current = false; stop(); document.removeEventListener("visibilitychange", visibility); window.removeEventListener("pagehide", stop); };
   }, [stop]);
 
   const start = useCallback(async () => {
@@ -142,7 +170,7 @@ export function useLiveVoice(options: VoiceOptions) {
     const session: Session = {
       peer, channel, audio, controller: new AbortController(), ready: false, closing: false, timers: new Set(),
       latestDelegation: null, handled: new Set(), delegations: new Map(), sourceOrder: new Map(), lastFocus: -1, sourceSequence: 0,
-      pendingReports: new Map(), transcript: { user: "", assistant: "", lastInputEnd: 0, lastOutputEnd: 0 },
+      catalogSlug: latest.current.costume.costume.slug, pendingCatalog: null, catalogReports: [], pendingReports: new Map(), transcript: { user: "", assistant: "", lastInputEnd: 0, lastOutputEnd: 0 },
     };
     sessionRef.current = session;
     const current = () => mounted.current && sessionRef.current === session && !session.closing && generation.current === ticket;
@@ -171,6 +199,13 @@ export function useLiveVoice(options: VoiceOptions) {
         release(session); return;
       }
       if (!current()) return;
+      if (event.type === "session.updated" && event.client_event_id === session.pendingCatalog) {
+        session.pendingCatalog = null;
+        const reports = session.catalogReports.splice(0);
+        syncOutfit(session);
+        reports.forEach(report => syncOutfit(session, report));
+        return;
+      }
       if (event.type === "session.started") {
         session.ready = true; starting.current = false; setStatus("live");
         syncOutfit(session);
@@ -194,6 +229,7 @@ export function useLiveVoice(options: VoiceOptions) {
         latest.current.onTranscript?.(session.transcript[role], role); return;
       }
       if (event.type === "session.delegation.created") {
+        if (session.pendingCatalog) return;
         const delegation = event.delegation as { id?: string } | undefined;
         if (typeof delegation?.id === "string") {
           session.latestDelegation = delegation.id;
@@ -210,7 +246,7 @@ export function useLiveVoice(options: VoiceOptions) {
         }
         return;
       }
-      if (event.type !== "decision.event") return;
+      if (event.type !== "decision.event" || session.pendingCatalog) return;
       const nested = event.event as { type?: string; decision?: { answers?: DecisionAnswer[] } } | undefined;
       if (nested?.type !== "decision.completed" || !Array.isArray(nested.decision?.answers)) return;
       const answers = nested.decision.answers;
@@ -239,11 +275,11 @@ export function useLiveVoice(options: VoiceOptions) {
           }
           command = { actions: [...command.actions.filter(action => action.type !== "cheapest"), ...extra.actions] };
         }
-        if (command.actions.length) latest.current.onCommand(command);
+        if (command.actions.length) await latest.current.onCommand(command);
         after(session, () => {
           if (!current()) return;
           syncOutfit(session, { delegationId, content: command.actions.length
-            ? `The request was sent to the outfit controls. The actual current outfit is ${outfitSnapshot(latest.current.costume, latest.current.outfit)}. Briefly describe only confirmed selection changes. Saving or freezing is handled by the interface. Video may still be updating; never claim it has rendered.`
+            ? `The request was sent to the outfit controls. ${session.frontendSnapshot ?? ""}. Briefly describe only confirmed selection changes. Saving or freezing is handled by the interface. Video may still be updating; never claim it has rendered.`
             : "No outfit changes were applied. Ask a brief clarifying question or explain that the catalog has no matching choice." });
         }, 80);
       } catch (error) {

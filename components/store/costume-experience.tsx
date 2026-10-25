@@ -43,6 +43,11 @@ export function CostumeExperience({ costume }: { costume: CostumeView }) {
     // The URL is only readable on the client.
     // eslint-disable-next-line react-hooks/set-state-in-effect
     setChosen(next);
+    const params = new URLSearchParams(window.location.search);
+    const owned = (params.get("owned") ?? "").split(",");
+    const skipped = (params.get("skipped") ?? "").split(",");
+    // Restore only catalog-known choices; required pieces cannot be omitted.
+    setUses(Object.fromEntries(pieces.map(({ piece }) => [piece.id, owned.includes(piece.id) ? "owned" : !piece.required && skipped.includes(piece.id) ? "skip" : "buy"])));
   }, [pieces]);
   const sourcingPieces = useMemo(() => pieces.map(({ piece, options }) => ({
     id: piece.id, name: piece.name, queries: piece.queries, options,
@@ -115,7 +120,7 @@ export function CostumeExperience({ costume }: { costume: CostumeView }) {
   }
 
   return <div className="costume-layout costume-layout-simple">
-    <div className="costume-media"><Carousel slides={slides} /><LiveMirror costume={costume} initialOutfit={{ selection: Object.fromEntries(pieces.flatMap((view) => { const option = picked.get(view.piece.id); return option ? [[view.piece.id, option.product.id]] : []; })), uses, locked: [], budget: mirrorBudget }} onApply={applyMirror} /><VirtualTryOn costumeSlug={costumeSlug} selection={pickedOptions.map(({ view, option }) => ({ pieceId: view.piece.id, productId: option.product.id }))} ownedPieceIds={pieces.filter(({ piece }) => uses[piece.id] === "owned").map(({ piece }) => piece.id)} skippedPieceIds={pieces.filter(({ piece }) => uses[piece.id] === "skip").map(({ piece }) => piece.id)} totalCents={total} /></div>
+    <div className="costume-media"><Carousel slides={slides} /><LiveMirror costume={costume} initialOutfit={{ selection: Object.fromEntries(pieces.flatMap((view) => { const option = picked.get(view.piece.id); return option ? [[view.piece.id, option.product.id]] : []; })), uses, locked: [], budget: mirrorBudget }} onApply={applyMirror} /><VirtualTryOn costumeSlug={costumeSlug} pieces={pieces.map(({ piece }) => ({ id: piece.id, name: piece.name, category: piece.category }))} selection={pickedOptions.map(({ view, option }) => ({ pieceId: view.piece.id, productId: option.product.id }))} ownedPieceIds={pieces.filter(({ piece }) => uses[piece.id] === "owned").map(({ piece }) => piece.id)} skippedPieceIds={pieces.filter(({ piece }) => uses[piece.id] === "skip").map(({ piece }) => piece.id)} totalCents={total} /></div>
     <div className="costume-info">
       <Link href="/" className="back-link">All costumes</Link>
       <h1 className="costume-title">{costume.costume.name}</h1>

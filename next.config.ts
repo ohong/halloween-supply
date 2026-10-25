@@ -8,6 +8,8 @@ const nextConfig: NextConfig = {
   cacheComponents: true,
   partialPrefetching: true,
   outputFileTracingIncludes: {
+    "/api/try-on": ["./public/costumes/**", "./public/products/**"],
+    "/api/live-mirror/reference": ["./public/products/**"],
     "/api/outfits": ["./public/costumes/**", "./public/products/price-tiers/**"],
     "/api/chat": ["./public/costumes/**", "./public/products/price-tiers/**"],
   },

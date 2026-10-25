@@ -8,6 +8,7 @@ export type MirrorOutfit = {
   budget: string;
 };
 export type MirrorAction =
+  | { type: "try_look"; costumeSlug: string }
   | { type: "select"; pieceId: string; productId: string }
   | { type: "use"; pieceId: string; use: PieceUse }
   | { type: "lock"; pieceId: string; locked: boolean }
