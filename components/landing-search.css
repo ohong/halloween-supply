@@ -34,7 +34,8 @@
 .tile { position: relative; min-width: 0; }
 .tile-body { display: block; border-radius: 8px; }
 .tile-picture { position: relative; display: block; aspect-ratio: 4 / 5; overflow: hidden; border-radius: 8px; background: #f6f5f4; }
-.tile-picture img { object-fit: contain; padding: 14px 10px; }
+.tile-picture img { object-fit: contain; padding: 14px 10px; filter: grayscale(1); transition: filter 180ms ease; }
+.tile:has(.save-look[aria-pressed="true"]) .tile-picture img { filter: grayscale(0); }
 .tile-caption { display: grid; gap: 6px; padding-block: 12px 0; color: var(--ink); }
 .tile-name { font-size: 14px; font-weight: 500; line-height: 1.35; }
 .tile-detail { display: flex; align-items: center; justify-content: space-between; gap: 8px; color: var(--mid); font-size: 12px; }
@@ -82,10 +83,12 @@
   .costume-search-field input { font-size: 16px; }
 }
 @media (hover: hover) and (pointer: fine) {
+  .tile:hover .tile-picture img { filter: grayscale(0); }
   .search-screenshot:hover { color: var(--ink); }
   .tile-body:hover .tile-name { text-decoration: underline; text-underline-offset: 3px; }
   .home-page .save-look:hover { background: #f2f2f2; color: var(--ink); }
 }
 @media (prefers-reduced-motion: reduce) {
+  .tile-picture img { transition: none; }
   .home-page [data-slot="button"], .home-page .save-look { transition: none; }
 }

@@ -194,7 +194,7 @@ export function CostumeExperience({ costume }: { costume: CostumeView }) {
           setInspectedPieceId(pieceId);
           if (pieceId === inspectedPieceId) document.getElementById("costume-piece-inspection")?.focus();
         },
-      }} /><p className="costume-image-note">Style inspiration. Preview may differ from the selected pieces.</p></TabsContent>
+      }} /></TabsContent>
       <TabsContent value="try-on" forceMount>
         <VirtualTryOn costumeSlug={costumeSlug} pieces={pieces.map(({ piece }) => ({ id: piece.id, name: piece.name, category: piece.category }))} selection={pickedOptions.map(({ view, option }) => ({ pieceId: view.piece.id, productId: option.product.id }))} ownedPieceIds={pieces.filter(({ piece }) => uses[piece.id] === "owned").map(({ piece }) => piece.id)} skippedPieceIds={pieces.filter(({ piece }) => uses[piece.id] === "skip").map(({ piece }) => piece.id)} totalCents={total} />
         <div className="costume-live-option"><span>Prefer a live preview?</span><LiveMirror costume={costume} initialOutfit={{ selection: Object.fromEntries(pieces.flatMap((view) => { const option = picked.get(view.piece.id); return option ? [[view.piece.id, option.product.id]] : []; })), uses, locked: [], budget: mirrorBudget }} onApply={applyMirror} /></div>
@@ -210,7 +210,6 @@ export function CostumeExperience({ costume }: { costume: CostumeView }) {
         ? <div className="costume-purchase" id="selected-outfit">
             <div className="costume-total"><span>{formatPrice(total)}<small>USD</small></span><p>{pickedOptions.length} pieces · {shopCount} {shopCount === 1 ? "shop" : "shops"}</p></div>
             <Button className="costume-add" disabled={!complete || !cart.ready} onClick={addAll}><ShoppingBag aria-hidden="true" />Add costume to cart<ArrowRight aria-hidden="true" /></Button>
-            <p className="costume-purchase-note">Merchant prices only. No added fees.</p>
             {cart.ready && cart.items.length > 0 && !ownsCart && <p className="meta">This costume replaces the outfit in your cart.</p>}
             {ownsCart && cart.notice && !cart.isOpen && <div className="notice" role="status"><p>{cart.notice}</p><button type="button" className="text-btn" onClick={cart.dismissNotice}>Dismiss</button></div>}
           </div>
@@ -226,7 +225,7 @@ export function CostumeExperience({ costume }: { costume: CostumeView }) {
 
       <div className="costume-help">
         <div><Sparkles size={18} aria-hidden="true" /><div><h2>Make it yours</h2><p>Set a budget, find local shops, or use what you own.</p></div></div>
-        <Button variant="outline" onClick={() => window.dispatchEvent(new Event("halloween:open-assistant"))}>Ask the assistant<ArrowRight aria-hidden="true" /></Button>
+        <Button variant="outline" onClick={() => window.dispatchEvent(new Event("halloween:open-assistant"))}>Talk to your personal shopper<ArrowRight aria-hidden="true" /></Button>
       </div>
       <details className="costume-sourcing">
         <summary>Find a lower-price outfit<ChevronDown size={16} aria-hidden="true" /></summary>

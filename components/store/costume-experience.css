@@ -23,7 +23,6 @@
 .costume-shop .slide img { filter: none; }
 .costume-shop .carousel .slide-costume img { padding: 20px; }
 .costume-shop .carousel-caption { font-size: 11px; }
-.costume-image-note { margin-top: 8px; font-size: 11px; line-height: 1.5; color: var(--mid); }
 .costume-purchase { display: grid; gap: 12px; margin-bottom: 30px; }
 .costume-total { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
 .costume-total > span { color: var(--ink); font-size: 26px; font-weight: 400; letter-spacing: -.04em; font-variant-numeric: tabular-nums; }
@@ -32,7 +31,6 @@
 .costume-add { width: 100%; min-height: 48px; border-radius: 6px; font-weight: 400; }
 .costume-add svg:last-child { margin-left: auto; }
 .costume-add svg:first-child { margin-right: auto; }
-.costume-purchase-note { font-size: 11px; line-height: 1.5; text-align: center; color: var(--mid); }
 .costume-pieces-heading { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; padding-bottom: 12px; border-bottom: 1px solid #e9e9e9; }
 .costume-pieces-heading h2 { font-size: 15px; font-weight: 500; color: var(--ink); }
 .costume-pieces-heading > span { font-size: 11px; color: var(--mid); }
