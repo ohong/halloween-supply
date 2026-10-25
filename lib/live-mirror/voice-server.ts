@@ -1,14 +1,18 @@
 import "server-only";
 import { z } from "zod";
+import { mixSchema } from "./mix-schema";
 import { getCostume } from "@/lib/catalog";
 import type { CostumeView } from "@/lib/types";
+import { composeMirrorCostume } from "./mixed-outfit";
 import type { MirrorOutfit } from "./types";
 
 export class VoiceError extends Error {
   constructor(public status: number, message: string) { super(message); }
 }
 const id = z.string().min(1).max(150);
+export { mixSchema } from "./mix-schema";
 export const outfitSchema = z.object({
+  mixes: z.array(mixSchema).max(12).optional(),
   selection: z.record(id, id), uses: z.record(id, z.enum(["buy", "owned", "skip"])),
   locked: z.array(id).max(20), budget: z.string().max(20).refine(value => !value.trim() || (/^\d+(\.\d{1,2})?$/.test(value) && Number(value) <= 1000000)),
 }).strict();
@@ -54,8 +58,13 @@ export async function readVoiceRequest(request: Request) {
   return JSON.parse(Buffer.concat(chunks).toString("utf8")) as unknown;
 }
 export async function validatedCostume(slug: string, outfit: MirrorOutfit, inventory?: CostumeView[]) {
-  const costume = inventory ? inventory.find(view => view.costume.slug === slug) : await getCostume(slug);
-  if (!costume) throw new VoiceError(400, "Choose a costume from the gallery.");
+  const base = inventory ? inventory.find(view => view.costume.slug === slug) : await getCostume(slug);
+  if (!base) throw new VoiceError(400, "Choose a costume from the gallery.");
+  let costume = base;
+  try { if (outfit.mixes?.length) {
+    if (!inventory) throw new Error("Inventory is required to resolve mixed pieces.");
+    costume = composeMirrorCostume(base, outfit.mixes, inventory);
+  } } catch (error) { throw new VoiceError(400, error instanceof Error ? error.message : "Invalid outfit pieces."); }
   const ids = new Set(costume.pieces.map(({ piece }) => piece.id));
   if ([...Object.keys(outfit.selection), ...Object.keys(outfit.uses), ...outfit.locked].some(key => !ids.has(key))) throw new VoiceError(400, "An outfit piece is no longer available.");
   for (const { piece, options } of costume.pieces) {

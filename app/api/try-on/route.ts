@@ -4,7 +4,9 @@ import path from "node:path";
 import sharp from "sharp";
 import { z } from "zod";
 import { costumes } from "@/lib/costumes";
-import { getCostume } from "@/lib/catalog";
+import { readMirrorInventory } from "@/lib/live-mirror/catalog-server";
+import { composeMirrorCostume } from "@/lib/live-mirror/mixed-outfit";
+import { mixSchema } from "@/lib/live-mirror/mix-schema";
 import { openaiRequest, PreviewError } from "@/lib/ai/openai";
 import { isTryOnTesting } from "@/lib/try-on-policy";
 
@@ -70,6 +72,7 @@ export async function POST(request: Request) {
     const photo = form.get("photo");
     if (!(photo instanceof File) || !photo.size || photo.size > MAX_PHOTO) throw new PreviewError(400, "Choose a JPEG, PNG or WebP photo smaller than 3 MB.");
     if (!["image/jpeg", "image/png", "image/webp"].includes(photo.type)) throw new PreviewError(400, "Use a JPEG, PNG or WebP photo.");
+    const mixes = z.array(mixSchema).max(12).parse(JSON.parse(String(form.get("mixes") ?? "[]")));
     const selected = selectionSchema.parse(JSON.parse(String(form.get("selection") ?? "[]")));
     const owned = idsSchema.parse(JSON.parse(String(form.get("ownedPieceIds") ?? "[]")));
     const skipped = idsSchema.parse(JSON.parse(String(form.get("skippedPieceIds") ?? "[]")));
@@ -92,7 +95,12 @@ export async function POST(request: Request) {
     const ownedNames: string[] = [];
     const skippedNames: string[] = [];
     if (ids.length) {
-      const view = await getCostume(costume.slug);
+      const inventory = await readMirrorInventory();
+      const base = inventory.views.find(view => view.costume.slug === costume.slug);
+      if (!base) throw new PreviewError(400, "This costume is unavailable.");
+      let view;
+      try { view = composeMirrorCostume(base, mixes, inventory.views); }
+      catch (error) { throw new PreviewError(400, error instanceof Error ? error.message : "Invalid mixed outfit."); }
       if (!view || ids.some((id) => !view.pieces.some(({ piece }) => piece.id === id))) throw new PreviewError(400, "Some outfit pieces are no longer in this costume.");
       if (view.pieces.some(({ piece }) => !ids.includes(piece.id))) throw new PreviewError(400, "Include a choice for every outfit piece.");
       for (const { piece, options } of view.pieces) {
