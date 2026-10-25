@@ -197,4 +197,3 @@ export function toCartItem(i: number, piece: Look["pieces"][number], found: Foun
     size: null,
   };
 }
-
