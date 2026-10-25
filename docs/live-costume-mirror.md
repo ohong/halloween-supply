@@ -2,8 +2,9 @@
 
 The mirror provides a camera preview and a voice stylist, with text as a fallback.
 Voice changes immediately update the page's selected products and existing cart
-lines. There are no manual wardrobe buttons, budget forms, pick-reason panels,
-saved-outfit comparisons or final plan/Apply screen. Closing the mirror stops
+lines. There are no manual wardrobe buttons, budget forms, saved-outfit comparisons
+or final plan/Apply screen. The piece list retains compact pick explanations and
+support-local badges from the store brief. Closing the mirror stops
 media; it does not start checkout. Photo try-on remains available.
 
 A voice request to save downloads a preview image. Undo restores the previous

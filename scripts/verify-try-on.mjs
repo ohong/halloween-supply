@@ -108,9 +108,8 @@ if (storefront) {
     assert(!html.includes("outfit-planner"), "Removed planner is still rendered");
     assert(!html.includes("Compare outfits"), "Removed comparisons are still rendered");
     assert(!html.includes("I own this"), "Removed wardrobe controls are still rendered");
-    assert(!html.includes("Why this pick"), "Removed reasons are still rendered");
     const carousel = html.slice(html.indexOf('aria-label="Costume images"'));
-    if (costume.status === "live") assert(decodeURIComponent(carousel.match(/<img[^>]+src="([^"]+)"/)?.[1] ?? "").includes(costume.image), "Full costume must be first");
+    if (costume.status === "live") assert((carousel.match(/<img[^>]+src="([^"]+)"/)?.[1] ?? "").includes("-cutout.png"), "Selected product flat-lay must be first");
   }));
   console.log("PASS running storefront exposes try-on on all costume pages and Shop for me on shoppable costumes, without the removed planner or wardrobe controls");
 }

@@ -1,7 +1,8 @@
 # Photo try-on
 
-The costume page shows the full look first, individual products, and cart actions.
-Wardrobe choices, product reasoning, and budget changes belong to the voice
+The costume page opens with the selected product flat-lay, followed by individual
+products and the editorial reference. Local badges and collapsed pick explanations
+remain beside the pieces. Wardrobe choices and budget changes belong to the voice
 stylist. There is no shopping brief, event-date form, outfit comparison or final
 plan screen. Voice changes update selected products directly. Shop for me and
 photo try-on remain available.

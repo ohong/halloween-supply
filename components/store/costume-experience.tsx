@@ -51,7 +51,6 @@ export function CostumeExperience({ costume, editorial }: { costume: CostumeView
   });
 
   const slides: Slide[] = [
-    { kind: "image", key: "complete-look", src: editorial?.image ?? costume.costume.image, alt: editorial?.alt ?? costume.costume.alt, caption: costume.costume.name, local: (editorial?.image ?? costume.costume.image).startsWith("/"), editorial: true },
     ...(flatlayItems.length > 0 && flatlayItems.length === needed.length
       ? [{ kind: "flatlay" as const, key: "flat-lay", items: flatlayItems, caption: `${flatlayItems.length} selected pieces` }]
       : []),
@@ -59,6 +58,7 @@ export function CostumeExperience({ costume, editorial }: { costume: CostumeView
       const option = picked.get(view.piece.id);
       return option ? [{ kind: "image" as const, key: `${view.piece.id}:${option.product.id}`, src: shot(option.product), alt: option.product.title, caption: `${view.piece.name} · ${option.merchant.name}` }] : [];
     }),
+    { kind: "image", key: "complete-look", src: editorial?.image ?? costume.costume.image, alt: editorial?.alt ?? costume.costume.alt, caption: `${costume.costume.name} · editorial reference`, local: (editorial?.image ?? costume.costume.image).startsWith("/"), editorial: true },
   ];
 
   const pickedOptions = pieces.flatMap((view) => {
@@ -115,7 +115,8 @@ export function CostumeExperience({ costume, editorial }: { costume: CostumeView
       {pickedOptions.length > 0
         ? <div className="whole-costume" id="selected-outfit">
             <button type="button" className="btn btn-block" disabled={!complete || !cart.ready} onClick={addAll}>Add whole costume · {formatPrice(total)}</button>
-            <p className="meta">{pickedOptions.length} pieces · {shopCount} {shopCount === 1 ? "shop" : "shops"} · Shipping and tax extra</p>
+            <p className="meta">{pickedOptions.length} pieces · {shopCount} {shopCount === 1 ? "shop" : "shops"} · Merchant prices only. No added charges.</p>
+            <button type="button" className="text-btn assistant-size-link" onClick={() => window.dispatchEvent(new Event("halloween:open-assistant"))}>Tell the assistant your sizes →</button>
             {cart.ready && cart.items.length > 0 && !ownsCart && <p className="meta">Replaces the other outfit in your cart.</p>}
             {ownsCart && cart.notice && !cart.isOpen && <div className="notice" role="status"><p>{cart.notice}</p><button type="button" className="text-btn" onClick={cart.dismissNotice}>Dismiss</button></div>}
           </div>
@@ -164,6 +165,7 @@ function PieceRow({ costumeSlug, view, index, onChoose }: { costumeSlug: string;
         <p className="piece-title">{option.product.title}</p>
         <p className="piece-merchant">{option.merchant.name}{hood ? ` · ${hood.name}` : ""}</p>
         <div className="piece-tags">
+          {option.pick.isLocal && <span className="pill pill-local">Support local</span>}
           {option.product.availability === "out_of_stock" && <span className="pill">Sold out</span>}
         </div>
       </div>
@@ -178,6 +180,10 @@ function PieceRow({ costumeSlug, view, index, onChoose }: { costumeSlug: string;
       {options.length > 1 && <button type="button" className="text-btn" aria-expanded={swapOpen} aria-label={`Change ${piece.name}`} onClick={() => setSwapOpen((open) => !open)}>
         Change
       </button>}
+      <details className="why">
+        <summary>Why this pick</summary>
+        <p>{option.pick.reason}</p>
+      </details>
     </div>
 
     {swapOpen && <div className="swap" role="group" aria-label={`Choose ${piece.name}`}>

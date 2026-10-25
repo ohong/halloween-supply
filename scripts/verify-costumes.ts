@@ -277,7 +277,7 @@ async function main() {
     const response = await get(`/costumes/${slug}`);
     assert.equal(response.status, 200, `${slug}: costume page failed`);
     const html = decode(await response.text());
-    assert(html.includes("Add whole costume") && html.includes("Change"));
+    assert(html.includes("Add whole costume") && html.includes("Change") && html.includes("Why this pick"));
     assert.equal(snapshot.costume.image, `/products/${slug}-flatlay.jpg`);
     assert(html.includes(snapshot.costume.image), `${slug}: page does not use its real flat-lay`);
     await verifyAsset(snapshot.costume.image);
