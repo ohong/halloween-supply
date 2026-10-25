@@ -8,7 +8,7 @@ Phone camera ── WebRTC video ────────> Desktop preview ─�
 Phone mic (optional) ── WebRTC ──────> GPT Live + Decisions ────────> Outfit choices
 
 Vercel + Turso: temporary connection descriptions only; no camera images or audio
-Cloudflare TURN (when configured): encrypted relay if direct connectivity fails
+Optional TURN relay: encrypted forwarding if direct connectivity fails
 ```
 
 The alternative was to run Lucy on the phone and forward its output. Keeping inference connections on the desktop preserves the existing outfit controls and lets photo and live modes share one phone connection. It adds a second video connection and depends on WebRTC connectivity between the devices. Photos travel at the phone's capture resolution over the ordered data channel, rather than using potentially reduced-resolution video frames.
@@ -33,7 +33,7 @@ Existing `TURSO_DATABASE_URL` and `TURSO_AUTH_TOKEN` store signaling. Existing `
 
 For connections across restrictive networks, set server-only `CLOUDFLARE_TURN_KEY_ID` and `CLOUDFLARE_TURN_API_TOKEN`. The server requests 15-minute TURN credentials from [Cloudflare's documented credential endpoint](https://developers.cloudflare.com/realtime/turn/generate-credentials/). Never expose the long-lived key to the browser.
 
-Without TURN, the app uses direct WebRTC with Cloudflare STUN. Same-network connections often work; cross-network support is not guaranteed. A failed connection ends with a retry instruction instead of silently falling back to a desktop camera.
+The deployed flow uses direct WebRTC with a public STUN server. Cloudflare Realtime is not required or configured. Use the same Wi-Fi network on both devices; guest networks with device isolation can prevent connection. Cross-network support is not guaranteed. A failed connection ends with a retry instruction instead of silently falling back to a desktop camera.
 
 ## Connection and media handling
 
@@ -52,6 +52,6 @@ Run `node scripts/verify-phone-camera.mjs` against a development server on port 
 
 Set `PHONE_PROVIDER_E2E=1` to additionally run real OpenAI photo generation, GPT Live, and Lucy. This consumes provider credits. Tests use two independent browser sessions and never open personal hardware. Evidence goes to a temporary `phone-camera-e2e-*` folder.
 
-Physical iPhone/Safari behavior, cellular connectivity, and camera quality must be distinguished from synthetic Chromium tests. Set `PHONE_FORCE_RELAY=1` to require and verify a TURN relay candidate. Relay activation is currently blocked: Cloudflare rejected subscription activation in the Side Projects account. No TURN credentials have been provisioned.
+Physical iPhone/Safari behavior, cellular connectivity, and camera quality must be distinguished from synthetic Chromium tests. Set `PHONE_FORCE_RELAY=1` to require and verify a TURN relay candidate. TURN is intentionally unconfigured at the owner's request; forced-relay verification therefore does not apply.
 
-Verified locally: raw phone preview, repeated native-resolution photos with receipt acknowledgement, camera switching, a real OpenAI photo result, real Lucy output, spoken outfit edits through the phone microphone in both modes, mode switching without re-pairing, and full media cleanup. Typecheck, lint, build, and the existing 15 mirror checks passed. Hosted verification is recorded in the release evidence.
+Verified locally: raw phone preview, repeated native-resolution photos with receipt acknowledgement, camera switching, a real OpenAI photo result, real Lucy output, spoken outfit edits through the phone microphone in both modes, mode switching without re-pairing, and full media cleanup. Typecheck, lint, build, and the existing 15 mirror checks passed. Hosted raw camera streaming, repeat photos, and real OpenAI photo generation passed. Hosted Lucy/GPT Live verification was blocked by the existing per-IP firewall limits after other live sessions used the allowance. No firewall rules were changed.
