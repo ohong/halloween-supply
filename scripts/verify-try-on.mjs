@@ -28,8 +28,8 @@ globalThis.fetch = async (url, options) => {
   assert.equal(options.body.get("output_format"), "jpeg");
   assert(options.body.getAll("image[]").length >= 1);
   assert(options.body.get("prompt").includes("Preserve the same face"));
-  assert(options.body.get("prompt").includes("Choose its main foreground subject"));
-  assert(options.body.get("prompt").includes("Ignore and remove all other people"));
+  assert(options.body.get("prompt").includes("Use the largest foreground person"));
+  assert(options.body.get("prompt").includes("Remove every other person"));
   return Response.json({ data: [{ b64_json: image.toString("base64") }] });
 };
 let sequence = 0;

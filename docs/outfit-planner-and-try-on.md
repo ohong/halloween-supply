@@ -54,9 +54,10 @@ The current implementation does not call Decart or send it photos.
 
 There is no photo-suitability classifier, person-count rejection, full-body
 requirement, or minimum-resolution gate. The image model chooses the main
-foreground subject and removes background people. Visual prominence, size,
-sharpness, and central placement guide its choice. If several people are equally
-prominent, the person nearest the center is selected. Selfies, cropped photos,
+foreground subject and removes background people. The largest foreground
+person is the identity reference; central placement breaks ties. Smaller people
+are ignored even when they already wear the requested costume. Clothing-reference
+images never supply the shopper’s face or body. Selfies, cropped photos,
 seated poses, occlusion, and clutter are passed directly to the model. Missing
 regions are inferred for the finished portrait. Subject choice is model-generated
 and can be ambiguous when people have equal prominence.
@@ -95,7 +96,7 @@ The last command runs the actual route, catalog lookup, file reads, and image
 decoding. It replaces only the OpenAI HTTP boundary and the Next.js server-only
 import marker. It checks all five costume references, selected products, owned
 pieces, invalid uploads, consent, origin, small readable photos, provider errors,
-quotas, and missing credentials. It does not establish real provider access or
+repeated requests, and missing credentials. It does not establish real provider access or
 rendering quality. A funded key and an authorized test photo are needed for that.
 
 ### Local production-build verification — October 24, 2026
