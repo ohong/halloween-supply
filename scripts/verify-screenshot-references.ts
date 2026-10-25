@@ -20,6 +20,8 @@ for (const [index, file] of files.entries()) {
   const text = await response.text();
   if (output) await writeFile(path.join(output, `reference-${index + 1}.ndjson`), text);
   const events = text.trim().split("\n").map((line) => JSON.parse(line));
+  assert(!events.some((event) => event.cached || event.kind === "cache" || event.kind === "catalog"), "Uploads must not replay saved results");
+  assert(events.some((event) => event.kind === "search"), "Each upload needs fresh Firecrawl discovery");
   const look = events.find((event) => event.t === "look");
   assert(look, `Reference ${index + 1}: no image analysis`);
   assert.match(look.character, /Ryland Grace/i);
