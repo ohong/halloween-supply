@@ -2,6 +2,7 @@ import { FirecrawlError, fetchProductPage, searchWeb, type SearchResult } from "
 import { htmlToText, parseProduct } from "../products/parse";
 import { readShopifyProduct, selectShopifyVariants, shopifySizes } from "../products/shopify";
 import { BLOCKED_DOMAINS, NOISE_DOMAINS, isBlockedDomain, isNoiseDomain, registrableDomain } from "./blocklist";
+import { SNAPSHOTS } from "../catalog/fallback";
 import screenshotHints from "../../data/sourcing/screenshot-hints.json";
 import { supportsWearerAudience } from "../custom-looks/audience";
 import type { ScreenshotMatch } from "./screenshot-types";
@@ -219,7 +220,12 @@ export function screenshotSourcing(signal: AbortSignal, log: SourcingLog, refere
       }
       if (candidates.length) break;
     }
-    if (!candidates.length) candidates = shortlist(screenshotHints.filter(hint => matchesScreenshotPiece(piece, hint.title, hint.description)), piece);
+    if (!candidates.length) {
+      const color = desiredColors(piece)[0];
+      const hints = [...screenshotHints, ...SNAPSHOTS.flatMap(snapshot => snapshot.products)]
+        .filter(hint => matchesScreenshotPiece(piece, hint.title, hint.description) && (!color || wordsMatch(hint.title, color)));
+      candidates = shortlist(hints, piece);
+    }
     if (!candidates.length) return;
     onMatch(matchFor(candidates[0], piece));
     log("found", `${piece.name}: found a similar item at ${registrableDomain(candidates[0].url)}`);

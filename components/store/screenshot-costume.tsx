@@ -22,6 +22,13 @@ type Phase = "idle" | "running" | "done" | "error";
 // Small rotations make the pieces land like a hand-arranged flat-lay.
 const TILT = [-2.5, 1.8, -1.2, 2.4, -1.9, 1.1, -0.8];
 
+function MatchImage({ src, title, merchant }: { src: string | null; title: string; merchant: string }) {
+  const [failed, setFailed] = useState<string | null>(null);
+  if (!src || failed === src) return <span className="shot-discovery-photo"><span>{src ? "Photo unavailable" : "Similar item found"}</span><strong>{merchant}</strong><span>View at shop ↗</span></span>;
+  // eslint-disable-next-line @next/next/no-img-element -- merchant photos can use any public CDN
+  return <img src={src} alt={title} referrerPolicy="no-referrer" onError={() => setFailed(src)} />;
+}
+
 function matchPrice(match: ScreenshotMatch) {
   if (match.priceCents && match.currency && /^[A-Z]{3}$/.test(match.currency)) {
     return new Intl.NumberFormat("en-US", { style: "currency", currency: match.currency }).format(match.priceCents / 100);
@@ -233,8 +240,7 @@ export function ScreenshotCostume() {
                 else setSelectedPieceId(slot.item.pieceId);
               }}>
               <span className="shot-frame">
-                {/* eslint-disable-next-line @next/next/no-img-element -- merchant images come from any shop's CDN */}
-                <img src={slot.item.image} alt={slot.item.title} referrerPolicy="no-referrer" />
+                <MatchImage src={slot.item.image} title={slot.item.title} merchant={slot.item.merchantName} />
               </span>
               <span className="shot-caption">
                 <span className="shot-piece">{slot.name}</span>
@@ -252,10 +258,7 @@ export function ScreenshotCostume() {
             </select>}
           </> : slot.state === "candidate" ? <a className="shot-inspect" href={slot.match.url} target="_blank" rel="noopener noreferrer">
             <span className="shot-frame">
-              {slot.match.image
-                // eslint-disable-next-line @next/next/no-img-element -- merchant photographs can use any public CDN
-                ? <img src={slot.match.image} alt={slot.match.title} referrerPolicy="no-referrer" />
-                : <span className="shot-discovery-photo"><span>Similar item found</span><strong>{slot.match.merchant}</strong><span>View at shop ↗</span></span>}
+              <MatchImage src={slot.match.image} title={slot.match.title} merchant={slot.match.merchant} />
             </span>
             <span className="shot-caption"><span className="shot-piece">{slot.name}</span><span className="shot-title">{slot.match.title}</span>
               <span className="meta">{slot.match.merchant} · {matchPrice(slot.match)}</span>
