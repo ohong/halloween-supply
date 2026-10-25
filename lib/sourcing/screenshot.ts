@@ -3,8 +3,6 @@ import { FirecrawlError, fetchProductPage, searchWeb, type SearchResult } from "
 import { htmlToText, parseProduct } from "../products/parse";
 import { readShopifyProduct, selectShopifyVariants, shopifySizes } from "../products/shopify";
 import { BLOCKED_DOMAINS, NOISE_DOMAINS, hostnameOf, isBlockedDomain, isNoiseDomain, registrableDomain } from "./blocklist";
-import { readCache, writeCache } from "./cache";
-import type { Product } from "../types";
 import { supportsWearerAudience } from "../custom-looks/audience";
 
 export interface ScreenshotPiece { name: string; query: string }
@@ -111,7 +109,8 @@ function releaseSearch() {
   }
 }
 
-export function screenshotSourcing(signal: AbortSignal, log: SourcingLog, catalog: readonly Product[] = []) {
+export function screenshotSourcing(signal: AbortSignal, log: SourcingLog) {
+  // Deduplicate only within this upload. Repeated uploads must run fresh discovery and merchant reads.
   const searches = new Map<string, Promise<SearchResult[]>>();
   const currencies = new Map<string, Promise<string | null>>();
   async function search(query: string, broad: boolean) {
@@ -123,16 +122,19 @@ export function screenshotSourcing(signal: AbortSignal, log: SourcingLog, catalo
         try {
           for (let attempt = 0; ; attempt++) {
             try {
-              // Disk hits remain usable during a provider cooldown.
-              return await searchWeb(query, { cache: true, timeoutMs: 6_000, signal,
+              const cooldown = searchRetryAt - Date.now();
+              if (cooldown > 0) {
+                log("retry", "Search is busy. Waiting to run a fresh search…");
+                await delay(cooldown, undefined, { signal });
+              }
+              log("search", `“${query}”`);
+              return await searchWeb(query, { cache: false, timeoutMs: 6_000, signal,
                 ...(broad ? { excludeDomains: SEARCH_EXCLUDED } : {}), retryAt: searchRetryAt });
             }
             catch (error) {
               if (!(error instanceof FirecrawlError) || error.status !== 429) throw error;
-              searchRetryAt = Date.now() + (error.retryAfterMs || 30_000);
-              if (attempt || !error.retryAfterMs || error.retryAfterMs > 2_000) throw error;
-              log("retry", "Search is busy. Retrying once…");
-              await delay(Math.max(1_000, error.retryAfterMs), undefined, { signal });
+              searchRetryAt = Math.max(searchRetryAt, Date.now() + Math.max(1_000, error.retryAfterMs || 30_000));
+              if (attempt) throw error;
             }
           }
         } finally { releaseSearch(); }
@@ -146,14 +148,10 @@ export function screenshotSourcing(signal: AbortSignal, log: SourcingLog, catalo
     let pending = currencies.get(origin);
     if (!pending) {
       pending = (async () => {
-        const key = { origin, currency: "USD" };
-        const cached = await readCache<string>("shop-currency", key);
-        if (cached) return cached;
         try {
-          const response = await fetch(`${origin}/cart.js?currency=USD`, { signal: AbortSignal.any([signal, AbortSignal.timeout(2_500)]), headers: { Accept: "application/json" } });
+          const response = await fetch(`${origin}/cart.js?currency=USD`, { cache: "no-store", signal: AbortSignal.any([signal, AbortSignal.timeout(2_500)]), headers: { Accept: "application/json" } });
           const cart = response.ok ? await response.json() as { currency?: string } : null;
           const value = typeof cart?.currency === "string" ? cart.currency : null;
-          if (value) await writeCache("shop-currency", key, value);
           return value;
         } catch { return null; }
       })();
@@ -166,18 +164,15 @@ export function screenshotSourcing(signal: AbortSignal, log: SourcingLog, catalo
     const pageCurrency = async () => {
       const pageUrl = new URL(url); pageUrl.search = "?currency=USD";
       const key = pageUrl.toString();
-      const cached = await readCache<string>("shop-page-currency", key);
-      if (cached) return cached;
       try {
-        const response = await fetch(pageUrl, { signal: AbortSignal.any([readSignal, AbortSignal.timeout(3_500)]), headers: { Accept: "text/html" } });
+        const response = await fetch(pageUrl, { cache: "no-store", signal: AbortSignal.any([readSignal, AbortSignal.timeout(3_500)]), headers: { Accept: "text/html" } });
         if (!response.ok || registrableDomain(response.url) !== registrableDomain(url)) return null;
         const declared = parseProduct(await response.text(), key).currency ?? "unknown";
-        await writeCache("shop-page-currency", key, declared);
         return declared;
       } catch { return null; }
     };
     const [raw, money, declared] = await Promise.all([
-      readShopifyProduct(url, true, { signal: readSignal, timeoutMs: 3_500 }), currency(new URL(url).origin), pageCurrency(),
+      readShopifyProduct(url, false, { signal: readSignal, timeoutMs: 3_500 }), currency(new URL(url).origin), pageCurrency(),
     ]);
     // Some stores report USD in cart.js while their product facts still price the same cents in EUR.
     // Match checkout's currency agreement before showing that offer as purchasable.
@@ -214,7 +209,7 @@ export function screenshotSourcing(signal: AbortSignal, log: SourcingLog, catalo
 
   async function scrape(url: string, piece: ScreenshotPiece, readSignal: AbortSignal): Promise<ScreenshotProduct | null> {
     try {
-      const page = await fetchProductPage(url, { cache: true, timeoutMs: 5_000, signal: readSignal });
+      const page = await fetchProductPage(url, { cache: false, timeoutMs: 5_000, signal: readSignal });
       const host = hostnameOf(page.finalUrl);
       if (!host || !allowedHost(host) || !page.finalUrl.startsWith("https://")) return null;
       const product = parseProduct(page.html, page.finalUrl);
@@ -267,24 +262,12 @@ export function screenshotSourcing(signal: AbortSignal, log: SourcingLog, catalo
 
   return async (piece: ScreenshotPiece): Promise<ScreenshotProduct | null> => {
     const seen = new Set<string>();
-    // Reviewed URLs are discovery hints, never price/stock answers. Re-read the merchant before use.
-    const known = catalog.filter((product) => product.availability === "in_stock"
-      && matchesScreenshotPiece(piece, product.title, `${product.title} ${product.description}`, `${product.title} ${product.description}`))
-      .map((product) => ({ title: product.title, url: product.url }))
-      .sort((a, b) => relevance(piece, b) - relevance(piece, a));
-    const unique = [...new Map(known.map((item) => [item.url.split("?")[0], item])).values()].slice(0, 4);
-    if (unique.length) {
-      log("catalog", `${piece.name}: checking previously sourced shops`);
-      const hit = await readCandidates(unique, piece, seen);
-      if (hit) return hit;
-    }
     // Keep the fast Shopify path, then widen discovery when every candidate fails validation.
     // Generic audience suffixes often return category pages instead of the pictured garment.
     const productQuery = piece.query.replace(/\b(?:for\s+)?(?:men['’]?s?|women['’]?s?)\b/gi, " ").replace(/\s+/g, " ").trim();
     const adultQuery = /\b(kids?|children|child|toddler|infant|baby|youth)\b/i.test(productQuery) ? productQuery : `adult ${productQuery}`;
     for (const [index, query] of [`${productQuery} inurl:products`, adultQuery].entries()) {
       signal.throwIfAborted();
-      log("search", `“${query}”`);
       let results: SearchResult[];
       try { results = await search(query, index === 1); }
       catch (error) {

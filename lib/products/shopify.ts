@@ -52,7 +52,7 @@ export async function readShopifyProduct(url: string, useCache = true, options: 
   u.search = "?currency=USD";
   const load = async (): Promise<ShopifyProduct | null> => {
     try {
-      const res = await fetch(u, { signal: AbortSignal.any([AbortSignal.timeout(options.timeoutMs ?? 10_000), ...(options.signal ? [options.signal] : [])]), headers: { Accept: "application/json" } });
+      const res = await fetch(u, { cache: useCache ? undefined : "no-store", signal: AbortSignal.any([AbortSignal.timeout(options.timeoutMs ?? 10_000), ...(options.signal ? [options.signal] : [])]), headers: { Accept: "application/json" } });
       if (!res.ok) return null;
       const data = await res.json();
       if (!Array.isArray(data.variants) || !data.variants.every((v: ShopifyVariant) => Number.isInteger(v.price) && typeof v.available === "boolean") ||

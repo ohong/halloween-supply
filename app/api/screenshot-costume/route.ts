@@ -2,10 +2,8 @@ import { createHash } from "node:crypto";
 import sharp from "sharp";
 import { z } from "zod";
 import { PreviewError } from "@/lib/ai/openai";
-import { readCache, writeCache } from "@/lib/sourcing/cache";
 import { screenshotSourcing, type SourcingLog as Log } from "@/lib/sourcing/screenshot";
 import { toCartItem } from "@/lib/custom-looks/source";
-import { SNAPSHOTS } from "@/lib/catalog/fallback";
 
 export const maxDuration = 60;
 
@@ -85,11 +83,11 @@ const prompt = [
 async function decompose(image: Buffer, signal: AbortSignal): Promise<Look> {
   const response = await fetch("https://api.openai.com/v1/responses", {
     method: "POST",
+    cache: "no-store",
     headers: { Authorization: `Bearer ${process.env.OPENAI_API_KEY}`, "Content-Type": "application/json" },
     body: JSON.stringify({
       model: MODEL,
       max_output_tokens: 900,
-      // Deterministic pieces keep the per-query search cache warm when the same screenshot is shown twice.
       ...(MODEL.startsWith("gpt-5") ? {} : { temperature: 0 }),
       ...(MODEL.startsWith("gpt-5") ? { reasoning: { effort: "minimal" } } : {}),
       text: { format: { type: "json_object" } },
@@ -130,40 +128,23 @@ export async function POST(request: Request) {
 
   const encoder = new TextEncoder();
   const t0 = performance.now();
-  // Reuse complete looks for 15 minutes. Partial runs retry sourcing and reuse only image analysis.
-  // Checkout still re-verifies every merchant price, stock level, and selected size.
-  const runKey = { image: createHash("sha256").update(image).digest("hex"), model: MODEL, v: 10 };
-  const replay = await readCache<Record<string, unknown>[]>("screenshot-look", runKey).catch(() => undefined);
   let open = true;
   const cancelled = new AbortController();
   const stream = new ReadableStream<Uint8Array>({
     async start(controller) {
-      const recorded: Record<string, unknown>[] = [];
       const emit = (event: Record<string, unknown>) => {
         const line = { ...event, ms: Math.round(performance.now() - t0) };
-        recorded.push(line);
         if (open) controller.enqueue(encoder.encode(JSON.stringify(line) + "\n"));
       };
       const log: Log = (kind, text) => emit({ t: "log", kind, text });
       const signal = AbortSignal.any([request.signal, cancelled.signal, AbortSignal.timeout(50_000)]);
       try {
-        if (replay?.some((event) => event.t === "done")) {
-          log("cache", "Using recently verified matches. Prices and stock are checked again at checkout.");
-          for (const event of replay) {
-            signal.throwIfAborted();
-            if (["look", "piece", "done"].includes(String(event.t))) emit({ ...event, cached: true });
-          }
-          return;
-        }
         log("think", "Reading the screenshot…");
-        const analysisKey = { image: runKey.image, model: MODEL, v: 1 };
-        const saved = lookSchema.safeParse(await readCache("screenshot-analysis", analysisKey));
-        const look = saved.success ? saved.data : await decompose(image, signal);
-        if (!saved.success) await writeCache("screenshot-analysis", analysisKey, look);
+        const look = await decompose(image, signal);
         emit({ t: "look", ...look });
         log("look", `Spotted ${look.character}: ${look.pieces.map((p) => p.name.toLowerCase()).join(", ")}`);
 
-        const source = screenshotSourcing(signal, log, SNAPSHOTS.flatMap((snapshot) => snapshot.products));
+        const source = screenshotSourcing(signal, log);
         let found = 0;
         await Promise.all(look.pieces.map(async (piece, i) => {
           const hit = await source(piece);
@@ -179,7 +160,6 @@ export async function POST(request: Request) {
         }));
         if (signal.aborted) throw new DOMException("Timed out", "TimeoutError");
         emit({ t: "done", found });
-        if (found === look.pieces.length) await writeCache("screenshot-look", runKey, recorded).catch(() => undefined);
       } catch (error) {
         const text = error instanceof PreviewError ? error.message
           : error instanceof Error && ["AbortError", "TimeoutError"].includes(error.name) ? "The stylist took too long. Please try again."

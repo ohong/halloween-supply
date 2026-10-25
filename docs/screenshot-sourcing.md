@@ -5,13 +5,9 @@ The screenshot route reads one image, then streams verified merchant products in
 ## Search and verification
 
 ```text
-compressed screenshot -> cached image analysis
+compressed screenshot -> fresh image analysis
                               |
-                    reviewed merchant URL hints
-                              |
-               exact product feed / product page
-                              |
-              no suitable offer? Firecrawl search
+                       Firecrawl search
                               |
              ranked product URLs + links in excerpts
                               |
@@ -23,7 +19,7 @@ compressed screenshot -> cached image analysis
 
 Two approaches were considered. An additional AI ranking call can compare nuanced visual details, but adds provider latency and cost for every piece. This route uses bounded garment, color, audience, and style checks. They reject known bad substitutions while keeping screenshot sourcing quick. The separately shipped typed costume-creation flow retains its stricter semantic review.
 
-Previously sourced catalog URLs are hints, not stock or price answers. The route reads their current merchant feed or page before returning an offer. Firecrawl handles unknown pieces and failed hints. No mock products or invented prices are used.
+Every upload starts fresh image analysis and Firecrawl discovery, including repeated uploads of the same image. Catalog URL hints and saved results cannot bypass web searches. The route reads current merchant feeds or pages before returning an offer. No mock products or invented prices are used.
 
 Discovery keeps the precise product query first. Generic gender suffixes are removed because observed results often returned collections. A second, broader adult query excludes the dominant blocked/noise domains. The complete merchant blocklist applies to every candidate and redirect, independently of search filtering.
 
@@ -37,15 +33,12 @@ The route rejects incompatible garment types, wrong color variants, explicit chi
 
 ## Caching and limits
 
-- Firecrawl discovery and image analysis expire after 24 hours.
-- Merchant pages, Shopify facts, merchant currencies, and complete screenshot looks expire after 15 minutes.
-- Partial looks are never cached as finished results. Their image analysis can be reused on retry.
-- Complete replays return immediately with an explicit cache message. They do not simulate old searches or delay the response.
-- Timeouts are excluded from discovery cache keys; changing a deadline cannot duplicate an otherwise identical search.
-- Failed or cancelled Shopify reads are not cached as missing products.
-- Vercel caches use `/tmp`; local runs use ignored `data/cache`. `SOURCING_CACHE_DIR` isolates acceptance runs.
-- Caches and concurrency guards are per instance. They do not promise a hit after a cold start or deployment-wide quotas.
-- Three screenshot searches can run concurrently. A 429 starts a bounded cooldown. Only short explicit `Retry-After` values permit one retry.
+- Screenshot sourcing does not read or write saved image analysis, finished looks, search results, merchant pages, Shopify facts, or merchant currencies.
+- Identical queries and merchant currency reads share work only within one upload; the next upload starts fresh.
+- The sourcing log shows actual discovery and verification work. There are no result replays or simulated searches.
+- Other catalog and costume-creation features retain their own cache behavior.
+- Concurrency guards are per instance, not deployment-wide quotas.
+- Three screenshot searches can run concurrently. A 429 starts a cooldown; the log reports the wait before retrying once. Waiting shares the existing 50-second deadline.
 - Browser uploads are re-encoded below 3 MB. The route's multipart body limit stays below Vercel's function upload limit.
 
 Checkout independently rechecks merchant prices, stock, and explicit sizes. Stripe remains in test mode. Screenshot results do not order from merchants.
@@ -54,7 +47,7 @@ Checkout independently rechecks merchant prices, stock, and explicit sizes. Stri
 
 ```sh
 bun run build
-SOURCING_CACHE_DIR=/tmp/halloween-screenshot-check bun run start --port 3402
+bun run start --port 3402
 # A separate terminal; real OpenAI, Firecrawl, and merchant calls:
 bun scripts/verify-screenshot-sourcing.ts http://localhost:3402 --repeat --require-complete
 # Also create and inspect five TEST sessions, then expire them unpaid:
