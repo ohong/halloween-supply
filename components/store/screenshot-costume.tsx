@@ -3,6 +3,7 @@
 import { useCallback, useEffect, useRef, useState, type CSSProperties } from "react";
 import { SCREENSHOT_SLUG, formatPrice, useCart } from "@/lib/cart/context";
 import type { CartItem } from "@/lib/types";
+import { preparePhoto } from "@/lib/photo/prepare";
 import "./screenshot-costume.css";
 
 interface LookPiece { name: string; slot: string; query: string; sizeKind: CartItem["sizeKind"] }
@@ -69,8 +70,11 @@ export function ScreenshotCostume() {
     queue.current = [];
 
     const form = new FormData();
-    form.append("photo", file);
     try {
+      // Keep phone screenshots below the deployed function's upload limit.
+      const photo = await preparePhoto(file);
+      if (controller.signal.aborted) return;
+      form.append("photo", photo, "screenshot.jpg");
       const response = await fetch("/api/screenshot-costume", { method: "POST", body: form, signal: controller.signal });
       if (!response.ok || !response.body) {
         const body = await response.json().catch(() => null) as { error?: string } | null;
@@ -81,6 +85,7 @@ export function ScreenshotCostume() {
       let finished = false;
       while (true) {
         const { value, done } = await reader.read();
+        if (controller.signal.aborted) return;
         if (done) break;
         buffer += value;
         const lines = buffer.split("\n");
@@ -110,6 +115,7 @@ export function ScreenshotCostume() {
       if (!finished) throw new Error("The stylist stopped early. Please try again.");
     } catch (caught) {
       if (controller.signal.aborted) return;
+      setSlots((current) => current.map((slot) => slot.state === "looking" ? { state: "missing", name: slot.name } : slot));
       setError(caught instanceof Error ? caught.message : "The stylist couldn’t finish this look.");
       setPhase("error");
     }
@@ -184,7 +190,7 @@ export function ScreenshotCostume() {
             {slot.state === "found"
               // eslint-disable-next-line @next/next/no-img-element -- merchant images come from any shop's CDN
               ? <img src={slot.item.image} alt={slot.item.title} referrerPolicy="no-referrer" />
-              : <span className="shot-ghost">{slot.state === "missing" ? "Not in stock anywhere we checked" : "Searching shops…"}</span>}
+              : <span className="shot-ghost">{slot.state === "missing" ? "No verified match yet" : "Searching shops…"}</span>}
           </div>
           <div className="shot-caption">
             <p className="shot-piece">{slot.name}</p>
@@ -203,7 +209,7 @@ export function ScreenshotCostume() {
       </ul> : !running && <div className="shot-empty" aria-hidden="true">{TILT.slice(0, 6).map((r, i) => <span key={i} style={{ "--r": `${r}deg` } as CSSProperties} />)}</div>}
 
       {found.length > 0 && !running && <div className="shot-foot">
-        <p className="meta">{missing > 0 ? `${missing} ${missing === 1 ? "piece wasn’t" : "pieces weren’t"} in stock. ` : ""}Prices and stock are checked again at checkout.</p>
+        <p className="meta">{missing > 0 ? `${missing} ${missing === 1 ? "piece still needs" : "pieces still need"} a verified match. ` : ""}Prices and stock are checked again at checkout.</p>
         <button type="button" className="btn" onClick={allInCart ? () => cart.setOpen(true) : addLook}>
           {allInCart ? "View cart" : `Add the look to cart · ${formatPrice(total)}`}
         </button>
