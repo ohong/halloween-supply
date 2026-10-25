@@ -19,7 +19,7 @@ import "./live-mirror.css";
 import { PhoneCameraControls, usePhoneCamera } from "./phone-camera";
 
 type Props = { costume: CostumeView; initialOutfit: MirrorOutfit; onApply: (outfit: MirrorOutfit, costume?: CostumeView) => void };
-const copyOutfit = (outfit: MirrorOutfit): MirrorOutfit => ({ ...outfit, selection: { ...outfit.selection }, uses: { ...outfit.uses }, locked: [...outfit.locked], ...(outfit.mixes ? { mixes: outfit.mixes.map(ref => ({ ...ref })) } : {}) });
+const copyOutfit = (outfit: MirrorOutfit): MirrorOutfit => ({ ...outfit, ...(outfit.appearance ? { appearance: Object.fromEntries(Object.entries(outfit.appearance).map(([id, value]) => [id, { ...value }])) } : {}), selection: { ...outfit.selection }, uses: { ...outfit.uses }, locked: [...outfit.locked], ...(outfit.mixes ? { mixes: outfit.mixes.map(ref => ({ ...ref })) } : {}) });
 
 export function LiveMirror(props: Props) {
   const phone = usePhoneCamera();
@@ -75,7 +75,7 @@ function MirrorRoom({ costume: initialCostume, initialOutfit, onApply, onClose }
   const previousPhone = useRef<MediaStream | null>(phoneStream);
   const video = useLiveVideo({ costume, outfit }, phoneStream);
   const { start: startVideo, stop: stopVideo } = video;
-  const voice = useLiveVoice({ costume, outfit, microphone: phoneStream, catalogContext, pendingLook: switchingLook, onFocus: setFocusedPiece, onCommand: (command) => commandHandler.current(command), onTranscript: transcript.receive });
+  const voice = useLiveVoice({ costume, outfit, microphone: phoneStream, catalogContext, pendingLook: switchingLook, preview: { status: video.status, isCurrent: video.isCurrent, frozen: !!frozen, error: video.error }, onFocus: setFocusedPiece, onCommand: (command) => commandHandler.current(command), onTranscript: transcript.receive });
   const stopRef = useRef({ video: video.stop, voice: voice.stop });
   useEffect(() => {
     if (previousPhone.current !== phoneStream) {
@@ -138,7 +138,7 @@ function MirrorRoom({ costume: initialCostume, initialOutfit, onApply, onClose }
   useEffect(() => { if (cameraRef.current) cameraRef.current.srcObject = video.cameraStream; }, [video.cameraStream]);
 
   const remember = useCallback((next: MirrorOutfit, nextCostume = costumeRef.current) => {
-    if (JSON.stringify(next) === JSON.stringify(outfitRef.current)) return;
+    if (nextCostume.costume.slug === costumeRef.current.costume.slug && JSON.stringify(next) === JSON.stringify(outfitRef.current)) return;
     historyRef.current = [...historyRef.current, { outfit: copyOutfit(outfitRef.current), costume: costumeRef.current }].slice(-30);
     setHistory(historyRef.current);
     costumeRef.current = nextCostume;
@@ -227,10 +227,10 @@ function MirrorRoom({ costume: initialCostume, initialOutfit, onApply, onClose }
       }
       const base: Partial<MirrorOutfit> = slug === costumeRef.current.costume.slug ? outfitRef.current : slug === initialCostume.costume.slug ? initialOutfit : {};
       const nextOutfit = createOutfit(next, { ...base, budget: outfitRef.current.budget, selection: { ...base.selection, ...selection } });
+      historyRef.current = [...historyRef.current, { outfit: copyOutfit(outfitRef.current), costume: costumeRef.current }].slice(-30);
+      setHistory(historyRef.current);
       costumeRef.current = next;
       outfitRef.current = nextOutfit;
-      historyRef.current = [];
-      setHistory([]);
       setCostume(next);
       setOutfit(nextOutfit);
       if (slug === initialCostume.costume.slug) applyRef.current(copyOutfit(nextOutfit), next);
@@ -238,7 +238,7 @@ function MirrorRoom({ costume: initialCostume, initialOutfit, onApply, onClose }
       setFocusedPiece(null);
       setNotice(`Trying ${next.costume.name}.`);
     } catch (error) {
-      if (!controller.signal.aborted) setNotice(error instanceof Error ? error.message : "This costume could not load.");
+      if (!controller.signal.aborted) { setNotice(error instanceof Error ? error.message : "This costume could not load."); throw error; }
     } finally {
       if (lookRequest.current === controller) { lookRequest.current = null; setSwitchingLook(false); }
     }
@@ -246,7 +246,7 @@ function MirrorRoom({ costume: initialCostume, initialOutfit, onApply, onClose }
 
   const cycleLook = (direction: number) => {
     const index = catalogLooks.findIndex(look => look.slug === costume.costume.slug);
-    void switchLook(catalogLooks[(index + direction + catalogLooks.length) % catalogLooks.length].slug);
+    void switchLook(catalogLooks[(index + direction + catalogLooks.length) % catalogLooks.length].slug).catch(() => {});
   };
   const nextLook = catalogLooks[(catalogLooks.findIndex(look => look.slug === costume.costume.slug) + 1) % catalogLooks.length];
 
@@ -358,11 +358,11 @@ function MirrorRoom({ costume: initialCostume, initialOutfit, onApply, onClose }
   return <div className="mirror-room" ref={roomRef} role="dialog" aria-modal="true" aria-labelledby="mirror-room-title" onKeyDown={trapFocus}>
     <header className="mirror-header">
       <div><h2 id="mirror-room-title">Costume Mirror<span>{costume.costume.name}</span></h2></div>
-      <div className="mirror-header-actions"><button className="mirror-link" onClick={() => { video.stop(); voice.stop(); onClose(); }}>Use photo mode</button><button ref={closeRef} className="mirror-icon-button" onClick={close} aria-label="Close costume mirror"><X size={22} /></button></div>
+      <div className="mirror-header-actions"><button className="mirror-link" onClick={close}>Use photo mode</button><button ref={closeRef} className="mirror-icon-button" onClick={close} aria-label="Close costume mirror"><X size={22} /></button></div>
     </header>
     <div className="mirror-body">
       <section className="mirror-visual" aria-label="Costume preview">
-        <div className="mirror-stage" onPointerDown={event => {
+        <div className={`mirror-stage${!video.stream && !frozen ? " is-idle" : ""}`} onPointerDown={event => {
           if ((event.target as HTMLElement).closest("button")) return;
           swipeStart.current = { x: event.clientX, y: event.clientY };
         }} onPointerUp={event => {
@@ -372,22 +372,9 @@ function MirrorRoom({ costume: initialCostume, initialOutfit, onApply, onClose }
         }} onPointerCancel={() => { swipeStart.current = null; }}>
           {frozen ? <img className="mirror-camera" src={frozen} alt="Your frozen costume preview" /> : <video ref={videoRef} className={`mirror-camera${video.stream ? "" : " mirror-hidden"}`} autoPlay playsInline muted onPlaying={video.onFrame} aria-label="Live costume preview" />}
           {!video.stream && !frozen && <div className="mirror-stage-intro">
-            <div className="mirror-stage-products" aria-hidden="true">{costume.pieces.filter(({ piece }) => outfit.uses[piece.id] === "buy").map(({ piece, options }) => { const product = options.find(({ product }) => product.id === outfit.selection[piece.id])?.product ?? options[0]?.product; return product ? <img key={piece.id} src={product.cutout ?? product.image} alt="" /> : null; })}</div>
-          </div>}
-          {video.cameraStream && <video ref={cameraRef} className="mirror-original" autoPlay playsInline muted aria-label="Original camera" />}
-          <div className="mirror-stage-label" role="status"><span className={live ? "mirror-dot is-live" : "mirror-dot"} />{frozen ? (phoneStream ? "Frozen preview · phone connected" : "Frozen preview · camera off") : live ? "Live preview" : connecting ? video.stream ? "Updating your look…" : "Connecting…" : "Your preview"}</div>
-          {video.stream && !frozen && <button className="mirror-next-look" onClick={() => cycleLook(1)} disabled={switchingLook} aria-label={`Switch to ${nextLook.name}`}><img src={nextLook.image} alt="" /><span>{switchingLook ? "Loading…" : "Swipe up to switch"}</span></button>}
-          {(video.stream || frozen) && <button className="mirror-freeze" disabled={!frozen && !video.isCurrent} onClick={frozen ? resume : freeze}>{frozen ? <Play size={15} /> : <Pause size={15} />}{frozen ? "Resume camera" : "Freeze look"}</button>}
-        </div>
-        <nav className="mirror-look-switch" aria-label="Switch costume">
-          <button className="mirror-icon-button" onClick={() => cycleLook(-1)} disabled={switchingLook} aria-label="Previous costume"><ChevronLeft size={20} /></button>
-          <div><label className="mirror-sr-only" htmlFor="mirror-look">Costume</label><select id="mirror-look" value={costume.costume.slug} onChange={event => void switchLook(event.target.value)}>{catalogLooks.map(look => <option key={look.slug} value={look.slug}>{look.name}</option>)}</select><p>{switchingLook ? "Loading costume…" : "Swipe up on the mirror to switch"}</p></div>
-          <button className="mirror-icon-button" onClick={() => cycleLook(1)} disabled={switchingLook} aria-label="Next costume"><ChevronRight size={20} /></button>
-        </nav>
-        <div className="mirror-below-stage">
-          <p>Stand back so your outfit is visible. Preview changes can take a moment. Fit and product details may vary.</p>
-          {frozen && <p>The frozen image stays unchanged as you edit. Resume to preview your latest pieces.</p>}
-          {!live && !frozen && <div className="mirror-start">
+            <img className="mirror-idle-look" src={costume.costume.image} alt={costume.costume.name} />
+            <div className="mirror-stage-welcome"><h3>Your costume, live.</h3><p>Start the mirror. Say what you want to change.</p></div>
+          {!video.stream && !frozen && <div className="mirror-start">
             {availability && !availability.videoAvailable && <p className="mirror-notice">Live camera try-on isn’t available right now. {availability.voiceAvailable ? "You can still change your look by voice, or " : "You can "} <button className="mirror-link" onClick={() => { close(); requestAnimationFrame(() => document.querySelector(".try-on")?.scrollIntoView({ behavior: "smooth", block: "start" })); }}>use photo try-on</button>.</p>}
             {configError && <p className="mirror-notice">{configError}</p>}
             {availability && (availability.videoAvailable || availability.voiceAvailable) && <>
@@ -397,21 +384,38 @@ function MirrorRoom({ costume: initialCostume, initialOutfit, onApply, onClose }
             </>}
             {!availability && !configError && <p className="mirror-muted">Checking camera and voice availability…</p>}
           </div>}
+          </div>}
+          {video.cameraStream && <video ref={cameraRef} className="mirror-original" autoPlay playsInline muted aria-label="Original camera" />}
+          <div className="mirror-stage-label" role="status"><span className={live ? "mirror-dot is-live" : "mirror-dot"} />{frozen ? (phoneStream ? "Frozen preview · phone connected" : "Frozen preview · camera off") : live ? "Live preview" : connecting ? video.stream ? "Updating your look…" : "Connecting…" : "Your preview"}</div>
+          {video.stream && !frozen && <button className="mirror-next-look" onClick={() => cycleLook(1)} disabled={switchingLook} aria-label={`Switch to ${nextLook.name}`}><img src={nextLook.image} alt="" /><span>{switchingLook ? "Loading…" : "Swipe up to switch"}</span></button>}
+          {(video.stream || frozen) && <button className="mirror-freeze" disabled={!frozen && !video.isCurrent} onClick={frozen ? resume : freeze}>{frozen ? <Play size={15} /> : <Pause size={15} />}{frozen ? "Resume camera" : "Freeze look"}</button>}
+        </div>
+        <nav className="mirror-look-switch" aria-label="Switch costume">
+          <button className="mirror-icon-button" onClick={() => cycleLook(-1)} disabled={switchingLook} aria-label="Previous costume"><ChevronLeft size={20} /></button>
+          <div className="mirror-current-look" aria-live="polite"><span>{costume.costume.name}</span><p>{switchingLook ? "Loading costume…" : 'Say “Change my costume” to try another look.'}</p></div>
+          <button className="mirror-icon-button" onClick={() => cycleLook(1)} disabled={switchingLook} aria-label="Next costume"><ChevronRight size={20} /></button>
+        </nav>
+        <div className="mirror-below-stage">
+          <p>Stand back so your outfit is visible. Preview changes can take a moment. Fit and product details may vary.</p>
+          {frozen && <p>The frozen image stays unchanged as you edit. Resume to preview your latest pieces.</p>}
+
           {(video.error || voice.error) && <p className="mirror-error" role="alert">{video.error || voice.error}</p>}
         </div>
       </section>
       <section className="mirror-workbench" aria-label="Build your costume">
-        <div className="mirror-workbench-heading"><h3>Talk to the stylist</h3><button className="mirror-icon-button" disabled={!history.length} onClick={undo} aria-label="Undo last outfit change"><Undo2 size={19} /></button></div>
+        <div className="mirror-workbench-heading"><h3>GPT Live</h3><button className="mirror-icon-button" disabled={!history.length} onClick={undo} aria-label="Undo last outfit change"><Undo2 size={19} /></button></div>
+        <p className="mirror-voice-hint">A new costume. A different piece. Any color.<br />Just ask.</p>
         <div className="mirror-voice-box">
+          {availability?.voiceAvailable && <VoiceStateIndicator status={voice.status} activity={voice.activity} muted={voice.muted} onStop={voice.stop} />}
+          <LiveTranscript entries={transcript.entries} latestId={transcript.latestId} />
           <form onSubmit={submitCommand} className="mirror-command-form">
             <label className="mirror-sr-only" htmlFor="mirror-command">Tell us how to change your look</label>
-            <input id="mirror-command" value={commandText} onChange={(event) => setCommandText(event.target.value)} placeholder="Search any costume or piece…" maxLength={1000} />
+            <input id="mirror-command" value={commandText} onChange={(event) => setCommandText(event.target.value)} placeholder="Or type a change…" maxLength={1000} />
             <button type="submit" className="mirror-icon-button" disabled={sending || !commandText.trim()} aria-label={sending ? "Applying your request" : "Send styling request"}><ArrowRight size={19} /></button>
             {availability?.voiceAvailable && <button type="button" className={`mirror-icon-button${voice.status === "live" && !voice.muted ? " mirror-mic-on" : ""}`} disabled={!consent || voice.status === "connecting"} onClick={() => voice.status === "live" ? voice.toggleMute() : void voice.start()} aria-label={voice.status === "live" ? voice.muted ? "Unmute microphone" : "Mute microphone" : "Start voice styling"}>{voice.status === "live" && voice.muted ? <MicOff size={19} /> : <Mic size={19} />}</button>}
           </form>
           {sending && <p className="mirror-muted" role="status">Considering your change…</p>}
-          {availability?.voiceAvailable && <VoiceStateIndicator status={voice.status} activity={voice.activity} muted={voice.muted} onStop={voice.stop} />}
-          <LiveTranscript entries={transcript.entries} latestId={transcript.latestId} />
+
         </div>
         {catalogResults && <section className="mirror-catalog-results" aria-label="Catalog search results" aria-live="polite">
           {catalogResults.matches.length > 0 && <ul>{catalogResults.matches.map(match => <li key={`${match.costumeSlug}:${match.pieceId}:${match.productId}`}>
@@ -423,6 +427,9 @@ function MirrorRoom({ costume: initialCostume, initialOutfit, onApply, onClose }
             </div>
           </li>)}</ul>}
         </section>}
+        <div className="mirror-preview-edits" aria-live="polite">{Object.keys(outfit.appearance ?? {}).length > 0 && <><p>Preview edits</p><ul>{Object.entries(outfit.appearance ?? {}).map(([id, edit]) => <li key={id}><span>{costume.pieces.find(({ piece }) => piece.id === id)?.piece.name}</span><span>{[edit.color, edit.style].filter(Boolean).join(" · ")}</span></li>)}</ul><small>Visual changes apply to this preview. Shop items keep their listed colors and styles.</small></>}</div>
+        <details className="mirror-details"><summary>Costumes &amp; pieces</summary>
+        <label className="mirror-catalog-label" htmlFor="mirror-look">Costume</label><select id="mirror-look" value={costume.costume.slug} disabled={switchingLook} onChange={event => void switchLook(event.target.value).catch(() => {})}>{catalogLooks.map(look => <option key={look.slug} value={look.slug}>{look.name}</option>)}</select>
         <div className="mirror-pieces" aria-label="Selected costume pieces">
           {costume.pieces.map(({ piece, options }) => {
             const selectedOption = options.find(option => option.product.id === outfit.selection[piece.id]);
@@ -439,6 +446,7 @@ function MirrorRoom({ costume: initialCostume, initialOutfit, onApply, onClose }
             </div>;
           })}
         </div>
+        </details>
         <a className="btn mirror-shop" href={`/costumes/${costume.costume.slug}?${shopQuery}`} onClick={event => {
           if (costume.costume.slug === initialCostume.costume.slug) { event.preventDefault(); requestAnimationFrame(() => document.getElementById("selected-outfit")?.scrollIntoView({ behavior: "smooth" })); }
           close();

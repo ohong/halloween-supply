@@ -11,13 +11,13 @@ photo try-on remain available.
 
 1. Add `OPENAI_API_KEY` to the ignored `.env.local` file.
 2. Restart the Next.js server so it loads the key.
-3. Open a costume page and upload a clear, fully clothed full-body photo.
+3. Open a costume page and upload or take a photo of yourself.
 4. Confirm photo processing and request a preview.
 
-The default models are `gpt-6-luna` for the Decisions API and
-`gpt-image-2.5-sunburst` for image edits. Optional `OPENAI_DECISION_MODEL` and
-`OPENAI_IMAGE_MODEL` settings override them. The API key stays on the server.
-Your OpenAI project needs access to both models; image access may require organization verification.
+Photo try-on uses `gpt-image-2.5-flare` directly, with `quality=low` and a
+672×1008 portrait (the smallest supported 2:3 image). `OPENAI_IMAGE_MODEL` can
+override it. The API key stays on the server. Image access may require
+organization verification. GPT Live styling uses its separate voice and Decisions models.
 
 ## Try-on behavior
 
@@ -30,7 +30,7 @@ openings and boots visible below the hem. It must not become an open cloak.
 
 ```text
 Browser photo → resize + explicit consent → server decode + validation
-  → Decisions photo suitability check → image edit with costume/product references
+  → image edit with main-subject selection and costume/product references
   → temporary browser preview + download
 ```
 
@@ -53,16 +53,23 @@ costume or wardrobe choices hides any preview that no longer matches.
 `DECART_API_KEY` can be stored in the ignored `.env.local` for later experiments.
 The current implementation does not call Decart or send it photos.
 
-Decisions classifies the photo as usable, cropped, multiple people, or unsuitable.
-Only usable photos reach the image model. Refusals stop the request.
+There is no photo-suitability classifier, person-count rejection, full-body
+requirement, or minimum-resolution gate. The image model chooses the main
+foreground subject and removes background people. Visual prominence, size,
+sharpness, and central placement guide its choice. If several people are equally
+prominent, the person nearest the center is selected. Selfies, cropped photos,
+seated poses, occlusion, and clutter are passed directly to the model. Missing
+regions are inferred for the finished portrait. Subject choice is model-generated
+and can be ambiguous when people have equal prominence.
 
 For the current outfit, product IDs are validated against the server catalog.
-Local product images and descriptions guide the edit. Product-specific previews
-exclude the editorial image so its garments cannot compete with selected products.
+Garment-only product cutouts and descriptions guide the edit. Raw merchant
+photos and editorial models are excluded so their faces cannot compete with
+the shopper. Products without a cutout use their catalog descriptions.
 Owned pieces retain the
 corresponding photographed clothes where visible. Skipped pieces are omitted.
-Other costumes use their editorial image and descriptions; coming-soon concepts
-remain labeled as inspiration. Remote merchant images are not fetched by this route.
+Other costumes use their descriptions; coming-soon concepts remain labeled
+as inspiration. Remote merchant images are not fetched by this route.
 
 The photo and current generated preview stay in page memory. The application does
 not write them to files, browser storage, or its database. Remove photo,
@@ -89,7 +96,7 @@ See [testing policy and restoration steps](./mirror-session-limits.md).
 The last command runs the actual route, catalog lookup, file reads, and image
 decoding. It replaces only the OpenAI HTTP boundary and the Next.js server-only
 import marker. It checks all five costume references, selected products, owned
-pieces, invalid uploads, consent, origin, photo rejection, provider errors,
+pieces, invalid uploads, consent, origin, small readable photos, provider errors,
 quotas, and missing credentials. It does not establish real provider access or
 rendering quality. A funded key and an authorized test photo are needed for that.
 
@@ -173,3 +180,60 @@ printing it; no Decart integration or API request was added.
 
 - [Decisions](https://developers.openai.com/api/docs/guides/decisions)
 - [Image generation and edits](https://developers.openai.com/api/docs/guides/image-generation)
+
+
+## Photo latency — October 25, 2026
+
+The server prepares local garment references together, using JPEG at quality 85
+and at most 768×1024 pixels. It caches at most 64 prepared catalog assets per
+process, including concurrent requests for the same asset. Shopper photos and
+outputs are never cached. Failed preparations are evicted. The shopper input
+keeps its existing image bounds for identity detail.
+
+Successful responses include `Server-Timing` for preparation and generation,
+and `X-Try-On-Model` for release verification. There is one image edit request
+per preview, with no classifier, model fallback, or automatic paid retry.
+
+A synthetic catalog model and the same Pumpkin Harlequin selection were used
+for real API comparisons. Each configuration ran twice. The first comparison
+kept the exact prompt, seven image inputs, JPEG output, medium quality and
+1024×1536 resolution unchanged. Test order was reversed for the second round.
+
+| Configuration | Real generation times | Mean |
+| --- | --- | --- |
+| Sunburst, medium, 1024×1536 | 14.986 s, 14.295 s | 14.641 s |
+| Flare, medium, 1024×1536 | 10.921 s, 11.075 s | 10.998 s |
+| Flare, low, 672×1008, raw references | 9.687 s, 15.201 s | 12.444 s |
+| Flare, low, compact JPEG references | 9.441 s, 10.615 s | 10.028 s |
+| Flare, low, garment-only references | 9.530 s, 9.512 s | 9.521 s |
+
+The model-only change reduced mean generation time by 24.9%. The final settings
+and reference policy reduced it by 35.0% (about 1.54× as fast). These small
+samples are observations, not latency guarantees or reliable tail estimates.
+The low-quality result has less detail and lower resolution than the baseline.
+
+Raw garment photos caused both tested models to borrow a merchant model's face.
+The final reference policy removed those competing identities; both synthetic
+outputs retained a recognisable likeness on visual inspection. This is not
+pixel-identical face preservation or proof for every real shopper.
+
+Prepared request content fell from 5,095,200 bytes to 117,418 bytes for this
+selection (97.7% smaller). Cold preparation in the benchmark harness fell from
+449 ms to 149 ms; this excludes the browser upload and app-server transport.
+The actual local browser upload flow took 9.536 s from button click to visible
+preview, with 385.7 ms server preparation and 7.824 s provider generation.
+Before/after comparison, download, reset and browser error checks passed.
+
+Reproduce the paid synthetic comparison with:
+
+```sh
+BENCHMARK_IMAGE_EDITS=1 bun --env-file=.env.local scripts/benchmark-try-on.mjs /tmp/photo-benchmark
+```
+
+The script captures the current real route's prepared input using a simulated
+capture response. Every timed generation then calls the real Image API. Its
+results include prompt hashes, input sizes, settings and generated files.
+Baseline results above were captured before reference optimization. Rerunning
+now uses the current reference policy, so it does not reproduce the old payload.
+
+Official guidance: https://developers.openai.com/api/docs/guides/image-prompting

@@ -5,7 +5,7 @@ import { z } from "zod";
 import { MIRROR_SESSION_STARTS_PER_HOUR } from "./session-limits";
 import { isTryOnTesting } from "@/lib/try-on-policy";
 
-export const VIDEO_MODEL = "decart/lucy-2-5/realtime";
+export const VIDEO_MODEL = "decart/lucy2-vton/realtime";
 
 export class VideoError extends Error {
   constructor(public status: number, message: string) { super(message); }

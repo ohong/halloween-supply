@@ -1,84 +1,112 @@
 .mirror-launch { margin-block: 20px; }
 .mirror-launch > button { width: 100%; }
-.mirror-room { position: fixed; inset: 0; z-index: 100; display: flex; flex-direction: column; background: #faf9f5; color: #26251f; --mirror-line: #e1dfd5; --mirror-muted: #777267; --mirror-amber: #b58a42; isolation: isolate; }
-.mirror-room button, .mirror-room input { font-family: inherit; }
+.mirror-room { position: fixed; inset: 0; z-index: 100; display: flex; flex-direction: column; background: var(--bg); color: var(--fg); --mirror-line: var(--line); --mirror-muted: var(--mid); isolation: isolate; }
+.mirror-room button, .mirror-room input, .mirror-room select { font-family: inherit; }
 .mirror-room button { color: inherit; }
-.mirror-room button:disabled { opacity: .4; cursor: default; }
-.mirror-room .btn { color: white; background: #26251f; border-color: #26251f; border-radius: 3px; font-size: 12px; }
-.mirror-header { display: flex; align-items: center; justify-content: space-between; flex: 0 0 auto; padding: max(18px, env(safe-area-inset-top)) 22px 18px; border-bottom: 1px solid var(--mirror-line); gap: 16px; }
-.mirror-header h2 { margin-top: 5px; font-size: 20px; font-weight: 400; letter-spacing: -.025em; }
-.mirror-header h2 span { display: block; margin-top: 4px; font-size: 11px; font-weight: 300; color: var(--mirror-muted); letter-spacing: .01em; }
-.mirror-icon-button { width: 44px; height: 44px; min-width: 44px; display: inline-flex; align-items: center; justify-content: center; padding: 0; border: 0; background: transparent; border-radius: 3px; }
-.mirror-icon-button:hover:not(:disabled) { background: #eeece3; }
-.mirror-body { flex: 1; min-height: 0; overflow-y: auto; overscroll-behavior: contain; padding: 20px 16px max(30px, env(safe-area-inset-bottom)); }
+.mirror-room button:disabled { opacity: .45; cursor: default; }
+.mirror-room .btn { color: var(--bg); background: var(--ink); border-color: var(--ink); }
+.mirror-header { display: flex; align-items: center; justify-content: space-between; flex: 0 0 auto; padding: max(12px, env(safe-area-inset-top)) var(--gutter) 12px; border-bottom: 1px solid var(--mirror-line); gap: 16px; }
+.mirror-header h2 { font-size: 20px; font-weight: 300; letter-spacing: -.02em; color: var(--ink); }
+.mirror-header h2 span { display: block; margin-top: 4px; font-size: 12px; color: var(--mirror-muted); letter-spacing: .01em; }
+.mirror-header-actions { display: flex; gap: 20px; align-items: center; }
+.mirror-icon-button { width: 44px; height: 44px; min-width: 44px; display: inline-flex; align-items: center; justify-content: center; padding: 0; border: 0; background: transparent; border-radius: 4px; }
+.mirror-icon-button:hover:not(:disabled) { background: var(--grey); }
+.mirror-body { flex: 1; min-height: 0; overflow-y: auto; overscroll-behavior: contain; padding: 16px var(--gutter) max(24px, env(safe-area-inset-bottom)); }
 .mirror-visual { min-width: 0; }
-.mirror-stage { position: relative; min-height: 440px; aspect-ratio: 3 / 4; max-height: 75dvh; background: #e9e6dd; border: 1px solid #e0dcd0; overflow: hidden; }
-.mirror-camera { width: 100%; height: 100%; position: absolute; inset: 0; object-fit: cover; background: #1d1c18; }
+.mirror-stage { position: relative; height: 68dvh; min-height: 360px; background: var(--grey); overflow: hidden; touch-action: pan-x; }
+/* Keep the complete outfit in view, including portrait phone video. */
+.mirror-camera { width: 100%; height: 100%; position: absolute; inset: 0; object-fit: contain; background: #161616; }
 .mirror-hidden { display: none; }
-.mirror-stage-intro { display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; height: 100%; min-height: inherit; padding: 52px 20px; background: radial-gradient(ellipse at center, #f7f4ed 0, #e9e6dd 78%); }
-.mirror-stage-products { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); width: 90%; max-width: 360px; gap: 6px; margin-bottom: 36px; }
-.mirror-stage-products img { height: 110px; width: 100%; object-fit: contain; filter: saturate(.65); }
-.mirror-stage-intro h3 { font-family: Georgia, "Times New Roman", serif; font-weight: 400; font-size: clamp(46px, 6vw, 76px); letter-spacing: -.055em; line-height: 1.02; margin-block: 16px; }
-.mirror-stage-intro > p:last-child { max-width: 24ch; font-size: 12px; line-height: 1.7; color: #827b6b; }
-.mirror-stage-label { position: absolute; top: 17px; left: 16px; display: inline-flex; align-items: center; gap: 7px; background: rgb(250 249 245 / .94); border: 1px solid rgb(38 37 31 / .08); border-radius: 20px; padding: 7px 11px; font-size: 10px; }
-.mirror-dot { display: inline-block; width: 5px; height: 5px; border-radius: 50%; background: #a19c90; flex: 0 0 auto; }
-.mirror-dot.is-live { background: #9c751f; box-shadow: 0 0 0 3px rgb(181 138 66 / .14); }
-.mirror-freeze { position: absolute; bottom: 16px; right: 16px; display: flex; gap: 8px; align-items: center; justify-content: center; padding: 0 18px; min-height: 44px; border: 1px solid #ddd9cf; background: #faf9f5; border-radius: 4px; font-size: 12px; white-space: nowrap; }
-.mirror-below-stage { padding: 12px 0 24px; display: grid; gap: 10px; }
-.mirror-below-stage > p { font-size: 10px; line-height: 1.7; color: var(--mirror-muted); }
-.mirror-start { display: grid; gap: 14px; padding-top: 8px; }
+.mirror-stage-intro { position: relative; display: flex; flex-direction: column; justify-content: flex-end; height: 100%; padding: 72px 24px 24px; }
+.mirror-idle-look { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: contain; opacity: .16; pointer-events: none; }
+.mirror-stage-welcome, .mirror-start { position: relative; width: min(100%, 480px); }
+.mirror-stage-welcome { margin-bottom: 24px; }
+.mirror-stage-welcome h3 { font-size: clamp(28px, 3vw, 44px); line-height: 1.1; letter-spacing: -.03em; font-weight: 300; color: var(--ink); }
+.mirror-stage-welcome p { margin-top: 12px; font-size: 14px; color: var(--mirror-muted); line-height: 1.5; }
+.mirror-stage-label { position: absolute; top: 16px; left: 16px; display: inline-flex; align-items: center; gap: 8px; background: var(--bg); border-radius: 4px; padding: 8px 12px; font-size: 12px; }
+.mirror-dot { display: inline-block; width: 6px; height: 6px; border-radius: 50%; background: var(--soft); flex: 0 0 auto; }
+.mirror-dot.is-live { background: #28764a; }
+.mirror-freeze { position: absolute; bottom: 16px; right: 16px; display: flex; gap: 8px; align-items: center; justify-content: center; padding: 0 16px; min-height: 44px; border: 0; background: var(--bg); border-radius: 4px; font-size: 12px; }
+.mirror-below-stage { padding: 8px 0 20px; display: grid; gap: 8px; }
+.mirror-below-stage > p { font-size: 12px; line-height: 1.6; color: var(--mirror-muted); }
+.mirror-start { display: grid; gap: 12px; }
 .mirror-start > button { justify-self: start; }
-.mirror-consent { display: flex; gap: 10px; align-items: flex-start; font-size: 11px; line-height: 1.7; color: #686256; }
-.mirror-consent input { margin-top: 3px; width: 18px; height: 18px; flex: 0 0 18px; accent-color: #26251f; }
-.mirror-muted, .mirror-notice { font-size: 11px; color: var(--mirror-muted); line-height: 1.6; }
-.mirror-notice { padding: 12px 14px; background: #f0ede4; }
-.mirror-error { padding: 12px 14px; background: #f7ebe1; color: #833e1f !important; font-size: 12px !important; overflow-wrap: anywhere; }
+.mirror-consent { display: flex; gap: 12px; align-items: flex-start; font-size: 12px; line-height: 1.5; color: var(--fg); }
+.mirror-consent input { margin-top: 2px; width: 20px; height: 20px; flex: 0 0 20px; accent-color: var(--ink); }
+.mirror-muted, .mirror-notice { font-size: 12px; color: var(--mirror-muted); line-height: 1.6; }
+.mirror-notice { padding: 12px; background: var(--grey); }
+.mirror-error { padding: 12px; background: #fff0ec; color: #8b3020 !important; font-size: 13px !important; overflow-wrap: anywhere; }
 .mirror-workbench { min-width: 0; }
-.mirror-workbench-heading { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-bottom: 22px; }
-.mirror-workbench-heading h3 { font-size: 23px; font-weight: 300; line-height: 1.2; letter-spacing: -.03em; margin-top: 7px; }
-.mirror-voice-box { padding: 16px; background: #eeece3; border: 1px solid #e1ddd0; }
-.mirror-command-form { display: flex; align-items: center; border-bottom: 1px solid #c9c2b2; gap: 2px; }
-.mirror-command-form input { min-width: 0; width: 100%; flex: 1; min-height: 44px; border: 0; outline-offset: -2px; background: transparent; font-size: 12px; color: #26251f; }
-.mirror-command-form input::placeholder { color: #8d8779; }
-.mirror-mic-on { color: #845c18 !important; background: #e6d8bd !important; }
-.mirror-link { display: inline-flex; align-items: center; gap: 7px; padding: 8px 0; min-height: 32px; border: 0; background: transparent; font-size: 11px; text-decoration: underline; text-underline-offset: 4px; text-align: left; }
-.mirror-feedback { min-height: 20px; padding-top: 12px; font-size: 11px; color: #79613a; line-height: 1.5; }
+.mirror-workbench-heading { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+.mirror-workbench-heading h3 { font-size: 20px; font-weight: 300; color: var(--ink); }
+.mirror-voice-hint { margin: 4px 0 20px; font-size: 13px; line-height: 1.6; color: var(--mirror-muted); }
+.mirror-voice-box { border-top: 1px solid var(--mirror-line); }
+.mirror-command-form { display: flex; align-items: center; border-bottom: 1px solid var(--mirror-line); gap: 2px; margin-top: 20px; }
+.mirror-command-form input { min-width: 0; width: 100%; flex: 1; min-height: 44px; border: 0; outline-offset: -2px; background: transparent; font-size: 14px; color: var(--ink); }
+.mirror-command-form input::placeholder { color: var(--mid); }
+.mirror-mic-on { color: var(--bg) !important; background: var(--ink) !important; }
+.mirror-link { display: inline-flex; align-items: center; gap: 8px; padding: 8px 0; min-height: 36px; border: 0; background: transparent; font-size: 12px; text-decoration: underline; text-underline-offset: 4px; text-align: left; }
+.mirror-feedback { padding-top: 12px; font-size: 13px; color: var(--mid); line-height: 1.5; }
 .mirror-sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0; }
-@media (min-width: 900px) {
-  .mirror-header { padding-inline: 36px; }
-  .mirror-header h2 span { display: inline; margin-left: 18px; }
-  .mirror-body { display: grid; grid-template-columns: minmax(0, 1.12fr) minmax(370px, .88fr); gap: 48px; padding: 28px 48px 40px; }
-  .mirror-visual { align-self: start; position: sticky; top: 0; }
-  .mirror-stage { height: min(67dvh, 740px); min-height: 360px; max-height: none; aspect-ratio: auto; }
-  .mirror-stage-intro { padding-block: 50px 35px; }
-  .mirror-workbench { max-width: 560px; width: 100%; padding-top: 4px; }
-}
-@media (min-width: 1400px) { .mirror-body { padding-inline: max(48px, calc((100vw - 1400px) / 2)); gap: 70px; } }
-
-.mirror-original { position: absolute; width: 22%; aspect-ratio: 3 / 4; object-fit: cover; top: 16px; right: 16px; border: 2px solid #faf9f5; border-radius: 5px; background: #26251f; transform: scaleX(-1); }
-.mirror-pieces { margin-top: 24px; display: grid; gap: 12px; }
-.mirror-piece { display: flex; gap: 14px; align-items: center; padding: 12px 0; border-bottom: 1px solid var(--mirror-line); min-width: 0; }
-.mirror-piece > img { width: 58px; height: 76px; object-fit: contain; flex: 0 0 auto; }
+.mirror-original { position: absolute; width: 16%; min-width: 72px; max-width: 128px; aspect-ratio: 3 / 4; object-fit: cover; top: 16px; right: 16px; border: 2px solid var(--bg); border-radius: 4px; background: var(--ink); transform: scaleX(-1); }
+.mirror-details { margin-top: 24px; border-block: 1px solid var(--mirror-line); }
+.mirror-details summary { min-height: 48px; padding-block: 14px; cursor: pointer; font-size: 13px; color: var(--ink); }
+.mirror-catalog-label { display: block; margin-top: 12px; font-size: 12px; color: var(--mid); }
+.mirror-details > select { width: 100%; min-height: 44px; margin-top: 8px; padding: 8px; background: var(--bg); border: 1px solid var(--line); color: var(--ink); font-size: 14px; }
+.mirror-pieces { margin-top: 12px; display: grid; gap: 8px; }
+.mirror-piece { display: flex; gap: 12px; align-items: center; padding: 12px 0; border-bottom: 1px solid var(--mirror-line); min-width: 0; }
+.mirror-piece:last-child { border-bottom: 0; }
+.mirror-piece > img { width: 44px; height: 64px; object-fit: contain; flex: 0 0 auto; }
 .mirror-piece > div { min-width: 0; flex: 1; }
-.mirror-piece label { display: block; font-size: 13px; margin-bottom: 5px; }
-.mirror-piece select { width: 100%; max-width: 100%; min-height: 44px; padding: 6px; border: 1px solid var(--mirror-line); background: #faf9f5; color: inherit; font: inherit; font-size: 11px; }
-.mirror-piece p { color: var(--mirror-muted); font-size: 11px; margin-top: 6px; }
-@media (max-width: 600px) { .mirror-stage { min-height: 300px; max-height: 60dvh; } }
-
-.mirror-piece.is-focused { background: #f1ecdf; }
+.mirror-piece label { display: block; font-size: 13px; margin-bottom: 4px; }
+.mirror-piece select { width: 100%; max-width: 100%; min-height: 44px; padding: 4px; border: 1px solid var(--mirror-line); background: var(--bg); color: inherit; font: inherit; font-size: 12px; }
+.mirror-piece p { color: var(--mirror-muted); font-size: 12px; margin-top: 8px; }
+.mirror-piece.is-focused { background: var(--grey); }
+.mirror-preview-edits:empty { display: none; }
+.mirror-preview-edits { margin-top: 24px; font-size: 12px; line-height: 1.6; }
+.mirror-preview-edits > p { color: var(--ink); margin-bottom: 8px; }
+.mirror-preview-edits li { display: flex; justify-content: space-between; gap: 12px; padding-block: 4px; }
+.mirror-preview-edits li > span:last-child { color: var(--mid); text-align: right; }
+.mirror-preview-edits small { display: block; margin-top: 8px; color: var(--mid); font-size: 12px; }
 .mirror-catalog-results { margin-top: 20px; }
-.mirror-catalog-results ul { display: grid; gap: 12px; margin-top: 12px; list-style: none; padding: 0; }
+.mirror-catalog-results ul { display: grid; gap: 12px; list-style: none; padding: 0; }
 .mirror-catalog-results li { display: flex; align-items: flex-start; gap: 12px; padding-block: 12px; border-bottom: 1px solid var(--mirror-line); }
-.mirror-catalog-results li > img { width: 64px; height: 80px; object-fit: contain; flex: 0 0 auto; }
-.mirror-catalog-results li > div { flex: 1; min-width: 0; font-size: 11px; line-height: 1.5; overflow-wrap: anywhere; }
+.mirror-catalog-results li > img { width: 48px; height: 64px; object-fit: contain; flex: 0 0 auto; }
+.mirror-catalog-results li > div { flex: 1; min-width: 0; font-size: 12px; line-height: 1.5; overflow-wrap: anywhere; }
 .mirror-catalog-results li a { display: inline-block; margin-block: 4px; text-underline-offset: 3px; }
-
-.mirror-stage { touch-action: pan-x; }
-.mirror-look-switch { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding-top: 14px; }
-.mirror-look-switch > div { min-width: 0; text-align: center; }
-.mirror-look-switch select { max-width: 100%; border: 0; background: transparent; color: inherit; font: inherit; font-size: 14px; min-height: 36px; }
-.mirror-look-switch p { font-size: 10px; color: var(--mirror-muted); }
+.mirror-look-switch { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding-top: 8px; }
+.mirror-current-look { min-width: 0; text-align: center; }
+.mirror-current-look > span { font-size: 16px; color: var(--ink); }
+.mirror-look-switch p { font-size: 12px; line-height: 1.5; color: var(--mirror-muted); margin-top: 4px; }
 .mirror-shop { display: flex; justify-content: space-between; margin-top: 24px; }
-.mirror-next-look { position: absolute; bottom: 16px; left: 16px; width: 22%; min-width: 78px; max-width: 132px; display: grid; gap: 6px; padding: 0; border: 0; background: transparent; text-align: left; }
-.mirror-next-look img { width: 100%; aspect-ratio: 3 / 4; object-fit: cover; object-position: top; border: 2px solid #faf9f5; border-radius: 5px; background: #faf9f5; }
-.mirror-next-look span { font-size: 10px; color: #faf9f5; text-shadow: 0 1px 3px rgb(0 0 0 / .6); }
+.mirror-next-look { position: absolute; bottom: 16px; left: 16px; width: 72px; display: grid; gap: 4px; padding: 0; border: 0; background: var(--bg); border-radius: 4px; text-align: left; overflow: hidden; }
+.mirror-next-look img { width: 100%; aspect-ratio: 1; object-fit: cover; object-position: top; }
+.mirror-next-look span { font-size: 10px; line-height: 1.4; padding: 4px; }
+/* The transcript supports the mirror rather than competing with it. */
+.mirror-room .voice-state { color: var(--ink); margin-top: 12px; }
+.mirror-room .voice-state-detail, .mirror-room .live-transcript, .mirror-room .live-transcript-speaker { color: var(--mid); }
+.mirror-room .live-transcript { margin-top: 24px; }
+.mirror-room .live-transcript-viewport { max-height: 30dvh; scrollbar-color: var(--soft) transparent; }
+.mirror-room .live-transcript-entries p { font-size: 13px; line-height: 1.65; }
+.mirror-room .live-transcript-entries strong { color: var(--ink); font-weight: 400; }
+.mirror-room .live-transcript-heading button { color: var(--ink); background: var(--bg); border-color: var(--line); }
+.mirror-room .live-transcript ::selection { background: var(--grey); color: var(--ink); }
+@media (min-width: 900px) {
+  .mirror-header h2 span { display: inline; margin-left: 20px; }
+  .mirror-body { display: grid; grid-template-columns: minmax(0, 1fr) 300px; gap: 32px; padding-top: 20px; }
+  .mirror-visual { align-self: start; position: sticky; top: 0; }
+  .mirror-stage { height: calc(100dvh - 220px); min-height: 400px; }
+  .mirror-stage-intro { padding: 72px 40px 32px; }
+  .mirror-workbench { padding-top: 0; }
+}
+@media (min-width: 1440px) { .mirror-body { grid-template-columns: minmax(0, 1fr) 320px; gap: 40px; } }
+@media (max-width: 600px) {
+  .mirror-header { gap: 8px; }
+  .mirror-header-actions { gap: 12px; }
+  .mirror-header-actions .mirror-link { max-width: 62px; line-height: 1.4; }
+  .mirror-stage.is-idle { height: auto; min-height: 580px; }
+  .mirror-stage-intro { padding-inline: 20px; min-height: 580px; }
+  .mirror-stage-welcome { margin-top: 80px; }
+  .mirror-original { top: 12px; right: 12px; }
+  .mirror-room .live-transcript-viewport { max-height: 240px; }
+}

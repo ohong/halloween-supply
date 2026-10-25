@@ -18,7 +18,7 @@ export async function POST(request: Request) {
     const response = await fetch("https://rest.fal.ai/tokens/", {
       method: "POST",
       headers: { Authorization: `Key ${process.env.FAL_KEY}`, "Content-Type": "application/json" },
-      body: JSON.stringify({ allowed_apps: ["decart/lucy-2-5"], token_expiration: 60 }),
+      body: JSON.stringify({ allowed_apps: [VIDEO_MODEL.replace(/\/realtime$/, "")], token_expiration: 60 }),
       signal: AbortSignal.any([request.signal, AbortSignal.timeout(15_000)]),
       cache: "no-store",
     });

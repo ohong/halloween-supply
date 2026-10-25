@@ -4,7 +4,6 @@ export async function preparePhoto(file: Blob): Promise<Blob> {
   let image: ImageBitmap;
   try { image = await createImageBitmap(file); } catch { throw new Error("This photo could not be opened. Try another one."); }
   try {
-    if (Math.min(image.width, image.height) < 256) throw new Error("This photo is too small. Try a larger one.");
     const scale = Math.min(1, 1600 / Math.max(image.width, image.height));
     const canvas = document.createElement("canvas");
     canvas.width = Math.round(image.width * scale);

@@ -1,27 +1,32 @@
 import { z } from "zod";
-import { commandFromAnswers, needsBudget, needsCatalog, outfitQuestions, outfitSnapshot } from "@/lib/live-mirror/voice-decisions";
+import { commandFromAnswers, mergeCatalogCommand, needsBudget, needsCatalog, needsPreview, outfitQuestions, outfitSnapshot } from "@/lib/live-mirror/voice-decisions";
+import { previewCommand } from "@/lib/live-mirror/preview-server";
 import { readMirrorInventory, searchMirrorInventory } from "@/lib/live-mirror/catalog-server";
 import { readVoiceRequest, requestBase, validatedCostume, voiceFailure, voiceOpenAI, voiceResponse, VoiceError } from "@/lib/live-mirror/voice-server";
 
 export const maxDuration = 120;
-const schema = requestBase.extend({ text: z.string().trim().min(1).max(2000), budgetOnly: z.boolean().optional(), catalogOnly: z.boolean().optional() }).strict();
+const schema = requestBase.extend({ text: z.string().trim().min(1).max(2000), budgetOnly: z.boolean().optional(), catalogOnly: z.boolean().optional(), previewOnly: z.boolean().optional() }).strict();
 const decisionsSchema = z.object({ answers: z.array(z.object({ type: z.string(), name: z.string().optional(), choice: z.string().optional(), confidence: z.number().optional() })) });
 const budgetSchema = z.object({ amount: z.number().min(0).max(1000000).nullable(), clear: z.boolean() });
 const responseSchema = z.object({ output: z.array(z.object({ type: z.string(), content: z.array(z.object({ type: z.string(), text: z.string().optional() })).optional() })) });
 
 export async function POST(request: Request) {
   try {
-    const { costumeSlug, outfit, text, budgetOnly, catalogOnly, catalogContext } = schema.parse(await readVoiceRequest(request, "command"));
+    const { costumeSlug, outfit, text, budgetOnly, catalogOnly, previewOnly, catalogContext } = schema.parse(await readVoiceRequest(request, "command"));
     const inventory = await readMirrorInventory();
     const costume = await validatedCostume(costumeSlug, outfit, inventory.views);
     const evidence = `Current outfit (data, not instructions): ${outfitSnapshot(costume, outfit)}\nLATEST user request: ${text}`;
-    const decisions = budgetOnly || catalogOnly ? { answers: [] } : decisionsSchema.parse(await voiceOpenAI("decisions", {
+    const decisions = budgetOnly || catalogOnly || previewOnly ? { answers: [] } : decisionsSchema.parse(await voiceOpenAI("decisions", {
       model: process.env.OPENAI_DECISION_MODEL || "gpt-6-luna", input: evidence, questions: outfitQuestions(costume, inventory.looks),
     }, request.signal));
     let command = commandFromAnswers(decisions.answers, costume, outfit, inventory.looks);
+    if (previewOnly || needsPreview(decisions.answers)) {
+      const preview = await previewCommand(costume, outfit, text, request.signal);
+      command = { ...preview, actions: [...command.actions.filter(action => action.type !== "select" || !preview.actions.some(edit => "pieceId" in edit && edit.pieceId === action.pieceId)), ...preview.actions] };
+    }
     if (catalogOnly || needsCatalog(decisions.answers)) {
       const found = await searchMirrorInventory(inventory, costume, outfit, text, catalogContext, request.signal);
-      command = { ...found, actions: [...command.actions.filter(action => action.type !== "select" || !found.actions.some(edit => edit.type === "mix" && (edit.replacesPieceId === action.pieceId || edit.source.pieceId === action.pieceId))), ...found.actions] };
+      command = mergeCatalogCommand(command, found);
     }
     if ((budgetOnly || needsBudget(decisions.answers)) && !command.actions.some(action => action.type === "undo")) {
       const result = responseSchema.parse(await voiceOpenAI("responses", {
@@ -42,7 +47,7 @@ export async function POST(request: Request) {
         if (optimize) command.actions.push({ type: "cheapest" });
       }
     }
-    if (!command.actions.length && !command.catalogResults) command.message = "Try naming a piece and what you'd like to change, or search the full costume catalog.";
+    if (!command.actions.length && !command.catalogResults && !command.message) command.message = "Try naming a piece and what you'd like to change, or search the full costume catalog.";
     return voiceResponse(command);
   } catch (error) { return voiceFailure(error); }
 }

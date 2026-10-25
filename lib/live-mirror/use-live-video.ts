@@ -6,7 +6,7 @@ import type { MirrorContext, MirrorStatus } from "./types";
 import { videoOutfitRequest } from "./video-outfit";
 import { readMirrorResponse } from "./read-response";
 
-type Reference = { image: string; prompt: string };
+type Reference = { image: null; prompt: string };
 type VideoSession = {
   controller: AbortController;
   camera?: MediaStream;
@@ -25,7 +25,8 @@ async function referenceFor(key: string, signal: AbortSignal) {
     signal: AbortSignal.any([signal, AbortSignal.timeout(20_000)]),
   }));
 }
-const inputFor = (reference: Reference) => ({ prompt: reference.prompt, reference_image_url: reference.image, enable_prompt_expansion: false });
+// Explicit null also clears any previous character reference on outfit updates.
+const inputFor = (reference: Reference) => ({ prompt: reference.prompt, reference_image_url: null, enable_prompt_expansion: false });
 function release(session: VideoSession) {
   session.controller.abort();
   clearTimeout(session.timer);
@@ -124,7 +125,7 @@ export function useLiveVideo({ costume, outfit }: MirrorContext, externalCamera?
       if (sessionRef.current !== session) return;
       if (token.maxSessionSeconds !== null) session.timer = setTimeout(() => fail(session, "This mirror session has ended. Start again to keep trying pieces."), Math.min(token.maxSessionSeconds ?? 180, 180) * 1000);
       session.firstFrameTimer = setTimeout(() => fail(session, "The mirror did not return video in time. Please try again."), 45_000);
-      session.client = fal.realtime.open(lucyRealtime(), {
+      session.client = fal.realtime.open(lucyRealtime({ endpoints: [token.model] }), {
         endpointId: token.model, input: inputFor(reference), localStream: camera,
         abortSignal: session.controller.signal, negotiationTimeoutMs: 30_000,
         // One token per connection. Reconnect is explicit, never an automatic paid loop.
@@ -145,7 +146,13 @@ export function useLiveVideo({ costume, outfit }: MirrorContext, externalCamera?
             if (session.decoded && !session.updating) setStatus("live");
           }
         },
-        onError: () => fail(session, "The live video connection failed. Please try again."),
+        onError: error => {
+          // SDK failures are classified without logging signaling URLs or tokens.
+          const message = error instanceof Error ? error.message : "";
+          const reason = message.includes("signaling") ? "signaling" : message.includes("timed out") ? "timeout" : message.includes("ICE") ? "ice" : "transport";
+          console.warn(`[live-mirror] Video connection failed (${reason}).`);
+          fail(session, "The live video connection failed. Please try again.");
+        },
         onState: state => { if (state === "closed") fail(session, "The live mirror disconnected. Start again to reconnect."); },
       });
       await session.client.ready;

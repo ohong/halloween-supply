@@ -81,6 +81,7 @@ try {
     ]) assert.equal((await context.request.post(`${origin}/api/live-mirror/video`, { headers, data })).status(), status);
   }
   await page.goto(`${origin}/costumes/cosmic-cowboy`);
+  await page.getByRole("tab", { name: "Try it on", exact: true }).click();
   await page.getByRole("button", { name: "Try it on live", exact: true }).click();
   assert.equal(await page.getByRole("button", { name: "Start my mirror", exact: true }).isEnabled(), false);
   assert.equal(await page.evaluate(() => window.mirrorTest.tracks.length), 0);
@@ -88,7 +89,7 @@ try {
   const cowboy = await (await context.request.get(`${origin}/api/live-mirror/catalog?slug=cosmic-cowboy`)).json();
   const jacket = cowboy.pieces.find(({ piece }) => piece.id === "fringe-jacket");
   const cheapJacket = [...jacket.options].sort((a, b) => a.product.priceCents - b.product.priceCents)[0].product.id;
-  await page.getByRole("checkbox").last().check();
+  await page.getByRole("dialog").getByRole("checkbox").check();
   const connectionStart = Date.now();
   await page.getByRole("button", { name: "Start my mirror", exact: true }).click();
   await waitForVideo();
@@ -98,6 +99,7 @@ try {
   assert.deepEqual(afterVoice.filter((_, index) => index !== 1), original.filter((_, index) => index !== 1));
   assert.equal(await page.getByLabel("Silver cowboy hat", { exact: true }).isEnabled(), false);
   log("spoken-jacket-request-keeps-other-pieces");
+  await page.locator(".mirror-details summary").click();
   await page.getByLabel("Costume", { exact: true }).selectOption("velvet-vampire");
   await page.waitForFunction(() => window.mirrorTest.events.some(event => event.type === "session.updated"), {}, { timeout: 10000 });
   assert.deepEqual(await page.evaluate(() => window.mirrorTest.peers.map(peer => peer.connectionState)), ["connected", "connected"]);
@@ -148,7 +150,9 @@ try {
   log("all-media-released-on-close");
   // Verify the destination restores owned pieces without starting another session.
   await page.goto(new URL(href, origin).href);
+  await page.getByRole("tab", { name: "Try it on", exact: true }).click();
   await page.getByRole("button", { name: "Try it on live", exact: true }).click();
+  await page.locator(".mirror-details summary").click();
   await page.getByText(/Already owned/).waitFor();
   await page.setViewportSize({ width: 390, height: 844 });
   assert(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth));

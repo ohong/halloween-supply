@@ -2,6 +2,8 @@ import type { Costume, CostumeView, ProductOption } from "@/lib/types";
 import type { PieceUse } from "@/lib/outfits";
 
 export type MirrorOutfit = {
+  /** Visual changes in the mirror; these do not describe purchasable variants. */
+  appearance?: Record<string, { color?: string; style?: string }>;
   /** Imported catalog pieces; replacesPieceId refers to a slot in the original look. */
   mixes?: MirrorMix[];
   selection: Record<string, string>;
@@ -10,6 +12,7 @@ export type MirrorOutfit = {
   budget: string;
 };
 export type MirrorAction =
+  | { type: "appearance"; pieceId: string; color: string | null; style: string | null }
   | { type: "try_look"; costumeSlug: string; selection?: Record<string, string> }
   | { type: "mix"; source: MirrorCatalogRef; replacesPieceId: string | null }
   | { type: "select"; pieceId: string; productId: string }

@@ -155,7 +155,7 @@ export function VirtualTryOn({ costumeSlug, selection = [], ownedPieceIds = [], 
     {!photoUrl ? phone.stream ? (
       <figure className="try-on-stage"><video ref={phonePreview} className="try-on-phone-video" autoPlay playsInline muted aria-label="Phone camera preview" /><span className="try-on-badge">Live phone camera</span></figure>
     ) : (
-      <button type="button" className="try-on-stage try-on-empty" onClick={() => fileInput.current?.click()} disabled={preparing} aria-label="Add a full-body photo of yourself">
+      <button type="button" className="try-on-stage try-on-empty" onClick={() => fileInput.current?.click()} disabled={preparing} aria-label="Add a photo of yourself">
         <img src={costume.image} alt="" className="try-on-ghost" />
         <span className="try-on-cta"><Icon d={CAMERA} size={30} /></span>
         <span className="try-on-title">See yourself in it</span>
@@ -176,7 +176,7 @@ export function VirtualTryOn({ costumeSlug, selection = [], ownedPieceIds = [], 
         <button type="button" className="btn btn-ghost try-on-camera" onClick={takePhoto} disabled={preparing}><Icon d={CAMERA} size={18} />{photoUrl ? "Retake photo" : "Take photo"}</button>
         <button type="button" className="btn btn-ghost" onClick={() => fileInput.current?.click()} disabled={preparing}>{photoUrl ? "Change photo" : "Upload photo"}</button>
       </div>
-      {!photoUrl && <p className="try-on-fine" role="status">{preparing ? "Preparing your photo…" : "Use a full-body photo with just you in the frame."}</p>}
+      {!photoUrl && <p className="try-on-fine" role="status">{preparing ? "Preparing your photo…" : "Use a photo of yourself. We’ll focus on the main person."}</p>}
     </>}
     {photoUrl && <div className="try-on-actions">
       {current ? <>
