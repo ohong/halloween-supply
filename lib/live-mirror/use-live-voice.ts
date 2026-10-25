@@ -3,7 +3,7 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 import type { CostumeView } from "@/lib/types";
 import type { MirrorCatalogContext, MirrorCatalogLook, MirrorCommand, MirrorOutfit, MirrorStatus } from "./types";
-import { commandFromAnswers, focusQuestion, needsBudget, needsCatalog, outfitQuestions, outfitSnapshot, type DecisionAnswer } from "./voice-decisions";
+import { commandFromAnswers, mergeCatalogCommand, focusQuestion, needsBudget, needsCatalog, needsPreview, outfitQuestions, outfitSnapshot, type DecisionAnswer } from "./voice-decisions";
 import { readMirrorResponse } from "./read-response";
 
 export type VoiceActivity = "listening" | "thinking" | "speaking";
@@ -13,6 +13,7 @@ type VoiceOptions = {
   outfit: MirrorOutfit;
   catalogContext?: MirrorCatalogContext;
   pendingLook?: boolean;
+  preview?: { status: MirrorStatus; isCurrent: boolean; frozen: boolean; error: string | null };
   onCommand: (command: MirrorCommand) => void | Promise<void>;
   onTranscript?: (text: string, role: "user" | "assistant", metadata?: { turnId: string }) => void;
   microphone?: MediaStream | null;
@@ -46,7 +47,7 @@ type Session = {
   transcript: { user: string; assistant: string; lastInputEnd: number; lastOutputEnd: number; turns: Record<"user" | "assistant", string> };
 };
 
-export async function sendMirrorCommand(input: { costumeSlug: string; outfit: MirrorOutfit; text: string; budgetOnly?: boolean; catalogOnly?: boolean; catalogContext?: MirrorCatalogContext }, signal?: AbortSignal): Promise<MirrorCommand> {
+export async function sendMirrorCommand(input: { costumeSlug: string; outfit: MirrorOutfit; text: string; budgetOnly?: boolean; catalogOnly?: boolean; previewOnly?: boolean; catalogContext?: MirrorCatalogContext }, signal?: AbortSignal): Promise<MirrorCommand> {
   const response = await fetch("/api/live-mirror/command", {
     method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(input), signal,
   });
@@ -129,7 +130,7 @@ export function useLiveVoice(options: VoiceOptions) {
       } });
     }
     if (session.pendingCatalog) { if (report) session.catalogReports.push(report); return; }
-    const context = `Current look: ${latest.current.costume.costume.name}. Current pieces: ${latest.current.costume.pieces.map(({ piece, options }) => {
+    const context = `Screen preview: ${JSON.stringify(latest.current.preview ?? null)}. A current control request is not proof of rendered garment fidelity. Current look: ${latest.current.costume.costume.name}. Preview appearance overrides: ${JSON.stringify(latest.current.outfit.appearance ?? {})}. Current pieces: ${latest.current.costume.pieces.map(({ piece, options }) => {
       const product = options.find(option => option.product.id === latest.current.outfit.selection[piece.id])?.product;
       return `${piece.name.slice(0, 45)}: ${product?.title.slice(0, 65) ?? "unavailable"} (${latest.current.outfit.uses[piece.id] ?? "buy"})`;
     }).join("; ")}. Global catalog search is available for all costumes and pieces. Latest search: ${latest.current.catalogContext?.query ?? "none"}.`.slice(0, 1200);
@@ -152,7 +153,7 @@ export function useLiveVoice(options: VoiceOptions) {
   useEffect(() => {
     const session = sessionRef.current;
     if (session) syncOutfit(session);
-  }, [options.outfit, options.costume, options.catalogContext, syncOutfit]);
+  }, [options.outfit, options.costume, options.catalogContext, options.preview?.status, options.preview?.isCurrent, options.preview?.frozen, options.preview?.error, syncOutfit]);
 
   const stop = useCallback(() => {
     generation.current++;
@@ -339,6 +340,15 @@ export function useLiveVoice(options: VoiceOptions) {
       }
       let command = commandFromAnswers(answers, latest.current.costume, latest.current.outfit, session.catalog);
       try {
+        if (needsPreview(answers) && !command.actions.some(action => action.type === "try_look" || action.type === "undo")) {
+          const preview = await sendMirrorCommand({ costumeSlug: latest.current.costume.costume.slug, outfit: latest.current.outfit,
+            text: session.transcript.user || delegated?.text || "", previewOnly: true }, session.controller.signal);
+          if (!current() || session.latestDelegation !== delegationId) return;
+          if (delegated && delegated.snapshot !== voiceSnapshot(latest.current)) {
+            syncOutfit(session, { delegationId, content: "The outfit changed while that appearance request was processing. It was not applied. Ask the shopper to try again." }); return;
+          }
+          command = { ...preview, actions: [...command.actions.filter(action => action.type !== "select" || !preview.actions.some(edit => "pieceId" in edit && edit.pieceId === action.pieceId)), ...preview.actions] };
+        }
         if (needsCatalog(answers)) {
           const found = await sendMirrorCommand({ costumeSlug: latest.current.costume.costume.slug, outfit: latest.current.outfit,
             text: session.transcript.user || delegated?.text || "", catalogOnly: true, catalogContext: latest.current.catalogContext }, session.controller.signal);
@@ -346,7 +356,7 @@ export function useLiveVoice(options: VoiceOptions) {
           if (delegated && delegated.snapshot !== voiceSnapshot(latest.current)) {
             syncOutfit(session, { delegationId, content: "The shopper changed their look or search while the catalog was being checked. Those older results were not applied. Ask if they still want that search." }); return;
           }
-          command = { ...found, actions: [...command.actions.filter(action => action.type !== "select" || !found.actions.some(edit => edit.type === "mix" && (edit.replacesPieceId === action.pieceId || edit.source.pieceId === action.pieceId))), ...found.actions] };
+          command = mergeCatalogCommand(command, found);
         }
         if (needsBudget(answers) && !command.actions.some(action => action.type === "undo")) {
           const extra = await sendMirrorCommand({ costumeSlug: latest.current.costume.costume.slug, outfit: latest.current.outfit, text: session.transcript.user || delegated?.text || "", budgetOnly: true }, session.controller.signal);

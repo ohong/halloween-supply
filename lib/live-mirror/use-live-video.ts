@@ -145,7 +145,13 @@ export function useLiveVideo({ costume, outfit }: MirrorContext, externalCamera?
             if (session.decoded && !session.updating) setStatus("live");
           }
         },
-        onError: () => fail(session, "The live video connection failed. Please try again."),
+        onError: error => {
+          // SDK failures are classified without logging signaling URLs or tokens.
+          const message = error instanceof Error ? error.message : "";
+          const reason = message.includes("signaling") ? "signaling" : message.includes("timed out") ? "timeout" : message.includes("ICE") ? "ice" : "transport";
+          console.warn(`[live-mirror] Video connection failed (${reason}).`);
+          fail(session, "The live video connection failed. Please try again.");
+        },
         onState: state => { if (state === "closed") fail(session, "The live mirror disconnected. Start again to reconnect."); },
       });
       await session.client.ready;

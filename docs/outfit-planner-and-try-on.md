@@ -11,13 +11,12 @@ photo try-on remain available.
 
 1. Add `OPENAI_API_KEY` to the ignored `.env.local` file.
 2. Restart the Next.js server so it loads the key.
-3. Open a costume page and upload a clear, fully clothed full-body photo.
+3. Open a costume page and upload or take a photo of yourself.
 4. Confirm photo processing and request a preview.
 
-The default models are `gpt-6-luna` for the Decisions API and
-`gpt-image-2.5-sunburst` for image edits. Optional `OPENAI_DECISION_MODEL` and
-`OPENAI_IMAGE_MODEL` settings override them. The API key stays on the server.
-Your OpenAI project needs access to both models; image access may require organization verification.
+Photo try-on uses `gpt-image-2.5-sunburst` directly. `OPENAI_IMAGE_MODEL` can
+override it. The API key stays on the server. Image access may require
+organization verification. GPT Live styling uses its separate voice and Decisions models.
 
 ## Try-on behavior
 
@@ -30,7 +29,7 @@ openings and boots visible below the hem. It must not become an open cloak.
 
 ```text
 Browser photo → resize + explicit consent → server decode + validation
-  → Decisions photo suitability check → image edit with costume/product references
+  → image edit with main-subject selection and costume/product references
   → temporary browser preview + download
 ```
 
@@ -53,8 +52,14 @@ costume or wardrobe choices hides any preview that no longer matches.
 `DECART_API_KEY` can be stored in the ignored `.env.local` for later experiments.
 The current implementation does not call Decart or send it photos.
 
-Decisions classifies the photo as usable, cropped, multiple people, or unsuitable.
-Only usable photos reach the image model. Refusals stop the request.
+There is no photo-suitability classifier, person-count rejection, full-body
+requirement, or minimum-resolution gate. The image model chooses the main
+foreground subject and removes background people. Visual prominence, size,
+sharpness, and central placement guide its choice. If several people are equally
+prominent, the person nearest the center is selected. Selfies, cropped photos,
+seated poses, occlusion, and clutter are passed directly to the model. Missing
+regions are inferred for the finished portrait. Subject choice is model-generated
+and can be ambiguous when people have equal prominence.
 
 For the current outfit, product IDs are validated against the server catalog.
 Local product images and descriptions guide the edit. Product-specific previews
@@ -89,7 +94,7 @@ return a busy response.
 The last command runs the actual route, catalog lookup, file reads, and image
 decoding. It replaces only the OpenAI HTTP boundary and the Next.js server-only
 import marker. It checks all five costume references, selected products, owned
-pieces, invalid uploads, consent, origin, photo rejection, provider errors,
+pieces, invalid uploads, consent, origin, small readable photos, provider errors,
 quotas, and missing credentials. It does not establish real provider access or
 rendering quality. A funded key and an authorized test photo are needed for that.
 

@@ -13,7 +13,8 @@ export function createOutfit(costume: CostumeView, initial: Partial<MirrorOutfit
     uses[piece.id] = use === "owned" ? "owned" : use === "skip" && !piece.required ? "skip" : "buy";
   }
   const ids = new Set(costume.pieces.map(({ piece }) => piece.id));
-  return { ...(initial.mixes?.length ? { mixes: initial.mixes.map(ref => ({ ...ref })) } : {}), selection, uses, locked: [...new Set(initial.locked ?? [])].filter((id) => ids.has(id)), budget: validBudget(initial.budget ?? "") ?? "" };
+  const appearance = Object.fromEntries(Object.entries(initial.appearance ?? {}).filter(([id]) => ids.has(id)).map(([id, value]) => [id, { ...value }]));
+  return { ...(Object.keys(appearance).length ? { appearance } : {}), ...(initial.mixes?.length ? { mixes: initial.mixes.map(ref => ({ ...ref })) } : {}), selection, uses, locked: [...new Set(initial.locked ?? [])].filter((id) => ids.has(id)), budget: validBudget(initial.budget ?? "") ?? "" };
 }
 
 function validBudget(amount: string) {
@@ -58,11 +59,18 @@ export function applyActions(costume: CostumeView, previous: MirrorOutfit, actio
       continue;
     }
     if (outfit.locked.includes(action.pieceId)) { messages.push(`${view.piece.name} is kept. Unlock it to make changes.`); continue; }
-    if (action.type === "select") {
+    if (action.type === "appearance") {
+      if (outfit.uses[action.pieceId] === "skip") { messages.push(`${view.piece.name} is not included. Add it before changing its appearance.`); continue; }
+      outfit.appearance ??= {};
+      if (!action.color && !action.style) delete outfit.appearance[action.pieceId];
+      else outfit.appearance[action.pieceId] = { ...(action.color ? { color: action.color } : {}), ...(action.style ? { style: action.style } : {}) };
+      if (!Object.keys(outfit.appearance).length) delete outfit.appearance;
+    } else if (action.type === "select") {
       const option = view.options.find(({ product }) => product.id === action.productId && product.availability !== "out_of_stock");
       if (!option) { messages.push("That option is unavailable. Choose another piece."); continue; }
       outfit.selection[action.pieceId] = option.product.id;
       outfit.uses[action.pieceId] = "buy";
+      if (outfit.appearance) delete outfit.appearance[action.pieceId];
     } else if (action.type === "use") {
       if (action.use === "skip" && view.piece.required) { messages.push(`${view.piece.name} is needed for this look. You can use your own instead.`); continue; }
       outfit.uses[action.pieceId] = action.use;

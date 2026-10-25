@@ -163,6 +163,7 @@ try {
   assert.deepEqual(afterVoice.filter((_, index) => index !== 1), original.filter((_, index) => index !== 1));
   assert.equal(await page.getByLabel("Silver cowboy hat", { exact: true }).isEnabled(), false);
   log("spoken-jacket-request-keeps-other-pieces");
+  await page.locator(".mirror-details summary").click();
   await page.getByLabel("Costume", { exact: true }).selectOption("velvet-vampire");
   await page.waitForFunction(() => {
     const update = window.mirrorTest.events.findLast(event => event.direction === "send" && event.type === "session.update" && event.look?.includes("Current look: Velvet Vampire."));
@@ -242,6 +243,7 @@ try {
   await page.goto(new URL(href, origin).href);
   await page.getByRole("tab", { name: "Try it on", exact: true }).click();
   await page.getByRole("button", { name: "Try it on live", exact: true }).click();
+  await page.locator(".mirror-details summary").click();
   await ownedBoots.getByText(/Already owned/).waitFor();
   await page.setViewportSize({ width: 390, height: 844 });
   assert(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth));
