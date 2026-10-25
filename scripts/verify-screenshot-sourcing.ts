@@ -16,7 +16,7 @@ const checkout = process.argv.includes("--checkout");
 const strict = process.argv.includes("--require-complete");
 if (output) await mkdir(output, { recursive: true });
 
-type Event = { t: string; ms: number; kind?: string; cached?: boolean; pieces?: unknown[]; found?: number; item?: CartItem };
+type Event = { t: string; ms: number; i?: number; kind?: string; cached?: boolean; pieces?: { name: string }[]; found?: number; item?: CartItem };
 const summaries: object[] = [];
 for (const slug of samples) {
   const image = await readFile(path.join(process.cwd(), "public/costumes", `${slug}.png`));
@@ -49,7 +49,8 @@ for (const slug of samples) {
     const cached = events.some((event) => event.cached);
     assert(!cached && !events.some((event) => event.kind === "cache" || event.kind === "catalog"), "Every upload must run fresh sourcing, without replay or catalog shortcuts");
     assert(events.some((event) => event.kind === "search"), "Every upload must show real web searches, including repeated images");
-    const summary = { slug, attempt, elapsedMs: Math.round(performance.now() - start), streamMs: done?.ms, found: items.length, requested: look.pieces.length,
+    const summary = { slug, attempt, model: response.headers.get("x-vision-model"), elapsedMs: Math.round(performance.now() - start), streamMs: done?.ms, found: items.length, requested: look.pieces.length,
+      missingPieces: events.filter((event) => event.t === "miss").map((event) => look.pieces?.[event.i!]?.name),
       searches: events.filter((event) => event.kind === "search").length, cached };
     summaries.push(summary);
     console.log(JSON.stringify(summary));
