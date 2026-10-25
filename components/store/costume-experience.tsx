@@ -21,6 +21,7 @@ import { readLook } from "@/lib/share-card";
 import { LiveMirror } from "./live-mirror";
 import type { MirrorOutfit } from "@/lib/live-mirror/types";
 import { modelImage, useCostumeModel } from "@/lib/model-selection";
+import { WardrobeRail } from "./wardrobe-rail";
 
 export function CostumeExperience({ costume }: { costume: CostumeView }) {
   const { model } = useCostumeModel();
@@ -205,18 +206,9 @@ function PieceRow({ costumeSlug, view, index, onChoose }: { costumeSlug: string;
           <span className="outfit-piece-side"><span>{formatPrice(option.product.priceCents)}</span><span className="outfit-piece-change">Change<ChevronRight size={14} aria-hidden="true" /></span></span>
         </button>
       </DialogTrigger>
-      <DialogContent className="piece-dialog">
+      <DialogContent className="piece-dialog wardrobe-rail-dialog">
         <div className="piece-dialog-heading"><DialogTitle>{piece.name}</DialogTitle><DialogDescription>Choose the piece that suits your style and budget.</DialogDescription></div>
-        <div className="piece-options" role="group" aria-label={`Options for ${piece.name}`}>
-          {[...options].sort((a, b) => a.product.priceCents - b.product.priceCents).map((candidate) => {
-            const selected = candidate.product.id === option.product.id;
-            return <button type="button" className="piece-option" key={candidate.product.id} aria-pressed={selected} disabled={candidate.product.availability === "out_of_stock"} onClick={() => onChoose(options.indexOf(candidate))}>
-              <span className="piece-option-image"><ProductImage src={shot(candidate.product)} alt="" /></span>
-              <span className="piece-option-copy"><span className="piece-option-title">{candidate.product.title}</span><span className="piece-option-merchant">{candidate.merchant.name}{candidate.pick.isLocal ? " · Local" : ""}</span><span className="piece-option-price">{formatPrice(candidate.product.priceCents)}{candidate.product.availability === "out_of_stock" ? " · Sold out" : candidate.product.availability === "unknown" ? " · Check stock" : ""}</span></span>
-              <span className="piece-option-check" aria-hidden="true">{selected && <Check size={14} />}</span>
-            </button>;
-          })}
-        </div>
+        <WardrobeRail view={view} selectedId={option.product.id} onChoose={onChoose} />
         <details className="piece-reason"><summary>Why this pick?</summary><p>{option.pick.reason}</p></details>
         <a className="piece-merchant-link" href={option.product.url} target="_blank" rel="noopener noreferrer">View at {option.merchant.name}<ArrowRight size={14} aria-hidden="true" /></a>
         <div className="piece-dialog-footer">
