@@ -39,10 +39,11 @@ function revalidateOutfitHistory(output: unknown, input: unknown, view: CostumeV
     const piece = needed.find(({ piece }) => piece.id === selected.data.pieceId);
     const option = piece?.options.find(({ product }) => product.id === selected.data.productId && product.availability !== "out_of_stock");
     if (!piece || !option) return unavailable;
-    const previousSize = (isRecord(input.pieceSizes) ? input.pieceSizes[piece.piece.id] : undefined)
-      ?? (isRecord(input.sizes) ? input.sizes[piece.piece.sizeKind] : undefined);
-    const currentSize = context.pieceSizes?.[piece.piece.id] ?? context.sizes[piece.piece.sizeKind]
+    const savedPieceSize = context.pieceSizes?.[piece.piece.id]
       ?? context.cart.find((line) => line.pieceId === piece.piece.id)?.size;
+    const previousSize = (isRecord(input.pieceSizes) ? input.pieceSizes[piece.piece.id] : undefined)
+      ?? savedPieceSize ?? (isRecord(input.sizes) ? input.sizes[piece.piece.sizeKind] : undefined);
+    const currentSize = savedPieceSize ?? context.sizes[piece.piece.sizeKind];
     if (previousSize !== undefined && (typeof previousSize !== "string" || !sizeMatches(option, previousSize))
       || currentSize && !sizeMatches(option, currentSize)) return unavailable;
     seen.add(selected.data.pieceId);

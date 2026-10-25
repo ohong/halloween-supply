@@ -93,3 +93,20 @@ assert(output.products.find((card) => card.pieceId === "black-waistcoat")?.sizes
 assert.equal(output.evidence.deliveryConfirmed, false);
 console.log(`PASS real Anthropic called assembleOutfit; actual Decisions selected ${output.products.length} scoped product cards totaling ${total} cents within a ${budgetCents}-cent total budget.`);
 console.log("PASS saved shirt Medium and cart-only waistcoat42 were preserved; merchant photos were supplied; no cart or checkout action occurred.");
+
+const followup: UIMessage[] = [
+  ...messages,
+  { id: crypto.randomUUID(), role: "assistant", parts: [{ type: "tool-assembleOutfit", toolCallId: String(calls[0].toolCallId), state: "output-available", input: calls[0].input, output }] } as UIMessage,
+  { id: crypto.randomUUID(), role: "user", parts: [{ type: "text", text: "Repeat the exact five product IDs and total pieces subtotal from that recommendation. Use the previous result. Do not compare again, search, or change my cart." }] },
+];
+const recall = await fetch(new URL("/api/chat", base), {
+  method: "POST", headers: { "Content-Type": "application/json", Origin: base },
+  body: JSON.stringify({ messages: followup, context }), signal: AbortSignal.timeout(70_000), cache: "no-store",
+});
+assert.equal(recall.status, 200);
+const recallEvents = (await recall.text()).split("\n").filter((line) => line.startsWith("data: ") && line.trim() !== "data: [DONE]").map((line) => JSON.parse(line.slice(6)) as Record<string, unknown>);
+assert(!recallEvents.some((event) => event.type === "error" || event.type === "tool-input-available"), "A follow-up recall must use the revalidated receipt without a new comparison or cart action.");
+const recalled = recallEvents.filter((event) => event.type === "text-delta").map((event) => String(event.delta)).join("");
+assert(output.products.every((card) => recalled.includes(card.productId)), "Every exact product ID must survive the next chat turn.");
+assert(recalled.includes((total / 100).toFixed(2)), "The exact pieces subtotal must survive the next chat turn.");
+console.log("PASS follow-up chat recalls the same five exact catalog IDs and subtotal without another lookup, styling call, or cart action.");
