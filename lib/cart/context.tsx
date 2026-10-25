@@ -40,7 +40,13 @@ type CartState = (
 
 const emptyCart: CartState = { costumeSlug: null, items: [], notice: null };
 
-function costumeName(slug: string) {
+/** A look rebuilt from a screenshot: pieces drawn from any costume in the catalog. */
+export const SCREENSHOT_SLUG = "screenshot-look";
+
+const knownSlug = (slug: string) => slug === SCREENSHOT_SLUG || costumes.some((costume) => costume.slug === slug);
+
+export function costumeName(slug: string) {
+  if (slug === SCREENSHOT_SLUG) return "Your screenshot look";
   return costumes.find((costume) => costume.slug === slug)?.name ?? slug;
 }
 
@@ -67,7 +73,7 @@ function readStored(): CartState {
     const stored = Array.isArray(value) ? { costumeSlug: liveCostumeSlug, items: value } : value;
     if (!stored || typeof stored !== "object") return emptyCart;
     const { costumeSlug, items: rawItems } = stored as Record<string, unknown>;
-    if (typeof costumeSlug !== "string" || !costumes.some((costume) => costume.slug === costumeSlug) || !Array.isArray(rawItems)) return emptyCart;
+    if (typeof costumeSlug !== "string" || !knownSlug(costumeSlug) || !Array.isArray(rawItems)) return emptyCart;
     const storedItems = [...new Map(rawItems.filter(isStoredCartItem).slice(0, 30).map((item) => [item.pieceId, item])).values()];
     const items = storedItems.map((item) => {
       const line = { ...item, availableSizes: offeredSizes(item.availableSizes) };
@@ -126,7 +132,7 @@ export function CartProvider({ children }: { children: ReactNode }) {
   }, [state.costumeSlug, state.items, ready]);
 
   const addMany = useCallback((incoming: CartItem[], costumeSlug: string) => {
-    if (!costumes.some((costume) => costume.slug === costumeSlug)) throw new Error("Cannot add pieces without a known costume.");
+    if (!knownSlug(costumeSlug)) throw new Error("Cannot add pieces without a known costume.");
     if (incoming.length === 0) return;
     setState((current) => {
       const items = merge(current.costumeSlug === costumeSlug ? current.items : [], incoming);

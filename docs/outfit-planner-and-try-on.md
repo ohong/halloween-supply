@@ -45,6 +45,14 @@ with its longest edge at most 1600 pixels, before upload.
 The server limits the request body to 4 MB, checks decoded image
 dimensions, strips metadata, and rejects malformed or animated images.
 
+The disclosure under **Try it on** explains that tapping sends the photo to OpenAI.
+After generation, hold the image to compare, or use the keyboard-accessible
+**Show original** button. **Save** downloads the current preview. Changing the
+costume or wardrobe choices hides any preview that no longer matches.
+
+`DECART_API_KEY` can be stored in the ignored `.env.local` for later experiments.
+The current implementation does not call Decart or send it photos.
+
 Decisions classifies the photo as usable, cropped, multiple people, or unsuitable.
 Only usable photos reach the image model. Refusals stop the request.
 
@@ -139,6 +147,28 @@ the checks above completed; there is no successful automated review result.
 Only synthetic shopper photos were submitted. The key and generated images were
 not committed. Image appearance remains approximate. The shared IP limit can also
 limit shoppers on the same network.
+
+### Redesign release verification — October 24, 2026
+
+Deployment `dpl_GGv6VTGJ14WTiaCAroSrKrqRVCV5` released `afb7b1b` to
+`halloween.supply`. Vercel reported READY with the production domains assigned.
+
+- A synthetic shopper photo passed preparation and produced a real OpenAI Cowboy preview.
+- Enter on Show original and Show preview switched the displayed image in both directions.
+- Save completed a native JPEG download in Aside (141,047 bytes).
+- Changing the hat to Own it hid the previous preview and its Save control.
+- Changing the photo to a product-only scarf showed the photo suitability error.
+- Remove photo returned the form to its upload state.
+- Layout checks at widths 390, 780 and 1280 found no horizontal overflow. The
+  mobile layout showed Take photo, with `capture="environment"` on its input.
+  A physical phone camera was not tested.
+- Production build, focused lint, route contracts and all five live costume-page
+  wiring checks passed. The storefront and health endpoint returned HTTP 200.
+
+The review added a keyboard comparison control and included costume identity in
+the preview key. Structured autoreview remained unavailable because its configured
+model was unsupported. The Decart key was confirmed present locally without
+printing it; no Decart integration or API request was added.
 
 ## API references
 

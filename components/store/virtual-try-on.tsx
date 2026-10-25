@@ -3,7 +3,9 @@
 /* Photos and generated images are temporary browser memory, never localStorage. */
 /* eslint-disable @next/next/no-img-element */
 import { useEffect, useRef, useState, type ChangeEvent } from "react";
+import { formatPrice } from "@/lib/cart/context";
 import { costumes } from "@/lib/costumes";
+import { composeShareCard, lookUrl } from "@/lib/share-card";
 import "./virtual-try-on.css";
 
 type Selection = { pieceId: string; productId: string }[];
@@ -35,9 +37,10 @@ const CAMERA = "M3 8.5A2.5 2.5 0 0 1 5.5 6h2l1.5-2h6l1.5 2h2A2.5 2.5 0 0 1 21 8.
 const SPARKLE = "M12 3l1.8 5.2L19 10l-5.2 1.8L12 17l-1.8-5.2L5 10l5.2-1.8zM19 15l.8 2.2L22 18l-2.2.8L19 21l-.8-2.2L16 18l2.2-.8z";
 const SAVE = "M12 4v11m0 0l-4-4m4 4l4-4M5 20h14";
 const CLOSE = "M6 6l12 12M18 6L6 18";
+const SHARE = "M12 15V4m0 0L8 8m4-4l4 4M5 13v5a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-5";
 
-export function VirtualTryOn({ costumeSlug, selection = [], ownedPieceIds = [], skippedPieceIds = [] }: {
-  costumeSlug: string; selection?: Selection; ownedPieceIds?: string[]; skippedPieceIds?: string[];
+export function VirtualTryOn({ costumeSlug, selection = [], ownedPieceIds = [], skippedPieceIds = [], totalCents = 0 }: {
+  costumeSlug: string; selection?: Selection; ownedPieceIds?: string[]; skippedPieceIds?: string[]; totalCents?: number;
 }) {
   const [photo, setPhoto] = useState<Blob | null>(null);
   const [photoUrl, setPhotoUrl] = useState("");
@@ -55,6 +58,41 @@ export function VirtualTryOn({ costumeSlug, selection = [], ownedPieceIds = [], 
   const current = result?.key === outfitKey ? result : null;
   useEffect(() => () => { controller.current?.abort(); }, []);
   useEffect(() => () => { if (photoUrl) URL.revokeObjectURL(photoUrl); }, [photoUrl]);
+
+  // Compose the card as soon as the preview lands. Safari drops the tap's share
+  // permission if the canvas work happens after the tap.
+  const [card, setCard] = useState<{ file: File; key: string } | null>(null);
+  const [shareNote, setShareNote] = useState("");
+  const detail = totalCents > 0 ? `The whole look · ${formatPrice(totalCents)}` : "The whole look";
+  useEffect(() => {
+    if (!current) return;
+    let live = true;
+    composeShareCard(current.image, { name: costume.name, detail })
+      .then((file) => { if (live) setCard({ file, key: current.key }); })
+      .catch(() => { if (live) setCard(null); });
+    return () => { live = false; };
+  }, [current, costume.name, detail]);
+  const readyCard = card && current && card.key === current.key ? card.file : null;
+
+  async function share() {
+    if (!readyCard) return;
+    const url = lookUrl(location.origin, costumeSlug, selection.map((item) => item.productId));
+    const data = { files: [readyCard], title: costume.name, text: `Me as the ${costume.name}`, url };
+    if (navigator.canShare?.(data)) {
+      try { await navigator.share(data); } catch (caught) {
+        if (!(caught instanceof DOMException && caught.name === "AbortError")) setShareNote("Sharing did not work. Save the image instead.");
+      }
+      return;
+    }
+    // Desktop browsers rarely share files: save the card and copy the look link.
+    const link = document.createElement("a");
+    link.href = URL.createObjectURL(readyCard);
+    link.download = readyCard.name;
+    link.click();
+    setTimeout(() => URL.revokeObjectURL(link.href), 1000);
+    try { await navigator.clipboard.writeText(url); setShareNote("Card saved. Link copied."); }
+    catch { setShareNote("Card saved."); }
+  }
 
   async function upload(event: ChangeEvent<HTMLInputElement>) {
     const file = event.target.files?.[0];
@@ -83,7 +121,7 @@ export function VirtualTryOn({ costumeSlug, selection = [], ownedPieceIds = [], 
     if (!photo || busy) return;
     const requestController = new AbortController();
     controller.current = requestController;
-    setBusy(true); setError("");
+    setBusy(true); setError(""); setShareNote("");
     const form = new FormData();
     form.set("photo", photo, "photo.jpg"); form.set("costumeSlug", costumeSlug); form.set("consent", "true");
     form.set("selection", JSON.stringify(selection));
@@ -128,7 +166,8 @@ export function VirtualTryOn({ costumeSlug, selection = [], ownedPieceIds = [], 
     </>}
     {photoUrl && <div className="try-on-actions">
       {current ? <>
-        <a className="btn try-on-primary" href={current.image} download={`${costumeSlug}-try-on.jpg`}><Icon d={SAVE} size={18} />Save</a>
+        <button type="button" className="btn try-on-primary" onClick={share} disabled={!readyCard}><Icon d={SHARE} size={18} />Share</button>
+        <a className="btn btn-ghost try-on-icon" href={current.image} download={`${costumeSlug}-try-on.jpg`} aria-label="Save preview"><Icon d={SAVE} size={18} /></a>
         <button type="button" className="btn btn-ghost" aria-pressed={peek} onClick={() => setPeek((value) => !value)}>{peek ? "Show preview" : "Show original"}</button>
       </> : busy ? (
         <button type="button" className="btn btn-ghost btn-block" onClick={() => { controller.current?.abort(); setBusy(false); }}>Cancel</button>
@@ -136,6 +175,7 @@ export function VirtualTryOn({ costumeSlug, selection = [], ownedPieceIds = [], 
         <button type="button" className="btn btn-block try-on-primary" onClick={generate} disabled={preparing}><Icon d={SPARKLE} size={18} />{preparing ? "Preparing photo…" : "Try it on"}</button>
       )}
     </div>}
+    {current && shareNote && <p className="try-on-fine" role="status">{shareNote}</p>}
     {error && <p className="try-on-error" role="alert">{error}</p>}
     {photoUrl && !current && !busy && <p className="try-on-fine">Tapping sends your photo to OpenAI for a preview. This app does not save your photo or preview. OpenAI processes uploads under its API data policies.</p>}
   </section>;
