@@ -72,7 +72,9 @@ export async function corroborateScreenshotIdentity(look: ScreenshotLook, image:
     const hypothesisWords = candidates.flatMap((candidate) => candidate.match(/[a-z]{3,}/gi) ?? []);
     const neutralQuery = hypothesisWords.reduce((query, word) => query.replace(new RegExp(`\\b${word}\\b`, "gi"), " "), look.identityQuery).replace(/\s+/g, " ").trim();
     const signature = look.pieces.find((piece) => /\b(ringer|graphic|motif)\b/i.test(`${piece.name} ${piece.query}`));
-    const queries = [...new Set([neutralQuery, ...candidates.map((candidate) => `${candidate} ${signature?.name ?? "costume"}`)].filter(Boolean))];
+    const wardrobe = look.pieces.find((piece) => /\b(motif|harness|cardigan|wings?|headpiece)\b/i.test(`${piece.name} ${piece.query}`)) ?? signature;
+    const wardrobeQuery = wardrobe ? `${wardrobe.query} film costume` : "";
+    const queries = [...new Set([neutralQuery, wardrobeQuery, ...candidates.map((candidate) => `${candidate} ${signature?.name ?? "costume"}`)].filter(Boolean))];
     const groups: Awaited<ReturnType<typeof searchWeb>>[] = [];
     for (let index = 0; index < queries.length; index += 3) {
       groups.push(...await Promise.all(queries.slice(index, index + 3).map((query) => searchWeb(query, { cache: false, timeoutMs: 8_000, signal: identitySignal }).catch(() => []))));
