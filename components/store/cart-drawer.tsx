@@ -4,7 +4,7 @@ import { useEffect, useMemo, useRef, useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { SCREENSHOT_SLUG, costumeName, formatExactPrice, formatPrice, useCart } from "@/lib/cart/context";
-import type { CheckoutRequest, CheckoutResponse, PriceChange } from "@/lib/checkout/types";
+import { costumePath, customLookId, type CheckoutRequest, type CheckoutResponse, type PriceChange } from "@/lib/checkout/types";
 import type { CartItem } from "@/lib/types";
 import { ProductImage } from "./product-image";
 
@@ -121,8 +121,9 @@ export function CartDrawer() {
 
   if (!isOpen) return null;
   const busy = currentStatus.kind === "loading" || currentStatus.kind === "redirecting";
-  const onCostume = costumeSlug !== null && pathname === `/costumes/${costumeSlug}`;
-  const screenshotLook = costumeSlug === SCREENSHOT_SLUG;
+  const lookPath = costumeSlug ? costumePath(costumeSlug) : "/";
+  const onCostume = costumeSlug !== null && pathname === lookPath;
+  const webLook = costumeSlug === SCREENSHOT_SLUG || customLookId(costumeSlug) !== null;
 
   function askForSizes() {
     setOpen(false);
@@ -175,8 +176,8 @@ export function CartDrawer() {
         <p className="meta">Merchant prices only. Shipping address is collected at checkout.</p>
         {sizedPieces > 0 && <div className="size-reminder">
           {missingSizes > 0 && <p className="meta is-needed">{missingSizes} {missingSizes === 1 ? "piece needs" : "pieces need"} a size.</p>}
-          {screenshotLook
-            ? <Link className="text-btn" href="/screenshot" onClick={() => setOpen(false)}>{missingSizes > 0 ? "Pick sizes on your look" : "Update sizes on your look"} →</Link>
+          {webLook
+            ? <Link className="text-btn" href={lookPath} onClick={() => setOpen(false)}>{missingSizes > 0 ? "Pick sizes on your look" : "Update sizes on your look"} →</Link>
             : onCostume
             ? <button type="button" className="text-btn" onClick={askForSizes}>{missingSizes > 0 ? "Tell the assistant your sizes" : "Update sizes with the assistant"} →</button>
             : <Link className="text-btn" href={`/costumes/${costumeSlug}?assistant=sizes`} onClick={() => setOpen(false)}>{missingSizes > 0 ? "Tell the assistant your sizes" : "Update sizes with the assistant"} →</Link>}

@@ -10,6 +10,21 @@ switches all 25 previews and each costume page's first carousel image. The brows
 remembers the choice across navigation and refreshes. The 50 transparent images and their generation prompts
 are saved in `public/costumes/models/` and `docs/design/model-gallery-image-prompts.json`.
 
+## Search and custom looks
+
+The landing search filters locally while you type. Direct Anthropic inference
+then ranks the existing catalog by meaning. The selected model and Saved view
+continue to work with filtered results. Search uses bounded requests and falls
+back to clearly labelled local matches when semantic refinement is unavailable.
+
+Create starts only after a click. It plans a new costume, checks merchant offers
+and their relevance, and saves an unlisted result in Turso. New looks show real
+product photos, prices, sizes and missing components. They support the cart and
+live checkout checks, but do not join the reviewed three-price-tier catalog.
+No generated model image is claimed for custom looks.
+
+See [the implementation spec](docs/semantic-search-and-create.md).
+
 ## Run
 
 ```sh
@@ -88,6 +103,9 @@ bun scripts/verify-chat.ts http://localhost:3000
 bun --env-file=.env.local scripts/verify-stylist.ts http://localhost:3000 --costume=midnight-pirate
 bun --env-file=.env.local scripts/verify-full-catalog.ts http://localhost:3000
 bun scripts/verify-model-gallery.ts http://localhost:3000
+bun scripts/verify-costume-search.ts http://localhost:3000 --require-semantic
+# Optional: source and save one real custom look, without payment:
+# bun scripts/verify-costume-search.ts http://localhost:3000 --require-semantic --create
 ```
 
 Verification calls the real app, Turso, Anthropic, merchant pages, and Stripe.

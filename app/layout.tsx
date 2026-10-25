@@ -1,4 +1,5 @@
 import type { Metadata, Viewport } from "next";
+import { Suspense } from "react";
 import { Geist, Geist_Mono } from "next/font/google";
 import { CartProvider } from "@/lib/cart/context";
 import { CartDrawer } from "@/components/store/cart-drawer";
@@ -36,7 +37,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
           <SiteHeader />
           {children}
           <footer className="site-footer page">© 2026 halloween.supply</footer>
-          <CartDrawer />
+          <Suspense fallback={null}><CartDrawer /></Suspense>
         </CartProvider>
       </body>
     </html>

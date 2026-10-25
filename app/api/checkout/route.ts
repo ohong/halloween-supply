@@ -2,7 +2,8 @@ import { createHash } from "node:crypto";
 import type Stripe from "stripe";
 import { getCostume } from "@/lib/catalog";
 import { getStripe } from "@/lib/checkout/stripe";
-import { SCREENSHOT_SLUG, type CheckoutRequest, type CheckoutResponse, type PriceChange, type WebItem } from "@/lib/checkout/types";
+import { SCREENSHOT_SLUG, customLookId, type CheckoutRequest, type CheckoutResponse, type PriceChange, type WebItem } from "@/lib/checkout/types";
+import { readCustomLook } from "@/lib/custom-looks/store";
 import { verifyProduct, type Verification } from "@/lib/checkout/verify";
 import { isBlockedDomain, isNoiseDomain, registrableDomain } from "@/lib/sourcing/blocklist";
 import type { SizeKind } from "@/lib/types";
@@ -84,7 +85,25 @@ export async function POST(request: Request) {
     const seen = new Set<string>();
     let costumeSlug: string;
     let cancelPath: string;
-    if (body.costumeSlug === SCREENSHOT_SLUG) {
+    const customId = customLookId(body.costumeSlug);
+    if (customId) {
+      const look = await readCustomLook(customId);
+      if (!look || !["complete", "partial"].includes(look.state)) return fail("This custom look is not ready to check out.", 404);
+      costumeSlug = `custom-look:${customId}`;
+      cancelPath = `/create/${customId}`;
+      for (const item of body.items) {
+        // Resolve from the saved result, so browser edits cannot replace products or merchant claims.
+        const saved = look.pieces.find(({ item: option }) => option?.pieceId === item.pieceId && option.productId === item.productId)?.item;
+        if (!saved) return fail("This product is not part of your saved look.");
+        if (seen.has(saved.pieceId)) return fail(`Piece "${saved.pieceName}" appears twice in the cart.`);
+        seen.add(saved.pieceId);
+        lines.push({
+          pieceId: saved.pieceId, pieceName: saved.pieceName, sizeKind: saved.sizeKind, size: item.size,
+          product: { id: saved.productId, url: saved.productUrl, currency: "USD", title: saved.title, image: saved.image, priceCents: saved.priceCents },
+          merchant: { id: saved.merchantId, name: saved.merchantName },
+        });
+      }
+    } else if (body.costumeSlug === SCREENSHOT_SLUG) {
       // Pieces found on the open web: nothing to look up, so every claim is re-checked against the merchant below.
       costumeSlug = SCREENSHOT_SLUG;
       cancelPath = "/screenshot";

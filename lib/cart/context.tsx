@@ -41,13 +41,14 @@ type CartState = (
 const emptyCart: CartState = { costumeSlug: null, items: [], notice: null };
 
 /** A look rebuilt from a screenshot: pieces drawn from any costume in the catalog. */
-import { SCREENSHOT_SLUG } from "../checkout/types";
+import { SCREENSHOT_SLUG, customLookId } from "../checkout/types";
 export { SCREENSHOT_SLUG };
 
-const knownSlug = (slug: string) => slug === SCREENSHOT_SLUG || costumes.some((costume) => costume.slug === slug);
+const knownSlug = (slug: string) => slug === SCREENSHOT_SLUG || customLookId(slug) !== null || costumes.some((costume) => costume.slug === slug);
 
 export function costumeName(slug: string) {
   if (slug === SCREENSHOT_SLUG) return "Your screenshot look";
+  if (customLookId(slug)) return "Your custom look";
   return costumes.find((costume) => costume.slug === slug)?.name ?? slug;
 }
 
