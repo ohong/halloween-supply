@@ -68,8 +68,10 @@ fabric behavior, product accuracy, stock, or delivery.
 
 Requests use origin checks, bounded uploads, timeouts, and a per-process cost guard:
 three attempts per client address per hour, two concurrent requests per process.
-These are not deployment-wide quotas. Before exposing a funded key publicly,
-configure shared rate limits or hosting firewall limits for `/api/try-on`.
+These are not deployment-wide quotas. Production also has a Vercel firewall rule
+for POST `/api/try-on`: three requests per client IP per hour, using a fixed
+window and a deny action. The rule applies across function instances and deployments.
+It counts rejected uploads too. It does not impose a total project spending cap.
 
 ## Verification
 
@@ -86,7 +88,7 @@ pieces, invalid uploads, consent, origin, photo rejection, provider errors,
 quotas, and missing credentials. It does not establish real provider access or
 rendering quality. A funded key and an authorized test photo are needed for that.
 
-### Live verification — October 24, 2026
+### Local production-build verification — October 24, 2026
 
 The production build was tested with the configured OpenAI project and an entirely
 synthetic full-body shopper photo. Both the Decisions and image-edit calls were real.
@@ -107,6 +109,38 @@ The in-app browser rendered the live result but did not confirm a native downloa
 Aside verified the download through the actual browser action. Whole-repository
 lint also scanned generated files inside unrelated nested worktrees; lint of all
 changed application files passed.
+
+### Public production verification — October 24, 2026
+
+The feature commit `8ddabb3` was already on remote `main`. Deployment
+`dpl_5UCDFpp4yWhCHAHZr1uhdY22UMdY` rebuilt `62ef5d7` with the OpenAI key stored
+as a sensitive production environment variable. Vercel reported READY and assigned
+`halloween.supply`. Later commits through `d3bb20e` changed documentation and
+prototype types; their production application code is identical.
+
+The following checks ran against `https://halloween.supply`:
+
+- Owning the Cowboy hat, skipping the optional scarf, and setting a $150 budget
+  recalculated all three outfit comparisons. Applying Lowest cost selected a
+  $108.90, three-piece purchase plan.
+- Uploading a synthetic full-body shopper and confirming consent produced a real
+  Cowboy preview with those product and wardrobe choices. Original-photo comparison worked.
+- Choosing Moon Moth from the costume selector produced a real inspiration preview.
+- Aside completed the native download of `moon-moth-try-on.jpg` (152,769 bytes).
+- A product-only scarf photo returned HTTP 422. The fourth request from the test
+  IP was denied by the shared firewall with HTTP 403.
+- Remove photo & previews cleared the uploaded photo, preview, consent and controls.
+- All five costume routes returned HTTP 200 with try-on, outfit comparisons on
+  Cosmic Cowboy, and the existing Shop for me entry point.
+- The production build, focused ESLint check and route contract checks passed.
+
+The structured autoreview helper could not run because its configured `gpt-5.5`
+model was unavailable for the signed-in Codex account. Direct code inspection and
+the checks above completed; there is no successful automated review result.
+
+Only synthetic shopper photos were submitted. The key and generated images were
+not committed. Image appearance remains approximate. The shared IP limit can also
+limit shoppers on the same network.
 
 ## API references
 
