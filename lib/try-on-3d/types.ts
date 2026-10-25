@@ -1,4 +1,4 @@
-export type RenderProvider = "meshy" | "hunyuan";
+export type RenderProvider = "trellis" | "meshy" | "hunyuan";
 export type RenderOffer = { ticket: string; provider: RenderProvider; label: string };
 export type FocusPiece = { id: string; name: string; category?: string };
 export type RenderStatus =
