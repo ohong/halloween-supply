@@ -57,8 +57,8 @@ export function enumerateOutfits(costume: CostumeView, brief: ShoppingBrief, use
   });
   const unavailablePieces = rows.filter((row) => row.use === "buy" && !row.options.length).map((row) => row.view.piece.name);
   if (unavailablePieces.length) throw new StylistError(422, `No catalog option meets the size, stock, and stated timing constraints for ${unavailablePieces.join(", ")}. Change your choices or mark a piece as owned.`, "no_feasible_outfit", { unavailablePieces });
-  // The catalog has three choices for five pieces. Fail clearly if its shape grows
-  // beyond a small exhaustive search instead of silently dropping valid options.
+  // Seven pieces with three options produce 2,187 complete outfits. Keep the
+  // exhaustive search bounded instead of silently dropping valid combinations.
   if (rows.reduce((count, row) => count * Math.max(row.options.length, 1), 1) > 5000) throw new StylistError(503, "This catalog is too large to compare right now.", "provider_unavailable");
   let combinations: OutfitLine[][] = [[]];
   for (const row of rows) combinations = combinations.flatMap((lines) => row.use === "buy"
@@ -72,8 +72,5 @@ export function enumerateOutfits(costume: CostumeView, brief: ShoppingBrief, use
     const shortfall = minimumSubtotal - budgetCents!;
     throw new StylistError(422, `The lowest matching catalog subtotal is $${(minimumSubtotal / 100).toFixed(2)} before shipping and tax. Your pieces budget is $${(shortfall / 100).toFixed(2)} short.`, "budget_too_low", { minimumSubtotal, budgetCents, shortfall });
   }
-  // Decisions accepts at most 255 choices. Reserve one for an explicit decline;
-  // never discard affordable outfits using a heuristic before the model sees them.
-  if (affordable.length > 254) throw new StylistError(503, "This catalog has too many matching outfits to compare right now.", "provider_unavailable");
   return { affordable, minimumSubtotal, budgetCents };
 }

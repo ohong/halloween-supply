@@ -1,0 +1,320 @@
+{
+  "costumeSlug": "candy-corn-sorceress",
+  "checkedAt": "2026-10-25T08:49:41.313723Z",
+  "pieces": [
+    {
+      "pieceId": "candy-corn-sorceress-dress-hat",
+      "pieceName": "Candy-corn dress and pointed hat",
+      "category": "dresses",
+      "required": true,
+      "order": 0,
+      "sizeKind": "apparel",
+      "styleNotes": "Buy one confirmed dress-and-hat bundle. Keep the white, orange, yellow palette and pointed hat. Real bundles vary in bodice color, skirt tiers and hem length; none is an exact replica of the generated orange corset dress.",
+      "queries": [
+        "adult candy corn witch dress hat set",
+        "orange yellow white tiered witch costume"
+      ],
+      "options": [
+        {
+          "tier": "$",
+          "title": "Women's Candy Corn Cutie Costume",
+          "url": "https://halloweenhallway.com/products/womens-candy-corn-cutie-costume?variant=35357031628965",
+          "priceCents": 2100,
+          "currency": "USD",
+          "merchantName": "Halloween Hallway",
+          "merchantDomain": "halloweenhallway.com",
+          "imageUrl": "https://cdn.shopify.com/s/files/1/0439/5935/3509/products/RU888893.jpg?v=1596024112",
+          "sizes": [
+            "Adult XS",
+            "Adult SM"
+          ],
+          "availability": "in_stock",
+          "evidenceUrl": "https://halloweenhallway.com/products/womens-candy-corn-cutie-costume.js",
+          "notes": "Rubie’s RU888893 bundle includes off-shoulder dress, pointed matching hat and orange/black tights. Photo shows white neckline, black lace-up bodice and orange/yellow ruffled mini skirt. Hat has white/orange crown, black brim and yellow accent: less yellow than the reference. Only Adult XS and Adult SM cost $21; Adult MD costs $42 and is excluded. Live merchant feed confirms both $21 sizes available. Stockings are included, so separate striped socks are optional for this choice. No dispatch estimate on product listing.",
+          "localMerchantImage": "/products/price-tiers/p-f7554aceb5.webp"
+        },
+        {
+          "tier": "$$",
+          "title": "Mom & Me - Candy Corn Witch Costume - 2 Piece Set",
+          "url": "https://sparkleinpink.com/products/candy-corn-witch-costume?variant=44031921160266",
+          "priceCents": 3999,
+          "currency": "USD",
+          "merchantName": "Sparkle In Pink",
+          "merchantDomain": "sparkleinpink.com",
+          "imageUrl": "https://cdn.shopify.com/s/files/1/0407/8285/files/Mom_Me_Candy_Corn_Witch_Costume_c69b9fe0-a7fb-47d0-9d7a-65a54ac1820b.png?v=1787193451",
+          "sizes": [
+            "MOM-XS",
+            "MOM-Small",
+            "MOM-Large",
+            "MOM-XL",
+            "MOM-1X"
+          ],
+          "availability": "in_stock",
+          "evidenceUrl": "https://sparkleinpink.com/products/candy-corn-witch-costume",
+          "notes": "Adult MOM sizes only, $39.99 each; the $34.99 headline is for children. Page What’s Included confirms one candy-corn dress and matching witch hat per set. 100% polyester. Orange buttoned bodice and broad white/orange/yellow skirt bands retain the palette, but have no corset lacing or stacked ruffles. Adult XS, Small, Large, XL and 1X are available; Medium, 2X and 3X are sold out. Socks in the photograph are sold separately. Page lists ready stock; no production lead time stated.",
+          "localMerchantImage": "/products/price-tiers/p-4b03068e6c.webp"
+        },
+        {
+          "tier": "$$$",
+          "title": "Candy Corn Witch",
+          "url": "https://www.thecostumekitty.com/products/candy-corn-witch-1?variant=42908802318419",
+          "priceCents": 7499,
+          "currency": "USD",
+          "merchantName": "The Costume Kitty",
+          "merchantDomain": "thecostumekitty.com",
+          "imageUrl": "https://cdn.shopify.com/s/files/1/0171/4841/1968/files/2025CostumeCollection.jpg?v=1753727611",
+          "sizes": [
+            "Small",
+            "Medium",
+            "Large",
+            "XLarge"
+          ],
+          "availability": "in_stock",
+          "evidenceUrl": "https://www.thecostumekitty.com/products/candy-corn-witch-1.js",
+          "notes": "Leg Avenue 87267. Merchant confirms dress with tiered skirt/lace-up waist and matching witch hat. White neckline and black bodice replace the reference orange corset; skirt is shorter and has white, yellow, orange tiers plus black trim. Stockings, shoes and broom are excluded. Live feed is $74.99, replacing stale indexed $85.99. Small through XLarge show available; live Small page has quantity 2 and deny overselling. A generic hidden backorder template is present but is not an active stock message. Orders ship from the United States; delivery estimate depends on checkout.",
+          "localMerchantImage": "/products/price-tiers/p-8058d66003.webp"
+        }
+      ],
+      "gaps": []
+    },
+    {
+      "pieceId": "candy-corn-sorceress-cape",
+      "pieceName": "Short black velvet cape",
+      "category": "outerwear",
+      "required": true,
+      "order": 1,
+      "sizeKind": "one_size",
+      "styleNotes": "Frame the bright dress with black velvet and a front opening. Prefer a shoulder or waist-length cape; lace trim and longer backs are stated differences.",
+      "queries": [
+        "short black velvet cape ribbon closure",
+        "black velvet capelet"
+      ],
+      "options": [
+        {
+          "tier": "$",
+          "title": "Black velvet Ruffle Cape",
+          "url": "https://goodgoth.com/black-velvet-ruffle-cape/",
+          "priceCents": 4495,
+          "currency": "USD",
+          "merchantName": "GoodGoth",
+          "merchantDomain": "goodgoth.com",
+          "imageUrl": "https://cdn11.bigcommerce.com/s-800grt978v/products/4221/images/11709/ACC-823a_1024x1024%25402x__83478.1676035137.500.750.jpg?c=2",
+          "sizes": [
+            "One size"
+          ],
+          "availability": "in_stock",
+          "evidenceUrl": "https://goodgoth.com/black-velvet-ruffle-cape/",
+          "notes": "Black velvet shoulder cape with standing collar, ruffled lower edge and ribbon closure. Merchant photo shows a dark ribbon and shorter cape shape close to the reference. SKU acc823. Live BigCommerce product data says instock=true and purchasable=true at USD44.95; add-to-cart is enabled and the sold-out alert is hidden. No size measurements or dispatch estimate stated.",
+          "localMerchantImage": "/products/price-tiers/p-241957ea87.webp"
+        },
+        {
+          "tier": "$$",
+          "title": "Tapered Black Velvet & Lace Capelet",
+          "url": "https://goodgoth.com/tapered-black-velvet-lace-capelet/",
+          "priceCents": 6700,
+          "currency": "USD",
+          "merchantName": "GoodGoth",
+          "merchantDomain": "goodgoth.com",
+          "imageUrl": "https://cdn11.bigcommerce.com/s-800grt978v/products/4875/images/14962/ACC-37b_1024x10242x__17687.1685987636.500.750.jpg?c=2",
+          "sizes": [
+            "One size"
+          ],
+          "availability": "in_stock",
+          "evidenceUrl": "https://goodgoth.com/tapered-black-velvet-lace-capelet/",
+          "notes": "Black velvet and lace with high collar. Covers shoulders in front and extends longer down the back; more ornate and longer than the plain short reference cape. SKU acc-37. Current sale price USD67, formerly $79.95. Live BigCommerce data says instock=true and purchasable=true; sold-out alert is hidden. No measured size range or dispatch estimate stated.",
+          "localMerchantImage": "/products/price-tiers/p-d042dfcec1.webp"
+        },
+        {
+          "tier": "$$$",
+          "title": "Short Black Velvet Cape",
+          "url": "https://gogoginaclothing.com/products/short-black-velvet-cape?variant=32764873080911",
+          "priceCents": 15000,
+          "currency": "USD",
+          "merchantName": "Gogoginaclothing",
+          "merchantDomain": "gogoginaclothing.com",
+          "imageUrl": "https://cdn.shopify.com/s/files/1/0281/4528/7247/products/IMG_8709.jpg?v=1606861992",
+          "sizes": [
+            "Fits all sizes"
+          ],
+          "availability": "in_stock",
+          "evidenceUrl": "https://gogoginaclothing.com/products/short-black-velvet-cape.js",
+          "notes": "Black velvet short capelet with velvet ribbon front opening. Merchant says fits all sizes, without measurements; do not assume universal fit. Photo shows a broad collar and lace around the front edges, unlike the reference plain high collar. Live variant available at $150. Shipping policy states dispatch within 24 hours and typical US transit of 7–14 days, which can run longer; faster paid options are listed. No Halloween arrival promise.",
+          "localMerchantImage": "/products/price-tiers/p-133d7800ad.webp"
+        }
+      ],
+      "gaps": []
+    },
+    {
+      "pieceId": "candy-corn-sorceress-striped-stockings",
+      "pieceName": "Striped stockings",
+      "category": "accessories",
+      "required": true,
+      "order": 2,
+      "sizeKind": "one_size",
+      "styleNotes": "Use broad horizontal stripes. The best color match repeats cream, orange and yellow; cheaper alternatives omit one or two of those colors.",
+      "queries": [
+        "candy corn striped adult thigh high socks",
+        "white orange striped stockings"
+      ],
+      "options": [
+        {
+          "tier": "$",
+          "title": "Thigh Highs Black/Orange",
+          "url": "https://usasocks.org/Thigh-Highs-Black-Orange/",
+          "priceCents": 999,
+          "currency": "USD",
+          "merchantName": "USA SOCKS",
+          "merchantDomain": "usasocks.org",
+          "imageUrl": "https://cdn11.bigcommerce.com/s-kffgfetapx/images/stencil/1280x1280/products/441/667/black-orange-striped-thigh-highs__13969.1760211959.png?c=1",
+          "sizes": [
+            "Women’s Size 7–11"
+          ],
+          "availability": "in_stock",
+          "evidenceUrl": "https://usasocks.org/Thigh-Highs-Black-Orange/",
+          "notes": "Black/orange stripes substitute for cream/orange/yellow. 80% acrylic, 20% nylon; US-made tube socks, stated 32–34 inches before stretch. Merchant lists women’s 7–11; use its measurements rather than the inconsistent men’s size text. SKU 6988182. Live product data confirms in stock/purchasable, current sale $9.99 versus $15.99 list. Original merchant photo is 1024×1024. Shipping policy says most in-stock orders dispatch within 24 hours from Michigan, with weekend/holiday orders next business day.",
+          "localMerchantImage": "/products/price-tiers/p-84b3540997.webp"
+        },
+        {
+          "tier": "$$",
+          "title": "Striped Nylon Thigh Highs",
+          "url": "https://sockdreams.com/products/striped-over-the-knee?variant=49918614765863",
+          "priceCents": 1200,
+          "currency": "USD",
+          "merchantName": "Sock Dreams",
+          "merchantDomain": "sockdreams.com",
+          "imageUrl": "https://cdn.shopify.com/s/files/1/0712/4978/9223/files/LA-6005-White-Orange-Striped-Over-The-Knee-Tights-DJ-NN-3.jpg?v=1775242873",
+          "sizes": [
+            "One size"
+          ],
+          "availability": "in_stock",
+          "evidenceUrl": "https://sockdreams.com/products/striped-over-the-knee.js",
+          "notes": "Leg Avenue thin, nearly opaque White and Orange striped stockings; yellow stripe is absent. Exact white/orange variant available at $12. Label says one size 90–160 pounds; merchant measured approximately 24-inch cuff stretch. Usually over-knee rather than secure thigh height and cuffs can roll; garters or sock glue are optional extras, not included. Tube foot. Ships Monday–Friday with USPS; no arrival promise.",
+          "localMerchantImage": "/products/price-tiers/p-dea55e9ca5.webp"
+        },
+        {
+          "tier": "$$$",
+          "title": "Candy Corn Stripes Thigh High",
+          "url": "https://sockdreams.com/products/candy-corn-stripes-thigh-high?variant=44684080087335",
+          "priceCents": 2000,
+          "currency": "USD",
+          "merchantName": "Sock Dreams",
+          "merchantDomain": "sockdreams.com",
+          "imageUrl": "https://cdn.shopify.com/s/files/1/0712/4978/9223/files/DS_CCSTH_Candy_Corn_Striped_Thigh_High_TB_JM1.jpg?v=1791839815",
+          "sizes": [
+            "One size"
+          ],
+          "availability": "in_stock",
+          "evidenceUrl": "https://sockdreams.com/products/candy-corn-stripes-thigh-high.js",
+          "notes": "Closest stripe match: cream, orange and golden yellow in a thicker sweater knit. 65% recycled cotton, 15% acrylic, 20% spandex; made in USA. Merchant sizing: US women’s shoes 6.5–10, 24-inch cuff stretch, 20-inch mid-sock stretch and 28-inch unworn heel-to-top length. Current feed available at $20 and live page records 76 in stock; indexed sold-out results are stale. Ships Monday–Friday with USPS. Thicker than the smooth reference stockings.",
+          "localMerchantImage": "/products/price-tiers/p-98f954feab.webp"
+        }
+      ],
+      "gaps": []
+    },
+    {
+      "pieceId": "candy-corn-sorceress-lace-up-boots",
+      "pieceName": "Black lace-up boots",
+      "category": "footwear",
+      "required": true,
+      "order": 3,
+      "sizeKind": "shoe",
+      "styleNotes": "Choose black ankle or lower-calf boots with visible front laces and a practical heel. Hardware, shaft height and sole shape can vary.",
+      "queries": [
+        "black lace up ankle boots women",
+        "black leather eight eye derby boots"
+      ],
+      "options": [
+        {
+          "tier": "$",
+          "title": "Prima Black Combat Boots",
+          "url": "https://www.rocketdog.com/products/prima-black-combat-boots?variant=45600624508998",
+          "priceCents": 5597,
+          "currency": "USD",
+          "merchantName": "Rocket Dog",
+          "merchantDomain": "rocketdog.com",
+          "imageUrl": "https://cdn.shopify.com/s/files/1/1903/5555/files/prima_grinnel_pu_black_002.jpg?v=1784302923",
+          "sizes": [
+            "6",
+            "6.5",
+            "7",
+            "7.5",
+            "8",
+            "8.5",
+            "9",
+            "9.5",
+            "10",
+            "11"
+          ],
+          "availability": "in_stock",
+          "evidenceUrl": "https://www.rocketdog.com/products/prima-black-combat-boots.js",
+          "notes": "Black faux-leather combat ankle boots, front laces plus inner zip, microfiber lining, treaded rubber sole and 1.8-inch heel. Chunkier sole than the reference and black hardware instead of brass. Exact Black/Grinnel Pu variants US6–11 listed here are available at live $55.97; US12 is sold out. Merchant says dispatch in 1–2 business days from California, potentially 2–3 during sales. No coupon or delivery promise is assumed.",
+          "localMerchantImage": "/products/price-tiers/p-ed0b6d3416.webp"
+        },
+        {
+          "tier": "$$",
+          "title": "Black Greasy 8 Eye Derby Boot",
+          "url": "https://us.nps-solovair.com/products/s8-551-bg-g?variant=52223428690285",
+          "priceCents": 23900,
+          "currency": "USD",
+          "merchantName": "NPS Solovair USA",
+          "merchantDomain": "nps-solovair.com",
+          "imageUrl": "https://cdn.shopify.com/s/files/1/0946/4761/5853/files/products_S8-551-BG-G_Black_Greasy_8_Eye_Derby_Boot_1.jpg?v=1761823874",
+          "sizes": [
+            "4 Mens / 5 Womens",
+            "4.5 Mens / 5.5 Womens",
+            "5 Mens / 6 Womens",
+            "5.5 Mens / 6.5 Womens",
+            "6 Mens / 7 Womens",
+            "6.5 Mens / 7.5 Womens",
+            "7 Mens / 8 Womens",
+            "7.5 Mens / 8.5 Womens",
+            "8 Mens / 9 Womens",
+            "8.5 Mens / 9.5 Womens",
+            "9 Mens / 10 Womens",
+            "9.5 Mens / 10.5 Womens",
+            "10 Mens / 11 Womens",
+            "10.5 Mens / 11.5 Womens",
+            "11 Mens / 12 Womens",
+            "11.5 Mens / 12.5 Womens",
+            "12 Mens / 13 Womens",
+            "12.5 Mens / 13.5 Womens",
+            "13 Mens / 14 Womens",
+            "14 Mens / 15 Womens"
+          ],
+          "availability": "in_stock",
+          "evidenceUrl": "https://us.nps-solovair.com/products/s8-551-bg-g.js",
+          "notes": "Black greasy leather eight-eye front-lace boot, made in England with Goodyear welt, leather/synthetic lining and replaceable air-cushioned sole. Rounder work-boot silhouette and black eyelets replace the reference brass hardware. Merchant’s US paired size labels are preserved exactly; do not reinterpret them. All listed variants show available at $239; largest 15 Mens / 16 Womens is sold out. Live default 4 Mens / 5 Womens page reports two in stock. Generic backorder text is hidden. US storefront states duties/tariffs included; no dispatch estimate on product listing.",
+          "localMerchantImage": "/products/price-tiers/p-e949eead8d.webp"
+        },
+        {
+          "tier": "$$$",
+          "title": "Rainey Vintage Lace-Up Boots (Black)",
+          "url": "https://www.americanduchess.com/products/rainey-womens-vintage-lace-up-boots-black?variant=42358320824470",
+          "priceCents": 28500,
+          "currency": "USD",
+          "merchantName": "American Duchess",
+          "merchantDomain": "americanduchess.com",
+          "imageUrl": "https://cdn.shopify.com/s/files/1/0450/5721/2566/products/rainey-vintage-boots-dandy-wellington-black-of.jpg?v=1671580774",
+          "sizes": [
+            "5",
+            "6",
+            "6.5",
+            "7",
+            "7.5",
+            "8",
+            "8.5",
+            "9",
+            "9.5",
+            "10",
+            "12"
+          ],
+          "availability": "in_stock",
+          "evidenceUrl": "https://www.americanduchess.com/products/rainey-womens-vintage-lace-up-boots-black.js",
+          "notes": "Black calf-leather Balmoral ankle boots with front laces, cotton twill/leather lining, leather soles, 1-inch heel and 5-inch shaft. Lower, slimmer and dressier than the reference combat boots, with black eyelets. Women’s US B width; only the listed sizes show available at $285. US10.5 and US11 are sold out; no US5.5 variant is offered. No production lead time is stated on the listing.",
+          "localMerchantImage": "/products/price-tiers/p-9ceb60b1a5.webp"
+        }
+      ],
+      "gaps": []
+    }
+  ]
+}

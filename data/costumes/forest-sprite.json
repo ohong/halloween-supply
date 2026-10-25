@@ -1,0 +1,705 @@
+{
+  "costume": {
+    "slug": "forest-sprite",
+    "name": "Forest Sprite",
+    "description": "Moss-green layers and a leafy crown turn a simple tunic into a woodland costume.",
+    "image": "/costumes/forest-sprite.png",
+    "alt": "Twig and fabric leaf crown, moss cape, leaf-green layered organza tunic, olive leggings, and brown boots",
+    "status": "live"
+  },
+  "pieces": [
+    {
+      "id": "forest-sprite-leaf-crown",
+      "name": "Leaf and twig crown",
+      "category": "headwear",
+      "required": true,
+      "order": 0,
+      "sizeKind": "one_size",
+      "queries": [
+        "green leaf twig woodland fairy crown"
+      ],
+      "styleNotes": "A green faux-leaf circlet with a twig-like base supplies the woodland anchor. These lower circlets include jewels and ribbon ties; none exactly copies the tall open twig wreath. All three crowns have decorative crystal centers and a lower circlet shape than the reference.",
+      "matches": [
+        {
+          "productId": "p-8992d54482",
+          "rank": 0,
+          "reason": "Live merchant product feed confirms the listed USD price and availability. Mostory ships from China; its shipping policy states 1–3 business days processing and 5–8 business days estimated US transit, with possible peak delays. Green maple-style faux leaves on a brown twig-effect circlet, ribbon tie and a large silver-tone crystal centerpiece. The shiny front jewel differs from the reference’s plain leafy crown; includes headpiece only."
+        },
+        {
+          "productId": "p-4742df3a8a",
+          "rank": 1,
+          "reason": "Live merchant product feed confirms the listed USD price and availability. Mostory ships from China; its shipping policy states 1–3 business days processing and 5–8 business days estimated US transit, with possible peak delays. Faux foliage and brown twig-effect circlet with a green crystal centerpiece, small pale flowers and ribbon tie. Lower and narrower than the tall twig wreath in the reference; includes this crown only."
+        },
+        {
+          "productId": "p-e4fc530082",
+          "rank": 2,
+          "reason": "Live merchant product feed confirms the listed USD price and availability. Mostory ships from China; its shipping policy states 1–3 business days processing and 5–8 business days estimated US transit, with possible peak delays. Faux cypress-style foliage and muted grey-green leaves with dark berries, brown vine-effect base, ribbon tie and iridescent jewel. More muted and jeweled than the reference; includes headpiece only."
+        }
+      ]
+    },
+    {
+      "id": "forest-sprite-green-cape",
+      "name": "Moss-green cape",
+      "category": "outerwear",
+      "required": true,
+      "order": 1,
+      "sizeKind": "apparel",
+      "queries": [
+        "forest green hooded velvet cloak",
+        "moss green wool cloak"
+      ],
+      "styleNotes": "A green hooded cape frames the tunic. Plain ready-made capes preserve the drape but do not include the reference’s sewn leaf borders or branch clasp. None includes the reference’s leaf-edge appliqué or branch-shaped clasp. The premium wool cloak currently has only M and L available.",
+      "matches": [
+        {
+          "productId": "p-65839f8b3b",
+          "rank": 0,
+          "reason": "Green hooded adult cloak with soft lining; one size, ages 14+. Merchant feed confirms $54.99 and available; product page reports two left. Brighter green and plainer than the reference, with no attached leaf trim. Includes cloak only. Merchant ships Monday–Friday from Chicago, Illinois."
+        },
+        {
+          "productId": "p-3cde6c8afb",
+          "rank": 1,
+          "reason": "Forest green lightweight polyester velvet hooded cape with hook-and-loop neck closure. Merchant feed confirms $34.99 and available. Plain straight hem; no leaf trim, twig clasp, dress or shoes. Merchant labels one size for most adults and larger teens; check fit instead of assuming universal sizing."
+        },
+        {
+          "productId": "p-e3b8b7bce7",
+          "rank": 2,
+          "reason": "Green heavy wool-felt blend hooded semicircle cloak with two cloth ties and loops for an optional spiral brooch. Live merchant feed confirms Green M and L at $139.99; S is unavailable. M length is 145 cm; L is 155 cm. Page lists 74% wool, 15% polyester, 7% polyamide and 4% other natural fibres. Its cooler blue-green shade differs from the reference’s moss olive. Long plain silhouette omits leaf appliqué; no brooch is confirmed included. Merchant supports USD and states shipping from US, UK and Germany."
+        }
+      ]
+    },
+    {
+      "id": "forest-sprite-green-tunic",
+      "name": "Leaf-green tunic",
+      "category": "tops",
+      "required": true,
+      "order": 2,
+      "sizeKind": "apparel",
+      "queries": [
+        "green forest fairy halter tunic",
+        "green leaf pixie dress"
+      ],
+      "styleNotes": "Wear a pointed green tunic or short leaf dress over leggings. The middle option supplies layered leaf shapes; the budget top uses an uneven embroidered hem, and the premium design uses a corseted leaf bodice. The $38.99 tunic omits the leaf panels and layered organza. Both leaf options differ in fabric, neckline and hem from the generated reference.",
+      "matches": [
+        {
+          "productId": "p-a4693ccb64",
+          "rank": 0,
+          "reason": "Green cotton/spandex fitted mini dress with overlapping pointed leaf-style layers and web-like vein seams. Merchant feed confirms Green XS/S/M/L/XL/XXL/3XL at $58. The leaves are fewer, darker and smoother than the reference’s organza tunic. Includes dress only. US shipping policy lists 3–7 business days processing plus 8–15 business days standard transit; custom production can take longer."
+        },
+        {
+          "productId": "p-2a4e429bcf",
+          "rank": 1,
+          "reason": "Primary merchant page lists USD $38.99, selectable S/M/L and an active Buy control. Green 100% rayon satin halter tunic with embroidery, back elastic and tie, adjustable shoulder straps and uneven pointed hem, 22–28 inches depending on size. This is a simple green tunic approximation: no sewn leaf panels, layered organza or vine belt. Includes top only; wear over the separately sourced leggings."
+        },
+        {
+          "productId": "p-279c4b8fdc",
+          "rank": 2,
+          "reason": "Green corseted leaf-motif dress top with asymmetrical pointed hem, spandex base, chiffon sleeves, mesh panels and coated fabric. Includes dress top, two detachable chiffon sleeves, choker, two shoulder chains and decorative front flower. This is a brighter, more revealing fantasy design with dramatic side sleeves, rather than the reference’s layered moss organza tunic. Merchant feed confirms S/M/L/XL at $275. Page offers worldwide shipping and estimates 10–20 business days; processing time is not separately confirmed."
+        }
+      ]
+    },
+    {
+      "id": "forest-sprite-olive-leggings",
+      "name": "Olive leggings",
+      "category": "bottoms",
+      "required": true,
+      "order": 3,
+      "sizeKind": "apparel",
+      "queries": [
+        "women olive full length leggings"
+      ],
+      "styleNotes": "Plain olive full-length leggings give the costume a continuous green base under the tunic. None includes decorative shin vines. The budget option currently fits only the merchant’s 0-12 size range. All options omit the reference’s embroidered lower-leg vines.",
+      "matches": [
+        {
+          "productId": "p-c991fa53d8",
+          "rank": 0,
+          "reason": "Olive 100% organic Pima cotton interlock leggings with elastic waistband. Merchant feed confirms Olive XS/S/M/L/XL in both 26-inch and 30-inch inseams at $49.90; listed size labels retain the inseam. Cotton fits more loosely than synthetic leggings. Plain legs omit the vine embroidery. Product page lists free US shipping."
+        },
+        {
+          "productId": "p-a8d6d2b4b8",
+          "rank": 1,
+          "reason": "Solid olive green high-waisted buttery-soft leggings with yoga waistband. Merchant feed confirms only Green / Yoga Waist / 0-12 available at $14.99; 12-20 is unavailable and excluded. Smooth fabric omits the reference’s decorative lower-leg vine embroidery. Includes leggings only. US shipping is listed at $4.99, free for qualifying $50+ orders."
+        },
+        {
+          "productId": "p-fc5e6e9940",
+          "rank": 2,
+          "reason": "Olive high-waisted four-way-stretch active leggings with reinforced seams, V-shaped seam and small branding. Merchant feed confirms only S / Long, M / Regular, M / Long, L / Regular, XL / Regular and XL / Long at $59. The olive is lighter sage than the reference; no vine embroidery. Leg-length labels are merchant options, not inferred measurements. US shipping available; orders under $199 list $9.99 shipping."
+        }
+      ]
+    },
+    {
+      "id": "forest-sprite-brown-boots",
+      "name": "Brown ankle boots",
+      "category": "footwear",
+      "required": true,
+      "order": 4,
+      "sizeKind": "shoe",
+      "queries": [
+        "women brown lace up ankle boots"
+      ],
+      "styleNotes": "Brown lace-up ankle boots ground the green layers. These real boots omit decorative vines; the budget option has a substantially chunkier sole. The $79.99 option has limited remaining brown sizes. No option includes the twig-and-leaf boot wraps.",
+      "matches": [
+        {
+          "productId": "p-f623746353",
+          "rank": 0,
+          "reason": "Brown Suede leather lace-up desert ankle boots, one-inch heel and four-inch shaft. Merchant feed confirms only Brown Suede sizes 6.5, 7, 9, 6W and 6.5W available at $79.99. W means the merchant’s wide fit. Lower silhouette is close, but suede and simple lacing replace the reference’s smooth wrapped-vine finish. Boots only."
+        },
+        {
+          "productId": "p-9f0ec3e56f",
+          "rank": 1,
+          "reason": "Dark Brown faux leather lace-up ankle boots with side zip and chunky lug sole. Merchant feed confirms US sizes 7, 7.5, 8, 8.5, 9, 9.5 and 10 at $55.97. The 5.3 cm heel/platform and bulky sole differ from the reference’s low woodland boots. No vine decoration; boots only."
+        },
+        {
+          "productId": "p-47e042be1b",
+          "rank": 2,
+          "reason": "Rugged Bark brown leather lace-up waterproof boots with padded ankle, wide toe box and rugged sole. Merchant feed confirms listed women’s US sizes 6 through 12, including half sizes, at $210. More practical and substantial than the reference’s slim fantasy ankle boot; no vine trim. Boots only."
+        }
+      ]
+    }
+  ],
+  "products": [
+    {
+      "id": "p-e4fc530082",
+      "title": "Woodland Elf Crystal Headpiece: Cypress Leaves Crown, Dark Vine Branches",
+      "url": "https://mostory.store/products/woodland-elf-crystal-headpiece-cypress-leaves-crown-dark-vine-branches?variant=42949950570703",
+      "priceCents": 2899,
+      "currency": "USD",
+      "image": "/products/price-tiers/p-e4fc530082.webp",
+      "merchantImage": "/products/price-tiers/p-e4fc530082.webp",
+      "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/0608/3480/8015/files/b8421501ceee8ed8defa49d79fc692df_8879240c-db2d-40ca-8828-577a7505b393.jpg?v=1692085493"
+      ],
+      "availability": "in_stock",
+      "sizes": [],
+      "merchantId": "mostory-store",
+      "tagSlugs": [],
+      "description": "Live merchant product feed confirms the listed USD price and availability. Mostory ships from China; its shipping policy states 1–3 business days processing and 5–8 business days estimated US transit, with possible peak delays. Faux cypress-style foliage and muted grey-green leaves with dark berries, brown vine-effect base, ribbon tie and iridescent jewel. More muted and jeweled than the reference; includes headpiece only.",
+      "checkedAt": "2026-10-25T08:48:06.731813+00:00",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-25T08:48:06.731813+00:00",
+        "url": "https://mostory.store/products/woodland-elf-crystal-headpiece-cypress-leaves-crown-dark-vine-branches.js",
+        "notes": "Live merchant product feed confirms the listed USD price and availability. Mostory ships from China; its shipping policy states 1–3 business days processing and 5–8 business days estimated US transit, with possible peak delays. Faux cypress-style foliage and muted grey-green leaves with dark berries, brown vine-effect base, ribbon tie and iridescent jewel. More muted and jeweled than the reference; includes headpiece only."
+      }
+    },
+    {
+      "id": "p-8992d54482",
+      "title": "Forest Green Headpiece: Woodland Twig Headband, Elf Maple Leaves Crown",
+      "url": "https://mostory.store/products/forest-green-headpiece-woodland-twig-headband-elf-maple-leaves-crown?variant=42949950537935",
+      "priceCents": 2399,
+      "currency": "USD",
+      "image": "/products/price-tiers/p-8992d54482.webp",
+      "merchantImage": "/products/price-tiers/p-8992d54482.webp",
+      "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/0608/3480/8015/files/b8421501ceee8ed8defa49d79fc692df_cf4b4293-f2f3-4515-9263-940a5f40165a.jpg?v=1692085608"
+      ],
+      "availability": "in_stock",
+      "sizes": [],
+      "merchantId": "mostory-store",
+      "tagSlugs": [],
+      "description": "Live merchant product feed confirms the listed USD price and availability. Mostory ships from China; its shipping policy states 1–3 business days processing and 5–8 business days estimated US transit, with possible peak delays. Green maple-style faux leaves on a brown twig-effect circlet, ribbon tie and a large silver-tone crystal centerpiece. The shiny front jewel differs from the reference’s plain leafy crown; includes headpiece only.",
+      "checkedAt": "2026-10-25T08:48:06.731813+00:00",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-25T08:48:06.731813+00:00",
+        "url": "https://mostory.store/products/forest-green-headpiece-woodland-twig-headband-elf-maple-leaves-crown.js",
+        "notes": "Live merchant product feed confirms the listed USD price and availability. Mostory ships from China; its shipping policy states 1–3 business days processing and 5–8 business days estimated US transit, with possible peak delays. Green maple-style faux leaves on a brown twig-effect circlet, ribbon tie and a large silver-tone crystal centerpiece. The shiny front jewel differs from the reference’s plain leafy crown; includes headpiece only."
+      }
+    },
+    {
+      "id": "p-4742df3a8a",
+      "title": "Green Leaf Crown Headband",
+      "url": "https://mostory.store/products/green-leaf-crown-headband?variant=42949939855567",
+      "priceCents": 2299,
+      "currency": "USD",
+      "image": "/products/price-tiers/p-4742df3a8a.webp",
+      "merchantImage": "/products/price-tiers/p-4742df3a8a.webp",
+      "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/0608/3480/8015/files/b8421501ceee8ed8defa49d79fc692df_3c3de5dc-3dce-4a26-9a43-6f92563395a9.jpg?v=1692092601"
+      ],
+      "availability": "in_stock",
+      "sizes": [],
+      "merchantId": "mostory-store",
+      "tagSlugs": [],
+      "description": "Live merchant product feed confirms the listed USD price and availability. Mostory ships from China; its shipping policy states 1–3 business days processing and 5–8 business days estimated US transit, with possible peak delays. Faux foliage and brown twig-effect circlet with a green crystal centerpiece, small pale flowers and ribbon tie. Lower and narrower than the tall twig wreath in the reference; includes this crown only.",
+      "checkedAt": "2026-10-25T08:48:06.731813+00:00",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-25T08:48:06.731813+00:00",
+        "url": "https://mostory.store/products/green-leaf-crown-headband.js",
+        "notes": "Live merchant product feed confirms the listed USD price and availability. Mostory ships from China; its shipping policy states 1–3 business days processing and 5–8 business days estimated US transit, with possible peak delays. Faux foliage and brown twig-effect circlet with a green crystal centerpiece, small pale flowers and ribbon tie. Lower and narrower than the tall twig wreath in the reference; includes this crown only."
+      }
+    },
+    {
+      "id": "p-3cde6c8afb",
+      "title": "Forrest Green Hooded Cape - Renaissance - Medieval - Costume - Unisex",
+      "url": "https://arlenescostumes.com/products/forrest-green-hooded-cape-renaissance-medieval-costume-unisex?variant=47953724604661",
+      "priceCents": 3499,
+      "currency": "USD",
+      "image": "/products/price-tiers/p-3cde6c8afb.webp",
+      "merchantImage": "/products/price-tiers/p-3cde6c8afb.webp",
+      "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/0672/5015/9861/files/cape-forrest-green.jpg?v=1775498487"
+      ],
+      "availability": "in_stock",
+      "sizes": [
+        "One size fits most adults and larger teens"
+      ],
+      "merchantId": "arlenescostumes-com",
+      "tagSlugs": [],
+      "description": "Forest green lightweight polyester velvet hooded cape with hook-and-loop neck closure. Merchant feed confirms $34.99 and available. Plain straight hem; no leaf trim, twig clasp, dress or shoes. Merchant labels one size for most adults and larger teens; check fit instead of assuming universal sizing.",
+      "checkedAt": "2026-10-25T08:48:06.731813+00:00",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-25T08:48:06.731813+00:00",
+        "url": "https://arlenescostumes.com/products/forrest-green-hooded-cape-renaissance-medieval-costume-unisex.js",
+        "notes": "Forest green lightweight polyester velvet hooded cape with hook-and-loop neck closure. Merchant feed confirms $34.99 and available. Plain straight hem; no leaf trim, twig clasp, dress or shoes. Merchant labels one size for most adults and larger teens; check fit instead of assuming universal sizing."
+      }
+    },
+    {
+      "id": "p-65839f8b3b",
+      "title": "Green Velvet Hooded Cloak - Adult Costume",
+      "url": "https://chicagocostume.com/products/green-velvet-hooded-cloak-adult-costume?variant=48035426271474",
+      "priceCents": 5499,
+      "currency": "USD",
+      "image": "/products/price-tiers/p-65839f8b3b.webp",
+      "merchantImage": "/products/price-tiers/p-65839f8b3b.webp",
+      "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/0610/0208/8690/files/71lsVwgggLL._AC_SX679.jpg?v=1760116427"
+      ],
+      "availability": "in_stock",
+      "sizes": [
+        "One size fits most adults"
+      ],
+      "merchantId": "chicagocostume-com",
+      "tagSlugs": [],
+      "description": "Green hooded adult cloak with soft lining; one size, ages 14+. Merchant feed confirms $54.99 and available; product page reports two left. Brighter green and plainer than the reference, with no attached leaf trim. Includes cloak only. Merchant ships Monday–Friday from Chicago, Illinois.",
+      "checkedAt": "2026-10-25T08:48:06.731813+00:00",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-25T08:48:06.731813+00:00",
+        "url": "https://chicagocostume.com/products/green-velvet-hooded-cloak-adult-costume.js",
+        "notes": "Green hooded adult cloak with soft lining; one size, ages 14+. Merchant feed confirms $54.99 and available; product page reports two left. Brighter green and plainer than the reference, with no attached leaf trim. Includes cloak only. Merchant ships Monday–Friday from Chicago, Illinois."
+      }
+    },
+    {
+      "id": "p-e3b8b7bce7",
+      "title": "Wool Hooded Cloak Hibernus Green",
+      "url": "https://burgschneider.com/products/wool-hooded-cloak-hibernus-green?variant=47604680589659",
+      "priceCents": 13999,
+      "currency": "USD",
+      "image": "/products/price-tiers/p-e3b8b7bce7.webp",
+      "merchantImage": "/products/price-tiers/p-e3b8b7bce7.webp",
+      "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/0779/4189/9611/files/cloak_green03.D5Yyq8_e11c79ea-a9df-467f-b2fc-315f7c3e41ec.png?v=1774962763"
+      ],
+      "availability": "in_stock",
+      "sizes": [
+        "M",
+        "L"
+      ],
+      "merchantId": "burgschneider-com",
+      "tagSlugs": [],
+      "description": "Green heavy wool-felt blend hooded semicircle cloak with two cloth ties and loops for an optional spiral brooch. Live merchant feed confirms Green M and L at $139.99; S is unavailable. M length is 145 cm; L is 155 cm. Page lists 74% wool, 15% polyester, 7% polyamide and 4% other natural fibres. Its cooler blue-green shade differs from the reference’s moss olive. Long plain silhouette omits leaf appliqué; no brooch is confirmed included. Merchant supports USD and states shipping from US, UK and Germany.",
+      "checkedAt": "2026-10-25T08:48:06.731813+00:00",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-25T08:48:06.731813+00:00",
+        "url": "https://burgschneider.com/products/wool-hooded-cloak-hibernus-green.js",
+        "notes": "Green heavy wool-felt blend hooded semicircle cloak with two cloth ties and loops for an optional spiral brooch. Live merchant feed confirms Green M and L at $139.99; S is unavailable. M length is 145 cm; L is 155 cm. Page lists 74% wool, 15% polyester, 7% polyamide and 4% other natural fibres. Its cooler blue-green shade differs from the reference’s moss olive. Long plain silhouette omits leaf appliqué; no brooch is confirmed included. Merchant supports USD and states shipping from US, UK and Germany."
+      }
+    },
+    {
+      "id": "p-2a4e429bcf",
+      "title": "Green Forest Fairy Halter Top",
+      "url": "https://www.thelittlebazaar.com/item/9563.html",
+      "priceCents": 3899,
+      "currency": "USD",
+      "image": "/products/price-tiers/p-2a4e429bcf.webp",
+      "merchantImage": "/products/price-tiers/p-2a4e429bcf.webp",
+      "sourceImages": [
+        "https://www.thelittlebazaar.com/m/Tunic-Shirt/9563-green-forest-fairy-halter-top.jpg"
+      ],
+      "availability": "in_stock",
+      "sizes": [
+        "S",
+        "M",
+        "L"
+      ],
+      "merchantId": "thelittlebazaar-com",
+      "tagSlugs": [],
+      "description": "Primary merchant page lists USD $38.99, selectable S/M/L and an active Buy control. Green 100% rayon satin halter tunic with embroidery, back elastic and tie, adjustable shoulder straps and uneven pointed hem, 22–28 inches depending on size. This is a simple green tunic approximation: no sewn leaf panels, layered organza or vine belt. Includes top only; wear over the separately sourced leggings.",
+      "checkedAt": "2026-10-25T08:48:06.731813+00:00",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-25T08:48:06.731813+00:00",
+        "url": "https://www.thelittlebazaar.com/item/9563.html",
+        "notes": "Primary merchant page lists USD $38.99, selectable S/M/L and an active Buy control. Green 100% rayon satin halter tunic with embroidery, back elastic and tie, adjustable shoulder straps and uneven pointed hem, 22–28 inches depending on size. This is a simple green tunic approximation: no sewn leaf panels, layered organza or vine belt. Includes top only; wear over the separately sourced leggings."
+      }
+    },
+    {
+      "id": "p-279c4b8fdc",
+      "title": "Forest Fairy Elf Costume – Women’s Fantasy Leaf Dress with Sleeves & Accessories",
+      "url": "https://www.historicalcostumeshop.com/products/forest-fairy-elf-costume-womens-fantasy-leaf-dress-sleeves-accessories?variant=67846764232924",
+      "priceCents": 27500,
+      "currency": "USD",
+      "image": "/products/price-tiers/p-279c4b8fdc.webp",
+      "merchantImage": "/products/price-tiers/p-279c4b8fdc.webp",
+      "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/0863/1871/1004/files/Sae1a83cdd4224c6a88b03eab870b5e8fn.webp?v=1792559484"
+      ],
+      "availability": "in_stock",
+      "sizes": [
+        "M",
+        "L",
+        "XL",
+        "S"
+      ],
+      "merchantId": "historicalcostumeshop-com",
+      "tagSlugs": [],
+      "description": "Green corseted leaf-motif dress top with asymmetrical pointed hem, spandex base, chiffon sleeves, mesh panels and coated fabric. Includes dress top, two detachable chiffon sleeves, choker, two shoulder chains and decorative front flower. This is a brighter, more revealing fantasy design with dramatic side sleeves, rather than the reference’s layered moss organza tunic. Merchant feed confirms S/M/L/XL at $275. Page offers worldwide shipping and estimates 10–20 business days; processing time is not separately confirmed.",
+      "checkedAt": "2026-10-25T08:48:06.731813+00:00",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-25T08:48:06.731813+00:00",
+        "url": "https://www.historicalcostumeshop.com/products/forest-fairy-elf-costume-womens-fantasy-leaf-dress-sleeves-accessories.js",
+        "notes": "Green corseted leaf-motif dress top with asymmetrical pointed hem, spandex base, chiffon sleeves, mesh panels and coated fabric. Includes dress top, two detachable chiffon sleeves, choker, two shoulder chains and decorative front flower. This is a brighter, more revealing fantasy design with dramatic side sleeves, rather than the reference’s layered moss organza tunic. Merchant feed confirms S/M/L/XL at $275. Page offers worldwide shipping and estimates 10–20 business days; processing time is not separately confirmed."
+      }
+    },
+    {
+      "id": "p-a4693ccb64",
+      "title": "Fairy Pixie Leaf Dress Forest festival outfit Alternative fashion",
+      "url": "https://maravinee.com/products/fairy-pixie-leaf-dress-forest-festival-outfit-alternative-fashion-mav260302916-1?variant=52788084015404",
+      "priceCents": 5800,
+      "currency": "USD",
+      "image": "/products/price-tiers/p-a4693ccb64.webp",
+      "merchantImage": "/products/price-tiers/p-a4693ccb64.webp",
+      "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/0965/3665/8220/files/12ihv0u-490hhgr-mmeq95co.jpg?v=1774423319"
+      ],
+      "availability": "in_stock",
+      "sizes": [
+        "XS",
+        "S",
+        "M",
+        "L",
+        "XL",
+        "XXL",
+        "3XL"
+      ],
+      "merchantId": "maravinee-com",
+      "tagSlugs": [],
+      "description": "Green cotton/spandex fitted mini dress with overlapping pointed leaf-style layers and web-like vein seams. Merchant feed confirms Green XS/S/M/L/XL/XXL/3XL at $58. The leaves are fewer, darker and smoother than the reference’s organza tunic. Includes dress only. US shipping policy lists 3–7 business days processing plus 8–15 business days standard transit; custom production can take longer.",
+      "checkedAt": "2026-10-25T08:48:06.731813+00:00",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-25T08:48:06.731813+00:00",
+        "url": "https://maravinee.com/products/fairy-pixie-leaf-dress-forest-festival-outfit-alternative-fashion-mav260302916-1.js",
+        "notes": "Green cotton/spandex fitted mini dress with overlapping pointed leaf-style layers and web-like vein seams. Merchant feed confirms Green XS/S/M/L/XL/XXL/3XL at $58. The leaves are fewer, darker and smoother than the reference’s organza tunic. Includes dress only. US shipping policy lists 3–7 business days processing plus 8–15 business days standard transit; custom production can take longer."
+      }
+    },
+    {
+      "id": "p-a8d6d2b4b8",
+      "title": "Womens Green Leggings - High Waisted - Buttery Soft - Olive Green",
+      "url": "https://www.mommeandmore.com/products/womens-solid-olive-green-leggings?variant=30582196011146",
+      "priceCents": 1499,
+      "currency": "USD",
+      "image": "/products/price-tiers/p-a8d6d2b4b8.webp",
+      "merchantImage": "/products/price-tiers/p-a8d6d2b4b8.webp",
+      "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/1981/9981/products/womens-green-leggings-high-waisted-buttery-soft-olive-green-leggings-momme-and-more-523990.jpg?v=1779075193"
+      ],
+      "availability": "in_stock",
+      "sizes": [
+        "0-12"
+      ],
+      "merchantId": "mommeandmore-com",
+      "tagSlugs": [],
+      "description": "Solid olive green high-waisted buttery-soft leggings with yoga waistband. Merchant feed confirms only Green / Yoga Waist / 0-12 available at $14.99; 12-20 is unavailable and excluded. Smooth fabric omits the reference’s decorative lower-leg vine embroidery. Includes leggings only. US shipping is listed at $4.99, free for qualifying $50+ orders.",
+      "checkedAt": "2026-10-25T08:48:06.731813+00:00",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-25T08:48:06.731813+00:00",
+        "url": "https://www.mommeandmore.com/products/womens-solid-olive-green-leggings.js",
+        "notes": "Solid olive green high-waisted buttery-soft leggings with yoga waistband. Merchant feed confirms only Green / Yoga Waist / 0-12 available at $14.99; 12-20 is unavailable and excluded. Smooth fabric omits the reference’s decorative lower-leg vine embroidery. Includes leggings only. US shipping is listed at $4.99, free for qualifying $50+ orders."
+      }
+    },
+    {
+      "id": "p-c991fa53d8",
+      "title": "Women's Organic 100% Cotton Leggings",
+      "url": "https://www.fairindigo.com/products/fair-indigo-womens-fair-trade-organic-all-cotton-leggings?variant=64456476098929",
+      "priceCents": 4990,
+      "currency": "USD",
+      "image": "/products/price-tiers/p-c991fa53d8.webp",
+      "merchantImage": "/products/price-tiers/p-c991fa53d8.webp",
+      "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/0028/2525/7027/files/BG_OF_03982_olive.jpg?v=1787589162"
+      ],
+      "availability": "in_stock",
+      "sizes": [
+        "XS (26 in)",
+        "XS (30 in)",
+        "S (26 in)",
+        "S (30 in)",
+        "M (26 in)",
+        "M (30 in)",
+        "L (26 in)",
+        "L (30 in)",
+        "XL (26 in)",
+        "XL (30 in)"
+      ],
+      "merchantId": "fairindigo-com",
+      "tagSlugs": [],
+      "description": "Olive 100% organic Pima cotton interlock leggings with elastic waistband. Merchant feed confirms Olive XS/S/M/L/XL in both 26-inch and 30-inch inseams at $49.90; listed size labels retain the inseam. Cotton fits more loosely than synthetic leggings. Plain legs omit the vine embroidery. Product page lists free US shipping.",
+      "checkedAt": "2026-10-25T08:48:06.731813+00:00",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-25T08:48:06.731813+00:00",
+        "url": "https://www.fairindigo.com/products/fair-indigo-womens-fair-trade-organic-all-cotton-leggings.js",
+        "notes": "Olive 100% organic Pima cotton interlock leggings with elastic waistband. Merchant feed confirms Olive XS/S/M/L/XL in both 26-inch and 30-inch inseams at $49.90; listed size labels retain the inseam. Cotton fits more loosely than synthetic leggings. Plain legs omit the vine embroidery. Product page lists free US shipping."
+      }
+    },
+    {
+      "id": "p-fc5e6e9940",
+      "title": "Ultimate Active Leggings - Olive",
+      "url": "https://us.blakelyclothing.com/products/blakely-ultimate-active-leggings-olive?variant=42955833671816",
+      "priceCents": 5900,
+      "currency": "USD",
+      "image": "/products/price-tiers/p-fc5e6e9940.webp",
+      "merchantImage": "/products/price-tiers/p-fc5e6e9940.webp",
+      "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/0568/7099/4056/files/edit2_1850-3OLIVELEADDcopy_1.jpg?v=1724157898"
+      ],
+      "availability": "in_stock",
+      "sizes": [
+        "S",
+        "M",
+        "XL"
+      ],
+      "merchantId": "us-blakelyclothing-com",
+      "tagSlugs": [],
+      "description": "Olive high-waisted four-way-stretch active leggings with reinforced seams, V-shaped seam and small branding. Merchant feed confirms only S / Long, M / Regular, M / Long, L / Regular, XL / Regular and XL / Long at $59. The olive is lighter sage than the reference; no vine embroidery. Leg-length labels are merchant options, not inferred measurements. US shipping available; orders under $199 list $9.99 shipping.",
+      "checkedAt": "2026-10-25T08:48:06.731813+00:00",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-25T08:48:06.731813+00:00",
+        "url": "https://us.blakelyclothing.com/products/blakely-ultimate-active-leggings-olive.js",
+        "notes": "Olive high-waisted four-way-stretch active leggings with reinforced seams, V-shaped seam and small branding. Merchant feed confirms only S / Long, M / Regular, M / Long, L / Regular, XL / Regular and XL / Long at $59. The olive is lighter sage than the reference; no vine embroidery. Leg-length labels are merchant options, not inferred measurements. US shipping available; orders under $199 list $9.99 shipping."
+      }
+    },
+    {
+      "id": "p-9f0ec3e56f",
+      "title": "Danie Brown Boots",
+      "url": "https://www.rocketdog.com/products/danner-brown-boots?variant=43737405587526",
+      "priceCents": 5597,
+      "currency": "USD",
+      "image": "/products/price-tiers/p-9f0ec3e56f.webp",
+      "merchantImage": "/products/price-tiers/p-9f0ec3e56f.webp",
+      "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/1903/5555/files/DANNERAO_DARKBROWN_2.jpg?v=1756989780"
+      ],
+      "availability": "in_stock",
+      "sizes": [
+        "7",
+        "7.5",
+        "8",
+        "8.5",
+        "9",
+        "9.5",
+        "10"
+      ],
+      "merchantId": "rocketdog-com",
+      "tagSlugs": [],
+      "description": "Dark Brown faux leather lace-up ankle boots with side zip and chunky lug sole. Merchant feed confirms US sizes 7, 7.5, 8, 8.5, 9, 9.5 and 10 at $55.97. The 5.3 cm heel/platform and bulky sole differ from the reference’s low woodland boots. No vine decoration; boots only.",
+      "checkedAt": "2026-10-25T08:48:06.731813+00:00",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-25T08:48:06.731813+00:00",
+        "url": "https://www.rocketdog.com/products/danner-brown-boots.js",
+        "notes": "Dark Brown faux leather lace-up ankle boots with side zip and chunky lug sole. Merchant feed confirms US sizes 7, 7.5, 8, 8.5, 9, 9.5 and 10 at $55.97. The 5.3 cm heel/platform and bulky sole differ from the reference’s low woodland boots. No vine decoration; boots only."
+      }
+    },
+    {
+      "id": "p-47e042be1b",
+      "title": "Women's Boulder Summit Waterproof",
+      "url": "https://www.lemsshoes.com/products/womens-boulder-summit-waterproof?variant=40017820745786",
+      "priceCents": 21000,
+      "currency": "USD",
+      "image": "/products/price-tiers/p-47e042be1b.webp",
+      "merchantImage": "/products/price-tiers/p-47e042be1b.webp",
+      "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/0076/8812/6522/products/RuggedBark_RightOutside_1c02603f-9b84-4a68-9e6c-be5bc2465eff.jpg?v=1773209241"
+      ],
+      "availability": "in_stock",
+      "sizes": [
+        "6",
+        "6.5",
+        "7",
+        "7.5",
+        "8",
+        "8.5",
+        "9",
+        "9.5",
+        "10",
+        "10.5",
+        "11",
+        "11.5",
+        "12"
+      ],
+      "merchantId": "lemsshoes-com",
+      "tagSlugs": [],
+      "description": "Rugged Bark brown leather lace-up waterproof boots with padded ankle, wide toe box and rugged sole. Merchant feed confirms listed women’s US sizes 6 through 12, including half sizes, at $210. More practical and substantial than the reference’s slim fantasy ankle boot; no vine trim. Boots only.",
+      "checkedAt": "2026-10-25T08:48:06.731813+00:00",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-25T08:48:06.731813+00:00",
+        "url": "https://www.lemsshoes.com/products/womens-boulder-summit-waterproof.js",
+        "notes": "Rugged Bark brown leather lace-up waterproof boots with padded ankle, wide toe box and rugged sole. Merchant feed confirms listed women’s US sizes 6 through 12, including half sizes, at $210. More practical and substantial than the reference’s slim fantasy ankle boot; no vine trim. Boots only."
+      }
+    },
+    {
+      "id": "p-f623746353",
+      "title": "Auburn Bootie",
+      "url": "https://whitemountainshoes.com/products/auburn-bootie?variant=47385767182485",
+      "priceCents": 7999,
+      "currency": "USD",
+      "image": "/products/price-tiers/p-f623746353.webp",
+      "merchantImage": "/products/price-tiers/p-f623746353.webp",
+      "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/0671/3848/6421/files/W26019-918-main.jpg?v=1734372807"
+      ],
+      "availability": "in_stock",
+      "sizes": [
+        "6.5",
+        "7",
+        "9",
+        "6W",
+        "6.5W"
+      ],
+      "merchantId": "whitemountainshoes-com",
+      "tagSlugs": [],
+      "description": "Brown Suede leather lace-up desert ankle boots, one-inch heel and four-inch shaft. Merchant feed confirms only Brown Suede sizes 6.5, 7, 9, 6W and 6.5W available at $79.99. W means the merchant’s wide fit. Lower silhouette is close, but suede and simple lacing replace the reference’s smooth wrapped-vine finish. Boots only.",
+      "checkedAt": "2026-10-25T08:48:06.731813+00:00",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-25T08:48:06.731813+00:00",
+        "url": "https://whitemountainshoes.com/products/auburn-bootie.js",
+        "notes": "Brown Suede leather lace-up desert ankle boots, one-inch heel and four-inch shaft. Merchant feed confirms only Brown Suede sizes 6.5, 7, 9, 6W and 6.5W available at $79.99. W means the merchant’s wide fit. Lower silhouette is close, but suede and simple lacing replace the reference’s smooth wrapped-vine finish. Boots only."
+      }
+    }
+  ],
+  "merchants": [
+    {
+      "id": "mostory-store",
+      "name": "MOSTORY",
+      "domain": "mostory.store",
+      "url": "https://mostory.store/",
+      "kind": "boutique",
+      "neighborhoodId": null
+    },
+    {
+      "id": "arlenescostumes-com",
+      "name": "Arlene’s Costumes",
+      "domain": "arlenescostumes.com",
+      "url": "https://arlenescostumes.com/",
+      "kind": "boutique",
+      "neighborhoodId": null
+    },
+    {
+      "id": "chicagocostume-com",
+      "name": "Chicago Costume Company",
+      "domain": "chicagocostume.com",
+      "url": "https://chicagocostume.com/",
+      "kind": "boutique",
+      "neighborhoodId": null
+    },
+    {
+      "id": "burgschneider-com",
+      "name": "Burgschneider",
+      "domain": "burgschneider.com",
+      "url": "https://burgschneider.com/",
+      "kind": "boutique",
+      "neighborhoodId": null
+    },
+    {
+      "id": "thelittlebazaar-com",
+      "name": "The Little Bazaar",
+      "domain": "thelittlebazaar.com",
+      "url": "https://thelittlebazaar.com/",
+      "kind": "boutique",
+      "neighborhoodId": null
+    },
+    {
+      "id": "maravinee-com",
+      "name": "Maravinee",
+      "domain": "maravinee.com",
+      "url": "https://maravinee.com/",
+      "kind": "boutique",
+      "neighborhoodId": null
+    },
+    {
+      "id": "historicalcostumeshop-com",
+      "name": "Historical Costume Shop",
+      "domain": "historicalcostumeshop.com",
+      "url": "https://historicalcostumeshop.com/",
+      "kind": "boutique",
+      "neighborhoodId": null
+    },
+    {
+      "id": "mommeandmore-com",
+      "name": "MomMe And More Boutique",
+      "domain": "mommeandmore.com",
+      "url": "https://mommeandmore.com/",
+      "kind": "boutique",
+      "neighborhoodId": null
+    },
+    {
+      "id": "fairindigo-com",
+      "name": "Fair Indigo",
+      "domain": "fairindigo.com",
+      "url": "https://fairindigo.com/",
+      "kind": "boutique",
+      "neighborhoodId": null
+    },
+    {
+      "id": "us-blakelyclothing-com",
+      "name": "Blakely Clothing US",
+      "domain": "us.blakelyclothing.com",
+      "url": "https://us.blakelyclothing.com/",
+      "kind": "boutique",
+      "neighborhoodId": null
+    },
+    {
+      "id": "rocketdog-com",
+      "name": "Rocket Dog",
+      "domain": "rocketdog.com",
+      "url": "https://rocketdog.com/",
+      "kind": "boutique",
+      "neighborhoodId": null
+    },
+    {
+      "id": "whitemountainshoes-com",
+      "name": "White Mountain Shoes",
+      "domain": "whitemountainshoes.com",
+      "url": "https://whitemountainshoes.com/",
+      "kind": "boutique",
+      "neighborhoodId": null
+    },
+    {
+      "id": "lemsshoes-com",
+      "name": "Lems Shoes",
+      "domain": "lemsshoes.com",
+      "url": "https://lemsshoes.com/",
+      "kind": "boutique",
+      "neighborhoodId": null
+    }
+  ],
+  "neighborhoods": [],
+  "tags": [],
+  "provenance": {
+    "method": "manual-research",
+    "generatedAt": "2026-10-25T08:48:06.731813+00:00",
+    "priceTiers": true,
+    "heroImageKind": "generated-reference",
+    "notes": "Built-in web search and direct official merchant evidence. Three distinct relative price points per piece: $, $$, $$$. Prices exclude shipping/tax; stock is variant-specific and delivery is unconfirmed. See docs/sourcing/price-tiers/forest-sprite.json."
+  }
+}

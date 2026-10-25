@@ -3,6 +3,7 @@ import { createHash } from "node:crypto";
 import { mkdir, readFile, readdir, writeFile } from "node:fs/promises";
 import path from "node:path";
 import sharp from "sharp";
+import { isDeepStrictEqual } from "node:util";
 import { validateSnapshot } from "../../lib/catalog/validate";
 import { mapLimit } from "../../lib/sourcing/pool";
 
@@ -24,7 +25,8 @@ try { previousRecords = JSON.parse(await readFile("docs/sourcing/price-tiers/ima
 let failures = 0;
 for (const filename of (await readdir("data/costumes")).filter((name) => name.endsWith(".json")).sort()) {
   const target = path.join("data/costumes", filename);
-  const snapshot = validateSnapshot(JSON.parse(await readFile(target, "utf8")), false);
+  const original = JSON.parse(await readFile(target, "utf8"));
+  const snapshot = validateSnapshot(original, false);
   if (!snapshot.provenance.priceTiers) continue;
   const results = await mapLimit(snapshot.products, 4, async (product) => {
     const source = product.sourceImages[0];
@@ -51,7 +53,7 @@ for (const filename of (await readdir("data/costumes")).filter((name) => name.en
       bytes = new Uint8Array(await response.arrayBuffer());
     }
     const metadata = await sharp(bytes).metadata();
-    if (!metadata.width || !metadata.height || Math.max(metadata.width, metadata.height) < 250) throw new Error(product.id + ": merchant photo is too small or unreadable");
+    if (!metadata.width || !metadata.height || Math.max(metadata.width, metadata.height) < 400) throw new Error(product.id + ": merchant photo is too small or unreadable");
     const image = "/products/price-tiers/" + product.id + ".webp";
     const normalized = await sharp(bytes).rotate().resize({ width: 1400, height: 1400, fit: "inside", withoutEnlargement: true }).webp({ quality: 88 }).toBuffer();
     await writeFile(path.join("public", image), normalized);
@@ -61,7 +63,7 @@ for (const filename of (await readdir("data/costumes")).filter((name) => name.en
   });
   const errors = results.filter((result) => !result.ok);
   for (const result of errors) if (!result.ok) { failures++; console.error(result.error instanceof Error ? result.error.message : "Merchant photo could not be cached"); }
-  await writeFile(target, JSON.stringify(snapshot, null, 2) + "\n");
+  if (!isDeepStrictEqual(original, snapshot)) await writeFile(target, JSON.stringify(snapshot, null, 2) + "\n");
   console.log(snapshot.costume.slug + ": " + (results.length - errors.length) + "/" + results.length + " merchant photos saved.");
   const researchPath = path.join("docs/sourcing/price-tiers", filename);
   const research = JSON.parse(await readFile(researchPath, "utf8"));

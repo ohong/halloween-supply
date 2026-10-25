@@ -1,0 +1,444 @@
+{
+  "costumeSlug": "retro-astronaut",
+  "checkedAt": "2026-10-25T08:53:19.398203Z",
+  "pieces": [
+    {
+      "pieceId": "retro-astronaut-helmet",
+      "pieceName": "Rounded astronaut costume helmet",
+      "category": "headwear",
+      "required": true,
+      "order": 0,
+      "sizeKind": "one_size",
+      "styleNotes": "Use a rounded costume shell and visor. The silver option is closest; cheaper white shells change the color. These are decorative costume accessories.",
+      "queries": [
+        "adult silver astronaut costume helmet"
+      ],
+      "options": [
+        {
+          "tier": "$",
+          "title": "Adult Space Helmet (2 Piece)",
+          "url": "https://chicagocostume.com/products/adult-space-helmet?variant=42141439197426",
+          "priceCents": 2499,
+          "currency": "USD",
+          "merchantName": "Chicago Costume Company",
+          "merchantDomain": "chicagocostume.com",
+          "imageUrl": "https://cdn.shopify.com/s/files/1/0610/0208/8690/products/s-l640_51bff292-a1cd-4322-ba23-2775725fa4b5.jpg?v=1663963587",
+          "sizes": [
+            "One size fits most adults and kids 14+"
+          ],
+          "availability": "in_stock",
+          "evidenceUrl": "https://chicagocostume.com/products/adult-space-helmet.js",
+          "notes": "Two-piece plastic astronaut helmet. White shell with a clear visor and NASA decoration; differs from the silver shell and dark visor in the reference. Merchant states one size fits most adults and ages 14+. Ships Monday–Friday from Chicago.",
+          "localMerchantImage": "/products/price-tiers/p-0d72275b4d.webp"
+        },
+        {
+          "tier": "$$",
+          "title": "Astronaut Helmet with Shield",
+          "url": "https://chicagocostume.com/products/astronaut-helmet-with-shield?variant=42141447782642",
+          "priceCents": 4499,
+          "currency": "USD",
+          "merchantName": "Chicago Costume Company",
+          "merchantDomain": "chicagocostume.com",
+          "imageUrl": "https://cdn.shopify.com/s/files/1/0610/0208/8690/products/img_proxy_d6e5b887-94c5-41db-b67f-9927d8e19d30.jpg?v=1706046054",
+          "sizes": [
+            "One size fits most"
+          ],
+          "availability": "in_stock",
+          "evidenceUrl": "https://chicagocostume.com/products/astronaut-helmet-with-shield.js",
+          "notes": "One-piece plastic astronaut helmet with working shield visor, button and tubing details. White base with a rounded black visor dome; the shell is not silver. One size fits most; no head circumference given. Ships Monday–Friday from Chicago.",
+          "localMerchantImage": "/products/price-tiers/p-dd4f20779d.webp"
+        },
+        {
+          "tier": "$$$",
+          "title": "Silver Astronaut Helmet - Space - Plastic - Costume Accessory - One Size",
+          "url": "https://arlenescostumes.com/products/astronaut-helmet-silver-space-plastic-costume-accessory-adult-teen?variant=44262603292917",
+          "priceCents": 5499,
+          "currency": "USD",
+          "merchantName": "Arlene’s Costumes",
+          "merchantDomain": "arlenescostumes.com",
+          "imageUrl": "https://cdn.shopify.com/s/files/1/0672/5015/9861/products/astronaut-helmet-adult-2-piece-silver.jpg?v=1701110189",
+          "sizes": [
+            "One Size"
+          ],
+          "availability": "in_stock",
+          "evidenceUrl": "https://arlenescostumes.com/products/astronaut-helmet-silver-space-plastic-costume-accessory-adult-teen.js",
+          "notes": "Silver plastic astronaut helmet with NASA logo and flip-up blue translucent visor. Two pieces require assembly. Closest metallic shell option, but the blue visor and molded shape differ from the dark rounded reference. Helmet only; fits adults and larger teens.",
+          "localMerchantImage": "/products/price-tiers/p-85d7ce7b3c.webp"
+        }
+      ],
+      "gaps": []
+    },
+    {
+      "pieceId": "retro-astronaut-jumpsuit",
+      "pieceName": "Light flight jumpsuit base",
+      "category": "one-piece",
+      "required": true,
+      "order": 1,
+      "sizeKind": "apparel",
+      "styleNotes": "Use a long-sleeve, full-length light jumpsuit. These bases are white, not cream, and lack the orange panels and padded quilting. Add the separate orange fabric component.",
+      "queries": [
+        "white astronaut jumpsuit adult",
+        "white long sleeve coveralls"
+      ],
+      "options": [
+        {
+          "tier": "$",
+          "title": "Aerospace Astronaut Teen/Adult Costume (White)",
+          "url": "https://www.purecostumes.com/products/u29362-aerospace-astronaut-teen-adult-costume-white?variant=47643072495830",
+          "priceCents": 3495,
+          "currency": "USD",
+          "merchantName": "Pure Costumes",
+          "merchantDomain": "purecostumes.com",
+          "imageUrl": "https://cdn.shopify.com/s/files/1/0792/4950/6518/files/U29362_full_1.jpg?v=1766858168",
+          "sizes": [
+            "Teen",
+            "Standard",
+            "X-Large"
+          ],
+          "availability": "in_stock",
+          "evidenceUrl": "https://www.purecostumes.com/products/u29362-aerospace-astronaut-teen-adult-costume-white.js",
+          "notes": "Includes the white jumpsuit with embroidered patches. Product photo shows black straps and zipper accents. It is bright white rather than cream and has no burnt-orange panels or padded knees; add those from the separate fabric component. Helmet, gloves and footwear are separate.",
+          "localMerchantImage": "/products/price-tiers/p-987fdfb629.webp"
+        },
+        {
+          "tier": "$$",
+          "title": "Red Kap® Professional Twill Industrial workwear Action Back Coverall - White - CT10",
+          "url": "https://www.safetyvestsandmore.com/products/red-kap-professional-twill-industrial-workwear-action-back-coverall-white-ct10?variant=43348427210889",
+          "priceCents": 4059,
+          "currency": "USD",
+          "merchantName": "Safety Vests and More",
+          "merchantDomain": "safetyvestsandmore.com",
+          "imageUrl": "https://cdn.shopify.com/s/files/1/0338/7090/5481/files/red-kap-professional-twill-industrial-workwear-action-back-coverall-white-ct10-1.webp?v=1739224971",
+          "sizes": [
+            "34",
+            "36",
+            "38",
+            "40",
+            "42",
+            "44",
+            "46",
+            "48",
+            "50",
+            "52",
+            "54",
+            "58",
+            "40 (Tall)",
+            "42 (Tall)",
+            "44 (Tall)",
+            "46 (Tall)",
+            "48 (Tall)",
+            "50 (Tall)",
+            "52 (Tall)"
+          ],
+          "availability": "in_stock",
+          "evidenceUrl": "https://www.safetyvestsandmore.com/products/red-kap-professional-twill-industrial-workwear-action-back-coverall-white-ct10.js",
+          "notes": "One white long-sleeve Red Kap CT10 coverall in cotton/polyester twill. A plain workwear base with zipper and pockets, without patches, orange panels or padding. Listed sizes exclude sold-out 56. Add the separate burnt-orange fabric panels; helmet, belt, gloves and boots are separate.",
+          "localMerchantImage": "/products/price-tiers/p-cf22d6eba6.webp"
+        },
+        {
+          "tier": "$$$",
+          "title": "Classic White Astronaut Suit & Cap Adult Costume",
+          "url": "https://abracadabranyc.com/products/white-astronaut-suit-with-cap?variant=32797833625740",
+          "priceCents": 11295,
+          "currency": "USD",
+          "merchantName": "AbracadabraNYC",
+          "merchantDomain": "abracadabranyc.com",
+          "imageUrl": "https://cdn.shopify.com/s/files/1/1199/8814/files/618105A.jpg?v=1760379194",
+          "sizes": [
+            "Small",
+            "Large"
+          ],
+          "availability": "in_stock",
+          "evidenceUrl": "https://abracadabranyc.com/products/white-astronaut-suit-with-cap.js",
+          "notes": "Includes 100% polyester zip-up white jumpsuit with embroidered NASA patches and zipper pockets, plus embroidered baseball cap. The cap is extra and does not replace the helmet. White with black straps, not cream/orange; add separate fabric panels. Merchant offers US shipping; orders after 2pm Eastern miss that day’s cutoff.",
+          "localMerchantImage": "/products/price-tiers/p-ba6ef8eafc.webp"
+        }
+      ],
+      "gaps": []
+    },
+    {
+      "pieceId": "retro-astronaut-belt",
+      "pieceName": "Fabric utility-style belt",
+      "category": "accessories",
+      "required": true,
+      "order": 2,
+      "sizeKind": "apparel",
+      "styleNotes": "Use pale woven fabric and a visible buckle at the waist. These are plain belt approximations and do not include the reference pouches or shoulder suspenders.",
+      "queries": [
+        "white canvas belt silver buckle",
+        "khaki cotton web belt"
+      ],
+      "options": [
+        {
+          "tier": "$",
+          "title": "Rothco 54 Inch Military Web Belts - 4170",
+          "url": "https://www.armynavyusa.com/products/rothco-54-inch-military-web-belts-4170?variant=49615644852379",
+          "priceCents": 799,
+          "currency": "USD",
+          "merchantName": "Army Navy USA",
+          "merchantDomain": "armynavyusa.com",
+          "imageUrl": "https://cdn.shopify.com/s/files/1/0782/8973/1739/files/anu-gallery-20579fa3550e53e7-ae8fedb75b8766e2.jpg?v=1791617310",
+          "sizes": [
+            "54 inch"
+          ],
+          "availability": "in_stock",
+          "evidenceUrl": "https://www.armynavyusa.com/products/rothco-54-inch-military-web-belts-4170.js",
+          "notes": "Select White – Chrome Buckle. Includes a 54-inch, 1.25-inch-wide cotton web belt with silver-colored buckle and tip; cut to fit. Bright white and much narrower than the reference utility belt; no pouches or suspenders. Merchant states dispatch in 1–3 business days.",
+          "localMerchantImage": "/products/price-tiers/p-0dab590d99.webp"
+        },
+        {
+          "tier": "$$",
+          "title": "Rothco Vintage Double Prong Buckle Belt",
+          "url": "https://militaryuniformsupply.com/products/ultra-force-tm-vintage-belt-with-double-prong-buckle?variant=37984953827512",
+          "priceCents": 1799,
+          "currency": "USD",
+          "merchantName": "Military Uniform Supply",
+          "merchantDomain": "militaryuniformsupply.com",
+          "imageUrl": "https://cdn.shopify.com/s/files/1/0070/0874/7556/files/4171-double-pronged-belt-khaki.jpg?v=1753753094",
+          "sizes": [
+            "Small (up to 35 inch waist)",
+            "Medium (up to 39 inch waist)",
+            "Large (up to 43 inch waist)",
+            "XL (up to 47 inch waist)"
+          ],
+          "availability": "in_stock",
+          "evidenceUrl": "https://militaryuniformsupply.com/products/ultra-force-tm-vintage-belt-with-double-prong-buckle.js",
+          "notes": "Khaki washed-cotton belt with double-prong metal buckle and eyelets. More tan than the reference cream, and has no pouches or suspenders. Only the listed Khaki sizes at $17.99 are included.",
+          "localMerchantImage": "/products/price-tiers/p-a0e3a2a0b4.webp"
+        },
+        {
+          "tier": "$$$",
+          "title": "Atlas",
+          "url": "https://arcadebelts.com/products/atlas-stretch-belt?variant=51974259179884",
+          "priceCents": 3995,
+          "currency": "USD",
+          "merchantName": "Arcade Belts",
+          "merchantDomain": "arcadebelts.com",
+          "imageUrl": "https://cdn.shopify.com/s/files/1/0281/1170/0021/files/Atlas-Khaki-UA-NRSEEH4-453_optimized.webp?v=1787700110",
+          "sizes": [
+            "Standard width 1.5 inch / Standard length 24–38 inch"
+          ],
+          "availability": "in_stock",
+          "evidenceUrl": "https://arcadebelts.com/products/atlas-stretch-belt.js",
+          "notes": "Khaki / Standard width / Standard length only. Beige stretch webbing and matching plastic buckle approximate the cream waist strap. Merchant selector states 1.5-inch width and 24–38-inch waist range. No silver buckle, pouches or suspenders; this belt is not designed to carry gear.",
+          "localMerchantImage": "/products/price-tiers/p-b495506efa.webp"
+        }
+      ],
+      "gaps": []
+    },
+    {
+      "pieceId": "retro-astronaut-gloves",
+      "pieceName": "Light full-finger gloves",
+      "category": "accessories",
+      "required": true,
+      "order": 3,
+      "sizeKind": "one_size",
+      "styleNotes": "Use full-finger cream or white gloves. Everyday cotton versions are thin; the costume gloves have long cuffs and black trim. None reproduce the reference padded channels.",
+      "queries": [
+        "cream cotton full finger gloves",
+        "white adult astronaut gloves"
+      ],
+      "options": [
+        {
+          "tier": "$",
+          "title": "Gloves",
+          "url": "https://www.londontownusa.com/products/gloves?variant=21466587529293",
+          "priceCents": 1000,
+          "currency": "USD",
+          "merchantName": "LONDONTOWN",
+          "merchantDomain": "londontownusa.com",
+          "imageUrl": "https://cdn.shopify.com/s/files/1/2239/6447/products/Gloves-clippedred_1.png?v=1762268755",
+          "sizes": [
+            "One size"
+          ],
+          "availability": "in_stock",
+          "evidenceUrl": "https://www.londontownusa.com/products/gloves.js",
+          "notes": "One-size cotton hand-care gloves, shown white with a black LONDONTOWN mark. Thin everyday glove approximation; no padding or silver wrist cuff.",
+          "localMerchantImage": "/products/price-tiers/p-fd0a416d23.webp"
+        },
+        {
+          "tier": "$$",
+          "title": "Organic Cotton Overnight Gloves",
+          "url": "https://shopheybella.com/products/paume-organic-cotton-overnight-gloves?variant=50660898472214",
+          "priceCents": 1500,
+          "currency": "USD",
+          "merchantName": "Hey Bella",
+          "merchantDomain": "shopheybella.com",
+          "imageUrl": "https://cdn.shopify.com/s/files/1/0059/9785/4793/files/paume_hand_gloves_mask.jpg?v=1762533394",
+          "sizes": [],
+          "availability": "in_stock",
+          "evidenceUrl": "https://shopheybella.com/products/paume-organic-cotton-overnight-gloves.js",
+          "notes": "100% organic cotton overnight gloves, shown natural cream with elastic wrists. Closest simple color match, but thin and unpadded. This merchant does not state a size label, so check fit before purchase.",
+          "localMerchantImage": "/products/price-tiers/p-1ec5fec4c5.webp"
+        },
+        {
+          "tier": "$$$",
+          "title": "Astronaut Gloves White Adult",
+          "url": "https://www.fantasycostumes.com/astronaut-gloves-white-adult/",
+          "priceCents": 2888,
+          "currency": "USD",
+          "merchantName": "Fantasy Costumes",
+          "merchantDomain": "fantasycostumes.com",
+          "imageUrl": "https://cdn11.bigcommerce.com/s-obcuok9/images/stencil/1280w/products/6285/20079/adult-s-astronaut-gloves-whiteur28854std__41961.1706478785.jpg?c=2",
+          "sizes": [
+            "One size fits most"
+          ],
+          "availability": "in_stock",
+          "evidenceUrl": "https://www.fantasycostumes.com/astronaut-gloves-white-adult/",
+          "notes": "Pair of white astronaut costume gloves with black piping and NASA patch; longer cuffs and darker trim than the cream reference. One size fits most. Current merchant HTML lists $28.88 and instock:true; older search-cached text shows $19.88. Internet-only item.",
+          "localMerchantImage": "/products/price-tiers/p-6e8b5f055f.webp"
+        }
+      ],
+      "gaps": []
+    },
+    {
+      "pieceId": "retro-astronaut-boots",
+      "pieceName": "Silver boots",
+      "category": "footwear",
+      "required": true,
+      "order": 4,
+      "sizeKind": "shoe",
+      "styleNotes": "Use metallic silver boots. The reference has flat, rounded, knee-high space boots; these available fashion boots change the heel, toe shape or shaft height.",
+      "queries": [
+        "silver metallic knee high boots",
+        "silver leather boots"
+      ],
+      "options": [
+        {
+          "tier": "$",
+          "title": "Exotica-2000",
+          "url": "https://pleasershoes.com/products/exotica-2000s?variant=40957793992752",
+          "priceCents": 5895,
+          "currency": "USD",
+          "merchantName": "Pleaser Shoes",
+          "merchantDomain": "pleasershoes.com",
+          "imageUrl": "https://cdn.shopify.com/s/files/1/2089/7573/files/exotica-2000-s_93b8e56d-73e1-413f-9aa1-6f87e2888bed.jpg?v=1696457112",
+          "sizes": [
+            "6",
+            "10",
+            "11"
+          ],
+          "availability": "in_stock",
+          "evidenceUrl": "https://pleasershoes.com/products/exotica-2000s.js",
+          "notes": "Silver stretch knee-high go-go boots with 4-inch heel and 1.5-inch platform, full inner side zipper. Smooth fashion silhouette, not flat ribbed space boots. Women’s US sizes 6, 10 and 11 are available at $58.95; other sizes are sold out. Clearance: final sale.",
+          "localMerchantImage": "/products/price-tiers/p-3fba2f0088.webp"
+        },
+        {
+          "tier": "$$",
+          "title": "Gogo-300",
+          "url": "https://pleasershoes.com/products/gogo-300spu?variant=40958056136752",
+          "priceCents": 6795,
+          "currency": "USD",
+          "merchantName": "Pleaser Shoes",
+          "merchantDomain": "pleasershoes.com",
+          "imageUrl": "https://cdn.shopify.com/s/files/1/2089/7573/files/gogo-300-spu_44ced8ae-c52f-480e-b340-555925592deb.jpg?v=1696462816",
+          "sizes": [
+            "5",
+            "6",
+            "7",
+            "9",
+            "10",
+            "11",
+            "12",
+            "13",
+            "14",
+            "15",
+            "16"
+          ],
+          "availability": "in_stock",
+          "evidenceUrl": "https://pleasershoes.com/products/gogo-300spu.js",
+          "notes": "Silver stretch vegan-leather knee-high go-go boots with 3-inch block heel and side zipper. Smoother and slimmer than the reference, without ribbed padding. Sizes use Women’s US labels; size 8 is sold out and omitted.",
+          "localMerchantImage": "/products/price-tiers/p-21e9dbc725.webp"
+        },
+        {
+          "tier": "$$$",
+          "title": "Any Old Iron The Silver Lightning Bolt Boots",
+          "url": "https://www.anyoldiron.us/products/any-old-iron-the-lightning-bolt-boots?variant=40247074422902",
+          "priceCents": 28500,
+          "currency": "USD",
+          "merchantName": "Any Old Iron",
+          "merchantDomain": "anyoldiron.us",
+          "imageUrl": "https://cdn.shopify.com/s/files/1/0882/8672/files/Photoroom_20251217_135937.jpg?v=1766436005",
+          "sizes": [
+            "36",
+            "37",
+            "38",
+            "39",
+            "41"
+          ],
+          "availability": "in_stock",
+          "evidenceUrl": "https://www.anyoldiron.us/products/any-old-iron-the-lightning-bolt-boots.js",
+          "notes": "100% leather silver pointed-toe ankle boots with black lightning bolts, stud outlines and a low stacked heel. Much shorter and more decorative than the reference knee-high space boots. EU sizes 36, 37, 38, 39 and 41 are available; 40 is sold out. Merchant states free US shipping.",
+          "localMerchantImage": "/products/price-tiers/p-77c39948bb.webp"
+        }
+      ],
+      "gaps": []
+    },
+    {
+      "pieceId": "retro-astronaut-orange-panels",
+      "pieceName": "Burnt-orange fabric for suit panels",
+      "category": "accessories",
+      "required": true,
+      "order": 5,
+      "sizeKind": "one_size",
+      "styleNotes": "Cut and sew burnt-orange shoulder, arm, side and knee panels onto the light jumpsuit base. This is required DIY construction; none of the jumpsuits includes these panels. Fabric alone does not create padded channels.",
+      "queries": [
+        "burnt orange cotton fabric by the yard"
+      ],
+      "options": [
+        {
+          "tier": "$",
+          "title": "Cotton Vintage - Burnt Orange",
+          "url": "https://www.luckydeluxefabrics.com/products/cotton-vintage-burnt-orange?variant=48952841240746",
+          "priceCents": 500,
+          "currency": "USD",
+          "merchantName": "Lucky DeLuxe Fabrics",
+          "merchantDomain": "luckydeluxefabrics.com",
+          "imageUrl": "https://cdn.shopify.com/s/files/1/0590/3636/9066/files/IMG_5982_a5356ebe-c36a-47a8-8587-7fab21231e72.jpg?v=1785285490",
+          "sizes": [
+            "1 yard × 45 inch width"
+          ],
+          "availability": "in_stock",
+          "evidenceUrl": "https://www.luckydeluxefabrics.com/products/cotton-vintage-burnt-orange.js",
+          "notes": "Price covers one yard of vintage burnt-orange cotton fabric, 45 inches wide, sold in whole-yard increments. The photo appears more brick-red than the reference. Cut and stitch panels onto the separate jumpsuit; no pre-cut pieces or padding included. Measure required yardage first.",
+          "localMerchantImage": "/products/price-tiers/p-cd964a6995.webp"
+        },
+        {
+          "tier": "$$",
+          "title": "Painter's Palette Burnt Orange",
+          "url": "https://hartsfabric.com/painter-s-palette-burnt-orange-109555",
+          "priceCents": 899,
+          "currency": "USD",
+          "merchantName": "Harts Fabric",
+          "merchantDomain": "hartsfabric.com",
+          "imageUrl": "https://hartsfabric.com/pub/media/catalog/product/cache/b33543002cb9de920cfb940334232543/p/p/pp_burnt_orange.jpg",
+          "sizes": [
+            "1 yard × 44 inch width"
+          ],
+          "availability": "in_stock",
+          "evidenceUrl": "https://hartsfabric.com/painter-s-palette-burnt-orange-109555",
+          "notes": "Price is for one yard of 44-inch-wide 100% cotton fabric, not a finished costume panel. Current primary page lists 7.5 yards in stock. This burnt-orange shade is brighter than the reference. Cut and stitch shoulder, arm, side and knee panels; measure required coverage first. Merchant states dispatch in 1–2 business days.",
+          "localMerchantImage": "/products/price-tiers/p-337bac49dd.webp"
+        },
+        {
+          "tier": "$$$",
+          "title": "Crumple Cotton – Burnt Orange",
+          "url": "https://stonemountainfabric.com/product/t-46201-17/",
+          "priceCents": 1450,
+          "currency": "USD",
+          "merchantName": "Stonemountain & Daughter Fabrics",
+          "merchantDomain": "stonemountainfabric.com",
+          "imageUrl": "https://storage.googleapis.com/stmdf-production/2026/05/LRM_20260510_142040.jpg",
+          "sizes": [
+            "1 yard × 53 inch width"
+          ],
+          "availability": "in_stock",
+          "evidenceUrl": "https://stonemountainfabric.com/product/t-46201-17/",
+          "notes": "One yard of 53-inch-wide 100% cotton fabric, 170 GSM, with a subtle crinkle texture. Current primary page lists two yards in stock. Burnt-orange material must be cut and sewn as panels; no pre-cut panels, padding or sewing supplies included. Measure coverage before ordering. Merchant states dispatch in 2–3 days.",
+          "localMerchantImage": "/products/price-tiers/p-306614983d.webp"
+        }
+      ],
+      "gaps": []
+    }
+  ]
+}

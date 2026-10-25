@@ -1,5 +1,605 @@
 [
   {
+    "productId": "p-aa7634974a",
+    "source": "https://cdn.shopify.com/s/files/1/0672/5015/9861/files/scarecrow-hat-scary.jpg?v=1771760817",
+    "image": "/products/price-tiers/p-aa7634974a.webp",
+    "sha256": "244a2a86826934a080ed029b2d064b7c94c6d5d2bdc80356f37e93c030e54a4e",
+    "width": 809,
+    "height": 809
+  },
+  {
+    "productId": "p-a9bbe810b3",
+    "source": "https://cdn11.bigcommerce.com/s-0ot44/images/stencil/1280x1280/products/9578/14876/Flannel_4649_Y__83660.1385348449.jpg?c=2",
+    "image": "/products/price-tiers/p-a9bbe810b3.webp",
+    "sha256": "4b083ebe57f58df02ddecaa33c664efb0b7bddae73124d136bfc9b10acad8ba1",
+    "width": 750,
+    "height": 750
+  },
+  {
+    "productId": "p-ab758b6f95",
+    "source": "https://cdn.shopify.com/s/files/1/0610/0208/8690/files/ScarecrowHat1.jpg?v=1790182745",
+    "image": "/products/price-tiers/p-ab758b6f95.webp",
+    "sha256": "ce02c07837b9f28b1332dade2e53efb702e7f266c36521fa8d1faaf1f396dbe8",
+    "width": 522,
+    "height": 550
+  },
+  {
+    "productId": "p-c0462857a9",
+    "source": "https://cdn.shoplightspeed.com/shops/608314/files/21919961/omen-la-sorciere-witch-hat-in-rust.jpg",
+    "image": "/products/price-tiers/p-c0462857a9.webp",
+    "sha256": "6409204bba4c49c10ae26452f98907dd1633e59ce69f7f93604a4eeb2cbc1623",
+    "width": 1024,
+    "height": 1024
+  },
+  {
+    "productId": "p-7481a0935d",
+    "source": "https://cdn.shopify.com/s/files/1/0657/0557/4552/files/7dd58c10d644ad1c9e5f5790ac6b16a5e386ed95ec69685a61c33ad41b0470c4.jpg?v=1789700268",
+    "image": "/products/price-tiers/p-7481a0935d.webp",
+    "sha256": "5631434c3b8182f549c7ca1da0e6ca28d7d6a2073b6f0daece9f2cc297a80b5f",
+    "width": 1640,
+    "height": 2050
+  },
+  {
+    "productId": "p-cf63a0b770",
+    "source": "https://cdn.shopify.com/s/files/1/0388/0957/files/966_CH_FRONT1_copy_b6c264a1-a911-4547-821f-5a22795e74c9.jpg?v=1758735175",
+    "image": "/products/price-tiers/p-cf63a0b770.webp",
+    "sha256": "cc63bc2d71cee3bc6b864818b7270dc8c351cb111d3e78567a308eb5716ce6b7",
+    "width": 5000,
+    "height": 5000
+  },
+  {
+    "productId": "p-fc714a0f46",
+    "source": "https://cdn.shopify.com/s/files/1/0388/0957/files/699_BO_FRONT1_copy.jpg?v=1756925825",
+    "image": "/products/price-tiers/p-fc714a0f46.webp",
+    "sha256": "455171674af5c83a60b3148ffd1b4254662c8387d604e108cf54fc6dba366d51",
+    "width": 5000,
+    "height": 5000
+  },
+  {
+    "productId": "p-9057beddf0",
+    "source": "https://cdn.shopify.com/s/files/1/0729/2210/4107/files/VFC_Easyweight-Mens-Classic_Earth_Silo-1_d339efc7-1d81-4fcd-bb1d-963b34d47a81.jpg?v=1765292235",
+    "image": "/products/price-tiers/p-9057beddf0.webp",
+    "sha256": "e9eaedfd45f25f0523f8b6ee91279315136ec06cfe8058d04182aab19881d5d9",
+    "width": 1200,
+    "height": 1390
+  },
+  {
+    "productId": "p-2172101b5e",
+    "source": "https://cdn.shopify.com/s/files/1/0557/5219/6269/files/980_UN_FRONT1.jpg?v=1770817990",
+    "image": "/products/price-tiers/p-2172101b5e.webp",
+    "sha256": "f800038008974b31e73589c12ed1338f7cca97acccb6e63f22b1f557fbb3df1e",
+    "width": 2022,
+    "height": 2022
+  },
+  {
+    "productId": "p-6f7050efd4",
+    "source": "https://storage.googleapis.com/stmdf-production/2020/11/k001_186.jpg",
+    "image": "/products/price-tiers/p-6f7050efd4.webp",
+    "sha256": "35f3ca666f68e36e588c6b08ba53dba0b76902e182dab02fd9f4cfadc1fa2014",
+    "width": 432,
+    "height": 432
+  },
+  {
+    "productId": "p-6828df77b8",
+    "source": "https://cdn.shopify.com/s/files/1/0764/9551/files/0362AFFA-1EC4-4ECB-A0E2-FDE9FA2D098D.jpg?v=1773418496",
+    "image": "/products/price-tiers/p-6828df77b8.webp",
+    "sha256": "ba09f9a0ab7a88e7c2f9b7b967503fb7759b2c0bdd16c4703a45aa0f6b6a60da",
+    "width": 3024,
+    "height": 3024
+  },
+  {
+    "productId": "p-2ba1acc532",
+    "source": "https://cdn.supadupa.me/shop/2414/images/2721838/collage_2017_09_09_1__grande.jpg",
+    "image": "/products/price-tiers/p-2ba1acc532.webp",
+    "sha256": "feaf947ddf392b5353ac2f3b95dc5a3087e59eeaf315e8806959e8b1270493aa",
+    "width": 800,
+    "height": 600
+  },
+  {
+    "productId": "p-b3a38e3486",
+    "source": "https://cdn.supadupa.me/shop/2414/images/2817008/2018_03_08_079_grande.JPG",
+    "image": "/products/price-tiers/p-b3a38e3486.webp",
+    "sha256": "4588290cfa802c70aaaa0dc678ed1c29c4b4b486fd55b8ebe89f0cbb6814434f",
+    "width": 800,
+    "height": 600
+  },
+  {
+    "productId": "p-8a1b8e3829",
+    "source": "https://cdn.shopify.com/s/files/1/0253/9972/2072/files/SH001-Natural-Fold.jpg?v=1766767323",
+    "image": "/products/price-tiers/p-8a1b8e3829.webp",
+    "sha256": "051ae9426c8ef07959aaaa3fe82ca034a2e7b5973252613a295764f73f105f22",
+    "width": 3000,
+    "height": 3000
+  },
+  {
+    "productId": "p-a6adaaa2ea",
+    "source": "https://cdn.supadupa.me/shop/2414/images/3018195/DSC09314_grande.JPG",
+    "image": "/products/price-tiers/p-a6adaaa2ea.webp",
+    "sha256": "d4389f01fced215e5002926f059df07f6d048b8116d34fc70171bca237349b9f",
+    "width": 800,
+    "height": 600
+  },
+  {
+    "productId": "p-ba0acbf53c",
+    "source": "https://cdn.shopify.com/s/files/1/0419/1525/files/1024x1024-Men-Captain-Brown-081226-3.4-d17ac2.jpg?v=1790357464",
+    "image": "/products/price-tiers/p-ba0acbf53c.webp",
+    "sha256": "de2fa03688e86a3519b1e5d979c447d6c33d3424477b8c01fc19a6f36c0ce1d9",
+    "width": 1024,
+    "height": 1024
+  },
+  {
+    "productId": "p-9f0ec3e56f",
+    "source": "https://cdn.shopify.com/s/files/1/1903/5555/files/DANNERAO_DARKBROWN_2.jpg?v=1756989780",
+    "image": "/products/price-tiers/p-9f0ec3e56f.webp",
+    "sha256": "90b000dcaf8f5f96e5de86e2cf4c82b809844b9d3de0630d65ab2e75559b3ea1",
+    "width": 2500,
+    "height": 2500
+  },
+  {
+    "productId": "p-a880ab278b",
+    "source": "https://cdn.shopify.com/s/files/1/1163/3390/files/GRANT2SIDE2-Edit-Edit_27ba84f7-bb9a-4473-89e4-2683d625de2f.jpg?v=1783616239",
+    "image": "/products/price-tiers/p-a880ab278b.webp",
+    "sha256": "db9aec9631ee94aff99e74a9c5bd14c03e1c370a3b6ea069cf52b913a1465f10",
+    "width": 2048,
+    "height": 2048
+  },
+  {
+    "productId": "p-241957ea87",
+    "source": "https://cdn11.bigcommerce.com/s-800grt978v/products/4221/images/11709/ACC-823a_1024x1024%25402x__83478.1676035137.500.750.jpg?c=2",
+    "image": "/products/price-tiers/p-241957ea87.webp",
+    "sha256": "5f6d3320243c67fe888fbd5d74133937afa57698c80a61e1f47d417948cd92b1",
+    "width": 500,
+    "height": 750
+  },
+  {
+    "productId": "p-f7554aceb5",
+    "source": "https://cdn.shopify.com/s/files/1/0439/5935/3509/products/RU888893.jpg?v=1596024112",
+    "image": "/products/price-tiers/p-f7554aceb5.webp",
+    "sha256": "44d4f5521c8e3427578aacf730b606d22f9191e5d582d5c528f84ef02cfd8283",
+    "width": 709,
+    "height": 1800
+  },
+  {
+    "productId": "p-8058d66003",
+    "source": "https://cdn.shopify.com/s/files/1/0171/4841/1968/files/2025CostumeCollection.jpg?v=1753727611",
+    "image": "/products/price-tiers/p-8058d66003.webp",
+    "sha256": "98ee1e1bb3e55c30dda79df60c7a31a700ac50d9600fc7570f9866d092c5c01d",
+    "width": 798,
+    "height": 1787
+  },
+  {
+    "productId": "p-4b03068e6c",
+    "source": "https://cdn.shopify.com/s/files/1/0407/8285/files/Mom_Me_Candy_Corn_Witch_Costume_c69b9fe0-a7fb-47d0-9d7a-65a54ac1820b.png?v=1787193451",
+    "image": "/products/price-tiers/p-4b03068e6c.webp",
+    "sha256": "e3c2b880651653e0fa3d8de185889cc2898d1ad060f32716b9d6ab7be560aff4",
+    "width": 1024,
+    "height": 1536
+  },
+  {
+    "productId": "p-d042dfcec1",
+    "source": "https://cdn11.bigcommerce.com/s-800grt978v/products/4875/images/14962/ACC-37b_1024x10242x__17687.1685987636.500.750.jpg?c=2",
+    "image": "/products/price-tiers/p-d042dfcec1.webp",
+    "sha256": "b82f007fa6ac63928cb1f73801241f0ae26941dc0e1cfc6f8e63009140a3c53d",
+    "width": 500,
+    "height": 750
+  },
+  {
+    "productId": "p-133d7800ad",
+    "source": "https://cdn.shopify.com/s/files/1/0281/4528/7247/products/IMG_8709.jpg?v=1606861992",
+    "image": "/products/price-tiers/p-133d7800ad.webp",
+    "sha256": "a063aba9a7c26b7a7d971566caf62771f662fc3b4ff00e88574ab6476d2488bf",
+    "width": 3024,
+    "height": 4032
+  },
+  {
+    "productId": "p-84b3540997",
+    "source": "https://cdn11.bigcommerce.com/s-kffgfetapx/images/stencil/1280x1280/products/441/667/black-orange-striped-thigh-highs__13969.1760211959.png?c=1",
+    "image": "/products/price-tiers/p-84b3540997.webp",
+    "sha256": "4b2d6dad07fc0dfd12f6da5755db19f66818975d1964751188d007a55b4eee66",
+    "width": 1024,
+    "height": 1024
+  },
+  {
+    "productId": "p-dea55e9ca5",
+    "source": "https://cdn.shopify.com/s/files/1/0712/4978/9223/files/LA-6005-White-Orange-Striped-Over-The-Knee-Tights-DJ-NN-3.jpg?v=1775242873",
+    "image": "/products/price-tiers/p-dea55e9ca5.webp",
+    "sha256": "8557e490da14014b230edaa58f594cbe165a078e9bf83d136a538a600b6c5717",
+    "width": 500,
+    "height": 750
+  },
+  {
+    "productId": "p-98f954feab",
+    "source": "https://cdn.shopify.com/s/files/1/0712/4978/9223/files/DS_CCSTH_Candy_Corn_Striped_Thigh_High_TB_JM1.jpg?v=1791839815",
+    "image": "/products/price-tiers/p-98f954feab.webp",
+    "sha256": "89e0c66c09df93f0df82695565d786512a60cfcb6fb4deb89b33ce333db63e3f",
+    "width": 500,
+    "height": 750
+  },
+  {
+    "productId": "p-ed0b6d3416",
+    "source": "https://cdn.shopify.com/s/files/1/1903/5555/files/prima_grinnel_pu_black_002.jpg?v=1784302923",
+    "image": "/products/price-tiers/p-ed0b6d3416.webp",
+    "sha256": "619c0a498a4365cb4ac8d44e33e1dc509a940bbeeb482e75ff7670c9624b1435",
+    "width": 2500,
+    "height": 2500
+  },
+  {
+    "productId": "p-e949eead8d",
+    "source": "https://cdn.shopify.com/s/files/1/0946/4761/5853/files/products_S8-551-BG-G_Black_Greasy_8_Eye_Derby_Boot_1.jpg?v=1761823874",
+    "image": "/products/price-tiers/p-e949eead8d.webp",
+    "sha256": "3138abe6a1fa04dd8e9ad22a1cd4fd3a5f6471ebaebeb8af52f7b7750e55bcfd",
+    "width": 1200,
+    "height": 1200
+  },
+  {
+    "productId": "p-9ceb60b1a5",
+    "source": "https://cdn.shopify.com/s/files/1/0450/5721/2566/products/rainey-vintage-boots-dandy-wellington-black-of.jpg?v=1671580774",
+    "image": "/products/price-tiers/p-9ceb60b1a5.webp",
+    "sha256": "0ceb1791e881d3519c2784c371dec7281bd1967494a1f1b3e9e4422c7cd1e7e4",
+    "width": 1000,
+    "height": 1000
+  },
+  {
+    "productId": "p-fb28757f77",
+    "source": "https://cdn.shopify.com/s/files/1/0610/0208/8690/products/30365.jpg?v=1664487349",
+    "image": "/products/price-tiers/p-fb28757f77.webp",
+    "sha256": "0e4d1bf7ded4d3f3d1e947c64737ab5b366677b68c812f0e325d33dd463f2d57",
+    "width": 500,
+    "height": 891
+  },
+  {
+    "productId": "p-ddf8d6eac8",
+    "source": "https://cdn.shopify.com/s/files/1/0610/0208/8690/files/81GQ2gcqshL._AC_SY741.jpg?v=1755715116",
+    "image": "/products/price-tiers/p-ddf8d6eac8.webp",
+    "sha256": "a8dc39509e2cb4d87274993d0b9c12dd6e7f92b624a88a57b498068806512757",
+    "width": 500,
+    "height": 1099
+  },
+  {
+    "productId": "p-5eae316914",
+    "source": "https://i.etsystatic.com/6407748/r/il/66378f/7921287535/il_1588xN.7921287535_voha.jpg",
+    "image": "/products/price-tiers/p-5eae316914.webp",
+    "sha256": "12bb0117c250fe825379342201a746b7639dcdce2faa22bdc9455fe4e86c1dd3",
+    "width": 1588,
+    "height": 1588
+  },
+  {
+    "productId": "p-6bde7543cf",
+    "source": "https://i.etsystatic.com/10320055/r/il/70a53d/5913159905/il_1588xN.5913159905_n7vp.jpg",
+    "image": "/products/price-tiers/p-6bde7543cf.webp",
+    "sha256": "b45e137a65e030af4834674e5ddd7499f6ee2dddf1f23b1c304d280a275b7cc3",
+    "width": 1588,
+    "height": 1588
+  },
+  {
+    "productId": "p-754204b498",
+    "source": "https://i.etsystatic.com/38315185/r/il/0560e3/7896853382/il_1588xN.7896853382_hobe.jpg",
+    "image": "/products/price-tiers/p-754204b498.webp",
+    "sha256": "19d396dfd2287021cc4c4695ab18e025d27d192f6bb76dc37abf9cb46f2170f5",
+    "width": 1588,
+    "height": 2387
+  },
+  {
+    "productId": "p-df1458eaa4",
+    "source": "https://cdn.shopify.com/s/files/1/0036/8594/1366/files/WrapCordedBeltRhine-web.jpg?v=1763044189",
+    "image": "/products/price-tiers/p-df1458eaa4.webp",
+    "sha256": "4b201b8103d64c4640702aa8ea7c4de140d85049e1c0163313486654f4d2613e",
+    "width": 3000,
+    "height": 2100
+  },
+  {
+    "productId": "p-99a22fc86e",
+    "source": "https://cdn11.bigcommerce.com/s-863teu/images/stencil/1280x1280/products/16104/73042/56c48101-f934-543b-8573-8404ad4fd359__61189.1557925809.jpg?c=2",
+    "image": "/products/price-tiers/p-99a22fc86e.webp",
+    "sha256": "5959ef8086acf441039278de3946e027caa275c16fdfd0fefc40992d43be9466",
+    "width": 1200,
+    "height": 1200
+  },
+  {
+    "productId": "p-bfb0395c79",
+    "source": "https://cdn.shopify.com/s/files/1/0980/0974/3654/files/006560_01_b92ad657-0bbc-43e4-8301-c833d954a5df.jpg?v=1769539795",
+    "image": "/products/price-tiers/p-bfb0395c79.webp",
+    "sha256": "1b6fe3fd51afef23fcbbc6155ab994165a5cc9ccb3ea10f46ae356eb7199d840",
+    "width": 450,
+    "height": 725
+  },
+  {
+    "productId": "p-6c25477681",
+    "source": "https://cdn.shopify.com/s/files/1/0980/0974/3654/files/006564_01_2b95236b-324e-4978-8373-e0a04ae81a5c.jpg?v=1769539801",
+    "image": "/products/price-tiers/p-6c25477681.webp",
+    "sha256": "3e9ee37940a14067f7125ab465e53962c16bebd3411ecdadfd9bdf8e46961d0a",
+    "width": 450,
+    "height": 596
+  },
+  {
+    "productId": "p-8b19a67cce",
+    "source": "https://cdn.shopify.com/s/files/1/0150/4090/5316/files/SLV-CEL-NCK-F-STE-CTTT0417RHLU_1.jpg?v=1754007391",
+    "image": "/products/price-tiers/p-8b19a67cce.webp",
+    "sha256": "9cedcfbc4cd051129386c6ff0e5b05db8ba97bf05d79a4abc5856bfc8a4f3fd0",
+    "width": 3024,
+    "height": 3024
+  },
+  {
+    "productId": "p-1fc53fccf7",
+    "source": "https://cdn.shopify.com/s/files/1/0069/0067/8727/products/Elke-Van-Dyke-Design-Silver-Crescent-Moon-Necklace.jpg?v=1713051819",
+    "image": "/products/price-tiers/p-1fc53fccf7.webp",
+    "sha256": "be8e78e240502ca748b9db47a07e4d855f2a5a5975a1a3bc2a328dbdf6bce057",
+    "width": 2012,
+    "height": 2012
+  },
+  {
+    "productId": "p-b972e98eb6",
+    "source": "https://cdn.shopify.com/s/files/1/1563/9555/files/IMG-0305.png?v=1790273192",
+    "image": "/products/price-tiers/p-b972e98eb6.webp",
+    "sha256": "08e6a470cb9a838292448e26a8a7e1ee9b371d46c618899a655ac69fe0b8c68d",
+    "width": 1086,
+    "height": 1448
+  },
+  {
+    "productId": "p-1dfad7ca74",
+    "source": "https://www.medievalcollectibles.com/wp-content/uploads/2020/05/LUA3105.jpg",
+    "image": "/products/price-tiers/p-1dfad7ca74.webp",
+    "sha256": "838e98144e2e7de706f73c6add7c048b2943167bccb8178984df92ff713c01df",
+    "width": 567,
+    "height": 567
+  },
+  {
+    "productId": "p-f082a38e0a",
+    "source": "https://cdn.shopify.com/s/files/1/0043/1698/7462/files/Untitled-1_3ff760c4-415a-445f-be44-9c114f01f923.jpg?v=1719991619",
+    "image": "/products/price-tiers/p-f082a38e0a.webp",
+    "sha256": "9ff6f869d22f0b367aea9473cbd8fa6e041962d0339cffb153903bf3ebac7762",
+    "width": 2048,
+    "height": 2048
+  },
+  {
+    "productId": "p-7e94b74c9b",
+    "source": "https://cdn.shopify.com/s/files/1/0765/8749/9864/files/AviatorCap.webp?v=1780920364",
+    "image": "/products/price-tiers/p-7e94b74c9b.webp",
+    "sha256": "45a2da93461f7df2c426084589ddf77c2606147a1a47486404fa38c0aaa74828",
+    "width": 1140,
+    "height": 855
+  },
+  {
+    "productId": "p-ef2d14a87e",
+    "source": "https://www.medievalcollectibles.com/wp-content/uploads/2020/05/FM-66139.jpg",
+    "image": "/products/price-tiers/p-ef2d14a87e.webp",
+    "sha256": "43cb9b24ae352771a3fd4df9f0e7324926164e6b2d99b53c3ec2c9b1e49e2b75",
+    "width": 850,
+    "height": 850
+  },
+  {
+    "productId": "p-8297550d17",
+    "source": "https://www.steampunkgoggles.com/wp-content/uploads/dark2.jpg",
+    "image": "/products/price-tiers/p-8297550d17.webp",
+    "sha256": "1c5f8f0adb5a12a207855105d0add8cd285b0c4ce43c720838dcc832d8be9e3b",
+    "width": 570,
+    "height": 423
+  },
+  {
+    "productId": "p-e17742919a",
+    "source": "https://cdn.shopify.com/s/files/1/0737/3330/8732/products/il_fullxfull.1230307464_8pr7_4351df06-982e-4ea9-b3d1-67432022af3f.jpg?v=1700334092",
+    "image": "/products/price-tiers/p-e17742919a.webp",
+    "sha256": "837c6c35f9deccf6bb5a308369e7efcef8b68cd3f05af87002ad7a64bfdc119a",
+    "width": 3000,
+    "height": 2120
+  },
+  {
+    "productId": "p-b7869f2049",
+    "source": "https://cdn.shopify.com/s/files/1/0905/5872/6430/files/257S_BRG_FRT.jpg?v=1778004456",
+    "image": "/products/price-tiers/p-b7869f2049.webp",
+    "sha256": "e78b5e7bd6f6b704535459e5137f7b9f3506906da6b1f42a2618a0f899617e9e",
+    "width": 2560,
+    "height": 3200
+  },
+  {
+    "productId": "p-4bcde5cbe8",
+    "source": "https://cdn.shopify.com/s/files/1/0783/7388/0064/files/Jones-Mens-Brown-B-3-Bomber-Leather-Jacket-2.webp?v=1759936671",
+    "image": "/products/price-tiers/p-4bcde5cbe8.webp",
+    "sha256": "2ea4750cf313212a4110b6650121bb42b75cccdbd696b05809540a8b437db9dd",
+    "width": 1200,
+    "height": 1200
+  },
+  {
+    "productId": "p-e40879fa1e",
+    "source": "https://cdn.shopify.com/s/files/1/1898/3725/files/ankara-faux-shearling-flight-jacket-brown-front.jpg?v=1777690719",
+    "image": "/products/price-tiers/p-e40879fa1e.webp",
+    "sha256": "1154367ecb6ef20f654864eec4cf29f20ee24c85388d6a6644f5d7d7772dc1fa",
+    "width": 848,
+    "height": 1264
+  },
+  {
+    "productId": "p-4a2bda5a9b",
+    "source": "https://cdn11.bigcommerce.com/s-2iveh3ifm0/products/2106/images/12330/apis0s3xd__89399.1592329524.500.750.jpg?c=2",
+    "image": "/products/price-tiers/p-4a2bda5a9b.webp",
+    "sha256": "9af065abdb9e32e6d363bc9858407066069aaf689958193fd69b6d575a5f8507",
+    "width": 500,
+    "height": 414
+  },
+  {
+    "productId": "p-205b09ce3c",
+    "source": "https://cdn.shopify.com/s/files/1/0980/0974/3654/files/006021_01_daa87ed5-2134-4a22-a461-fc42e37012da.jpg?v=1769539749",
+    "image": "/products/price-tiers/p-205b09ce3c.webp",
+    "sha256": "22c091e62c9843a6cf3e04272b245d8214d1dce3d3ef6c0c7f86ebbe2fc263fb",
+    "width": 450,
+    "height": 499
+  },
+  {
+    "productId": "p-9795db4936",
+    "source": "https://cdn.shopify.com/s/files/1/0782/8973/1739/files/anu-gallery-04a8d315b754331a-a361a055afb3ca3e.jpg?v=1791590608",
+    "image": "/products/price-tiers/p-9795db4936.webp",
+    "sha256": "9156259bbf7580edaad07d8824f621ad56f61bead5dc790b1275fccf465ff099",
+    "width": 1000,
+    "height": 1000
+  },
+  {
+    "productId": "p-58c3835681",
+    "source": "https://cdn.shopify.com/s/files/1/0773/1540/8199/files/WCCBR144BNL-1.jpg?v=1738318375",
+    "image": "/products/price-tiers/p-58c3835681.webp",
+    "sha256": "171ba03b530ecf070305befb47af0bfa09a9dac22c077c18bf2925fb6b0ca385",
+    "width": 900,
+    "height": 900
+  },
+  {
+    "productId": "p-773a8bcca3",
+    "source": "https://cdn.shopify.com/s/files/1/0408/9909/files/untitled---07-23-24---Feature--DV-44-REVISIONS_3f9cafba-04e3-407a-9f95-e232d86fea22.jpg?v=1788239934",
+    "image": "/products/price-tiers/p-773a8bcca3.webp",
+    "sha256": "b9d376b3e5ffd4cafb4b2f0b1828b08789bc1c5fb6fa16beb8da2d37f5e0b752",
+    "width": 1024,
+    "height": 1024
+  },
+  {
+    "productId": "p-ba0acbf53c",
+    "source": "https://cdn.shopify.com/s/files/1/0419/1525/files/1024x1024-Men-Captain-Brown-081226-3.4-d17ac2.jpg?v=1790357464",
+    "image": "/products/price-tiers/p-ba0acbf53c.webp",
+    "sha256": "de2fa03688e86a3519b1e5d979c447d6c33d3424477b8c01fc19a6f36c0ce1d9",
+    "width": 1024,
+    "height": 1024
+  },
+  {
+    "productId": "p-80bbc22276",
+    "source": "https://cdn.shopify.com/s/files/1/0132/2975/2377/files/stretched2-10.jpg?v=1739566390",
+    "image": "/products/price-tiers/p-80bbc22276.webp",
+    "sha256": "b89481cad3f37a44295f8b358d42c1cf64358b74f7888beeaa57bdba1a282320",
+    "width": 3000,
+    "height": 2143
+  },
+  {
+    "productId": "p-3b0a976509",
+    "source": "https://www.nunnbush.com/shop/images/w590/85088-215.jpg",
+    "image": "/products/price-tiers/p-3b0a976509.webp",
+    "sha256": "082ea705ac032551c55f83107b6c766ecb8ab33a0a845f30535d1eb125ef11c3",
+    "width": 590,
+    "height": 667
+  },
+  {
+    "productId": "p-10ebd36f10",
+    "source": "https://cdn.shopify.com/s/files/1/1163/3390/files/06SIDE-Edit_14628844-8b5f-4b32-b91c-69db10615674.jpg?v=1783615369",
+    "image": "/products/price-tiers/p-10ebd36f10.webp",
+    "sha256": "4d3cba0539dd0d470ca8bbe1df9eaa693aa04d6fcba5cc7bb6cfd1598ddb3088",
+    "width": 2048,
+    "height": 2048
+  },
+  {
+    "productId": "p-f1dddd744e",
+    "source": "https://img.lilysilk.com/cdn-cgi/image/width=600,quality=90/media/catalog/product/91T5432/323GN/1.jpg",
+    "image": "/products/price-tiers/p-f1dddd744e.webp",
+    "sha256": "3062e775034a3ae3f4739c2ad4dc8447b9585b175280b6df170575801429bc9c",
+    "width": 600,
+    "height": 900
+  },
+  {
+    "productId": "p-51a7e510e3",
+    "source": "https://cdn.shopify.com/s/files/1/0307/1328/2696/files/0B593794-4923-4BB8-9C2D-E5501690510C.jpg?v=1696013504",
+    "image": "/products/price-tiers/p-51a7e510e3.webp",
+    "sha256": "ce6633dc28bc010a5df94966040dfd30e4f3c19b1195d9e5c688c9d11979064e",
+    "width": 3000,
+    "height": 3129
+  },
+  {
+    "productId": "p-b5be675386",
+    "source": "https://cdn.shopify.com/s/files/1/2398/3299/products/267706659_427128145559785_3337190845405807959_n.jpg?v=1680137348",
+    "image": "/products/price-tiers/p-b5be675386.webp",
+    "sha256": "9259ed35669661f9aa41a1bdc6d086522cbd0aa0c61fb293361ab3c33e8903ce",
+    "width": 1250,
+    "height": 1880
+  },
+  {
+    "productId": "p-ee8e61ddf8",
+    "source": "https://www.tribenawaar.com/wp-content/uploads/2024/10/crown-mermaid2alt.jpg",
+    "image": "/products/price-tiers/p-ee8e61ddf8.webp",
+    "sha256": "34618170a541f00e55532a8ed547bce07587da28c0f1b65d68e89a4f9da4ce98",
+    "width": 1200,
+    "height": 1200
+  },
+  {
+    "productId": "p-d5634fd561",
+    "source": "https://cdn.shopify.com/s/files/1/0652/0553/4943/products/12_b13edff2-136c-457b-b028-814491b90b83.jpg?v=1655846918",
+    "image": "/products/price-tiers/p-d5634fd561.webp",
+    "sha256": "f8b5bbc958a2028f27b2a1b81222623eaf254ce63db309d06eb262f0d7d2fb40",
+    "width": 533,
+    "height": 800
+  },
+  {
+    "productId": "p-ca72e0b7ee",
+    "source": "https://cdn.shopify.com/s/files/1/0794/5139/0145/files/SAGE-DOLMAN-FLATLAY.png?v=1786925771",
+    "image": "/products/price-tiers/p-ca72e0b7ee.webp",
+    "sha256": "877556b217d1d14c0bf9ccb47932dccbd4bad80b9bfc1644dc070436ce2bc749",
+    "width": 1254,
+    "height": 1254
+  },
+  {
+    "productId": "p-7708586a9f",
+    "source": "https://s.turbifycdn.com/aah/yhst-38766513433218/applique-embroidery-mesh-shrug-bolero-pink-115.png",
+    "image": "/products/price-tiers/p-7708586a9f.webp",
+    "sha256": "3100c44fe0ab3179051eed43046c0101a8809a0b8651dc2feaf39ec68bf372d8",
+    "width": 1000,
+    "height": 1000
+  },
+  {
+    "productId": "p-0cd4267b57",
+    "source": "https://cdn.shopify.com/s/files/1/0504/9017/9784/files/BW05-01.png?v=1773574098",
+    "image": "/products/price-tiers/p-0cd4267b57.webp",
+    "sha256": "30826e05fa28ba251a6d7774696d5ae158a5735a5e2fbb82bfde178456d3b77f",
+    "width": 1600,
+    "height": 2400
+  },
+  {
+    "productId": "p-4bdc0f3102",
+    "source": "https://cdn.shopify.com/s/files/1/0327/1609/5533/files/060.05857.226.08119_Cliona_Jacket_Soutache_Embroidery_Magenta_Pink_1.jpg?v=1771503234",
+    "image": "/products/price-tiers/p-4bdc0f3102.webp",
+    "sha256": "957723b58469838d8db6d8f06bfcded9cb5750c275992f8bdfb90a69e9fe2ebb",
+    "width": 2000,
+    "height": 3000
+  },
+  {
+    "productId": "p-702abbc0df",
+    "source": "https://angel-secret.com/image/cache/catalog/product-id-29132179077153652/p141-high-waist-green-sequins-mermaid-skirt-fish-ariel-tail-costume-sea-plant-503-550x550h.JPG",
+    "image": "/products/price-tiers/p-702abbc0df.webp",
+    "sha256": "949716ae9d731dd57d5bfb65f136c27d0e6c1912cbfdc070e25ba8c28d9fa6f2",
+    "width": 550,
+    "height": 550
+  },
+  {
+    "productId": "p-a6fa0ec463",
+    "source": "https://cdn.shopify.com/s/files/1/2030/6253/products/legavenue-com-iridescent-scale-mermaid-skirt-14839548346503_57f2dc7e-7250-4f90-a589-094945398ad3.jpg?v=1756919971",
+    "image": "/products/price-tiers/p-a6fa0ec463.webp",
+    "sha256": "cf74a466354520e74ef76f275374e68cc946102821d32af9f158fbc21a774631",
+    "width": 1080,
+    "height": 1530
+  },
+  {
+    "productId": "p-8819ec3e27",
+    "source": "https://cdn.shopify.com/s/files/1/1140/4312/files/teal-metallic-high-waist-mermaid-skirt-6024768.jpg?v=1788590173",
+    "image": "/products/price-tiers/p-8819ec3e27.webp",
+    "sha256": "846bcdffe13ef281b0df07df77e3f55e71bb343da3ee398b5341217abec1cfdf",
+    "width": 2000,
+    "height": 2000
+  },
+  {
+    "productId": "p-2841eb346e",
+    "source": "https://cdn.shopify.com/s/files/1/0554/4122/7965/files/IMG_3148.jpg?v=1729124638",
+    "image": "/products/price-tiers/p-2841eb346e.webp",
+    "sha256": "6c1c7c35fc5d00a7aaf2f52cf18b9951f0c98659c994c81d27887b0ecbbec827",
+    "width": 2031,
+    "height": 2048
+  },
+  {
+    "productId": "p-2ef2d86b48",
+    "source": "https://cdn.shopify.com/s/files/1/0288/6287/3635/files/968_front.jpg?v=1771444742",
+    "image": "/products/price-tiers/p-2ef2d86b48.webp",
+    "sha256": "22ed178652f6f01bc2f1f933ef57b3df29640838c09cebe6fc8fb438e66ec612",
+    "width": 1500,
+    "height": 1500
+  },
+  {
+    "productId": "p-871b38ba4c",
+    "source": "https://cdn.shopify.com/s/files/1/0405/1815/6439/files/SeaGlassPendantTinyAqua1.2N.jpg?v=1757184460",
+    "image": "/products/price-tiers/p-871b38ba4c.webp",
+    "sha256": "de51990e424a3733eb16b8e0ce6ca34426ecd151e3d6936fec2432b0c811e1ab",
+    "width": 1536,
+    "height": 2048
+  },
+  {
     "productId": "p-9a55a595ed",
     "source": "https://www.flashingblinkylights.com/media/catalog/product/1/1/11832_sl_cowboy_hatv2_600.gif",
     "image": "/products/price-tiers/p-9a55a595ed.webp",
@@ -16,20 +616,20 @@
     "height": 2010
   },
   {
-    "productId": "p-d3dda3a622",
-    "source": "https://cdn.shopify.com/s/files/1/1140/8354/files/UDW-30904-C-1.jpg?v=1727685331",
-    "image": "/products/price-tiers/p-d3dda3a622.webp",
-    "sha256": "01986e6a21e6af001f139e16682f702c6210a87eb873c9dc636d0683d8a8f5f5",
-    "width": 2000,
-    "height": 2000
-  },
-  {
     "productId": "p-2776c6bc82",
     "source": "https://cdn.shopify.com/s/files/1/0608/9326/6116/files/1540C0A7-860E-40A1-B7D2-831A3C91A3E2.jpg?v=1700951893",
     "image": "/products/price-tiers/p-2776c6bc82.webp",
     "sha256": "043eb4e4b4d856e246ab24f6f1f42497d59863ffa465000b09650690eb170195",
     "width": 3024,
     "height": 4032
+  },
+  {
+    "productId": "p-d3dda3a622",
+    "source": "https://cdn.shopify.com/s/files/1/1140/8354/files/UDW-30904-C-1.jpg?v=1727685331",
+    "image": "/products/price-tiers/p-d3dda3a622.webp",
+    "sha256": "01986e6a21e6af001f139e16682f702c6210a87eb873c9dc636d0683d8a8f5f5",
+    "width": 2000,
+    "height": 2000
   },
   {
     "productId": "p-47ca5a0d66",
@@ -56,12 +656,12 @@
     "height": 1036
   },
   {
-    "productId": "p-b399bab722",
-    "source": "https://cdn.shopify.com/s/files/1/2723/5426/products/river01-slv.png?v=1669171745",
-    "image": "/products/price-tiers/p-b399bab722.webp",
-    "sha256": "7ff3ed9fd13f714aaf567e97fbe68ee87c6d6c917754d04f46f6155f0b6fd1d2",
-    "width": 625,
-    "height": 715
+    "productId": "p-9bbb0166a7",
+    "source": "https://cdn.shopify.com/s/files/1/0598/0035/4955/files/vn8435juw4qrczxwtgjv.jpg?v=1712947664",
+    "image": "/products/price-tiers/p-9bbb0166a7.webp",
+    "sha256": "5b17717ed4e96e976b8dc3ca8aa0d4f88754865948b19ade933377b6dfe75f2f",
+    "width": 1188,
+    "height": 1188
   },
   {
     "productId": "p-001ca783f4",
@@ -72,12 +672,12 @@
     "height": 2014
   },
   {
-    "productId": "p-68dc4caa64",
-    "source": "https://cdn.shopify.com/s/files/1/0033/0707/7741/files/DI2248-Silver_2.png?v=1740588327",
-    "image": "/products/price-tiers/p-68dc4caa64.webp",
-    "sha256": "b2349750f5fb471ee7879029712f5f9ba34820a9483209f0c27473ba08047591",
-    "width": 1500,
-    "height": 1500
+    "productId": "p-b399bab722",
+    "source": "https://cdn.shopify.com/s/files/1/2723/5426/products/river01-slv.png?v=1669171745",
+    "image": "/products/price-tiers/p-b399bab722.webp",
+    "sha256": "7ff3ed9fd13f714aaf567e97fbe68ee87c6d6c917754d04f46f6155f0b6fd1d2",
+    "width": 625,
+    "height": 715
   },
   {
     "productId": "p-be96576442",
@@ -86,6 +686,14 @@
     "sha256": "d86dcfe38ab24913cef1d987594ca0c5f6991f194579960195e667a8792f5f4b",
     "width": 1024,
     "height": 1024
+  },
+  {
+    "productId": "p-68dc4caa64",
+    "source": "https://cdn.shopify.com/s/files/1/0033/0707/7741/files/DI2248-Silver_2.png?v=1740588327",
+    "image": "/products/price-tiers/p-68dc4caa64.webp",
+    "sha256": "b2349750f5fb471ee7879029712f5f9ba34820a9483209f0c27473ba08047591",
+    "width": 1500,
+    "height": 1500
   },
   {
     "productId": "p-dd6cb1a575",
@@ -112,20 +720,676 @@
     "height": 2000
   },
   {
-    "productId": "p-9bbb0166a7",
-    "source": "https://cdn.shopify.com/s/files/1/0598/0035/4955/files/vn8435juw4qrczxwtgjv.jpg?v=1712947664",
-    "image": "/products/price-tiers/p-9bbb0166a7.webp",
-    "sha256": "5b17717ed4e96e976b8dc3ca8aa0d4f88754865948b19ade933377b6dfe75f2f",
-    "width": 1188,
-    "height": 1188
+    "productId": "p-d90af7f4b4",
+    "source": "https://cdn.shopify.com/s/files/1/0923/6126/1421/files/front_46c3bbd9-0bbd-448d-9012-6b29ce32ad5e.jpg?v=1762297035",
+    "image": "/products/price-tiers/p-d90af7f4b4.webp",
+    "sha256": "6f73528deadc49f2dacb220a42af4bb6ed44067cab2c689c2839fa4f5c57ccc7",
+    "width": 3672,
+    "height": 6528
   },
   {
-    "productId": "p-ade84082ca",
-    "source": "https://cdn.shopify.com/s/files/1/1084/5358/products/orkney_off_white_fitted_and_flat_sheets.jpg?v=1742929067",
-    "image": "/products/price-tiers/p-ade84082ca.webp",
-    "sha256": "1cb00aa721788914f04b06c077528ee16e2fddd1844d86087dcff632231ce691",
+    "productId": "p-38cb93ba57",
+    "source": "https://www.vividlinen.com/images/product_feature_look_top/thumb/T2114_20200609053928_2336.jpg",
+    "image": "/products/price-tiers/p-38cb93ba57.webp",
+    "sha256": "54c6cc308ce008a9eb22a22568a46a309c5bfd3d76e73cb0290aa743f1da8a33",
+    "width": 350,
+    "height": 477
+  },
+  {
+    "productId": "p-8ba846da7a",
+    "source": "https://cdn.shopify.com/s/files/1/0768/3417/7324/files/klassischer-mittelalterumhang-elinor-natur.jpg?v=1784846700",
+    "image": "/products/price-tiers/p-8ba846da7a.webp",
+    "sha256": "4bdd07547a2f1646ed482cceb9f984aa06535fb74afb66d0ad315009662b7301",
+    "width": 800,
+    "height": 800
+  },
+  {
+    "productId": "p-323d45aa7e",
+    "source": "https://cdn.shopify.com/s/files/1/0923/6126/1421/files/2front_0be63de9-99a5-4859-a65c-791fe51b2dbc.jpg?v=1762385034",
+    "image": "/products/price-tiers/p-323d45aa7e.webp",
+    "sha256": "ddf1da3aa6c65fa9acb2a05c36efcbb69b9e8d6de32dfa4cc092bb221cebfd7e",
+    "width": 3672,
+    "height": 6528
+  },
+  {
+    "productId": "p-02f0ef4ca3",
+    "source": "https://cdn.shopify.com/s/files/1/0752/5289/files/8_e1027841-d52e-4390-99f7-ef8e81b30194.jpg?v=1718179728",
+    "image": "/products/price-tiers/p-02f0ef4ca3.webp",
+    "sha256": "241828718688a706494909e3273a13d7ba4512ab1581806562032075af829011",
     "width": 1500,
-    "height": 1438
+    "height": 2250
+  },
+  {
+    "productId": "p-f17ba5ec74",
+    "source": "https://cdn.shopify.com/s/files/1/0768/3417/7324/files/wikinger-leder-doppelguertel-axel-dunkelbraun-100.jpg?v=1784855180",
+    "image": "/products/price-tiers/p-f17ba5ec74.webp",
+    "sha256": "1df5d323b827b02a5d30ae5cfd9b9fd3b837d9d55e8e823c22a67521f1b4dff3",
+    "width": 800,
+    "height": 800
+  },
+  {
+    "productId": "p-e0d0f3e056",
+    "source": "https://cdn.shopify.com/s/files/1/0768/3417/7324/files/schmaler-lederguertel-aus-robustem-leder-schwarz-190-cm.jpg?v=1784852641",
+    "image": "/products/price-tiers/p-e0d0f3e056.webp",
+    "sha256": "3f83b1789aadfd188a96f90482183affe0c57154682a00d54ccf964a679aba1b",
+    "width": 800,
+    "height": 800
+  },
+  {
+    "productId": "p-75406e4fbe",
+    "source": "https://cdn.shopify.com/s/files/1/0784/0981/files/Burnt_orange_shirt_for_breastfeeding.png?v=1731966432",
+    "image": "/products/price-tiers/p-75406e4fbe.webp",
+    "sha256": "4811b827a92d50bf4478dceb0858903ddb62c9ccf58f2c785e0235190786e8c6",
+    "width": 960,
+    "height": 1450
+  },
+  {
+    "productId": "p-e32f721ffc",
+    "source": "https://cdn.shopify.com/s/files/1/0634/1709/0095/files/dungeons-and-dragons-double-belt-brown-mood.jpg?v=1774454170",
+    "image": "/products/price-tiers/p-e32f721ffc.webp",
+    "sha256": "92f699ef7a09f7dbe170da0518bf34b0af23ab8f1b62cccdf03377746997c69a",
+    "width": 1280,
+    "height": 1920
+  },
+  {
+    "productId": "p-efd87e3ea9",
+    "source": "https://static.wixstatic.com/media/49c020_d6b4bc46094b4adc9bd816c0d34ec80b~mv2.jpg",
+    "image": "/products/price-tiers/p-efd87e3ea9.webp",
+    "sha256": "36bd18f136bd03f0b47723fd2af68ef1112fd22e4882e159641b30fe733cee32",
+    "width": 960,
+    "height": 1280
+  },
+  {
+    "productId": "p-2a4c410020",
+    "source": "https://cdn.shopify.com/s/files/1/0910/6876/0430/files/101615_637d1f7c-6854-4a59-8987-0a681f88ee63.webp?v=1792435553",
+    "image": "/products/price-tiers/p-2a4c410020.webp",
+    "sha256": "23e706ae437e64ed2059a23eddb1fa8abb98cba5d614fd01b34f05d14a79f0f9",
+    "width": 1365,
+    "height": 2048
+  },
+  {
+    "productId": "p-69dd734cad",
+    "source": "https://cdn.shopify.com/s/files/1/0884/2128/files/DrawstringCream.png?v=1789059708",
+    "image": "/products/price-tiers/p-69dd734cad.webp",
+    "sha256": "7a73c48cfd71486cf088b468f1a297a72d8bbc459e2f60280bd23878b509e5f0",
+    "width": 2000,
+    "height": 3000
+  },
+  {
+    "productId": "p-58befb770e",
+    "source": "https://cdn.shopify.com/s/files/1/0863/1871/1004/files/Sd0e98dcc315f4e26954e50f3c861966fO.webp?v=1792247202",
+    "image": "/products/price-tiers/p-58befb770e.webp",
+    "sha256": "1429572db97b6e00e3d8b33fd5755e35ca5bdee4e04d8cd023b90f2f2b038e0a",
+    "width": 800,
+    "height": 800
+  },
+  {
+    "productId": "p-b289a543a2",
+    "source": "https://cdn.shopify.com/s/files/1/0671/1859/6291/files/IMG_7975.jpg?v=1730746843",
+    "image": "/products/price-tiers/p-b289a543a2.webp",
+    "sha256": "49e2b5441e10c2dfffbfafe308ceeec41b27d1dfb0174ed33d457de52245401d",
+    "width": 1536,
+    "height": 2048
+  },
+  {
+    "productId": "p-f864d77aef",
+    "source": "https://cdn.shopify.com/s/files/1/0564/0085/files/21591301_3ec4a880-34ad-4c7a-afbc-73e9407c4067.jpg?v=1725486082",
+    "image": "/products/price-tiers/p-f864d77aef.webp",
+    "sha256": "92311d1d73235f9556bff8b9350f5330a310d26216531868f648c193b115ba29",
+    "width": 534,
+    "height": 800
+  },
+  {
+    "productId": "p-3591e88a5b",
+    "source": "https://cdn.shopify.com/s/files/1/0634/1709/0095/files/LAB_Shoes_Half_Boot_01.gVGvtG.jpg?v=1774453187",
+    "image": "/products/price-tiers/p-3591e88a5b.webp",
+    "sha256": "8d5009b5bc6cc83c264a76d4ea71652e5309988e7df53d6f41757f1f86fdd80d",
+    "width": 2000,
+    "height": 3000
+  },
+  {
+    "productId": "p-865c630d73",
+    "source": "https://cdn.shopify.com/s/files/1/1093/6274/products/RusBootBROWN_1.jpg?v=1638058749",
+    "image": "/products/price-tiers/p-865c630d73.webp",
+    "sha256": "c54510ffac5f7b4e81fa87cdd7c954a6fcc630713d712697e870722ff362758d",
+    "width": 2992,
+    "height": 2992
+  },
+  {
+    "productId": "p-d691981350",
+    "source": "https://cdn.shopify.com/s/files/1/1093/6274/products/Medieval-Boots-6.jpg?v=1561571690",
+    "image": "/products/price-tiers/p-d691981350.webp",
+    "sha256": "0296c1d5ed32407190c9c14b9cbc73c7d2e6562e05fddfd26187fa00edca6f0e",
+    "width": 1200,
+    "height": 1200
+  },
+  {
+    "productId": "p-9015a38ad9",
+    "source": "https://cdn.shopify.com/s/files/1/0634/1709/0095/files/dungeons-and-dragons-rogue-bracers-brown-flat.jpg?v=1774453936",
+    "image": "/products/price-tiers/p-9015a38ad9.webp",
+    "sha256": "72ef146b35c137400ff7fd4061420a6e63fd212131f59dbf8fadfc279de6a4ee",
+    "width": 1280,
+    "height": 1920
+  },
+  {
+    "productId": "p-8f75c481a4",
+    "source": "https://cdn.shopify.com/s/files/1/0634/1709/0095/files/dungeons-and-dragons-ranger-bracers-brown-1.jpg?v=1774460375",
+    "image": "/products/price-tiers/p-8f75c481a4.webp",
+    "sha256": "546386357058a30893f32c03e9763f1b705025d604781c34594b1a473d238a4e",
+    "width": 1280,
+    "height": 1919
+  },
+  {
+    "productId": "p-b51da633ea",
+    "source": "https://cdn11.bigcommerce.com/s-sd2rb2jpmz/images/stencil/1280x1280/products/4258/5571/SLC-702_1_1000px__62054.1495572834.jpg?c=2",
+    "image": "/products/price-tiers/p-b51da633ea.webp",
+    "sha256": "d377aded5ea61d4faa64b6da96efb5018c92d6e9c5bd2927c8b458534eecf2b1",
+    "width": 1000,
+    "height": 1000
+  },
+  {
+    "productId": "p-6a6cdbf746",
+    "source": "https://cdn.shopify.com/s/files/1/1140/4312/products/silver-and-black-reversible-cape-2775120.jpg?v=1764274267",
+    "image": "/products/price-tiers/p-6a6cdbf746.webp",
+    "sha256": "0745c3e213ab8c96a14e935b701d26defca7e5bb905ac3808cdd8893755e65bf",
+    "width": 700,
+    "height": 1050
+  },
+  {
+    "productId": "p-3b8d18bfcb",
+    "source": "https://cdn.shopify.com/s/files/1/0610/0208/8690/files/81C2-W1UJRL._AC_SX679.jpg?v=1759593803",
+    "image": "/products/price-tiers/p-3b8d18bfcb.webp",
+    "sha256": "4fcdf28b214efd1edaa6be5eef7e961b3f4468803a8136f4e063999e87c97c41",
+    "width": 679,
+    "height": 2336
+  },
+  {
+    "productId": "p-c05f6d75ce",
+    "source": "https://cdn.shopify.com/s/files/1/1960/0451/files/NOOS_WEB_SIZE240.jpg?v=1751042842",
+    "image": "/products/price-tiers/p-c05f6d75ce.webp",
+    "sha256": "5c486b58893a5739dbbb4a987e85b3f56bbd85f4a95f33d0da30ecc1a45fb882",
+    "width": 2933,
+    "height": 4227
+  },
+  {
+    "productId": "p-1d269724fb",
+    "source": "https://cdn.shopify.com/s/files/1/0013/4122/7057/products/il_fullxfull.1861784385_f4j4.jpg?v=1578931441",
+    "image": "/products/price-tiers/p-1d269724fb.webp",
+    "sha256": "1b36c8c9ec893a3e0b4b69b62cf4f30621d413f87a3e3c65191f5826568a9ca0",
+    "width": 1080,
+    "height": 1440
+  },
+  {
+    "productId": "p-6aaa75c499",
+    "source": "https://cdn.shopify.com/s/files/1/0651/7263/5879/files/48052_1.png?v=1696971806",
+    "image": "/products/price-tiers/p-6aaa75c499.webp",
+    "sha256": "5ef4d42e1505dfe8f4f80dd5024bcd613819eb524630303e55394175b50aad49",
+    "width": 3080,
+    "height": 4101
+  },
+  {
+    "productId": "p-3a45a0274b",
+    "source": "https://cdn.shopify.com/s/files/1/0558/0197/0820/files/9-29Betterme66463.jpg?v=1762353037",
+    "image": "/products/price-tiers/p-3a45a0274b.webp",
+    "sha256": "3d423f26789a683972f69d5708c31193bbbdb2144d390e9e9e8a98b338893cc0",
+    "width": 1080,
+    "height": 1500
+  },
+  {
+    "productId": "p-52f0c3d91f",
+    "source": "https://cdn.shopify.com/s/files/1/0596/4519/8496/files/GLV57_Silver_Satin_Opera_Length_Gloves.jpg?v=1757027597",
+    "image": "/products/price-tiers/p-52f0c3d91f.webp",
+    "sha256": "fd34b1d5f6f34c25a9b18bd72f52a8ba3e35639263070de334214cc57e861cf8",
+    "width": 1000,
+    "height": 1000
+  },
+  {
+    "productId": "p-8b2a001d45",
+    "source": "https://cdn.shopify.com/s/files/1/0107/5132/files/MIRAGE-Opera-Gloves-gloves-SAINT-CHIC-Opera-Length-4.png?v=1791401567",
+    "image": "/products/price-tiers/p-8b2a001d45.webp",
+    "sha256": "643ae2b4df462c85e0a2f127236efa40460524c3f38f42d1e9855c940c95c7e8",
+    "width": 1000,
+    "height": 1000
+  },
+  {
+    "productId": "p-151c13bff4",
+    "source": "https://cdn11.bigcommerce.com/s-cdu7h4/images/stencil/1280x1280/products/122800/143236/uw29851-w-1__94034.1542258658.jpg?c=2",
+    "image": "/products/price-tiers/p-151c13bff4.webp",
+    "sha256": "e819aef6ee17918b50b6d9bbd493e69b7e97e81bb6ba3d5e3109af1839aa4666",
+    "width": 900,
+    "height": 1200
+  },
+  {
+    "productId": "p-9afa19b53f",
+    "source": "https://cdn.shopify.com/s/files/1/2089/7573/files/adore-1018dcs-s_cb2598f6-9e8e-4396-a432-69f51527fed4.jpg?v=1696464134",
+    "image": "/products/price-tiers/p-9afa19b53f.webp",
+    "sha256": "018cc168c1aef0736bd015540918286d6a5565b84a04d1f8805b5911c0cfca57",
+    "width": 1200,
+    "height": 1310
+  },
+  {
+    "productId": "p-c1cd8ed99c",
+    "source": "https://cdn.shopify.com/s/files/1/2089/7573/files/adore-1020sq-02-ssqsch_0ce6d7c3-7de5-49b9-8dfa-bf7bff64af03.jpg?v=1696470494",
+    "image": "/products/price-tiers/p-c1cd8ed99c.webp",
+    "sha256": "3b58713960a667fa4da3c13088ff175ff2e3efdca5776456fb19496d60b3419d",
+    "width": 1800,
+    "height": 1800
+  },
+  {
+    "productId": "p-702ecbc4ae",
+    "source": "https://cdn.shopify.com/s/files/1/2089/7573/files/adore-1020chrs-ssch_38daa916-4abf-4695-a251-a86bb9c5d840.jpg?v=1696468120",
+    "image": "/products/price-tiers/p-702ecbc4ae.webp",
+    "sha256": "aa9f9430337d59a1dccfbab02461b2227cb9640bbde59d192681276e4834e0ce",
+    "width": 1200,
+    "height": 1200
+  },
+  {
+    "productId": "p-beb871f49a",
+    "source": "https://cdn.shopify.com/s/files/1/0094/9885/3476/files/CrystalBridalBeltSash.webp?v=1761673029",
+    "image": "/products/price-tiers/p-beb871f49a.webp",
+    "sha256": "97f63b03514d5ab0fc1352d3281a6445d5917cfcc17349c711703e0434e2501b",
+    "width": 1000,
+    "height": 1000
+  },
+  {
+    "productId": "p-084f5fc7a0",
+    "source": "https://cdn.shopify.com/s/files/1/0693/8542/0845/files/07_BS109-07_bridella-wm.jpg?v=1792509768",
+    "image": "/products/price-tiers/p-084f5fc7a0.webp",
+    "sha256": "5a45483fd081db703d7cbbec9c8e21132314e8fbf6a9ef0ecabd4a247b41ab43",
+    "width": 1600,
+    "height": 1600
+  },
+  {
+    "productId": "p-8383cf6c76",
+    "source": "https://cdn.shopify.com/s/files/1/0094/9885/3476/files/Silver_Bridal_Belt.webp?v=1761598478",
+    "image": "/products/price-tiers/p-8383cf6c76.webp",
+    "sha256": "e6e96095489ce001dfe79179282f1f6db2057cd77b23ee4648340e301e731458",
+    "width": 1500,
+    "height": 1500
+  },
+  {
+    "productId": "p-2300e6e799",
+    "source": "https://i.etsystatic.com/5918183/r/il/f1b4cf/3365464800/il_794xN.3365464800_av96.jpg",
+    "image": "/products/price-tiers/p-2300e6e799.webp",
+    "sha256": "a30644b3283fca3208f1269b472d5e9c3cc24d1d6777dd96cb6a7865e59e24f9",
+    "width": 794,
+    "height": 679
+  },
+  {
+    "productId": "p-1344227532",
+    "source": "https://d2j6dbq0eux0bg.cloudfront.net/images/21216039/1224056029.jpg",
+    "image": "/products/price-tiers/p-1344227532.webp",
+    "sha256": "8445a10e8fe7e2ffa68b5128f5598fcc3c6c018c80c11f748d7a64513ba454d8",
+    "width": 400,
+    "height": 400
+  },
+  {
+    "productId": "p-7947136834",
+    "source": "https://www.thelittlebazaar.com/m/Tunic-Shirt/4871-purple-medieval-style-short-top-with-embroidery.jpg",
+    "image": "/products/price-tiers/p-7947136834.webp",
+    "sha256": "05ea1849c7795ee1110b54fabe8911a372c75d2ba78d4ccd95343a7e9d7410c1",
+    "width": 700,
+    "height": 661
+  },
+  {
+    "productId": "p-bcdae78247",
+    "source": "https://cdn.shopify.com/s/files/1/1587/9585/products/Jester_Black_greeb_red_purple_talltoad.jpg?v=1781150714",
+    "image": "/products/price-tiers/p-bcdae78247.webp",
+    "sha256": "67486f012a2a1010485502b0341fdc1e0b0c5d9c3728021f07eafe09edfb0151",
+    "width": 1365,
+    "height": 2048
+  },
+  {
+    "productId": "p-2b0dda0aae",
+    "source": "https://cdn.shopify.com/s/files/1/0568/0005/1391/files/lords_medieval_tunic_purple.jpg?v=1733689417",
+    "image": "/products/price-tiers/p-2b0dda0aae.webp",
+    "sha256": "39e4d6fe17903cf45b378dde9d7114ad261ddace6c4b1c2b98c0ddc9e12ca2f6",
+    "width": 300,
+    "height": 551
+  },
+  {
+    "productId": "p-a0c1a6fdd2",
+    "source": "https://cdn.shopify.com/s/files/1/0118/0132/9723/products/product-image__JPge8c__CCmwni.png?v=1633912487",
+    "image": "/products/price-tiers/p-a0c1a6fdd2.webp",
+    "sha256": "da9737ac6fe6bf40872877349954d48a3d2bb0400cfd2966e0077de182c85561",
+    "width": 1296,
+    "height": 2279
+  },
+  {
+    "productId": "p-385addbedb",
+    "source": "https://i.etsystatic.com/12209900/r/il/3fb890/5729023430/il_794xN.5729023430_10d3.jpg",
+    "image": "/products/price-tiers/p-385addbedb.webp",
+    "sha256": "e069c269809ec4b74e4dcf0ff653aa1b1935e543633cf5c324ecfff7a61c9694",
+    "width": 794,
+    "height": 1057
+  },
+  {
+    "productId": "p-34c9646f2d",
+    "source": "https://i.etsystatic.com/5799614/r/il/8deeaf/1488216776/il_794xN.1488216776_stni.jpg",
+    "image": "/products/price-tiers/p-34c9646f2d.webp",
+    "sha256": "c266c98c6d4a2e42cdde7ffda69644feccd063eba471ec6f385f53cb51cb9b4d",
+    "width": 794,
+    "height": 529
+  },
+  {
+    "productId": "p-8950bc281a",
+    "source": "https://cdn.shopify.com/s/files/1/0925/2959/0519/files/S905adade82384b14aa89d1e9a060e55eD.webp?v=1789616369",
+    "image": "/products/price-tiers/p-8950bc281a.webp",
+    "sha256": "be84803ac951dae6aa7e0b849db57e365cf4d88588ef587f2f1609cd86243f71",
+    "width": 800,
+    "height": 800
+  },
+  {
+    "productId": "p-c8061d241c",
+    "source": "https://cdn.shopify.com/s/files/1/0031/9275/0180/products/image_8a5efe79-952f-4be9-b4f6-dd611c1f160d.jpg?v=1603138834",
+    "image": "/products/price-tiers/p-c8061d241c.webp",
+    "sha256": "e16b774173966c8e8021369fdbfab3e0b7afcf67f083325302ff3b8f369824ed",
+    "width": 1340,
+    "height": 1785
+  },
+  {
+    "productId": "p-4996c0f103",
+    "source": "https://cdn.shopify.com/s/files/1/0649/7667/products/DSC_0216.jpg?v=1637717062",
+    "image": "/products/price-tiers/p-4996c0f103.webp",
+    "sha256": "3de23b8f50e70f3c61840d71cdaa331f2325bb7b2c341439b5ec14efc6eea3f9",
+    "width": 2667,
+    "height": 4000
+  },
+  {
+    "productId": "p-1414e3a171",
+    "source": "https://cdn.shopify.com/s/files/1/0531/6309/8266/files/Velvet-leggings-Adele-Color-purple-velvet.jpg?v=1782115996",
+    "image": "/products/price-tiers/p-1414e3a171.webp",
+    "sha256": "780e0ee1202e0cd00d50039f50bb6c65563e5ba25314d9ead9189a498774cab1",
+    "width": 710,
+    "height": 918
+  },
+  {
+    "productId": "p-1270d65f15",
+    "source": "https://i.etsystatic.com/60656953/r/il/4e6506/7844717962/il_794xN.7844717962_8thg.jpg",
+    "image": "/products/price-tiers/p-1270d65f15.webp",
+    "sha256": "af4bf96b191520fe822055b69a0b88e741f8c360359a25aa940c75fbbfda8608",
+    "width": 794,
+    "height": 794
+  },
+  {
+    "productId": "p-b522c858a5",
+    "source": "https://www.medievalcollectibles.com/wp-content/uploads/2025/02/FW1182-1.jpg",
+    "image": "/products/price-tiers/p-b522c858a5.webp",
+    "sha256": "9b2138d98aac726d645a51fe7bde309c5a9620a1956a43a91dc987858caffde0",
+    "width": 1024,
+    "height": 1024
+  },
+  {
+    "productId": "p-1d94cf4517",
+    "source": "https://armorshopusa.com/382-large_default/medieval-jester-style-boots-pointed-toe-leather-viking-boot-sca-larp-pirate-shoe-renaissance-costume-footwear.jpg",
+    "image": "/products/price-tiers/p-1d94cf4517.webp",
+    "sha256": "47dc883543fdbdd1949816b256b62e05856aa24146b7c38beac83a248fe9b782",
+    "width": 800,
+    "height": 800
+  },
+  {
+    "productId": "p-633c337525",
+    "source": "https://cdn.shopify.com/s/files/1/0754/1260/3200/files/IMG_1285.jpg?v=1707515037",
+    "image": "/products/price-tiers/p-633c337525.webp",
+    "sha256": "8059f7486d6a3879166712632291f5e52692b2b850386151169491181e004699",
+    "width": 529,
+    "height": 640
+  },
+  {
+    "productId": "p-5168383708",
+    "source": "https://cdn.shopify.com/s/files/1/0791/1095/products/IMG_8887_-_Version_2.JPG?v=1455580591",
+    "image": "/products/price-tiers/p-5168383708.webp",
+    "sha256": "43b7c2870bebffacf06203efd292573b6fa44368a41c3b4f9b2dd54f3a65ed4b",
+    "width": 1734,
+    "height": 1734
+  },
+  {
+    "productId": "p-ee914940b0",
+    "source": "https://cdn.shopify.com/s/files/1/0037/6802/5152/files/Olive_Acrylic_Felt_Fabric_10015_77cc0842-fa60-4e96-bbe9-0fa2c024f133.webp?v=1780834998",
+    "image": "/products/price-tiers/p-ee914940b0.webp",
+    "sha256": "896785d2bf5ffdfe3221884e9588d4c948e5a1e91376bdf88e91d12f309e9e86",
+    "width": 3676,
+    "height": 3676
+  },
+  {
+    "productId": "p-3cde6c8afb",
+    "source": "https://cdn.shopify.com/s/files/1/0672/5015/9861/files/cape-forrest-green.jpg?v=1775498487",
+    "image": "/products/price-tiers/p-3cde6c8afb.webp",
+    "sha256": "0240d4c0ffee6e8caab4992f47e23b4f42e0b65984fef13028c8cdb894b3ad08",
+    "width": 803,
+    "height": 826
+  },
+  {
+    "productId": "p-e4fc530082",
+    "source": "https://cdn.shopify.com/s/files/1/0608/3480/8015/files/b8421501ceee8ed8defa49d79fc692df_8879240c-db2d-40ca-8828-577a7505b393.jpg?v=1692085493",
+    "image": "/products/price-tiers/p-e4fc530082.webp",
+    "sha256": "09820c28891b1351d5744fb4bf3394f588d5019cb57c730db25dfb9a34d1d1ec",
+    "width": 2000,
+    "height": 2000
+  },
+  {
+    "productId": "p-4742df3a8a",
+    "source": "https://cdn.shopify.com/s/files/1/0608/3480/8015/files/b8421501ceee8ed8defa49d79fc692df_3c3de5dc-3dce-4a26-9a43-6f92563395a9.jpg?v=1692092601",
+    "image": "/products/price-tiers/p-4742df3a8a.webp",
+    "sha256": "ec993be3835f790ea7d17fe343719001cd70006c0b961368ff55c0f6629eae16",
+    "width": 2000,
+    "height": 2000
+  },
+  {
+    "productId": "p-8992d54482",
+    "source": "https://cdn.shopify.com/s/files/1/0608/3480/8015/files/b8421501ceee8ed8defa49d79fc692df_cf4b4293-f2f3-4515-9263-940a5f40165a.jpg?v=1692085608",
+    "image": "/products/price-tiers/p-8992d54482.webp",
+    "sha256": "cc51f4252c386ef15c3aad848d703f4d3f09176dfe80b6fb577545a3de68506a",
+    "width": 2000,
+    "height": 2000
+  },
+  {
+    "productId": "p-65839f8b3b",
+    "source": "https://cdn.shopify.com/s/files/1/0610/0208/8690/files/71lsVwgggLL._AC_SX679.jpg?v=1760116427",
+    "image": "/products/price-tiers/p-65839f8b3b.webp",
+    "sha256": "54c09736ca83eb3d08bf5f9e6aee7aa5e8fc60f921377f617dbc3d7503596f3a",
+    "width": 679,
+    "height": 1166
+  },
+  {
+    "productId": "p-e3b8b7bce7",
+    "source": "https://cdn.shopify.com/s/files/1/0779/4189/9611/files/cloak_green03.D5Yyq8_e11c79ea-a9df-467f-b2fc-315f7c3e41ec.png?v=1774962763",
+    "image": "/products/price-tiers/p-e3b8b7bce7.webp",
+    "sha256": "501585464620189687efa128a656503f38e04ac0fbd1d1ca1ef5967c140f2c47",
+    "width": 853,
+    "height": 1280
+  },
+  {
+    "productId": "p-2a4e429bcf",
+    "source": "https://www.thelittlebazaar.com/m/Tunic-Shirt/9563-green-forest-fairy-halter-top.jpg",
+    "image": "/products/price-tiers/p-2a4e429bcf.webp",
+    "sha256": "7660b5fce202d2b5f7afffc8b8544565ef21b160dfccaf31cd51a31e2edf13bb",
+    "width": 700,
+    "height": 897
+  },
+  {
+    "productId": "p-a4693ccb64",
+    "source": "https://cdn.shopify.com/s/files/1/0965/3665/8220/files/12ihv0u-490hhgr-mmeq95co.jpg?v=1774423319",
+    "image": "/products/price-tiers/p-a4693ccb64.webp",
+    "sha256": "36442f3b447bc94ac4d40c59927f46c36934708178063bbec707fb513a46c35f",
+    "width": 854,
+    "height": 1139
+  },
+  {
+    "productId": "p-279c4b8fdc",
+    "source": "https://cdn.shopify.com/s/files/1/0863/1871/1004/files/Sae1a83cdd4224c6a88b03eab870b5e8fn.webp?v=1792559484",
+    "image": "/products/price-tiers/p-279c4b8fdc.webp",
+    "sha256": "12cf5435b4bada86ff8dd15224ff2f6a26a1bf9e94ace0916b037f33deaeeded",
+    "width": 1000,
+    "height": 1000
+  },
+  {
+    "productId": "p-a8d6d2b4b8",
+    "source": "https://cdn.shopify.com/s/files/1/1981/9981/products/womens-green-leggings-high-waisted-buttery-soft-olive-green-leggings-momme-and-more-523990.jpg?v=1779075193",
+    "image": "/products/price-tiers/p-a8d6d2b4b8.webp",
+    "sha256": "c82347b9be468a0ea4cf51571f865e7239ba2efda8a9320c22399698dba34e06",
+    "width": 1041,
+    "height": 1480
+  },
+  {
+    "productId": "p-c991fa53d8",
+    "source": "https://cdn.shopify.com/s/files/1/0028/2525/7027/files/BG_OF_03982_olive.jpg?v=1787589162",
+    "image": "/products/price-tiers/p-c991fa53d8.webp",
+    "sha256": "ef98da124ac9eb8d5dd12f68a01e7dfe99fb9e71e13928b54c1984b232c8960b",
+    "width": 1000,
+    "height": 1500
+  },
+  {
+    "productId": "p-9f0ec3e56f",
+    "source": "https://cdn.shopify.com/s/files/1/1903/5555/files/DANNERAO_DARKBROWN_2.jpg?v=1756989780",
+    "image": "/products/price-tiers/p-9f0ec3e56f.webp",
+    "sha256": "90b000dcaf8f5f96e5de86e2cf4c82b809844b9d3de0630d65ab2e75559b3ea1",
+    "width": 2500,
+    "height": 2500
+  },
+  {
+    "productId": "p-fc5e6e9940",
+    "source": "https://cdn.shopify.com/s/files/1/0568/7099/4056/files/edit2_1850-3OLIVELEADDcopy_1.jpg?v=1724157898",
+    "image": "/products/price-tiers/p-fc5e6e9940.webp",
+    "sha256": "88b6d7a09a1b6a880b577d1ec68250c03d404c321813fbee344d40f2ea7f5483",
+    "width": 1800,
+    "height": 2400
+  },
+  {
+    "productId": "p-47e042be1b",
+    "source": "https://cdn.shopify.com/s/files/1/0076/8812/6522/products/RuggedBark_RightOutside_1c02603f-9b84-4a68-9e6c-be5bc2465eff.jpg?v=1773209241",
+    "image": "/products/price-tiers/p-47e042be1b.webp",
+    "sha256": "e5366ad1de91b3d0491f343cf7265f4e57a6db4c25a2b36524b521f7a307b2d6",
+    "width": 2400,
+    "height": 1586
+  },
+  {
+    "productId": "p-f623746353",
+    "source": "https://cdn.shopify.com/s/files/1/0671/3848/6421/files/W26019-918-main.jpg?v=1734372807",
+    "image": "/products/price-tiers/p-f623746353.webp",
+    "sha256": "e02797f109af55543e404865befd2d0bbd5e855aa646cdc1c358757113c7d0f0",
+    "width": 3000,
+    "height": 3000
+  },
+  {
+    "productId": "p-5a30185c96",
+    "source": "https://cdn.shopify.com/s/files/1/0791/2181/products/IMG_1803_lowcopy.jpg?v=1622069556",
+    "image": "/products/price-tiers/p-5a30185c96.webp",
+    "sha256": "2499ee3f74dc15a8928fd47cb6ad6a5fc1eade81b9face52c31e4618acaafffb",
+    "width": 1080,
+    "height": 1080
+  },
+  {
+    "productId": "p-62d40bcabe",
+    "source": "https://cdn.shopify.com/s/files/1/0667/1548/4478/files/WhiteCottonJacketwithRoundVeil.png?v=1701210058",
+    "image": "/products/price-tiers/p-62d40bcabe.webp",
+    "sha256": "851772c5295f781430c77ad6e3111747487ce0860281d113eeef8bfdc207e7aa",
+    "width": 1500,
+    "height": 1500
+  },
+  {
+    "productId": "p-2422efb613",
+    "source": "https://cdn.shopify.com/s/files/1/0767/4544/1533/files/71aHHgo2gBL._AC_SL1500.jpg?v=1775705951",
+    "image": "/products/price-tiers/p-2422efb613.webp",
+    "sha256": "4b85231b0b2eaf37c13ddf52da769dcab8fddd8e7eff446db3750bf8d84de4f4",
+    "width": 914,
+    "height": 1500
+  },
+  {
+    "productId": "p-538a70ad48",
+    "source": "https://cdn.shopify.com/s/files/1/3102/7432/products/7pcgZUu6_a8896c8d-1656-4108-98b4-09bf6504d733.jpg?v=1666127008",
+    "image": "/products/price-tiers/p-538a70ad48.webp",
+    "sha256": "e68eebfcb623c7024e2b797583282fc93c975bf0cb04254a53d510beef04da8c",
+    "width": 1365,
+    "height": 2048
+  },
+  {
+    "productId": "p-5120d7b88c",
+    "source": "https://cdn.shopify.com/s/files/1/0065/6880/4470/files/231-43803_carpenter_s-pants-cream_01_62fe0647-c102-433c-889a-59f170fe9720.jpg?v=1790225431",
+    "image": "/products/price-tiers/p-5120d7b88c.webp",
+    "sha256": "7c800fbde2b0a7955acb521fc6bc446c45c450e26357b9689fc89b16f4152a7c",
+    "width": 1500,
+    "height": 2000
+  },
+  {
+    "productId": "p-8a74067f2a",
+    "source": "https://cdn.shopify.com/s/files/1/1620/0353/products/DOUBLEKNEEPAINTERS_NATURALDRILL-1_1.jpg?v=1751401820",
+    "image": "/products/price-tiers/p-8a74067f2a.webp",
+    "sha256": "2d0cb21d2e69c3f53df10b49ec5e4a9d29f43e13a97dff8490e8a9060f92d666",
+    "width": 1646,
+    "height": 2468
+  },
+  {
+    "productId": "p-1af93f8049",
+    "source": "https://cdn.shopify.com/s/files/1/0553/9967/8132/files/VTG-Product-26_07-Vermonter_b9392904-d547-4e7f-a4d6-aadf6a729e82.jpg?v=1784315772",
+    "image": "/products/price-tiers/p-1af93f8049.webp",
+    "sha256": "48d447fa8ea3037df25c8fedaecb7a28b9c69d8c94a46d796493f66b105c2ccc",
+    "width": 1500,
+    "height": 1500
+  },
+  {
+    "productId": "p-0d13db86b9",
+    "source": "https://cdn.shopify.com/s/files/1/0045/1297/2890/files/KunarUtilityGlove-Natural_PDP_01.jpg?v=1685656337",
+    "image": "/products/price-tiers/p-0d13db86b9.webp",
+    "sha256": "f9c48f25332bb23393f3354b74ebe4695398320ccc887396a43ffe978436ea03",
+    "width": 2000,
+    "height": 2000
+  },
+  {
+    "productId": "p-3b0a976509",
+    "source": "https://www.nunnbush.com/shop/images/w590/85088-215.jpg",
+    "image": "/products/price-tiers/p-3b0a976509.webp",
+    "sha256": "082ea705ac032551c55f83107b6c766ecb8ab33a0a845f30535d1eb125ef11c3",
+    "width": 590,
+    "height": 667
+  },
+  {
+    "productId": "p-09040c668b",
+    "source": "https://cdn.shopify.com/s/files/1/0045/1297/2890/files/ClassicWorkGloves_Natural_PDP_01_0151ab2f-1369-4429-9a93-a871d8276cd7.jpg?v=1704726823",
+    "image": "/products/price-tiers/p-09040c668b.webp",
+    "sha256": "b9b3484355cb8bb5767a8dc5a81311ec2947d3a55b019cab231d881d584a11ee",
+    "width": 2000,
+    "height": 2000
+  },
+  {
+    "productId": "p-719872898d",
+    "source": "https://cdn.shopify.com/s/files/1/0419/1525/files/1024x1024-Men-Captain-Brown-081226-3.4-d17ac2.jpg?v=1790357464",
+    "image": "/products/price-tiers/p-719872898d.webp",
+    "sha256": "de2fa03688e86a3519b1e5d979c447d6c33d3424477b8c01fc19a6f36c0ce1d9",
+    "width": 1024,
+    "height": 1024
+  },
+  {
+    "productId": "p-21c87bfd80",
+    "source": "https://cdn.shopify.com/s/files/1/1163/3390/files/GRANT2SIDE2-Edit-Edit_27ba84f7-bb9a-4473-89e4-2683d625de2f.jpg?v=1783616239",
+    "image": "/products/price-tiers/p-21c87bfd80.webp",
+    "sha256": "db9aec9631ee94aff99e74a9c5bd14c03e1c370a3b6ea069cf52b913a1465f10",
+    "width": 2048,
+    "height": 2048
+  },
+  {
+    "productId": "p-6082641ec6",
+    "source": "https://cdn.shopify.com/s/files/1/0556/6506/6057/files/MatrBoomieBeeBalaBrooch.webp?v=1758849360",
+    "image": "/products/price-tiers/p-6082641ec6.webp",
+    "sha256": "01b866bdf8efb7b7115b109babe46a4fd083cf3c4edddd9424e34c04f028c823",
+    "width": 1000,
+    "height": 1150
+  },
+  {
+    "productId": "p-f674547482",
+    "source": "https://cdn.shopify.com/s/files/1/0994/7575/1206/files/af361bad637a1cb8bc2df51475f788fc_d608abb5-5a5e-4b04-b216-2a92a59dcab7.png?v=1770193402",
+    "image": "/products/price-tiers/p-f674547482.webp",
+    "sha256": "7d0b0852684e16d93f8ffa38a946de05bc5dee4b5fef2c68a5d71ea997a6412c",
+    "width": 1440,
+    "height": 1440
+  },
+  {
+    "productId": "p-17a73cb5b8",
+    "source": "https://cdn.shopify.com/s/files/1/2185/2141/files/pin-humble-bee-brooch-pin-43658148282599.jpg?v=1732182630",
+    "image": "/products/price-tiers/p-17a73cb5b8.webp",
+    "sha256": "1b058c695a9f95a10ec813fdfa7fca95848f986ec5956d388bfd01bea5097df1",
+    "width": 1400,
+    "height": 1400
   },
   {
     "productId": "p-734febc080",
@@ -134,6 +1398,14 @@
     "sha256": "eacb6a99be253ba8b5a3fe426b3422c41167f8ffb0b8ffb86f1260a1770f392a",
     "width": 800,
     "height": 800
+  },
+  {
+    "productId": "p-ade84082ca",
+    "source": "https://cdn.shopify.com/s/files/1/1084/5358/products/orkney_off_white_fitted_and_flat_sheets.jpg?v=1742929067",
+    "image": "/products/price-tiers/p-ade84082ca.webp",
+    "sha256": "1cb00aa721788914f04b06c077528ee16e2fddd1844d86087dcff632231ce691",
+    "width": 1500,
+    "height": 1438
   },
   {
     "productId": "p-70b91ecda7",
@@ -152,14 +1424,6 @@
     "height": 3391
   },
   {
-    "productId": "p-6c68216fba",
-    "source": "https://images.quince.com/1b9zqjjnnVBViU98thA2Wp/a90f82d4f75eb98ca2ee11692ab56d19/Nicole_Chavez_Editorial_01-224_245_EDITED.jpg?fm=webP&q=90&w=1600",
-    "image": "/products/price-tiers/p-6c68216fba.webp",
-    "sha256": "69a7fd8e87710102c0c6c9edf8247e4e28dacc4764e76e773e995b5ffa426b1f",
-    "width": 1600,
-    "height": 2000
-  },
-  {
     "productId": "p-5976418d90",
     "source": "https://cdn.shopify.com/s/files/1/0716/4850/9987/files/5000_2309C_031_G2023_F_24005_8c35a37b-af2b-463f-a7dc-ce3c50beee51.jpg?v=1792514348",
     "image": "/products/price-tiers/p-5976418d90.webp",
@@ -176,12 +1440,12 @@
     "height": 4500
   },
   {
-    "productId": "p-41e32b9102",
-    "source": "https://cdn.shopify.com/s/files/1/0550/6478/9066/files/Harvest_and_Mill_organic_cotton_mens_organic_lounge_pants_dye_free_11.jpg?v=1752509147",
-    "image": "/products/price-tiers/p-41e32b9102.webp",
-    "sha256": "deadf8406e5dbcea8e5119dfd45e4031d4cbea25a7db2f67efdc21871b3b1a23",
-    "width": 1363,
-    "height": 2048
+    "productId": "p-6c68216fba",
+    "source": "https://images.quince.com/1b9zqjjnnVBViU98thA2Wp/a90f82d4f75eb98ca2ee11692ab56d19/Nicole_Chavez_Editorial_01-224_245_EDITED.jpg?fm=webP&q=90&w=1600",
+    "image": "/products/price-tiers/p-6c68216fba.webp",
+    "sha256": "69a7fd8e87710102c0c6c9edf8247e4e28dacc4764e76e773e995b5ffa426b1f",
+    "width": 1600,
+    "height": 2000
   },
   {
     "productId": "p-3b0a976509",
@@ -192,19 +1456,11 @@
     "height": 667
   },
   {
-    "productId": "p-d17b6f67bc",
-    "source": "https://cdn.shopify.com/s/files/1/0419/1525/files/1024x1024-Men-Captain-Brown-081226-3.4-d17ac2.jpg?v=1790357464",
-    "image": "/products/price-tiers/p-d17b6f67bc.webp",
-    "sha256": "de2fa03688e86a3519b1e5d979c447d6c33d3424477b8c01fc19a6f36c0ce1d9",
-    "width": 1024,
-    "height": 1024
-  },
-  {
-    "productId": "p-e7257a048c",
-    "source": "https://cdn.shopify.com/s/files/1/1163/3390/files/GRANT2SIDE2-Edit-Edit_27ba84f7-bb9a-4473-89e4-2683d625de2f.jpg?v=1783616239",
-    "image": "/products/price-tiers/p-e7257a048c.webp",
-    "sha256": "db9aec9631ee94aff99e74a9c5bd14c03e1c370a3b6ea069cf52b913a1465f10",
-    "width": 2048,
+    "productId": "p-41e32b9102",
+    "source": "https://cdn.shopify.com/s/files/1/0550/6478/9066/files/Harvest_and_Mill_organic_cotton_mens_organic_lounge_pants_dye_free_11.jpg?v=1752509147",
+    "image": "/products/price-tiers/p-41e32b9102.webp",
+    "sha256": "deadf8406e5dbcea8e5119dfd45e4031d4cbea25a7db2f67efdc21871b3b1a23",
+    "width": 1363,
     "height": 2048
   },
   {
@@ -216,12 +1472,12 @@
     "height": 1789
   },
   {
-    "productId": "p-486eadad95",
-    "source": "https://cdn.shopify.com/s/files/1/0920/6153/2233/files/16553.jpg?v=1756429038",
-    "image": "/products/price-tiers/p-486eadad95.webp",
-    "sha256": "7fbd4d947a49951461954ca36f961e403daff65648e4158054006fcfb8149382",
-    "width": 980,
-    "height": 980
+    "productId": "p-e7257a048c",
+    "source": "https://cdn.shopify.com/s/files/1/1163/3390/files/GRANT2SIDE2-Edit-Edit_27ba84f7-bb9a-4473-89e4-2683d625de2f.jpg?v=1783616239",
+    "image": "/products/price-tiers/p-e7257a048c.webp",
+    "sha256": "db9aec9631ee94aff99e74a9c5bd14c03e1c370a3b6ea069cf52b913a1465f10",
+    "width": 2048,
+    "height": 2048
   },
   {
     "productId": "p-348ad9a230",
@@ -232,6 +1488,22 @@
     "height": 351
   },
   {
+    "productId": "p-d17b6f67bc",
+    "source": "https://cdn.shopify.com/s/files/1/0419/1525/files/1024x1024-Men-Captain-Brown-081226-3.4-d17ac2.jpg?v=1790357464",
+    "image": "/products/price-tiers/p-d17b6f67bc.webp",
+    "sha256": "de2fa03688e86a3519b1e5d979c447d6c33d3424477b8c01fc19a6f36c0ce1d9",
+    "width": 1024,
+    "height": 1024
+  },
+  {
+    "productId": "p-486eadad95",
+    "source": "https://cdn.shopify.com/s/files/1/0920/6153/2233/files/16553.jpg?v=1756429038",
+    "image": "/products/price-tiers/p-486eadad95.webp",
+    "sha256": "7fbd4d947a49951461954ca36f961e403daff65648e4158054006fcfb8149382",
+    "width": 980,
+    "height": 980
+  },
+  {
     "productId": "p-e918d81b72",
     "source": "https://cdn.shopify.com/s/files/1/2363/7221/files/Circle_Shawl_Pin.jpg?v=1771532065",
     "image": "/products/price-tiers/p-e918d81b72.webp",
@@ -240,12 +1512,148 @@
     "height": 706
   },
   {
-    "productId": "p-6969a5c537",
-    "source": "https://cdn.shopify.com/s/files/1/0883/3630/2421/files/il_fullxfull.985642364_byqp.jpg?v=1787136353",
-    "image": "/products/price-tiers/p-6969a5c537.webp",
-    "sha256": "1b775c0474f624a351490d54182dc302996652dd3260c5fffb10bf5b9ee15748",
-    "width": 960,
-    "height": 640
+    "productId": "p-608f6c04fa",
+    "source": "https://www.medievalcollectibles.com/wp-content/uploads/2020/05/LUA3461.jpg",
+    "image": "/products/price-tiers/p-608f6c04fa.webp",
+    "sha256": "edefc0ba5aa33994a108622f77b4865aa05067ad303a23ab18dd6bb9014941c3",
+    "width": 514,
+    "height": 514
+  },
+  {
+    "productId": "p-9e4f924e2b",
+    "source": "https://www.medievalcollectibles.com/wp-content/uploads/2019/03/200550-Blk-M.jpg",
+    "image": "/products/price-tiers/p-9e4f924e2b.webp",
+    "sha256": "cc8e89dfc85b3d43fc3b5770e2c59ae92872290925a9362445d5a3c59b5edc60",
+    "width": 850,
+    "height": 850
+  },
+  {
+    "productId": "p-2ff8a1c847",
+    "source": "https://www.medievalcollectibles.com/wp-content/uploads/2020/05/RC-49314.jpg",
+    "image": "/products/price-tiers/p-2ff8a1c847.webp",
+    "sha256": "9ec128b4a34317c4fc1750c8838701f2ba5c4579591d104044a8df21879e57f2",
+    "width": 850,
+    "height": 850
+  },
+  {
+    "productId": "p-368be886f2",
+    "source": "https://cdn.shopify.com/s/files/1/0358/8265/products/court_shirt1.jpg?v=1571274870",
+    "image": "/products/price-tiers/p-368be886f2.webp",
+    "sha256": "ae679a174c0683e3856eaca58344e7631f9c511694e6b246ac20b9cbb9e26635",
+    "width": 640,
+    "height": 1000
+  },
+  {
+    "productId": "p-d37d64fa7f",
+    "source": "https://cdn.shopify.com/s/files/1/0378/4186/2794/products/4651.jpg?v=1588888929",
+    "image": "/products/price-tiers/p-d37d64fa7f.webp",
+    "sha256": "84ac0712bb51d22c498329d5b9e39d442b380d8f20ae8a8eb437df68a872c12e",
+    "width": 1365,
+    "height": 2048
+  },
+  {
+    "productId": "p-4d5ad424a6",
+    "source": "https://cdn.shopify.com/s/files/1/1485/9888/products/0009877_0.jpeg?v=1567510722",
+    "image": "/products/price-tiers/p-4d5ad424a6.webp",
+    "sha256": "e8dccd1fe1fa886c4163092fd32fd27aa228d4828ab88e6d56968c67d39009ba",
+    "width": 1200,
+    "height": 1200
+  },
+  {
+    "productId": "p-381cb7b30c",
+    "source": "https://cdn.shopify.com/s/files/1/0729/6267/0677/files/dark-rock-Renaissance-Mens-Blue-Brocade-Goth-Steampunk-Victorian-Velvet-Frock-Coat-1.jpg?v=1792735594",
+    "image": "/products/price-tiers/p-381cb7b30c.webp",
+    "sha256": "c093eab58047bc739a90c41f961668227889f7c4bc705c18e3c8adf2e1fd1af4",
+    "width": 1280,
+    "height": 1280
+  },
+  {
+    "productId": "p-a4ff1ae678",
+    "source": "https://cdn.shopify.com/s/files/1/1485/9888/products/0007577_0.jpg?v=1527489926",
+    "image": "/products/price-tiers/p-a4ff1ae678.webp",
+    "sha256": "223641d035de3f18185567d2d99d71ef8c6a2333b4879c7450027401e2e0d87d",
+    "width": 1200,
+    "height": 1200
+  },
+  {
+    "productId": "p-9fa4c1cdef",
+    "source": "https://cdn.shopify.com/s/files/1/0272/4082/4943/files/CT23202-1-600x600.jpg?v=1777322723",
+    "image": "/products/price-tiers/p-9fa4c1cdef.webp",
+    "sha256": "af160884589bd3861c264df7b77ab81939ce733e8801270c77567fda6ee4f6b4",
+    "width": 600,
+    "height": 600
+  },
+  {
+    "productId": "p-035b491978",
+    "source": "https://www.medievalcollectibles.com/wp-content/uploads/2020/04/100518_2.jpg",
+    "image": "/products/price-tiers/p-035b491978.webp",
+    "sha256": "e0666acb8078b9bf18533f6f40b6244a27f3110353c826c1f859999919ad14c3",
+    "width": 485,
+    "height": 485
+  },
+  {
+    "productId": "p-7a7693db8b",
+    "source": "https://www.medievalcollectibles.com/wp-content/uploads/2019/03/SS-SPANTS-BLK.jpg",
+    "image": "/products/price-tiers/p-7a7693db8b.webp",
+    "sha256": "08057aff9393e3b1d38a7f718e305641bf04fad17a7e05b8c4527341896b8769",
+    "width": 850,
+    "height": 850
+  },
+  {
+    "productId": "p-c1bf560c38",
+    "source": "https://www.medievalcollectibles.com/wp-content/uploads/2019/03/SS-CPANTS-Blk.jpg",
+    "image": "/products/price-tiers/p-c1bf560c38.webp",
+    "sha256": "59f5b7d88b69a6a63372c068b41ad5efbd6c4d29f6b1fca9779d16af14a30f14",
+    "width": 850,
+    "height": 850
+  },
+  {
+    "productId": "p-d752cbedb2",
+    "source": "https://cdn.shopify.com/s/files/1/0358/8265/products/burgundy_merchantment.jpg?v=1762119153",
+    "image": "/products/price-tiers/p-d752cbedb2.webp",
+    "sha256": "3bc4cca48e1db01ee0ae3adea351f1bcbd952bd4e3142f9ea5a56f6c20c1754c",
+    "width": 640,
+    "height": 1000
+  },
+  {
+    "productId": "p-411e91eed9",
+    "source": "https://cdn.shopify.com/s/files/1/1485/9888/products/pirates-sash_417_1_burgundy.jpg?v=1488362214",
+    "image": "/products/price-tiers/p-411e91eed9.webp",
+    "sha256": "c43422e8affd4dd30c863038cfe2a7a1cdab32e34f5c5d68905957470a0336d9",
+    "width": 1000,
+    "height": 1000
+  },
+  {
+    "productId": "p-5855695cc9",
+    "source": "https://cdn.shopify.com/s/files/1/0290/9136/4908/products/SashBurgudyWS.jpg?v=1590427255",
+    "image": "/products/price-tiers/p-5855695cc9.webp",
+    "sha256": "d15d47cf1825f2e6bcfc04ad5667659a98499db49c2134dc2532d8aca1d6d628",
+    "width": 2048,
+    "height": 2048
+  },
+  {
+    "productId": "p-721e93a574",
+    "source": "https://www.medievalcollectibles.com/wp-content/uploads/2021/10/FW1164-1.jpg",
+    "image": "/products/price-tiers/p-721e93a574.webp",
+    "sha256": "09fd60d00ef510ce6a1ea5fadfb43547173f45541195002f28869f443fc0cb3b",
+    "width": 850,
+    "height": 850
+  },
+  {
+    "productId": "p-0a2d0b69cb",
+    "source": "https://www.medievalcollectibles.com/wp-content/uploads/2020/05/FW2075.jpg",
+    "image": "/products/price-tiers/p-0a2d0b69cb.webp",
+    "sha256": "bbd98ca77f53ab755431f21f75eafc3cd7becb28cf5be7e093329450b1f76487",
+    "width": 752,
+    "height": 752
+  },
+  {
+    "productId": "p-920213a3e2",
+    "source": "https://cdn.shopify.com/s/files/1/0358/8265/products/musketeerboot1.jpg?v=1571274870",
+    "image": "/products/price-tiers/p-920213a3e2.webp",
+    "sha256": "e127f99b34af755808410a154e934e9b02ac065c66df75a3ec49c7712f072ef3",
+    "width": 640,
+    "height": 1000
   },
   {
     "productId": "p-efd5b81469",
@@ -254,6 +1662,14 @@
     "sha256": "d17e33a5b559e2abf1119bafe35e898b137213a4fb66ea3c69ca5852cd9435e1",
     "width": 960,
     "height": 1200
+  },
+  {
+    "productId": "p-6969a5c537",
+    "source": "https://cdn.shopify.com/s/files/1/0883/3630/2421/files/il_fullxfull.985642364_byqp.jpg?v=1787136353",
+    "image": "/products/price-tiers/p-6969a5c537.webp",
+    "sha256": "1b775c0474f624a351490d54182dc302996652dd3260c5fffb10bf5b9ee15748",
+    "width": 960,
+    "height": 640
   },
   {
     "productId": "p-a74e609ee5",
@@ -280,14 +1696,6 @@
     "height": 2250
   },
   {
-    "productId": "p-39ce60e414",
-    "source": "https://cdn.shopify.com/s/files/1/0015/8937/9159/products/6-3.jpg?v=1750323916",
-    "image": "/products/price-tiers/p-39ce60e414.webp",
-    "sha256": "b8ce8c1de2dd8d0fbb73a65e380a076ff1fdad48523901f5bbe7deceba0ba369",
-    "width": 2925,
-    "height": 4388
-  },
-  {
     "productId": "p-f0f83c316a",
     "source": "https://images.squarespace-cdn.com/content/v1/5dc5b59132ef081214cf0172/1575320238578-C6YMQQM0UTJV75DR82BL/mothcape%3Aozma_back.jpg",
     "image": "/products/price-tiers/p-f0f83c316a.webp",
@@ -296,12 +1704,28 @@
     "height": 1440
   },
   {
+    "productId": "p-39ce60e414",
+    "source": "https://cdn.shopify.com/s/files/1/0015/8937/9159/products/6-3.jpg?v=1750323916",
+    "image": "/products/price-tiers/p-39ce60e414.webp",
+    "sha256": "b8ce8c1de2dd8d0fbb73a65e380a076ff1fdad48523901f5bbe7deceba0ba369",
+    "width": 2925,
+    "height": 4388
+  },
+  {
     "productId": "p-3850171d93",
     "source": "https://cdn.shopify.com/s/files/1/0070/3833/7151/products/Ergi_FurCollar_Cream_Ivory.jpg?v=1599837590",
     "image": "/products/price-tiers/p-3850171d93.webp",
     "sha256": "caaaa254b2f2612c32463b155651d44ca96aa26a87f997cb5e110acb8f2818f7",
     "width": 1393,
     "height": 1393
+  },
+  {
+    "productId": "p-3afdfbc4a6",
+    "source": "https://cdn.shopify.com/s/files/1/0658/3425/4585/files/Faux-Fur-Collar-Penny-Blanc-Fleur-De-Peche-Flutter-Wrap-Dress-002.jpg?v=1762654297",
+    "image": "/products/price-tiers/p-3afdfbc4a6.webp",
+    "sha256": "8e2f4e3b3e056895df74cf0d20305689c9203211cebac6bfd285bdb5be66226a",
+    "width": 3840,
+    "height": 5760
   },
   {
     "productId": "p-65edab9ec7",
@@ -320,22 +1744,6 @@
     "height": 794
   },
   {
-    "productId": "p-3afdfbc4a6",
-    "source": "https://cdn.shopify.com/s/files/1/0658/3425/4585/files/Faux-Fur-Collar-Penny-Blanc-Fleur-De-Peche-Flutter-Wrap-Dress-002.jpg?v=1762654297",
-    "image": "/products/price-tiers/p-3afdfbc4a6.webp",
-    "sha256": "8e2f4e3b3e056895df74cf0d20305689c9203211cebac6bfd285bdb5be66226a",
-    "width": 3840,
-    "height": 5760
-  },
-  {
-    "productId": "p-da7d00ef0d",
-    "source": "https://cdnimg.dreampairs.com/dreampairshoes/product/product/DAB213/BLACK%20PU/1.jpg",
-    "image": "/products/price-tiers/p-da7d00ef0d.webp",
-    "sha256": "67b85609807b254dceb67fa4cea8fc78174ac3083336d489bb752d3cf1690423",
-    "width": 800,
-    "height": 800
-  },
-  {
     "productId": "p-7208c46a92",
     "source": "https://cdn.shopify.com/s/files/1/0422/3097/2569/files/Alien-Kapak-Gri.jpg?v=1721208938",
     "image": "/products/price-tiers/p-7208c46a92.webp",
@@ -352,6 +1760,14 @@
     "height": 1024
   },
   {
+    "productId": "p-da7d00ef0d",
+    "source": "https://cdnimg.dreampairs.com/dreampairshoes/product/product/DAB213/BLACK%20PU/1.jpg",
+    "image": "/products/price-tiers/p-da7d00ef0d.webp",
+    "sha256": "67b85609807b254dceb67fa4cea8fc78174ac3083336d489bb752d3cf1690423",
+    "width": 800,
+    "height": 800
+  },
+  {
     "productId": "p-862b138943",
     "source": "https://cdn.shopify.com/s/files/1/0903/6349/4707/files/product-image_2026-10-12_510_p_usa_hero.jpg?v=1791961602",
     "image": "/products/price-tiers/p-862b138943.webp",
@@ -360,28 +1776,1084 @@
     "height": 2000
   },
   {
-    "productId": "p-610c2db658",
-    "source": "https://cdn.shopify.com/s/files/1/0248/6858/products/29292-Full.jpg?v=1601956507",
-    "image": "/products/price-tiers/p-610c2db658.webp",
-    "sha256": "d755acea26ae1cd37fc316abfeecc4631be566396f305b1317872e9596b2ac0c",
-    "width": 1000,
+    "productId": "p-efd5b81469",
+    "source": "https://www.welovecolors.com/images/product/full/5010-w-black-second-skin-catsuit.jpg",
+    "image": "/products/price-tiers/p-efd5b81469.webp",
+    "sha256": "d17e33a5b559e2abf1119bafe35e898b137213a4fb66ea3c69ca5852cd9435e1",
+    "width": 960,
+    "height": 1200
+  },
+  {
+    "productId": "p-b2b40f4575",
+    "source": "https://cdn.shopify.com/s/files/1/0365/8003/2645/products/speerise-zip-front-spandex-long-sleeve-turtleneck-unitard-black.jpg?v=1760671730",
+    "image": "/products/price-tiers/p-b2b40f4575.webp",
+    "sha256": "acaf6311f5c538fea656eb138ed365ff7c642be6cc2573a644d5faa163797d69",
+    "width": 667,
+    "height": 930
+  },
+  {
+    "productId": "p-3ef3180df0",
+    "source": "https://cdn.shopify.com/s/files/1/0279/9966/6254/files/S8cde0283ba704256af7688e0b2be073ec.jpg?v=1692011441",
+    "image": "/products/price-tiers/p-3ef3180df0.webp",
+    "sha256": "e2760a5ff7be1f1985973f44cc83b82cab8b0ba932f98b21a69517c3b5afdc72",
+    "width": 1340,
+    "height": 1340
+  },
+  {
+    "productId": "p-2cd1a638ab",
+    "source": "https://cdn.shopify.com/s/files/1/2152/0639/products/black1_1_4984a0ae-5411-4aea-a78b-eb4b02ab8afa.jpg?v=1721953708",
+    "image": "/products/price-tiers/p-2cd1a638ab.webp",
+    "sha256": "a0bde0658b52d4e87227a2b1cfdac30e853383cc52a9901a9f95d6f6a8d258f8",
+    "width": 1500,
+    "height": 2250
+  },
+  {
+    "productId": "p-fb76982511",
+    "source": "https://cdn.shopify.com/s/files/1/1199/8814/files/halloween-beret--33304045.jpg?v=1729679768",
+    "image": "/products/price-tiers/p-fb76982511.webp",
+    "sha256": "ff77e93883c53dd2d231696d10cbfd69e21c962288de71de8b523bcf7447773d",
+    "width": 2000,
+    "height": 2000
+  },
+  {
+    "productId": "p-682cce6679",
+    "source": "https://cdn.shopify.com/s/files/1/0667/2046/5171/files/D4EF4733-5061-4984-9AE8-B615873C1000.jpg?v=1737331340",
+    "image": "/products/price-tiers/p-682cce6679.webp",
+    "sha256": "af14f6b8743cb46efedaae106aeccfdcd8b402db2ee6e8949e805c5afa63d12a",
+    "width": 3024,
+    "height": 4032
+  },
+  {
+    "productId": "p-527214ceca",
+    "source": "https://cdn.shopify.com/s/files/1/0754/1260/3200/files/IMG_1318_9811e346-0b93-4b9e-9f5f-a39c121fd999.jpg?v=1707514282",
+    "image": "/products/price-tiers/p-527214ceca.webp",
+    "sha256": "2e29ae799996db08f276568001e2b350709fa37289420848bef602b006847e97",
+    "width": 518,
+    "height": 640
+  },
+  {
+    "productId": "p-1b4eb91408",
+    "source": "https://cdn.shopify.com/s/files/1/0037/6802/5152/files/Orange_Acrylic_Felt_Fabric_10015_55a8f417-f188-4b9b-bc0c-d3730a1b8b68.webp?v=1780835074",
+    "image": "/products/price-tiers/p-1b4eb91408.webp",
+    "sha256": "ace3e20422b2def3bcd010661e5167a11e1fe8501d33979bafe9db2fff52e674",
+    "width": 4000,
+    "height": 4000
+  },
+  {
+    "productId": "p-14282b42ef",
+    "source": "https://cdn.shopify.com/s/files/1/0791/1095/products/pumpkinwoolblendfelt.JPG?v=1780418156",
+    "image": "/products/price-tiers/p-14282b42ef.webp",
+    "sha256": "51ddf2d345990abd30407cf7a020bcf3a2004feff3c91f02befe93db976a3348",
+    "width": 1661,
+    "height": 1661
+  },
+  {
+    "productId": "p-c4e438465d",
+    "source": "https://cdn11.bigcommerce.com/s-obcuok9/images/stencil/750x750/products/9686/26014/underwraps-clown-collar-blackorange__11865.1757272999.jpg?c=2",
+    "image": "/products/price-tiers/p-c4e438465d.webp",
+    "sha256": "1508ca745a0b603a77aefd95cb3a368b582267654f9a21e88f05a4e4d1df4bfd",
+    "width": 750,
+    "height": 750
+  },
+  {
+    "productId": "p-549ba5fa65",
+    "source": "https://i.etsystatic.com/5799614/r/il/cec427/6166287534/il_794xN.6166287534_h02v.jpg",
+    "image": "/products/price-tiers/p-549ba5fa65.webp",
+    "sha256": "6e8b0daa7ed6d704e5613cff15f6563e9328fec970bb6421e1f3a23d36fe12ef",
+    "width": 794,
+    "height": 794
+  },
+  {
+    "productId": "p-a27c35cd61",
+    "source": "https://i.etsystatic.com/5234342/r/il/683f79/6238677568/il_794xN.6238677568_cqsn.jpg",
+    "image": "/products/price-tiers/p-a27c35cd61.webp",
+    "sha256": "ba16cca5c490878337cf329a52d6ebfbcca64b1df2576cdbfb7b4c00d1895c31",
+    "width": 794,
+    "height": 794
+  },
+  {
+    "productId": "p-55485e7f87",
+    "source": "https://cdn.shopify.com/s/files/1/1199/8814/files/adult-short-gloves--33293706.jpg?v=1729637800",
+    "image": "/products/price-tiers/p-55485e7f87.webp",
+    "sha256": "383d771a63d7262c565304bb6d60d348cfcb0757bdd962460f8ade9a90b2c2cf",
+    "width": 500,
+    "height": 500
+  },
+  {
+    "productId": "p-1929078196",
+    "source": "https://cdn.shopify.com/s/files/1/1199/8814/files/unnamed-2025-03-31T171957.339.jpg?v=1743456013",
+    "image": "/products/price-tiers/p-1929078196.webp",
+    "sha256": "48743d2a30cfaa71c3733081b1388847941983a672ae2b8155cb771d2211b489",
+    "width": 424,
+    "height": 528
+  },
+  {
+    "productId": "p-5e9b010877",
+    "source": "https://cdn.shopify.com/s/files/1/1199/8814/products/legavenue-velvet-opera-length-gloves-6647473406006_9a9b3411-fb18-4a75-9ff2-e658f2a716f1.jpg?v=1762527182",
+    "image": "/products/price-tiers/p-5e9b010877.webp",
+    "sha256": "3e47707c3edd8e1191ec5cd6432867900d33697893f34f92e5fe0e2e647423cf",
+    "width": 1224,
+    "height": 1224
+  },
+  {
+    "productId": "p-99218bcec8",
+    "source": "https://cdn.shopify.com/s/files/1/0450/5721/2566/files/6_a4706f0d-eff1-4ae0-b7c3-bd2fe40057c0.jpg?v=1752504676",
+    "image": "/products/price-tiers/p-99218bcec8.webp",
+    "sha256": "e098172a4bd18eedf06029bd5a91b00f603546cab8a0781e544635041c3291bb",
+    "width": 2048,
+    "height": 2048
+  },
+  {
+    "productId": "p-5e504418f4",
+    "source": "https://cdn.shopify.com/s/files/1/2089/7573/files/victorian-35_blk_pu_new_material.jpg?v=1759790648",
+    "image": "/products/price-tiers/p-5e504418f4.webp",
+    "sha256": "c374108b5ccc2f0b352d7d30a5b7c13d492bd12b116fc30ef87959527a9b2224",
+    "width": 1500,
+    "height": 1500
+  },
+  {
+    "productId": "p-5ddd0e0d87",
+    "source": "https://cdn.shopify.com/s/files/1/0003/5333/7395/files/COVEN-BOOT-BLACK-SILVER-ALT-GOTH-WITH-BOOTS-PROFILE.jpg?v=1762442780",
+    "image": "/products/price-tiers/p-5ddd0e0d87.webp",
+    "sha256": "6b3eed66d90ecce439175086c2bd80988aa40a09034ee9d3237a60a93bcd32e8",
+    "width": 750,
     "height": 1000
   },
   {
-    "productId": "p-10914a6666",
-    "source": "https://cdn.shopify.com/s/files/1/0127/0982/products/30355.jpg?v=1758642614",
-    "image": "/products/price-tiers/p-10914a6666.webp",
-    "sha256": "9150f1a63ad968b4e11f8b27321ad55fea3eba11e703a351bb7a0bfa0258ad1d",
+    "productId": "p-a50ff4050c",
+    "source": "https://cdn.shopify.com/s/files/1/0738/6159/5439/files/raven-feather-fascinator-black.jpg?v=1742536205",
+    "image": "/products/price-tiers/p-a50ff4050c.webp",
+    "sha256": "74d7e17973f57bee5b5a9bed494583945a93902cd33390e71e25daa70a481d34",
+    "width": 3024,
+    "height": 4032
+  },
+  {
+    "productId": "p-6c366a858b",
+    "source": "https://i.etsystatic.com/17338879/r/il/abcad9/4659691848/il_794xN.4659691848_j3io.jpg",
+    "image": "/products/price-tiers/p-6c366a858b.webp",
+    "sha256": "a1925aa40948351c200fe8250f973fd507f032e9565c743bd12e38bb02f0811f",
+    "width": 794,
+    "height": 531
+  },
+  {
+    "productId": "p-56a09e0ccf",
+    "source": "https://cdn.shopify.com/s/files/1/0738/6159/5439/files/787B88C9-8270-4F70-A5F8-46203E091FFE_1_105_c.jpg?v=1747290808",
+    "image": "/products/price-tiers/p-56a09e0ccf.webp",
+    "sha256": "74b7ff72bb5531be3ba58e8a353a681c45aa65714aaf33df456e07f389213f3d",
+    "width": 886,
+    "height": 886
+  },
+  {
+    "productId": "p-387c976a88",
+    "source": "https://cdn.shopify.com/s/files/1/0891/9522/files/HH10__48143.jpg?v=1734708986",
+    "image": "/products/price-tiers/p-387c976a88.webp",
+    "sha256": "a2fdb893f8c2503f0116f55f4c32dd1ddf3cb9383a3d468dc4698a9925b45df8",
+    "width": 1280,
+    "height": 1280
+  },
+  {
+    "productId": "p-1458aa2e28",
+    "source": "https://cdn.shopify.com/s/files/1/0738/6159/5439/files/BlackvikingWarriorFeatherCape.png?v=1719043249",
+    "image": "/products/price-tiers/p-1458aa2e28.webp",
+    "sha256": "19251c833b9445d840fd5cba0687eba31d733fa07add7f8c3964a919b1c2e4c7",
+    "width": 1066,
+    "height": 1410
+  },
+  {
+    "productId": "p-36fb3393ab",
+    "source": "https://cdn.shopify.com/s/files/1/0980/0974/3654/files/005389_01_af8d1b6b-13d5-4ac9-aa8a-e5e8981950a7.jpg?v=1769539701",
+    "image": "/products/price-tiers/p-36fb3393ab.webp",
+    "sha256": "a6b3c885b093a139b7ba255a0a0d92ec33e7d7644de04938592eebf57c940a7b",
+    "width": 450,
+    "height": 440
+  },
+  {
+    "productId": "p-b16ad9d630",
+    "source": "https://cdn.shopify.com/s/files/1/0630/5605/2475/files/high-collar-feather-cape-black-irid-feathers-393.jpg?v=1723062484",
+    "image": "/products/price-tiers/p-b16ad9d630.webp",
+    "sha256": "7a667cf7eafe8a48c397f45c01f4dbc7b5a9b2efa53255a652afc5cdee7e5607",
     "width": 1024,
     "height": 1024
   },
   {
-    "productId": "p-bec94708ca",
-    "source": "https://cdn.shopify.com/s/files/1/0338/3105/9588/files/black-velvet-cape-TL-116_SIDE.jpg?v=1709772012",
-    "image": "/products/price-tiers/p-bec94708ca.webp",
-    "sha256": "1d7bd41228368429f842a9a4e022777870464c11af8a9922c6b9d71250e8ad2f",
+    "productId": "p-dd19c6de45",
+    "source": "https://cdn.shopify.com/s/files/1/2112/0571/files/Silk_Blouse_7.png?v=1734686817",
+    "image": "/products/price-tiers/p-dd19c6de45.webp",
+    "sha256": "65e695526ca5e3aeb49f244584cfca18b289e74bed4aa97bd6dcadd1bf64aca0",
+    "width": 750,
+    "height": 1000
+  },
+  {
+    "productId": "p-ca2db9e903",
+    "source": "https://cdn.shopify.com/s/files/1/0724/0450/0801/files/VictoriaBlouse.jpg?v=1731989901",
+    "image": "/products/price-tiers/p-ca2db9e903.webp",
+    "sha256": "2211abc828d9543e19301e948f92d13daa0def13b1236cd9e8ad4e84270b82b9",
+    "width": 2048,
+    "height": 2048
+  },
+  {
+    "productId": "p-9309900a8e",
+    "source": "https://cdn.shopify.com/s/files/1/0980/0974/3654/files/001692_01_09198bde-301d-4992-a74a-d1131c2998f6.jpg?v=1769539239",
+    "image": "/products/price-tiers/p-9309900a8e.webp",
+    "sha256": "d73a231d594e94e71ef58c9a962406e9a0c35270c06f58319222183aeb4ac95a",
+    "width": 450,
+    "height": 565
+  },
+  {
+    "productId": "p-dbf9a6582b",
+    "source": "https://cdn.shopify.com/s/files/1/0980/0974/3654/files/008849_01_ec09afad-1654-42ef-87db-4e326db99949.jpg?v=1769619184",
+    "image": "/products/price-tiers/p-dbf9a6582b.webp",
+    "sha256": "6a0e55e0abd5a6cf019440bef3de25a611709e3a2aaee31324028b4d23368cd1",
+    "width": 450,
+    "height": 551
+  },
+  {
+    "productId": "p-43dbc8c569",
+    "source": "https://cdn.shopify.com/s/files/1/0729/6267/0677/files/Document-37-page0001.jpg?v=1792737878",
+    "image": "/products/price-tiers/p-43dbc8c569.webp",
+    "sha256": "229be9783d0d6d82424fd42c8f7f55bff845b97951b7dd5dd80ac0f777b85f12",
+    "width": 1242,
+    "height": 1242
+  },
+  {
+    "productId": "p-90ba76fee6",
+    "source": "https://cdn.shopify.com/s/files/1/0980/0974/3654/files/002598_01_b5e088ed-11b5-4698-954f-08af8bae96e3.jpg?v=1769539358",
+    "image": "/products/price-tiers/p-90ba76fee6.webp",
+    "sha256": "7bc5c34cf1601aab8e6b47e0c968f5397ced87e1d5a895f5515e45c12ab63ce8",
+    "width": 450,
+    "height": 633
+  },
+  {
+    "productId": "p-d618ba035e",
+    "source": "https://cdn.shopify.com/s/files/1/0980/0974/3654/files/001836_01_a3fa85f6-bbdb-4372-851b-63a614e18335.jpg?v=1769539250",
+    "image": "/products/price-tiers/p-d618ba035e.webp",
+    "sha256": "a61310ece51277739e085f858e094e9a2e89834633e3dcfc8425ae230b957ca7",
+    "width": 450,
+    "height": 846
+  },
+  {
+    "productId": "p-a45f18ae26",
+    "source": "https://cdn.shopify.com/s/files/1/0051/7088/8794/files/KW432.jpg?v=1774244294",
+    "image": "/products/price-tiers/p-a45f18ae26.webp",
+    "sha256": "d475dc25838d7dd2048f0f6f58e2706be7d808062ebed644691b0693f5b74265",
+    "width": 750,
+    "height": 1125
+  },
+  {
+    "productId": "p-3c7b273e7c",
+    "source": "https://cdn.shopify.com/s/files/1/0450/5721/2566/files/78_c559ee36-2553-4892-b413-58b3061ff17b.jpg?v=1752504201",
+    "image": "/products/price-tiers/p-3c7b273e7c.webp",
+    "sha256": "53d9a4418520e100818f3184a991a7bd896bae309c9cfec6b04bdf1bf603f039",
+    "width": 2048,
+    "height": 2048
+  },
+  {
+    "productId": "p-babffa879d",
+    "source": "https://cdn.shopify.com/s/files/1/2089/7573/files/victorian-120_blk_pu_new_material.jpg?v=1759790610",
+    "image": "/products/price-tiers/p-babffa879d.webp",
+    "sha256": "e3734e72f97fb06c7d3c329f279b70b55d8cac8ad675034e92aeea727189a87f",
+    "width": 1500,
+    "height": 1500
+  },
+  {
+    "productId": "p-336f983a8e",
+    "source": "https://cdn.shopify.com/s/files/1/0814/5469/4716/files/1910s-everyday-lace-up-boots-black-ruth-685752.jpg?v=1755162430",
+    "image": "/products/price-tiers/p-336f983a8e.webp",
+    "sha256": "1f7f4019905dd60700d7082528334bd08b2a04169e576b60cdb690af8a4bba7f",
+    "width": 1365,
+    "height": 2048
+  },
+  {
+    "productId": "p-dd4f20779d",
+    "source": "https://cdn.shopify.com/s/files/1/0610/0208/8690/products/img_proxy_d6e5b887-94c5-41db-b67f-9927d8e19d30.jpg?v=1706046054",
+    "image": "/products/price-tiers/p-dd4f20779d.webp",
+    "sha256": "83731be481c797602a600052ad7c99fae1bdaa63a304c102f7c216f01dd83f44",
+    "width": 951,
+    "height": 500
+  },
+  {
+    "productId": "p-cf22d6eba6",
+    "source": "https://cdn.shopify.com/s/files/1/0338/7090/5481/files/red-kap-professional-twill-industrial-workwear-action-back-coverall-white-ct10-1.webp?v=1739224971",
+    "image": "/products/price-tiers/p-cf22d6eba6.webp",
+    "sha256": "04ffbbbdfa9c7498cc8f5116c2ed82f1fea64db1ffaaa85b3769a4a4aa1a4a23",
+    "width": 800,
+    "height": 800
+  },
+  {
+    "productId": "p-0d72275b4d",
+    "source": "https://cdn.shopify.com/s/files/1/0610/0208/8690/products/s-l640_51bff292-a1cd-4322-ba23-2775725fa4b5.jpg?v=1663963587",
+    "image": "/products/price-tiers/p-0d72275b4d.webp",
+    "sha256": "2681a6906b35da28c6dcaaeb59b0ff51d6de5ed1b9655d6a120950e96cfd971e",
+    "width": 427,
+    "height": 640
+  },
+  {
+    "productId": "p-85d7ce7b3c",
+    "source": "https://cdn.shopify.com/s/files/1/0672/5015/9861/products/astronaut-helmet-adult-2-piece-silver.jpg?v=1701110189",
+    "image": "/products/price-tiers/p-85d7ce7b3c.webp",
+    "sha256": "9e552a1f6453493043655c5a62afde34bf6578ad3b120fef6f9fae6c54ae845a",
+    "width": 616,
+    "height": 725
+  },
+  {
+    "productId": "p-987fdfb629",
+    "source": "https://cdn.shopify.com/s/files/1/0792/4950/6518/files/U29362_full_1.jpg?v=1766858168",
+    "image": "/products/price-tiers/p-987fdfb629.webp",
+    "sha256": "fd839630f96b3237c11a01627d67861b377451611d54d74db86efc48f2ecbdc4",
+    "width": 990,
+    "height": 1500
+  },
+  {
+    "productId": "p-ba6ef8eafc",
+    "source": "https://cdn.shopify.com/s/files/1/1199/8814/files/618105A.jpg?v=1760379194",
+    "image": "/products/price-tiers/p-ba6ef8eafc.webp",
+    "sha256": "e899c033f5d7578d615a2e10a14170ff21c35d05169e4103cbddeda315e5d03c",
+    "width": 2000,
+    "height": 2000
+  },
+  {
+    "productId": "p-0dab590d99",
+    "source": "https://cdn.shopify.com/s/files/1/0782/8973/1739/files/anu-gallery-20579fa3550e53e7-ae8fedb75b8766e2.jpg?v=1791617310",
+    "image": "/products/price-tiers/p-0dab590d99.webp",
+    "sha256": "7f90f9a53ed81e22758010ccec10aa62e7c11746ef66411e59ab38c810312e0a",
+    "width": 600,
+    "height": 530
+  },
+  {
+    "productId": "p-a0e3a2a0b4",
+    "source": "https://cdn.shopify.com/s/files/1/0070/0874/7556/files/4171-double-pronged-belt-khaki.jpg?v=1753753094",
+    "image": "/products/price-tiers/p-a0e3a2a0b4.webp",
+    "sha256": "ca7686841e5e59128ab1649df5b9063aae40de6500b6ad8eaf0f396444a58b2a",
+    "width": 1500,
+    "height": 1500
+  },
+  {
+    "productId": "p-b495506efa",
+    "source": "https://cdn.shopify.com/s/files/1/0281/1170/0021/files/Atlas-Khaki-UA-NRSEEH4-453_optimized.webp?v=1787700110",
+    "image": "/products/price-tiers/p-b495506efa.webp",
+    "sha256": "603d5a58ccff48e4733685a6bc669f7d1e568fb009041bf2a2cf662520907a99",
+    "width": 2048,
+    "height": 2048
+  },
+  {
+    "productId": "p-1ec5fec4c5",
+    "source": "https://cdn.shopify.com/s/files/1/0059/9785/4793/files/paume_hand_gloves_mask.jpg?v=1762533394",
+    "image": "/products/price-tiers/p-1ec5fec4c5.webp",
+    "sha256": "066c58de4bfdb7e620d212f860dabdde50080509e413fbf9e814a8ead48c6a51",
+    "width": 1000,
+    "height": 1000
+  },
+  {
+    "productId": "p-6e8b5f055f",
+    "source": "https://cdn11.bigcommerce.com/s-obcuok9/images/stencil/1280w/products/6285/20079/adult-s-astronaut-gloves-whiteur28854std__41961.1706478785.jpg?c=2",
+    "image": "/products/price-tiers/p-6e8b5f055f.webp",
+    "sha256": "a07ebc887ed7cd597965cf65b1485b0c02b15a753369f2cf553e249a16941678",
+    "width": 1280,
+    "height": 1280
+  },
+  {
+    "productId": "p-fd0a416d23",
+    "source": "https://cdn.shopify.com/s/files/1/2239/6447/products/Gloves-clippedred_1.png?v=1762268755",
+    "image": "/products/price-tiers/p-fd0a416d23.webp",
+    "sha256": "a7c03f3f9c2581b98ff281c30328034254ce6dcfcb03f1fd374272745e51bc49",
+    "width": 2000,
+    "height": 2000
+  },
+  {
+    "productId": "p-3fba2f0088",
+    "source": "https://cdn.shopify.com/s/files/1/2089/7573/files/exotica-2000-s_93b8e56d-73e1-413f-9aa1-6f87e2888bed.jpg?v=1696457112",
+    "image": "/products/price-tiers/p-3fba2f0088.webp",
+    "sha256": "a0b057d9193a2317317ebdb3821150bfc934ea7afff1244e89007a9a6302327b",
+    "width": 1100,
+    "height": 1100
+  },
+  {
+    "productId": "p-77c39948bb",
+    "source": "https://cdn.shopify.com/s/files/1/0882/8672/files/Photoroom_20251217_135937.jpg?v=1766436005",
+    "image": "/products/price-tiers/p-77c39948bb.webp",
+    "sha256": "b07e1ce9d292c27185864a658fb6b7ad785697fde7decf0300945431d6d3b07a",
+    "width": 1800,
+    "height": 2400
+  },
+  {
+    "productId": "p-21e9dbc725",
+    "source": "https://cdn.shopify.com/s/files/1/2089/7573/files/gogo-300-spu_44ced8ae-c52f-480e-b340-555925592deb.jpg?v=1696462816",
+    "image": "/products/price-tiers/p-21e9dbc725.webp",
+    "sha256": "1ce1764252480b042e696ad7a2b23d730e9303fc2e3edb94a97188f3aac4cad6",
     "width": 1200,
-    "height": 1832
+    "height": 1200
+  },
+  {
+    "productId": "p-337bac49dd",
+    "source": "https://hartsfabric.com/pub/media/catalog/product/cache/b33543002cb9de920cfb940334232543/p/p/pp_burnt_orange.jpg",
+    "image": "/products/price-tiers/p-337bac49dd.webp",
+    "sha256": "1a9303f27895caa9ae23a58695a5f0a3d095dff1750a65162087b560bc16e8d7",
+    "width": 800,
+    "height": 800
+  },
+  {
+    "productId": "p-306614983d",
+    "source": "https://storage.googleapis.com/stmdf-production/2026/05/LRM_20260510_142040.jpg",
+    "image": "/products/price-tiers/p-306614983d.webp",
+    "sha256": "cefe1c1a0d69453002978e02539575ca930c8f0b4b1dd844de08c0adf58b13f9",
+    "width": 1024,
+    "height": 767
+  },
+  {
+    "productId": "p-cd964a6995",
+    "source": "https://cdn.shopify.com/s/files/1/0590/3636/9066/files/IMG_5982_a5356ebe-c36a-47a8-8587-7fab21231e72.jpg?v=1785285490",
+    "image": "/products/price-tiers/p-cd964a6995.webp",
+    "sha256": "8e6d8c7a08a80c211706bd3fffbd8f3e6dc17ea46682ffc317f52d48a54cc28c",
+    "width": 1974,
+    "height": 2632
+  },
+  {
+    "productId": "p-96679a3aae",
+    "source": "https://cdn.shopify.com/s/files/1/0511/3783/9283/files/21163-Burgundy-AB.jpg?v=1753872536",
+    "image": "/products/price-tiers/p-96679a3aae.webp",
+    "sha256": "0d34620fc5e2c4a474b8bdbd5bb0a3fd6acbaab0e8186d904248eb3db0e11030",
+    "width": 2500,
+    "height": 3156
+  },
+  {
+    "productId": "p-ecabbd00d3",
+    "source": "https://cdn.shopify.com/s/files/1/0677/0749/products/acute_designs-180.jpg?v=1744763739",
+    "image": "/products/price-tiers/p-ecabbd00d3.webp",
+    "sha256": "f58a4426fe451b0dc8b7fa589391042fea6fd332cf61d524bf91cb2253d30743",
+    "width": 1067,
+    "height": 1067
+  },
+  {
+    "productId": "p-21f722ad43",
+    "source": "https://cdn.shopify.com/s/files/1/0677/0749/products/rose_petal_crown_2.jpg?v=1744764184",
+    "image": "/products/price-tiers/p-21f722ad43.webp",
+    "sha256": "2af0c36bad6bada6ae380995d3141d65580f155302504f74c01ad3f507af79aa",
+    "width": 2173,
+    "height": 2173
+  },
+  {
+    "productId": "p-0815fd0233",
+    "source": "https://cdn.shopify.com/s/files/1/0677/0749/files/AcuteDesignsMay2026-109.jpg?v=1782334782",
+    "image": "/products/price-tiers/p-0815fd0233.webp",
+    "sha256": "6cd8216a843c596c506340dd9f1394ab78749d1aab26da7d550e57c7ff7b2a22",
+    "width": 1067,
+    "height": 1067
+  },
+  {
+    "productId": "p-8d1bae85e1",
+    "source": "https://cdn.shopify.com/s/files/1/0511/4373/files/2327286919382128899222.png?v=1754703104",
+    "image": "/products/price-tiers/p-8d1bae85e1.webp",
+    "sha256": "08f1b531dcd3a9fde284e7b627bd712b84f5772f6183d48b6d1d12217e3440e0",
+    "width": 1105,
+    "height": 2000
+  },
+  {
+    "productId": "p-f84baae8a4",
+    "source": "https://cdn.shopify.com/s/files/1/0875/9364/8425/files/cm394_burgundy_1.jpg?v=1790799016",
+    "image": "/products/price-tiers/p-f84baae8a4.webp",
+    "sha256": "08c87cdfd1ab864f02665dad8c44c84592f7f8cb902647b9be115e6181e05b1e",
+    "width": 800,
+    "height": 1200
+  },
+  {
+    "productId": "p-33b6ab8042",
+    "source": "https://images.squarespace-cdn.com/content/v1/655697cace83257275829245/1701270662321-VK9GVFBCOIGBK5KL5EQE/Olive+Capelet+1_clipped_rev_1.jpeg",
+    "image": "/products/price-tiers/p-33b6ab8042.webp",
+    "sha256": "0909f90d68a854863b9b3bdde6ce9fce912bec3107d7a34eb5632590ff6bd2f0",
+    "width": 1080,
+    "height": 1080
+  },
+  {
+    "productId": "p-ee29b61278",
+    "source": "https://i.etsystatic.com/17308257/r/il/0b540c/5052871188/il_794xN.5052871188_tnym.jpg",
+    "image": "/products/price-tiers/p-ee29b61278.webp",
+    "sha256": "42bf0a7b91faca094e959458ae483e7ad6cdb7be2b005482182b3a738f6363be",
+    "width": 794,
+    "height": 607
+  },
+  {
+    "productId": "p-237279d8f1",
+    "source": "https://cdn.shopify.com/s/files/1/0629/3327/0761/products/dark-green-velvet-lace-capelet-721901.jpg?v=1756219177",
+    "image": "/products/price-tiers/p-237279d8f1.webp",
+    "sha256": "ecd3cda3a7e0d8fc0bab1c77529f7adc74a926101561a56fd1b0b139ae405066",
+    "width": 1980,
+    "height": 2970
+  },
+  {
+    "productId": "p-3d4198f4c0",
+    "source": "https://cdn.shopify.com/s/files/1/0925/2959/0519/files/S947c903831bb462aae9f415712f95c59k.webp?v=1792389313",
+    "image": "/products/price-tiers/p-3d4198f4c0.webp",
+    "sha256": "1478c396d8f22d440b32672e1f4bf3d9ac7af709189413ee9559f4a5f2c89584",
+    "width": 800,
+    "height": 800
+  },
+  {
+    "productId": "p-e681c1ed42",
+    "source": "https://cdn.shopify.com/s/files/1/0251/3722/files/long-red-velvet-opera-length-gloves-ac1011-5.jpg?v=1762919849",
+    "image": "/products/price-tiers/p-e681c1ed42.webp",
+    "sha256": "dc01962bc6cdd904507fcc980141998f74d1c8d159cb14d0309b16d614fd7c7f",
+    "width": 1024,
+    "height": 1024
+  },
+  {
+    "productId": "p-df8ef7c655",
+    "source": "https://cdn.shopify.com/s/files/1/1637/4459/files/Burgundy_Gloves_2.png?v=1752794140",
+    "image": "/products/price-tiers/p-df8ef7c655.webp",
+    "sha256": "3f70bb025e2abc097801c15c8c9e8cc3c14cba6c4108ae0aa45289de3b87081a",
+    "width": 750,
+    "height": 1000
+  },
+  {
+    "productId": "p-4cf693131c",
+    "source": "https://cdn.shopify.com/s/files/1/0830/3706/1414/files/il_fullxfull.5262534687_9hb9_59c165c0-21da-46f8-88f4-c5a4c1ec4a5b.jpg?v=1788192517",
+    "image": "/products/price-tiers/p-4cf693131c.webp",
+    "sha256": "5893f456d24e45f6ee2c2834bad21ad3f37fc1a554cd08ba1211d4cf74b0f98c",
+    "width": 1539,
+    "height": 2048
+  },
+  {
+    "productId": "p-bfd5ae5a6f",
+    "source": "https://cdn.shopify.com/s/files/1/0830/3706/1414/files/il_fullxfull.6552870261_f7lc_391c543c-3ce1-45f9-b098-65fa98139ed3.jpg?v=1776412590",
+    "image": "/products/price-tiers/p-bfd5ae5a6f.webp",
+    "sha256": "0d0e9f025c33e8431ba4e3759f59128041083dc9b795ea4c836902ba8e86e4e4",
+    "width": 2008,
+    "height": 2008
+  },
+  {
+    "productId": "p-9f0ec3e56f",
+    "source": "https://cdn.shopify.com/s/files/1/1903/5555/files/DANNERAO_DARKBROWN_2.jpg?v=1756989780",
+    "image": "/products/price-tiers/p-9f0ec3e56f.webp",
+    "sha256": "90b000dcaf8f5f96e5de86e2cf4c82b809844b9d3de0630d65ab2e75559b3ea1",
+    "width": 2500,
+    "height": 2500
+  },
+  {
+    "productId": "p-8c97008953",
+    "source": "https://cdn.shopify.com/s/files/1/0830/3706/1414/files/il_fullxfull.6465440806_itwc_d9894829-839a-4316-9bc0-cd5f01bf9a4d.jpg?v=1776412600",
+    "image": "/products/price-tiers/p-8c97008953.webp",
+    "sha256": "46aa01dd55f84ae60c672e6625efbec38d27b394ce9b06243abab82961313959",
+    "width": 3000,
+    "height": 2251
+  },
+  {
+    "productId": "p-fa88c71724",
+    "source": "https://cdn.shopify.com/s/files/1/0419/1525/products/1024x1024-Women-Duchess-Black-Side.jpg?v=1591637693",
+    "image": "/products/price-tiers/p-fa88c71724.webp",
+    "sha256": "32b00bd664aba41353cbd829c38d8cd2e36a98cd34a02be66fc458698452caf9",
+    "width": 1024,
+    "height": 1024
+  },
+  {
+    "productId": "p-65bdda9af7",
+    "source": "https://cdn.shopify.com/s/files/1/0903/6349/4707/files/product-image_2026-10-12_510_p_usa_hero.jpg?v=1791961602",
+    "image": "/products/price-tiers/p-65bdda9af7.webp",
+    "sha256": "71d2aa27270cd00911d64e43b7c8508b5fad51cffd573b7d394cf267361fdb12",
+    "width": 2000,
+    "height": 2000
+  },
+  {
+    "productId": "p-4866b4cce6",
+    "source": "https://hatsfromoz-com.b-cdn.net/wp-content/uploads/2023/07/MA893-cream.jpg",
+    "image": "/products/price-tiers/p-4866b4cce6.webp",
+    "sha256": "5d19ed8f82755ff46247244196f8cdf230ca4e48a496f097b3d8adce676e0ed8",
+    "width": 1000,
+    "height": 800
+  },
+  {
+    "productId": "p-9480e15f4e",
+    "source": "https://images.squarespace-cdn.com/content/v1/55b43427e4b0b04050cb764c/1694985788545-NRGH9VCW7985585FV7QF/Fainting+Circlet_Ivory.jpg",
+    "image": "/products/price-tiers/p-9480e15f4e.webp",
+    "sha256": "ae22ace377905c3d4886c8954f55aa4dd263396660b35c97d9f4cc66c62e36e3",
+    "width": 2500,
+    "height": 1850
+  },
+  {
+    "productId": "p-cb88a585bd",
+    "source": "https://i.etsystatic.com/9687694/r/il/10d055/1028120941/il_fullxfull.1028120941_irrx.jpg",
+    "image": "/products/price-tiers/p-cb88a585bd.webp",
+    "sha256": "55df532dde25b357542ca71d455b72c89b20e011bed9ad41057a3c6d875a6fae",
+    "width": 836,
+    "height": 690
+  },
+  {
+    "productId": "p-f22120f3bd",
+    "source": "https://cdn.shopify.com/s/files/1/0630/5605/2475/files/feather-headband-w-rooster-hackle-stripped-coque-white-feathers-492.jpg?v=1723030270",
+    "image": "/products/price-tiers/p-f22120f3bd.webp",
+    "sha256": "e720cec7a25ffb937adb02022966ad542dd714764cea2ced37ba597ae900cd4e",
+    "width": 1024,
+    "height": 1024
+  },
+  {
+    "productId": "p-8c66b216fc",
+    "source": "https://cdn.shopify.com/s/files/1/0674/4791/4648/files/Facetune_26-02-2024-19-13-15.webp?v=1761926949",
+    "image": "/products/price-tiers/p-8c66b216fc.webp",
+    "sha256": "22a4918af8397fc69efcb28195ae6ea3e6365c77210d01c1b057843b993fe49f",
+    "width": 2688,
+    "height": 3360
+  },
+  {
+    "productId": "p-7d0611026f",
+    "source": "https://cdn.shopify.com/s/files/1/0630/5605/2475/files/small-ostrich-bolero-feather-shoulder-wrap-white-feathers-593.jpg?v=1723067842",
+    "image": "/products/price-tiers/p-7d0611026f.webp",
+    "sha256": "a5021e5c0e87c3f7d281c02cdb58bd97630f50599c00451fcc3afb7cfb9ada3d",
+    "width": 1080,
+    "height": 1080
+  },
+  {
+    "productId": "p-3799a61906",
+    "source": "https://cdn.shopify.com/s/files/1/0779/4189/9611/files/leif-natur.V4lhRf.jpg?v=1774566137",
+    "image": "/products/price-tiers/p-3799a61906.webp",
+    "sha256": "68c8ef0b20f16876501de15164026938a66397261ca2dc7e81b11387a613d4ab",
+    "width": 850,
+    "height": 1276
+  },
+  {
+    "productId": "p-f35c48b860",
+    "source": "https://cdn.shopify.com/s/files/1/0779/4189/9611/files/gilbert-natur.7qem9G.jpg?v=1774944494",
+    "image": "/products/price-tiers/p-f35c48b860.webp",
+    "sha256": "072334db056ae20979b934826fca709abfc863316f7f097159c3979da09861e9",
+    "width": 850,
+    "height": 1276
+  },
+  {
+    "productId": "p-6c68216fba",
+    "source": "https://images.quince.com/1b9zqjjnnVBViU98thA2Wp/a90f82d4f75eb98ca2ee11692ab56d19/Nicole_Chavez_Editorial_01-224_245_EDITED.jpg?fm=webP&q=90&w=1600",
+    "image": "/products/price-tiers/p-6c68216fba.webp",
+    "sha256": "69a7fd8e87710102c0c6c9edf8247e4e28dacc4764e76e773e995b5ffa426b1f",
+    "width": 1600,
+    "height": 2000
+  },
+  {
+    "productId": "p-54214148a4",
+    "source": "https://cdn.shopify.com/s/files/1/0779/4189/9611/files/tunic-lodin-natural-front.jpg?v=1774545701",
+    "image": "/products/price-tiers/p-54214148a4.webp",
+    "sha256": "56344168d27e3f147c8d1ce34af8d1b0258d5b6216487b3656bb9ef62e4472db",
+    "width": 1280,
+    "height": 1920
+  },
+  {
+    "productId": "p-3b0a976509",
+    "source": "https://www.nunnbush.com/shop/images/w590/85088-215.jpg",
+    "image": "/products/price-tiers/p-3b0a976509.webp",
+    "sha256": "082ea705ac032551c55f83107b6c766ecb8ab33a0a845f30535d1eb125ef11c3",
+    "width": 590,
+    "height": 667
+  },
+  {
+    "productId": "p-38e9601da6",
+    "source": "https://cdn.shopify.com/s/files/1/0550/6478/9066/files/Harvest_and_Mill_organic_cotton_mens_organic_lounge_pants_dye_free_11.jpg?v=1752509147",
+    "image": "/products/price-tiers/p-38e9601da6.webp",
+    "sha256": "deadf8406e5dbcea8e5119dfd45e4031d4cbea25a7db2f67efdc21871b3b1a23",
+    "width": 1363,
+    "height": 2048
+  },
+  {
+    "productId": "p-ba0acbf53c",
+    "source": "https://cdn.shopify.com/s/files/1/0419/1525/files/1024x1024-Men-Captain-Brown-081226-3.4-d17ac2.jpg?v=1790357464",
+    "image": "/products/price-tiers/p-ba0acbf53c.webp",
+    "sha256": "de2fa03688e86a3519b1e5d979c447d6c33d3424477b8c01fc19a6f36c0ce1d9",
+    "width": 1024,
+    "height": 1024
+  },
+  {
+    "productId": "p-a880ab278b",
+    "source": "https://cdn.shopify.com/s/files/1/1163/3390/files/GRANT2SIDE2-Edit-Edit_27ba84f7-bb9a-4473-89e4-2683d625de2f.jpg?v=1783616239",
+    "image": "/products/price-tiers/p-a880ab278b.webp",
+    "sha256": "db9aec9631ee94aff99e74a9c5bd14c03e1c370a3b6ea069cf52b913a1465f10",
+    "width": 2048,
+    "height": 2048
+  },
+  {
+    "productId": "p-fae8356f54",
+    "source": "https://cdn.shopify.com/s/files/1/0771/8275/files/White_linen_drawstring_lead.jpg?v=1776369060",
+    "image": "/products/price-tiers/p-fae8356f54.webp",
+    "sha256": "cc61950d305846171dd9dcbcf114db48138e4ba92a31329f13005ac61e203f79",
+    "width": 1200,
+    "height": 1789
+  },
+  {
+    "productId": "p-c8a1001a28",
+    "source": "https://cdn.shopify.com/s/files/1/0964/1358/files/TASSELROPEBELT_CREAM.jpg?v=1761690215",
+    "image": "/products/price-tiers/p-c8a1001a28.webp",
+    "sha256": "0328fa4ef342d09947a1989001a6e0c86f9fd67b3da7b00130f0ae4555483018",
+    "width": 2449,
+    "height": 3673
+  },
+  {
+    "productId": "p-8248b874fa",
+    "source": "https://cdn.shopify.com/s/files/1/0252/6727/3790/products/ropeb.jpg?v=1573780391",
+    "image": "/products/price-tiers/p-8248b874fa.webp",
+    "sha256": "3f8fb29c4f37b6ccff5289b8244dd923b8ee4d5f027e344d44e05ec0a5d51046",
+    "width": 804,
+    "height": 707
+  },
+  {
+    "productId": "p-ac74ad26d9",
+    "source": "https://cdn.shopify.com/s/files/1/1886/7933/products/rachel-comey-rope-belt_2.jpg?v=1654812160",
+    "image": "/products/price-tiers/p-ac74ad26d9.webp",
+    "sha256": "f55ba2a45637c975a59da7ffc88f3dcab7dd3128f5ed6874e6f79ab7118a76b8",
+    "width": 1333,
+    "height": 2002
+  },
+  {
+    "productId": "p-45bc046658",
+    "source": "https://cdn.shopify.com/s/files/1/0140/7198/8281/files/black-magic-velvet-witch-hat-one-size-adults-698.webp?v=1780351430",
+    "image": "/products/price-tiers/p-45bc046658.webp",
+    "sha256": "f8a32e5f94622f0d03535b7ca4eca2d13d20cddc33c93b09624cb21ba16a7614",
+    "width": 1512,
+    "height": 1512
+  },
+  {
+    "productId": "p-1214815a11",
+    "source": "https://www.gypsytreasure.com/wp-content/uploads/2022/09/Celestial-Cape-2.jpg",
+    "image": "/products/price-tiers/p-1214815a11.webp",
+    "sha256": "c8fc5cf4ac2dfd2e56e4f6fce8f1fa3ca0f6dd1dbac5d0cbb002200fc51e8ef1",
+    "width": 600,
+    "height": 600
+  },
+  {
+    "productId": "p-1ff589970a",
+    "source": "https://cdn.shopify.com/s/files/1/0551/3815/6647/files/rn-image_picker_lib_temp_1832255e-c3bc-4aca-8f1a-7ce0a40d5c38.jpg?v=1786555875",
+    "image": "/products/price-tiers/p-1ff589970a.webp",
+    "sha256": "c82cdca033e7d4616489557314ad977312f4c2aea97b4c284e17d007ee22d31f",
+    "width": 2992,
+    "height": 2992
+  },
+  {
+    "productId": "p-22314038bb",
+    "source": "https://cdn.shopify.com/s/files/1/0724/8851/7799/files/30-11-2025_47_80bdf82a-6947-4ef5-813b-a214336af83b.jpg?v=1773997782",
+    "image": "/products/price-tiers/p-22314038bb.webp",
+    "sha256": "d07086043261b80bcb3eec8a11909b4fcd8a5e6858efa70744d337a7e0854112",
+    "width": 2233,
+    "height": 3349
+  },
+  {
+    "productId": "p-83eb78bcbc",
+    "source": "https://cdn.shopify.com/s/files/1/1135/9810/files/A101X0001B.jpg?v=1764015219",
+    "image": "/products/price-tiers/p-83eb78bcbc.webp",
+    "sha256": "b625c2b090ce4195240c8c53dc1e243c1e6d6cf3397c4eeb6a085c280311e3fb",
+    "width": 1102,
+    "height": 2000
+  },
+  {
+    "productId": "p-0439c06c0f",
+    "source": "https://cdn.shopify.com/s/files/1/0549/1438/4030/products/IMG_0384.jpg?v=1647563505",
+    "image": "/products/price-tiers/p-0439c06c0f.webp",
+    "sha256": "0ec22d25981b06f24505d59341b463efa83d7ed2ce05d2f097169f1feafeadac",
+    "width": 1500,
+    "height": 1500
+  },
+  {
+    "productId": "p-64f22fd467",
+    "source": "https://cdn.shopify.com/s/files/1/0689/2240/9281/products/DSCF9749.jpg?v=1679953845",
+    "image": "/products/price-tiers/p-64f22fd467.webp",
+    "sha256": "db079ba00974c29f973310b0fd5286b68e1bcc07b44f81e461a2854431b5b489",
+    "width": 2912,
+    "height": 4368
+  },
+  {
+    "productId": "p-276861ac75",
+    "source": "https://cdn.shopify.com/s/files/1/0631/5452/0246/files/07-2026-02-16_8575d7c0-7206-4b2d-ad68-c1655e51436c.webp?v=1789059009",
+    "image": "/products/price-tiers/p-276861ac75.webp",
+    "sha256": "8fffa4df7769649cc960518abe1d9bf343e5f9e430dd8bf8baa7ca0b12bee898",
+    "width": 3858,
+    "height": 4400
+  },
+  {
+    "productId": "p-0078853d2d",
+    "source": "https://cdn.shopify.com/s/files/1/0501/3057/files/092024_499.jpg?v=1748478544",
+    "image": "/products/price-tiers/p-0078853d2d.webp",
+    "sha256": "fc6883e2856d69b90ad01e5d24c15189f91ab2e8ca1105b94e62ff41dfdb198d",
+    "width": 1240,
+    "height": 1760
+  },
+  {
+    "productId": "p-9ceb60b1a5",
+    "source": "https://cdn.shopify.com/s/files/1/0450/5721/2566/products/rainey-vintage-boots-dandy-wellington-black-of.jpg?v=1671580774",
+    "image": "/products/price-tiers/p-9ceb60b1a5.webp",
+    "sha256": "0ceb1791e881d3519c2784c371dec7281bd1967494a1f1b3e9e4422c7cd1e7e4",
+    "width": 1000,
+    "height": 1000
+  },
+  {
+    "productId": "p-982c5731f8",
+    "source": "https://cdn.shopify.com/s/files/1/0419/1525/products/1024x1024-Women-Combat-Black-081721-Side.jpg?v=1683319134",
+    "image": "/products/price-tiers/p-982c5731f8.webp",
+    "sha256": "78cf30937267212b0e6bdf4a6a48642a40163e99d6db2fa6716373c60403342c",
+    "width": 1024,
+    "height": 1024
+  },
+  {
+    "productId": "p-ed0b6d3416",
+    "source": "https://cdn.shopify.com/s/files/1/1903/5555/files/prima_grinnel_pu_black_002.jpg?v=1784302923",
+    "image": "/products/price-tiers/p-ed0b6d3416.webp",
+    "sha256": "619c0a498a4365cb4ac8d44e33e1dc509a940bbeeb482e75ff7670c9624b1435",
+    "width": 2500,
+    "height": 2500
+  },
+  {
+    "productId": "p-2d77c3f04b",
+    "source": "https://cdn.shopify.com/s/files/1/0525/8094/2023/files/CrescentNecklace-Silver1.png?v=1732140486",
+    "image": "/products/price-tiers/p-2d77c3f04b.webp",
+    "sha256": "00b8588935540030ca4f27c9d380cb392abe3d5b49f51c461ad4c65010bfb32d",
+    "width": 1065,
+    "height": 1065
+  },
+  {
+    "productId": "p-c647cdb853",
+    "source": "https://cdn.shopify.com/s/files/1/0699/1400/1582/files/9963E9F3-DF38-4CFE-BC9D-4F37413AA1F4.jpg?v=1760798812",
+    "image": "/products/price-tiers/p-c647cdb853.webp",
+    "sha256": "31fc01a4fcb90d637950ae84fa506294a89a53b5ff2a871daf8e6ce39cef9a88",
+    "width": 947,
+    "height": 947
+  },
+  {
+    "productId": "p-14bc912ac2",
+    "source": "https://cdn.shopify.com/s/files/1/0605/5788/5497/products/il_fullxfull.1652107172_4a2g_f77d12b0-2d60-46dd-9753-5308d6d04f54.jpg?v=1657569387",
+    "image": "/products/price-tiers/p-14bc912ac2.webp",
+    "sha256": "4e7a0c2467a9e464c74c951263560db65ad43885ceafb565bf9365a72fc6a2fb",
+    "width": 2668,
+    "height": 2668
+  },
+  {
+    "productId": "p-06edb85a9c",
+    "source": "https://stutterheim.com/media/products/stockholm-yellow/12_c846ffd9f3-stockholm_yellow_flatlay_plp1.jpg",
+    "image": "/products/price-tiers/p-06edb85a9c.webp",
+    "sha256": "b4da08d221d4cab58291bf567d6115cf224555d571b8a93a3b698cf059fb0e6a",
+    "width": 3000,
+    "height": 4500
+  },
+  {
+    "productId": "p-9c38b29014",
+    "source": "https://cdn.shopify.com/s/files/1/0830/2041/5295/files/Drizzle-yellow1.png?v=1710063136",
+    "image": "/products/price-tiers/p-9c38b29014.webp",
+    "sha256": "c2d2fb938a55bef5c688105bbedf6d01ddf2489acc29b0d77285624ad22ac65f",
+    "width": 648,
+    "height": 957
+  },
+  {
+    "productId": "p-5f79113768",
+    "source": "https://cdn.shopify.com/s/files/1/0941/0415/8490/files/CharlesRiver-9199-150_Yellow_New-Englander-Rain-Jacket_Mens_Model-02.jpg?v=1759344892",
+    "image": "/products/price-tiers/p-5f79113768.webp",
+    "sha256": "1231a65b9585124b117a0cc36ea752730ceaa80accd588aed5fae6592fce4306",
+    "width": 840,
+    "height": 1000
+  },
+  {
+    "productId": "p-4273ee2e39",
+    "source": "https://cdn.shopify.com/s/files/1/1410/4048/files/D056C2E5-65D9-4C9F-8172-417793C6146D.jpg?v=1769143495",
+    "image": "/products/price-tiers/p-4273ee2e39.webp",
+    "sha256": "fd9ca90e77d6635653bea61bbd3d97afcd649df79aa9c0445340ef002e162a0f",
+    "width": 1320,
+    "height": 2346
+  },
+  {
+    "productId": "p-8e111682da",
+    "source": "https://cdn.shopify.com/s/files/1/0533/6085/3168/files/CreamNavyIroSweater-1.jpg?v=1789056463",
+    "image": "/products/price-tiers/p-8e111682da.webp",
+    "sha256": "6d1170e8a20f1d4994954409eb1bf2eb494fc26a29791fb401fd1b945a84cea0",
+    "width": 933,
+    "height": 1400
+  },
+  {
+    "productId": "p-ec7aa03da1",
+    "source": "https://cdn.shopify.com/s/files/1/0491/5573/5703/products/ScreenShot2020-10-10at4.45.49PM.png?v=1602362981",
+    "image": "/products/price-tiers/p-ec7aa03da1.webp",
+    "sha256": "2b025370793d45f104595b51bc25a8cdc321d9b0128f852414d2c755d8913e62",
+    "width": 708,
+    "height": 1054
+  },
+  {
+    "productId": "p-047c54caa0",
+    "source": "https://cdn.shopify.com/s/files/1/0464/4225/0398/files/6561-BK-front.jpg?v=1760220943",
+    "image": "/products/price-tiers/p-047c54caa0.webp",
+    "sha256": "c0cd96d449972df0e356a209c3625c33f1589722e7b7df605ecdd716fda19418",
+    "width": 3068,
+    "height": 3835
+  },
+  {
+    "productId": "p-9329628fc4",
+    "source": "https://cdn.shopify.com/s/files/1/0629/9208/9250/files/B3DFE5E4-5FAA-4BE3-9525-F007C03124EC.jpg?v=1773865686",
+    "image": "/products/price-tiers/p-9329628fc4.webp",
+    "sha256": "beb8af7cbab874fef9099f026ec74c2a129de332a5e95ff3672a8622ada59100",
+    "width": 1666,
+    "height": 2048
+  },
+  {
+    "productId": "p-edbb8e8e1f",
+    "source": "https://cdn.shopify.com/s/files/1/0006/8429/4188/products/101265.jpg?v=1559069372",
+    "image": "/products/price-tiers/p-edbb8e8e1f.webp",
+    "sha256": "873f255fccb7e11fb0a97c4c7923f26594178c04595e5aa57e79998eb89fdcd3",
+    "width": 995,
+    "height": 1200
+  },
+  {
+    "productId": "p-e8b6181e2a",
+    "source": "https://cdn.shopify.com/s/files/1/0834/2683/products/womens-tall-wide-calf-rain-boot-black-710056.jpg?v=1705388404",
+    "image": "/products/price-tiers/p-e8b6181e2a.webp",
+    "sha256": "a17a00e974c20df41ffd1c239eb210599bcbd45714bca194f88ae17c82ee812b",
+    "width": 1125,
+    "height": 1400
+  },
+  {
+    "productId": "p-f825dd69d8",
+    "source": "https://cdn.shopify.com/s/files/1/0054/6838/9422/files/Fergie_Black_Angle_1.jpg?v=1767764265",
+    "image": "/products/price-tiers/p-f825dd69d8.webp",
+    "sha256": "4427ef2cb45cc7f8b5832adc360545ec620281de3311cbf9ec3d6979af2eb3fb",
+    "width": 1000,
+    "height": 1000
+  },
+  {
+    "productId": "p-e630af10d4",
+    "source": "https://res.cloudinary.com/agnesb-group/image/upload/w_2000,f_jpg,fl_progressive:steep,q_auto/v1757586364/CMC/Products/707BKC51_909_1.jpg",
+    "image": "/products/price-tiers/p-e630af10d4.webp",
+    "sha256": "1246845b2ede155ad7b35384d18e40c5cd3197fa5e92cdd19aa386dc03017a15",
+    "width": 2000,
+    "height": 2667
+  },
+  {
+    "productId": "p-b8181df7a6",
+    "source": "https://cdn.shopify.com/s/files/1/0568/0208/2989/files/bogs-womens-holly-lace-tall-rain-boots-black-290860.jpg?v=1740824339",
+    "image": "/products/price-tiers/p-b8181df7a6.webp",
+    "sha256": "9f1c1b9838f00a3c3ef0300ce7f8dfa17797bb739d3ffecbd1f86cd839cdd894",
+    "width": 2048,
+    "height": 2048
+  },
+  {
+    "productId": "p-0265935dc5",
+    "source": "https://cdn.shopify.com/s/files/1/0697/5936/9410/files/nichenet-store_2263_65222131__27740.1514192874.1280.1280.jpg?v=1758676649",
+    "image": "/products/price-tiers/p-0265935dc5.webp",
+    "sha256": "a36d4b7191380a837fcf5f46929d9d96011299d0a9a8667fe047cb7866f87710",
+    "width": 600,
+    "height": 600
+  },
+  {
+    "productId": "p-0e46b18d9d",
+    "source": "https://cdn.shopify.com/s/files/1/0892/8594/products/Silver_Toned_Lightning_Bolt_Lapel_Pin.jpg?v=1558214443",
+    "image": "/products/price-tiers/p-0e46b18d9d.webp",
+    "sha256": "359616f607d9e26e80e681405d30e5f7fa170e2eec2e30c1948b406af4d86d69",
+    "width": 2048,
+    "height": 1536
+  },
+  {
+    "productId": "p-a5306831a3",
+    "source": "https://cdn.shopify.com/s/files/1/0980/0974/3654/files/007628_01_5f6fc9cc-e846-4e55-87f4-af33e987da9f.jpg?v=1769541911",
+    "image": "/products/price-tiers/p-a5306831a3.webp",
+    "sha256": "faaa97323312d87d66c22aabd114be25d8bb2889229e628e2b24ca766f2517ff",
+    "width": 450,
+    "height": 319
+  },
+  {
+    "productId": "p-54e2a4cf48",
+    "source": "https://cdn.shopify.com/s/files/1/0556/0519/8922/files/top_hat.png?v=1789507827",
+    "image": "/products/price-tiers/p-54e2a4cf48.webp",
+    "sha256": "4980d12b25cbfb88988f1dd18e81bd1b8507978263d773fe11813c7b134a1c1e",
+    "width": 1080,
+    "height": 1080
+  },
+  {
+    "productId": "p-005fe33405",
+    "source": "https://cdn.shopify.com/s/files/1/0980/0974/3654/files/007625_01_1d609ce7-abed-4a59-a866-79866ed514d6.jpg?v=1769541909",
+    "image": "/products/price-tiers/p-005fe33405.webp",
+    "sha256": "1490321b5fc496839d4c0bb23fb94290732603a51ce263554de69968f8f1bd1f",
+    "width": 450,
+    "height": 350
+  },
+  {
+    "productId": "p-87734c54a0",
+    "source": "https://cdn.shopify.com/s/files/1/0611/3240/6972/files/H00c993a337f046e58e3415aa995a8bd0s.webp?v=1789370964",
+    "image": "/products/price-tiers/p-87734c54a0.webp",
+    "sha256": "94e0bd3bf931df417e6cd76416cd305d096fd073d60bfa9e4361523db3d53aca",
+    "width": 1600,
+    "height": 1600
+  },
+  {
+    "productId": "p-9437603696",
+    "source": "https://cdn.shopify.com/s/files/1/0611/3240/6972/files/S15e6db84cd9a4390ac0535380f1e72e7o.webp?v=1789369815",
+    "image": "/products/price-tiers/p-9437603696.webp",
+    "sha256": "1533c839fea062267d7ff3a26466f2dde7801e7fe273c22691d3bb8ef7a3eaff",
+    "width": 1600,
+    "height": 1600
+  },
+  {
+    "productId": "p-449c56afc5",
+    "source": "https://cdn.shopify.com/s/files/1/0980/0974/3654/files/003972_01_3133988b-9bdb-4519-a9fa-c3d54881f664.jpg?v=1769539508",
+    "image": "/products/price-tiers/p-449c56afc5.webp",
+    "sha256": "f8a4aefcb6bd00ed67ef8d78c774767c66e89f108ab1bb208787b9dcc8028747",
+    "width": 450,
+    "height": 498
+  },
+  {
+    "productId": "p-1bb478cabf",
+    "source": "https://cdn.shopify.com/s/files/1/0060/4245/2004/files/87388_06_101.jpg?v=1783114552",
+    "image": "/products/price-tiers/p-1bb478cabf.webp",
+    "sha256": "cc2e71e005f375f4667f38019b56772d967cb503f21aedf7c820682164c88411",
+    "width": 1536,
+    "height": 2048
+  },
+  {
+    "productId": "p-2b5518f3ab",
+    "source": "https://cdn.shopify.com/s/files/1/0440/7857/products/Samson_02_Lynn_Jackson_0084.jpg?v=1681955899",
+    "image": "/products/price-tiers/p-2b5518f3ab.webp",
+    "sha256": "388b9ae48594856d87166a60d6b7c21d98d5136d47cb72c0fa0f3a5c81b9f10a",
+    "width": 3333,
+    "height": 2222
+  },
+  {
+    "productId": "p-ec3e09029c",
+    "source": "https://cdn.shopify.com/s/files/1/0980/0974/3654/files/003861_01_f93e74ca-2712-4f08-9e99-1ba20fc11789.jpg?v=1769539492",
+    "image": "/products/price-tiers/p-ec3e09029c.webp",
+    "sha256": "2dd31fc09c949a695670a779e287dfd4a91641ee044452403731c2143eb3f0e7",
+    "width": 450,
+    "height": 480
+  },
+  {
+    "productId": "p-20f318e7bd",
+    "source": "https://cdn.shopify.com/s/files/1/0980/0974/3654/files/002981_01_c0bf3e68-33aa-4ec5-a823-9a54dd425571.jpg?v=1769539399",
+    "image": "/products/price-tiers/p-20f318e7bd.webp",
+    "sha256": "ae21f77ebeab4dc0120104d56df3f190e4408c5a5c4e7b56b24d2224e2d859f8",
+    "width": 450,
+    "height": 431
+  },
+  {
+    "productId": "p-3b1499c169",
+    "source": "https://cdn.shopify.com/s/files/1/0980/0974/3654/files/007807_01_ad66c2ab-3cc1-4dcf-be8f-7f5cb892d66d.jpg?v=1769541963",
+    "image": "/products/price-tiers/p-3b1499c169.webp",
+    "sha256": "a6d662ce33218fb0cb6d0c64dd6e11b613b065903e0ed91f81bdffc4205be929",
+    "width": 450,
+    "height": 464
+  },
+  {
+    "productId": "p-670c3fec1d",
+    "source": "https://cdn.shopify.com/s/files/1/0378/4186/2794/products/4651.jpg?v=1588888929",
+    "image": "/products/price-tiers/p-670c3fec1d.webp",
+    "sha256": "84ac0712bb51d22c498329d5b9e39d442b380d8f20ae8a8eb437df68a872c12e",
+    "width": 1365,
+    "height": 2048
+  },
+  {
+    "productId": "p-6c25477681",
+    "source": "https://cdn.shopify.com/s/files/1/0980/0974/3654/files/006564_01_2b95236b-324e-4978-8373-e0a04ae81a5c.jpg?v=1769539801",
+    "image": "/products/price-tiers/p-6c25477681.webp",
+    "sha256": "3e9ee37940a14067f7125ab465e53962c16bebd3411ecdadfd9bdf8e46961d0a",
+    "width": 450,
+    "height": 596
+  },
+  {
+    "productId": "p-bfb0395c79",
+    "source": "https://cdn.shopify.com/s/files/1/0980/0974/3654/files/006560_01_b92ad657-0bbc-43e4-8301-c833d954a5df.jpg?v=1769539795",
+    "image": "/products/price-tiers/p-bfb0395c79.webp",
+    "sha256": "1b6fe3fd51afef23fcbbc6155ab994165a5cc9ccb3ea10f46ae356eb7199d840",
+    "width": 450,
+    "height": 725
+  },
+  {
+    "productId": "p-691dccf66e",
+    "source": "https://cdn.shopify.com/s/files/1/0439/5935/3509/products/HA52BK.jpg?v=1596013396",
+    "image": "/products/price-tiers/p-691dccf66e.webp",
+    "sha256": "d222c45a400631e16687ac249cb134c35cf12fe3a1b0f82dd9238b418e2fd2cc",
+    "width": 1521,
+    "height": 1800
   },
   {
     "productId": "p-3917412b3f",
@@ -392,6 +2864,30 @@
     "height": 850
   },
   {
+    "productId": "p-10914a6666",
+    "source": "https://cdn.shopify.com/s/files/1/0127/0982/products/30355.jpg?v=1758642614",
+    "image": "/products/price-tiers/p-10914a6666.webp",
+    "sha256": "9150f1a63ad968b4e11f8b27321ad55fea3eba11e703a351bb7a0bfa0258ad1d",
+    "width": 1024,
+    "height": 1024
+  },
+  {
+    "productId": "p-610c2db658",
+    "source": "https://cdn.shopify.com/s/files/1/0248/6858/products/29292-Full.jpg?v=1601956507",
+    "image": "/products/price-tiers/p-610c2db658.webp",
+    "sha256": "d755acea26ae1cd37fc316abfeecc4631be566396f305b1317872e9596b2ac0c",
+    "width": 1000,
+    "height": 1000
+  },
+  {
+    "productId": "p-bec94708ca",
+    "source": "https://cdn.shopify.com/s/files/1/0338/3105/9588/files/black-velvet-cape-TL-116_SIDE.jpg?v=1709772012",
+    "image": "/products/price-tiers/p-bec94708ca.webp",
+    "sha256": "1d7bd41228368429f842a9a4e022777870464c11af8a9922c6b9d71250e8ad2f",
+    "width": 1200,
+    "height": 1832
+  },
+  {
     "productId": "p-c2362342ad",
     "source": "https://www.medievalcollectibles.com/wp-content/uploads/2025/03/LC-DRW.jpg",
     "image": "/products/price-tiers/p-c2362342ad.webp",
@@ -400,12 +2896,12 @@
     "height": 600
   },
   {
-    "productId": "p-b51856d12a",
-    "source": "https://cdn.shopify.com/s/files/1/0440/7857/products/Samson_02_Lynn_Jackson_0084.jpg?v=1681955899",
-    "image": "/products/price-tiers/p-b51856d12a.webp",
-    "sha256": "388b9ae48594856d87166a60d6b7c21d98d5136d47cb72c0fa0f3a5c81b9f10a",
-    "width": 3333,
-    "height": 2222
+    "productId": "p-43dbc8c569",
+    "source": "https://cdn.shopify.com/s/files/1/0729/6267/0677/files/Document-37-page0001.jpg?v=1792737878",
+    "image": "/products/price-tiers/p-43dbc8c569.webp",
+    "sha256": "229be9783d0d6d82424fd42c8f7f55bff845b97951b7dd5dd80ac0f777b85f12",
+    "width": 1242,
+    "height": 1242
   },
   {
     "productId": "p-3d8701654f",
@@ -424,20 +2920,12 @@
     "height": 554
   },
   {
-    "productId": "p-43dbc8c569",
-    "source": "https://cdn.shopify.com/s/files/1/0729/6267/0677/files/Document-37-page0001.jpg?v=1792737878",
-    "image": "/products/price-tiers/p-43dbc8c569.webp",
-    "sha256": "229be9783d0d6d82424fd42c8f7f55bff845b97951b7dd5dd80ac0f777b85f12",
-    "width": 1242,
-    "height": 1242
-  },
-  {
-    "productId": "p-0969c0dcdf",
-    "source": "https://cdn.shopify.com/s/files/1/0980/0974/3654/files/006560_01_b92ad657-0bbc-43e4-8301-c833d954a5df.jpg?v=1769539795",
-    "image": "/products/price-tiers/p-0969c0dcdf.webp",
-    "sha256": "1b6fe3fd51afef23fcbbc6155ab994165a5cc9ccb3ea10f46ae356eb7199d840",
-    "width": 450,
-    "height": 725
+    "productId": "p-b51856d12a",
+    "source": "https://cdn.shopify.com/s/files/1/0440/7857/products/Samson_02_Lynn_Jackson_0084.jpg?v=1681955899",
+    "image": "/products/price-tiers/p-b51856d12a.webp",
+    "sha256": "388b9ae48594856d87166a60d6b7c21d98d5136d47cb72c0fa0f3a5c81b9f10a",
+    "width": 3333,
+    "height": 2222
   },
   {
     "productId": "p-99a22fc86e",
@@ -456,20 +2944,20 @@
     "height": 596
   },
   {
+    "productId": "p-0969c0dcdf",
+    "source": "https://cdn.shopify.com/s/files/1/0980/0974/3654/files/006560_01_b92ad657-0bbc-43e4-8301-c833d954a5df.jpg?v=1769539795",
+    "image": "/products/price-tiers/p-0969c0dcdf.webp",
+    "sha256": "1b6fe3fd51afef23fcbbc6155ab994165a5cc9ccb3ea10f46ae356eb7199d840",
+    "width": 450,
+    "height": 725
+  },
+  {
     "productId": "p-f6b66c527c",
     "source": "https://cdn.shopify.com/s/files/1/0980/0974/3654/files/008688_01.jpg?v=1769542356",
     "image": "/products/price-tiers/p-f6b66c527c.webp",
     "sha256": "c0d5347bbbba4687210ce5051aad5e80d9d254295bcb98a0166b3aac22834188",
     "width": 450,
     "height": 478
-  },
-  {
-    "productId": "p-4ffaf2c353",
-    "source": "https://cdn.shopify.com/s/files/1/0416/1146/0774/products/il_fullxfull.3477639353_91nn.jpg?v=1783169900",
-    "image": "/products/price-tiers/p-4ffaf2c353.webp",
-    "sha256": "436a5571346b1fa6011b183ce9f8a5070b3327540ad80fa5e8d976d68804728f",
-    "width": 863,
-    "height": 863
   },
   {
     "productId": "p-6490e8541e",
@@ -480,12 +2968,156 @@
     "height": 1000
   },
   {
-    "productId": "p-f54885650b",
-    "source": "https://cdn4.volusion.store/y63jv-z2jxq/v/vspfiles/photos/60308-2.jpg?v-cache=1723033463",
-    "image": "/products/price-tiers/p-f54885650b.webp",
-    "sha256": "ff4fc83cfa07d1d5a91c92f53c90d387bcd9e3c608df47114be67ca32446e10d",
-    "width": 400,
-    "height": 400
+    "productId": "p-4ffaf2c353",
+    "source": "https://cdn.shopify.com/s/files/1/0416/1146/0774/products/il_fullxfull.3477639353_91nn.jpg?v=1783169900",
+    "image": "/products/price-tiers/p-4ffaf2c353.webp",
+    "sha256": "436a5571346b1fa6011b183ce9f8a5070b3327540ad80fa5e8d976d68804728f",
+    "width": 863,
+    "height": 863
+  },
+  {
+    "productId": "p-7d0102ede0",
+    "source": "https://cdn.shopify.com/s/files/1/0074/3732/0263/files/1YLCV18nqRmF9kD08ftJHjCTWKGWNCVi-24.jpg?v=1725144550",
+    "image": "/products/price-tiers/p-7d0102ede0.webp",
+    "sha256": "19ee52a4aab517be7f7f6b887617efc025c7637175119e9ce10eabbc826bb7e8",
+    "width": 1200,
+    "height": 1200
+  },
+  {
+    "productId": "p-fe55964146",
+    "source": "https://cdn.shopify.com/s/files/1/0980/0974/3654/files/007151_01_bfc22ebd-1d06-4901-8835-69b196dd078d.jpg?v=1769539954",
+    "image": "/products/price-tiers/p-fe55964146.webp",
+    "sha256": "0b927f268c117379811ad88b0e6ebf0f065523b78c7218eb0af35458fb805f9e",
+    "width": 450,
+    "height": 1057
+  },
+  {
+    "productId": "p-adae4c0484",
+    "source": "https://cdn.shopify.com/s/files/1/0665/9378/3965/files/S30cf298bb5144dbbbf4cba556504b593R.webp?v=1786084083",
+    "image": "/products/price-tiers/p-adae4c0484.webp",
+    "sha256": "7a8f77473b6dd3691ec08c90196538b67e616f0f00dfea96621641dd3cfdc3ca",
+    "width": 800,
+    "height": 800
+  },
+  {
+    "productId": "p-b2805cb758",
+    "source": "https://cdn.shopify.com/s/files/1/0157/8796/files/70804_f11.jpg?v=1781369107",
+    "image": "/products/price-tiers/p-b2805cb758.webp",
+    "sha256": "082ba39edbe8b2c3ed8b36069bc1a5bc6728265415ef483c0f8b234822f9ca32",
+    "width": 1296,
+    "height": 1296
+  },
+  {
+    "productId": "p-06e47a9a80",
+    "source": "https://cdn.shopify.com/s/files/1/0604/1367/3570/files/brown-inverness-cape-coat-sherlock-holmes-victorian-cloak-zarb-bespoke-7487548.jpg?v=1787534829",
+    "image": "/products/price-tiers/p-06e47a9a80.webp",
+    "sha256": "cb43ffe9aa9b51cb8714d35dad4ed48eb39e07b90e37593129652af2fb2920f3",
+    "width": 1350,
+    "height": 1688
+  },
+  {
+    "productId": "p-9029f31e42",
+    "source": "https://cdn.shopify.com/s/files/1/0210/6626/files/DSC_0003_5911ea84-6602-44c6-a96e-68c535e5d6fd.jpg?v=1744828331",
+    "image": "/products/price-tiers/p-9029f31e42.webp",
+    "sha256": "4b701c474f7b2600a446f73665bd9928219a5898f7d8916c0b53690532a59779",
+    "width": 1051,
+    "height": 1808
+  },
+  {
+    "productId": "p-205b09ce3c",
+    "source": "https://cdn.shopify.com/s/files/1/0980/0974/3654/files/006021_01_daa87ed5-2134-4a22-a461-fc42e37012da.jpg?v=1769539749",
+    "image": "/products/price-tiers/p-205b09ce3c.webp",
+    "sha256": "22c091e62c9843a6cf3e04272b245d8214d1dce3d3ef6c0c7f86ebbe2fc263fb",
+    "width": 450,
+    "height": 499
+  },
+  {
+    "productId": "p-f5308a536b",
+    "source": "https://cdn.shopify.com/s/files/1/0730/0929/9798/files/BaltzarSartorialCreamCottonOxfordCutAwayDressShirtFeature.png?v=1772438137",
+    "image": "/products/price-tiers/p-f5308a536b.webp",
+    "sha256": "e268942718ff6a65762ac0d2d46d172d2f9577c499686901311ad767fa617585",
+    "width": 2000,
+    "height": 2000
+  },
+  {
+    "productId": "p-ecb232b3b4",
+    "source": "https://cdn.shopify.com/s/files/1/0414/4581/8535/files/Shirt-Ivory.png?v=1685720342",
+    "image": "/products/price-tiers/p-ecb232b3b4.webp",
+    "sha256": "1de63865a4dc30632acdf8ea442123701eea2cdbfed32a614ae0915fd6426362",
+    "width": 800,
+    "height": 800
+  },
+  {
+    "productId": "p-0d1ce90587",
+    "source": "https://cdn.shopify.com/s/files/1/0980/0974/3654/files/003154_01_83eca72d-08d2-4cbb-af00-b1edfa35ac79.jpg?v=1769539432",
+    "image": "/products/price-tiers/p-0d1ce90587.webp",
+    "sha256": "32a08742515fe7cb6218a4ed8c8d54394adbcf44d7fbd8184fae53670c3287c1",
+    "width": 450,
+    "height": 459
+  },
+  {
+    "productId": "p-0513bcd5bf",
+    "source": "https://cdn.shopify.com/s/files/1/0957/4259/1306/files/oscar_waistcoat_Brown-PaulAndrewOscar.jpg?v=1765488524",
+    "image": "/products/price-tiers/p-0513bcd5bf.webp",
+    "sha256": "9b4b79056cefe30ee916bcf8da5a94955b79e75ac3e4e9733796c99dff686fba",
+    "width": 1200,
+    "height": 1800
+  },
+  {
+    "productId": "p-ac55620f43",
+    "source": "https://cdn.shopify.com/s/files/1/2656/2040/products/image_fc43c04a-9864-4edf-aadf-e245c421d71a.png?v=1661276412",
+    "image": "/products/price-tiers/p-ac55620f43.webp",
+    "sha256": "6d0220daeda015f08c364368adc11498a4bf47f98dbe9b52c7118903a2c67b1d",
+    "width": 2000,
+    "height": 2000
+  },
+  {
+    "productId": "p-1c40639e61",
+    "source": "https://cdn.shopify.com/s/files/1/0980/0974/3654/files/007555_01_88394db2-eb7d-41e9-aa3e-097da55baf29.jpg?v=1769541878",
+    "image": "/products/price-tiers/p-1c40639e61.webp",
+    "sha256": "84f95e967b9d8e66082c3d2c6c93d160f9f245149c068c102b7214a44c829016",
+    "width": 450,
+    "height": 450
+  },
+  {
+    "productId": "p-f13b0f3bc7",
+    "source": "https://cdn.shopify.com/s/files/1/0601/1476/4025/files/irishbrownherringbonetwdpantslk.jpg?v=1719054859",
+    "image": "/products/price-tiers/p-f13b0f3bc7.webp",
+    "sha256": "c1e4b626f671b02678952324de7997fdecc480a26469ff8e1aabb7585e37bdb4",
+    "width": 868,
+    "height": 1180
+  },
+  {
+    "productId": "p-ef09ee8206",
+    "source": "https://cdn.shopify.com/s/files/1/1376/6217/files/ARTHUR-MFA139001C-COGNAC_60e36b82-31a3-45b2-bd61-ab48081a2798.jpg?v=1757003268",
+    "image": "/products/price-tiers/p-ef09ee8206.webp",
+    "sha256": "0fc89231ec24323281288f0cc1370cb8d8170ca20185cfccb7ba1d5aac38e223",
+    "width": 1800,
+    "height": 1800
+  },
+  {
+    "productId": "p-24fe47b5c4",
+    "source": "https://cdn.shopify.com/s/files/1/0419/1525/files/1024x1024-Men-Aviator3.0-Cinnamon-062923-3.4.jpg?v=1691435620",
+    "image": "/products/price-tiers/p-24fe47b5c4.webp",
+    "sha256": "b371d1e28e292bc937e055d7b92bd8cf996b2b4d429e18d26a855cbd50c49bf7",
+    "width": 1024,
+    "height": 1024
+  },
+  {
+    "productId": "p-c38ec884e6",
+    "source": "https://cdn.shopify.com/s/files/1/0323/5574/5932/files/T5217-SW_1.jpg?v=1768564658",
+    "image": "/products/price-tiers/p-c38ec884e6.webp",
+    "sha256": "6f08100c54cf3a9295a33c37d9bcffe10a17493b76f5095b69f1cebdf4c03606",
+    "width": 4200,
+    "height": 5250
+  },
+  {
+    "productId": "p-1f4b8a9dec",
+    "source": "https://cdn.shopify.com/s/files/1/0312/7659/7384/files/R2_514238101700006E_1.jpg?v=1758572465",
+    "image": "/products/price-tiers/p-1f4b8a9dec.webp",
+    "sha256": "d9ec668ba6ca59edb3e3e4f44769b1c59e52e317cb1cf666c47ccb2acb01021d",
+    "width": 1600,
+    "height": 1600
   },
   {
     "productId": "p-fa247ed9c8",
@@ -494,6 +3126,14 @@
     "sha256": "350751efd5090eed4c976de15407a5bb7c80bb0ce49b4dcf6dee7c602edd5442",
     "width": 800,
     "height": 800
+  },
+  {
+    "productId": "p-f54885650b",
+    "source": "https://cdn4.volusion.store/y63jv-z2jxq/v/vspfiles/photos/60308-2.jpg?v-cache=1723033463",
+    "image": "/products/price-tiers/p-f54885650b.webp",
+    "sha256": "ff4fc83cfa07d1d5a91c92f53c90d387bcd9e3c608df47114be67ca32446e10d",
+    "width": 400,
+    "height": 400
   },
   {
     "productId": "p-e065f62c65",
@@ -552,6 +3192,14 @@
     "height": 1741
   },
   {
+    "productId": "p-c1b881a1cf",
+    "source": "https://cdn.shopify.com/s/files/1/0712/4978/9223/products/color-tights-ivory-s-m.jpg?v=1775593182",
+    "image": "/products/price-tiers/p-c1b881a1cf.webp",
+    "sha256": "f63c49db77e18c39d706e0cc4d9af61b223b9208a972df692504346416e3c08f",
+    "width": 500,
+    "height": 750
+  },
+  {
     "productId": "p-e0ed0303a2",
     "source": "https://cdn.shopify.com/s/files/1/0069/7568/4655/files/Amber-Size-E-80-Denier-Unicorn-Fluff4_970efea7-ac98-432c-bb41-cab3ca76a7f6.jpg?v=1792137871",
     "image": "/products/price-tiers/p-e0ed0303a2.webp",
@@ -566,14 +3214,6 @@
     "sha256": "0f6474cc1d803f93fded9109035937735dd5b0b03c1f43cb64995adcd0b73cbb",
     "width": 1500,
     "height": 1500
-  },
-  {
-    "productId": "p-c1b881a1cf",
-    "source": "https://cdn.shopify.com/s/files/1/0712/4978/9223/products/color-tights-ivory-s-m.jpg?v=1775593182",
-    "image": "/products/price-tiers/p-c1b881a1cf.webp",
-    "sha256": "f63c49db77e18c39d706e0cc4d9af61b223b9208a972df692504346416e3c08f",
-    "width": 500,
-    "height": 750
   },
   {
     "productId": "p-5434cb33bf",

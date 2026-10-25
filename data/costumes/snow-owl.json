@@ -1,0 +1,839 @@
+{
+  "costume": {
+    "slug": "snow-owl",
+    "name": "Snow Owl",
+    "description": "Ivory feather textures and taupe speckles form a soft winged cape over simple cream layers.",
+    "image": "/costumes/snow-owl.png",
+    "alt": "Owl-inspired headband, ivory feather-textured cape with taupe speckles, cream tunic, ivory trousers, and brown boots",
+    "status": "live"
+  },
+  "pieces": [
+    {
+      "id": "snow-owl-headband",
+      "name": "White owl-inspired headpiece",
+      "category": "headwear",
+      "required": true,
+      "order": 0,
+      "sizeKind": "one_size",
+      "queries": [
+        "white feather sculptural headband",
+        "white owl adult costume headband"
+      ],
+      "styleNotes": "Keep the face and ears open. The reference has two sculptural feather peaks; the products below offer different approximations, not exact replicas. No sourced headpiece exactly reproduces the reference’s paired owl feather peaks. All three current products are feather headwear approximations; owl eye and ear shapes are not included.",
+      "matches": [
+        {
+          "productId": "p-9480e15f4e",
+          "rank": 0,
+          "reason": "Ivory 100% ostrich-feather circlet with black polyester grosgrain ribbon ties, handmade in New York City. Current merchant product JSON confirms one unit in stock at the actual $98 USD price; the page exposes Add To Cart. Soft circular feather texture rather than the reference’s paired sculptural owl peaks; no owl face or other costume components included. Merchant policy states in-stock items ship within 4–7 business days; made-to-order items take 30–45 days and are not the stock quoted here. No expedited shipping offered."
+        },
+        {
+          "productId": "p-f22120f3bd",
+          "rank": 1,
+          "reason": "One white rooster-hackle and stripped-coque feather headband. Merchant feed confirms the single variant available at $7.36. Asymmetric wispy feathers rather than owl-shaped ear peaks; no owl face or cape included."
+        },
+        {
+          "productId": "p-4866b4cce6",
+          "rank": 2,
+          "reason": "Light ivory sculptural feather fan on a headband, style MA893C. A closer feather silhouette than the cheaper options, but it is an asymmetric millinery fan without an owl face or paired ear peaks. Product structured data confirms USD $99.95 and InStock. Ships to the USA from Australia with duties handled by the merchant; its shipping data lists 0–1 day handling, not a delivery promise."
+        }
+      ]
+    },
+    {
+      "id": "snow-owl-cape",
+      "name": "White feather cape or shoulder wrap",
+      "category": "outerwear",
+      "required": true,
+      "order": 1,
+      "sizeKind": "one_size",
+      "queries": [
+        "white feather cape adult",
+        "white ostrich feather shoulder wrap"
+      ],
+      "styleNotes": "White feather texture is the main visual anchor. The reference has long wing panels and taupe speckles. The ready-made options are plain white; coverage varies substantially. No ready-made option reproduces taupe speckles. The $9 capelet and $126.50 wrap are much shorter than the illustrated wing cape; the $650 cape offers length but a different silhouette.",
+      "matches": [
+        {
+          "productId": "p-7d0611026f",
+          "rank": 0,
+          "reason": "One white ostrich-feather shoulder wrap. The live product feed marks the single $126.50 variant available. Plush, fluffy shoulder coverage rather than the reference’s long flat overlapping feathers; no taupe speckles. Clothing and accessories worn by the model are not included."
+        },
+        {
+          "productId": "p-cb88a585bd",
+          "rank": 1,
+          "reason": "Adult white coque-feather and fabric capelet, listed as 70 cm long by 20 cm wide. The primary listing shows eight left at $9 USD with Add to cart. Short shoulder collar rather than long wings, with no speckles. Ships from China; seller states 14–25 days by post airmail. Custom sizes take 5–10 days to make and are not included in this price. These are merchant estimates, not promised arrival dates."
+        },
+        {
+          "productId": "p-8c66b216fc",
+          "rank": 2,
+          "reason": "One handcrafted white feather cape, $650 USD, single available variant. Merchant photos show a long, voluminous wrap; it lacks the reference’s taupe speckles and defined wing edges. Other clothing is not included. FAQ confirms worldwide shipping from Ukraine and estimates 5–8 business days to the USA after production. Cape-specific production time and dimensions are not stated; the FAQ’s 1–5 day production statement concerns corsets and must not be applied to this cape."
+        }
+      ]
+    },
+    {
+      "id": "snow-owl-tunic",
+      "name": "Cream tunic",
+      "category": "tops",
+      "required": true,
+      "order": 2,
+      "sizeKind": "apparel",
+      "queries": [
+        "natural cotton medieval tunic",
+        "ivory wool tunic"
+      ],
+      "styleNotes": "Use a plain natural or ivory tunic under the feathers. These have conventional narrow sleeves rather than the illustration’s broad draped sleeves. The waist tie is sourced separately. Long, flared sleeves in the reference are approximated by conventional tunic sleeves. In-stock size ranges differ sharply across tiers.",
+      "matches": [
+        {
+          "productId": "p-f35c48b860",
+          "rank": 0,
+          "reason": "Natural 100% thick breathable cotton tunic with front and back slits. Longer, approximately knee-length silhouette than the reference’s tunic. S through XXXL are available at $59.99. Other garments in the photo are not included."
+        },
+        {
+          "productId": "p-3799a61906",
+          "rank": 1,
+          "reason": "Natural 100% coarse cotton tunic with long sleeves, slit round neckline and side slits. Thigh-length plain base layer. Only S, XL and XXXL are currently available at $39.99; M, L and XXL are sold out. Belt, pants, wraps and shoes in the merchant photo are not included."
+        },
+        {
+          "productId": "p-54214148a4",
+          "rank": 2,
+          "reason": "Natural heavy wool-blend short tunic: 74% wool, 15% polyester, 7% polyamide and 4% other natural fibers. Warmer, stiffer and more textured than the illustrated light cream layer. Only S and XXXL are available at $69.99; M through XXL are sold out. Brooch, belt and other layers are not included."
+        }
+      ]
+    },
+    {
+      "id": "snow-owl-trousers",
+      "name": "Ivory or white loose trousers",
+      "category": "bottoms",
+      "required": true,
+      "order": 3,
+      "sizeKind": "pants",
+      "queries": [
+        "white linen drawstring pants",
+        "natural cotton lounge pants"
+      ],
+      "styleNotes": "Light relaxed trousers complete the cream base. The reference has gathered ankles; these straight or wide legs can tuck into boots but have no sewn ankle gathers. The reference’s gathered ankle cuffs are not built into these trousers.",
+      "matches": [
+        {
+          "productId": "p-38e9601da6",
+          "rank": 0,
+          "reason": "Undyed natural organic cotton jersey lounge pants, straight leg and elastic waist. All four listed sizes are available at $76. Softer knit texture than the illustration’s woven-looking trousers; no ankle gathers. One pair of pants only."
+        },
+        {
+          "productId": "p-6c68216fba",
+          "rank": 1,
+          "reason": "White 100% European flax linen, relaxed fit and elastic waist in women’s sizing. Current product JSON-LD confirms only XS, L and XL in stock at $42; S and M are sold out. White is brighter than ivory. Straight legs lack the reference’s gathered cuffs; the blue shirt shown is not included."
+        },
+        {
+          "productId": "p-fae8356f54",
+          "rank": 2,
+          "reason": "White 100% linen pants with drawstring waist, women’s sizing. Selected White XS through XL are available at $138. Wider straight leg than the reference’s tapered, gathered trousers; tuck the hem loosely into boots for a similar outline. Top and footwear not included."
+        }
+      ]
+    },
+    {
+      "id": "snow-owl-boots",
+      "name": "Brown ankle boots",
+      "category": "footwear",
+      "required": true,
+      "order": 4,
+      "sizeKind": "shoe",
+      "queries": [
+        "brown ankle lace up boots",
+        "brown plain toe leather boots"
+      ],
+      "styleNotes": "Use brown boots under light trousers. These lace-up boots approximate the reference’s brown wrap-strap boots; none includes the illustrated crossed ankle straps. No option includes the crossed wrap straps. Width-specific stock of the $89.95 budget option remains unconfirmed.",
+      "matches": [
+        {
+          "productId": "p-ba0acbf53c",
+          "rank": 0,
+          "reason": "Brown Thursday Chrome leather lace-up cap-toe boots with leather lining and studded rubber sole. Standard width only; every listed size is currently available at $199. Cleaner dress-boot shape than the budget option; no crossed ankle straps. Merchant offers domestic US shipping."
+        },
+        {
+          "productId": "p-3b0a976509",
+          "rank": 1,
+          "reason": "Brown CH style 85088-215. Live merchant HTML shows $89.95 sale price and these sizes with In Stock labels, but width-specific stock requires a width selection and is not confirmed here. Mixed genuine leather and man-made upper with padded collar and modern lug sole. Darker, chunkier hiking-like shape than the reference; no crossed wrap straps."
+        },
+        {
+          "productId": "p-a880ab278b",
+          "rank": 2,
+          "reason": "Saddle tan vegetable-tanned leather plain-toe lace-up boots. D (Standard) width only; all listed sizes are available at $435. Lighter tan, smoother leather and plain toe rather than the reference’s brown wrap-strapped boot. Higher price does not imply a closer costume match."
+        }
+      ]
+    },
+    {
+      "id": "snow-owl-waist-tie",
+      "name": "Cream rope waist tie",
+      "category": "accessories",
+      "required": true,
+      "order": 5,
+      "sizeKind": "apparel",
+      "queries": [
+        "cream rope belt tassels",
+        "ivory woven cotton belt"
+      ],
+      "styleNotes": "A light waist tie defines the tunic and adds long hanging ends. The reference uses multiple narrow rope wraps; products differ in closure and width. The middle tier uses a brown leather buckle and is currently limited to XS.",
+      "matches": [
+        {
+          "productId": "p-ac74ad26d9",
+          "rank": 0,
+          "reason": "Rachel Comey ivory woven cotton belt with brown leather buckle and leather ends. Only XS is available at $43.75; all other sizes are sold out or cost more. A broader belt with a buckle, rather than the reference’s narrow knotted rope and hanging ends."
+        },
+        {
+          "productId": "p-8248b874fa",
+          "rank": 1,
+          "reason": "One 6-foot length of 1/2-inch three-ply rope, made in the USA. Merchant photo shows an off-white rope. Tie it around the waist; finished tassels are not included. The feed confirms the $15 single variant available. Multiple quantities are supplied as one continuous length unless instructed otherwise."
+        },
+        {
+          "productId": "p-c8a1001a28",
+          "rank": 2,
+          "reason": "Cream braided rope cord with adjustable tie closure and oversized tassels at both ends. One adjustable size, currently available at $68. A closer hanging-rope silhouette than the buckled option, but glossier and more decorative than the reference. Merchant states orders normally ship in 1–3 business days, with more processing time during promotions."
+        }
+      ]
+    }
+  ],
+  "products": [
+    {
+      "id": "p-9480e15f4e",
+      "title": "Fainting Circlet • Ivory",
+      "url": "https://www.bagtazocollection.com/accessories/fainting-circlet-ivory",
+      "priceCents": 9800,
+      "currency": "USD",
+      "image": "/products/price-tiers/p-9480e15f4e.webp",
+      "merchantImage": "/products/price-tiers/p-9480e15f4e.webp",
+      "sourceImages": [
+        "https://images.squarespace-cdn.com/content/v1/55b43427e4b0b04050cb764c/1694985788545-NRGH9VCW7985585FV7QF/Fainting+Circlet_Ivory.jpg"
+      ],
+      "availability": "in_stock",
+      "sizes": [
+        "One size"
+      ],
+      "merchantId": "bagtazocollection-com",
+      "tagSlugs": [],
+      "description": "Ivory 100% ostrich-feather circlet with black polyester grosgrain ribbon ties, handmade in New York City. Current merchant product JSON confirms one unit in stock at the actual $98 USD price; the page exposes Add To Cart. Soft circular feather texture rather than the reference’s paired sculptural owl peaks; no owl face or other costume components included. Merchant policy states in-stock items ship within 4–7 business days; made-to-order items take 30–45 days and are not the stock quoted here. No expedited shipping offered.",
+      "checkedAt": "2026-10-25T08:53:39.887804Z",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-25T08:53:39.887804Z",
+        "url": "https://www.bagtazocollection.com/accessories/fainting-circlet-ivory?format=json",
+        "notes": "Ivory 100% ostrich-feather circlet with black polyester grosgrain ribbon ties, handmade in New York City. Current merchant product JSON confirms one unit in stock at the actual $98 USD price; the page exposes Add To Cart. Soft circular feather texture rather than the reference’s paired sculptural owl peaks; no owl face or other costume components included. Merchant policy states in-stock items ship within 4–7 business days; made-to-order items take 30–45 days and are not the stock quoted here. No expedited shipping offered."
+      }
+    },
+    {
+      "id": "p-4866b4cce6",
+      "title": "Ivory Feather Fascinator Headband by Max Alexander – Made in Australia",
+      "url": "https://www.hatsfromoz.com/ivory-feather-fascinator-headband-by-max-alexander/",
+      "priceCents": 9995,
+      "currency": "USD",
+      "image": "/products/price-tiers/p-4866b4cce6.webp",
+      "merchantImage": "/products/price-tiers/p-4866b4cce6.webp",
+      "sourceImages": [
+        "https://hatsfromoz-com.b-cdn.net/wp-content/uploads/2023/07/MA893-cream.jpg"
+      ],
+      "availability": "in_stock",
+      "sizes": [],
+      "merchantId": "hatsfromoz-com",
+      "tagSlugs": [],
+      "description": "Light ivory sculptural feather fan on a headband, style MA893C. A closer feather silhouette than the cheaper options, but it is an asymmetric millinery fan without an owl face or paired ear peaks. Product structured data confirms USD $99.95 and InStock. Ships to the USA from Australia with duties handled by the merchant; its shipping data lists 0–1 day handling, not a delivery promise.",
+      "checkedAt": "2026-10-25T08:53:39.887804Z",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-25T08:53:39.887804Z",
+        "url": "https://www.hatsfromoz.com/ivory-feather-fascinator-headband-by-max-alexander/",
+        "notes": "Light ivory sculptural feather fan on a headband, style MA893C. A closer feather silhouette than the cheaper options, but it is an asymmetric millinery fan without an owl face or paired ear peaks. Product structured data confirms USD $99.95 and InStock. Ships to the USA from Australia with duties handled by the merchant; its shipping data lists 0–1 day handling, not a delivery promise."
+      }
+    },
+    {
+      "id": "p-f22120f3bd",
+      "title": "Feather Headband w/Rooster Hackle/Stripped Coque White",
+      "url": "https://zuckerfeather.com/products/feather-headband-w-rooster-hackle-stripped-coque-white-hbd-ladyann-w-hbd-ladyann-w?variant=44155540668667",
+      "priceCents": 736,
+      "currency": "USD",
+      "image": "/products/price-tiers/p-f22120f3bd.webp",
+      "merchantImage": "/products/price-tiers/p-f22120f3bd.webp",
+      "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/0630/5605/2475/files/feather-headband-w-rooster-hackle-stripped-coque-white-feathers-492.jpg?v=1723030270"
+      ],
+      "availability": "in_stock",
+      "sizes": [],
+      "merchantId": "zuckerfeather-com",
+      "tagSlugs": [],
+      "description": "One white rooster-hackle and stripped-coque feather headband. Merchant feed confirms the single variant available at $7.36. Asymmetric wispy feathers rather than owl-shaped ear peaks; no owl face or cape included.",
+      "checkedAt": "2026-10-25T08:53:39.887804Z",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-25T08:53:39.887804Z",
+        "url": "https://zuckerfeather.com/products/feather-headband-w-rooster-hackle-stripped-coque-white-hbd-ladyann-w-hbd-ladyann-w.js",
+        "notes": "One white rooster-hackle and stripped-coque feather headband. Merchant feed confirms the single variant available at $7.36. Asymmetric wispy feathers rather than owl-shaped ear peaks; no owl face or cape included."
+      }
+    },
+    {
+      "id": "p-cb88a585bd",
+      "title": "White feathers SHAWL Shrug Shoulders Feathers cape Halloween costume ,vintage capelet for Adult",
+      "url": "https://www.etsy.com/listing/457280388/white-feathers-shawl-shrug-shoulders",
+      "priceCents": 900,
+      "currency": "USD",
+      "image": "/products/price-tiers/p-cb88a585bd.webp",
+      "merchantImage": "/products/price-tiers/p-cb88a585bd.webp",
+      "sourceImages": [
+        "https://i.etsystatic.com/9687694/r/il/10d055/1028120941/il_fullxfull.1028120941_irrx.jpg"
+      ],
+      "availability": "in_stock",
+      "sizes": [],
+      "merchantId": "etsy-feathesforsale-on-etsy",
+      "tagSlugs": [],
+      "description": "Adult white coque-feather and fabric capelet, listed as 70 cm long by 20 cm wide. The primary listing shows eight left at $9 USD with Add to cart. Short shoulder collar rather than long wings, with no speckles. Ships from China; seller states 14–25 days by post airmail. Custom sizes take 5–10 days to make and are not included in this price. These are merchant estimates, not promised arrival dates.",
+      "checkedAt": "2026-10-25T08:53:39.887804Z",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-25T08:53:39.887804Z",
+        "url": "https://www.etsy.com/listing/457280388/white-feathers-shawl-shrug-shoulders",
+        "notes": "Adult white coque-feather and fabric capelet, listed as 70 cm long by 20 cm wide. The primary listing shows eight left at $9 USD with Add to cart. Short shoulder collar rather than long wings, with no speckles. Ships from China; seller states 14–25 days by post airmail. Custom sizes take 5–10 days to make and are not included in this price. These are merchant estimates, not promised arrival dates."
+      }
+    },
+    {
+      "id": "p-7d0611026f",
+      "title": "Small Ostrich Bolero - Feather Shoulder Wrap - White",
+      "url": "https://zuckerfeather.com/products/small-ostrich-bolero-feather-shoulder-wrap-white?variant=44730374455547",
+      "priceCents": 12650,
+      "currency": "USD",
+      "image": "/products/price-tiers/p-7d0611026f.webp",
+      "merchantImage": "/products/price-tiers/p-7d0611026f.webp",
+      "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/0630/5605/2475/files/small-ostrich-bolero-feather-shoulder-wrap-white-feathers-593.jpg?v=1723067842"
+      ],
+      "availability": "in_stock",
+      "sizes": [],
+      "merchantId": "zuckerfeather-com",
+      "tagSlugs": [],
+      "description": "One white ostrich-feather shoulder wrap. The live product feed marks the single $126.50 variant available. Plush, fluffy shoulder coverage rather than the reference’s long flat overlapping feathers; no taupe speckles. Clothing and accessories worn by the model are not included.",
+      "checkedAt": "2026-10-25T08:53:39.887804Z",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-25T08:53:39.887804Z",
+        "url": "https://zuckerfeather.com/products/small-ostrich-bolero-feather-shoulder-wrap-white.js",
+        "notes": "One white ostrich-feather shoulder wrap. The live product feed marks the single $126.50 variant available. Plush, fluffy shoulder coverage rather than the reference’s long flat overlapping feathers; no taupe speckles. Clothing and accessories worn by the model are not included."
+      }
+    },
+    {
+      "id": "p-8c66b216fc",
+      "title": "White feather cape",
+      "url": "https://www.tonicdevie.com/products/white-feather-cape?variant=45719793303704",
+      "priceCents": 65000,
+      "currency": "USD",
+      "image": "/products/price-tiers/p-8c66b216fc.webp",
+      "merchantImage": "/products/price-tiers/p-8c66b216fc.webp",
+      "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/0674/4791/4648/files/Facetune_26-02-2024-19-13-15.webp?v=1761926949"
+      ],
+      "availability": "in_stock",
+      "sizes": [],
+      "merchantId": "tonicdevie-com",
+      "tagSlugs": [],
+      "description": "One handcrafted white feather cape, $650 USD, single available variant. Merchant photos show a long, voluminous wrap; it lacks the reference’s taupe speckles and defined wing edges. Other clothing is not included. FAQ confirms worldwide shipping from Ukraine and estimates 5–8 business days to the USA after production. Cape-specific production time and dimensions are not stated; the FAQ’s 1–5 day production statement concerns corsets and must not be applied to this cape.",
+      "checkedAt": "2026-10-25T08:53:39.887804Z",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-25T08:53:39.887804Z",
+        "url": "https://www.tonicdevie.com/products/white-feather-cape.js",
+        "notes": "One handcrafted white feather cape, $650 USD, single available variant. Merchant photos show a long, voluminous wrap; it lacks the reference’s taupe speckles and defined wing edges. Other clothing is not included. FAQ confirms worldwide shipping from Ukraine and estimates 5–8 business days to the USA after production. Cape-specific production time and dimensions are not stated; the FAQ’s 1–5 day production statement concerns corsets and must not be applied to this cape."
+      }
+    },
+    {
+      "id": "p-f35c48b860",
+      "title": "Under Tunic Gilbert Natural",
+      "url": "https://burgschneider.com/products/under-tunic-gilbert-natural?variant=47604598800731",
+      "priceCents": 5999,
+      "currency": "USD",
+      "image": "/products/price-tiers/p-f35c48b860.webp",
+      "merchantImage": "/products/price-tiers/p-f35c48b860.webp",
+      "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/0779/4189/9611/files/gilbert-natur.7qem9G.jpg?v=1774944494"
+      ],
+      "availability": "in_stock",
+      "sizes": [
+        "S",
+        "M",
+        "L",
+        "XL",
+        "XXL",
+        "XXXL"
+      ],
+      "merchantId": "burgschneider-com",
+      "tagSlugs": [],
+      "description": "Natural 100% thick breathable cotton tunic with front and back slits. Longer, approximately knee-length silhouette than the reference’s tunic. S through XXXL are available at $59.99. Other garments in the photo are not included.",
+      "checkedAt": "2026-10-25T08:53:39.887804Z",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-25T08:53:39.887804Z",
+        "url": "https://burgschneider.com/products/under-tunic-gilbert-natural.js",
+        "notes": "Natural 100% thick breathable cotton tunic with front and back slits. Longer, approximately knee-length silhouette than the reference’s tunic. S through XXXL are available at $59.99. Other garments in the photo are not included."
+      }
+    },
+    {
+      "id": "p-3799a61906",
+      "title": "Medieval Tunic / Under Tunic “Leif“ - Natural",
+      "url": "https://burgschneider.com/products/under-tunic-leif-natural?variant=47604595982683",
+      "priceCents": 3999,
+      "currency": "USD",
+      "image": "/products/price-tiers/p-3799a61906.webp",
+      "merchantImage": "/products/price-tiers/p-3799a61906.webp",
+      "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/0779/4189/9611/files/leif-natur.V4lhRf.jpg?v=1774566137"
+      ],
+      "availability": "in_stock",
+      "sizes": [
+        "S",
+        "XL",
+        "XXXL"
+      ],
+      "merchantId": "burgschneider-com",
+      "tagSlugs": [],
+      "description": "Natural 100% coarse cotton tunic with long sleeves, slit round neckline and side slits. Thigh-length plain base layer. Only S, XL and XXXL are currently available at $39.99; M, L and XXL are sold out. Belt, pants, wraps and shoes in the merchant photo are not included.",
+      "checkedAt": "2026-10-25T08:53:39.887804Z",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-25T08:53:39.887804Z",
+        "url": "https://burgschneider.com/products/under-tunic-leif-natural.js",
+        "notes": "Natural 100% coarse cotton tunic with long sleeves, slit round neckline and side slits. Thigh-length plain base layer. Only S, XL and XXXL are currently available at $39.99; M, L and XXL are sold out. Belt, pants, wraps and shoes in the merchant photo are not included."
+      }
+    },
+    {
+      "id": "p-54214148a4",
+      "title": "Wool Tunic Lodin Natural",
+      "url": "https://burgschneider.com/products/wool-tunic-lodin-natural?variant=50172131311963",
+      "priceCents": 6999,
+      "currency": "USD",
+      "image": "/products/price-tiers/p-54214148a4.webp",
+      "merchantImage": "/products/price-tiers/p-54214148a4.webp",
+      "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/0779/4189/9611/files/tunic-lodin-natural-front.jpg?v=1774545701"
+      ],
+      "availability": "in_stock",
+      "sizes": [
+        "S",
+        "XXXL"
+      ],
+      "merchantId": "burgschneider-com",
+      "tagSlugs": [],
+      "description": "Natural heavy wool-blend short tunic: 74% wool, 15% polyester, 7% polyamide and 4% other natural fibers. Warmer, stiffer and more textured than the illustrated light cream layer. Only S and XXXL are available at $69.99; M through XXL are sold out. Brooch, belt and other layers are not included.",
+      "checkedAt": "2026-10-25T08:53:39.887804Z",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-25T08:53:39.887804Z",
+        "url": "https://burgschneider.com/products/wool-tunic-lodin-natural.js",
+        "notes": "Natural heavy wool-blend short tunic: 74% wool, 15% polyester, 7% polyamide and 4% other natural fibers. Warmer, stiffer and more textured than the illustrated light cream layer. Only S and XXXL are available at $69.99; M through XXL are sold out. Brooch, belt and other layers are not included."
+      }
+    },
+    {
+      "id": "p-6c68216fba",
+      "title": "100% European Linen Pants",
+      "url": "https://www.quince.com/women/linen-pants?color=white&size=l",
+      "priceCents": 4200,
+      "currency": "USD",
+      "image": "/products/price-tiers/p-6c68216fba.webp",
+      "merchantImage": "/products/price-tiers/p-6c68216fba.webp",
+      "sourceImages": [
+        "https://images.quince.com/1b9zqjjnnVBViU98thA2Wp/a90f82d4f75eb98ca2ee11692ab56d19/Nicole_Chavez_Editorial_01-224_245_EDITED.jpg?fm=webP&q=90&w=1600"
+      ],
+      "availability": "in_stock",
+      "sizes": [
+        "XS",
+        "L",
+        "XL"
+      ],
+      "merchantId": "quince-com",
+      "tagSlugs": [],
+      "description": "White 100% European flax linen, relaxed fit and elastic waist in women’s sizing. Current product JSON-LD confirms only XS, L and XL in stock at $42; S and M are sold out. White is brighter than ivory. Straight legs lack the reference’s gathered cuffs; the blue shirt shown is not included.",
+      "checkedAt": "2026-10-25T08:53:39.887804Z",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-25T08:53:39.887804Z",
+        "url": "https://www.quince.com/women/linen-pants?color=white",
+        "notes": "White 100% European flax linen, relaxed fit and elastic waist in women’s sizing. Current product JSON-LD confirms only XS, L and XL in stock at $42; S and M are sold out. White is brighter than ivory. Straight legs lack the reference’s gathered cuffs; the blue shirt shown is not included."
+      }
+    },
+    {
+      "id": "p-38e9601da6",
+      "title": "Men's Organic Straight Leg Lounge Pants in Natural",
+      "url": "https://harvestandmill.com/products/mens-organic-straight-leg-lounge-pants-in-natural?variant=42275062218826",
+      "priceCents": 7600,
+      "currency": "USD",
+      "image": "/products/price-tiers/p-38e9601da6.webp",
+      "merchantImage": "/products/price-tiers/p-38e9601da6.webp",
+      "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/0550/6478/9066/files/Harvest_and_Mill_organic_cotton_mens_organic_lounge_pants_dye_free_11.jpg?v=1752509147"
+      ],
+      "availability": "in_stock",
+      "sizes": [
+        "small",
+        "medium",
+        "large",
+        "x-large"
+      ],
+      "merchantId": "harvestandmill-com",
+      "tagSlugs": [],
+      "description": "Undyed natural organic cotton jersey lounge pants, straight leg and elastic waist. All four listed sizes are available at $76. Softer knit texture than the illustration’s woven-looking trousers; no ankle gathers. One pair of pants only.",
+      "checkedAt": "2026-10-25T08:53:39.887804Z",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-25T08:53:39.887804Z",
+        "url": "https://harvestandmill.com/products/mens-organic-straight-leg-lounge-pants-in-natural.js",
+        "notes": "Undyed natural organic cotton jersey lounge pants, straight leg and elastic waist. All four listed sizes are available at $76. Softer knit texture than the illustration’s woven-looking trousers; no ankle gathers. One pair of pants only."
+      }
+    },
+    {
+      "id": "p-fae8356f54",
+      "title": "Linen Drawstring Pant",
+      "url": "https://larelaxed.com/products/linen-drawstring-pant?variant=46699949916389",
+      "priceCents": 13800,
+      "currency": "USD",
+      "image": "/products/price-tiers/p-fae8356f54.webp",
+      "merchantImage": "/products/price-tiers/p-fae8356f54.webp",
+      "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/0771/8275/files/White_linen_drawstring_lead.jpg?v=1776369060"
+      ],
+      "availability": "in_stock",
+      "sizes": [
+        "XS",
+        "S",
+        "M",
+        "L",
+        "XL"
+      ],
+      "merchantId": "larelaxed-com",
+      "tagSlugs": [],
+      "description": "White 100% linen pants with drawstring waist, women’s sizing. Selected White XS through XL are available at $138. Wider straight leg than the reference’s tapered, gathered trousers; tuck the hem loosely into boots for a similar outline. Top and footwear not included.",
+      "checkedAt": "2026-10-25T08:53:39.887804Z",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-25T08:53:39.887804Z",
+        "url": "https://larelaxed.com/products/linen-drawstring-pant.js",
+        "notes": "White 100% linen pants with drawstring waist, women’s sizing. Selected White XS through XL are available at $138. Wider straight leg than the reference’s tapered, gathered trousers; tuck the hem loosely into boots for a similar outline. Top and footwear not included."
+      }
+    },
+    {
+      "id": "p-3b0a976509",
+      "title": "Karnak Plain Toe Boot",
+      "url": "https://www.nunnbush.com/shop/style/85088-215.html",
+      "priceCents": 8995,
+      "currency": "USD",
+      "image": "/products/price-tiers/p-3b0a976509.webp",
+      "merchantImage": "/products/price-tiers/p-3b0a976509.webp",
+      "sourceImages": [
+        "https://www.nunnbush.com/shop/images/w590/85088-215.jpg"
+      ],
+      "availability": "unknown",
+      "sizes": [
+        "7",
+        "7.5",
+        "8",
+        "8.5",
+        "9",
+        "9.5",
+        "10",
+        "10.5",
+        "11",
+        "11.5",
+        "12",
+        "13",
+        "14"
+      ],
+      "merchantId": "nunnbush-com",
+      "tagSlugs": [],
+      "description": "Brown CH style 85088-215. Live merchant HTML shows $89.95 sale price and these sizes with In Stock labels, but width-specific stock requires a width selection and is not confirmed here. Mixed genuine leather and man-made upper with padded collar and modern lug sole. Darker, chunkier hiking-like shape than the reference; no crossed wrap straps.",
+      "checkedAt": "2026-10-25T08:53:39.887804Z",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-25T08:53:39.887804Z",
+        "url": "https://www.nunnbush.com/shop/style/85088-215.html",
+        "notes": "Brown CH style 85088-215. Live merchant HTML shows $89.95 sale price and these sizes with In Stock labels, but width-specific stock requires a width selection and is not confirmed here. Mixed genuine leather and man-made upper with padded collar and modern lug sole. Darker, chunkier hiking-like shape than the reference; no crossed wrap straps."
+      }
+    },
+    {
+      "id": "p-ba0acbf53c",
+      "title": "Captain | Brown",
+      "url": "https://thursdayboots.com/products/mens-brown-captain?variant=7609600581",
+      "priceCents": 19900,
+      "currency": "USD",
+      "image": "/products/price-tiers/p-ba0acbf53c.webp",
+      "merchantImage": "/products/price-tiers/p-ba0acbf53c.webp",
+      "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/0419/1525/files/1024x1024-Men-Captain-Brown-081226-3.4-d17ac2.jpg?v=1790357464"
+      ],
+      "availability": "in_stock",
+      "sizes": [
+        "6",
+        "6.5",
+        "7",
+        "7.5",
+        "8",
+        "8.5",
+        "9",
+        "9.5",
+        "10",
+        "10.5",
+        "11",
+        "11.5",
+        "12",
+        "12.5",
+        "13",
+        "13.5",
+        "14",
+        "15",
+        "16"
+      ],
+      "merchantId": "thursdayboots-com",
+      "tagSlugs": [],
+      "description": "Brown Thursday Chrome leather lace-up cap-toe boots with leather lining and studded rubber sole. Standard width only; every listed size is currently available at $199. Cleaner dress-boot shape than the budget option; no crossed ankle straps. Merchant offers domestic US shipping.",
+      "checkedAt": "2026-10-25T08:53:39.887804Z",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-25T08:53:39.887804Z",
+        "url": "https://thursdayboots.com/products/mens-brown-captain.js",
+        "notes": "Brown Thursday Chrome leather lace-up cap-toe boots with leather lining and studded rubber sole. Standard width only; every listed size is currently available at $199. Cleaner dress-boot shape than the budget option; no crossed ankle straps. Merchant offers domestic US shipping."
+      }
+    },
+    {
+      "id": "p-a880ab278b",
+      "title": "Diesel Boot Saddle Tan",
+      "url": "https://grantstoneshoes.com/products/diesel-boot-saddle-tan?variant=12617336651840",
+      "priceCents": 43500,
+      "currency": "USD",
+      "image": "/products/price-tiers/p-a880ab278b.webp",
+      "merchantImage": "/products/price-tiers/p-a880ab278b.webp",
+      "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/1163/3390/files/GRANT2SIDE2-Edit-Edit_27ba84f7-bb9a-4473-89e4-2683d625de2f.jpg?v=1783616239"
+      ],
+      "availability": "in_stock",
+      "sizes": [
+        "6",
+        "6.5",
+        "7",
+        "7.5",
+        "8",
+        "8.5",
+        "9",
+        "9.5",
+        "10",
+        "10.5",
+        "11",
+        "11.5",
+        "12",
+        "13"
+      ],
+      "merchantId": "grantstoneshoes-com",
+      "tagSlugs": [],
+      "description": "Saddle tan vegetable-tanned leather plain-toe lace-up boots. D (Standard) width only; all listed sizes are available at $435. Lighter tan, smoother leather and plain toe rather than the reference’s brown wrap-strapped boot. Higher price does not imply a closer costume match.",
+      "checkedAt": "2026-10-25T08:53:39.887804Z",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-25T08:53:39.887804Z",
+        "url": "https://grantstoneshoes.com/products/diesel-boot-saddle-tan.js",
+        "notes": "Saddle tan vegetable-tanned leather plain-toe lace-up boots. D (Standard) width only; all listed sizes are available at $435. Lighter tan, smoother leather and plain toe rather than the reference’s brown wrap-strapped boot. Higher price does not imply a closer costume match."
+      }
+    },
+    {
+      "id": "p-8248b874fa",
+      "title": "Rope Belt",
+      "url": "https://garbtheworld.net/products/rope-belt?variant=31215349923902",
+      "priceCents": 1500,
+      "currency": "USD",
+      "image": "/products/price-tiers/p-8248b874fa.webp",
+      "merchantImage": "/products/price-tiers/p-8248b874fa.webp",
+      "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/0252/6727/3790/products/ropeb.jpg?v=1573780391"
+      ],
+      "availability": "in_stock",
+      "sizes": [],
+      "merchantId": "garbtheworld-net",
+      "tagSlugs": [],
+      "description": "One 6-foot length of 1/2-inch three-ply rope, made in the USA. Merchant photo shows an off-white rope. Tie it around the waist; finished tassels are not included. The feed confirms the $15 single variant available. Multiple quantities are supplied as one continuous length unless instructed otherwise.",
+      "checkedAt": "2026-10-25T08:53:39.887804Z",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-25T08:53:39.887804Z",
+        "url": "https://garbtheworld.net/products/rope-belt.js",
+        "notes": "One 6-foot length of 1/2-inch three-ply rope, made in the USA. Merchant photo shows an off-white rope. Tie it around the waist; finished tassels are not included. The feed confirms the $15 single variant available. Multiple quantities are supplied as one continuous length unless instructed otherwise."
+      }
+    },
+    {
+      "id": "p-c8a1001a28",
+      "title": "Tassel Rope Belt (Cream)",
+      "url": "https://www.samelosangeles.com/products/tassel-rope-belt-cream?variant=51346136531222",
+      "priceCents": 6800,
+      "currency": "USD",
+      "image": "/products/price-tiers/p-c8a1001a28.webp",
+      "merchantImage": "/products/price-tiers/p-c8a1001a28.webp",
+      "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/0964/1358/files/TASSELROPEBELT_CREAM.jpg?v=1761690215"
+      ],
+      "availability": "in_stock",
+      "sizes": [],
+      "merchantId": "samelosangeles-com",
+      "tagSlugs": [],
+      "description": "Cream braided rope cord with adjustable tie closure and oversized tassels at both ends. One adjustable size, currently available at $68. A closer hanging-rope silhouette than the buckled option, but glossier and more decorative than the reference. Merchant states orders normally ship in 1–3 business days, with more processing time during promotions.",
+      "checkedAt": "2026-10-25T08:53:39.887804Z",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-25T08:53:39.887804Z",
+        "url": "https://www.samelosangeles.com/products/tassel-rope-belt-cream.js",
+        "notes": "Cream braided rope cord with adjustable tie closure and oversized tassels at both ends. One adjustable size, currently available at $68. A closer hanging-rope silhouette than the buckled option, but glossier and more decorative than the reference. Merchant states orders normally ship in 1–3 business days, with more processing time during promotions."
+      }
+    },
+    {
+      "id": "p-ac74ad26d9",
+      "title": "Rope Belt",
+      "url": "https://augustatwenty.com/products/rope-belt?variant=39957279866945",
+      "priceCents": 4375,
+      "currency": "USD",
+      "image": "/products/price-tiers/p-ac74ad26d9.webp",
+      "merchantImage": "/products/price-tiers/p-ac74ad26d9.webp",
+      "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/1886/7933/products/rachel-comey-rope-belt_2.jpg?v=1654812160"
+      ],
+      "availability": "in_stock",
+      "sizes": [
+        "XS"
+      ],
+      "merchantId": "augustatwenty-com",
+      "tagSlugs": [],
+      "description": "Rachel Comey ivory woven cotton belt with brown leather buckle and leather ends. Only XS is available at $43.75; all other sizes are sold out or cost more. A broader belt with a buckle, rather than the reference’s narrow knotted rope and hanging ends.",
+      "checkedAt": "2026-10-25T08:53:39.887804Z",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-25T08:53:39.887804Z",
+        "url": "https://augustatwenty.com/products/rope-belt.js",
+        "notes": "Rachel Comey ivory woven cotton belt with brown leather buckle and leather ends. Only XS is available at $43.75; all other sizes are sold out or cost more. A broader belt with a buckle, rather than the reference’s narrow knotted rope and hanging ends."
+      }
+    }
+  ],
+  "merchants": [
+    {
+      "id": "zuckerfeather-com",
+      "name": "Zucker Feather Products",
+      "domain": "zuckerfeather.com",
+      "url": "https://zuckerfeather.com/",
+      "kind": "boutique",
+      "neighborhoodId": null
+    },
+    {
+      "id": "bagtazocollection-com",
+      "name": "Bagtazo",
+      "domain": "bagtazocollection.com",
+      "url": "https://bagtazocollection.com/",
+      "kind": "boutique",
+      "neighborhoodId": null
+    },
+    {
+      "id": "hatsfromoz-com",
+      "name": "Hats From OZ",
+      "domain": "hatsfromoz.com",
+      "url": "https://hatsfromoz.com/",
+      "kind": "boutique",
+      "neighborhoodId": null
+    },
+    {
+      "id": "etsy-feathesforsale-on-etsy",
+      "name": "feathesforsale on Etsy",
+      "domain": "etsy.com",
+      "url": "https://www.etsy.com/listing/457280388/white-feathers-shawl-shrug-shoulders",
+      "kind": "etsy",
+      "neighborhoodId": null
+    },
+    {
+      "id": "tonicdevie-com",
+      "name": "Tonic de Vie",
+      "domain": "tonicdevie.com",
+      "url": "https://tonicdevie.com/",
+      "kind": "boutique",
+      "neighborhoodId": null
+    },
+    {
+      "id": "burgschneider-com",
+      "name": "Burgschneider",
+      "domain": "burgschneider.com",
+      "url": "https://burgschneider.com/",
+      "kind": "boutique",
+      "neighborhoodId": null
+    },
+    {
+      "id": "quince-com",
+      "name": "Quince",
+      "domain": "quince.com",
+      "url": "https://quince.com/",
+      "kind": "boutique",
+      "neighborhoodId": null
+    },
+    {
+      "id": "harvestandmill-com",
+      "name": "Harvest & Mill",
+      "domain": "harvestandmill.com",
+      "url": "https://harvestandmill.com/",
+      "kind": "boutique",
+      "neighborhoodId": null
+    },
+    {
+      "id": "larelaxed-com",
+      "name": "LA Relaxed",
+      "domain": "larelaxed.com",
+      "url": "https://larelaxed.com/",
+      "kind": "boutique",
+      "neighborhoodId": null
+    },
+    {
+      "id": "nunnbush-com",
+      "name": "Nunn Bush",
+      "domain": "nunnbush.com",
+      "url": "https://nunnbush.com/",
+      "kind": "boutique",
+      "neighborhoodId": null
+    },
+    {
+      "id": "thursdayboots-com",
+      "name": "Thursday Boot Company",
+      "domain": "thursdayboots.com",
+      "url": "https://thursdayboots.com/",
+      "kind": "boutique",
+      "neighborhoodId": null
+    },
+    {
+      "id": "grantstoneshoes-com",
+      "name": "Grant Stone",
+      "domain": "grantstoneshoes.com",
+      "url": "https://grantstoneshoes.com/",
+      "kind": "boutique",
+      "neighborhoodId": null
+    },
+    {
+      "id": "garbtheworld-net",
+      "name": "Garb the World",
+      "domain": "garbtheworld.net",
+      "url": "https://garbtheworld.net/",
+      "kind": "boutique",
+      "neighborhoodId": null
+    },
+    {
+      "id": "augustatwenty-com",
+      "name": "Augusta Twenty",
+      "domain": "augustatwenty.com",
+      "url": "https://augustatwenty.com/",
+      "kind": "boutique",
+      "neighborhoodId": null
+    },
+    {
+      "id": "samelosangeles-com",
+      "name": "SAME",
+      "domain": "samelosangeles.com",
+      "url": "https://samelosangeles.com/",
+      "kind": "boutique",
+      "neighborhoodId": null
+    }
+  ],
+  "neighborhoods": [],
+  "tags": [],
+  "provenance": {
+    "method": "manual-research",
+    "generatedAt": "2026-10-25T08:53:39.887804Z",
+    "priceTiers": true,
+    "heroImageKind": "generated-reference",
+    "notes": "Built-in web search and direct official merchant evidence. Three distinct relative price points per piece: $, $$, $$$. Prices exclude shipping/tax; stock is variant-specific and delivery is unconfirmed. See docs/sourcing/price-tiers/snow-owl.json."
+  }
+}

@@ -1,0 +1,815 @@
+{
+  "costume": {
+    "slug": "pumpkin-harlequin",
+    "name": "Pumpkin Harlequin",
+    "description": "Burnt orange and charcoal diamonds, a ruffled collar, and a tiny pumpkin beret make a graphic autumn look.",
+    "image": "/costumes/pumpkin-harlequin.png",
+    "alt": "Small pumpkin-shaped beret, burnt orange and charcoal diamond jumpsuit, orange ruffled collar, and pointed black boots",
+    "status": "live"
+  },
+  "pieces": [
+    {
+      "id": "pumpkin-harlequin-pumpkin-hat",
+      "name": "Pumpkin beret",
+      "category": "headwear",
+      "required": true,
+      "order": 0,
+      "sizeKind": "hat",
+      "queries": [
+        "orange pumpkin beret adult"
+      ],
+      "styleNotes": "Use a small orange pumpkin-shaped hat. Real hats differ from the reference's padded orange-and-charcoal velvet panels. No finished hat exactly matches the reference's tiny padded orange-and-charcoal pumpkin. The higher-price handmade hat is crochet rather than velvet.",
+      "matches": [
+        {
+          "productId": "p-fb76982511",
+          "rank": 0,
+          "reason": "Select Orange Pumpkin. Soft felt orange beret with a black jack-o-lantern face, not a segmented velvet pumpkin. Merchant feed shows two Orange Pumpkin units available. USA ground and expedited shipping offered."
+        },
+        {
+          "productId": "p-3ef3180df0",
+          "rank": 1,
+          "reason": "Orange knitted pumpkin hat with green stem; a soft full-size beret rather than a tiny padded velvet fascinator. Adult variant verified available. Merchant offers worldwide shipping; page states most orders arrive in 5–12 days, without a date guarantee."
+        },
+        {
+          "productId": "p-682cce6679",
+          "rank": 2,
+          "reason": "Handmade orange crochet pumpkin beret in acrylic yarn with stem. Adult 22-inch variant is $55 and available in the live feed. Made to order; merchant does not state a fixed production interval. Adult size is listed as 22 inches. This is knitted rather than the reference's padded orange-and-charcoal velvet."
+        }
+      ]
+    },
+    {
+      "id": "pumpkin-harlequin-black-base",
+      "name": "Black long-sleeve full-length base",
+      "category": "one-piece",
+      "required": true,
+      "order": 1,
+      "sizeKind": "apparel",
+      "queries": [
+        "black long sleeve full length unitard DIY harlequin"
+      ],
+      "styleNotes": "DIY base: add the separately listed orange felt diamonds. These fitted black unitards do not include diamonds, balloon sleeves, orange cuffs, or a collar. No verified ready-made orange-and-charcoal diamond jumpsuit was found. This catalog uses the design's stated felt-diamond DIY method. Sewing and ordinary scissors, needle, and thread are needed; these tools are not included.",
+      "matches": [
+        {
+          "productId": "p-2cd1a638ab",
+          "rank": 0,
+          "reason": "Black heavyweight 95% cotton/5% elastane fitted unitard with long sleeves, scoop front and back. All listed black sizes are available at $70. DIY diamonds required; no ruff or orange cuffs included. Final sale per merchant. Fitted shape differs from the reference's loose velvet jumpsuit."
+        },
+        {
+          "productId": "p-b2b40f4575",
+          "rank": 1,
+          "reason": "Plain black fitted unitard, 85% nylon/15% spandex, long sleeves, full-length legs, mock neck and front zipper. All listed black sizes are available at $42.99. DIY orange diamonds are required; not a finished harlequin costume. The sleeve and trouser volume differs from the reference."
+        },
+        {
+          "productId": "p-efd5b81469",
+          "rank": 2,
+          "reason": "Matte opaque black 93% nylon/7% spandex catsuit includes fingers and individually covered toes. Merchant permits cutting at wrists or ankles without runs. One Size fits XS–XL; live embedded inventory shows three dyed Black One Size units. Black Plus Size has zero dyed stock and is excluded. DIY diamonds required; fitted silhouette differs. Page lists production ship date October 26, not arrival."
+        }
+      ]
+    },
+    {
+      "id": "pumpkin-harlequin-orange-diamond-fabric",
+      "name": "Orange felt for DIY diamonds",
+      "category": "accessories",
+      "required": true,
+      "order": 2,
+      "sizeKind": "one_size",
+      "queries": [
+        "pumpkin orange felt yard DIY harlequin diamonds"
+      ],
+      "styleNotes": "Cut orange diamonds and sew them onto the black base. All choices are raw fabric, not pre-cut shapes or finished costumes. Preserve stretch between patches. Fabric amounts and material differ by tier. Lay out the chosen diamond pattern before deciding the quantity. More fabric may be needed for dense all-over coverage.",
+      "matches": [
+        {
+          "productId": "p-1b4eb91408",
+          "rank": 0,
+          "reason": "Price buys one 36 x 72 inch yard of bright orange 100% acrylic felt, 1.6 mm thick and 300 gsm. Raw fabric only; cut and sew diamonds yourself. Brighter and thicker than the reference's burnt-orange velvet. Merchant advertises same-day dispatch before 1 PM PT; confirm the applicable business day at checkout."
+        },
+        {
+          "productId": "p-14282b42ef",
+          "rank": 1,
+          "reason": "Pumpkin is an orange heathered wool/rayon blend, approximately 1 mm thick. Price buys one 1/2-yard cut, approximately 18 x 36 inches. It is closer to burnt orange than bright acrylic felt. Cut and sew diamonds yourself; quantity depends on garment size and coverage. Multiple half-yard units yield an uncut sheet per merchant. Tools and thread are not included."
+        },
+        {
+          "productId": "p-527214ceca",
+          "rank": 2,
+          "reason": "Price buys one yard of 72-inch-wide orange 100% acrylic felt, 5-ounce weight. Choose fabric rather than the $3 swatch. Raw fabric only; cut and sew diamonds yourself. Solid orange craft felt differs from velvet. Quantity depends on garment size and pattern coverage."
+        }
+      ]
+    },
+    {
+      "id": "pumpkin-harlequin-ruff",
+      "name": "Orange and black ruffled collar",
+      "category": "accessories",
+      "required": true,
+      "order": 3,
+      "sizeKind": "one_size",
+      "queries": [
+        "orange black clown ruff collar"
+      ],
+      "styleNotes": "A broad gathered textile ruff frames the face. Real choices use orange/black fabric rather than the reference's solid burnt-orange velvet. The custom collar listings accept orders, but color-specific inventory cannot be confirmed. Their photos are real merchant samples; custom selected colors may differ. The in-stock default is the fixed black/orange Underwraps collar.",
+      "matches": [
+        {
+          "productId": "p-c4e438465d",
+          "rank": 0,
+          "reason": "Underwraps two-part ruffled collar with tie closure, black with orange trim. Only collar included. Page has product-level instock metadata. Different color balance and fabric from the all-orange velvet reference. Chicago store ships in the USA; website asks customers needing October 31 delivery to choose express, which is not a delivery guarantee."
+        },
+        {
+          "productId": "p-549ba5fa65",
+          "rank": 1,
+          "reason": "Custom cotton two-layer gathered collar, longest layer 6 inches. Select Orange and Black and give the desired ribbon color. Actual merchant photo shows sample color combinations, not a dedicated orange/black variant photo. Seller lists orange and black fabric swatches and $30 base price, but live color-selector stock is not independently verifiable. Allow up to one week to make before shipping from Rhode Island. Only collar included."
+        },
+        {
+          "productId": "p-a27c35cd61",
+          "rank": 2,
+          "reason": "Made-to-order ruffle collar with handmade pom-poms and long adjustable ties; only collar included. Shown actual orange/black sample matches the palette. Choose Orange and Black for the pictured version, or Orange twice for solid orange. Listing has $40 price and add-to-cart, but live per-color selector stock is unverified. Ships from Connecticut; maker says it does not dispatch immediately. Current page estimates November 9–23 delivery, so this is not an October 31 promise."
+        }
+      ]
+    },
+    {
+      "id": "pumpkin-harlequin-gloves",
+      "name": "Optional black gloves",
+      "category": "accessories",
+      "required": false,
+      "order": 4,
+      "sizeKind": "one_size",
+      "queries": [
+        "black costume gloves adult"
+      ],
+      "styleNotes": "Plain black full-finger gloves are optional. Wrist-length styles sit under cuffs; opera-length styles can extend under sleeves. The $95 Second Skin base already covers the fingers, so separate gloves are unnecessary with that choice.",
+      "matches": [
+        {
+          "productId": "p-1929078196",
+          "rank": 0,
+          "reason": "Black parade gloves with wrist-snap cuffs. Full-finger short gloves rather than the reference's optional unspecified black gloves. Black variant verified available. USA shipping offered."
+        },
+        {
+          "productId": "p-55485e7f87",
+          "rank": 1,
+          "reason": "Black short full-finger costume gloves; select Black. No hat or garment included. Merchant does not specify fiber content. Black variant available at $5.95. USA shipping offered."
+        },
+        {
+          "productId": "p-5e9b010877",
+          "rank": 2,
+          "reason": "Pair of black stretch velvet opera-length gloves reaches above the elbow. Longer than needed, but can sit under long sleeves; velvet texture suits the costume. No garment or collar included. Available at $27.95. Hand wash and lay flat to dry."
+        }
+      ]
+    },
+    {
+      "id": "pumpkin-harlequin-boots",
+      "name": "Black ankle boots",
+      "category": "footwear",
+      "required": true,
+      "order": 5,
+      "sizeKind": "shoe",
+      "queries": [
+        "black pointed ankle boots costume"
+      ],
+      "styleNotes": "Black ankle boots finish the look. Prefer a pointed toe and modest heel. Laces, buckles, and almond toes are honest deviations. The middle tier has only size 6 in stock. Premium Paris boots use an almond toe, not a sharply pointed toe.",
+      "matches": [
+        {
+          "productId": "p-5ddd0e0d87",
+          "rank": 0,
+          "reason": "Black vegan-leather pointed ankle boot with silver buckle details, Velcro attachments, rear zipper, and 2-inch rubber heel. Adds conspicuous hardware compared with the plain reference. Only size 6 is available in the live feed at $120; do not advertise other sizes. Page says Shipping NOW."
+        },
+        {
+          "productId": "p-5e504418f4",
+          "rank": 1,
+          "reason": "Black vegan faux-leather lace-up ankle boots with pointed vintage silhouette and 2.75-inch kitten heel. More visible lacing and higher heel than the reference. Merchant labels sizes Women's US. All listed sizes verified available at $73.95."
+        },
+        {
+          "productId": "p-99218bcec8",
+          "rank": 2,
+          "reason": "Black leather lace-up ankle boots with 1.6-inch Cuban heel, cotton/leather lining, and leather sole. Merchant explicitly describes almond-shaped toes; these are less pointed than the reference and lower than the costume alternatives. Standard-width Women's US sizes listed here are verified available at $285; wide is a separate product."
+        }
+      ]
+    }
+  ],
+  "products": [
+    {
+      "id": "p-3ef3180df0",
+      "title": "Pumpkin Beret Hat",
+      "url": "https://korekawaii.com/products/kawaii-pumpkin-beret-hat?variant=40265938665550",
+      "priceCents": 1499,
+      "currency": "USD",
+      "image": "/products/price-tiers/p-3ef3180df0.webp",
+      "merchantImage": "/products/price-tiers/p-3ef3180df0.webp",
+      "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/0279/9966/6254/files/S8cde0283ba704256af7688e0b2be073ec.jpg?v=1692011441"
+      ],
+      "availability": "in_stock",
+      "sizes": [
+        "Kids",
+        "Adults"
+      ],
+      "merchantId": "korekawaii-com",
+      "tagSlugs": [],
+      "description": "Orange knitted pumpkin hat with green stem; a soft full-size beret rather than a tiny padded velvet fascinator. Adult variant verified available. Merchant offers worldwide shipping; page states most orders arrive in 5–12 days, without a date guarantee.",
+      "checkedAt": "2026-10-25T08:50:58.976351Z",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-25T08:50:58.976351Z",
+        "url": "https://korekawaii.com/products/kawaii-pumpkin-beret-hat.js",
+        "notes": "Orange knitted pumpkin hat with green stem; a soft full-size beret rather than a tiny padded velvet fascinator. Adult variant verified available. Merchant offers worldwide shipping; page states most orders arrive in 5–12 days, without a date guarantee."
+      }
+    },
+    {
+      "id": "p-fb76982511",
+      "title": "Halloween Beret",
+      "url": "https://abracadabranyc.com/products/halloween-beret?variant=44568283676834",
+      "priceCents": 2395,
+      "currency": "USD",
+      "image": "/products/price-tiers/p-fb76982511.webp",
+      "merchantImage": "/products/price-tiers/p-fb76982511.webp",
+      "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/1199/8814/files/halloween-beret--33304045.jpg?v=1729679768"
+      ],
+      "availability": "in_stock",
+      "sizes": [
+        "One size fits most"
+      ],
+      "merchantId": "abracadabranyc-com",
+      "tagSlugs": [],
+      "description": "Select Orange Pumpkin. Soft felt orange beret with a black jack-o-lantern face, not a segmented velvet pumpkin. Merchant feed shows two Orange Pumpkin units available. USA ground and expedited shipping offered.",
+      "checkedAt": "2026-10-25T08:50:58.976351Z",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-25T08:50:58.976351Z",
+        "url": "https://abracadabranyc.com/products/halloween-beret.js",
+        "notes": "Select Orange Pumpkin. Soft felt orange beret with a black jack-o-lantern face, not a segmented velvet pumpkin. Merchant feed shows two Orange Pumpkin units available. USA ground and expedited shipping offered."
+      }
+    },
+    {
+      "id": "p-682cce6679",
+      "title": "Crochet Pumpkin Beret",
+      "url": "https://natgiso.com/products/crochet-pumpkin-beret?variant=54029561528595",
+      "priceCents": 5500,
+      "currency": "USD",
+      "image": "/products/price-tiers/p-682cce6679.webp",
+      "merchantImage": "/products/price-tiers/p-682cce6679.webp",
+      "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/0667/2046/5171/files/D4EF4733-5061-4984-9AE8-B615873C1000.jpg?v=1737331340"
+      ],
+      "availability": "in_stock",
+      "sizes": [
+        "22 in (Adult)"
+      ],
+      "merchantId": "natgiso-com",
+      "tagSlugs": [],
+      "description": "Handmade orange crochet pumpkin beret in acrylic yarn with stem. Adult 22-inch variant is $55 and available in the live feed. Made to order; merchant does not state a fixed production interval. Adult size is listed as 22 inches. This is knitted rather than the reference's padded orange-and-charcoal velvet.",
+      "checkedAt": "2026-10-25T08:50:58.976351Z",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-25T08:50:58.976351Z",
+        "url": "https://natgiso.com/products/crochet-pumpkin-beret.js",
+        "notes": "Handmade orange crochet pumpkin beret in acrylic yarn with stem. Adult 22-inch variant is $55 and available in the live feed. Made to order; merchant does not state a fixed production interval. Adult size is listed as 22 inches. This is knitted rather than the reference's padded orange-and-charcoal velvet."
+      }
+    },
+    {
+      "id": "p-efd5b81469",
+      "title": "Second Skin Catsuit",
+      "url": "https://www.welovecolors.com/shop/womens/sale/second-skin-catsuit/black",
+      "priceCents": 9500,
+      "currency": "USD",
+      "image": "/products/price-tiers/p-efd5b81469.webp",
+      "merchantImage": "/products/price-tiers/p-efd5b81469.webp",
+      "sourceImages": [
+        "https://www.welovecolors.com/images/product/full/5010-w-black-second-skin-catsuit.jpg"
+      ],
+      "availability": "in_stock",
+      "sizes": [
+        "One Size"
+      ],
+      "merchantId": "welovecolors-com",
+      "tagSlugs": [],
+      "description": "Matte opaque black 93% nylon/7% spandex catsuit includes fingers and individually covered toes. Merchant permits cutting at wrists or ankles without runs. One Size fits XS–XL; live embedded inventory shows three dyed Black One Size units. Black Plus Size has zero dyed stock and is excluded. DIY diamonds required; fitted silhouette differs. Page lists production ship date October 26, not arrival.",
+      "checkedAt": "2026-10-25T08:50:58.976351Z",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-25T08:50:58.976351Z",
+        "url": "https://www.welovecolors.com/shop/womens/sale/second-skin-catsuit/black",
+        "notes": "Matte opaque black 93% nylon/7% spandex catsuit includes fingers and individually covered toes. Merchant permits cutting at wrists or ankles without runs. One Size fits XS–XL; live embedded inventory shows three dyed Black One Size units. Black Plus Size has zero dyed stock and is excluded. DIY diamonds required; fitted silhouette differs. Page lists production ship date October 26, not arrival."
+      }
+    },
+    {
+      "id": "p-b2b40f4575",
+      "title": "Zip Front Spandex Long Sleeve Turtleneck Unitard",
+      "url": "https://www.speerise.com/products/speerise-ladies-spandex-long-sleeve-turtleneck-unitard?variant=39728194715781",
+      "priceCents": 4299,
+      "currency": "USD",
+      "image": "/products/price-tiers/p-b2b40f4575.webp",
+      "merchantImage": "/products/price-tiers/p-b2b40f4575.webp",
+      "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/0365/8003/2645/products/speerise-zip-front-spandex-long-sleeve-turtleneck-unitard-black.jpg?v=1760671730"
+      ],
+      "availability": "in_stock",
+      "sizes": [
+        "XS",
+        "S",
+        "M",
+        "L",
+        "XL",
+        "2XL",
+        "3XL",
+        "4XL",
+        "5XL",
+        "6XL"
+      ],
+      "merchantId": "speerise-com",
+      "tagSlugs": [],
+      "description": "Plain black fitted unitard, 85% nylon/15% spandex, long sleeves, full-length legs, mock neck and front zipper. All listed black sizes are available at $42.99. DIY orange diamonds are required; not a finished harlequin costume. The sleeve and trouser volume differs from the reference.",
+      "checkedAt": "2026-10-25T08:50:58.976351Z",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-25T08:50:58.976351Z",
+        "url": "https://www.speerise.com/products/speerise-ladies-spandex-long-sleeve-turtleneck-unitard.js",
+        "notes": "Plain black fitted unitard, 85% nylon/15% spandex, long sleeves, full-length legs, mock neck and front zipper. All listed black sizes are available at $42.99. DIY orange diamonds are required; not a finished harlequin costume. The sleeve and trouser volume differs from the reference."
+      }
+    },
+    {
+      "id": "p-2cd1a638ab",
+      "title": "83028GD - Garment Dye Long Sleeve Unitard",
+      "url": "https://losangelesapparel.net/products/83028gd-garment-dye-long-sleeve-unitard?variant=37888203161779",
+      "priceCents": 7000,
+      "currency": "USD",
+      "image": "/products/price-tiers/p-2cd1a638ab.webp",
+      "merchantImage": "/products/price-tiers/p-2cd1a638ab.webp",
+      "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/2152/0639/products/black1_1_4984a0ae-5411-4aea-a78b-eb4b02ab8afa.jpg?v=1721953708"
+      ],
+      "availability": "in_stock",
+      "sizes": [
+        "XS",
+        "S",
+        "M",
+        "L",
+        "XL"
+      ],
+      "merchantId": "losangelesapparel-net",
+      "tagSlugs": [],
+      "description": "Black heavyweight 95% cotton/5% elastane fitted unitard with long sleeves, scoop front and back. All listed black sizes are available at $70. DIY diamonds required; no ruff or orange cuffs included. Final sale per merchant. Fitted shape differs from the reference's loose velvet jumpsuit.",
+      "checkedAt": "2026-10-25T08:50:58.976351Z",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-25T08:50:58.976351Z",
+        "url": "https://losangelesapparel.net/products/83028gd-garment-dye-long-sleeve-unitard.js",
+        "notes": "Black heavyweight 95% cotton/5% elastane fitted unitard with long sleeves, scoop front and back. All listed black sizes are available at $70. DIY diamonds required; no ruff or orange cuffs included. Final sale per merchant. Fitted shape differs from the reference's loose velvet jumpsuit."
+      }
+    },
+    {
+      "id": "p-527214ceca",
+      "title": "Orange Acrylic Felt",
+      "url": "https://britexfabrics.com/products/orange-acrylic-felt?variant=47850957275456",
+      "priceCents": 1299,
+      "currency": "USD",
+      "image": "/products/price-tiers/p-527214ceca.webp",
+      "merchantImage": "/products/price-tiers/p-527214ceca.webp",
+      "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/0754/1260/3200/files/IMG_1318_9811e346-0b93-4b9e-9f5f-a39c121fd999.jpg?v=1707514282"
+      ],
+      "availability": "in_stock",
+      "sizes": [],
+      "merchantId": "britexfabrics-com",
+      "tagSlugs": [],
+      "description": "Price buys one yard of 72-inch-wide orange 100% acrylic felt, 5-ounce weight. Choose fabric rather than the $3 swatch. Raw fabric only; cut and sew diamonds yourself. Solid orange craft felt differs from velvet. Quantity depends on garment size and pattern coverage.",
+      "checkedAt": "2026-10-25T08:50:58.976351Z",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-25T08:50:58.976351Z",
+        "url": "https://britexfabrics.com/products/orange-acrylic-felt.js",
+        "notes": "Price buys one yard of 72-inch-wide orange 100% acrylic felt, 5-ounce weight. Choose fabric rather than the $3 swatch. Raw fabric only; cut and sew diamonds yourself. Solid orange craft felt differs from velvet. Quantity depends on garment size and pattern coverage."
+      }
+    },
+    {
+      "id": "p-1b4eb91408",
+      "title": "Orange Acrylic Felt Fabric / 1.6mm Thick _ 72” Wide",
+      "url": "https://icefabrics.com/products/acrylic-orange-felt-fabric-1-6mm-thick-72-wide?variant=43183310897374",
+      "priceCents": 1099,
+      "currency": "USD",
+      "image": "/products/price-tiers/p-1b4eb91408.webp",
+      "merchantImage": "/products/price-tiers/p-1b4eb91408.webp",
+      "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/0037/6802/5152/files/Orange_Acrylic_Felt_Fabric_10015_55a8f417-f188-4b9b-bc0c-d3730a1b8b68.webp?v=1780835074"
+      ],
+      "availability": "in_stock",
+      "sizes": [
+        "By The Yard"
+      ],
+      "merchantId": "icefabrics-com",
+      "tagSlugs": [],
+      "description": "Price buys one 36 x 72 inch yard of bright orange 100% acrylic felt, 1.6 mm thick and 300 gsm. Raw fabric only; cut and sew diamonds yourself. Brighter and thicker than the reference's burnt-orange velvet. Merchant advertises same-day dispatch before 1 PM PT; confirm the applicable business day at checkout.",
+      "checkedAt": "2026-10-25T08:50:58.976351Z",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-25T08:50:58.976351Z",
+        "url": "https://icefabrics.com/products/acrylic-orange-felt-fabric-1-6mm-thick-72-wide.js",
+        "notes": "Price buys one 36 x 72 inch yard of bright orange 100% acrylic felt, 1.6 mm thick and 300 gsm. Raw fabric only; cut and sew diamonds yourself. Brighter and thicker than the reference's burnt-orange velvet. Merchant advertises same-day dispatch before 1 PM PT; confirm the applicable business day at checkout."
+      }
+    },
+    {
+      "id": "p-14282b42ef",
+      "title": "Pumpkin Wool Blend Felt",
+      "url": "https://www.benziedesign.com/products/pumpkin-wool-blend-felt?variant=1328706564",
+      "priceCents": 600,
+      "currency": "USD",
+      "image": "/products/price-tiers/p-14282b42ef.webp",
+      "merchantImage": "/products/price-tiers/p-14282b42ef.webp",
+      "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/0791/1095/products/pumpkinwoolblendfelt.JPG?v=1780418156"
+      ],
+      "availability": "in_stock",
+      "sizes": [
+        "1/2 yard"
+      ],
+      "merchantId": "benziedesign-com",
+      "tagSlugs": [],
+      "description": "Pumpkin is an orange heathered wool/rayon blend, approximately 1 mm thick. Price buys one 1/2-yard cut, approximately 18 x 36 inches. It is closer to burnt orange than bright acrylic felt. Cut and sew diamonds yourself; quantity depends on garment size and coverage. Multiple half-yard units yield an uncut sheet per merchant. Tools and thread are not included.",
+      "checkedAt": "2026-10-25T08:50:58.976351Z",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-25T08:50:58.976351Z",
+        "url": "https://www.benziedesign.com/products/pumpkin-wool-blend-felt.js",
+        "notes": "Pumpkin is an orange heathered wool/rayon blend, approximately 1 mm thick. Price buys one 1/2-yard cut, approximately 18 x 36 inches. It is closer to burnt orange than bright acrylic felt. Cut and sew diamonds yourself; quantity depends on garment size and coverage. Multiple half-yard units yield an uncut sheet per merchant. Tools and thread are not included."
+      }
+    },
+    {
+      "id": "p-c4e438465d",
+      "title": "Clown Collar - Black/Orange",
+      "url": "https://www.fantasycostumes.com/clown-collar-black-orange/",
+      "priceCents": 1488,
+      "currency": "USD",
+      "image": "/products/price-tiers/p-c4e438465d.webp",
+      "merchantImage": "/products/price-tiers/p-c4e438465d.webp",
+      "sourceImages": [
+        "https://cdn11.bigcommerce.com/s-obcuok9/images/stencil/750x750/products/9686/26014/underwraps-clown-collar-blackorange__11865.1757272999.jpg?c=2"
+      ],
+      "availability": "in_stock",
+      "sizes": [
+        "One size fits most"
+      ],
+      "merchantId": "fantasycostumes-com",
+      "tagSlugs": [],
+      "description": "Underwraps two-part ruffled collar with tie closure, black with orange trim. Only collar included. Page has product-level instock metadata. Different color balance and fabric from the all-orange velvet reference. Chicago store ships in the USA; website asks customers needing October 31 delivery to choose express, which is not a delivery guarantee.",
+      "checkedAt": "2026-10-25T08:50:58.976351Z",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-25T08:50:58.976351Z",
+        "url": "https://www.fantasycostumes.com/clown-collar-black-orange/",
+        "notes": "Underwraps two-part ruffled collar with tie closure, black with orange trim. Only collar included. Page has product-level instock metadata. Different color balance and fabric from the all-orange velvet reference. Chicago store ships in the USA; website asks customers needing October 31 delivery to choose express, which is not a delivery guarantee."
+      }
+    },
+    {
+      "id": "p-549ba5fa65",
+      "title": "Custom Colors clowncore neck collar neck ruff ruffle two tone half & half ribbon tie Pierrot Clown cosplay Harlequin Halloween costume",
+      "url": "https://www.etsy.com/listing/1757466796/custom-colors-clowncore-neck-collar-neck",
+      "priceCents": 3000,
+      "currency": "USD",
+      "image": "/products/price-tiers/p-549ba5fa65.webp",
+      "merchantImage": "/products/price-tiers/p-549ba5fa65.webp",
+      "sourceImages": [
+        "https://i.etsystatic.com/5799614/r/il/cec427/6166287534/il_794xN.6166287534_h02v.jpg"
+      ],
+      "availability": "unknown",
+      "sizes": [
+        "One size fits most"
+      ],
+      "merchantId": "etsy-sistersenchanted-on-etsy",
+      "tagSlugs": [],
+      "description": "Custom cotton two-layer gathered collar, longest layer 6 inches. Select Orange and Black and give the desired ribbon color. Actual merchant photo shows sample color combinations, not a dedicated orange/black variant photo. Seller lists orange and black fabric swatches and $30 base price, but live color-selector stock is not independently verifiable. Allow up to one week to make before shipping from Rhode Island. Only collar included.",
+      "checkedAt": "2026-10-25T08:50:58.976351Z",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-25T08:50:58.976351Z",
+        "url": "https://www.etsy.com/listing/1757466796/custom-colors-clowncore-neck-collar-neck",
+        "notes": "Custom cotton two-layer gathered collar, longest layer 6 inches. Select Orange and Black and give the desired ribbon color. Actual merchant photo shows sample color combinations, not a dedicated orange/black variant photo. Seller lists orange and black fabric swatches and $30 base price, but live color-selector stock is not independently verifiable. Allow up to one week to make before shipping from Rhode Island. Only collar included."
+      }
+    },
+    {
+      "id": "p-a27c35cd61",
+      "title": "Custom Colors Adult Clown Collar Clowncore Ruffle Adjustable PomPom Customizable Costume Cosplay Halloween Circus Theatrical Unisex",
+      "url": "https://www.etsy.com/listing/1787152269/custom-colors-adult-clown-collar",
+      "priceCents": 4000,
+      "currency": "USD",
+      "image": "/products/price-tiers/p-a27c35cd61.webp",
+      "merchantImage": "/products/price-tiers/p-a27c35cd61.webp",
+      "sourceImages": [
+        "https://i.etsystatic.com/5234342/r/il/683f79/6238677568/il_794xN.6238677568_cqsn.jpg"
+      ],
+      "availability": "unknown",
+      "sizes": [],
+      "merchantId": "etsy-mtcoffinz-on-etsy",
+      "tagSlugs": [],
+      "description": "Made-to-order ruffle collar with handmade pom-poms and long adjustable ties; only collar included. Shown actual orange/black sample matches the palette. Choose Orange and Black for the pictured version, or Orange twice for solid orange. Listing has $40 price and add-to-cart, but live per-color selector stock is unverified. Ships from Connecticut; maker says it does not dispatch immediately. Current page estimates November 9–23 delivery, so this is not an October 31 promise.",
+      "checkedAt": "2026-10-25T08:50:58.976351Z",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-25T08:50:58.976351Z",
+        "url": "https://www.etsy.com/listing/1787152269/custom-colors-adult-clown-collar",
+        "notes": "Made-to-order ruffle collar with handmade pom-poms and long adjustable ties; only collar included. Shown actual orange/black sample matches the palette. Choose Orange and Black for the pictured version, or Orange twice for solid orange. Listing has $40 price and add-to-cart, but live per-color selector stock is unverified. Ships from Connecticut; maker says it does not dispatch immediately. Current page estimates November 9–23 delivery, so this is not an October 31 promise."
+      }
+    },
+    {
+      "id": "p-55485e7f87",
+      "title": "Adult Short Gloves",
+      "url": "https://abracadabranyc.com/products/adult-short-gloves?variant=44454430113954",
+      "priceCents": 595,
+      "currency": "USD",
+      "image": "/products/price-tiers/p-55485e7f87.webp",
+      "merchantImage": "/products/price-tiers/p-55485e7f87.webp",
+      "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/1199/8814/files/adult-short-gloves--33293706.jpg?v=1729637800"
+      ],
+      "availability": "in_stock",
+      "sizes": [
+        "One size fits most"
+      ],
+      "merchantId": "abracadabranyc-com",
+      "tagSlugs": [],
+      "description": "Black short full-finger costume gloves; select Black. No hat or garment included. Merchant does not specify fiber content. Black variant available at $5.95. USA shipping offered.",
+      "checkedAt": "2026-10-25T08:50:58.976351Z",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-25T08:50:58.976351Z",
+        "url": "https://abracadabranyc.com/products/adult-short-gloves.js",
+        "notes": "Black short full-finger costume gloves; select Black. No hat or garment included. Merchant does not specify fiber content. Black variant available at $5.95. USA shipping offered."
+      }
+    },
+    {
+      "id": "p-1929078196",
+      "title": "Parade Snap Gloves",
+      "url": "https://abracadabranyc.com/products/white-parade-gloves-with-snaps?variant=46443915149474",
+      "priceCents": 1295,
+      "currency": "USD",
+      "image": "/products/price-tiers/p-1929078196.webp",
+      "merchantImage": "/products/price-tiers/p-1929078196.webp",
+      "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/1199/8814/files/unnamed-2025-03-31T171957.339.jpg?v=1743456013"
+      ],
+      "availability": "in_stock",
+      "sizes": [
+        "One size fits most adults"
+      ],
+      "merchantId": "abracadabranyc-com",
+      "tagSlugs": [],
+      "description": "Black parade gloves with wrist-snap cuffs. Full-finger short gloves rather than the reference's optional unspecified black gloves. Black variant verified available. USA shipping offered.",
+      "checkedAt": "2026-10-25T08:50:58.976351Z",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-25T08:50:58.976351Z",
+        "url": "https://abracadabranyc.com/products/white-parade-gloves-with-snaps.js",
+        "notes": "Black parade gloves with wrist-snap cuffs. Full-finger short gloves rather than the reference's optional unspecified black gloves. Black variant verified available. USA shipping offered."
+      }
+    },
+    {
+      "id": "p-5e9b010877",
+      "title": "Black Velvet Opera Length Gloves",
+      "url": "https://abracadabranyc.com/products/black-velvet-opera-length-gloves?variant=53693691349",
+      "priceCents": 2795,
+      "currency": "USD",
+      "image": "/products/price-tiers/p-5e9b010877.webp",
+      "merchantImage": "/products/price-tiers/p-5e9b010877.webp",
+      "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/1199/8814/products/legavenue-velvet-opera-length-gloves-6647473406006_9a9b3411-fb18-4a75-9ff2-e658f2a716f1.jpg?v=1762527182"
+      ],
+      "availability": "in_stock",
+      "sizes": [
+        "One Size Fits Most"
+      ],
+      "merchantId": "abracadabranyc-com",
+      "tagSlugs": [],
+      "description": "Pair of black stretch velvet opera-length gloves reaches above the elbow. Longer than needed, but can sit under long sleeves; velvet texture suits the costume. No garment or collar included. Available at $27.95. Hand wash and lay flat to dry.",
+      "checkedAt": "2026-10-25T08:50:58.976351Z",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-25T08:50:58.976351Z",
+        "url": "https://abracadabranyc.com/products/black-velvet-opera-length-gloves.js",
+        "notes": "Pair of black stretch velvet opera-length gloves reaches above the elbow. Longer than needed, but can sit under long sleeves; velvet texture suits the costume. No garment or collar included. Available at $27.95. Hand wash and lay flat to dry."
+      }
+    },
+    {
+      "id": "p-99218bcec8",
+      "title": "Paris Boots (Black)",
+      "url": "https://www.americanduchess.com/products/paris-victorian-edwardian-boots-black?variant=35772468953238",
+      "priceCents": 28500,
+      "currency": "USD",
+      "image": "/products/price-tiers/p-99218bcec8.webp",
+      "merchantImage": "/products/price-tiers/p-99218bcec8.webp",
+      "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/0450/5721/2566/files/6_a4706f0d-eff1-4ae0-b7c3-bd2fe40057c0.jpg?v=1752504676"
+      ],
+      "availability": "in_stock",
+      "sizes": [
+        "5",
+        "6",
+        "6.5",
+        "7",
+        "7.5",
+        "8",
+        "8.5",
+        "9",
+        "9.5",
+        "10",
+        "10.5",
+        "11",
+        "12"
+      ],
+      "merchantId": "americanduchess-com",
+      "tagSlugs": [],
+      "description": "Black leather lace-up ankle boots with 1.6-inch Cuban heel, cotton/leather lining, and leather sole. Merchant explicitly describes almond-shaped toes; these are less pointed than the reference and lower than the costume alternatives. Standard-width Women's US sizes listed here are verified available at $285; wide is a separate product.",
+      "checkedAt": "2026-10-25T08:50:58.976351Z",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-25T08:50:58.976351Z",
+        "url": "https://www.americanduchess.com/products/paris-victorian-edwardian-boots-black.js",
+        "notes": "Black leather lace-up ankle boots with 1.6-inch Cuban heel, cotton/leather lining, and leather sole. Merchant explicitly describes almond-shaped toes; these are less pointed than the reference and lower than the costume alternatives. Standard-width Women's US sizes listed here are verified available at $285; wide is a separate product."
+      }
+    },
+    {
+      "id": "p-5e504418f4",
+      "title": "Victorian-35",
+      "url": "https://pleasershoes.com/products/victorian-35bpu?variant=40958066589744",
+      "priceCents": 7395,
+      "currency": "USD",
+      "image": "/products/price-tiers/p-5e504418f4.webp",
+      "merchantImage": "/products/price-tiers/p-5e504418f4.webp",
+      "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/2089/7573/files/victorian-35_blk_pu_new_material.jpg?v=1759790648"
+      ],
+      "availability": "in_stock",
+      "sizes": [
+        "6",
+        "7",
+        "8",
+        "9",
+        "10",
+        "11",
+        "12"
+      ],
+      "merchantId": "pleasershoes-com",
+      "tagSlugs": [],
+      "description": "Black vegan faux-leather lace-up ankle boots with pointed vintage silhouette and 2.75-inch kitten heel. More visible lacing and higher heel than the reference. Merchant labels sizes Women's US. All listed sizes verified available at $73.95.",
+      "checkedAt": "2026-10-25T08:50:58.976351Z",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-25T08:50:58.976351Z",
+        "url": "https://pleasershoes.com/products/victorian-35bpu.js",
+        "notes": "Black vegan faux-leather lace-up ankle boots with pointed vintage silhouette and 2.75-inch kitten heel. More visible lacing and higher heel than the reference. Merchant labels sizes Women's US. All listed sizes verified available at $73.95."
+      }
+    },
+    {
+      "id": "p-5ddd0e0d87",
+      "title": "COVEN BOOT - BLACK",
+      "url": "https://strangecvlt.com/products/coven-black?variant=16088728928307",
+      "priceCents": 12000,
+      "currency": "USD",
+      "image": "/products/price-tiers/p-5ddd0e0d87.webp",
+      "merchantImage": "/products/price-tiers/p-5ddd0e0d87.webp",
+      "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/0003/5333/7395/files/COVEN-BOOT-BLACK-SILVER-ALT-GOTH-WITH-BOOTS-PROFILE.jpg?v=1762442780"
+      ],
+      "availability": "in_stock",
+      "sizes": [
+        "6"
+      ],
+      "merchantId": "strangecvlt-com",
+      "tagSlugs": [],
+      "description": "Black vegan-leather pointed ankle boot with silver buckle details, Velcro attachments, rear zipper, and 2-inch rubber heel. Adds conspicuous hardware compared with the plain reference. Only size 6 is available in the live feed at $120; do not advertise other sizes. Page says Shipping NOW.",
+      "checkedAt": "2026-10-25T08:50:58.976351Z",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-25T08:50:58.976351Z",
+        "url": "https://strangecvlt.com/products/coven-black.js",
+        "notes": "Black vegan-leather pointed ankle boot with silver buckle details, Velcro attachments, rear zipper, and 2-inch rubber heel. Adds conspicuous hardware compared with the plain reference. Only size 6 is available in the live feed at $120; do not advertise other sizes. Page says Shipping NOW."
+      }
+    }
+  ],
+  "merchants": [
+    {
+      "id": "korekawaii-com",
+      "name": "Kore Kawaii",
+      "domain": "korekawaii.com",
+      "url": "https://korekawaii.com/",
+      "kind": "boutique",
+      "neighborhoodId": null
+    },
+    {
+      "id": "abracadabranyc-com",
+      "name": "Abracadabra NYC",
+      "domain": "abracadabranyc.com",
+      "url": "https://abracadabranyc.com/",
+      "kind": "boutique",
+      "neighborhoodId": null
+    },
+    {
+      "id": "natgiso-com",
+      "name": "Natgiso",
+      "domain": "natgiso.com",
+      "url": "https://natgiso.com/",
+      "kind": "boutique",
+      "neighborhoodId": null
+    },
+    {
+      "id": "speerise-com",
+      "name": "Speerise",
+      "domain": "speerise.com",
+      "url": "https://speerise.com/",
+      "kind": "boutique",
+      "neighborhoodId": null
+    },
+    {
+      "id": "losangelesapparel-net",
+      "name": "Los Angeles Apparel",
+      "domain": "losangelesapparel.net",
+      "url": "https://losangelesapparel.net/",
+      "kind": "boutique",
+      "neighborhoodId": null
+    },
+    {
+      "id": "welovecolors-com",
+      "name": "We Love Colors",
+      "domain": "welovecolors.com",
+      "url": "https://welovecolors.com/",
+      "kind": "boutique",
+      "neighborhoodId": null
+    },
+    {
+      "id": "benziedesign-com",
+      "name": "Benzie Design",
+      "domain": "benziedesign.com",
+      "url": "https://benziedesign.com/",
+      "kind": "boutique",
+      "neighborhoodId": null
+    },
+    {
+      "id": "icefabrics-com",
+      "name": "Ice Fabrics",
+      "domain": "icefabrics.com",
+      "url": "https://icefabrics.com/",
+      "kind": "boutique",
+      "neighborhoodId": null
+    },
+    {
+      "id": "britexfabrics-com",
+      "name": "Britex Fabrics",
+      "domain": "britexfabrics.com",
+      "url": "https://britexfabrics.com/",
+      "kind": "boutique",
+      "neighborhoodId": null
+    },
+    {
+      "id": "fantasycostumes-com",
+      "name": "Fantasy Costumes",
+      "domain": "fantasycostumes.com",
+      "url": "https://fantasycostumes.com/",
+      "kind": "boutique",
+      "neighborhoodId": null
+    },
+    {
+      "id": "etsy-sistersenchanted-on-etsy",
+      "name": "SistersEnchanted on Etsy",
+      "domain": "etsy.com",
+      "url": "https://www.etsy.com/listing/1757466796/custom-colors-clowncore-neck-collar-neck",
+      "kind": "etsy",
+      "neighborhoodId": null
+    },
+    {
+      "id": "etsy-mtcoffinz-on-etsy",
+      "name": "mtcoffinz on Etsy",
+      "domain": "etsy.com",
+      "url": "https://www.etsy.com/listing/1787152269/custom-colors-adult-clown-collar",
+      "kind": "etsy",
+      "neighborhoodId": null
+    },
+    {
+      "id": "pleasershoes-com",
+      "name": "Pleaser Shoes / Funtasma",
+      "domain": "pleasershoes.com",
+      "url": "https://pleasershoes.com/",
+      "kind": "boutique",
+      "neighborhoodId": null
+    },
+    {
+      "id": "strangecvlt-com",
+      "name": "Strange Cvlt",
+      "domain": "strangecvlt.com",
+      "url": "https://strangecvlt.com/",
+      "kind": "boutique",
+      "neighborhoodId": null
+    },
+    {
+      "id": "americanduchess-com",
+      "name": "American Duchess",
+      "domain": "americanduchess.com",
+      "url": "https://americanduchess.com/",
+      "kind": "boutique",
+      "neighborhoodId": null
+    }
+  ],
+  "neighborhoods": [],
+  "tags": [],
+  "provenance": {
+    "method": "manual-research",
+    "generatedAt": "2026-10-25T08:50:58.976351Z",
+    "priceTiers": true,
+    "heroImageKind": "generated-reference",
+    "notes": "Built-in web search and direct official merchant evidence. Three distinct relative price points per piece: $, $$, $$$. Prices exclude shipping/tax; stock is variant-specific and delivery is unconfirmed. See docs/sourcing/price-tiers/pumpkin-harlequin.json."
+  }
+}

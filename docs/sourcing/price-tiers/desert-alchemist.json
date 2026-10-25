@@ -1,0 +1,517 @@
+{
+  "costumeSlug": "desert-alchemist",
+  "checkedAt": "2026-10-25T08:58:26.994930Z",
+  "pieces": [
+    {
+      "pieceId": "desert-alchemist-cloak",
+      "pieceName": "Sand hooded cloak",
+      "category": "outerwear",
+      "required": true,
+      "order": 0,
+      "sizeKind": "one_size",
+      "styleNotes": "A pale sand hood and long draped outer layer anchor the costume. These are finished cloaks; none reproduces the image’s frayed scarf-like edges.",
+      "queries": [
+        "sand beige hooded linen cloak",
+        "ecru canvas medieval hooded cloak"
+      ],
+      "options": [
+        {
+          "tier": "$",
+          "title": "Beige Linen Mage",
+          "url": "https://clothocloaks.com/products/copy-beige-linen-mage?variant=53059710746989",
+          "priceCents": 11000,
+          "currency": "USD",
+          "merchantName": "Clotho Cloaks",
+          "merchantDomain": "clothocloaks.com",
+          "imageUrl": "https://cdn.shopify.com/s/files/1/0923/6126/1421/files/2front_0be63de9-99a5-4859-a65c-791fe51b2dbc.jpg?v=1762385034",
+          "sizes": [],
+          "availability": "in_stock",
+          "evidenceUrl": "https://clothocloaks.com/products/copy-beige-linen-mage.js",
+          "notes": "Beige linen hooded cloak; 50-inch length, 21-inch neck, 34-inch hood and 19-inch shoulder width. One listed garment with no size selector. Lightweight linen is closest in fabric, with smooth finished edges.",
+          "localMerchantImage": "/products/price-tiers/p-323d45aa7e.webp"
+        },
+        {
+          "tier": "$$",
+          "title": "Classic Medieval Cloak Elinor — Short Hood, Front Tie",
+          "url": "https://www.freedomsridge.com/products/classic-medieval-cloak-elinor-short-hood-front-tie?variant=53462881075500",
+          "priceCents": 11795,
+          "currency": "USD",
+          "merchantName": "Freedoms Ridge",
+          "merchantDomain": "freedomsridge.com",
+          "imageUrl": "https://cdn.shopify.com/s/files/1/0768/3417/7324/files/klassischer-mittelalterumhang-elinor-natur.jpg?v=1784846700",
+          "sizes": [
+            "Einheitsgröße"
+          ],
+          "availability": "in_stock",
+          "evidenceUrl": "https://www.freedomsridge.com/products/classic-medieval-cloak-elinor-short-hood-front-tie.js",
+          "notes": "Select Nature / Einheitsgröße. Wool blend with a short hood and front tie, rather than linen. Fabric width is 231 cm. Merchant warns that select partner-fulfilled items take 1–3 weeks for processing and delivery; this is not an arrival promise.",
+          "localMerchantImage": "/products/price-tiers/p-8ba846da7a.webp"
+        },
+        {
+          "tier": "$$$",
+          "title": "Tan Cotton Mage",
+          "url": "https://clothocloaks.com/products/mage-beige-cotton-copy?variant=52701053387117",
+          "priceCents": 19500,
+          "currency": "USD",
+          "merchantName": "Clotho Cloaks",
+          "merchantDomain": "clothocloaks.com",
+          "imageUrl": "https://cdn.shopify.com/s/files/1/0923/6126/1421/files/front_46c3bbd9-0bbd-448d-9012-6b29ce32ad5e.jpg?v=1762297035",
+          "sizes": [],
+          "availability": "in_stock",
+          "evidenceUrl": "https://clothocloaks.com/products/mage-beige-cotton-copy.js",
+          "notes": "Tan Cotton Mage is listed as Beige cotton, lightweight and hooded. Measures 47-inch length, 21.5-inch neck, 29.5-inch hood and 18-inch shoulder width. One garment is listed with no size selector. Smooth cotton and finished edges replace the reference’s frayed linen.",
+          "localMerchantImage": "/products/price-tiers/p-d90af7f4b4.webp"
+        }
+      ],
+      "gaps": []
+    },
+    {
+      "pieceId": "desert-alchemist-tunic",
+      "pieceName": "Terracotta tunic",
+      "category": "tops",
+      "required": true,
+      "order": 1,
+      "sizeKind": "apparel",
+      "styleNotes": "Use a plain rust or terracotta tunic below the belt. The reference has a knee-length wrap front and long sleeves. These available alternatives preserve the warm color but differ in length, sleeves or neckline.",
+      "queries": [
+        "rust long sleeve tunic top",
+        "rust red cotton linen mid thigh tunic",
+        "rust orange linen handkerchief hem tunic"
+      ],
+      "options": [
+        {
+          "tier": "$",
+          "title": "Long Sleeve Nursing Tunic Top - Rust",
+          "url": "https://www.nursingqueen.com/products/long-sleeve-nursing-tunic-top-rust?variant=41215227002943",
+          "priceCents": 4299,
+          "currency": "USD",
+          "merchantName": "Nursing Queen",
+          "merchantDomain": "nursingqueen.com",
+          "imageUrl": "https://cdn.shopify.com/s/files/1/0784/0981/files/Burnt_orange_shirt_for_breastfeeding.png?v=1731966432",
+          "sizes": [
+            "XXS (0/2)",
+            "XS (2/4)",
+            "S (4/6)",
+            "M (8/10)",
+            "L (12/14)",
+            "XL (16/18)",
+            "1X PLUS (18/20)",
+            "2X PLUS (20/22)",
+            "3X PLUS (24/26)"
+          ],
+          "availability": "in_stock",
+          "evidenceUrl": "https://www.nursingqueen.com/products/long-sleeve-nursing-tunic-top-rust.js",
+          "notes": "Select Rust. Modern long-sleeve pullover tunic with a crew neck and discreet nursing-access zipper. Shorter than the reference’s knee-length wrap tunic. All listed sizes share the checked $42.99 price.",
+          "localMerchantImage": "/products/price-tiers/p-75406e4fbe.webp"
+        },
+        {
+          "tier": "$$",
+          "title": "Rust Red Cotton Linen Tunic Top - 3/4 Sleeve Crew Neck | Xiaolizi 5224",
+          "url": "https://shopxiaolizi.com/products/loose-fit-summer-casual-linen-blouse-top-5224?variant=41830022447174",
+          "priceCents": 5900,
+          "currency": "USD",
+          "merchantName": "Xiaolizi",
+          "merchantDomain": "shopxiaolizi.com",
+          "imageUrl": "https://cdn.shopify.com/s/files/1/0752/5289/files/8_e1027841-d52e-4390-99f7-ef8e81b30194.jpg?v=1718179728",
+          "sizes": [
+            "XS",
+            "S",
+            "M",
+            "L"
+          ],
+          "availability": "unknown",
+          "evidenceUrl": "https://shopxiaolizi.com/products/loose-fit-summer-casual-linen-blouse-top-5224.js",
+          "notes": "Select Rust red in XS–L at $59; XL costs $69 and is excluded. Cotton-linen blend, mid-thigh length, three-quarter sleeves and front buttons. Handmade to order: page states 5–10 days of production and standard shipping of 12–28 days, with a separate 2–4 week general estimate. Physical stock is not confirmed.",
+          "localMerchantImage": "/products/price-tiers/p-02f0ef4ca3.webp"
+        },
+        {
+          "tier": "$$$",
+          "title": "Linen Half Sleeves Handkerchief Hem Tunic",
+          "url": "https://www.vividlinen.com/product_package.php?cid=2&mid=2114",
+          "priceCents": 13800,
+          "currency": "USD",
+          "merchantName": "Vivid Linen",
+          "merchantDomain": "vividlinen.com",
+          "imageUrl": "https://www.vividlinen.com/images/product_feature_look_top/thumb/T2114_20200609053928_2336.jpg",
+          "sizes": [
+            "XS",
+            "S",
+            "M",
+            "L",
+            "XL",
+            "XXL"
+          ],
+          "availability": "in_stock",
+          "evidenceUrl": "https://www.vividlinen.com/product_package.php?cid=2&mid=2114",
+          "notes": "Select Rust Orange, style T3868. Linen with half sleeves, a round neck and a handkerchief hem. Shorter than the reference and no wrap front. Primary HTML marks Rust Orange in stock and lists size IDs for XS–XXL at $138. The pictured trousers are separate.",
+          "localMerchantImage": "/products/price-tiers/p-38cb93ba57.webp"
+        }
+      ],
+      "gaps": []
+    },
+    {
+      "pieceId": "desert-alchemist-belt",
+      "pieceName": "Brown leather belt",
+      "category": "accessories",
+      "required": true,
+      "order": 2,
+      "sizeKind": "apparel",
+      "styleNotes": "A brown belt cinches the tunic and supports the separate potion holder. The low option is slim; the double belts create more of the image’s layered waist. Match holder loops to an accessible narrow strap, rather than assuming they fit the full layered width.",
+      "queries": [
+        "brown medieval leather belt pouch support",
+        "brown double leather belt accessory rings"
+      ],
+      "options": [
+        {
+          "tier": "$",
+          "title": "Daina Slim Leather Belt with Brass-Finish Buckle",
+          "url": "https://www.freedomsridge.com/products/daina-slim-leather-belt-with-brass-finish-buckle?variant=53463053009196",
+          "priceCents": 3995,
+          "currency": "USD",
+          "merchantName": "Freedoms Ridge",
+          "merchantDomain": "freedomsridge.com",
+          "imageUrl": "https://cdn.shopify.com/s/files/1/0768/3417/7324/files/schmaler-lederguertel-aus-robustem-leder-schwarz-190-cm.jpg?v=1784852641",
+          "sizes": [
+            "150 cm",
+            "190 cm"
+          ],
+          "availability": "in_stock",
+          "evidenceUrl": "https://www.freedomsridge.com/products/daina-slim-leather-belt-with-brass-finish-buckle.js",
+          "notes": "Select Brown. Robust leather strap is 2 cm wide, with an aluminum buckle in a brass finish. Slimmer than the wide illustrated belt. Length labels are 150 cm and 190 cm. Holder and bottles are separate. Merchant states 1–3 weeks processing and delivery on select products.",
+          "localMerchantImage": "/products/price-tiers/p-e0d0f3e056.webp"
+        },
+        {
+          "tier": "$$",
+          "title": "Dungeons & Dragons Double Leather Belt Brown",
+          "url": "https://burgschneider.us/products/dungeons-dragons-double-leather-belt-brown?variant=43290547257391",
+          "priceCents": 6999,
+          "currency": "USD",
+          "merchantName": "Burgschneider",
+          "merchantDomain": "burgschneider.us",
+          "imageUrl": "https://cdn.shopify.com/s/files/1/0634/1709/0095/files/dungeons-and-dragons-double-belt-brown-mood.jpg?v=1774454170",
+          "sizes": [
+            "S/M",
+            "2XL/3XL"
+          ],
+          "availability": "in_stock",
+          "evidenceUrl": "https://burgschneider.us/products/dungeons-dragons-double-leather-belt-brown.js",
+          "notes": "Brown premium leather double belt with a gold-colored buckle and layered construction. S/M and 2XL/3XL are available at $69.99; L/XL is unavailable. Merchant lists corresponding lengths 250 and 290 cm. Pouches and bottles are separate.",
+          "localMerchantImage": "/products/price-tiers/p-e32f721ffc.webp"
+        },
+        {
+          "tier": "$$$",
+          "title": "Axel Viking Leather Double Belt",
+          "url": "https://www.freedomsridge.com/products/axel-viking-leather-double-belt?variant=53463183098156",
+          "priceCents": 7095,
+          "currency": "USD",
+          "merchantName": "Freedoms Ridge",
+          "merchantDomain": "freedomsridge.com",
+          "imageUrl": "https://cdn.shopify.com/s/files/1/0768/3417/7324/files/wikinger-leder-doppelguertel-axel-dunkelbraun-100.jpg?v=1784855180",
+          "sizes": [
+            "100 cm",
+            "120 cm",
+            "140 cm"
+          ],
+          "availability": "in_stock",
+          "evidenceUrl": "https://www.freedomsridge.com/products/axel-viking-leather-double-belt.js",
+          "notes": "Select Dark brown. Leather double belt with two approximately 2.5 cm straps, approximately 6 cm total width, Celtic tooling and accessory rings. Length options are 100, 120 and 140 cm. Use an accessible strap or the rings for holders; no holder is included. Select partner-fulfilled products may take 1–3 weeks for processing and delivery.",
+          "localMerchantImage": "/products/price-tiers/p-f17ba5ec74.webp"
+        }
+      ],
+      "gaps": []
+    },
+    {
+      "pieceId": "desert-alchemist-potions",
+      "pieceName": "Potion bottles with belt holder",
+      "category": "accessories",
+      "required": true,
+      "order": 3,
+      "sizeKind": "one_size",
+      "styleNotes": "The merchant must include both the bottles and their wearable holder. Each option includes multiple bottles. Belts are separate. These smaller vials differ from the reference’s large round bottles.",
+      "queries": [
+        "brown potion holder includes glass bottles belt",
+        "leather belt potion case four bottles"
+      ],
+      "options": [
+        {
+          "tier": "$",
+          "title": "CURVED Magic Potion Elixir Holder Includes 3 Functioning Bottles!",
+          "url": "https://mistymeadowsclothingcompany.com/products/curved-magic-potion-elixir-holder-includes-3-functioning-bottles?variant=44045347291331",
+          "priceCents": 1499,
+          "currency": "USD",
+          "merchantName": "Misty Meadows Clothing Co.",
+          "merchantDomain": "mistymeadowsclothingcompany.com",
+          "imageUrl": "https://cdn.shopify.com/s/files/1/0671/1859/6291/files/IMG_7975.jpg?v=1730746843",
+          "sizes": [],
+          "availability": "in_stock",
+          "evidenceUrl": "https://mistymeadowsclothingcompany.com/products/curved-magic-potion-elixir-holder-includes-3-functioning-bottles.js",
+          "notes": "Select Brown. One curved faux-leather holder includes three glass bottles with cork tops. Holder measures 7 by 5 inches; bottles measure 2.5 inches high by 1 inch wide. Holder threads onto a belt. Belt is not included and maximum belt width is not stated.",
+          "localMerchantImage": "/products/price-tiers/p-b289a543a2.webp"
+        },
+        {
+          "tier": "$$",
+          "title": "Potion Holder 3 Piece",
+          "url": "https://us.epicarmoury.com/products/1130-potion-holder-3-piece?variant=52157801300334",
+          "priceCents": 3200,
+          "currency": "USD",
+          "merchantName": "Epic Armoury",
+          "merchantDomain": "us.epicarmoury.com",
+          "imageUrl": "https://cdn.shopify.com/s/files/1/0910/6876/0430/files/101615_637d1f7c-6854-4a59-8987-0a681f88ee63.webp?v=1792435553",
+          "sizes": [
+            "One Size"
+          ],
+          "availability": "in_stock",
+          "evidenceUrl": "https://us.epicarmoury.com/products/1130-potion-holder-3-piece.js",
+          "notes": "Select Ox Brown / One Size. Full-grain leather pouch includes three 5 ml glass bottles with rubber stoppers. Two stud-fastened belt straps attach the pouch. The closed flap hides more of the bottles than the reference. Page says orders normally ship within two business days and can ship from Denmark or the USA.",
+          "localMerchantImage": "/products/price-tiers/p-2a4c410020.webp"
+        },
+        {
+          "tier": "$$$",
+          "title": "Leather Case and Potion Holder with 4 Bottles",
+          "url": "https://www.fierceeagleleather.com/product-page/leather-belt-case-and-potion-holder-with-4-bottles",
+          "priceCents": 8195,
+          "currency": "USD",
+          "merchantName": "Fierce Eagle Leather Creations",
+          "merchantDomain": "fierceeagleleather.com",
+          "imageUrl": "https://static.wixstatic.com/media/49c020_d6b4bc46094b4adc9bd816c0d34ec80b~mv2.jpg",
+          "sizes": [],
+          "availability": "in_stock",
+          "evidenceUrl": "https://www.fierceeagleleather.com/product-page/leather-belt-case-and-potion-holder-with-4-bottles",
+          "notes": "Select Black leather and Nickel hardware to match the real merchant photo. This black alternative differs from the reference’s brown leather. Includes a 7-by-9.5-inch leather potion holder, four mini glass bottles with corks, and a 7-by-3.5-inch leather case. Belt is separate. Merchant marks it in stock; dispatch time is not stated on this page.",
+          "localMerchantImage": "/products/price-tiers/p-efd87e3ea9.webp"
+        }
+      ],
+      "gaps": []
+    },
+    {
+      "pieceId": "desert-alchemist-trousers",
+      "pieceName": "Cream trousers",
+      "category": "bottoms",
+      "required": true,
+      "order": 4,
+      "sizeKind": "pants",
+      "styleNotes": "Loose pale trousers should show beneath the tunic and tuck into boots. Everyday cream pants work, but tapered modern options are less full than the reference.",
+      "queries": [
+        "cream cotton drawstring pants",
+        "white medieval ankle tie trousers"
+      ],
+      "options": [
+        {
+          "tier": "$",
+          "title": "Cream cotton drawstring pants",
+          "url": "https://www.shopimageboutique.com/products/cream-cotton-drawstring-pants?variant=48623305457857",
+          "priceCents": 2900,
+          "currency": "USD",
+          "merchantName": "Image Boutique",
+          "merchantDomain": "shopimageboutique.com",
+          "imageUrl": "https://cdn.shopify.com/s/files/1/0564/0085/files/21591301_3ec4a880-34ad-4c7a-afbc-73e9407c4067.jpg?v=1725486082",
+          "sizes": [
+            "LARGE"
+          ],
+          "availability": "in_stock",
+          "evidenceUrl": "https://www.shopimageboutique.com/products/cream-cotton-drawstring-pants.js",
+          "notes": "Cream 100% cotton trousers with drawstring, elastic waist, front pockets and pleat detail at the hem. Only LARGE is available at $29. Modern tapered leg rather than the reference’s puffy medieval shape.",
+          "localMerchantImage": "/products/price-tiers/p-f864d77aef.webp"
+        },
+        {
+          "tier": "$$",
+          "title": "Men's Medieval Drawstring Costume Trousers — Ankle-Tie Pants for LARP, Pirate & Faire",
+          "url": "https://www.historicalcostumeshop.com/products/mens-medieval-drawstring-costume-trousers?variant=67799418994908",
+          "priceCents": 11500,
+          "currency": "USD",
+          "merchantName": "Historical Costume Shop",
+          "merchantDomain": "historicalcostumeshop.com",
+          "imageUrl": "https://cdn.shopify.com/s/files/1/0863/1871/1004/files/Sd0e98dcc315f4e26954e50f3c861966fO.webp?v=1792247202",
+          "sizes": [
+            "M",
+            "L",
+            "XL",
+            "XXL",
+            "XXXL"
+          ],
+          "availability": "in_stock",
+          "evidenceUrl": "https://www.historicalcostumeshop.com/products/mens-medieval-drawstring-costume-trousers.js",
+          "notes": "Select White. Cotton-linen blend trousers with a drawstring waist, loose legs and ankle ties. White is brighter than the reference cream. M, L, XL, XXL and XXXL share the checked $115 price; use the merchant’s EU size chart.",
+          "localMerchantImage": "/products/price-tiers/p-58befb770e.webp"
+        },
+        {
+          "tier": "$$$",
+          "title": "Drawstring Cotton Trousers in Cream",
+          "url": "https://www.inkermannyc.com/products/drawstring-cotton-trousers-in-cream?variant=48592800743732",
+          "priceCents": 14500,
+          "currency": "USD",
+          "merchantName": "Inkerman",
+          "merchantDomain": "inkermannyc.com",
+          "imageUrl": "https://cdn.shopify.com/s/files/1/0884/2128/files/DrawstringCream.png?v=1789059708",
+          "sizes": [
+            "XL (36)"
+          ],
+          "availability": "in_stock",
+          "evidenceUrl": "https://www.inkermannyc.com/products/drawstring-cotton-trousers-in-cream.js",
+          "notes": "Select Cream / XL (36), the only available checked variant. Made in Portugal from 98% organic cotton and 2% elastane. Relaxed trouser with a gentle taper; more tailored and less billowy than the reference.",
+          "localMerchantImage": "/products/price-tiers/p-69dd734cad.webp"
+        }
+      ],
+      "gaps": []
+    },
+    {
+      "pieceId": "desert-alchemist-boots",
+      "pieceName": "Brown leather boots",
+      "category": "footwear",
+      "required": true,
+      "order": 5,
+      "sizeKind": "shoe",
+      "styleNotes": "Brown medieval boots ground the loose trousers. The reference has tall cross-laced shafts; these real leather alternatives use buckles, toggles or a curled toe.",
+      "queries": [
+        "brown medieval leather boots",
+        "brown calf height leather reenactment boots"
+      ],
+      "options": [
+        {
+          "tier": "$",
+          "title": "Medieval Half Boots",
+          "url": "https://burgschneider.us/products/medieval-half-boots?variant=43317086552111",
+          "priceCents": 9999,
+          "currency": "USD",
+          "merchantName": "Burgschneider",
+          "merchantDomain": "burgschneider.us",
+          "imageUrl": "https://cdn.shopify.com/s/files/1/0634/1709/0095/files/LAB_Shoes_Half_Boot_01.gVGvtG.jpg?v=1774453187",
+          "sizes": [
+            "35",
+            "36",
+            "37"
+          ],
+          "availability": "in_stock",
+          "evidenceUrl": "https://burgschneider.us/products/medieval-half-boots.js",
+          "notes": "Dark Brown half boots with three buckles and a shaft that folds into a cuff. Only merchant sizes 35, 36 and 37 are available at $99.99. Shorter and buckled rather than cross-laced. Sole is included.",
+          "localMerchantImage": "/products/price-tiers/p-3591e88a5b.webp"
+        },
+        {
+          "tier": "$$",
+          "title": "Medieval Boots",
+          "url": "https://boots-by-bohemond.myshopify.com/products/medieval-boots?variant=21963225475",
+          "priceCents": 17500,
+          "currency": "USD",
+          "merchantName": "Boots By Bohemond",
+          "merchantDomain": "boots-by-bohemond.myshopify.com",
+          "imageUrl": "https://cdn.shopify.com/s/files/1/1093/6274/products/Medieval-Boots-6.jpg?v=1561571690",
+          "sizes": [
+            "Lady's 5",
+            "Lady's 6",
+            "Lady's 7",
+            "Lady's 8",
+            "Lady's 9",
+            "Lady's 10 - Men's 8",
+            "Men's 9",
+            "Men's 11",
+            "Men's 12",
+            "Men's 13",
+            "Men's 14",
+            "Men's 15"
+          ],
+          "availability": "in_stock",
+          "evidenceUrl": "https://boots-by-bohemond.myshopify.com/products/medieval-boots.js",
+          "notes": "Brown cowhide mid-calf boots, 12 inches tall from the floor, with leather toggles and a leather sole plus crepe neoprene traction layer. Brown shades may vary. Men’s 10 is unavailable; only the listed available size labels are included.",
+          "localMerchantImage": "/products/price-tiers/p-d691981350.webp"
+        },
+        {
+          "tier": "$$$",
+          "title": "Rus Viking Boots",
+          "url": "https://boots-by-bohemond.myshopify.com/products/rus-boots?variant=12356344545377",
+          "priceCents": 21600,
+          "currency": "USD",
+          "merchantName": "Boots By Bohemond",
+          "merchantDomain": "boots-by-bohemond.myshopify.com",
+          "imageUrl": "https://cdn.shopify.com/s/files/1/1093/6274/products/RusBootBROWN_1.jpg?v=1638058749",
+          "sizes": [
+            "Lady's 5",
+            "Lady's 6",
+            "Lady's 7",
+            "Lady's 8",
+            "Lady's 9",
+            "Lady's 10 Men's 8",
+            "Men's 9",
+            "Men's 10",
+            "Men's 11",
+            "Men's 12",
+            "Men's 13",
+            "Men's 14"
+          ],
+          "availability": "in_stock",
+          "evidenceUrl": "https://boots-by-bohemond.myshopify.com/products/rus-boots.js",
+          "notes": "Select Brown. Leather upper, leather midsole, crepe neoprene sole and brass buckle. The curled toe and relatively plain shaft are a distinct eastern medieval interpretation, rather than the illustration’s cross-lacing. Brown Men’s 15 is unavailable.",
+          "localMerchantImage": "/products/price-tiers/p-865c630d73.webp"
+        }
+      ],
+      "gaps": []
+    },
+    {
+      "pieceId": "desert-alchemist-bracers",
+      "pieceName": "Brown forearm bracers",
+      "category": "accessories",
+      "required": true,
+      "order": 6,
+      "sizeKind": "apparel",
+      "styleNotes": "Brown forearm covers reproduce the visible wrist-to-elbow leather detail. The decorative pendant and tassel are optional finishing details and are not included in these products.",
+      "queries": [
+        "brown leather bracers pair lace up",
+        "brown ranger leather forearm bracers"
+      ],
+      "options": [
+        {
+          "tier": "$",
+          "title": "HAND MADE BROWN REAL Leather Armor Pointed Top Fantasy Medieval Halloween CUFF",
+          "url": "https://edgeimport.com/hand-made-brown-real-leather-armor-pointed-top-fantasy-medieval-halloween-cuff/",
+          "priceCents": 2121,
+          "currency": "USD",
+          "merchantName": "Edge Import",
+          "merchantDomain": "edgeimport.com",
+          "imageUrl": "https://cdn11.bigcommerce.com/s-sd2rb2jpmz/images/stencil/1280x1280/products/4258/5571/SLC-702_1_1000px__62054.1495572834.jpg?c=2",
+          "sizes": [
+            "One Size Fits Adult Sizes"
+          ],
+          "availability": "in_stock",
+          "evidenceUrl": "https://edgeimport.com/hand-made-brown-real-leather-armor-pointed-top-fantasy-medieval-halloween-cuff/",
+          "notes": "One pair of brown genuine leather bracers, 7.25 inches long, with edge rivets and adjustable nylon laces. Shorter than the reference’s long wraps. Live page and structured product data show a $21.21 sale price and InStock.",
+          "localMerchantImage": "/products/price-tiers/p-b51da633ea.webp"
+        },
+        {
+          "tier": "$$",
+          "title": "Dungeons & Dragons Rogue Leather Bracers Brown",
+          "url": "https://burgschneider.us/products/dungeons-dragons-rogue-leather-bracers-brown?variant=43290512031791",
+          "priceCents": 7999,
+          "currency": "USD",
+          "merchantName": "Burgschneider",
+          "merchantDomain": "burgschneider.us",
+          "imageUrl": "https://cdn.shopify.com/s/files/1/0634/1709/0095/files/dungeons-and-dragons-rogue-bracers-brown-flat.jpg?v=1774453936",
+          "sizes": [
+            "S/M",
+            "L/XL"
+          ],
+          "availability": "in_stock",
+          "evidenceUrl": "https://burgschneider.us/products/dungeons-dragons-rogue-leather-bracers-brown.js",
+          "notes": "Brown leather bracers with rear metal clasps and a knife compartment. S/M and L/XL are available at $79.99. This is a structured armor shape, rather than soft leather wraps; no knife is promised or required.",
+          "localMerchantImage": "/products/price-tiers/p-9015a38ad9.webp"
+        },
+        {
+          "tier": "$$$",
+          "title": "Dungeons & Dragons Ranger Bracers Brown",
+          "url": "https://burgschneider.us/products/dungeons-dragons-ranger-bracers-brown?variant=43520887849007",
+          "priceCents": 9999,
+          "currency": "USD",
+          "merchantName": "Burgschneider",
+          "merchantDomain": "burgschneider.us",
+          "imageUrl": "https://cdn.shopify.com/s/files/1/0634/1709/0095/files/dungeons-and-dragons-ranger-bracers-brown-1.jpg?v=1774460375",
+          "sizes": [
+            "Standard"
+          ],
+          "availability": "in_stock",
+          "evidenceUrl": "https://burgschneider.us/products/dungeons-dragons-ranger-bracers-brown.js",
+          "notes": "Brown leather ranger bracers. Standard is the merchant’s only size label and is available at $99.99. Detailed shaped leather differs from the simpler wrapped forearms in the reference.",
+          "localMerchantImage": "/products/price-tiers/p-8f75c481a4.webp"
+        }
+      ],
+      "gaps": []
+    }
+  ]
+}

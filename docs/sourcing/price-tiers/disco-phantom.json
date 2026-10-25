@@ -1,0 +1,353 @@
+{
+  "costumeSlug": "disco-phantom",
+  "checkedAt": "2026-10-25T08:49:56Z",
+  "pieces": [
+    {
+      "pieceId": "disco-phantom-hooded-cape",
+      "pieceName": "Silver hooded cape",
+      "category": "outerwear",
+      "required": true,
+      "order": 0,
+      "sizeKind": "one_size",
+      "styleNotes": "Create a flowing silver hooded outer layer. The reference has pearl-silver sequins and a silver lining. Lower tiers substitute metallic or holographic fabric. The sequin option is a sleeved kimono rather than a circular cape.",
+      "queries": [
+        "adult silver sequin hooded cape"
+      ],
+      "options": [
+        {
+          "tier": "$",
+          "title": "Metallic Hooded Cape - Adult",
+          "url": "https://chicagocostume.com/products/metallic-hooded-cape-adult?variant=48020727333106",
+          "priceCents": 2999,
+          "currency": "USD",
+          "merchantName": "Chicago Costume Company",
+          "merchantDomain": "chicagocostume.com",
+          "imageUrl": "https://cdn.shopify.com/s/files/1/0610/0208/8690/files/81C2-W1UJRL._AC_SX679.jpg?v=1759593803",
+          "sizes": [
+            "One size fits most adults"
+          ],
+          "availability": "in_stock",
+          "evidenceUrl": "https://chicagocostume.com/products/metallic-hooded-cape-adult.js",
+          "notes": "Silver variant only. Shimmering metallic hooded cape; smooth holographic surface rather than pearl sequins. Cape only; white clothes and shoes in the photo are not included. Ships Monday-Friday from Chicago; no delivery date verified.",
+          "localMerchantImage": "/products/price-tiers/p-3b8d18bfcb.webp"
+        },
+        {
+          "tier": "$$",
+          "title": "Silver and Black Reversible Cape",
+          "url": "https://coquetryclothing.com/products/silver-and-black-reversible-cape?variant=28810338113",
+          "priceCents": 14520,
+          "currency": "USD",
+          "merchantName": "Coquetry Clothing",
+          "merchantDomain": "coquetryclothing.com",
+          "imageUrl": "https://cdn.shopify.com/s/files/1/1140/4312/products/silver-and-black-reversible-cape-2775120.jpg?v=1764274267",
+          "sizes": [
+            "50\""
+          ],
+          "availability": "in_stock",
+          "evidenceUrl": "https://coquetryclothing.com/products/silver-and-black-reversible-cape.js",
+          "notes": "Silver holographic Lycra spandex outside with black holographic lining, full hood and throat ties. About four pounds. This 50-inch version costs $145.20; the 60-inch version costs more and is excluded. No sequins. Made to order; merchant states dispatch within five days.",
+          "localMerchantImage": "/products/price-tiers/p-6a6cdbf746.webp"
+        },
+        {
+          "tier": "$$$",
+          "title": "Disco Ball Silver Sequin Kimono / Festival Robe / Long Sleeve Hooded Kimono / Maxi Length / Hooded",
+          "url": "https://www.konanewildcrafts.com/products/disco-ball-silver-sequin-kimono-festival-robe-long-sleeve-hooded-kimono-maxi-length-hood-music-festival-rave-plus-size?variant=31571564494897",
+          "priceCents": 27400,
+          "currency": "USD",
+          "merchantName": "Konane",
+          "merchantDomain": "konanewildcrafts.com",
+          "imageUrl": "https://cdn.shopify.com/s/files/1/0013/4122/7057/products/il_fullxfull.1861784385_f4j4.jpg?v=1578931441",
+          "sizes": [
+            "S-L 48\" Wide",
+            "XL-2X 60\" Wide",
+            "3X-5X 72\" Wide"
+          ],
+          "availability": "in_stock",
+          "evidenceUrl": "https://www.konanewildcrafts.com/products/disco-ball-silver-sequin-kimono-festival-robe-long-sleeve-hooded-kimono-maxi-length-hood-music-festival-rave-plus-size.js",
+          "notes": "52-inch hooded silver sequin kimono, $274 in all three listed sizes. Mesh foundation, unlined, with long sleeves: closer silver sequin texture but a robe silhouette rather than a circular lined cape. Hood is included in this product. Other clothes and boots are excluded. Handmade; dispatch lead time is not stated on the product page.",
+          "localMerchantImage": "/products/price-tiers/p-1d269724fb.webp"
+        }
+      ],
+      "gaps": []
+    },
+    {
+      "pieceId": "disco-phantom-ivory-jumpsuit",
+      "pieceName": "Ivory flared jumpsuit",
+      "category": "one-piece",
+      "required": true,
+      "order": 1,
+      "sizeKind": "apparel",
+      "styleNotes": "An ivory one-piece with a fitted waist and broad legs. The reference uses satin, a low wrap neckline and dramatic bell bottoms. Options vary in fabric, neckline and leg shape.",
+      "queries": [
+        "ivory satin wide leg bridal jumpsuit"
+      ],
+      "options": [
+        {
+          "tier": "$",
+          "title": "Flared Closed-Back Catsuit",
+          "url": "https://store.betterme.world/products/flared-closed-back-catsuit-ivory?variant=54947577921921",
+          "priceCents": 11900,
+          "currency": "USD",
+          "merchantName": "BetterMe",
+          "merchantDomain": "store.betterme.world",
+          "imageUrl": "https://cdn.shopify.com/s/files/1/0558/0197/0820/files/9-29Betterme66463.jpg?v=1762353037",
+          "sizes": [
+            "XS",
+            "S",
+            "M",
+            "L",
+            "XL",
+            "2XL"
+          ],
+          "availability": "in_stock",
+          "evidenceUrl": "https://store.betterme.world/products/flared-closed-back-catsuit-ivory.js",
+          "notes": "Ivory flared catsuit in 77% polyester and 23% spandex. High zip neckline and long sleeves; matte stretch activewear rather than a low-neck satin jumpsuit. Ivory variants all list $119 and available. Shoes and accessories are excluded.",
+          "localMerchantImage": "/products/price-tiers/p-3a45a0274b.webp"
+        },
+        {
+          "tier": "$$",
+          "title": "48052",
+          "url": "https://thehoneybeebridal.com/products/48052?variant=47913549529319",
+          "priceCents": 17825,
+          "currency": "USD",
+          "merchantName": "Honeybee Bridal & Boutique, LLC",
+          "merchantDomain": "thehoneybeebridal.com",
+          "imageUrl": "https://cdn.shopify.com/s/files/1/0651/7263/5879/files/48052_1.png?v=1696971806",
+          "sizes": [
+            "14"
+          ],
+          "availability": "in_stock",
+          "evidenceUrl": "https://thehoneybeebridal.com/products/48052.js",
+          "notes": "House of Wu style 48052 in Ivory / 14 / Charmeuse Satin only. Surplice sweetheart bodice, shoulder straps, wide-leg pants and back zipper. Wider straight legs rather than extreme bell-bottom flares. Discontinued; this is the sole current variant, despite the description mentioning a historical 0-30 range. Dispatch lead time is not stated.",
+          "localMerchantImage": "/products/price-tiers/p-6aaa75c499.webp"
+        },
+        {
+          "tier": "$$$",
+          "title": "Ryo Jumpsuit Satin",
+          "url": "https://catherinedeane.com/products/ryo-jumpsuit-satin?variant=49787909210416",
+          "priceCents": 99500,
+          "currency": "USD",
+          "merchantName": "Catherine Deane",
+          "merchantDomain": "catherinedeane.com",
+          "imageUrl": "https://cdn.shopify.com/s/files/1/1960/0451/files/NOOS_WEB_SIZE240.jpg?v=1751042842",
+          "sizes": [
+            "US0",
+            "US2",
+            "US4",
+            "US6",
+            "US8",
+            "US10",
+            "US12",
+            "US14"
+          ],
+          "availability": "in_stock",
+          "evidenceUrl": "https://catherinedeane.com/products/ryo-jumpsuit-satin.js",
+          "notes": "Bridal ivory heavy satin, strapless sweetheart bodice, internal cups and boning, waistband, pleated wide legs and pockets. The neckline and leg shape differ from the wrap-front bell-bottom reference. Only US0-US14 had positive inventory quantities in the primary page data; US16/US18 permit ordering with zero inventory and are excluded. Jumpsuit only.",
+          "localMerchantImage": "/products/price-tiers/p-c05f6d75ce.webp"
+        }
+      ],
+      "gaps": []
+    },
+    {
+      "pieceId": "disco-phantom-silver-gloves",
+      "pieceName": "Silver gloves",
+      "category": "accessories",
+      "required": true,
+      "order": 2,
+      "sizeKind": "one_size",
+      "styleNotes": "Add fitted silver gloves with full fingers. The generated gloves are long and glittery; these products range from shorter metallic costume gloves to satin and mirror-finish opera gloves.",
+      "queries": [
+        "silver metallic opera gloves"
+      ],
+      "options": [
+        {
+          "tier": "$",
+          "title": "Silver Metallic Womens Gloves",
+          "url": "https://blockbustercostumes.com/products/silver-metallic-womens-gloves.html",
+          "priceCents": 1099,
+          "currency": "USD",
+          "merchantName": "BlockBuster Costumes",
+          "merchantDomain": "blockbustercostumes.com",
+          "imageUrl": "https://cdn11.bigcommerce.com/s-cdu7h4/images/stencil/1280x1280/products/122800/143236/uw29851-w-1__94034.1542258658.jpg?c=2",
+          "sizes": [],
+          "availability": "in_stock",
+          "evidenceUrl": "https://blockbustercostumes.com/products/silver-metallic-womens-gloves.html",
+          "notes": "One pair of silver metallic full-finger gloves. Product page does not publish a numeric size or exact length. Photo shows a forearm-length cuff rather than the longer opera proportions in the reference. Page structured data explicitly lists InStock at $10.99.",
+          "localMerchantImage": "/products/price-tiers/p-151c13bff4.webp"
+        },
+        {
+          "tier": "$$",
+          "title": "Opera Length Silver Satin Gloves",
+          "url": "https://formalwearoutlet.com/products/opera-length-gloves-silver?variant=52653601718432",
+          "priceCents": 2299,
+          "currency": "USD",
+          "merchantName": "Formalwear Outlet",
+          "merchantDomain": "formalwearoutlet.com",
+          "imageUrl": "https://cdn.shopify.com/s/files/1/0596/4519/8496/files/GLV57_Silver_Satin_Opera_Length_Gloves.jpg?v=1757027597",
+          "sizes": [],
+          "availability": "in_stock",
+          "evidenceUrl": "https://formalwearoutlet.com/products/opera-length-gloves-silver.js",
+          "notes": "Silver stretch satin gloves, 22.44 inches / 57 cm long. The merchant does not publish a numeric hand size. Soft satin sheen rather than a metallic or sequined finish. Gloves only; bridal clothing in the photo is excluded. Product page explicitly says in stock.",
+          "localMerchantImage": "/products/price-tiers/p-52f0c3d91f.webp"
+        },
+        {
+          "tier": "$$$",
+          "title": "MIRAGE Opera Gloves",
+          "url": "https://saintchic.com/products/mirage-opera-gloves?variant=43032815337537",
+          "priceCents": 7000,
+          "currency": "USD",
+          "merchantName": "SAINT CHIC",
+          "merchantDomain": "saintchic.com",
+          "imageUrl": "https://cdn.shopify.com/s/files/1/0107/5132/files/MIRAGE-Opera-Gloves-gloves-SAINT-CHIC-Opera-Length-4.png?v=1791401567",
+          "sizes": [
+            "Opera-Length"
+          ],
+          "availability": "in_stock",
+          "evidenceUrl": "https://saintchic.com/products/mirage-opera-gloves.js",
+          "notes": "Selected Opera-Length pair is 19.6 inches, $70. Silver synthetic patent leather, unlined, minimal stretch. Merchant fit limits: palm perimeter up to 7.5 inches and upper arm under 11 inches. Mirror finish rather than glitter. Other lengths have different prices and are excluded.",
+          "localMerchantImage": "/products/price-tiers/p-8b2a001d45.webp"
+        }
+      ],
+      "gaps": []
+    },
+    {
+      "pieceId": "disco-phantom-platform-boots",
+      "pieceName": "Silver platform ankle boots",
+      "category": "footwear",
+      "required": true,
+      "order": 3,
+      "sizeKind": "shoe",
+      "styleNotes": "Silver ankle boots with a raised front platform. These genuine Pleaser products use 7-inch stiletto heels, unlike the broader heels in the image. Pick a height the wearer can manage.",
+      "queries": [
+        "silver sequin platform ankle boots"
+      ],
+      "options": [
+        {
+          "tier": "$",
+          "title": "Adore-1020SQ-02",
+          "url": "https://pleasershoes.com/products/adore-1020sq02ssqsch?variant=40958562893872",
+          "priceCents": 5995,
+          "currency": "USD",
+          "merchantName": "Pleaser Shoes",
+          "merchantDomain": "pleasershoes.com",
+          "imageUrl": "https://cdn.shopify.com/s/files/1/2089/7573/files/adore-1020sq-02-ssqsch_0ce6d7c3-7de5-49b9-8dfa-bf7bff64af03.jpg?v=1696470494",
+          "sizes": [
+            "5",
+            "6",
+            "7",
+            "8",
+            "9",
+            "10",
+            "11",
+            "12"
+          ],
+          "availability": "in_stock",
+          "evidenceUrl": "https://pleasershoes.com/products/adore-1020sq02ssqsch.js",
+          "notes": "Silver Chrome lace-up sequin ankle boots with inside zips, 7-inch heels and 2 3/4-inch chrome platforms. Women's US sizes as sold by Pleaser. Stiletto heel and shiny chrome bottom differ from the chunky glitter platform in the image. Clearance item; final sale, no returns or exchanges.",
+          "localMerchantImage": "/products/price-tiers/p-c1cd8ed99c.webp"
+        },
+        {
+          "tier": "$$",
+          "title": "Adore-1020CHRS",
+          "url": "https://pleasershoes.com/products/adore-1020chrsssch?variant=40958409834544",
+          "priceCents": 8095,
+          "currency": "USD",
+          "merchantName": "Pleaser Shoes",
+          "merchantDomain": "pleasershoes.com",
+          "imageUrl": "https://cdn.shopify.com/s/files/1/2089/7573/files/adore-1020chrs-ssch_38daa916-4abf-4695-a251-a86bb9c5d840.jpg?v=1696468120",
+          "sizes": [
+            "5",
+            "10",
+            "12"
+          ],
+          "availability": "in_stock",
+          "evidenceUrl": "https://pleasershoes.com/products/adore-1020chrsssch.js",
+          "notes": "Silver rhinestone-covered lace-up ankle boots, chrome platforms and inside zips. 7-inch heels, 2 3/4-inch platforms. Only women's US 5, 10 and 12 are available at $80.95; other sizes are sold out. Stiletto heel rather than a broad heel. Clearance item; final sale, no returns or exchanges.",
+          "localMerchantImage": "/products/price-tiers/p-702ecbc4ae.webp"
+        },
+        {
+          "tier": "$$$",
+          "title": "Adore-1018DCS",
+          "url": "https://pleasershoes.com/products/adore-1018dcsssch?variant=40958149984304",
+          "priceCents": 12795,
+          "currency": "USD",
+          "merchantName": "Pleaser Shoes",
+          "merchantDomain": "pleasershoes.com",
+          "imageUrl": "https://cdn.shopify.com/s/files/1/2089/7573/files/adore-1018dcs-s_cb2598f6-9e8e-4396-a432-69f51527fed4.jpg?v=1696464134",
+          "sizes": [
+            "6",
+            "7",
+            "8",
+            "9",
+            "10"
+          ],
+          "availability": "in_stock",
+          "evidenceUrl": "https://pleasershoes.com/products/adore-1018dcsssch.js",
+          "notes": "Silver open-toe and open-heel ankle boots with diamond-cut rhinestones, inside zips and back lacing. 7-inch stiletto heels and 2 3/4-inch chrome platforms. Women's US 6-10 are available; size 5 is sold out. Open ends and slim heels differ from the closed chunky boots in the image.",
+          "localMerchantImage": "/products/price-tiers/p-9afa19b53f.webp"
+        }
+      ],
+      "gaps": []
+    },
+    {
+      "pieceId": "disco-phantom-silver-belt",
+      "pieceName": "Optional silver waist belt",
+      "category": "accessories",
+      "required": false,
+      "order": 4,
+      "sizeKind": "one_size",
+      "styleNotes": "An optional reflective waist accent. The illustration shows a broad silver jeweled belt; the written guide also permits a silver ribbon belt. These options use silver stones on ivory satin ribbons.",
+      "queries": [
+        "silver crystal bridal ribbon sash belt"
+      ],
+      "options": [
+        {
+          "tier": "$",
+          "title": "Silver Rhinestone Applique Bridal Belt Sash",
+          "url": "https://bridella.shop/products/daily-bridal-wedding-belt-silver-rhinestone-applique-sash-for-women-gown-dress-bridella-s109?variant=44701437329453",
+          "priceCents": 2400,
+          "currency": "USD",
+          "merchantName": "Bridella",
+          "merchantDomain": "bridella.shop",
+          "imageUrl": "https://cdn.shopify.com/s/files/1/0693/8542/0845/files/07_BS109-07_bridella-wm.jpg?v=1792509768",
+          "sizes": [],
+          "availability": "in_stock",
+          "evidenceUrl": "https://bridella.shop/products/daily-bridal-wedding-belt-silver-rhinestone-applique-sash-for-women-gown-dress-bridella-s109.js",
+          "notes": "Selected Ivory ribbon with silver rhinestone ornaments. Polyester/rhinestone sash; 180 cm / 70.86-inch ribbon, 4 x 8 cm / 1.57 x 3.15-inch applique. The photos show decorative hanging end ornaments rather than an all-around jeweled belt or a plain silver ribbon. Ships from a USA warehouse; dispatch timing is not stated.",
+          "localMerchantImage": "/products/price-tiers/p-084f5fc7a0.webp"
+        },
+        {
+          "tier": "$$",
+          "title": "Shayna - Crystal Bridal Belt Sash - Silver",
+          "url": "https://www.adorabysimona.com/products/shayna-silver-crystal-bridal-belt-sash?variant=32271266742359",
+          "priceCents": 6899,
+          "currency": "USD",
+          "merchantName": "ADORA by Simona",
+          "merchantDomain": "adorabysimona.com",
+          "imageUrl": "https://cdn.shopify.com/s/files/1/0094/9885/3476/files/CrystalBridalBeltSash.webp?v=1761673029",
+          "sizes": [],
+          "availability": "in_stock",
+          "evidenceUrl": "https://www.adorabysimona.com/products/shayna-silver-crystal-bridal-belt-sash.js",
+          "notes": "Selected Ivory Ribbon version costs $68.99 and includes the silver crystal applique attached to 1.5-inch satin ribbon. Applique is 34.5 inches long, 1.5 inches at widest point; ribbon totals 108 inches. Floral crystal pattern rather than the image's large round buckle. The cheaper $58.99 applique-only version is excluded.",
+          "localMerchantImage": "/products/price-tiers/p-beb871f49a.webp"
+        },
+        {
+          "tier": "$$$",
+          "title": "Victoria - Crystal Bridal Belt Sash - Silver",
+          "url": "https://www.adorabysimona.com/products/victoria-silver-crystal-bridal-belt-sash?variant=17445964120164",
+          "priceCents": 9899,
+          "currency": "USD",
+          "merchantName": "ADORA by Simona",
+          "merchantDomain": "adorabysimona.com",
+          "imageUrl": "https://cdn.shopify.com/s/files/1/0094/9885/3476/files/Silver_Bridal_Belt.webp?v=1761598478",
+          "sizes": [],
+          "availability": "in_stock",
+          "evidenceUrl": "https://www.adorabysimona.com/products/victoria-silver-crystal-bridal-belt-sash.js",
+          "notes": "Selected Ivory Ribbon version is $98.99 with a silver crystal applique attached to satin ribbon. Applique is 23.2 x 2 inches; ribbon is 1.5 inches wide and 98.5 inches long. Ties for fit. Broad floral crystal decoration rather than a circular buckle; ribbon is ivory rather than metallic silver. Applique-only price is excluded.",
+          "localMerchantImage": "/products/price-tiers/p-8383cf6c76.webp"
+        }
+      ],
+      "gaps": []
+    }
+  ]
+}

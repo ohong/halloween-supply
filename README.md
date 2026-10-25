@@ -1,9 +1,10 @@
 # Halloween Supply
 
 A curated costume store built from individual pieces at independent merchants.
-Five costumes have saved shopping catalogs with three distinct price points for each piece: $, $$, and $$$.
-Twenty additional style guides include AI-generated outfit images, five-piece
-lists, and practical styling tips. Every look can be opened and saved from the gallery.
+All 25 costumes have saved shopping catalogs with three distinct price points
+for each purchasable component: $, $$, and $$$. Components are separate garments,
+confirmed bundles, or clearly described DIY supplies. Every look supports merchant
+links, swaps, budget styling, cart selections, and the generated inspiration image.
 
 ## Run
 
@@ -26,7 +27,7 @@ atomic and reuses the same queries for live data and the bundled fallback.
 checkout. Checkout always rechecks the merchant's current price, stock, and size.
 Customers approve price changes before continuing.
 
-The current 75-product catalog was researched with built-in web search and direct
+The full 25-costume catalog was researched with built-in web search and direct
 merchant evidence, with no Firecrawl used for this research pass. Research records
 and exact merchant photographs are in `docs/sourcing/price-tiers/`.
 
@@ -53,7 +54,7 @@ bun --env-file=.env.local scripts/source/index.ts cosmic-cowboy --skip-images
 ```
 
 Original editorial images are in `public/costumes/`. Their prompts are recorded
-in `docs/design/costume-image-prompts.json`. Prompts for the twenty style guides
+in `docs/design/costume-image-prompts.json`. Prompts for the twenty additional costumes
 are recorded in `docs/design/new-costume-image-prompts.json`. Product images come
 from the checked merchant listings.
 
@@ -80,7 +81,8 @@ bun run start
 # In another terminal, with the production build running:
 bun scripts/verify-v1.ts http://localhost:3000 --checkout
 bun scripts/verify-chat.ts http://localhost:3000
-bun --env-file=.env.local scripts/verify-stylist.ts http://localhost:3000
+bun --env-file=.env.local scripts/verify-stylist.ts http://localhost:3000 --costume=midnight-pirate
+bun --env-file=.env.local scripts/verify-full-catalog.ts http://localhost:3000
 ```
 
 Verification calls the real app, Turso, Anthropic, merchant pages, and Stripe.

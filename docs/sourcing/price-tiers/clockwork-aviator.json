@@ -1,0 +1,481 @@
+{
+  "costumeSlug": "clockwork-aviator",
+  "checkedAt": "2026-10-25T08:50:23.962064Z",
+  "pieces": [
+    {
+      "pieceId": "clockwork-aviator-flight-cap",
+      "pieceName": "Brown flight cap",
+      "category": "headwear",
+      "required": true,
+      "order": 0,
+      "sizeKind": "hat",
+      "styleNotes": "Brown leather-look flight helmet with ear coverage and a chin strap. Goggles are a separate purchase. The premium handmade cap has the closest sculpted side details.",
+      "queries": [
+        "brown aviator flight cap ear flaps chin strap"
+      ],
+      "options": [
+        {
+          "tier": "$",
+          "title": "Brown Aviator Cap",
+          "url": "https://www.medievalcollectibles.com/product/brown-aviator-cap/",
+          "priceCents": 2700,
+          "currency": "USD",
+          "merchantName": "Medieval Collectibles",
+          "merchantDomain": "medievalcollectibles.com",
+          "imageUrl": "https://www.medievalcollectibles.com/wp-content/uploads/2020/05/LUA3105.jpg",
+          "sizes": [
+            "One Size — 23.5 inches"
+          ],
+          "availability": "in_stock",
+          "evidenceUrl": "https://www.medievalcollectibles.com/wp-json/wc/store/v1/products?slug=brown-aviator-cap",
+          "notes": "Distressed brown faux leather, 75% polyester/25% cotton, adjustable buckled chin strap. Merchant explicitly excludes the goggles shown in its photo. Public merchant product API confirms four in stock and no backorder at $27.",
+          "localMerchantImage": "/products/price-tiers/p-1dfad7ca74.webp"
+        },
+        {
+          "tier": "$$",
+          "title": "WORLD WAR II US ARMY AIR FORCE REPRO TYPE B-6 FLYING HELMET",
+          "url": "https://www.fivestarleather.us/products/world-war-ii-us-army-air-force-repro-type-b-6-flying-helmet?variant=33007863464011",
+          "priceCents": 13000,
+          "currency": "USD",
+          "merchantName": "FiveStar Leather",
+          "merchantDomain": "fivestarleather.us",
+          "imageUrl": "https://cdn.shopify.com/s/files/1/0043/1698/7462/files/Untitled-1_3ff760c4-415a-445f-be44-9c114f01f923.jpg?v=1719991619",
+          "sizes": [
+            "M"
+          ],
+          "availability": "in_stock",
+          "evidenceUrl": "https://www.fivestarleather.us/products/world-war-ii-us-army-air-force-repro-type-b-6-flying-helmet.js",
+          "notes": "Dark brown sheepskin flying helmet with cream padded edge, straps and military oxygen-mask hooks. Selected M is $130; XS, S, L and XL have different prices and are excluded here. Goggles not included. Merchant lists standard handling of 2–4 business days; custom work takes longer.",
+          "localMerchantImage": "/products/price-tiers/p-f082a38e0a.webp"
+        },
+        {
+          "tier": "$$$",
+          "title": "Brown Leather Aviator Cap – Handmade Flight Helmet",
+          "url": "https://atomleather.com/products/brown-leather-aviator-cap?variant=57472712114520",
+          "priceCents": 30500,
+          "currency": "USD",
+          "merchantName": "Atom Leather",
+          "merchantDomain": "atomleather.com",
+          "imageUrl": "https://cdn.shopify.com/s/files/1/0765/8749/9864/files/AviatorCap.webp?v=1780920364",
+          "sizes": [],
+          "availability": "unknown",
+          "evidenceUrl": "https://atomleather.com/products/brown-leather-aviator-cap.js",
+          "notes": "Mahogany-brown real leather with stitched panels, circular brass-mesh side accents and brass-tone buckle. Cap only; goggles not included. Made to order in Bucharest, with worldwide tracked shipping. Production duration and head measurements are not published; confirm fit and timing with the maker. Purchasable feed is not evidence of ready stock.",
+          "localMerchantImage": "/products/price-tiers/p-7e94b74c9b.webp"
+        }
+      ],
+      "gaps": [
+        "Atom Leather does not publish head measurements or a production duration; confirm fit and timing with the maker."
+      ]
+    },
+    {
+      "pieceId": "clockwork-aviator-goggles",
+      "pieceName": "Brass-colored goggles",
+      "category": "accessories",
+      "required": true,
+      "order": 1,
+      "sizeKind": "one_size",
+      "styleNotes": "Round brass or gold-tone rims with a brown body and adjustable strap. Wear over the cap; the products differ in lens tint and ornament.",
+      "queries": [
+        "brass brown steampunk goggles adjustable strap"
+      ],
+      "options": [
+        {
+          "tier": "$",
+          "title": "Brown Steampunk Goggles",
+          "url": "https://www.medievalcollectibles.com/product/brown-steampunk-goggles/",
+          "priceCents": 900,
+          "currency": "USD",
+          "merchantName": "Medieval Collectibles",
+          "merchantDomain": "medievalcollectibles.com",
+          "imageUrl": "https://www.medievalcollectibles.com/wp-content/uploads/2020/05/FM-66139.jpg",
+          "sizes": [
+            "One Size Fits Most Adults and Older Teens"
+          ],
+          "availability": "in_stock",
+          "evidenceUrl": "https://www.medievalcollectibles.com/wp-json/wc/store/v1/products?slug=brown-steampunk-goggles",
+          "notes": "Brown plastic body, gold rims, clear lenses and brown elastic strap. Less antiqued than the image. Merchant API confirms 39 in stock, not on backorder, at $9. Goggles only; flight cap sold separately.",
+          "localMerchantImage": "/products/price-tiers/p-ef2d14a87e.webp"
+        },
+        {
+          "tier": "$$",
+          "title": "Brass Steampunk Goth Goggles",
+          "url": "https://www.corsetsandcogs.com/products/brass-steampunk-goth-63679?variant=44720477143356",
+          "priceCents": 1699,
+          "currency": "USD",
+          "merchantName": "Corsets & Cogs",
+          "merchantDomain": "corsetsandcogs.com",
+          "imageUrl": "https://cdn.shopify.com/s/files/1/0737/3330/8732/products/il_fullxfull.1230307464_8pr7_4351df06-982e-4ea9-b3d1-67432022af3f.jpg?v=1700334092",
+          "sizes": [
+            "Adjustable"
+          ],
+          "availability": "in_stock",
+          "evidenceUrl": "https://www.corsetsandcogs.com/products/brass-steampunk-goth-63679.js",
+          "notes": "One pair of brass-colored goggles with wide adjustable elastic and dark green glass lenses. Dark green is the standard lens, not clear. Current merchant feed confirms available at $16.99. No cap included.",
+          "localMerchantImage": "/products/price-tiers/p-e17742919a.webp"
+        },
+        {
+          "tier": "$$$",
+          "title": "Embossed Brass & Brown Steampunk Goggles with Dark Lenses",
+          "url": "https://www.steampunkgoggles.com/product/brass-steampunk-goggles-with-dark-lenses/",
+          "priceCents": 4995,
+          "currency": "USD",
+          "merchantName": "Steampunk Goggles",
+          "merchantDomain": "steampunkgoggles.com",
+          "imageUrl": "https://www.steampunkgoggles.com/wp-content/uploads/dark2.jpg",
+          "sizes": [
+            "Adjustable"
+          ],
+          "availability": "in_stock",
+          "evidenceUrl": "https://www.steampunkgoggles.com/product/brass-steampunk-goggles-with-dark-lenses/",
+          "notes": "Handmade goggles with embossed faux leather, brass-colored rims, dark lenses and adjustable nylon band. Lenses unscrew for cleaning. More floral embossing than the image. Live product structured data lists USD $49.95 and InStock. Cap not included; no dispatch duration is stated.",
+          "localMerchantImage": "/products/price-tiers/p-8297550d17.webp"
+        }
+      ],
+      "gaps": []
+    },
+    {
+      "pieceId": "clockwork-aviator-flight-jacket",
+      "pieceName": "Brown shearling flight jacket",
+      "category": "outerwear",
+      "required": true,
+      "order": 2,
+      "sizeKind": "apparel",
+      "styleNotes": "Brown flight jacket with a large cream or golden shearling collar. Faux leather is acceptable. Exact pocket, trim and brown shades differ.",
+      "queries": [
+        "brown shearling B3 aviator flight jacket"
+      ],
+      "options": [
+        {
+          "tier": "$",
+          "title": "Faux Shearling Lined Flight Jacket - Brown",
+          "url": "https://rontomson.com/products/7838-faux-shearling-double-zipper-jacket-brown-1?variant=39530414178389",
+          "priceCents": 8540,
+          "currency": "USD",
+          "merchantName": "Ron Tomson",
+          "merchantDomain": "rontomson.com",
+          "imageUrl": "https://cdn.shopify.com/s/files/1/1898/3725/files/ankara-faux-shearling-flight-jacket-brown-front.jpg?v=1777690719",
+          "sizes": [
+            "M (38 US)",
+            "L (40 US)"
+          ],
+          "availability": "in_stock",
+          "evidenceUrl": "https://rontomson.com/products/7838-faux-shearling-double-zipper-jacket-brown-1.js",
+          "notes": "Tobacco-brown faux leather and beige faux shearling lining/collar; asymmetric front zip and silver hardware. No exposed cream hem/cuff trim like the image. Live US page inventory confirms 12 M and 11 L, neither preorder. Other sizes are sold out. Sale price $85.40; jacket only.",
+          "localMerchantImage": "/products/price-tiers/p-e40879fa1e.webp"
+        },
+        {
+          "tier": "$$",
+          "title": "Men's Brown B3 RAF Flight Bomber Aviator Real Sheepskin Shearling Leather Jacket",
+          "url": "https://www.blacktopgear.com/products/mens-brown-b3-raf-flight-bomber-aviator-real-sheepskin-shearling-leather-jacket?variant=47084048908544",
+          "priceCents": 18000,
+          "currency": "USD",
+          "merchantName": "Blacktop Gear",
+          "merchantDomain": "blacktopgear.com",
+          "imageUrl": "https://cdn.shopify.com/s/files/1/0783/7388/0064/files/Jones-Mens-Brown-B-3-Bomber-Leather-Jacket-2.webp?v=1759936671",
+          "sizes": [
+            "S",
+            "M",
+            "L",
+            "XL",
+            "2XL",
+            "3XL",
+            "4XL",
+            "5XL"
+          ],
+          "availability": "unknown",
+          "evidenceUrl": "https://www.blacktopgear.com/products/mens-brown-b3-raf-flight-bomber-aviator-real-sheepskin-shearling-leather-jacket.js",
+          "notes": "Brown leather B3-style bomber with cream shearling collar, cuffs and hem, throat strap and an attached waist belt. Darker than caramel. Made to order: stated production about 2–3 weeks before shipping; free USA delivery. $180 applies to standard S–5XL; custom sizing costs extra. Purchasable, but ready stock is not verified.",
+          "localMerchantImage": "/products/price-tiers/p-4bcde5cbe8.webp"
+        },
+        {
+          "tier": "$$$",
+          "title": "257S — Classic B-3 Sheepskin Bomber Jacket — Brn / Golden",
+          "url": "https://www.schottnyc.com/products/257s-classic-b-3-sheepskin-leather-bomber-jacket?variant=49851198079262",
+          "priceCents": 169000,
+          "currency": "USD",
+          "merchantName": "Schott N.Y.C.",
+          "merchantDomain": "schottnyc.com",
+          "imageUrl": "https://cdn.shopify.com/s/files/1/0905/5872/6430/files/257S_BRG_FRT.jpg?v=1778004456",
+          "sizes": [
+            "34",
+            "36",
+            "38",
+            "40",
+            "42",
+            "44",
+            "46"
+          ],
+          "availability": "in_stock",
+          "evidenceUrl": "https://www.schottnyc.com/products/257s-classic-b-3-sheepskin-leather-bomber-jacket.js",
+          "notes": "Heavyweight brown sheepskin with golden shearling, leather-welted seams and buckled collar/waist straps. Golden fleece is warmer than the image’s cream. Made in USA. Brn / Golden sizes 34–46 are $1,690; size 32 is sold out, 48+ cost more. Selected-page inventory shows one unit per included size with deny-oversell policy. Jacket only.",
+          "localMerchantImage": "/products/price-tiers/p-b7869f2049.webp"
+        }
+      ],
+      "gaps": [
+        "Blacktop Gear jacket requires 2–3 weeks production; it is not a ready-stock choice. The budget jacket lacks the image’s cream cuff and hem trim."
+      ]
+    },
+    {
+      "pieceId": "clockwork-aviator-cream-shirt",
+      "pieceName": "Cream collared shirt",
+      "category": "tops",
+      "required": true,
+      "order": 3,
+      "sizeKind": "apparel",
+      "styleNotes": "A light cream or ivory shirt under the open flight jacket. A simple point collar and visible button front preserve the look.",
+      "queries": [
+        "mens cream ivory collared cotton shirt"
+      ],
+      "options": [
+        {
+          "tier": "$",
+          "title": "Biagio 100% Cotton Men's Short Sleeve Solid CREAM Color Dress Shirt",
+          "url": "https://www.krisarclothing.com/products/biagio-100-cotton-mens-short-sleeve-solid-cream-color-dress-shirt.html",
+          "priceCents": 1895,
+          "currency": "USD",
+          "merchantName": "Krisar Clothing",
+          "merchantDomain": "krisarclothing.com",
+          "imageUrl": "https://cdn11.bigcommerce.com/s-2iveh3ifm0/products/2106/images/12330/apis0s3xd__89399.1592329524.500.750.jpg?c=2",
+          "sizes": [
+            "Small (Neck Size: 14.5)",
+            "Medium (Neck Size: 15.5)"
+          ],
+          "availability": "in_stock",
+          "evidenceUrl": "https://www.krisarclothing.com/products/biagio-100-cotton-mens-short-sleeve-solid-cream-color-dress-shirt.html",
+          "notes": "Cream/off-white 100% cotton shirt with point collar and full button front. Short sleeves differ from the image, but sit under the jacket. Merchant variant endpoint /remote/v1/product-attributes/2106 confirms S (attribute 4755) and M (4758) in stock at $18.95; larger available sizes cost $19.95 and are excluded. Shirt only.",
+          "localMerchantImage": "/products/price-tiers/p-4a2bda5a9b.webp"
+        },
+        {
+          "tier": "$$",
+          "title": "Reeves Shirt - Ivory",
+          "url": "https://historicalemporium.com/products/reeves-shirt-ivory?variant=52048304177446",
+          "priceCents": 6995,
+          "currency": "USD",
+          "merchantName": "Historical Emporium",
+          "merchantDomain": "historicalemporium.com",
+          "imageUrl": "https://cdn.shopify.com/s/files/1/0980/0974/3654/files/006021_01_daa87ed5-2134-4a22-a461-fc42e37012da.jpg?v=1769539749",
+          "sizes": [
+            "S",
+            "L",
+            "XL",
+            "2X",
+            "3X"
+          ],
+          "availability": "in_stock",
+          "evidenceUrl": "https://historicalemporium.com/products/reeves-shirt-ivory.js",
+          "notes": "Ivory 100% cotton long-sleeve shirt, point collar, gathered yokes and a broad two-row button placket. Fuller period cut and paired buttons differ from the simple image shirt. Current feed confirms S, L, XL, 2X and 3X at $69.95; M and 4X unavailable. Shirt only, trousers in photo are excluded.",
+          "localMerchantImage": "/products/price-tiers/p-205b09ce3c.webp"
+        },
+        {
+          "tier": "$$$",
+          "title": "The Single Needle Shirt, Cream",
+          "url": "https://stevenalan.com/products/the-single-needle-shirt-cream?variant=44441816400060",
+          "priceCents": 22500,
+          "currency": "USD",
+          "merchantName": "Steven Alan",
+          "merchantDomain": "stevenalan.com",
+          "imageUrl": "https://cdn.shopify.com/s/files/1/0132/2975/2377/files/stretched2-10.jpg?v=1739566390",
+          "sizes": [
+            "S",
+            "XL"
+          ],
+          "availability": "in_stock",
+          "evidenceUrl": "https://stevenalan.com/products/the-single-needle-shirt-cream.js",
+          "notes": "Cream 100% cotton long-sleeve button-down with one chest pocket, made in USA. Shorter untucked-length cut differs from the long image shirt. Only S and XL are currently available at $225; XS, M and L are sold out. Product-only styling items are not included.",
+          "localMerchantImage": "/products/price-tiers/p-80bbc22276.webp"
+        }
+      ],
+      "gaps": []
+    },
+    {
+      "pieceId": "clockwork-aviator-utility-trousers",
+      "pieceName": "Brown utility trousers",
+      "category": "bottoms",
+      "required": true,
+      "order": 4,
+      "sizeKind": "pants",
+      "styleNotes": "Brown cargo trousers with large thigh pockets and enough room to tuck into boots. No option includes the image’s decorative thigh strap or waist belt.",
+      "queries": [
+        "brown utility cargo pants mens"
+      ],
+      "options": [
+        {
+          "tier": "$",
+          "title": "Rothco Work Brown Tactical BDU Cargo Pants 11140",
+          "url": "https://www.armynavyusa.com/products/rothco-work-brown-tactical-bdu-cargo-pants-11140?variant=49614571536539",
+          "priceCents": 4599,
+          "currency": "USD",
+          "merchantName": "Army Navy USA",
+          "merchantDomain": "armynavyusa.com",
+          "imageUrl": "https://cdn.shopify.com/s/files/1/0782/8973/1739/files/anu-gallery-04a8d315b754331a-a361a055afb3ca3e.jpg?v=1791590608",
+          "sizes": [
+            "S",
+            "M",
+            "L",
+            "XL"
+          ],
+          "availability": "in_stock",
+          "evidenceUrl": "https://www.armynavyusa.com/products/rothco-work-brown-tactical-bdu-cargo-pants-11140.js",
+          "notes": "Work Brown cotton/polyester twill BDU cargo trousers with reinforced knees/seat, adjustable waist tabs, button fly and drawstring leg openings. Warmer golden brown than the image. S–XL cost $45.99; 2XL and 3XL cost more and are excluded. Merchant product feed and structured offers confirm stock. No belt or thigh strap included.",
+          "localMerchantImage": "/products/price-tiers/p-9795db4936.webp"
+        },
+        {
+          "tier": "$$",
+          "title": "WCC - CFL CARGO PANTS - VINTAGE BROWN",
+          "url": "https://westcoastchoppers.com/products/wcc-cfl-cargo-pants-vintage-brown?variant=50981724160327",
+          "priceCents": 7499,
+          "currency": "USD",
+          "merchantName": "West Coast Choppers",
+          "merchantDomain": "westcoastchoppers.com",
+          "imageUrl": "https://cdn.shopify.com/s/files/1/0773/1540/8199/files/WCCBR144BNL-1.jpg?v=1738318375",
+          "sizes": [
+            "S",
+            "M",
+            "L",
+            "XL",
+            "2XL"
+          ],
+          "availability": "in_stock",
+          "evidenceUrl": "https://westcoastchoppers.com/products/wcc-cfl-cargo-pants-vintage-brown.js",
+          "notes": "Vintage Brown, 97% cotton/3% spandex cargo trousers with waist adjusters and visible modern pocket branding. S–2XL available at $74.99; 3XL sold out. Live page variant stock templates show S=2, M=4, L=2, XL=5, 2XL=4. The page’s backorder paragraph is hidden, not active for these variants. US orders ship from the USA; no belt included.",
+          "localMerchantImage": "/products/price-tiers/p-58c3835681.webp"
+        },
+        {
+          "tier": "$$$",
+          "title": "Pablo Utility Cargo Pants - Brown",
+          "url": "https://feature.com/products/feature-pablo-utility-cargo-pants-brown?variant=41076352581703",
+          "priceCents": 19500,
+          "currency": "USD",
+          "merchantName": "FEATURE",
+          "merchantDomain": "feature.com",
+          "imageUrl": "https://cdn.shopify.com/s/files/1/0408/9909/files/untitled---07-23-24---Feature--DV-44-REVISIONS_3f9cafba-04e3-407a-9f95-e232d86fea22.jpg?v=1788239934",
+          "sizes": [
+            "28",
+            "30",
+            "32",
+            "34",
+            "36",
+            "38"
+          ],
+          "availability": "in_stock",
+          "evidenceUrl": "https://feature.com/products/feature-pablo-utility-cargo-pants-brown.js",
+          "notes": "Brown non-stretch 100% cotton military-inspired cargo pants, extra lower-leg pocket, concealed snap and zip fly. Straight hems differ from the image’s elastic cuffs; tuck into boots. Waist labels 28–38 in stock at $195; 40 sold out. Merchant says processing within 24–48 hours; no belt or thigh strap included.",
+          "localMerchantImage": "/products/price-tiers/p-773a8bcca3.webp"
+        }
+      ],
+      "gaps": []
+    },
+    {
+      "pieceId": "clockwork-aviator-lace-up-boots",
+      "pieceName": "Dark brown lace-up boots",
+      "category": "footwear",
+      "required": true,
+      "order": 5,
+      "sizeKind": "shoe",
+      "styleNotes": "Dark brown lace-up boots ground the aviator look. These practical ankle boots are shorter than the image’s tall buckled boots.",
+      "queries": [
+        "mens dark brown lace up leather boots"
+      ],
+      "options": [
+        {
+          "tier": "$",
+          "title": "Karnak Plain Toe Boot — Brown CH / M (D - medium)",
+          "url": "https://www.nunnbush.com/shop/style/85088-215.html",
+          "priceCents": 8995,
+          "currency": "USD",
+          "merchantName": "Nunn Bush",
+          "merchantDomain": "nunnbush.com",
+          "imageUrl": "https://www.nunnbush.com/shop/images/w590/85088-215.jpg",
+          "sizes": [
+            "7",
+            "7.5",
+            "8",
+            "8.5",
+            "9",
+            "9.5",
+            "10",
+            "10.5",
+            "11",
+            "11.5",
+            "12",
+            "13",
+            "14"
+          ],
+          "availability": "in_stock",
+          "evidenceUrl": "https://www.nunnbush.com/shop/style/85088-215.html",
+          "notes": "Brown CH style 85088-215, leather/man-made mixed upper and modern lug wedge sole. Live merchant page lists $89.95. Read-only width selection confirmed M (D medium) and every listed size explicitly In Stock; response saved in nunn-medium-width.xml. Shorter and more modern than the image, with no calf buckles. Stated usual dispatch 2–3 business days.",
+          "localMerchantImage": "/products/price-tiers/p-3b0a976509.webp"
+        },
+        {
+          "tier": "$$",
+          "title": "Captain | Brown — Standard",
+          "url": "https://thursdayboots.com/products/mens-brown-captain?variant=7609600581",
+          "priceCents": 19900,
+          "currency": "USD",
+          "merchantName": "Thursday Boot Company",
+          "merchantDomain": "thursdayboots.com",
+          "imageUrl": "https://cdn.shopify.com/s/files/1/0419/1525/files/1024x1024-Men-Captain-Brown-081226-3.4-d17ac2.jpg?v=1790357464",
+          "sizes": [
+            "6",
+            "6.5",
+            "7",
+            "7.5",
+            "8",
+            "8.5",
+            "9",
+            "9.5",
+            "10",
+            "10.5",
+            "11",
+            "11.5",
+            "12",
+            "12.5",
+            "13",
+            "13.5",
+            "14",
+            "15",
+            "16"
+          ],
+          "availability": "in_stock",
+          "evidenceUrl": "https://thursdayboots.com/products/mens-brown-captain.js",
+          "notes": "Brown leather cap-toe ankle boot with waxed cotton laces, glove leather lining and studded rubber sole. Shorter than the image and has no upper buckles. Standard-width sizes 6–16 listed here are all available at $199 in current feed. US order processing typically 1–3 business days; delivery timing is separate.",
+          "localMerchantImage": "/products/price-tiers/p-ba0acbf53c.webp"
+        },
+        {
+          "tier": "$$$",
+          "title": "Diesel Boot Crimson Chromexcel — D (Standard)",
+          "url": "https://grantstoneshoes.com/products/diesel-boot-crimson-chromexcel?variant=12617336160320",
+          "priceCents": 43500,
+          "currency": "USD",
+          "merchantName": "Grant Stone",
+          "merchantDomain": "grantstoneshoes.com",
+          "imageUrl": "https://cdn.shopify.com/s/files/1/1163/3390/files/06SIDE-Edit_14628844-8b5f-4b32-b91c-69db10615674.jpg?v=1783615369",
+          "sizes": [
+            "6",
+            "6.5",
+            "7",
+            "7.5",
+            "8",
+            "8.5",
+            "9",
+            "9.5",
+            "10",
+            "10.5",
+            "11",
+            "11.5",
+            "12",
+            "13"
+          ],
+          "availability": "in_stock",
+          "evidenceUrl": "https://grantstoneshoes.com/products/diesel-boot-crimson-chromexcel.js",
+          "notes": "Crimson Chromexcel dark reddish-brown leather plain-toe lace-up ankle boot with antique-brass eyelets/hooks and rubber sole. Lower shaft and no calf buckles. D Standard sizes 6–13 listed here are available at $435. Higher price does not make it a closer costume match.",
+          "localMerchantImage": "/products/price-tiers/p-10ebd36f10.webp"
+        }
+      ],
+      "gaps": [
+        "All three boot options have ankle-height shafts, below the image’s tall calf shaft."
+      ]
+    }
+  ]
+}

@@ -27,6 +27,10 @@ const optionValue = (variant: ShopifyVariant, index: number): string | null => {
 };
 const sameLabel = (a: string | null, b: string) => a?.trim().toLowerCase() === b.trim().toLowerCase();
 
+/** Merchant picker prompts are not purchasable sizes, even when marked available. */
+export const isRealSizeLabel = (value: string | null): value is string => value !== null
+  && !/^(?:[\s\-–—]*)(?:please\s+)?(?:choose|select)\b.*\bsize\b/i.test(value);
+
 function variantFamily(product: ShopifyProduct, anchor: ShopifyVariant): ShopifyVariant[] {
   const names = optionNames(product);
   const sizeIndex = names.findIndex((name) => /\bsize\b/i.test(name));
@@ -36,7 +40,8 @@ function variantFamily(product: ShopifyProduct, anchor: ShopifyVariant): Shopify
 /** Match checkout's labels and preserve the selected color, width and other non-size options. */
 export function shopifySizes(product: ShopifyProduct, anchor: ShopifyVariant): string[] {
   const sizeIndex = optionNames(product).findIndex((name) => /\bsize\b/i.test(name));
-  return [...new Set(variantFamily(product, anchor).filter((variant) => variant.available).map((variant) => sizeIndex < 0 ? "one size" : optionValue(variant, sizeIndex)).filter((size): size is string => size !== null))];
+  // One saved price cannot also advertise sizes sold at a different price.
+  return [...new Set(variantFamily(product, anchor).filter((variant) => variant.available && variant.price === anchor.price).map((variant) => sizeIndex < 0 ? "one size" : optionValue(variant, sizeIndex)).filter(isRealSizeLabel))];
 }
 
 /** Public merchant data. No admin credentials or inventory guesses. */
@@ -62,10 +67,11 @@ export function selectShopifyVariants(product: ShopifyProduct, color?: string, p
   const names = optionNames(product);
   const sizeIndex = names.findIndex((name) => /\bsize\b/i.test(name));
   const matchesColor = (variant: ShopifyVariant) => !color || names.some((_, index) => index !== sizeIndex && sameLabel(optionValue(variant, index), color));
-  const candidates = product.variants.filter((variant) => variant.available && matchesColor(variant)).sort((a, b) => a.price - b.price);
+  const hasRealSize = (variant: ShopifyVariant) => sizeIndex < 0 || isRealSizeLabel(optionValue(variant, sizeIndex));
+  const candidates = product.variants.filter((variant) => variant.available && matchesColor(variant) && hasRealSize(variant)).sort((a, b) => a.price - b.price);
   const anchor = product.variants.find((variant) => String(variant.id) === pinnedVariantId) ?? candidates[0];
   if (!anchor || !matchesColor(anchor)) return [];
-  const available = variantFamily(product, anchor).filter((variant) => variant.available && matchesColor(variant));
+  const available = variantFamily(product, anchor).filter((variant) => variant.available && matchesColor(variant) && hasRealSize(variant));
   const lowest = Math.min(...available.map((v) => v.price));
   return available.filter((v) => v.price === lowest && parsePriceToCents(v.price / 100) === v.price);
 }

@@ -8,7 +8,7 @@ import { addToCartSchema, recordSizesSchema } from "@/lib/ai/client-tools";
 import { sizeMatches } from "@/lib/outfits";
 import type { CostumeView } from "@/lib/types";
 
-export const maxDuration = 60;
+export const maxDuration = 300;
 
 const MAX_REQUEST_BYTES = 150_000;
 const fail = (status: number, message: string) => Response.json({ error: message }, { status });
@@ -153,7 +153,7 @@ export async function POST(req: Request) {
       stopWhen: isStepCount(6),
       maxOutputTokens: 1800,
       maxRetries: 1,
-      abortSignal: AbortSignal.any([req.signal, AbortSignal.timeout(55_000)]),
+      abortSignal: AbortSignal.any([req.signal, AbortSignal.timeout(270_000)]),
     });
 
     return result.toUIMessageStreamResponse({

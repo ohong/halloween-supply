@@ -1,0 +1,824 @@
+{
+  "costume": {
+    "slug": "enchanted-jester",
+    "name": "Enchanted Jester",
+    "description": "Plum and sage velvet diamonds, a cream ruff, and a playful two-point cap create a soft theatrical look.",
+    "image": "/costumes/enchanted-jester.png",
+    "alt": "Plum and sage two-point jester cap, diamond-patterned velvet tunic, cream ruff, plum trousers, and curled dark boots",
+    "status": "live"
+  },
+  "pieces": [
+    {
+      "id": "enchanted-jester-jester-cap",
+      "name": "Purple and green jester cap",
+      "category": "headwear",
+      "required": true,
+      "order": 0,
+      "styleNotes": "Soft pointed cap in purple and green. Available colors are brighter than the generated plum and sage; most higher-priced caps add points or colors. No verified ready-made cap matches the exact muted plum/sage colors and gold-trimmed diamond band.",
+      "queries": [
+        "purple green two point velvet jester hat"
+      ],
+      "sizeKind": "one_size",
+      "matches": [
+        {
+          "productId": "p-2300e6e799",
+          "rank": 0,
+          "reason": "Handmade in New Hampshire. Purple, green and gold fleece with three points, purple double-thick band and gold-tone bells. Live listing states 3 left and ready to ship. Extra gold panel and third point differ from the two-point reference."
+        },
+        {
+          "productId": "p-1344227532",
+          "rank": 1,
+          "reason": "Select Green/Purple. Two soft velvet points, black headband and bells. Real selected-color merchant photograph, 400×400. Live page shows the Green/Purple radio selected and an enabled Add to Bag button. Merchant gives no head measurement; confirm fit before ordering. Bright purple/lime green differs from plum/sage."
+        },
+        {
+          "productId": "p-bcdae78247",
+          "rank": 2,
+          "reason": "Black, purple, wine and green cotton velveteen with silver bells and adjustable elastic cord. Additional black/wine panels and multiple points differ from the plum/sage two-point cap. Live variant is available. Merchant says US and Canada orders ship once per week."
+        }
+      ]
+    },
+    {
+      "id": "enchanted-jester-purple-tunic",
+      "name": "Purple theatrical tunic",
+      "category": "tops",
+      "required": true,
+      "order": 1,
+      "styleNotes": "DIY tunic base: cut and sew the separately listed sage or green felt into large contrasting diamonds on the body. The real purple garments do not include the diamonds, pointed bell hem or full generated trim. The velvet middle option is the closest fabric base. No verified finished plum/sage diamond-patterned velvet tunic was found. This catalog follows the design’s stated DIY route: buy the purple base and separate sage/green felt, then cut and sew diamonds. The pointed bell hem and gold diamond edging are not supplied. Ordinary scissors, needle and thread are needed.",
+      "queries": [
+        "purple medieval tunic full sleeves buttons",
+        "purple velvet long sleeve tunic"
+      ],
+      "sizeKind": "apparel",
+      "matches": [
+        {
+          "productId": "p-a0c1a6fdd2",
+          "rank": 0,
+          "reason": "One vintage Nina Piccalino tunic, listed large; original tag says size 10. Deep purple 90% polyester/10% spandex velvet, satin trim, faux covered front buttons, fitted long sleeves and side slits. Length 30 inches; bust flat 19 inches. Available in live feed. Seller states dispatch within 1–3 business days. No sage diamonds, puff sleeves or bell hem. DIY required: cut and sew diamonds from the separately listed sage/green felt onto the body. This garment alone is not the finished patterned jester tunic."
+        },
+        {
+          "productId": "p-7947136834",
+          "rank": 1,
+          "reason": "Purple 100% rayon top, 25-inch length, front buttons, embroidery and back tie. Merchant offers One Size and Plus Size at USD36.99; live size-level inventory is not exposed. Short sheer sleeves and floral embroidery differ substantially from the fitted velvet jester tunic. Sage diamonds, long sleeves and bell hem are not included. DIY required: cut and sew diamonds from the separately listed sage/green felt onto the body. This garment alone is not the finished patterned jester tunic."
+        },
+        {
+          "productId": "p-2b0dda0aae",
+          "rank": 2,
+          "reason": "Select Purple. Twill tunic with very full sleeves, slim body, front buttons and sleeve buttons. Only XSmal–XLarge cost USD92; 2XLarge–4XLarge cost USD97 and are excluded. These purple variants are available in the live feed; dispatch timing is not confirmed. Strong courtly silhouette, but no velvet, sage diamond panels or pointed bell hem. DIY required: cut and sew diamonds from the separately listed sage/green felt onto the body. This garment alone is not the finished patterned jester tunic."
+        }
+      ]
+    },
+    {
+      "id": "enchanted-jester-ruff-collar",
+      "name": "Cream or white ruff collar",
+      "category": "accessories",
+      "required": true,
+      "order": 2,
+      "styleNotes": "A full, separate ruff frames the face. The cream cotton collar is the closest color; other choices are white and change the texture. Only the budget ruff is cream. The middle option is made to order and carries explicit stock uncertainty.",
+      "queries": [
+        "cream cotton jester ruff collar",
+        "white Elizabethan costume ruff"
+      ],
+      "sizeKind": "one_size",
+      "matches": [
+        {
+          "productId": "p-385addbedb",
+          "rank": 0,
+          "reason": "Cream/off-white cotton ruff and cuffs, adjustable ties, cream overlocked edges. Collar depth 9 inches; cuffs 5 inches. Live listing states 3 left. Made in the USA and ships from Iowa. Gathered full ruffles rather than the reference crisp pleated lace-edged ruff."
+        },
+        {
+          "productId": "p-34c9646f2d",
+          "rank": 1,
+          "reason": "Collar only. White cotton top/bottom layers; pink and purple satin middle layer with teal ribbon. Ribbon ties; longest depth 10 inches. Live listing accepts orders and states 3 left, but explicitly made to order; allow 5–8 days to make before dispatch. White and colored trim differ from the cream reference."
+        },
+        {
+          "productId": "p-8950bc281a",
+          "rank": 2,
+          "reason": "Select white. One polyester tulle mesh ruff collar with back fastening; no cuffs. Live white variant available. Large airy puff rather than cream pleated cotton. Merchant states 5–10 business days processing and tracked worldwide shipping; delivery timing is not promised."
+        }
+      ]
+    },
+    {
+      "id": "enchanted-jester-velvet-trousers",
+      "name": "Fitted plum or burgundy velvet trousers",
+      "category": "bottoms",
+      "required": true,
+      "order": 3,
+      "styleNotes": "Fitted velvet leggings recreate the narrow plum trouser line. These have no gold side piping; burgundy and purple are color approximations. None includes the generated gold piping. The mid-price option fits only XS.",
+      "queries": [
+        "burgundy velvet leggings boutique",
+        "purple velvet fitted leggings"
+      ],
+      "sizeKind": "apparel",
+      "matches": [
+        {
+          "productId": "p-4996c0f103",
+          "rank": 0,
+          "reason": "Spanx Rich Burgundy velvet leggings. Only XS is available at USD49 in the live feed; S, M, L, XL and 1X are sold out and excluded. Burgundy rather than plum; no gold side trim. Boutique is in Aberdeen, South Dakota."
+        },
+        {
+          "productId": "p-c8061d241c",
+          "rank": 1,
+          "reason": "Burgundy stretch velvet leggings with elastic waist and semi-cropped length. All four listed sizes available in the live merchant feed. Wine/burgundy rather than plum, shorter than full trousers, and no gold piping. Boots can cover the cropped hem."
+        },
+        {
+          "productId": "p-1414e3a171",
+          "rank": 2,
+          "reason": "Select purple velvet. High-waisted fitted velvet leggings; all XS–XL purple variants available at USD81 in the US storefront feed. Purple is brighter than the reference plum. No gold side piping. Use merchant measurements; no size conversion is assumed."
+        }
+      ]
+    },
+    {
+      "id": "enchanted-jester-curled-boots",
+      "name": "Dark curled-toe boots",
+      "category": "footwear",
+      "required": true,
+      "order": 4,
+      "styleNotes": "Choose real curled-toe footwear. The curl is built into these products, so separate soft toe covers are unnecessary; height and colors vary. Verified sizes are narrow at each price. These use built-in curved toes, not separate soft curled toe covers. The middle pair adds red panels.",
+      "queries": [
+        "black medieval curled toe ankle boots",
+        "jester curled toe boots"
+      ],
+      "sizeKind": "shoe",
+      "matches": [
+        {
+          "productId": "p-b522c858a5",
+          "rank": 0,
+          "reason": "Black/red microfiber jester ankle shoes with folded cuffs, flat soles and dramatically curled toes; sold as a pair. Selected Large (Mens 12-13) showed 4 in stock in the live purchase form. Small, Medium and X-Large showed out of stock with estimated restock, and are excluded. Black/red quartering differs from dark plum/brown; no removable covers."
+        },
+        {
+          "productId": "p-1270d65f15",
+          "rank": 1,
+          "reason": "Selected Black / 6 US men’s, confirmed USD53.30 with quantity and enabled purchase form. Other sizes cost more and are excluded. Merchant describes leather uppers, rubber sole, 8.66-inch height and 13-inch calf circumference. Ships from India; production/dispatch timing is not confirmed. Built-in curled toes; no sage cuffs or bells."
+        },
+        {
+          "productId": "p-1d94cf4517",
+          "rank": 2,
+          "reason": "Selected Black / UK Size 6. Live primary product data reports 6 units, available, USD81.95, and no out-of-stock ordering. Leather upper, rubber sole, curly toe and back closure. Approximately 14 inches high, taller than the ankle reference. No sage cuff or bells; curled shape is integral. Merchant quotes 8–10 business days delivery, not a guarantee."
+        }
+      ]
+    },
+    {
+      "id": "enchanted-jester-sage-diamond-fabric",
+      "name": "Sage or green felt for DIY tunic diamonds",
+      "category": "accessories",
+      "required": true,
+      "order": 5,
+      "styleNotes": "Cut large diamonds from the separately purchased felt. Sew them onto the purple tunic base to create the defining contrasting jester pattern. These are raw fabric supplies, not pre-cut appliqués or a finished tunic. Sage is closest; olive and dark green are explicit color alternatives. Fabric quantities differ by tier. More than the listed single cut may be needed. None includes pre-cut shapes, gold edging or the pointed bell hem. The selected tunic and felt require cutting and sewing.",
+      "queries": [
+        "sage wool blend felt half yard",
+        "olive green felt fabric by the yard"
+      ],
+      "sizeKind": "one_size",
+      "matches": [
+        {
+          "productId": "p-ee914940b0",
+          "rank": 0,
+          "reason": "Selected Olive / By The Yard, USD10.99 and available in the live feed. One yard is 36 × 72 inches, 100% acrylic felt, 1.6 mm thick, 300 gsm. Olive is more yellow and saturated than the reference sage. Raw fabric only; cut and sew diamonds onto the purple base. Amount needed depends on garment size and diamond spacing. Tools and thread are not included. Merchant advertises same-day shipping before 1 PM PT; this is not an arrival guarantee."
+        },
+        {
+          "productId": "p-5168383708",
+          "rank": 1,
+          "reason": "Selected Sage / 1/2 yard, USD6 and available in the live feed. Price buys approximately 18 × 36 inches of sage wool/rayon felt, about 1 mm thick. Closest muted green to the reference; felt has a matte surface rather than velvet. Cut and sew diamonds yourself. Lay out the pattern before buying; larger garments or dense coverage may need more than one cut. Ordinary scissors, needle and thread are not included. No fixed dispatch time is verified."
+        },
+        {
+          "productId": "p-633c337525",
+          "rank": 2,
+          "reason": "Select the full fabric option, not the USD3 Swatch. Price is USD12.99 per yard of 72-inch-wide, 5-ounce, 100% acrylic felt. Full-fabric variant is available in the live feed. This dark green is deeper than the reference sage. Cut and sew diamonds yourself; fabric is not velvet and no finished garment is included. Measure and lay out the pattern before choosing yardage. Tools and thread are not included. No fixed dispatch time is verified."
+        }
+      ]
+    }
+  ],
+  "products": [
+    {
+      "id": "p-1344227532",
+      "title": "Jester Hat",
+      "url": "https://www.imaginationcreationsinc.com/store/Jester-Hat-p161894536",
+      "priceCents": 2000,
+      "currency": "USD",
+      "image": "/products/price-tiers/p-1344227532.webp",
+      "merchantImage": "/products/price-tiers/p-1344227532.webp",
+      "sourceImages": [
+        "https://d2j6dbq0eux0bg.cloudfront.net/images/21216039/1224056029.jpg"
+      ],
+      "availability": "in_stock",
+      "sizes": [],
+      "merchantId": "imaginationcreationsinc-com",
+      "tagSlugs": [],
+      "description": "Select Green/Purple. Two soft velvet points, black headband and bells. Real selected-color merchant photograph, 400×400. Live page shows the Green/Purple radio selected and an enabled Add to Bag button. Merchant gives no head measurement; confirm fit before ordering. Bright purple/lime green differs from plum/sage.",
+      "checkedAt": "2026-10-25T08:59:41.481945Z",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-25T08:59:41.481945Z",
+        "url": "https://www.imaginationcreationsinc.com/store/Jester-Hat-p161894536",
+        "notes": "Select Green/Purple. Two soft velvet points, black headband and bells. Real selected-color merchant photograph, 400×400. Live page shows the Green/Purple radio selected and an enabled Add to Bag button. Merchant gives no head measurement; confirm fit before ordering. Bright purple/lime green differs from plum/sage."
+      }
+    },
+    {
+      "id": "p-2300e6e799",
+      "title": "Mardi Gras Jester Hat Purple Green Gold, Three Point Fleece Harlequin Hat with Gold Bells, New Orleans Carnival Costume",
+      "url": "https://www.etsy.com/listing/706978896/jester-hat-new-orleans-three-point-fools",
+      "priceCents": 7062,
+      "currency": "USD",
+      "image": "/products/price-tiers/p-2300e6e799.webp",
+      "merchantImage": "/products/price-tiers/p-2300e6e799.webp",
+      "sourceImages": [
+        "https://i.etsystatic.com/5918183/r/il/f1b4cf/3365464800/il_794xN.3365464800_av96.jpg"
+      ],
+      "availability": "in_stock",
+      "sizes": [
+        "One size fits approximately 22–24 inch heads"
+      ],
+      "merchantId": "etsy-mountaingoth-on-etsy",
+      "tagSlugs": [],
+      "description": "Handmade in New Hampshire. Purple, green and gold fleece with three points, purple double-thick band and gold-tone bells. Live listing states 3 left and ready to ship. Extra gold panel and third point differ from the two-point reference.",
+      "checkedAt": "2026-10-25T08:59:41.481945Z",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-25T08:59:41.481945Z",
+        "url": "https://www.etsy.com/listing/706978896/jester-hat-new-orleans-three-point-fools",
+        "notes": "Handmade in New Hampshire. Purple, green and gold fleece with three points, purple double-thick band and gold-tone bells. Live listing states 3 left and ready to ship. Extra gold panel and third point differ from the two-point reference."
+      }
+    },
+    {
+      "id": "p-bcdae78247",
+      "title": "Jester Hat - Black / Purple / Wine / Green",
+      "url": "https://www.talltoad.net/products/jester-hat-black-purple-wine-green?variant=17049054281799",
+      "priceCents": 7500,
+      "currency": "USD",
+      "image": "/products/price-tiers/p-bcdae78247.webp",
+      "merchantImage": "/products/price-tiers/p-bcdae78247.webp",
+      "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/1587/9585/products/Jester_Black_greeb_red_purple_talltoad.jpg?v=1781150714"
+      ],
+      "availability": "in_stock",
+      "sizes": [
+        "One size fits all but upper end of XL and XXL"
+      ],
+      "merchantId": "talltoad-net",
+      "tagSlugs": [],
+      "description": "Black, purple, wine and green cotton velveteen with silver bells and adjustable elastic cord. Additional black/wine panels and multiple points differ from the plum/sage two-point cap. Live variant is available. Merchant says US and Canada orders ship once per week.",
+      "checkedAt": "2026-10-25T08:59:41.481945Z",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-25T08:59:41.481945Z",
+        "url": "https://www.talltoad.net/products/jester-hat-black-purple-wine-green.js",
+        "notes": "Black, purple, wine and green cotton velveteen with silver bells and adjustable elastic cord. Additional black/wine panels and multiple points differ from the plum/sage two-point cap. Live variant is available. Merchant says US and Canada orders ship once per week."
+      }
+    },
+    {
+      "id": "p-7947136834",
+      "title": "Purple Medieval Style Short Top with Embroidery",
+      "url": "https://www.thelittlebazaar.com/item/4871.html",
+      "priceCents": 3699,
+      "currency": "USD",
+      "image": "/products/price-tiers/p-7947136834.webp",
+      "merchantImage": "/products/price-tiers/p-7947136834.webp",
+      "sourceImages": [
+        "https://www.thelittlebazaar.com/m/Tunic-Shirt/4871-purple-medieval-style-short-top-with-embroidery.jpg"
+      ],
+      "availability": "unknown",
+      "sizes": [
+        "One Size",
+        "Plus Size"
+      ],
+      "merchantId": "thelittlebazaar-com",
+      "tagSlugs": [],
+      "description": "Purple 100% rayon top, 25-inch length, front buttons, embroidery and back tie. Merchant offers One Size and Plus Size at USD36.99; live size-level inventory is not exposed. Short sheer sleeves and floral embroidery differ substantially from the fitted velvet jester tunic. Sage diamonds, long sleeves and bell hem are not included. DIY required: cut and sew diamonds from the separately listed sage/green felt onto the body. This garment alone is not the finished patterned jester tunic.",
+      "checkedAt": "2026-10-25T08:59:41.481945Z",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-25T08:59:41.481945Z",
+        "url": "https://www.thelittlebazaar.com/item/4871.html",
+        "notes": "Purple 100% rayon top, 25-inch length, front buttons, embroidery and back tie. Merchant offers One Size and Plus Size at USD36.99; live size-level inventory is not exposed. Short sheer sleeves and floral embroidery differ substantially from the fitted velvet jester tunic. Sage diamonds, long sleeves and bell hem are not included. DIY required: cut and sew diamonds from the separately listed sage/green felt onto the body. This garment alone is not the finished patterned jester tunic."
+      }
+    },
+    {
+      "id": "p-2b0dda0aae",
+      "title": "Lord's Medieval Tunic",
+      "url": "https://pearsonsmedievalshoppe.com/products/lords-medieval-tunic?variant=43885995196607",
+      "priceCents": 9200,
+      "currency": "USD",
+      "image": "/products/price-tiers/p-2b0dda0aae.webp",
+      "merchantImage": "/products/price-tiers/p-2b0dda0aae.webp",
+      "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/0568/0005/1391/files/lords_medieval_tunic_purple.jpg?v=1733689417"
+      ],
+      "availability": "in_stock",
+      "sizes": [
+        "XSmal",
+        "Small",
+        "Medium",
+        "Large",
+        "XLarge"
+      ],
+      "merchantId": "pearsonsmedievalshoppe-com",
+      "tagSlugs": [],
+      "description": "Select Purple. Twill tunic with very full sleeves, slim body, front buttons and sleeve buttons. Only XSmal–XLarge cost USD92; 2XLarge–4XLarge cost USD97 and are excluded. These purple variants are available in the live feed; dispatch timing is not confirmed. Strong courtly silhouette, but no velvet, sage diamond panels or pointed bell hem. DIY required: cut and sew diamonds from the separately listed sage/green felt onto the body. This garment alone is not the finished patterned jester tunic.",
+      "checkedAt": "2026-10-25T08:59:41.481945Z",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-25T08:59:41.481945Z",
+        "url": "https://pearsonsmedievalshoppe.com/products/lords-medieval-tunic.js",
+        "notes": "Select Purple. Twill tunic with very full sleeves, slim body, front buttons and sleeve buttons. Only XSmal–XLarge cost USD92; 2XLarge–4XLarge cost USD97 and are excluded. These purple variants are available in the live feed; dispatch timing is not confirmed. Strong courtly silhouette, but no velvet, sage diamond panels or pointed bell hem. DIY required: cut and sew diamonds from the separately listed sage/green felt onto the body. This garment alone is not the finished patterned jester tunic."
+      }
+    },
+    {
+      "id": "p-a0c1a6fdd2",
+      "title": "80’s Slinky Purple Long Sleeve Velvet Tunic by Nina Piccalino",
+      "url": "https://shopthrilling.com/products/80-s-slinky-purple-long-sleeve-velvet-tunic-by-nina-piccalino?variant=41331792576665",
+      "priceCents": 9000,
+      "currency": "USD",
+      "image": "/products/price-tiers/p-a0c1a6fdd2.webp",
+      "merchantImage": "/products/price-tiers/p-a0c1a6fdd2.webp",
+      "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/0118/0132/9723/products/product-image__JPge8c__CCmwni.png?v=1633912487"
+      ],
+      "availability": "in_stock",
+      "sizes": [
+        "large"
+      ],
+      "merchantId": "shopthrilling-com",
+      "tagSlugs": [],
+      "description": "One vintage Nina Piccalino tunic, listed large; original tag says size 10. Deep purple 90% polyester/10% spandex velvet, satin trim, faux covered front buttons, fitted long sleeves and side slits. Length 30 inches; bust flat 19 inches. Available in live feed. Seller states dispatch within 1–3 business days. No sage diamonds, puff sleeves or bell hem. DIY required: cut and sew diamonds from the separately listed sage/green felt onto the body. This garment alone is not the finished patterned jester tunic.",
+      "checkedAt": "2026-10-25T08:59:41.481945Z",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-25T08:59:41.481945Z",
+        "url": "https://shopthrilling.com/products/80-s-slinky-purple-long-sleeve-velvet-tunic-by-nina-piccalino.js",
+        "notes": "One vintage Nina Piccalino tunic, listed large; original tag says size 10. Deep purple 90% polyester/10% spandex velvet, satin trim, faux covered front buttons, fitted long sleeves and side slits. Length 30 inches; bust flat 19 inches. Available in live feed. Seller states dispatch within 1–3 business days. No sage diamonds, puff sleeves or bell hem. DIY required: cut and sew diamonds from the separately listed sage/green felt onto the body. This garment alone is not the finished patterned jester tunic."
+      }
+    },
+    {
+      "id": "p-385addbedb",
+      "title": "Ivory/Cream Collar/Cuffs Ruff - Costume Clown accessory",
+      "url": "https://www.etsy.com/listing/1671013171/collarcuffs-ivorycream-ruffle-costume",
+      "priceCents": 4800,
+      "currency": "USD",
+      "image": "/products/price-tiers/p-385addbedb.webp",
+      "merchantImage": "/products/price-tiers/p-385addbedb.webp",
+      "sourceImages": [
+        "https://i.etsystatic.com/12209900/r/il/3fb890/5729023430/il_794xN.5729023430_10d3.jpg"
+      ],
+      "availability": "in_stock",
+      "sizes": [
+        "One size fits all"
+      ],
+      "merchantId": "etsy-cindysbrokenneedle-on-etsy",
+      "tagSlugs": [],
+      "description": "Cream/off-white cotton ruff and cuffs, adjustable ties, cream overlocked edges. Collar depth 9 inches; cuffs 5 inches. Live listing states 3 left. Made in the USA and ships from Iowa. Gathered full ruffles rather than the reference crisp pleated lace-edged ruff.",
+      "checkedAt": "2026-10-25T08:59:41.481945Z",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-25T08:59:41.481945Z",
+        "url": "https://www.etsy.com/listing/1671013171/collarcuffs-ivorycream-ruffle-costume",
+        "notes": "Cream/off-white cotton ruff and cuffs, adjustable ties, cream overlocked edges. Collar depth 9 inches; cuffs 5 inches. Live listing states 3 left. Made in the USA and ships from Iowa. Gathered full ruffles rather than the reference crisp pleated lace-edged ruff."
+      }
+    },
+    {
+      "id": "p-34c9646f2d",
+      "title": "White Clown Neck Collar IT cosplay Costume Three layer neck ruff Ribbon tie on ruffle bib shrug stripes jester halloween costume",
+      "url": "https://www.etsy.com/listing/596449734/white-clown-neck-collar-it-cosplay",
+      "priceCents": 5500,
+      "currency": "USD",
+      "image": "/products/price-tiers/p-34c9646f2d.webp",
+      "merchantImage": "/products/price-tiers/p-34c9646f2d.webp",
+      "sourceImages": [
+        "https://i.etsystatic.com/5799614/r/il/8deeaf/1488216776/il_794xN.1488216776_stni.jpg"
+      ],
+      "availability": "unknown",
+      "sizes": [
+        "One size fits most"
+      ],
+      "merchantId": "etsy-sistersenchanted-on-etsy",
+      "tagSlugs": [],
+      "description": "Collar only. White cotton top/bottom layers; pink and purple satin middle layer with teal ribbon. Ribbon ties; longest depth 10 inches. Live listing accepts orders and states 3 left, but explicitly made to order; allow 5–8 days to make before dispatch. White and colored trim differ from the cream reference.",
+      "checkedAt": "2026-10-25T08:59:41.481945Z",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-25T08:59:41.481945Z",
+        "url": "https://www.etsy.com/listing/596449734/white-clown-neck-collar-it-cosplay",
+        "notes": "Collar only. White cotton top/bottom layers; pink and purple satin middle layer with teal ribbon. Ribbon ties; longest depth 10 inches. Live listing accepts orders and states 3 left, but explicitly made to order; allow 5–8 days to make before dispatch. White and colored trim differ from the cream reference."
+      }
+    },
+    {
+      "id": "p-8950bc281a",
+      "title": "Ruff Neck Collar | Tulle Mesh | Victorian & Clown",
+      "url": "https://www.stagewearshop.com/products/ruff-neck-collar-tulle-mesh-victorian-clown?variant=51171457237239",
+      "priceCents": 5999,
+      "currency": "USD",
+      "image": "/products/price-tiers/p-8950bc281a.webp",
+      "merchantImage": "/products/price-tiers/p-8950bc281a.webp",
+      "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/0925/2959/0519/files/S905adade82384b14aa89d1e9a060e55eD.webp?v=1789616369"
+      ],
+      "availability": "in_stock",
+      "sizes": [
+        "Fits adults"
+      ],
+      "merchantId": "stagewearshop-com",
+      "tagSlugs": [],
+      "description": "Select white. One polyester tulle mesh ruff collar with back fastening; no cuffs. Live white variant available. Large airy puff rather than cream pleated cotton. Merchant states 5–10 business days processing and tracked worldwide shipping; delivery timing is not promised.",
+      "checkedAt": "2026-10-25T08:59:41.481945Z",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-25T08:59:41.481945Z",
+        "url": "https://www.stagewearshop.com/products/ruff-neck-collar-tulle-mesh-victorian-clown.js",
+        "notes": "Select white. One polyester tulle mesh ruff collar with back fastening; no cuffs. Live white variant available. Large airy puff rather than cream pleated cotton. Merchant states 5–10 business days processing and tracked worldwide shipping; delivery timing is not promised."
+      }
+    },
+    {
+      "id": "p-c8061d241c",
+      "title": "Burgundy Velvet Leggings",
+      "url": "https://fashionpaintboutique.com/products/burgundy-velvet-leggings?variant=32086278471722",
+      "priceCents": 4700,
+      "currency": "USD",
+      "image": "/products/price-tiers/p-c8061d241c.webp",
+      "merchantImage": "/products/price-tiers/p-c8061d241c.webp",
+      "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/0031/9275/0180/products/image_8a5efe79-952f-4be9-b4f6-dd611c1f160d.jpg?v=1603138834"
+      ],
+      "availability": "in_stock",
+      "sizes": [
+        "S(2-4)",
+        "M(6)",
+        "L(8-10)",
+        "XL(12)"
+      ],
+      "merchantId": "fashionpaintboutique-com",
+      "tagSlugs": [],
+      "description": "Burgundy stretch velvet leggings with elastic waist and semi-cropped length. All four listed sizes available in the live merchant feed. Wine/burgundy rather than plum, shorter than full trousers, and no gold piping. Boots can cover the cropped hem.",
+      "checkedAt": "2026-10-25T08:59:41.481945Z",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-25T08:59:41.481945Z",
+        "url": "https://fashionpaintboutique.com/products/burgundy-velvet-leggings.js",
+        "notes": "Burgundy stretch velvet leggings with elastic waist and semi-cropped length. All four listed sizes available in the live merchant feed. Wine/burgundy rather than plum, shorter than full trousers, and no gold piping. Boots can cover the cropped hem."
+      }
+    },
+    {
+      "id": "p-4996c0f103",
+      "title": "Velvet Leggings - Rich Burgundy",
+      "url": "https://www.shopkarismaboutiqueaberdeen.com/products/velvet-leggings-rich-burgundy?variant=42062020247772",
+      "priceCents": 4900,
+      "currency": "USD",
+      "image": "/products/price-tiers/p-4996c0f103.webp",
+      "merchantImage": "/products/price-tiers/p-4996c0f103.webp",
+      "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/0649/7667/products/DSC_0216.jpg?v=1637717062"
+      ],
+      "availability": "in_stock",
+      "sizes": [
+        "XS"
+      ],
+      "merchantId": "shopkarismaboutiqueaberdeen-com",
+      "tagSlugs": [],
+      "description": "Spanx Rich Burgundy velvet leggings. Only XS is available at USD49 in the live feed; S, M, L, XL and 1X are sold out and excluded. Burgundy rather than plum; no gold side trim. Boutique is in Aberdeen, South Dakota.",
+      "checkedAt": "2026-10-25T08:59:41.481945Z",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-25T08:59:41.481945Z",
+        "url": "https://www.shopkarismaboutiqueaberdeen.com/products/velvet-leggings-rich-burgundy.js",
+        "notes": "Spanx Rich Burgundy velvet leggings. Only XS is available at USD49 in the live feed; S, M, L, XL and 1X are sold out and excluded. Burgundy rather than plum; no gold side trim. Boutique is in Aberdeen, South Dakota."
+      }
+    },
+    {
+      "id": "p-1414e3a171",
+      "title": "High Waist Velvet Leggings – Adele",
+      "url": "https://dragonflybrand.com/en-us/products/high-waisted-velvet-leggings-adele?variant=44043296538846",
+      "priceCents": 8100,
+      "currency": "USD",
+      "image": "/products/price-tiers/p-1414e3a171.webp",
+      "merchantImage": "/products/price-tiers/p-1414e3a171.webp",
+      "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/0531/6309/8266/files/Velvet-leggings-Adele-Color-purple-velvet.jpg?v=1782115996"
+      ],
+      "availability": "in_stock",
+      "sizes": [
+        "XS",
+        "S",
+        "M",
+        "L",
+        "XL"
+      ],
+      "merchantId": "dragonflybrand-com",
+      "tagSlugs": [],
+      "description": "Select purple velvet. High-waisted fitted velvet leggings; all XS–XL purple variants available at USD81 in the US storefront feed. Purple is brighter than the reference plum. No gold side piping. Use merchant measurements; no size conversion is assumed.",
+      "checkedAt": "2026-10-25T08:59:41.481945Z",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-25T08:59:41.481945Z",
+        "url": "https://dragonflybrand.com/en-us/products/high-waisted-velvet-leggings-adele.js",
+        "notes": "Select purple velvet. High-waisted fitted velvet leggings; all XS–XL purple variants available at USD81 in the US storefront feed. Purple is brighter than the reference plum. No gold side piping. Use merchant measurements; no size conversion is assumed."
+      }
+    },
+    {
+      "id": "p-1270d65f15",
+      "title": "Black Medieval Curled Toe Boots Handmade Leather Jester Shoes Renaissance Elven LARP Footwear",
+      "url": "https://www.etsy.com/listing/4477974922/black-medieval-curled-toe-boots-handmade?variation0=6569381647&variation1=6439936045",
+      "priceCents": 5330,
+      "currency": "USD",
+      "image": "/products/price-tiers/p-1270d65f15.webp",
+      "merchantImage": "/products/price-tiers/p-1270d65f15.webp",
+      "sourceImages": [
+        "https://i.etsystatic.com/60656953/r/il/4e6506/7844717962/il_794xN.7844717962_8thg.jpg"
+      ],
+      "availability": "in_stock",
+      "sizes": [
+        "6 US men's"
+      ],
+      "merchantId": "etsy-bootstation-on-etsy",
+      "tagSlugs": [],
+      "description": "Selected Black / 6 US men’s, confirmed USD53.30 with quantity and enabled purchase form. Other sizes cost more and are excluded. Merchant describes leather uppers, rubber sole, 8.66-inch height and 13-inch calf circumference. Ships from India; production/dispatch timing is not confirmed. Built-in curled toes; no sage cuffs or bells.",
+      "checkedAt": "2026-10-25T08:59:41.481945Z",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-25T08:59:41.481945Z",
+        "url": "https://www.etsy.com/listing/4477974922/black-medieval-curled-toe-boots-handmade?variation0=6569381647&variation1=6439936045",
+        "notes": "Selected Black / 6 US men’s, confirmed USD53.30 with quantity and enabled purchase form. Other sizes cost more and are excluded. Merchant describes leather uppers, rubber sole, 8.66-inch height and 13-inch calf circumference. Ships from India; production/dispatch timing is not confirmed. Built-in curled toes; no sage cuffs or bells."
+      }
+    },
+    {
+      "id": "p-b522c858a5",
+      "title": "Mens Jester Shoes",
+      "url": "https://www.medievalcollectibles.com/product/mens-jester-shoes/?attribute_pa_color=black-and-red&attribute_pa_shoe-size=large-mens-12-13",
+      "priceCents": 7600,
+      "currency": "USD",
+      "image": "/products/price-tiers/p-b522c858a5.webp",
+      "merchantImage": "/products/price-tiers/p-b522c858a5.webp",
+      "sourceImages": [
+        "https://www.medievalcollectibles.com/wp-content/uploads/2025/02/FW1182-1.jpg"
+      ],
+      "availability": "in_stock",
+      "sizes": [
+        "Large (Mens 12-13)"
+      ],
+      "merchantId": "medievalcollectibles-com",
+      "tagSlugs": [],
+      "description": "Black/red microfiber jester ankle shoes with folded cuffs, flat soles and dramatically curled toes; sold as a pair. Selected Large (Mens 12-13) showed 4 in stock in the live purchase form. Small, Medium and X-Large showed out of stock with estimated restock, and are excluded. Black/red quartering differs from dark plum/brown; no removable covers.",
+      "checkedAt": "2026-10-25T08:59:41.481945Z",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-25T08:59:41.481945Z",
+        "url": "https://www.medievalcollectibles.com/product/mens-jester-shoes/?attribute_pa_color=black-and-red&attribute_pa_shoe-size=large-mens-12-13",
+        "notes": "Black/red microfiber jester ankle shoes with folded cuffs, flat soles and dramatically curled toes; sold as a pair. Selected Large (Mens 12-13) showed 4 in stock in the live purchase form. Small, Medium and X-Large showed out of stock with estimated restock, and are excluded. Black/red quartering differs from dark plum/brown; no removable covers."
+      }
+    },
+    {
+      "id": "p-1d94cf4517",
+      "title": "Medieval Jester Style Boots - Pointed Toe Leather Viking Boot, Sca Larp, Pirate Shoe, Renaissance Costume Footwear",
+      "url": "https://armorshopusa.com/medieval-leather-boots/65-247-medieval-jester-style-boots-pointed-toe-leather-viking-boot-sca-larp-pirate-shoe-renaissance-costume-footwear.html",
+      "priceCents": 8195,
+      "currency": "USD",
+      "image": "/products/price-tiers/p-1d94cf4517.webp",
+      "merchantImage": "/products/price-tiers/p-1d94cf4517.webp",
+      "sourceImages": [
+        "https://armorshopusa.com/382-large_default/medieval-jester-style-boots-pointed-toe-leather-viking-boot-sca-larp-pirate-shoe-renaissance-costume-footwear.jpg"
+      ],
+      "availability": "in_stock",
+      "sizes": [
+        "UK Size 6"
+      ],
+      "merchantId": "armorshopusa-com",
+      "tagSlugs": [],
+      "description": "Selected Black / UK Size 6. Live primary product data reports 6 units, available, USD81.95, and no out-of-stock ordering. Leather upper, rubber sole, curly toe and back closure. Approximately 14 inches high, taller than the ankle reference. No sage cuff or bells; curled shape is integral. Merchant quotes 8–10 business days delivery, not a guarantee.",
+      "checkedAt": "2026-10-25T08:59:41.481945Z",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-25T08:59:41.481945Z",
+        "url": "https://armorshopusa.com/medieval-leather-boots/65-247-medieval-jester-style-boots-pointed-toe-leather-viking-boot-sca-larp-pirate-shoe-renaissance-costume-footwear.html",
+        "notes": "Selected Black / UK Size 6. Live primary product data reports 6 units, available, USD81.95, and no out-of-stock ordering. Leather upper, rubber sole, curly toe and back closure. Approximately 14 inches high, taller than the ankle reference. No sage cuff or bells; curled shape is integral. Merchant quotes 8–10 business days delivery, not a guarantee."
+      }
+    },
+    {
+      "id": "p-5168383708",
+      "title": "Sage Wool Blend Felt",
+      "url": "https://www.benziedesign.com/products/sage-wool-blend-felt?variant=1330487300",
+      "priceCents": 600,
+      "currency": "USD",
+      "image": "/products/price-tiers/p-5168383708.webp",
+      "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/0791/1095/products/IMG_8887_-_Version_2.JPG?v=1455580591"
+      ],
+      "availability": "in_stock",
+      "sizes": [
+        "1/2 yard"
+      ],
+      "merchantId": "benziedesign-com",
+      "tagSlugs": [],
+      "description": "Selected Sage / 1/2 yard, USD6 and available in the live feed. Price buys approximately 18 × 36 inches of sage wool/rayon felt, about 1 mm thick. Closest muted green to the reference; felt has a matte surface rather than velvet. Cut and sew diamonds yourself. Lay out the pattern before buying; larger garments or dense coverage may need more than one cut. Ordinary scissors, needle and thread are not included. No fixed dispatch time is verified.",
+      "checkedAt": "2026-10-25T08:59:41.481945Z",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-25T08:59:41.481945Z",
+        "url": "https://www.benziedesign.com/products/sage-wool-blend-felt.js",
+        "notes": "Selected Sage / 1/2 yard, USD6 and available in the live feed. Price buys approximately 18 × 36 inches of sage wool/rayon felt, about 1 mm thick. Closest muted green to the reference; felt has a matte surface rather than velvet. Cut and sew diamonds yourself. Lay out the pattern before buying; larger garments or dense coverage may need more than one cut. Ordinary scissors, needle and thread are not included. No fixed dispatch time is verified."
+      },
+      "merchantImage": "/products/price-tiers/p-5168383708.webp"
+    },
+    {
+      "id": "p-ee914940b0",
+      "title": "Olive Acrylic Felt Fabric / 1.6mm Thick _ 72” Wide",
+      "url": "https://icefabrics.com/products/acrylic-olive-felt-fabric-1-6mm-thick-72-wide?variant=43183312142558",
+      "priceCents": 1099,
+      "currency": "USD",
+      "image": "/products/price-tiers/p-ee914940b0.webp",
+      "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/0037/6802/5152/files/Olive_Acrylic_Felt_Fabric_10015_77cc0842-fa60-4e96-bbe9-0fa2c024f133.webp?v=1780834998"
+      ],
+      "availability": "in_stock",
+      "sizes": [
+        "By The Yard"
+      ],
+      "merchantId": "icefabrics-com",
+      "tagSlugs": [],
+      "description": "Selected Olive / By The Yard, USD10.99 and available in the live feed. One yard is 36 × 72 inches, 100% acrylic felt, 1.6 mm thick, 300 gsm. Olive is more yellow and saturated than the reference sage. Raw fabric only; cut and sew diamonds onto the purple base. Amount needed depends on garment size and diamond spacing. Tools and thread are not included. Merchant advertises same-day shipping before 1 PM PT; this is not an arrival guarantee.",
+      "checkedAt": "2026-10-25T08:59:41.481945Z",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-25T08:59:41.481945Z",
+        "url": "https://icefabrics.com/products/acrylic-olive-felt-fabric-1-6mm-thick-72-wide.js",
+        "notes": "Selected Olive / By The Yard, USD10.99 and available in the live feed. One yard is 36 × 72 inches, 100% acrylic felt, 1.6 mm thick, 300 gsm. Olive is more yellow and saturated than the reference sage. Raw fabric only; cut and sew diamonds onto the purple base. Amount needed depends on garment size and diamond spacing. Tools and thread are not included. Merchant advertises same-day shipping before 1 PM PT; this is not an arrival guarantee."
+      },
+      "merchantImage": "/products/price-tiers/p-ee914940b0.webp"
+    },
+    {
+      "id": "p-633c337525",
+      "title": "Green Acrylic Felt",
+      "url": "https://britexfabrics.com/products/green-acrylic-felt?variant=47850997350720",
+      "priceCents": 1299,
+      "currency": "USD",
+      "image": "/products/price-tiers/p-633c337525.webp",
+      "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/0754/1260/3200/files/IMG_1285.jpg?v=1707515037"
+      ],
+      "availability": "in_stock",
+      "sizes": [],
+      "merchantId": "britexfabrics-com",
+      "tagSlugs": [],
+      "description": "Select the full fabric option, not the USD3 Swatch. Price is USD12.99 per yard of 72-inch-wide, 5-ounce, 100% acrylic felt. Full-fabric variant is available in the live feed. This dark green is deeper than the reference sage. Cut and sew diamonds yourself; fabric is not velvet and no finished garment is included. Measure and lay out the pattern before choosing yardage. Tools and thread are not included. No fixed dispatch time is verified.",
+      "checkedAt": "2026-10-25T08:59:41.481945Z",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-25T08:59:41.481945Z",
+        "url": "https://britexfabrics.com/products/green-acrylic-felt.js",
+        "notes": "Select the full fabric option, not the USD3 Swatch. Price is USD12.99 per yard of 72-inch-wide, 5-ounce, 100% acrylic felt. Full-fabric variant is available in the live feed. This dark green is deeper than the reference sage. Cut and sew diamonds yourself; fabric is not velvet and no finished garment is included. Measure and lay out the pattern before choosing yardage. Tools and thread are not included. No fixed dispatch time is verified."
+      },
+      "merchantImage": "/products/price-tiers/p-633c337525.webp"
+    }
+  ],
+  "merchants": [
+    {
+      "id": "imaginationcreationsinc-com",
+      "name": "Imagination Creations",
+      "domain": "imaginationcreationsinc.com",
+      "url": "https://imaginationcreationsinc.com/",
+      "kind": "boutique",
+      "neighborhoodId": null
+    },
+    {
+      "id": "etsy-mountaingoth-on-etsy",
+      "name": "MountainGoth on Etsy",
+      "domain": "etsy.com",
+      "url": "https://www.etsy.com/listing/706978896/jester-hat-new-orleans-three-point-fools",
+      "kind": "etsy",
+      "neighborhoodId": null
+    },
+    {
+      "id": "talltoad-net",
+      "name": "Tall Toad",
+      "domain": "talltoad.net",
+      "url": "https://talltoad.net/",
+      "kind": "boutique",
+      "neighborhoodId": null
+    },
+    {
+      "id": "thelittlebazaar-com",
+      "name": "The Little Bazaar",
+      "domain": "thelittlebazaar.com",
+      "url": "https://thelittlebazaar.com/",
+      "kind": "boutique",
+      "neighborhoodId": null
+    },
+    {
+      "id": "shopthrilling-com",
+      "name": "Shop THRILLING / Gypsy Trading Post",
+      "domain": "shopthrilling.com",
+      "url": "https://shopthrilling.com/",
+      "kind": "boutique",
+      "neighborhoodId": null
+    },
+    {
+      "id": "pearsonsmedievalshoppe-com",
+      "name": "Pearson's Medieval Shoppe",
+      "domain": "pearsonsmedievalshoppe.com",
+      "url": "https://pearsonsmedievalshoppe.com/",
+      "kind": "boutique",
+      "neighborhoodId": null
+    },
+    {
+      "id": "etsy-cindysbrokenneedle-on-etsy",
+      "name": "CindysBrokenNeedle on Etsy",
+      "domain": "etsy.com",
+      "url": "https://www.etsy.com/listing/1671013171/collarcuffs-ivorycream-ruffle-costume",
+      "kind": "etsy",
+      "neighborhoodId": null
+    },
+    {
+      "id": "etsy-sistersenchanted-on-etsy",
+      "name": "SistersEnchanted on Etsy",
+      "domain": "etsy.com",
+      "url": "https://www.etsy.com/listing/596449734/white-clown-neck-collar-it-cosplay",
+      "kind": "etsy",
+      "neighborhoodId": null
+    },
+    {
+      "id": "stagewearshop-com",
+      "name": "Stage Wear Shop",
+      "domain": "stagewearshop.com",
+      "url": "https://stagewearshop.com/",
+      "kind": "boutique",
+      "neighborhoodId": null
+    },
+    {
+      "id": "fashionpaintboutique-com",
+      "name": "Fashion Paint Boutique",
+      "domain": "fashionpaintboutique.com",
+      "url": "https://fashionpaintboutique.com/",
+      "kind": "boutique",
+      "neighborhoodId": null
+    },
+    {
+      "id": "shopkarismaboutiqueaberdeen-com",
+      "name": "Karisma Boutique",
+      "domain": "shopkarismaboutiqueaberdeen.com",
+      "url": "https://shopkarismaboutiqueaberdeen.com/",
+      "kind": "boutique",
+      "neighborhoodId": null
+    },
+    {
+      "id": "dragonflybrand-com",
+      "name": "Dragonfly",
+      "domain": "dragonflybrand.com",
+      "url": "https://dragonflybrand.com/",
+      "kind": "boutique",
+      "neighborhoodId": null
+    },
+    {
+      "id": "etsy-bootstation-on-etsy",
+      "name": "BootStation on Etsy",
+      "domain": "etsy.com",
+      "url": "https://www.etsy.com/listing/4477974922/black-medieval-curled-toe-boots-handmade?variation0=6569381647&variation1=6439936045",
+      "kind": "etsy",
+      "neighborhoodId": null
+    },
+    {
+      "id": "medievalcollectibles-com",
+      "name": "Medieval Collectibles",
+      "domain": "medievalcollectibles.com",
+      "url": "https://medievalcollectibles.com/",
+      "kind": "boutique",
+      "neighborhoodId": null
+    },
+    {
+      "id": "armorshopusa-com",
+      "name": "ArmorShopUSA",
+      "domain": "armorshopusa.com",
+      "url": "https://armorshopusa.com/",
+      "kind": "boutique",
+      "neighborhoodId": null
+    },
+    {
+      "id": "benziedesign-com",
+      "name": "Benzie Design",
+      "domain": "benziedesign.com",
+      "url": "https://benziedesign.com/",
+      "kind": "boutique",
+      "neighborhoodId": null
+    },
+    {
+      "id": "icefabrics-com",
+      "name": "Ice Fabrics",
+      "domain": "icefabrics.com",
+      "url": "https://icefabrics.com/",
+      "kind": "boutique",
+      "neighborhoodId": null
+    },
+    {
+      "id": "britexfabrics-com",
+      "name": "Britex Fabrics",
+      "domain": "britexfabrics.com",
+      "url": "https://britexfabrics.com/",
+      "kind": "boutique",
+      "neighborhoodId": null
+    }
+  ],
+  "neighborhoods": [],
+  "tags": [],
+  "provenance": {
+    "method": "manual-research",
+    "generatedAt": "2026-10-25T08:59:41.481945Z",
+    "notes": "Built-in web search and direct official merchant evidence. Three distinct relative price points per piece: $, $$, $$$. Prices exclude shipping/tax; stock is variant-specific and delivery is unconfirmed. See docs/sourcing/price-tiers/enchanted-jester.json.",
+    "priceTiers": true,
+    "heroImageKind": "generated-reference"
+  }
+}

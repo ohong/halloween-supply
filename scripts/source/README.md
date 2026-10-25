@@ -1,51 +1,62 @@
-# Precomputed catalog sourcing
+# Catalog sourcing and publication
 
-Saved catalogs contain merchant products, checked USD prices, and variant sizes.
-Firecrawl `/search` discovers pages; `/scrape` returns raw HTML with JSON-LD intact.
-The curated list supplies additional reviewed merchant URLs. Shopify's public
-variant endpoint confirms exact sizes, stock, and colors. Claude ranks verified
-candidates through the direct Anthropic API. No product facts are invented.
+All 25 costumes have complete catalogs. Every purchasable component has three
+relative price options. Components include garments, confirmed bundles, and
+explicit DIY supplies. The full catalog research uses built-in web search and
+primary merchant pages or public variant feeds. No Firecrawl was used for that
+research. Evidence, selected sizes, lead times, and style compromises are under
+`docs/sourcing/price-tiers/`.
+
+```sh
+bun scripts/source/import-price-tier-research.ts /path/to/reviewed-research
+bun scripts/source/cache-price-tier-images.ts /path/to/reviewed-research
+bun --env-file=.env.local scripts/seed.ts --all
+```
+
+The importer accepts one reviewed JSON file per editorial costume. New component
+metadata supplies its name, category, size kind, order, required flag, queries,
+and styling notes. Every component needs three distinct USD prices and at least
+one confirmed in-stock choice. Exact-price size variants remain separate. Known
+placeholder selectors are excluded. A bundle is one charged component; the same
+product cannot be charged under two different components in one costume.
+
+The image step caches actual merchant photographs as WebP and keeps the original
+source URLs and image hashes. It never invents substitute products. The generated
+costume inspiration remains the first carousel slide. New catalogs explicitly
+mark it as a generated reference; all their products need reviewed merchant photos.
+Existing product flat-lays and cutouts retain their stricter validation path.
+
+Deploy reviewed assets before seeding the shared database. Publication validates
+that local images decode, have visible content and sufficient dimensions, and
+match the exact bytes served at `https://halloween.supply`. `CATALOG_PUBLIC_ORIGIN`
+can select another deployment for another database. Per-costume database writes
+are atomic. Incomplete drafts stay outside the bundled catalog.
+
+```sh
+bun --env-file=.env.local scripts/verify-full-catalog.ts https://halloween.supply
+bun --env-file=.env.local scripts/catalog-check.ts
+bun scripts/verify-publication.ts
+```
+
+The full verifier checks every gallery look, rendered component and merchant
+link, three price controls, real image hashes, health coverage, bundled fallback,
+and Turso parity. It makes no purchase or model request. The publication verifier
+also exercises failure paths using temporary files.
+
+The older automatic sourcing workflow remains available for its authored specs:
 
 ```sh
 bun --env-file=.env.local scripts/source/index.ts cosmic-cowboy --skip-images
 bun --env-file=.env.local scripts/source/images-only.ts cosmic-cowboy
-bun --env-file=.env.local scripts/seed.ts --all
 ```
 
-All five costume slugs are supported. Each has five pieces and three options per
-piece. `--only=cowboy-hat` refreshes one piece; `--dry-run` skips catalog writes.
-Completed pieces are saved locally during sourcing. `--allow-partial` keeps an
-incomplete draft without a failing exit status; it never publishes that draft.
-A complete catalog is then published to Turso in one atomic write.
+That workflow uses Firecrawl discovery and raw-page extraction, direct Anthropic
+ranking, and public merchant feeds. Its cutout processing uses pinned rembg through
+`uvx`. It keeps checkpoints under ignored `data/cache/source-checkpoints`; these
+never replace a complete catalog. `--dry-run` skips writes and `--allow-partial`
+keeps an incomplete draft without publishing it.
 
-Sourcing checkpoints live in ignored `data/cache/source-checkpoints`, never in
-the bundled fallback catalogs. Publishing a local snapshot or writing a complete
-catalog to Turso requires every product's normalized local JPEG and transparent
-PNG, plus the complete costume flat-lay. Missing, corrupt, opaque or empty cutouts
-stop publication before either catalog write. Database publication also checks
-that the public images match the reviewed local bytes at `https://halloween.supply`.
-`CATALOG_PUBLIC_ORIGIN` can select a different deployment for another database.
-Deploy the asset files before seeding the shared production database.
-An image-processing failure leaves the prior catalog published.
-`--skip-images` requires existing complete assets and still rebuilds the flat-lay.
-
-Run `bun scripts/verify-publication.ts` to check all five real catalogs and exercise
-failed publication paths in a temporary directory without database access.
-
-Raw responses stay in ignored `data/cache`. Merchant pages expire after 15 minutes;
-search results expire after one day. Checkout bypasses both the local cache and
-Firecrawl's cache (`maxAge: 0`). Public merchant variant feeds remain the first
-choice when they provide exact price and stock without scraping.
-
-Image processing uses pinned rembg 2.0.86 through `uvx` with U2Net. It publishes a uniform grey JPEG and a transparent PNG per product. Published cutouts are bounded to 1000×1250 and survive a fresh checkout. The first carousel slide arranges the selected cutouts and changes when a shopper swaps an item; the following product slides use those same clean cutouts on grey. Original merchant sources remain in the catalog for provenance. A separate static five-piece flat-lay supports fallback rendering and asset verification. A costume image changes only after every default cutout exists.
-
-Prefer complete product-only gallery photos. Background removal alone can retain a model or mannequin. Reviewed source choices, masks, and product-preserving edits remove those remnants. Never recolor a product to match the brief or reconstruct a different product. Use `--force --defaults` with the images-only command to regenerate the five default images. Review every regenerated silhouette before publishing it.
-
-Do not upsert a new product image path into a live costume before its assets are deployed. Prepare and verify the snapshot locally, deploy the assets, then seed the updated database. This avoids broken images during a release.
-
-Local merchant address evidence is recorded in `curated.ts` and came from these official pages:
-
-- [Wilder West product and Pier 39 storefront address](https://wilderwest.com/products/stetson-john-wayne-peacemaker-4x-wool-cowboy-hat).
-- [Standard & Strange West Berkeley storefront](https://standardandstrange.com/pages/visit-us).
-
-The static snapshot is a verified fallback for a database outage. Checkout always rechecks the selected merchant variant without this cache. Availability remains size-specific: for example, the discounted silver Cindy Jane boots currently have only size 5.5 in stock. The assistant must respect the saved size list and suggest a swap when needed.
+Routine checkout and refresh verify merchant prices, selected sizes, stock and
+USD currency again. Refresh retains only sizes at the saved verified price.
+Unknown stock and delivery timing remain explicit. Research snapshots support
+browsing during database outages; they never establish a live merchant checkout.

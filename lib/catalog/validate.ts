@@ -61,6 +61,7 @@ const schema = z.object({
     generatedAt: z.iso.datetime({ offset: true }),
     notes: z.string().optional(),
     priceTiers: z.boolean().optional(),
+    heroImageKind: z.literal("generated-reference").optional(),
   }),
 });
 

@@ -11,7 +11,7 @@ export class CatalogImageError extends Error {}
 
 export async function validatePublicationImages(snapshot: CostumeSnapshot): Promise<PublicationImage[]> {
   if (snapshot.costume.status !== "live") return [];
-  const assets: { file: string; transparent: boolean; merchant?: boolean }[] = [];
+  const assets: { file: string; transparent: boolean; merchant?: boolean; reference?: boolean }[] = [];
   const errors: string[] = [];
   for (const product of snapshot.products) {
     if (product.merchantImage) {
@@ -29,19 +29,27 @@ export async function validatePublicationImages(snapshot: CostumeSnapshot): Prom
     }
     assets.push({ file: tile, transparent: false }, { file: cutout, transparent: true });
   }
-  const flatlay = `/products/${snapshot.costume.slug}-flatlay.jpg`;
-  if (!/^[a-z0-9-]+$/.test(snapshot.costume.slug) || snapshot.costume.image !== flatlay) {
-    errors.push("the costume needs its complete local flat-lay");
-  } else assets.push({ file: flatlay, transparent: false });
+  if (snapshot.provenance.heroImageKind === "generated-reference") {
+    const reference = `/costumes/${snapshot.costume.slug}.png`;
+    if (!/^[a-z0-9-]+$/.test(snapshot.costume.slug) || snapshot.costume.image !== reference ||
+      !snapshot.provenance.priceTiers || !snapshot.products.every((product) => product.merchantImage)) {
+      errors.push("the generated costume reference needs complete reviewed merchant photos");
+    } else assets.push({ file: reference, transparent: false, reference: true });
+  } else {
+    const flatlay = `/products/${snapshot.costume.slug}-flatlay.jpg`;
+    if (!/^[a-z0-9-]+$/.test(snapshot.costume.slug) || snapshot.costume.image !== flatlay) {
+      errors.push("the costume needs its complete local flat-lay");
+    } else assets.push({ file: flatlay, transparent: false });
+  }
 
-  const checks = await mapLimit(assets, 4, async ({ file, transparent, merchant }) => {
+  const checks = await mapLimit(assets, 4, async ({ file, transparent, merchant, reference }) => {
     const bytes = await readFile(path.join(process.cwd(), "public", file));
     const image = sharp(bytes, { failOn: "warning" });
     const metadata = await image.metadata();
     const width = metadata.width ?? 0;
     const height = metadata.height ?? 0;
     if (Math.max(width, height) < (transparent ? 300 : merchant ? 400 : 500) || Math.min(width, height) < 50 ||
-      metadata.format !== (transparent ? "png" : merchant ? "webp" : "jpeg")) throw new Error("invalid image dimensions or format");
+      metadata.format !== (transparent || reference ? "png" : merchant ? "webp" : "jpeg")) throw new Error("invalid image dimensions or format");
     // Decode every image, rather than accepting a readable header with corrupt pixel data.
     const stats = await image.stats();
     if (transparent) {

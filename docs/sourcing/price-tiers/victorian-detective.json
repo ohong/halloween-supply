@@ -1,0 +1,493 @@
+{
+  "costumeSlug": "victorian-detective",
+  "checkedAt": "2026-10-25T08:55:10.229944Z",
+  "pieces": [
+    {
+      "pieceId": "victorian-detective-deerstalker",
+      "pieceName": "Brown deerstalker cap",
+      "category": "headwear",
+      "required": true,
+      "order": 0,
+      "sizeKind": "hat",
+      "styleNotes": "Use a brown dual-brim deerstalker with tied earflaps. Houndstooth is a close alternative to the pictured herringbone.",
+      "queries": [
+        "brown herringbone deerstalker detective cap"
+      ],
+      "options": [
+        {
+          "title": "Sherlock Deerstalker Cap",
+          "url": "https://wilowale.com/products/sherlock-deerstalker-cap?variant=48759272472733",
+          "priceCents": 4299,
+          "currency": "USD",
+          "merchantName": "Wilo Wale",
+          "merchantDomain": "wilowale.com",
+          "imageUrl": "https://cdn.shopify.com/s/files/1/0665/9378/3965/files/S30cf298bb5144dbbbf4cba556504b593R.webp?v=1786084083",
+          "sizes": [
+            "S 54-56cm",
+            "M 56-58cm",
+            "L 58-60cm",
+            "XS 52-54cm"
+          ],
+          "availability": "in_stock",
+          "evidenceUrl": "https://wilowale.com/products/sherlock-deerstalker-cap.js",
+          "notes": "Brown Herringbone cotton cap with dual brims and tied earflaps; cotton rather than wool tweed. Only cap included. Dispatch time was not confirmed.",
+          "tier": "$",
+          "localMerchantImage": "/products/price-tiers/p-adae4c0484.webp"
+        },
+        {
+          "title": "Sherlock Holmes Houndstooth Wool Blend Hat",
+          "url": "https://www.villagehatshop.com/products/sherlock-holmes-houndstooth-wool-blend-hat?variant=45418553442442",
+          "priceCents": 4995,
+          "currency": "USD",
+          "merchantName": "Village Hat Shop",
+          "merchantDomain": "villagehatshop.com",
+          "imageUrl": "https://cdn.shopify.com/s/files/1/0074/3732/0263/files/1YLCV18nqRmF9kD08ftJHjCTWKGWNCVi-24.jpg?v=1725144550",
+          "sizes": [
+            "S"
+          ],
+          "availability": "in_stock",
+          "evidenceUrl": "https://www.villagehatshop.com/products/sherlock-holmes-houndstooth-wool-blend-hat.js",
+          "notes": "Beige, tan and dark brown houndstooth cap; 40% wool, 30% rayon, 30% terylene. Satin lining and tie-up earflaps. Only S remains available; other sizes are sold out. Dispatch time was not confirmed.",
+          "tier": "$$",
+          "localMerchantImage": "/products/price-tiers/p-7d0102ede0.webp"
+        },
+        {
+          "title": "Classic Deerstalker Cap",
+          "url": "https://www.jjhatcenter.com/products/classic-deerstalker-cap?variant=45095336575091",
+          "priceCents": 17500,
+          "currency": "USD",
+          "merchantName": "JJ Hat Center",
+          "merchantDomain": "jjhatcenter.com",
+          "imageUrl": "https://cdn.shopify.com/s/files/1/0157/8796/files/70804_f11.jpg?v=1781369107",
+          "sizes": [
+            "7 1/4-7 3/8 (L)",
+            "7 1/2-7 5/8 (XL)"
+          ],
+          "availability": "in_stock",
+          "evidenceUrl": "https://www.jjhatcenter.com/products/classic-deerstalker-cap.js",
+          "notes": "Brown houndstooth cap in 100% virgin wool with cotton lining, bow and earflaps; made in Italy. Only L and XL remain available. Merchant normally processes in-stock orders within 1-2 business days.",
+          "tier": "$$$",
+          "localMerchantImage": "/products/price-tiers/p-b2805cb758.webp"
+        }
+      ],
+      "gaps": []
+    },
+    {
+      "pieceId": "victorian-detective-inverness-cape",
+      "pieceName": "Brown Inverness cape coat",
+      "category": "outerwear",
+      "required": true,
+      "order": 1,
+      "sizeKind": "apparel",
+      "styleNotes": "Keep the long coat and short shoulder cape. Brown tweed best matches the image; the vintage premium option has a tan cotton exterior.",
+      "queries": [
+        "brown tweed Inverness cape coat"
+      ],
+      "options": [
+        {
+          "title": "Brown Inverness Cape Coat – Sherlock Holmes Victorian Cloak",
+          "url": "https://zarbofficials.com/products/brown-inverness-cape-coat?variant=42346327539810",
+          "priceCents": 19701,
+          "currency": "USD",
+          "merchantName": "ZARB Officials",
+          "merchantDomain": "zarbofficials.com",
+          "imageUrl": "https://cdn.shopify.com/s/files/1/0604/1367/3570/files/brown-inverness-cape-coat-sherlock-holmes-victorian-cloak-zarb-bespoke-7487548.jpg?v=1787534829",
+          "sizes": [
+            "Custom Size",
+            "XS",
+            "S",
+            "M",
+            "L",
+            "XL",
+            "2XL",
+            "3XL",
+            "4XL"
+          ],
+          "availability": "unknown",
+          "evidenceUrl": "https://zarbofficials.com/products/brown-inverness-cape-coat.js",
+          "notes": "Brown wool-blend full-length coat with shoulder over-cape. Custom tailored upon order; submit chest, waist, hips, shoulders and height. Standard labels and Custom Size cost $197.01; Plus Size is more expensive and excluded. Production and dispatch times were not confirmed; available to order does not mean ready to ship.",
+          "tier": "$",
+          "localMerchantImage": "/products/price-tiers/p-06e47a9a80.webp"
+        },
+        {
+          "title": "Inverness Coat – Herringbone – Brown",
+          "url": "https://historicalemporium.com/products/inverness-coat-brown-herringbone?variant=51717662736678",
+          "priceCents": 22995,
+          "currency": "USD",
+          "merchantName": "Historical Emporium",
+          "merchantDomain": "historicalemporium.com",
+          "imageUrl": "https://cdn.shopify.com/s/files/1/0980/0974/3654/files/007151_01_bfc22ebd-1d06-4901-8835-69b196dd078d.jpg?v=1769539954",
+          "sizes": [
+            "S",
+            "M/L",
+            "3X/4X"
+          ],
+          "availability": "in_stock",
+          "evidenceUrl": "https://historicalemporium.com/products/inverness-coat-brown-herringbone.js",
+          "notes": "Brown herringbone coat with full sleeves and removable 28.5-inch over-cape; falls below the knees. 25% wool, 40% acrylic, 35% polyester. Generous cut for layering. XL/2X is sold out and excluded. Dispatch time was not confirmed.",
+          "tier": "$$",
+          "localMerchantImage": "/products/price-tiers/p-fe55964146.webp"
+        },
+        {
+          "title": "\"Holland & Holland Inverness Cape Made In Great Britain\" Sz M",
+          "url": "https://thecarycollection.com/products/holland-holland-inverness-cape-made-in-great-britain-sz-m?variant=44573693771974",
+          "priceCents": 120000,
+          "currency": "USD",
+          "merchantName": "The Cary Collection",
+          "merchantDomain": "thecarycollection.com",
+          "imageUrl": "https://cdn.shopify.com/s/files/1/0210/6626/files/DSC_0003_5911ea84-6602-44c6-a96e-68c535e5d6fd.jpg?v=1744828331",
+          "sizes": [
+            "M"
+          ],
+          "availability": "in_stock",
+          "evidenceUrl": "https://thecarycollection.com/products/holland-holland-inverness-cape-made-in-great-britain-sz-m.js",
+          "notes": "One vintage Holland & Holland cape coat, size M, listed VG. Detachable cape, horn buttons, polyurethane-coated cotton exterior and reversible 100% wool windowpane tweed lining. Plain tan exterior differs from the pictured brown herringbone. Body 51 inches; pit-to-pit 24 inches. One available; dispatch time unconfirmed.",
+          "tier": "$$$",
+          "localMerchantImage": "/products/price-tiers/p-9029f31e42.webp"
+        }
+      ],
+      "gaps": []
+    },
+    {
+      "pieceId": "victorian-detective-cream-shirt",
+      "pieceName": "Cream collared shirt",
+      "category": "tops",
+      "required": true,
+      "order": 2,
+      "sizeKind": "apparel",
+      "styleNotes": "Show an ivory pointed collar above the dark waistcoat. Use long sleeves; the period shirt has a wider double-row placket.",
+      "queries": [
+        "ivory long sleeve collared dress shirt"
+      ],
+      "options": [
+        {
+          "title": "Men's Dress Shirt (Ivory)",
+          "url": "https://omcformal.com/products/copy-of-white-mens-dress-shirt?variant=34998231007399",
+          "priceCents": 2999,
+          "currency": "USD",
+          "merchantName": "OMC Formal",
+          "merchantDomain": "omcformal.com",
+          "imageUrl": "https://cdn.shopify.com/s/files/1/0414/4581/8535/files/Shirt-Ivory.png?v=1685720342",
+          "sizes": [
+            "S (14-14.5 / 32-33)",
+            "M (15-15.5 / 34-35)",
+            "L (16-16.5 / 36-37)",
+            "XL (17-17.5 / 32-33)",
+            "XL (17-17.5 / 34-35)",
+            "XL (17-17.5 / 36-37)",
+            "2XL (18-18.5 / 34-35)",
+            "2XL (18-18.5 / 36-37)",
+            "3XL (19-19.5 / 36-37)"
+          ],
+          "availability": "in_stock",
+          "evidenceUrl": "https://omcformal.com/products/copy-of-white-mens-dress-shirt.js",
+          "notes": "Ivory long-sleeve button-front shirt in a poly-cotton blend, with French convertible cuffs. Shirt only. Exact neck/sleeve labels shown; sold-out variants excluded. Dispatch time was not confirmed.",
+          "tier": "$",
+          "localMerchantImage": "/products/price-tiers/p-ecb232b3b4.webp"
+        },
+        {
+          "title": "Reeves Shirt - Ivory",
+          "url": "https://historicalemporium.com/products/reeves-shirt-ivory?variant=52048304177446",
+          "priceCents": 6995,
+          "currency": "USD",
+          "merchantName": "Historical Emporium",
+          "merchantDomain": "historicalemporium.com",
+          "imageUrl": "https://cdn.shopify.com/s/files/1/0980/0974/3654/files/006021_01_daa87ed5-2134-4a22-a461-fc42e37012da.jpg?v=1769539749",
+          "sizes": [
+            "S",
+            "L",
+            "XL",
+            "2X",
+            "3X"
+          ],
+          "availability": "in_stock",
+          "evidenceUrl": "https://historicalemporium.com/products/reeves-shirt-ivory.js",
+          "notes": "Ivory 100% cotton shirt with point collar, generous gathers and a wide placket with two button rows. This is fuller and more ornate than the pictured plain shirt. M and 4X are unavailable and excluded. Dispatch time was not confirmed.",
+          "tier": "$$",
+          "localMerchantImage": "/products/price-tiers/p-205b09ce3c.webp"
+        },
+        {
+          "title": "Cream Cotton Oxford Cut Away Dress Shirt",
+          "url": "https://baltzar.com/en-us/products/off-white-cutaway-dress-shirt?Size=EU+40+%7C+UK%2FUS+15.75",
+          "priceCents": 26500,
+          "currency": "USD",
+          "merchantName": "Baltzar",
+          "merchantDomain": "baltzar.com",
+          "imageUrl": "https://cdn.shopify.com/s/files/1/0730/0929/9798/files/BaltzarSartorialCreamCottonOxfordCutAwayDressShirtFeature.png?v=1772438137",
+          "sizes": [
+            "EU 40 | UK/US 15.75"
+          ],
+          "availability": "in_stock",
+          "evidenceUrl": "https://baltzar.com/en-us/products/off-white-cutaway-dress-shirt?Size=EU+40+%7C+UK%2FUS+15.75",
+          "notes": "Cream-white 100% cotton Oxford shirt with cutaway collar, single cuffs and tailored regular fit. Collar is wider than the reference. Merchant structured offers confirm only EU 40 | UK/US 15.75 in stock; other sizes excluded. US orders ship with duties and tariffs included. Dispatch time was not confirmed.",
+          "tier": "$$$",
+          "localMerchantImage": "/products/price-tiers/p-f5308a536b.webp"
+        }
+      ],
+      "gaps": []
+    },
+    {
+      "pieceId": "victorian-detective-dark-waistcoat",
+      "pieceName": "Dark brown waistcoat",
+      "category": "tops",
+      "required": true,
+      "order": 3,
+      "sizeKind": "apparel",
+      "styleNotes": "Use a dark brown buttoned waistcoat, preferably with small lapels. It is a separate garment from the shirt.",
+      "queries": [
+        "dark brown Victorian waistcoat vest tweed"
+      ],
+      "options": [
+        {
+          "title": "Classic Canvas Work Vest - Walnut",
+          "url": "https://historicalemporium.com/products/classic-canvas-work-vest-walnut?variant=51717563121958",
+          "priceCents": 5995,
+          "currency": "USD",
+          "merchantName": "Historical Emporium",
+          "merchantDomain": "historicalemporium.com",
+          "imageUrl": "https://cdn.shopify.com/s/files/1/0980/0974/3654/files/003154_01_83eca72d-08d2-4cbb-af00-b1edfa35ac79.jpg?v=1769539432",
+          "sizes": [
+            "S",
+            "M",
+            "L",
+            "LT",
+            "XL",
+            "2X",
+            "3XT",
+            "4X",
+            "5X"
+          ],
+          "availability": "in_stock",
+          "evidenceUrl": "https://historicalemporium.com/products/classic-canvas-work-vest-walnut.js",
+          "notes": "Walnut brown 100% cotton canvas duck vest with notched lapels, high neckline, five brass-tone buttons and adjustable back. Canvas is a plainer alternative to the pictured wool. Vest only; sold-out sizes excluded. Dispatch time was not confirmed.",
+          "tier": "$",
+          "localMerchantImage": "/products/price-tiers/p-0d1ce90587.webp"
+        },
+        {
+          "title": "Oscar - Men's Brown Wool Blend Tweed Waistcoat",
+          "url": "https://happygentleman.com/en-us/products/oscar-mens-brown-wool-blend-tweed-waistcoat?variant=53570220097866",
+          "priceCents": 11900,
+          "currency": "USD",
+          "merchantName": "Happy Gentleman",
+          "merchantDomain": "happygentleman.com",
+          "imageUrl": "https://cdn.shopify.com/s/files/1/0957/4259/1306/files/oscar_waistcoat_Brown-PaulAndrewOscar.jpg?v=1765488524",
+          "sizes": [
+            "34",
+            "36",
+            "38",
+            "40",
+            "42",
+            "44",
+            "48",
+            "50",
+            "52"
+          ],
+          "availability": "in_stock",
+          "evidenceUrl": "https://happygentleman.com/en-us/products/oscar-mens-brown-wool-blend-tweed-waistcoat.js",
+          "notes": "Brown tweed waistcoat in 48% wool and 52% polyester with tailored fit. Waistcoat only; shirt and other suit pieces are separate. Size 46 is unavailable and excluded. US storefront offers US shipping; dispatch estimate was not confirmed.",
+          "tier": "$$",
+          "localMerchantImage": "/products/price-tiers/p-0513bcd5bf.webp"
+        },
+        {
+          "title": "The Dempsey Tweed Waistcoat by Hound & Hare - Brown Herringbone",
+          "url": "https://www.houndhare.com/products/the-dempsey-tweed-waistcoat-by-hound-hare-brown-herringbone?variant=14363490877484",
+          "priceCents": 19500,
+          "currency": "USD",
+          "merchantName": "Hound & Hare",
+          "merchantDomain": "houndhare.com",
+          "imageUrl": "https://cdn.shopify.com/s/files/1/2656/2040/products/image_fc43c04a-9864-4edf-aadf-e245c421d71a.png?v=1661276412",
+          "sizes": [
+            "36",
+            "38",
+            "46",
+            "48"
+          ],
+          "availability": "in_stock",
+          "evidenceUrl": "https://www.houndhare.com/products/the-dempsey-tweed-waistcoat-by-hound-hare-brown-herringbone.js",
+          "notes": "Brown herringbone British tweed waistcoat, made in the USA. Lighter and more textured than the solid dark waistcoat in the image. Waistcoat only. Only sizes 36, 38, 46 and 48 are available. Dispatch time was not confirmed.",
+          "tier": "$$$",
+          "localMerchantImage": "/products/price-tiers/p-ac55620f43.webp"
+        }
+      ],
+      "gaps": []
+    },
+    {
+      "pieceId": "victorian-detective-tweed-trousers",
+      "pieceName": "Brown tweed trousers",
+      "category": "bottoms",
+      "required": true,
+      "order": 4,
+      "sizeKind": "pants",
+      "styleNotes": "Use straight or tailored brown herringbone trousers. The period option has a high waist and requires hemming for shorter inseams.",
+      "queries": [
+        "brown herringbone tweed trousers men"
+      ],
+      "options": [
+        {
+          "title": "Aurezion-Zeus Brown Herringbone Textured Tweed Stretchable Waistband Pant",
+          "url": "https://frenchcrown.com/products/aurezion-zeus-brown-herringbone-textured-tweed-stretchable-waistband-pant-m?variant=45729098662028",
+          "priceCents": 7890,
+          "currency": "USD",
+          "merchantName": "French Crown",
+          "merchantDomain": "frenchcrown.com",
+          "imageUrl": "https://cdn.shopify.com/s/files/1/0323/5574/5932/files/T5217-SW_1.jpg?v=1768564658",
+          "sizes": [
+            "US28 / EU44 / XS",
+            "US30 / EU46 / S",
+            "US32 / EU48 / M",
+            "US34 / EU50 / L",
+            "US36 / EU52 / XL",
+            "US38 / EU54 / XXL"
+          ],
+          "availability": "in_stock",
+          "evidenceUrl": "https://frenchcrown.com/products/aurezion-zeus-brown-herringbone-textured-tweed-stretchable-waistband-pant-m.js",
+          "notes": "Brown wool-rich herringbone trousers with flat front, stretchable waistband, zip fly and belt loops. Modern styling differs from period suspenders trousers. Only US28-US38 variants cost $78.90; larger, more expensive sizes excluded. Merchant states international shipping, taxes, duties and tariffs are included. Dispatch time unconfirmed.",
+          "tier": "$",
+          "localMerchantImage": "/products/price-tiers/p-c38ec884e6.webp"
+        },
+        {
+          "title": "Tweed Trousers - Brown Herringbone",
+          "url": "https://historicalemporium.com/products/mens-tweed-trousers-brown-herringbone?variant=51717728993574",
+          "priceCents": 9695,
+          "currency": "USD",
+          "merchantName": "Historical Emporium",
+          "merchantDomain": "historicalemporium.com",
+          "imageUrl": "https://cdn.shopify.com/s/files/1/0980/0974/3654/files/007555_01_88394db2-eb7d-41e9-aa3e-097da55baf29.jpg?v=1769541878",
+          "sizes": [
+            "40",
+            "42",
+            "44",
+            "46",
+            "48",
+            "52"
+          ],
+          "availability": "in_stock",
+          "evidenceUrl": "https://historicalemporium.com/products/mens-tweed-trousers-brown-herringbone.js",
+          "notes": "Brown herringbone, high-waisted button-fly trousers in 25% wool, 40% acrylic and 35% polyester, lined to knee. Suspender buttons and rear cinch; suspenders sold separately. All have a 36-inch inseam and may need hemming. Only listed available waist sizes included; dispatch time unconfirmed.",
+          "tier": "$$",
+          "localMerchantImage": "/products/price-tiers/p-1c40639e61.webp"
+        },
+        {
+          "title": "Irish Brown Herringbone Tweed Pants",
+          "url": "https://www.studiosuits.com/products/irish-brown-herringbone-tweed-pants?variant=42428724019449",
+          "priceCents": 12000,
+          "currency": "USD",
+          "merchantName": "StudioSuits",
+          "merchantDomain": "studiosuits.com",
+          "imageUrl": "https://cdn.shopify.com/s/files/1/0601/1476/4025/files/irishbrownherringbonetwdpantslk.jpg?v=1719054859",
+          "sizes": [
+            "Made to Measure"
+          ],
+          "availability": "unknown",
+          "evidenceUrl": "https://www.studiosuits.com/products/irish-brown-herringbone-tweed-pants.js",
+          "notes": "Custom-made brown herringbone trousers in 80% wool and 20% other fibers. Base configuration is flat front with cross front pockets and two rear welt pockets; optional changes can cost extra. Supply measurements separately. Merchant estimates 2-3 weeks, subject to measurements and fabric stock; these are made to order rather than ready to ship.",
+          "tier": "$$$",
+          "localMerchantImage": "/products/price-tiers/p-f13b0f3bc7.webp"
+        }
+      ],
+      "gaps": []
+    },
+    {
+      "pieceId": "victorian-detective-brown-brogues",
+      "pieceName": "Brown brogue shoes",
+      "category": "footwear",
+      "required": true,
+      "order": 5,
+      "sizeKind": "shoe",
+      "styleNotes": "Use brown lace-up leather-look shoes with brogue perforations and a low heel. Cognac and cinnamon are warmer than the reference.",
+      "queries": [
+        "brown brogue oxford dress shoes"
+      ],
+      "options": [
+        {
+          "title": "ARTHUR",
+          "url": "https://www.conalfootwear.com/products/arthur-cognac?variant=40209512169541",
+          "priceCents": 5999,
+          "currency": "USD",
+          "merchantName": "Conal Footwear",
+          "merchantDomain": "conalfootwear.com",
+          "imageUrl": "https://cdn.shopify.com/s/files/1/1376/6217/files/ARTHUR-MFA139001C-COGNAC_60e36b82-31a3-45b2-bd61-ab48081a2798.jpg?v=1757003268",
+          "sizes": [
+            "6.5",
+            "7",
+            "7.5",
+            "8",
+            "8.5",
+            "9",
+            "9.5",
+            "10",
+            "10.5",
+            "11",
+            "12",
+            "13"
+          ],
+          "availability": "in_stock",
+          "evidenceUrl": "https://www.conalfootwear.com/products/arthur-cognac.js",
+          "notes": "Ferro Aldo Arthur in solid Cognac, a warm tan-brown, with wingtip perforations, stacked heel and faux-leather upper. More elaborate broguing and lighter color than the image. Pair of shoes only. US size labels; merchant offers domestic US shipping. Dispatch time unconfirmed.",
+          "tier": "$",
+          "localMerchantImage": "/products/price-tiers/p-ef09ee8206.webp"
+        },
+        {
+          "title": "Aviator | Cinnamon",
+          "url": "https://thursdayboots.com/products/mens-aviator-wingtip-dress-shoe-cinnamon-brown?variant=40283821834330",
+          "priceCents": 18800,
+          "currency": "USD",
+          "merchantName": "Thursday Boot Company",
+          "merchantDomain": "thursdayboots.com",
+          "imageUrl": "https://cdn.shopify.com/s/files/1/0419/1525/files/1024x1024-Men-Aviator3.0-Cinnamon-062923-3.4.jpg?v=1691435620",
+          "sizes": [
+            "6.5",
+            "7",
+            "7.5",
+            "8",
+            "8.5",
+            "9",
+            "9.5",
+            "10",
+            "10.5",
+            "11",
+            "11.5",
+            "12",
+            "12.5",
+            "13",
+            "13.5",
+            "14",
+            "15"
+          ],
+          "availability": "in_stock",
+          "evidenceUrl": "https://thursdayboots.com/products/mens-aviator-wingtip-dress-shoe-cinnamon-brown.js?currency=USD",
+          "notes": "Aviator in Cinnamon full-grain leather with full wingtip broguing, leather sole and Blake stitching. Warmer brown and more decoration than the image. Sizes 6 and 16 are sold out and excluded; other exact US sizes shown have current available variants. Merchant normally processes within 1-3 business days.",
+          "tier": "$$",
+          "localMerchantImage": "/products/price-tiers/p-24fe47b5c4.webp"
+        },
+        {
+          "tier": "$$$",
+          "title": "514238 - BROWN CALF - E",
+          "url": "https://meermin.com/products/514238-brown-calf-e?variant=43803740143752",
+          "priceCents": 23000,
+          "currency": "USD",
+          "merchantName": "Meermin",
+          "merchantDomain": "meermin.com",
+          "imageUrl": "https://cdn.shopify.com/s/files/1/0312/7659/7384/files/R2_514238101700006E_1.jpg?v=1758572465",
+          "sizes": [
+            "6.5",
+            "7",
+            "7.5",
+            "8",
+            "8.5",
+            "9",
+            "9.5",
+            "10",
+            "10.5",
+            "11"
+          ],
+          "availability": "in_stock",
+          "evidenceUrl": "https://meermin.com/products/514238-brown-calf-e.js",
+          "notes": "Brown full-grain boxcalf brogue Oxford shoes on the Orion last, with Goodyear Flex construction, Diamond Latex rubber soles and sheepskin lining. Darker brown with more perforation than the reference. All size labels are UK sizes; only currently available 6.5 through 11 variants are included, at $230 each. North America storefront confirms USD and US shipping suitability. Dispatch time was not confirmed.",
+          "localMerchantImage": "/products/price-tiers/p-1f4b8a9dec.webp"
+        }
+      ],
+      "gaps": []
+    }
+  ]
+}

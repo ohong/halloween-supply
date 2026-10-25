@@ -3,6 +3,7 @@ import "server-only";
 import { fetchProductPage } from "../firecrawl/client";
 import { parseProduct, readJsonLdBlocks } from "../products/parse";
 import { parsePriceToCents } from "../products/price";
+import { isRealSizeLabel } from "../products/shopify";
 import { isBlockedDomain, isNoiseDomain, registrableDomain } from "../sourcing/blocklist";
 import type { Availability, Product } from "../types";
 
@@ -94,20 +95,23 @@ function readShopify(
   const anchor = variants.find((variant) => String(variant.id) === url.searchParams.get("variant")) ?? variants[0];
   const family = variants.filter((variant) => optionNames.every((_, index) => index === sizeIndex || option(variant, index) === option(anchor, index)));
   const size = (variant: RecordValue) => sizeIndex < 0 ? "one size" : option(variant, sizeIndex);
-  const sizes = [...new Set(family.filter((variant) => variant.available === true).map(size).filter((s): s is string => s !== null))];
-  const matching = selectedSize === undefined
+  const availableSizes = [...new Set(family.filter((variant) => variant.available === true).map(size).filter(isRealSizeLabel))];
+  const matching = (selectedSize === undefined
     ? family
     : selectedSize === null
       ? [anchor]
       : family.filter((variant) =>
           (size(variant) !== null && normalizedSize(size(variant)!) === normalizedSize(selectedSize)) ||
           (text(variant.title) !== null && normalizedSize(text(variant.title)!) === normalizedSize(selectedSize)),
-        );
-  if (!matching.length) return { verified: false, invalidSize: true, availableSizes: sizes, reason: "The selected size is not offered by the merchant." };
+        )).filter((variant) => isRealSizeLabel(size(variant)));
+  if (!matching.length) return { verified: false, invalidSize: true, availableSizes, reason: "The selected size is not offered by the merchant." };
   const available = matching.filter((variant) => variant.available === true);
   const chosen = (available.length ? available : matching).slice().sort((a, b) => Number(a.price) - Number(b.price))[0];
   const cents = typeof chosen.price === "number" ? chosen.price : null;
   if (!validPrice(cents) || typeof chosen.available !== "boolean") return { verified: false, reason: "The selected variant price or stock is missing." };
+  // Refresh saves one price for this family. Other prices need separate offers;
+  // an explicit requested size still chooses its own live variant and price.
+  const sizes = [...new Set(family.filter((variant) => variant.available === true && variant.price === cents).map(size).filter(isRealSizeLabel))];
   const variantId = String(chosen.id);
   if (!/^\d+$/.test(variantId)) return { verified: false, reason: "The merchant variant is missing." };
   const productUrl = new URL(url);
@@ -189,13 +193,13 @@ export async function verifyProduct(
     }
 
     const offers = exactOffers(html, product.url);
-    const sizes = [...new Set(offers.filter((offer) => offer.availability === "in_stock" && offer.size).map((offer) => offer.size!))];
-    const matching = selectedSize === undefined ? offers : offers.filter((offer) =>
+    const availableSizes = [...new Set(offers.filter((offer) => offer.availability === "in_stock").map((offer) => offer.size).filter(isRealSizeLabel))];
+    const matching = (selectedSize === undefined ? offers : offers.filter((offer) =>
       selectedSize === null || normalizedSize(selectedSize) === "one size"
         ? offer.size === null || normalizedSize(offer.size) === "one size"
         : offer.size !== null && normalizedSize(offer.size) === normalizedSize(selectedSize),
-    );
-    if (!matching.length) return { verified: false, reason: "No exact merchant offer confirms this size and price.", ...(selectedSize !== undefined && sizes.length ? { invalidSize: true, availableSizes: sizes } : {}) };
+    )).filter((offer) => offer.size === null || isRealSizeLabel(offer.size));
+    if (!matching.length) return { verified: false, reason: "No exact merchant offer confirms this size and price.", ...(selectedSize !== undefined && availableSizes.length ? { invalidSize: true, availableSizes } : {}) };
     const inStock = matching.filter((offer) => offer.availability === "in_stock");
     const pool = inStock.length ? inStock : matching;
     // Different unsized offers are ambiguous, even when their lowest price looks attractive.
@@ -204,6 +208,7 @@ export async function verifyProduct(
     }
     const chosen = pool[0];
     if (chosen.currency !== "USD") return { verified: false, reason: "The merchant currency is not confirmed as USD." };
+    const sizes = [...new Set(offers.filter((offer) => offer.availability === "in_stock" && offer.priceCents === chosen.priceCents && offer.currency === chosen.currency).map((offer) => offer.size).filter(isRealSizeLabel))];
     return { verified: true, priceCents: chosen.priceCents, availability: chosen.availability, sizes, checkedAt: new Date().toISOString(), productUrl: chosen.url };
   } catch {
     console.warn(`[checkout] live merchant verification unavailable for ${product.id}`);

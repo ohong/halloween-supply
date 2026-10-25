@@ -1,0 +1,743 @@
+{
+  "costume": {
+    "slug": "garden-beekeeper",
+    "name": "Garden Beekeeper",
+    "description": "Cream cotton utility layers and a mesh veil hood, softened by tan gloves and a tiny bee brooch.",
+    "image": "/costumes/garden-beekeeper.png",
+    "alt": "Cream beekeeper jacket with mesh veil hood, cream utility trousers, tan gloves, brown boots, and a fabric bee brooch",
+    "status": "live"
+  },
+  "pieces": [
+    {
+      "id": "garden-beekeeper-veil-jacket",
+      "name": "Beekeeper jacket with mesh veil",
+      "category": "outerwear",
+      "required": true,
+      "order": 0,
+      "sizeKind": "apparel",
+      "queries": [
+        "cream cotton beekeeping jacket round veil",
+        "white beekeeper hooded jacket"
+      ],
+      "styleNotes": "Pale cream utility jacket with an attached mesh veil. Round veils preserve the reference shape best. These are real specialist jackets, but the costume assembly is not verified protective beekeeping clothing. Budget hood is a fencing shape rather than the reference brimmed round veil. White and pale polycotton shades replace exact cream; mesh and pocket layouts vary.",
+      "matches": [
+        {
+          "productId": "p-62d40bcabe",
+          "rank": 0,
+          "reason": "One white 250 GSM canvas-cotton jacket, removable round mesh veil, YKK zippers, elastic waist and cuffs, and two chest pockets. Large and Extra-Large are the only current variants. White is brighter than the cream reference; pocket details differ. US USD storefront. Public variant feed confirms availability despite generic sold-out text in the page template. No bee-protection claim is made for this costume."
+        },
+        {
+          "productId": "p-538a70ad48",
+          "rank": 1,
+          "reason": "One light cotton beekeeping jacket with its self-supported mesh hood. Pale off-white appearance; fencing-style hood differs from the reference round-brim hat. Only the listed sizes are available at $55. Sold by US beekeeping supplier. This shopping selection is for costume styling; it does not establish bee-sting protection for the assembled outfit."
+        },
+        {
+          "productId": "p-2422efb613",
+          "rank": 2,
+          "reason": "One pale polycotton jacket with round mesh veil and three-layer ventilation panels; canvas carrying case included. The blend and larger mesh sections differ from the reference cotton jacket. Large is unavailable and excluded. US USD listing. Do not infer bee-sting protection for the full costume from this specialist garment."
+        }
+      ]
+    },
+    {
+      "id": "garden-beekeeper-trousers",
+      "name": "Cream utility trousers",
+      "category": "bottoms",
+      "required": true,
+      "order": 1,
+      "sizeKind": "pants",
+      "queries": [
+        "cream carpenter pants",
+        "natural cotton double knee work pants"
+      ],
+      "styleNotes": "Cream or natural off-white full-length work trousers with practical pockets. Painter pants preserve utility detail but do not reproduce all cargo flaps and elastic cuffs. No option exactly reproduces the reference cargo flap pockets and elastic ankle cuffs.",
+      "matches": [
+        {
+          "productId": "p-8a74067f2a",
+          "rank": 0,
+          "reason": "One pair, Natural Drill only: relaxed double-knee painter trousers in 10 oz 100% cotton. Tool pockets and hammer loop supply the utility look; there are no large flap cargo pockets. Listing specifies button-fastening cuffs rather than the reference elastic cuffs. Four available waist/32-inch length combinations only. US independent merchant."
+        },
+        {
+          "productId": "p-5120d7b88c",
+          "rank": 1,
+          "reason": "One pair of cream straight-leg carpenter pants with elastic waist, utility pockets, belt loops, and hammer loop. No thigh cargo flaps or elastic ankle cuffs. Merchant composition lists 100% cotton, while introductory copy calls the fabric TC twill; composition wording is inconsistent. All five listed sizes are available. US storefront offers domestic shipping."
+        },
+        {
+          "productId": "p-5a30185c96",
+          "rank": 2,
+          "reason": "One pair of natural off-white fitted work pants in 13 oz 100% cotton Cone Mills denim, with double front panels and eight pockets. Heavier denim and straight hems differ from the reference cream cargo trousers. Only 28-inch, 36-inch, and 38-inch waist labels currently available; compare merchant garment measurements. Maker states dispatch within seven business days; no delivery date is promised."
+        }
+      ]
+    },
+    {
+      "id": "garden-beekeeper-gloves",
+      "name": "Tan work gloves",
+      "category": "accessories",
+      "required": true,
+      "order": 2,
+      "sizeKind": "apparel",
+      "queries": [
+        "tan work gloves",
+        "natural yellow gardening gloves"
+      ],
+      "styleNotes": "Warm tan or yellow gloves complete the garden-work appearance. Available leather work gloves match the illustration, while differing from the written fabric-glove specification. These gloves are costume styling choices. All three choices substitute leather for the written fabric-glove specification. They are not verified as protective bee gloves.",
+      "matches": [
+        {
+          "productId": "p-0d13db86b9",
+          "rank": 0,
+          "reason": "One pair, Natural only: cowhide leather, cotton elastic cuff, and suede reinforcement at selected fingertips. The warm yellow-tan appearance fits the reference, but leather replaces fabric and the cuff is visibly dark. S, M, and XL available; L excluded. Costume styling only; no claim of bee-sting protection."
+        },
+        {
+          "productId": "p-09040c668b",
+          "rank": 1,
+          "reason": "One pair, Natural Yellow only. Grain cowhide leather and elastic back approximate the reference tan hand shape; these are leather rather than the written fabric-glove specification. Only XS and SM/MD remain available. Merchant says sizes run small. Costume styling only; no claim of bee-sting protection."
+        },
+        {
+          "productId": "p-1af93f8049",
+          "rank": 2,
+          "reason": "One pair in Standard finger length, not the two-pair bundle. Natural tan goat-leather work gloves handmade in Vermont. Exterior seams, contrasting stitching, and leather differ from the simple fabric specification. XS through XXL in the listed Standard variants are available at $115. Costume styling only; no claim of bee-sting protection."
+        }
+      ]
+    },
+    {
+      "id": "garden-beekeeper-boots",
+      "name": "Brown lace-up boots",
+      "category": "footwear",
+      "required": true,
+      "order": 3,
+      "sizeKind": "shoe",
+      "queries": [
+        "brown leather lace up boots",
+        "brown plain toe work style boots"
+      ],
+      "styleNotes": "Ankle-high brown lace-up boots with low heel. Plain or simple cap toes provide the utility-work shape. Budget width-specific stock remains unverified. Premium Saddle Tan is lighter than the reference dark brown.",
+      "matches": [
+        {
+          "productId": "p-719872898d",
+          "rank": 0,
+          "reason": "One pair, Brown leather in Standard width. Cap toe, waxed cotton laces, and studded rubber sole. The reference has a plain toe and chunkier sole. All listed US men's Standard sizes are available at $199. Merchant states normal order processing of one to three business days and free contiguous-US standard shipping; no arrival promise."
+        },
+        {
+          "productId": "p-3b0a976509",
+          "rank": 1,
+          "reason": "One pair, Brown CH style 85088-215. Genuine leather plus man-made upper; chunky modern lug-wedge sole differs from the reference heel. Current visible sale price is $89.95; old metadata retains $120. Exact color page marks every listed size In Stock, but width-specific availability is not exposed until selection. Medium/wide fit must be checked before ordering. US direct brand store."
+        },
+        {
+          "productId": "p-21c87bfd80",
+          "rank": 2,
+          "reason": "One pair, Saddle Tan in D (Standard) width. Plain-toe leather lace-up boot with brass hardware and leather outsole. The tan leather is lighter than the reference brown and the sole has less tread. Only listed D-width sizes are included; other widths have separate availability. US direct merchant; no special dispatch time stated in the product description."
+        }
+      ]
+    },
+    {
+      "id": "garden-beekeeper-bee-brooch",
+      "name": "Small fabric bee brooch",
+      "category": "accessories",
+      "required": true,
+      "order": 4,
+      "sizeKind": "one_size",
+      "queries": [
+        "felt bee brooch",
+        "fabric embroidered bee pin"
+      ],
+      "styleNotes": "A black-and-yellow bee pin worn high on the jacket. Felt or embroidered fabric keeps the handmade character; bead and sequin details are honest alternatives. DoDo Friend lists long standard transit and does not specify brooch dispatch time; never imply near-term delivery.",
+      "matches": [
+        {
+          "productId": "p-f674547482",
+          "rank": 0,
+          "reason": "One finished handmade wool-felt Bee brooch, not a DIY kit. Cartoon bee shape; merchant variant photo labels it 2.5 by 4 cm. Bee variant is available at USD18 in the live feed. Merchant explicitly serves the United States; policy lists $9.99 standard shipping under $69 and approximately 12–18 business days transit. Ready-made brooch dispatch timing is not specified; custom goods can need extra production time. Do not promise Halloween arrival."
+        },
+        {
+          "productId": "p-6082641ec6",
+          "rank": 1,
+          "reason": "One handmade fabric bee brooch with beads, sequins, and gold accents, 2.5 by 1.5 inches. More decorative than the tiny felt bee in the reference. Feed confirms orderable stock. Ships from Texas; merchant shipping policy lists USPS, UPS, or FedEx and warns of possible carrier delays."
+        },
+        {
+          "productId": "p-17a73cb5b8",
+          "rank": 2,
+          "reason": "One Trovelore Humble Bee brooch, approximately 1.2 by 1.9 inches, hand embroidered in cotton and felt with metal pin, sequins, and beads. More detailed and beaded than the simple fabric reference. Handmade in India in small batches; natural variations expected. US retailer lists one ready-to-ship item and live feed confirms available stock; no arrival date promised."
+        }
+      ]
+    }
+  ],
+  "products": [
+    {
+      "id": "p-62d40bcabe",
+      "title": "Classic Cotton Beekeeping Jacket with Round Veil",
+      "url": "https://stingstopper.buzz/products/classic-beekeeping-jacket-with-round-veil?variant=47640681054526",
+      "priceCents": 7749,
+      "currency": "USD",
+      "image": "/products/price-tiers/p-62d40bcabe.webp",
+      "merchantImage": "/products/price-tiers/p-62d40bcabe.webp",
+      "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/0667/1548/4478/files/WhiteCottonJacketwithRoundVeil.png?v=1701210058"
+      ],
+      "availability": "in_stock",
+      "sizes": [
+        "Large",
+        "Extra-Large"
+      ],
+      "merchantId": "stingstopper-buzz",
+      "tagSlugs": [],
+      "description": "One white 250 GSM canvas-cotton jacket, removable round mesh veil, YKK zippers, elastic waist and cuffs, and two chest pockets. Large and Extra-Large are the only current variants. White is brighter than the cream reference; pocket details differ. US USD storefront. Public variant feed confirms availability despite generic sold-out text in the page template. No bee-protection claim is made for this costume.",
+      "checkedAt": "2026-10-25T08:47:54.306118Z",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-25T08:47:54.306118Z",
+        "url": "https://stingstopper.buzz/products/classic-beekeeping-jacket-with-round-veil.js",
+        "notes": "One white 250 GSM canvas-cotton jacket, removable round mesh veil, YKK zippers, elastic waist and cuffs, and two chest pockets. Large and Extra-Large are the only current variants. White is brighter than the cream reference; pocket details differ. US USD storefront. Public variant feed confirms availability despite generic sold-out text in the page template. No bee-protection claim is made for this costume."
+      }
+    },
+    {
+      "id": "p-538a70ad48",
+      "title": "COTTON BEEKEEPING JACKET",
+      "url": "https://beekeepers.com/products/hooded-jacket?variant=5419198480441",
+      "priceCents": 5500,
+      "currency": "USD",
+      "image": "/products/price-tiers/p-538a70ad48.webp",
+      "merchantImage": "/products/price-tiers/p-538a70ad48.webp",
+      "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/3102/7432/products/7pcgZUu6_a8896c8d-1656-4108-98b4-09bf6504d733.jpg?v=1666127008"
+      ],
+      "availability": "in_stock",
+      "sizes": [
+        "XSmall",
+        "Small",
+        "Medium",
+        "Large",
+        "XXXLarge",
+        "5XL"
+      ],
+      "merchantId": "beekeepers-com",
+      "tagSlugs": [],
+      "description": "One light cotton beekeeping jacket with its self-supported mesh hood. Pale off-white appearance; fencing-style hood differs from the reference round-brim hat. Only the listed sizes are available at $55. Sold by US beekeeping supplier. This shopping selection is for costume styling; it does not establish bee-sting protection for the assembled outfit.",
+      "checkedAt": "2026-10-25T08:47:54.306118Z",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-25T08:47:54.306118Z",
+        "url": "https://beekeepers.com/products/hooded-jacket.js",
+        "notes": "One light cotton beekeeping jacket with its self-supported mesh hood. Pale off-white appearance; fencing-style hood differs from the reference round-brim hat. Only the listed sizes are available at $55. Sold by US beekeeping supplier. This shopping selection is for costume styling; it does not establish bee-sting protection for the assembled outfit."
+      }
+    },
+    {
+      "id": "p-2422efb613",
+      "title": "Ventilated Beekeeping Jacket with Round Veil",
+      "url": "https://www.humblebee.us/en-us/products/330-ventilated-beekeeping-jacket-with-round-veil?variant=47359211700477",
+      "priceCents": 16995,
+      "currency": "USD",
+      "image": "/products/price-tiers/p-2422efb613.webp",
+      "merchantImage": "/products/price-tiers/p-2422efb613.webp",
+      "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/0767/4544/1533/files/71aHHgo2gBL._AC_SL1500.jpg?v=1775705951"
+      ],
+      "availability": "in_stock",
+      "sizes": [
+        "XX-Small",
+        "X-Small",
+        "Small",
+        "Medium",
+        "X-Large",
+        "XX-Large",
+        "3X-Large"
+      ],
+      "merchantId": "humblebee-us",
+      "tagSlugs": [],
+      "description": "One pale polycotton jacket with round mesh veil and three-layer ventilation panels; canvas carrying case included. The blend and larger mesh sections differ from the reference cotton jacket. Large is unavailable and excluded. US USD listing. Do not infer bee-sting protection for the full costume from this specialist garment.",
+      "checkedAt": "2026-10-25T08:47:54.306118Z",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-25T08:47:54.306118Z",
+        "url": "https://www.humblebee.us/en-us/products/330-ventilated-beekeeping-jacket-with-round-veil.js",
+        "notes": "One pale polycotton jacket with round mesh veil and three-layer ventilation panels; canvas carrying case included. The blend and larger mesh sections differ from the reference cotton jacket. Large is unavailable and excluded. US USD listing. Do not infer bee-sting protection for the full costume from this specialist garment."
+      }
+    },
+    {
+      "id": "p-5a30185c96",
+      "title": "GN.01 Fitted Work Pant - Natural Cone Mills Denim",
+      "url": "https://redcloudscollective.com/products/gn-01-fitted-work-pant-natural-cone-mills-denim?variant=40028101279901",
+      "priceCents": 22500,
+      "currency": "USD",
+      "image": "/products/price-tiers/p-5a30185c96.webp",
+      "merchantImage": "/products/price-tiers/p-5a30185c96.webp",
+      "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/0791/2181/products/IMG_1803_lowcopy.jpg?v=1622069556"
+      ],
+      "availability": "in_stock",
+      "sizes": [
+        "28\"",
+        "36\"",
+        "38\""
+      ],
+      "merchantId": "redcloudscollective-com",
+      "tagSlugs": [],
+      "description": "One pair of natural off-white fitted work pants in 13 oz 100% cotton Cone Mills denim, with double front panels and eight pockets. Heavier denim and straight hems differ from the reference cream cargo trousers. Only 28-inch, 36-inch, and 38-inch waist labels currently available; compare merchant garment measurements. Maker states dispatch within seven business days; no delivery date is promised.",
+      "checkedAt": "2026-10-25T08:47:54.306118Z",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-25T08:47:54.306118Z",
+        "url": "https://redcloudscollective.com/products/gn-01-fitted-work-pant-natural-cone-mills-denim.js",
+        "notes": "One pair of natural off-white fitted work pants in 13 oz 100% cotton Cone Mills denim, with double front panels and eight pockets. Heavier denim and straight hems differ from the reference cream cargo trousers. Only 28-inch, 36-inch, and 38-inch waist labels currently available; compare merchant garment measurements. Maker states dispatch within seven business days; no delivery date is promised."
+      }
+    },
+    {
+      "id": "p-5120d7b88c",
+      "title": "Carpenter's Pants : Cream",
+      "url": "https://cookmanusa.com/products/cookman-chef-pants-carpenters-pants-cream?variant=45781590474987",
+      "priceCents": 5400,
+      "currency": "USD",
+      "image": "/products/price-tiers/p-5120d7b88c.webp",
+      "merchantImage": "/products/price-tiers/p-5120d7b88c.webp",
+      "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/0065/6880/4470/files/231-43803_carpenter_s-pants-cream_01_62fe0647-c102-433c-889a-59f170fe9720.jpg?v=1790225431"
+      ],
+      "availability": "in_stock",
+      "sizes": [
+        "Small",
+        "Medium",
+        "Large",
+        "X-Large",
+        "2X-Large"
+      ],
+      "merchantId": "cookmanusa-com",
+      "tagSlugs": [],
+      "description": "One pair of cream straight-leg carpenter pants with elastic waist, utility pockets, belt loops, and hammer loop. No thigh cargo flaps or elastic ankle cuffs. Merchant composition lists 100% cotton, while introductory copy calls the fabric TC twill; composition wording is inconsistent. All five listed sizes are available. US storefront offers domestic shipping.",
+      "checkedAt": "2026-10-25T08:47:54.306118Z",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-25T08:47:54.306118Z",
+        "url": "https://cookmanusa.com/products/cookman-chef-pants-carpenters-pants-cream.js",
+        "notes": "One pair of cream straight-leg carpenter pants with elastic waist, utility pockets, belt loops, and hammer loop. No thigh cargo flaps or elastic ankle cuffs. Merchant composition lists 100% cotton, while introductory copy calls the fabric TC twill; composition wording is inconsistent. All five listed sizes are available. US storefront offers domestic shipping."
+      }
+    },
+    {
+      "id": "p-8a74067f2a",
+      "title": "Stan Ray USA - Double Knee Painter Pant",
+      "url": "https://www.twistedarrowgoods.com/products/copy-of-og-painter-pant-natural-drill?variant=43976561459379",
+      "priceCents": 9000,
+      "currency": "USD",
+      "image": "/products/price-tiers/p-8a74067f2a.webp",
+      "merchantImage": "/products/price-tiers/p-8a74067f2a.webp",
+      "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/1620/0353/products/DOUBLEKNEEPAINTERS_NATURALDRILL-1_1.jpg?v=1751401820"
+      ],
+      "availability": "in_stock",
+      "sizes": [
+        "W 30 / L 32",
+        "W 32 / L 32",
+        "W 34 / L 32",
+        "W 36 / L 32"
+      ],
+      "merchantId": "twistedarrowgoods-com",
+      "tagSlugs": [],
+      "description": "One pair, Natural Drill only: relaxed double-knee painter trousers in 10 oz 100% cotton. Tool pockets and hammer loop supply the utility look; there are no large flap cargo pockets. Listing specifies button-fastening cuffs rather than the reference elastic cuffs. Four available waist/32-inch length combinations only. US independent merchant.",
+      "checkedAt": "2026-10-25T08:47:54.306118Z",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-25T08:47:54.306118Z",
+        "url": "https://www.twistedarrowgoods.com/products/copy-of-og-painter-pant-natural-drill.js",
+        "notes": "One pair, Natural Drill only: relaxed double-knee painter trousers in 10 oz 100% cotton. Tool pockets and hammer loop supply the utility look; there are no large flap cargo pockets. Listing specifies button-fastening cuffs rather than the reference elastic cuffs. Four available waist/32-inch length combinations only. US independent merchant."
+      }
+    },
+    {
+      "id": "p-1af93f8049",
+      "title": "The Vermonter",
+      "url": "https://vermontglove.com/products/the-vermonter?variant=39522889826484",
+      "priceCents": 11500,
+      "currency": "USD",
+      "image": "/products/price-tiers/p-1af93f8049.webp",
+      "merchantImage": "/products/price-tiers/p-1af93f8049.webp",
+      "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/0553/9967/8132/files/VTG-Product-26_07-Vermonter_b9392904-d547-4e7f-a4d6-aadf6a729e82.jpg?v=1784315772"
+      ],
+      "availability": "in_stock",
+      "sizes": [
+        "XS",
+        "S",
+        "M",
+        "L",
+        "XL",
+        "XXL"
+      ],
+      "merchantId": "vermontglove-com",
+      "tagSlugs": [],
+      "description": "One pair in Standard finger length, not the two-pair bundle. Natural tan goat-leather work gloves handmade in Vermont. Exterior seams, contrasting stitching, and leather differ from the simple fabric specification. XS through XXL in the listed Standard variants are available at $115. Costume styling only; no claim of bee-sting protection.",
+      "checkedAt": "2026-10-25T08:47:54.306118Z",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-25T08:47:54.306118Z",
+        "url": "https://vermontglove.com/products/the-vermonter.js",
+        "notes": "One pair in Standard finger length, not the two-pair bundle. Natural tan goat-leather work gloves handmade in Vermont. Exterior seams, contrasting stitching, and leather differ from the simple fabric specification. XS through XXL in the listed Standard variants are available at $115. Costume styling only; no claim of bee-sting protection."
+      }
+    },
+    {
+      "id": "p-0d13db86b9",
+      "title": "Kunar Utility Glove",
+      "url": "https://barebonesliving.com/products/kunar-utility-glove?variant=40223945523290",
+      "priceCents": 3149,
+      "currency": "USD",
+      "image": "/products/price-tiers/p-0d13db86b9.webp",
+      "merchantImage": "/products/price-tiers/p-0d13db86b9.webp",
+      "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/0045/1297/2890/files/KunarUtilityGlove-Natural_PDP_01.jpg?v=1685656337"
+      ],
+      "availability": "in_stock",
+      "sizes": [
+        "S",
+        "M",
+        "XL"
+      ],
+      "merchantId": "barebonesliving-com",
+      "tagSlugs": [],
+      "description": "One pair, Natural only: cowhide leather, cotton elastic cuff, and suede reinforcement at selected fingertips. The warm yellow-tan appearance fits the reference, but leather replaces fabric and the cuff is visibly dark. S, M, and XL available; L excluded. Costume styling only; no claim of bee-sting protection.",
+      "checkedAt": "2026-10-25T08:47:54.306118Z",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-25T08:47:54.306118Z",
+        "url": "https://barebonesliving.com/products/kunar-utility-glove.js",
+        "notes": "One pair, Natural only: cowhide leather, cotton elastic cuff, and suede reinforcement at selected fingertips. The warm yellow-tan appearance fits the reference, but leather replaces fabric and the cuff is visibly dark. S, M, and XL available; L excluded. Costume styling only; no claim of bee-sting protection."
+      }
+    },
+    {
+      "id": "p-09040c668b",
+      "title": "Classic Work Glove",
+      "url": "https://barebonesliving.com/products/classic-work-glove?variant=32959364366426",
+      "priceCents": 1959,
+      "currency": "USD",
+      "image": "/products/price-tiers/p-09040c668b.webp",
+      "merchantImage": "/products/price-tiers/p-09040c668b.webp",
+      "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/0045/1297/2890/files/ClassicWorkGloves_Natural_PDP_01_0151ab2f-1369-4429-9a93-a871d8276cd7.jpg?v=1704726823"
+      ],
+      "availability": "in_stock",
+      "sizes": [
+        "XS",
+        "SM/MD"
+      ],
+      "merchantId": "barebonesliving-com",
+      "tagSlugs": [],
+      "description": "One pair, Natural Yellow only. Grain cowhide leather and elastic back approximate the reference tan hand shape; these are leather rather than the written fabric-glove specification. Only XS and SM/MD remain available. Merchant says sizes run small. Costume styling only; no claim of bee-sting protection.",
+      "checkedAt": "2026-10-25T08:47:54.306118Z",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-25T08:47:54.306118Z",
+        "url": "https://barebonesliving.com/products/classic-work-glove.js",
+        "notes": "One pair, Natural Yellow only. Grain cowhide leather and elastic back approximate the reference tan hand shape; these are leather rather than the written fabric-glove specification. Only XS and SM/MD remain available. Merchant says sizes run small. Costume styling only; no claim of bee-sting protection."
+      }
+    },
+    {
+      "id": "p-3b0a976509",
+      "title": "Karnak Plain Toe Boot",
+      "url": "https://www.nunnbush.com/shop/style/85088-215.html",
+      "priceCents": 8995,
+      "currency": "USD",
+      "image": "/products/price-tiers/p-3b0a976509.webp",
+      "merchantImage": "/products/price-tiers/p-3b0a976509.webp",
+      "sourceImages": [
+        "https://www.nunnbush.com/shop/images/w590/85088-215.jpg"
+      ],
+      "availability": "unknown",
+      "sizes": [
+        "7",
+        "7.5",
+        "8",
+        "8.5",
+        "9",
+        "9.5",
+        "10",
+        "10.5",
+        "11",
+        "11.5",
+        "12",
+        "13",
+        "14"
+      ],
+      "merchantId": "nunnbush-com",
+      "tagSlugs": [],
+      "description": "One pair, Brown CH style 85088-215. Genuine leather plus man-made upper; chunky modern lug-wedge sole differs from the reference heel. Current visible sale price is $89.95; old metadata retains $120. Exact color page marks every listed size In Stock, but width-specific availability is not exposed until selection. Medium/wide fit must be checked before ordering. US direct brand store.",
+      "checkedAt": "2026-10-25T08:47:54.306118Z",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-25T08:47:54.306118Z",
+        "url": "https://www.nunnbush.com/shop/style/85088-215.html",
+        "notes": "One pair, Brown CH style 85088-215. Genuine leather plus man-made upper; chunky modern lug-wedge sole differs from the reference heel. Current visible sale price is $89.95; old metadata retains $120. Exact color page marks every listed size In Stock, but width-specific availability is not exposed until selection. Medium/wide fit must be checked before ordering. US direct brand store."
+      }
+    },
+    {
+      "id": "p-719872898d",
+      "title": "Captain | Brown",
+      "url": "https://thursdayboots.com/products/mens-brown-captain?variant=31959325212762",
+      "priceCents": 19900,
+      "currency": "USD",
+      "image": "/products/price-tiers/p-719872898d.webp",
+      "merchantImage": "/products/price-tiers/p-719872898d.webp",
+      "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/0419/1525/files/1024x1024-Men-Captain-Brown-081226-3.4-d17ac2.jpg?v=1790357464"
+      ],
+      "availability": "in_stock",
+      "sizes": [
+        "6",
+        "6.5",
+        "7",
+        "7.5",
+        "8",
+        "8.5",
+        "9",
+        "9.5",
+        "10",
+        "10.5",
+        "11",
+        "11.5",
+        "12",
+        "12.5",
+        "13",
+        "13.5",
+        "14",
+        "15",
+        "16"
+      ],
+      "merchantId": "thursdayboots-com",
+      "tagSlugs": [],
+      "description": "One pair, Brown leather in Standard width. Cap toe, waxed cotton laces, and studded rubber sole. The reference has a plain toe and chunkier sole. All listed US men's Standard sizes are available at $199. Merchant states normal order processing of one to three business days and free contiguous-US standard shipping; no arrival promise.",
+      "checkedAt": "2026-10-25T08:47:54.306118Z",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-25T08:47:54.306118Z",
+        "url": "https://thursdayboots.com/products/mens-brown-captain.js",
+        "notes": "One pair, Brown leather in Standard width. Cap toe, waxed cotton laces, and studded rubber sole. The reference has a plain toe and chunkier sole. All listed US men's Standard sizes are available at $199. Merchant states normal order processing of one to three business days and free contiguous-US standard shipping; no arrival promise."
+      }
+    },
+    {
+      "id": "p-21c87bfd80",
+      "title": "Diesel Boot Saddle Tan",
+      "url": "https://grantstoneshoes.com/products/diesel-boot-saddle-tan?variant=23473095937",
+      "priceCents": 43500,
+      "currency": "USD",
+      "image": "/products/price-tiers/p-21c87bfd80.webp",
+      "merchantImage": "/products/price-tiers/p-21c87bfd80.webp",
+      "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/1163/3390/files/GRANT2SIDE2-Edit-Edit_27ba84f7-bb9a-4473-89e4-2683d625de2f.jpg?v=1783616239"
+      ],
+      "availability": "in_stock",
+      "sizes": [
+        "6",
+        "6.5",
+        "7",
+        "7.5",
+        "8",
+        "8.5",
+        "9",
+        "9.5",
+        "10",
+        "10.5",
+        "11",
+        "11.5",
+        "12",
+        "13"
+      ],
+      "merchantId": "grantstoneshoes-com",
+      "tagSlugs": [],
+      "description": "One pair, Saddle Tan in D (Standard) width. Plain-toe leather lace-up boot with brass hardware and leather outsole. The tan leather is lighter than the reference brown and the sole has less tread. Only listed D-width sizes are included; other widths have separate availability. US direct merchant; no special dispatch time stated in the product description.",
+      "checkedAt": "2026-10-25T08:47:54.306118Z",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-25T08:47:54.306118Z",
+        "url": "https://grantstoneshoes.com/products/diesel-boot-saddle-tan.js",
+        "notes": "One pair, Saddle Tan in D (Standard) width. Plain-toe leather lace-up boot with brass hardware and leather outsole. The tan leather is lighter than the reference brown and the sole has less tread. Only listed D-width sizes are included; other widths have separate availability. US direct merchant; no special dispatch time stated in the product description."
+      }
+    },
+    {
+      "id": "p-6082641ec6",
+      "title": "Bee Beaded Brooch Pin",
+      "url": "https://bmshouston.com/products/copy-of-butterfly-sequined-brooch?variant=44997240226101",
+      "priceCents": 1700,
+      "currency": "USD",
+      "image": "/products/price-tiers/p-6082641ec6.webp",
+      "merchantImage": "/products/price-tiers/p-6082641ec6.webp",
+      "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/0556/6506/6057/files/MatrBoomieBeeBalaBrooch.webp?v=1758849360"
+      ],
+      "availability": "in_stock",
+      "sizes": [],
+      "merchantId": "bmshouston-com",
+      "tagSlugs": [],
+      "description": "One handmade fabric bee brooch with beads, sequins, and gold accents, 2.5 by 1.5 inches. More decorative than the tiny felt bee in the reference. Feed confirms orderable stock. Ships from Texas; merchant shipping policy lists USPS, UPS, or FedEx and warns of possible carrier delays.",
+      "checkedAt": "2026-10-25T08:47:54.306118Z",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-25T08:47:54.306118Z",
+        "url": "https://bmshouston.com/products/copy-of-butterfly-sequined-brooch.js",
+        "notes": "One handmade fabric bee brooch with beads, sequins, and gold accents, 2.5 by 1.5 inches. More decorative than the tiny felt bee in the reference. Feed confirms orderable stock. Ships from Texas; merchant shipping policy lists USPS, UPS, or FedEx and warns of possible carrier delays."
+      }
+    },
+    {
+      "id": "p-17a73cb5b8",
+      "title": "Humble Bee Brooch Pin",
+      "url": "https://dandelionjewelry.com/products/tl-b-759?variant=50482322866407",
+      "priceCents": 8500,
+      "currency": "USD",
+      "image": "/products/price-tiers/p-17a73cb5b8.webp",
+      "merchantImage": "/products/price-tiers/p-17a73cb5b8.webp",
+      "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/2185/2141/files/pin-humble-bee-brooch-pin-43658148282599.jpg?v=1732182630"
+      ],
+      "availability": "in_stock",
+      "sizes": [],
+      "merchantId": "dandelionjewelry-com",
+      "tagSlugs": [],
+      "description": "One Trovelore Humble Bee brooch, approximately 1.2 by 1.9 inches, hand embroidered in cotton and felt with metal pin, sequins, and beads. More detailed and beaded than the simple fabric reference. Handmade in India in small batches; natural variations expected. US retailer lists one ready-to-ship item and live feed confirms available stock; no arrival date promised.",
+      "checkedAt": "2026-10-25T08:47:54.306118Z",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-25T08:47:54.306118Z",
+        "url": "https://dandelionjewelry.com/products/tl-b-759.js",
+        "notes": "One Trovelore Humble Bee brooch, approximately 1.2 by 1.9 inches, hand embroidered in cotton and felt with metal pin, sequins, and beads. More detailed and beaded than the simple fabric reference. Handmade in India in small batches; natural variations expected. US retailer lists one ready-to-ship item and live feed confirms available stock; no arrival date promised."
+      }
+    },
+    {
+      "id": "p-f674547482",
+      "title": "Handmade Wool Felt Bee Brooch – Cute Cartoon Insect",
+      "url": "https://dodofriend.art/products/%E6%89%8B%E5%B7%A5%E7%BE%8A%E6%AF%9B%E6%AF%A1%E8%9C%9C%E8%9C%82%E7%93%A2%E8%99%AB%E8%83%B8%E9%92%88%E5%8F%AF%E7%88%B1%E5%8D%A1%E9%80%9A%E8%83%B8%E9%92%88-%E8%9C%9C%E8%9C%82?variant=52040382578982",
+      "priceCents": 1800,
+      "currency": "USD",
+      "image": "/products/price-tiers/p-f674547482.webp",
+      "merchantImage": "/products/price-tiers/p-f674547482.webp",
+      "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/0994/7575/1206/files/af361bad637a1cb8bc2df51475f788fc_d608abb5-5a5e-4b04-b216-2a92a59dcab7.png?v=1770193402"
+      ],
+      "availability": "in_stock",
+      "sizes": [],
+      "merchantId": "dodofriend-art",
+      "tagSlugs": [],
+      "description": "One finished handmade wool-felt Bee brooch, not a DIY kit. Cartoon bee shape; merchant variant photo labels it 2.5 by 4 cm. Bee variant is available at USD18 in the live feed. Merchant explicitly serves the United States; policy lists $9.99 standard shipping under $69 and approximately 12–18 business days transit. Ready-made brooch dispatch timing is not specified; custom goods can need extra production time. Do not promise Halloween arrival.",
+      "checkedAt": "2026-10-25T08:47:54.306118Z",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-25T08:47:54.306118Z",
+        "url": "https://dodofriend.art/products/%E6%89%8B%E5%B7%A5%E7%BE%8A%E6%AF%9B%E6%AF%A1%E8%9C%9C%E8%9C%82%E7%93%A2%E8%99%AB%E8%83%B8%E9%92%88%E5%8F%AF%E7%88%B1%E5%8D%A1%E9%80%9A%E8%83%B8%E9%92%88-%E8%9C%9C%E8%9C%82.js",
+        "notes": "One finished handmade wool-felt Bee brooch, not a DIY kit. Cartoon bee shape; merchant variant photo labels it 2.5 by 4 cm. Bee variant is available at USD18 in the live feed. Merchant explicitly serves the United States; policy lists $9.99 standard shipping under $69 and approximately 12–18 business days transit. Ready-made brooch dispatch timing is not specified; custom goods can need extra production time. Do not promise Halloween arrival."
+      }
+    }
+  ],
+  "merchants": [
+    {
+      "id": "beekeepers-com",
+      "name": "BEEKEEPERS.COM",
+      "domain": "beekeepers.com",
+      "url": "https://beekeepers.com/",
+      "kind": "boutique",
+      "neighborhoodId": null
+    },
+    {
+      "id": "stingstopper-buzz",
+      "name": "Sting Stopper",
+      "domain": "stingstopper.buzz",
+      "url": "https://stingstopper.buzz/",
+      "kind": "boutique",
+      "neighborhoodId": null
+    },
+    {
+      "id": "humblebee-us",
+      "name": "Humble Bee",
+      "domain": "humblebee.us",
+      "url": "https://humblebee.us/",
+      "kind": "boutique",
+      "neighborhoodId": null
+    },
+    {
+      "id": "cookmanusa-com",
+      "name": "Cookman USA",
+      "domain": "cookmanusa.com",
+      "url": "https://cookmanusa.com/",
+      "kind": "boutique",
+      "neighborhoodId": null
+    },
+    {
+      "id": "twistedarrowgoods-com",
+      "name": "Twisted Arrow Goods",
+      "domain": "twistedarrowgoods.com",
+      "url": "https://twistedarrowgoods.com/",
+      "kind": "boutique",
+      "neighborhoodId": null
+    },
+    {
+      "id": "redcloudscollective-com",
+      "name": "Red Clouds Collective",
+      "domain": "redcloudscollective.com",
+      "url": "https://redcloudscollective.com/",
+      "kind": "boutique",
+      "neighborhoodId": null
+    },
+    {
+      "id": "barebonesliving-com",
+      "name": "Barebones",
+      "domain": "barebonesliving.com",
+      "url": "https://barebonesliving.com/",
+      "kind": "boutique",
+      "neighborhoodId": null
+    },
+    {
+      "id": "vermontglove-com",
+      "name": "Vermont Glove",
+      "domain": "vermontglove.com",
+      "url": "https://vermontglove.com/",
+      "kind": "boutique",
+      "neighborhoodId": null
+    },
+    {
+      "id": "nunnbush-com",
+      "name": "Nunn Bush",
+      "domain": "nunnbush.com",
+      "url": "https://nunnbush.com/",
+      "kind": "boutique",
+      "neighborhoodId": null
+    },
+    {
+      "id": "thursdayboots-com",
+      "name": "Thursday Boot Company",
+      "domain": "thursdayboots.com",
+      "url": "https://thursdayboots.com/",
+      "kind": "boutique",
+      "neighborhoodId": null
+    },
+    {
+      "id": "grantstoneshoes-com",
+      "name": "Grant Stone",
+      "domain": "grantstoneshoes.com",
+      "url": "https://grantstoneshoes.com/",
+      "kind": "boutique",
+      "neighborhoodId": null
+    },
+    {
+      "id": "bmshouston-com",
+      "name": "Body Mind & Soul Houston",
+      "domain": "bmshouston.com",
+      "url": "https://bmshouston.com/",
+      "kind": "boutique",
+      "neighborhoodId": null
+    },
+    {
+      "id": "dodofriend-art",
+      "name": "DoDo Friend",
+      "domain": "dodofriend.art",
+      "url": "https://dodofriend.art/",
+      "kind": "boutique",
+      "neighborhoodId": null
+    },
+    {
+      "id": "dandelionjewelry-com",
+      "name": "Dandelion Jewelry",
+      "domain": "dandelionjewelry.com",
+      "url": "https://dandelionjewelry.com/",
+      "kind": "boutique",
+      "neighborhoodId": null
+    }
+  ],
+  "neighborhoods": [],
+  "tags": [],
+  "provenance": {
+    "method": "manual-research",
+    "generatedAt": "2026-10-25T08:47:54.306118Z",
+    "priceTiers": true,
+    "heroImageKind": "generated-reference",
+    "notes": "Built-in web search and direct official merchant evidence. Three distinct relative price points per piece: $, $$, $$$. Prices exclude shipping/tax; stock is variant-specific and delivery is unconfirmed. See docs/sourcing/price-tiers/garden-beekeeper.json."
+  }
+}

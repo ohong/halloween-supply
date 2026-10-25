@@ -1,0 +1,841 @@
+{
+  "costume": {
+    "slug": "rose-garden-queen",
+    "name": "Rose Garden Queen",
+    "description": "Burgundy velvet and embroidered roses, with a sage cape and a delicate brass-colored crown.",
+    "image": "/costumes/rose-garden-queen.png",
+    "alt": "Brass rose crown, burgundy velvet gown with fabric roses, sage green short cape, burgundy gloves, and dark boots",
+    "status": "live"
+  },
+  "pieces": [
+    {
+      "id": "rose-garden-queen-crown",
+      "name": "Brass-colored rose crown",
+      "category": "headwear",
+      "required": true,
+      "order": 0,
+      "sizeKind": "one_size",
+      "queries": [
+        "brass rose crown gold flower headband"
+      ],
+      "styleNotes": "A delicate warm brass crown with rose or floral detail. The $ crown substitutes small blossoms; separate burgundy roses can be added.",
+      "matches": [
+        {
+          "productId": "p-ecabbd00d3",
+          "rank": 0,
+          "reason": "Three-dimensional golden brass rosebuds on a thin metal headband. Strong match for the brass rose anchor, but this is a headband rather than a full circular coronet. Handmade in Southern California; stated dispatch within two weeks."
+        },
+        {
+          "productId": "p-0815fd0233",
+          "rank": 1,
+          "reason": "Golden brass blossom crown on a slim band. Small blossoms replace roses: add a burgundy rose from the separate embellishment piece if desired. Live feed confirms six units/order slots available. Handmade in Southern California; stated dispatch within two weeks."
+        },
+        {
+          "productId": "p-21f722ad43",
+          "rank": 2,
+          "reason": "Golden brass rose petals and leaf vines, gold Swarovski beads, flexible wire, and gold velvet ribbon ties. Floral portion about 13 inches; overall band about 16 inches. Handmade to order; stated dispatch within two weeks. No burgundy fabric flowers included."
+        }
+      ]
+    },
+    {
+      "id": "rose-garden-queen-gown",
+      "name": "Burgundy velvet gown",
+      "category": "dresses",
+      "required": true,
+      "order": 1,
+      "sizeKind": "apparel",
+      "queries": [
+        "burgundy velvet floral gown ball gown"
+      ],
+      "styleNotes": "Keep the burgundy velvet anchor. Available dresses approximate either the full royal silhouette or the raised flower detail. Add the separate roses where absent. No ready-made option reproduces the full illustrated velvet skirt, gold rose-vine embroidery and corset together.",
+      "matches": [
+        {
+          "productId": "p-f84baae8a4",
+          "rank": 0,
+          "reason": "Burgundy velvet bodice with sheer embroidered long sleeves and a full embroidered tulle skirt with train. Floral sequins/beadwork differ from gold rose vines; the skirt is tulle rather than velvet. Add separate fabric roses for raised blooms. Burgundy size 8 is sold out; only listed sizes are available."
+        },
+        {
+          "productId": "p-8d1bae85e1",
+          "rank": 1,
+          "reason": "Burgundy gown listed under color Red; velvet bodice, lined polyester, open back, nude mesh side panels. Modern fitted silhouette, without rose embroidery or the illustrated full skirt. Add the separate fabric roses. Only 2XL and 3XL available. Merchant aims to process within 48 hours; peak periods may take longer."
+        },
+        {
+          "productId": "p-96679a3aae",
+          "rank": 2,
+          "reason": "Burgundy 100% polyester velvet, fully lined, high neck and sleeveless. Merchant confirms 3D velvet flowers at shoulder and waist are included. Column silhouette, hip drape and thigh slit differ from the illustrated ball gown. Separate rose heads can add further blooms but are not needed for its two existing flowers."
+        }
+      ]
+    },
+    {
+      "id": "rose-garden-queen-cape",
+      "name": "Sage green short cape",
+      "category": "outerwear",
+      "required": true,
+      "order": 2,
+      "sizeKind": "apparel",
+      "queries": [
+        "sage green velvet capelet short cape"
+      ],
+      "styleNotes": "A short green shoulder cape. Budget tiers are darker green or olive; the premium tier provides sage green and gold floral fabric. Only premium choice matches sage. It is made to order in the UK; timing needs checking before purchase.",
+      "matches": [
+        {
+          "productId": "p-33b6ab8042",
+          "rank": 0,
+          "reason": "Olive green crushed velvet panne capelet, full-size hood and hook-and-eye closure. Adult length 24 inches, width 54 inches. More yellow/olive and longer than sage reference; no floral embroidery. Handmade to order in USA; unlimited orderable adult variant confirms $44.95, rather than the $39.95 child price. Seller states most orders ready in 1–3 business days; large/custom orders may take longer."
+        },
+        {
+          "productId": "p-237279d8f1",
+          "rank": 1,
+          "reason": "Dark green velvet short capelet with frog closure and lace. This is considerably darker than sage and lacks rose embroidery. Capelet only; no gown or crown included."
+        },
+        {
+          "productId": "p-ee29b61278",
+          "rank": 2,
+          "reason": "Sage green/gold floral stretch velvet, peach satin lining and neck ties; about 16 inches long. Gold floral pattern substitutes for burgundy rose embroidery. Built-in merchant browser verified selected S at $81.10 USD and enabled Add to basket. Other sizes are listed but not price-verified, so excluded. Made to order in UK: displayed stock means enough fabric, not a finished garment. Seller gives variable production time; no dispatch date verified. US delivery is offered, with tariff included in shipping."
+        }
+      ]
+    },
+    {
+      "id": "rose-garden-queen-gloves",
+      "name": "Burgundy long gloves",
+      "category": "accessories",
+      "required": true,
+      "order": 3,
+      "sizeKind": "apparel",
+      "queries": [
+        "burgundy velvet opera gloves"
+      ],
+      "styleNotes": "Long burgundy velvet gloves balance the gown. These options omit the reference gold embroidery.",
+      "matches": [
+        {
+          "productId": "p-e681c1ed42",
+          "rank": 0,
+          "reason": "Burgundy velvet opera gloves, 21 inches long. Gloves only, without gold embroidery or roses. Merchant provides no hand-size variants; Burgundy is the sole orderable variant."
+        },
+        {
+          "productId": "p-df8ef7c655",
+          "rank": 1,
+          "reason": "Long plain burgundy velvet gloves, no gold embroidery. Non-damaged backlot listing. Current live variant feed provides XS/S through 3X/4X at $25; the legacy description says one size, so check fit with the merchant before purchase."
+        },
+        {
+          "productId": "p-3d4198f4c0",
+          "rank": 2,
+          "reason": "Plain full-finger burgundy stretch velvet, polyester/elastane. Choose 44, 52 or 65 cm length; 52CM selected. The length controls arm coverage, not hand circumference. No floral embroidery included. Merchant labels this burgundy, but its photo appears brighter crimson than the dark wine reference."
+        }
+      ]
+    },
+    {
+      "id": "rose-garden-queen-roses",
+      "name": "Burgundy fabric rose embellishments",
+      "category": "accessories",
+      "required": true,
+      "order": 4,
+      "sizeKind": "one_size",
+      "queries": [
+        "burgundy velvet rose heads sew on costume"
+      ],
+      "styleNotes": "Add raised burgundy roses at one shoulder and the waist; remaining heads can decorate the cape or crown. These are craft materials requiring attachment. Gold vine embroidery is not included; these rose clusters provide an honest simpler DIY finish.",
+      "matches": [
+        {
+          "productId": "p-bfd5ae5a6f",
+          "rank": 0,
+          "reason": "Five approximately 3.5-inch burgundy rose heads in velvety polyester. Larger blooms than the reference suit a waist/shoulder cluster. DIY attachment is required: stitch or secure heads onto the gown/cape or headband. Fasteners, sewing supplies and gold vine trim are not included. The selected five-piece pack is priced; do not use the lower single-head price."
+        },
+        {
+          "productId": "p-8c97008953",
+          "rank": 1,
+          "reason": "Five approximately 2-inch burgundy faux silk/velvet rose heads. Smaller blooms suit shoulder, waist and cape clusters. DIY attachment is required: stitch or secure heads onto the gown/cape or headband. Fasteners, sewing supplies and gold vine trim are not included. The selected five-piece pack is priced; do not use the lower single-head price."
+        },
+        {
+          "productId": "p-4cf693131c",
+          "rank": 2,
+          "reason": "Five approximately 3.5-inch burgundy flannelette rose heads. Velvet-like texture and deeper tone suit the gown anchor. DIY attachment is required: stitch or secure heads onto the gown/cape or headband. Fasteners, sewing supplies and gold vine trim are not included. The selected five-piece pack is priced; do not use the lower single-head price."
+        }
+      ]
+    },
+    {
+      "id": "rose-garden-queen-boots",
+      "name": "Dark ankle boots",
+      "category": "footwear",
+      "required": true,
+      "order": 5,
+      "sizeKind": "shoe",
+      "queries": [
+        "dark ankle boots women leather"
+      ],
+      "styleNotes": "Dark brown or black ankle boots ground the gown. Plain real boots replace the illustrated floral decoration.",
+      "matches": [
+        {
+          "productId": "p-fa88c71724",
+          "rank": 0,
+          "reason": "Black full-grain leather Chelsea boot, glove leather lining, 1.25-inch heel and 5.5-inch shaft. Plain boot substitutes for dark brown floral heeled reference. Listed sizes are Standard width; other widths are excluded. Merchant offers domestic US shipping."
+        },
+        {
+          "productId": "p-9f0ec3e56f",
+          "rank": 1,
+          "reason": "Dark brown faux-leather lace-up ankle boots with side zip and 5.3 cm chunky lug heel/platform. Rounder and bulkier than the illustrated dress boot; no floral decoration. Exact available US sizes only."
+        },
+        {
+          "productId": "p-65bdda9af7",
+          "rank": 2,
+          "reason": "Black leather Original Chelsea boots with low heel. A sturdy plain approximation; no pointed dress heel, vines or roses. Exact merchant US Women and UK/AU labels retained. Current merchant price is $209.95."
+        }
+      ]
+    }
+  ],
+  "products": [
+    {
+      "id": "p-ecabbd00d3",
+      "title": "Rosebud Crown - Gold Flower Crown, Hairpiece, Bridal, Head Piece, Hair Accessories, tiara",
+      "url": "https://www.acutedesignsshop.com/products/rosebud-crown-gold-flower-crown-hairpiece-bridal-head-piece-hair-accessories-tiara?variant=31280205824113",
+      "priceCents": 8800,
+      "currency": "USD",
+      "image": "/products/price-tiers/p-ecabbd00d3.webp",
+      "merchantImage": "/products/price-tiers/p-ecabbd00d3.webp",
+      "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/0677/0749/products/acute_designs-180.jpg?v=1744763739"
+      ],
+      "availability": "in_stock",
+      "sizes": [],
+      "merchantId": "acutedesignsshop-com",
+      "tagSlugs": [],
+      "description": "Three-dimensional golden brass rosebuds on a thin metal headband. Strong match for the brass rose anchor, but this is a headband rather than a full circular coronet. Handmade in Southern California; stated dispatch within two weeks.",
+      "checkedAt": "2026-10-25T08:51:06.361508Z",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-25T08:51:06.361508Z",
+        "url": "https://www.acutedesignsshop.com/products/rosebud-crown-gold-flower-crown-hairpiece-bridal-head-piece-hair-accessories-tiara.js",
+        "notes": "Three-dimensional golden brass rosebuds on a thin metal headband. Strong match for the brass rose anchor, but this is a headband rather than a full circular coronet. Handmade in Southern California; stated dispatch within two weeks."
+      }
+    },
+    {
+      "id": "p-21f722ad43",
+      "title": "Rose Petal Bridal Crown Headband, Wedding Head Piece, Flower Crown",
+      "url": "https://www.acutedesignsshop.com/products/rose-petal-bridal-crown-headband-wedding-head-piece-flower-crown?variant=3346139349016",
+      "priceCents": 12500,
+      "currency": "USD",
+      "image": "/products/price-tiers/p-21f722ad43.webp",
+      "merchantImage": "/products/price-tiers/p-21f722ad43.webp",
+      "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/0677/0749/products/rose_petal_crown_2.jpg?v=1744764184"
+      ],
+      "availability": "in_stock",
+      "sizes": [],
+      "merchantId": "acutedesignsshop-com",
+      "tagSlugs": [],
+      "description": "Golden brass rose petals and leaf vines, gold Swarovski beads, flexible wire, and gold velvet ribbon ties. Floral portion about 13 inches; overall band about 16 inches. Handmade to order; stated dispatch within two weeks. No burgundy fabric flowers included.",
+      "checkedAt": "2026-10-25T08:51:06.361508Z",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-25T08:51:06.361508Z",
+        "url": "https://www.acutedesignsshop.com/products/rose-petal-bridal-crown-headband-wedding-head-piece-flower-crown.js",
+        "notes": "Golden brass rose petals and leaf vines, gold Swarovski beads, flexible wire, and gold velvet ribbon ties. Floral portion about 13 inches; overall band about 16 inches. Handmade to order; stated dispatch within two weeks. No burgundy fabric flowers included."
+      }
+    },
+    {
+      "id": "p-0815fd0233",
+      "title": "Golden Blossom Crown – Bridal Wedding Hair Piece",
+      "url": "https://www.acutedesignsshop.com/products/golden-blossom-crown-bridal-wedding-hair-piece?variant=43526313607281",
+      "priceCents": 6800,
+      "currency": "USD",
+      "image": "/products/price-tiers/p-0815fd0233.webp",
+      "merchantImage": "/products/price-tiers/p-0815fd0233.webp",
+      "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/0677/0749/files/AcuteDesignsMay2026-109.jpg?v=1782334782"
+      ],
+      "availability": "in_stock",
+      "sizes": [],
+      "merchantId": "acutedesignsshop-com",
+      "tagSlugs": [],
+      "description": "Golden brass blossom crown on a slim band. Small blossoms replace roses: add a burgundy rose from the separate embellishment piece if desired. Live feed confirms six units/order slots available. Handmade in Southern California; stated dispatch within two weeks.",
+      "checkedAt": "2026-10-25T08:51:06.361508Z",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-25T08:51:06.361508Z",
+        "url": "https://www.acutedesignsshop.com/products/golden-blossom-crown-bridal-wedding-hair-piece.js",
+        "notes": "Golden brass blossom crown on a slim band. Small blossoms replace roses: add a burgundy rose from the separate embellishment piece if desired. Live feed confirms six units/order slots available. Handmade in Southern California; stated dispatch within two weeks."
+      }
+    },
+    {
+      "id": "p-96679a3aae",
+      "title": "Burgundy High Neck Velvet Column Gown With 3D Flowers",
+      "url": "https://macduggal.com/products/21163?variant=44809551937715",
+      "priceCents": 49800,
+      "currency": "USD",
+      "image": "/products/price-tiers/p-96679a3aae.webp",
+      "merchantImage": "/products/price-tiers/p-96679a3aae.webp",
+      "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/0511/3783/9283/files/21163-Burgundy-AB.jpg?v=1753872536"
+      ],
+      "availability": "in_stock",
+      "sizes": [
+        "US XS",
+        "US S",
+        "US M",
+        "US L"
+      ],
+      "merchantId": "macduggal-com",
+      "tagSlugs": [],
+      "description": "Burgundy 100% polyester velvet, fully lined, high neck and sleeveless. Merchant confirms 3D velvet flowers at shoulder and waist are included. Column silhouette, hip drape and thigh slit differ from the illustrated ball gown. Separate rose heads can add further blooms but are not needed for its two existing flowers.",
+      "checkedAt": "2026-10-25T08:51:06.361508Z",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-25T08:51:06.361508Z",
+        "url": "https://macduggal.com/products/21163.js",
+        "notes": "Burgundy 100% polyester velvet, fully lined, high neck and sleeveless. Merchant confirms 3D velvet flowers at shoulder and waist are included. Column silhouette, hip drape and thigh slit differ from the illustrated ball gown. Separate rose heads can add further blooms but are not needed for its two existing flowers."
+      }
+    },
+    {
+      "id": "p-8d1bae85e1",
+      "title": "Ginevra Burgundy Velvet Gown",
+      "url": "https://www.emprada.com/products/ginevra-burgundy-velvet-gown?variant=39999752011909",
+      "priceCents": 11999,
+      "currency": "USD",
+      "image": "/products/price-tiers/p-8d1bae85e1.webp",
+      "merchantImage": "/products/price-tiers/p-8d1bae85e1.webp",
+      "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/0511/4373/files/2327286919382128899222.png?v=1754703104"
+      ],
+      "availability": "in_stock",
+      "sizes": [
+        "2XL",
+        "3XL"
+      ],
+      "merchantId": "emprada-com",
+      "tagSlugs": [],
+      "description": "Burgundy gown listed under color Red; velvet bodice, lined polyester, open back, nude mesh side panels. Modern fitted silhouette, without rose embroidery or the illustrated full skirt. Add the separate fabric roses. Only 2XL and 3XL available. Merchant aims to process within 48 hours; peak periods may take longer.",
+      "checkedAt": "2026-10-25T08:51:06.361508Z",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-25T08:51:06.361508Z",
+        "url": "https://www.emprada.com/products/ginevra-burgundy-velvet-gown.js",
+        "notes": "Burgundy gown listed under color Red; velvet bodice, lined polyester, open back, nude mesh side panels. Modern fitted silhouette, without rose embroidery or the illustrated full skirt. Add the separate fabric roses. Only 2XL and 3XL available. Merchant aims to process within 48 hours; peak periods may take longer."
+      }
+    },
+    {
+      "id": "p-f84baae8a4",
+      "title": "Carolyn Gown - Long Sleeve Velvet & Lace Ball Gown",
+      "url": "https://www.ladyblacktie.com/products/carolyn-gown-long-sleeve-velvet-lace-ball-gown?variant=67558359171369",
+      "priceCents": 32500,
+      "currency": "USD",
+      "image": "/products/price-tiers/p-f84baae8a4.webp",
+      "merchantImage": "/products/price-tiers/p-f84baae8a4.webp",
+      "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/0875/9364/8425/files/cm394_burgundy_1.jpg?v=1790799016"
+      ],
+      "availability": "in_stock",
+      "sizes": [
+        "10",
+        "12",
+        "14",
+        "16",
+        "18",
+        "20"
+      ],
+      "merchantId": "ladyblacktie-com",
+      "tagSlugs": [],
+      "description": "Burgundy velvet bodice with sheer embroidered long sleeves and a full embroidered tulle skirt with train. Floral sequins/beadwork differ from gold rose vines; the skirt is tulle rather than velvet. Add separate fabric roses for raised blooms. Burgundy size 8 is sold out; only listed sizes are available.",
+      "checkedAt": "2026-10-25T08:51:06.361508Z",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-25T08:51:06.361508Z",
+        "url": "https://www.ladyblacktie.com/products/carolyn-gown-long-sleeve-velvet-lace-ball-gown.js",
+        "notes": "Burgundy velvet bodice with sheer embroidered long sleeves and a full embroidered tulle skirt with train. Floral sequins/beadwork differ from gold rose vines; the skirt is tulle rather than velvet. Add separate fabric roses for raised blooms. Burgundy size 8 is sold out; only listed sizes are available."
+      }
+    },
+    {
+      "id": "p-33b6ab8042",
+      "title": "Olive Green Crushed Velvet Capelet (Short Cape)",
+      "url": "https://www.teatotsparty.com/capes/p/olive-green-crushed-velvet-capelet-short-cape?Color=Olive+Green&Size=Adult+24%22",
+      "priceCents": 4495,
+      "currency": "USD",
+      "image": "/products/price-tiers/p-33b6ab8042.webp",
+      "merchantImage": "/products/price-tiers/p-33b6ab8042.webp",
+      "sourceImages": [
+        "https://images.squarespace-cdn.com/content/v1/655697cace83257275829245/1701270662321-VK9GVFBCOIGBK5KL5EQE/Olive+Capelet+1_clipped_rev_1.jpeg"
+      ],
+      "availability": "in_stock",
+      "sizes": [
+        "Adult 24\""
+      ],
+      "merchantId": "teatotsparty-com",
+      "tagSlugs": [],
+      "description": "Olive green crushed velvet panne capelet, full-size hood and hook-and-eye closure. Adult length 24 inches, width 54 inches. More yellow/olive and longer than sage reference; no floral embroidery. Handmade to order in USA; unlimited orderable adult variant confirms $44.95, rather than the $39.95 child price. Seller states most orders ready in 1–3 business days; large/custom orders may take longer.",
+      "checkedAt": "2026-10-25T08:51:06.361508Z",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-25T08:51:06.361508Z",
+        "url": "https://www.teatotsparty.com/capes/p/olive-green-crushed-velvet-capelet-short-cape?format=json",
+        "notes": "Olive green crushed velvet panne capelet, full-size hood and hook-and-eye closure. Adult length 24 inches, width 54 inches. More yellow/olive and longer than sage reference; no floral embroidery. Handmade to order in USA; unlimited orderable adult variant confirms $44.95, rather than the $39.95 child price. Seller states most orders ready in 1–3 business days; large/custom orders may take longer."
+      }
+    },
+    {
+      "id": "p-ee29b61278",
+      "title": "Floral Velvet Cape in a Green / Gold . Handmade Lined Capelet.",
+      "url": "https://www.etsy.com/listing/1515284675/floral-velvet-cape-in-a-green-gold-with?variation0=3622559536",
+      "priceCents": 8110,
+      "currency": "USD",
+      "image": "/products/price-tiers/p-ee29b61278.webp",
+      "merchantImage": "/products/price-tiers/p-ee29b61278.webp",
+      "sourceImages": [
+        "https://i.etsystatic.com/17308257/r/il/0b540c/5052871188/il_794xN.5052871188_tnym.jpg"
+      ],
+      "availability": "in_stock",
+      "sizes": [
+        "S US women's letter"
+      ],
+      "merchantId": "etsy-residentghost-on-etsy",
+      "tagSlugs": [],
+      "description": "Sage green/gold floral stretch velvet, peach satin lining and neck ties; about 16 inches long. Gold floral pattern substitutes for burgundy rose embroidery. Built-in merchant browser verified selected S at $81.10 USD and enabled Add to basket. Other sizes are listed but not price-verified, so excluded. Made to order in UK: displayed stock means enough fabric, not a finished garment. Seller gives variable production time; no dispatch date verified. US delivery is offered, with tariff included in shipping.",
+      "checkedAt": "2026-10-25T08:51:06.361508Z",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-25T08:51:06.361508Z",
+        "url": "https://www.etsy.com/listing/1515284675/floral-velvet-cape-in-a-green-gold-with?variation0=3622559536",
+        "notes": "Sage green/gold floral stretch velvet, peach satin lining and neck ties; about 16 inches long. Gold floral pattern substitutes for burgundy rose embroidery. Built-in merchant browser verified selected S at $81.10 USD and enabled Add to basket. Other sizes are listed but not price-verified, so excluded. Made to order in UK: displayed stock means enough fabric, not a finished garment. Seller gives variable production time; no dispatch date verified. US delivery is offered, with tariff included in shipping."
+      }
+    },
+    {
+      "id": "p-237279d8f1",
+      "title": "Dark Green Velvet & Lace Capelet",
+      "url": "https://www.daisycorsets.com/products/dark-green-velvet-lace-capelet?variant=45513149382889",
+      "priceCents": 2400,
+      "currency": "USD",
+      "image": "/products/price-tiers/p-237279d8f1.webp",
+      "merchantImage": "/products/price-tiers/p-237279d8f1.webp",
+      "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/0629/3327/0761/products/dark-green-velvet-lace-capelet-721901.jpg?v=1756219177"
+      ],
+      "availability": "in_stock",
+      "sizes": [
+        "One Size"
+      ],
+      "merchantId": "daisycorsets-com",
+      "tagSlugs": [],
+      "description": "Dark green velvet short capelet with frog closure and lace. This is considerably darker than sage and lacks rose embroidery. Capelet only; no gown or crown included.",
+      "checkedAt": "2026-10-25T08:51:06.361508Z",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-25T08:51:06.361508Z",
+        "url": "https://www.daisycorsets.com/products/dark-green-velvet-lace-capelet.js",
+        "notes": "Dark green velvet short capelet with frog closure and lace. This is considerably darker than sage and lacks rose embroidery. Capelet only; no gown or crown included."
+      }
+    },
+    {
+      "id": "p-3d4198f4c0",
+      "title": "Velvet Opera Gloves | Three Lengths",
+      "url": "https://www.stagewearshop.com/products/velvet-opera-gloves-long-stretch?variant=51358088429815",
+      "priceCents": 6500,
+      "currency": "USD",
+      "image": "/products/price-tiers/p-3d4198f4c0.webp",
+      "merchantImage": "/products/price-tiers/p-3d4198f4c0.webp",
+      "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/0925/2959/0519/files/S947c903831bb462aae9f415712f95c59k.webp?v=1792389313"
+      ],
+      "availability": "in_stock",
+      "sizes": [
+        "44CM",
+        "52CM",
+        "65CM"
+      ],
+      "merchantId": "stagewearshop-com",
+      "tagSlugs": [],
+      "description": "Plain full-finger burgundy stretch velvet, polyester/elastane. Choose 44, 52 or 65 cm length; 52CM selected. The length controls arm coverage, not hand circumference. No floral embroidery included. Merchant labels this burgundy, but its photo appears brighter crimson than the dark wine reference.",
+      "checkedAt": "2026-10-25T08:51:06.361508Z",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-25T08:51:06.361508Z",
+        "url": "https://www.stagewearshop.com/products/velvet-opera-gloves-long-stretch.js",
+        "notes": "Plain full-finger burgundy stretch velvet, polyester/elastane. Choose 44, 52 or 65 cm length; 52CM selected. The length controls arm coverage, not hand circumference. No floral embroidery included. Merchant labels this burgundy, but its photo appears brighter crimson than the dark wine reference."
+      }
+    },
+    {
+      "id": "p-e681c1ed42",
+      "title": "Long Burgundy Dark Red Velvet Opera Evening Gloves AC1017",
+      "url": "https://www.ieiebridal.com/products/long-burgundy-dark-red-velvet-opera-evening-gloves-ac1017?variant=42249803792449",
+      "priceCents": 2995,
+      "currency": "USD",
+      "image": "/products/price-tiers/p-e681c1ed42.webp",
+      "merchantImage": "/products/price-tiers/p-e681c1ed42.webp",
+      "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/0251/3722/files/long-red-velvet-opera-length-gloves-ac1011-5.jpg?v=1762919849"
+      ],
+      "availability": "in_stock",
+      "sizes": [],
+      "merchantId": "ieiebridal-com",
+      "tagSlugs": [],
+      "description": "Burgundy velvet opera gloves, 21 inches long. Gloves only, without gold embroidery or roses. Merchant provides no hand-size variants; Burgundy is the sole orderable variant.",
+      "checkedAt": "2026-10-25T08:51:06.361508Z",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-25T08:51:06.361508Z",
+        "url": "https://www.ieiebridal.com/products/long-burgundy-dark-red-velvet-opera-evening-gloves-ac1017.js",
+        "notes": "Burgundy velvet opera gloves, 21 inches long. Gloves only, without gold embroidery or roses. Merchant provides no hand-size variants; Burgundy is the sole orderable variant."
+      }
+    },
+    {
+      "id": "p-df8ef7c655",
+      "title": "NON-DAMAGED BACKLOT - Golden Era Opera Gloves in Burgundy Velvet",
+      "url": "https://www.michelinepitt.com/products/full-length-opera-gloves-in-burgundy-velvet?variant=51883285774700",
+      "priceCents": 2500,
+      "currency": "USD",
+      "image": "/products/price-tiers/p-df8ef7c655.webp",
+      "merchantImage": "/products/price-tiers/p-df8ef7c655.webp",
+      "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/1637/4459/files/Burgundy_Gloves_2.png?v=1752794140"
+      ],
+      "availability": "in_stock",
+      "sizes": [
+        "XS/S",
+        "M/L",
+        "XL/2X",
+        "3X/4X"
+      ],
+      "merchantId": "michelinepitt-com",
+      "tagSlugs": [],
+      "description": "Long plain burgundy velvet gloves, no gold embroidery. Non-damaged backlot listing. Current live variant feed provides XS/S through 3X/4X at $25; the legacy description says one size, so check fit with the merchant before purchase.",
+      "checkedAt": "2026-10-25T08:51:06.361508Z",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-25T08:51:06.361508Z",
+        "url": "https://www.michelinepitt.com/products/full-length-opera-gloves-in-burgundy-velvet.js",
+        "notes": "Long plain burgundy velvet gloves, no gold embroidery. Non-damaged backlot listing. Current live variant feed provides XS/S through 3X/4X at $25; the legacy description says one size, so check fit with the merchant before purchase."
+      }
+    },
+    {
+      "id": "p-4cf693131c",
+      "title": "Burgundy Velvet Flowers Head Rose Dark Red Wine High Quality Maroon Red Wedding Artificial Roses Home Décor Silk Decorative DIY Supplies",
+      "url": "https://lushdesign.store/products/burgundy-velvet-flowers-head-rose-dark-24825?variant=50622797119782",
+      "priceCents": 2183,
+      "currency": "USD",
+      "image": "/products/price-tiers/p-4cf693131c.webp",
+      "merchantImage": "/products/price-tiers/p-4cf693131c.webp",
+      "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/0830/3706/1414/files/il_fullxfull.5262534687_9hb9_59c165c0-21da-46f8-88f4-c5a4c1ec4a5b.jpg?v=1788192517"
+      ],
+      "availability": "in_stock",
+      "sizes": [],
+      "merchantId": "lushdesign-store",
+      "tagSlugs": [],
+      "description": "Five approximately 3.5-inch burgundy flannelette rose heads. Velvet-like texture and deeper tone suit the gown anchor. DIY attachment is required: stitch or secure heads onto the gown/cape or headband. Fasteners, sewing supplies and gold vine trim are not included. The selected five-piece pack is priced; do not use the lower single-head price.",
+      "checkedAt": "2026-10-25T08:51:06.361508Z",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-25T08:51:06.361508Z",
+        "url": "https://lushdesign.store/products/burgundy-velvet-flowers-head-rose-dark-24825.js",
+        "notes": "Five approximately 3.5-inch burgundy flannelette rose heads. Velvet-like texture and deeper tone suit the gown anchor. DIY attachment is required: stitch or secure heads onto the gown/cape or headband. Fasteners, sewing supplies and gold vine trim are not included. The selected five-piece pack is priced; do not use the lower single-head price."
+      }
+    },
+    {
+      "id": "p-bfd5ae5a6f",
+      "title": "Burgundy Rose Head 3.5” Wedding Artificial Wine Flower Head Heads Burgundy Craft Supplies Wedding Maroon Rose Head Home Decor Burgundy",
+      "url": "https://lushdesign.store/products/burgundy-rose-head-35-wedding-02056?variant=50623722455334",
+      "priceCents": 2099,
+      "currency": "USD",
+      "image": "/products/price-tiers/p-bfd5ae5a6f.webp",
+      "merchantImage": "/products/price-tiers/p-bfd5ae5a6f.webp",
+      "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/0830/3706/1414/files/il_fullxfull.6552870261_f7lc_391c543c-3ce1-45f9-b098-65fa98139ed3.jpg?v=1776412590"
+      ],
+      "availability": "in_stock",
+      "sizes": [],
+      "merchantId": "lushdesign-store",
+      "tagSlugs": [],
+      "description": "Five approximately 3.5-inch burgundy rose heads in velvety polyester. Larger blooms than the reference suit a waist/shoulder cluster. DIY attachment is required: stitch or secure heads onto the gown/cape or headband. Fasteners, sewing supplies and gold vine trim are not included. The selected five-piece pack is priced; do not use the lower single-head price.",
+      "checkedAt": "2026-10-25T08:51:06.361508Z",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-25T08:51:06.361508Z",
+        "url": "https://lushdesign.store/products/burgundy-rose-head-35-wedding-02056.js",
+        "notes": "Five approximately 3.5-inch burgundy rose heads in velvety polyester. Larger blooms than the reference suit a waist/shoulder cluster. DIY attachment is required: stitch or secure heads onto the gown/cape or headband. Fasteners, sewing supplies and gold vine trim are not included. The selected five-piece pack is priced; do not use the lower single-head price."
+      }
+    },
+    {
+      "id": "p-8c97008953",
+      "title": "Burgundy Rose Head 2\" Wedding Decor Velvet Burgundy Rose Small Maroon Wedding DIY Craft Supplies Silk Rose Head Wine Red Dark Artificial",
+      "url": "https://lushdesign.store/products/burgundy-rose-head-2-wedding-decor-82248?variant=50623712657702",
+      "priceCents": 1463,
+      "currency": "USD",
+      "image": "/products/price-tiers/p-8c97008953.webp",
+      "merchantImage": "/products/price-tiers/p-8c97008953.webp",
+      "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/0830/3706/1414/files/il_fullxfull.6465440806_itwc_d9894829-839a-4316-9bc0-cd5f01bf9a4d.jpg?v=1776412600"
+      ],
+      "availability": "in_stock",
+      "sizes": [],
+      "merchantId": "lushdesign-store",
+      "tagSlugs": [],
+      "description": "Five approximately 2-inch burgundy faux silk/velvet rose heads. Smaller blooms suit shoulder, waist and cape clusters. DIY attachment is required: stitch or secure heads onto the gown/cape or headband. Fasteners, sewing supplies and gold vine trim are not included. The selected five-piece pack is priced; do not use the lower single-head price.",
+      "checkedAt": "2026-10-25T08:51:06.361508Z",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-25T08:51:06.361508Z",
+        "url": "https://lushdesign.store/products/burgundy-rose-head-2-wedding-decor-82248.js",
+        "notes": "Five approximately 2-inch burgundy faux silk/velvet rose heads. Smaller blooms suit shoulder, waist and cape clusters. DIY attachment is required: stitch or secure heads onto the gown/cape or headband. Fasteners, sewing supplies and gold vine trim are not included. The selected five-piece pack is priced; do not use the lower single-head price."
+      }
+    },
+    {
+      "id": "p-9f0ec3e56f",
+      "title": "Danie Brown Boots",
+      "url": "https://www.rocketdog.com/products/danner-brown-boots?variant=43737405587526",
+      "priceCents": 5597,
+      "currency": "USD",
+      "image": "/products/price-tiers/p-9f0ec3e56f.webp",
+      "merchantImage": "/products/price-tiers/p-9f0ec3e56f.webp",
+      "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/1903/5555/files/DANNERAO_DARKBROWN_2.jpg?v=1756989780"
+      ],
+      "availability": "in_stock",
+      "sizes": [
+        "7",
+        "7.5",
+        "8",
+        "8.5",
+        "9",
+        "9.5",
+        "10"
+      ],
+      "merchantId": "rocketdog-com",
+      "tagSlugs": [],
+      "description": "Dark brown faux-leather lace-up ankle boots with side zip and 5.3 cm chunky lug heel/platform. Rounder and bulkier than the illustrated dress boot; no floral decoration. Exact available US sizes only.",
+      "checkedAt": "2026-10-25T08:51:06.361508Z",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-25T08:51:06.361508Z",
+        "url": "https://www.rocketdog.com/products/danner-brown-boots.js",
+        "notes": "Dark brown faux-leather lace-up ankle boots with side zip and 5.3 cm chunky lug heel/platform. Rounder and bulkier than the illustrated dress boot; no floral decoration. Exact available US sizes only."
+      }
+    },
+    {
+      "id": "p-fa88c71724",
+      "title": "Duchess | Black",
+      "url": "https://thursdayboots.com/products/womens-duchess-black-chelsea-boot?variant=41611980701786",
+      "priceCents": 16000,
+      "currency": "USD",
+      "image": "/products/price-tiers/p-fa88c71724.webp",
+      "merchantImage": "/products/price-tiers/p-fa88c71724.webp",
+      "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/0419/1525/products/1024x1024-Women-Duchess-Black-Side.jpg?v=1591637693"
+      ],
+      "availability": "in_stock",
+      "sizes": [
+        "4",
+        "4.5",
+        "5",
+        "5.5",
+        "6",
+        "6.5",
+        "7",
+        "7.5",
+        "8",
+        "8.5",
+        "9",
+        "9.5",
+        "10",
+        "10.5",
+        "11",
+        "11.5",
+        "12",
+        "12.5",
+        "13"
+      ],
+      "merchantId": "thursdayboots-com",
+      "tagSlugs": [],
+      "description": "Black full-grain leather Chelsea boot, glove leather lining, 1.25-inch heel and 5.5-inch shaft. Plain boot substitutes for dark brown floral heeled reference. Listed sizes are Standard width; other widths are excluded. Merchant offers domestic US shipping.",
+      "checkedAt": "2026-10-25T08:51:06.361508Z",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-25T08:51:06.361508Z",
+        "url": "https://thursdayboots.com/products/womens-duchess-black-chelsea-boot.js",
+        "notes": "Black full-grain leather Chelsea boot, glove leather lining, 1.25-inch heel and 5.5-inch shaft. Plain boot substitutes for dark brown floral heeled reference. Listed sizes are Standard width; other widths are excluded. Merchant offers domestic US shipping."
+      }
+    },
+    {
+      "id": "p-65bdda9af7",
+      "title": "Women's Originals #510",
+      "url": "https://www.blundstone.com/products/black-premium-leather-v-cut-boots-womens-style-510?variant=53192324219187",
+      "priceCents": 20995,
+      "currency": "USD",
+      "image": "/products/price-tiers/p-65bdda9af7.webp",
+      "merchantImage": "/products/price-tiers/p-65bdda9af7.webp",
+      "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/0903/6349/4707/files/product-image_2026-10-12_510_p_usa_hero.jpg?v=1791961602"
+      ],
+      "availability": "in_stock",
+      "sizes": [
+        "6 US Women (3 AU/UK)",
+        "6.5 US Women (3.5 AU/UK)",
+        "7 US Women (4 AU/UK)",
+        "7.5 US Women (4.5 AU/UK)",
+        "8 US Women (5 AU/UK)",
+        "8.5 US Women (5.5 AU/UK)",
+        "9 US Women (6 AU/UK)",
+        "9.5 US Women (6.5 AU/UK)",
+        "10 US Women (7 AU/UK)",
+        "10.5 US Women (7.5 AU/UK)",
+        "11 US Women (8 AU/UK)",
+        "11.5 US Women (8.5 AU/UK)",
+        "12 US Women (9 AU/UK)",
+        "12.5 US Women (9.5 AU/UK)",
+        "13 US Women (10 AU/UK)",
+        "13.5 US Women (10.5 AU/UK)",
+        "14 US Women (11 AU/UK)",
+        "15 US Women (12 AU/UK)",
+        "16 US Women (13 AU/UK)",
+        "5 US Women (2 UK/AU)",
+        "6 US Women (3 UK/AU)",
+        "6.5 US Women (3.5 UK/AU)",
+        "7 US Women (4 UK/AU)",
+        "7.5 US Women (4.5 UK/AU)",
+        "8 US Women (5 UK/AU)",
+        "8.5 US Women (5.5 UK/AU)",
+        "9 US Women (6 UK/AU)",
+        "9.5 US Women (6.5 UK/AU)",
+        "10 US Women (7 UK/AU)",
+        "10.5 US Women (7.5 UK/AU)",
+        "11 US Women (8 UK/AU)",
+        "11.5 US Women (8.5 UK/AU)",
+        "12 US Women (9 UK/AU)",
+        "12.5 US Women (9.5 UK/AU)",
+        "13 US Women (10 UK/AU)",
+        "13.5 US Women (10.5 UK/AU)",
+        "14 US Women (11 UK/AU)",
+        "15 US Women (12 UK/AU)",
+        "16 US Women (13 UK/AU)"
+      ],
+      "merchantId": "blundstone-com",
+      "tagSlugs": [],
+      "description": "Black leather Original Chelsea boots with low heel. A sturdy plain approximation; no pointed dress heel, vines or roses. Exact merchant US Women and UK/AU labels retained. Current merchant price is $209.95.",
+      "checkedAt": "2026-10-25T08:51:06.361508Z",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-25T08:51:06.361508Z",
+        "url": "https://www.blundstone.com/products/black-premium-leather-v-cut-boots-womens-style-510.js",
+        "notes": "Black leather Original Chelsea boots with low heel. A sturdy plain approximation; no pointed dress heel, vines or roses. Exact merchant US Women and UK/AU labels retained. Current merchant price is $209.95."
+      }
+    }
+  ],
+  "merchants": [
+    {
+      "id": "acutedesignsshop-com",
+      "name": "Acute Designs",
+      "domain": "acutedesignsshop.com",
+      "url": "https://acutedesignsshop.com/",
+      "kind": "boutique",
+      "neighborhoodId": null
+    },
+    {
+      "id": "emprada-com",
+      "name": "Emprada",
+      "domain": "emprada.com",
+      "url": "https://emprada.com/",
+      "kind": "boutique",
+      "neighborhoodId": null
+    },
+    {
+      "id": "ladyblacktie-com",
+      "name": "Lady Black Tie",
+      "domain": "ladyblacktie.com",
+      "url": "https://ladyblacktie.com/",
+      "kind": "boutique",
+      "neighborhoodId": null
+    },
+    {
+      "id": "macduggal-com",
+      "name": "Mac Duggal",
+      "domain": "macduggal.com",
+      "url": "https://macduggal.com/",
+      "kind": "boutique",
+      "neighborhoodId": null
+    },
+    {
+      "id": "daisycorsets-com",
+      "name": "Daisy Corsets",
+      "domain": "daisycorsets.com",
+      "url": "https://daisycorsets.com/",
+      "kind": "boutique",
+      "neighborhoodId": null
+    },
+    {
+      "id": "teatotsparty-com",
+      "name": "Teatots Party",
+      "domain": "teatotsparty.com",
+      "url": "https://teatotsparty.com/",
+      "kind": "boutique",
+      "neighborhoodId": null
+    },
+    {
+      "id": "etsy-residentghost-on-etsy",
+      "name": "ResidentGhost on Etsy",
+      "domain": "etsy.com",
+      "url": "https://www.etsy.com/listing/1515284675/floral-velvet-cape-in-a-green-gold-with?variation0=3622559536",
+      "kind": "etsy",
+      "neighborhoodId": null
+    },
+    {
+      "id": "michelinepitt-com",
+      "name": "Vixen by Micheline Pitt",
+      "domain": "michelinepitt.com",
+      "url": "https://michelinepitt.com/",
+      "kind": "boutique",
+      "neighborhoodId": null
+    },
+    {
+      "id": "ieiebridal-com",
+      "name": "ieie Bridal",
+      "domain": "ieiebridal.com",
+      "url": "https://ieiebridal.com/",
+      "kind": "boutique",
+      "neighborhoodId": null
+    },
+    {
+      "id": "stagewearshop-com",
+      "name": "Stage Wear Shop",
+      "domain": "stagewearshop.com",
+      "url": "https://stagewearshop.com/",
+      "kind": "boutique",
+      "neighborhoodId": null
+    },
+    {
+      "id": "lushdesign-store",
+      "name": "Lush Design",
+      "domain": "lushdesign.store",
+      "url": "https://lushdesign.store/",
+      "kind": "boutique",
+      "neighborhoodId": null
+    },
+    {
+      "id": "rocketdog-com",
+      "name": "Rocket Dog",
+      "domain": "rocketdog.com",
+      "url": "https://rocketdog.com/",
+      "kind": "boutique",
+      "neighborhoodId": null
+    },
+    {
+      "id": "thursdayboots-com",
+      "name": "Thursday Boot Company",
+      "domain": "thursdayboots.com",
+      "url": "https://thursdayboots.com/",
+      "kind": "boutique",
+      "neighborhoodId": null
+    },
+    {
+      "id": "blundstone-com",
+      "name": "Blundstone",
+      "domain": "blundstone.com",
+      "url": "https://blundstone.com/",
+      "kind": "boutique",
+      "neighborhoodId": null
+    }
+  ],
+  "neighborhoods": [],
+  "tags": [],
+  "provenance": {
+    "method": "manual-research",
+    "generatedAt": "2026-10-25T08:51:06.361508Z",
+    "priceTiers": true,
+    "heroImageKind": "generated-reference",
+    "notes": "Built-in web search and direct official merchant evidence. Three distinct relative price points per piece: $, $$, $$$. Prices exclude shipping/tax; stock is variant-specific and delivery is unconfirmed. See docs/sourcing/price-tiers/rose-garden-queen.json."
+  }
+}

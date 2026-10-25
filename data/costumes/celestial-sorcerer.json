@@ -1,0 +1,548 @@
+{
+  "costume": {
+    "slug": "celestial-sorcerer",
+    "name": "Celestial Sorcerer",
+    "description": "A deep blue robe and pointed hat traced with silver constellations, tied with a simple silver belt.",
+    "image": "/costumes/celestial-sorcerer.png",
+    "alt": "Deep blue pointed hat and long robe embroidered with silver constellations, silver rope belt, moon pendant, and black boots",
+    "status": "live"
+  },
+  "pieces": [
+    {
+      "id": "celestial-sorcerer-wizard-set",
+      "name": "Blue celestial robe and pointed hat set",
+      "category": "outerwear",
+      "required": true,
+      "order": 0,
+      "sizeKind": "apparel",
+      "queries": [
+        "adult blue celestial wizard robe hat set"
+      ],
+      "styleNotes": "One merchant-confirmed set supplies both the long robe and pointed hat. Blue/silver foil or blue/gold moon-and-star decoration approximates the dense silver constellation embroidery. No verified option reproduces the generated dense silver constellation embroidery. The two higher-priced sets use gold stars and moons. The middle set is available only in XX-Large. The handmade premium set needs 2-5 weeks of production and was variant-verified only in Blue/M.",
+      "matches": [
+        {
+          "productId": "p-ddf8d6eac8",
+          "rank": 0,
+          "reason": "Set includes open-front tunic robe and matching pointed hat; 100% polyester. The actual photo shows dark blue fabric, large gold/yellow stars and moons, and silver trim. These are bold appliques, rather than fine silver constellations. Only the listed XX-Large variant is available; One Size is sold out. Beard and shoes in the photo are not listed as included. Merchant ships Monday-Friday from Chicago."
+        },
+        {
+          "productId": "p-fb28757f77",
+          "rank": 1,
+          "reason": "Blue set includes a pointed hat and open-front tunic robe with an inset cover. The photo shows a brighter blue and metallic silver celestial foil print, rather than navy velvet with stitched constellations. Standard/Blue is $89.99; XXL costs $99.99 and is excluded at this price. Beard, staff and crystal ball are not listed as included. Merchant ships Monday-Friday from Chicago."
+        },
+        {
+          "productId": "p-5eae316914",
+          "rank": 2,
+          "reason": "Made-to-order heavy velvet robe with matching lined wizard hat. Blue/M US letter was selected in the live merchant page at $500 with Add to basket enabled. Merchant asks for chest and neck-to-floor measurements. Actual photos show dark blue velvet with gold moon/star embroidery and gold trim, rather than silver constellations; the pictured design is an example and each piece is custom. The underlayer is not listed as included. Production is 2-5 weeks before shipping from the UK; US shipping is offered. This is orderable production capacity, not a ready-to-ship garment."
+        }
+      ]
+    },
+    {
+      "id": "celestial-sorcerer-silver-belt",
+      "name": "Silver cord or rope belt",
+      "category": "accessories",
+      "required": true,
+      "order": 1,
+      "sizeKind": "one_size",
+      "queries": [
+        "silver braided rope belt tassels"
+      ],
+      "styleNotes": "Tie a silver cord around the robe and leave long ends visible. Tassels most closely preserve the image. The middle belt uses metal end caps rather than tassels. The premium belt is a wider cummerbund.",
+      "matches": [
+        {
+          "productId": "p-754204b498",
+          "rank": 0,
+          "reason": "Silver PU faux-leather cord with interfaced core and silver hardware, 6 mm wide. M - 85in and Silver hardware were selected on the live merchant page: $32.90, Add to basket enabled. Other lengths are excluded because their final variant prices were not checked. This has metal end caps and no tassels, so it preserves the silver tie-belt shape with a simpler finish. Ships from California; US shipping is offered. Custom sizing adds $3 and is excluded."
+        },
+        {
+          "productId": "p-6bde7543cf",
+          "rank": 1,
+          "reason": "One ready belt is listed available at $26. Hand-braided white/silver polyamide and metallic polyester yarn, about 7 mm wide. Total length is 240 cm including tassels; seller says it best fits a 70-80 cm waist for two wraps. The tassels are looser and finer than the generated belt. Ships from Ukraine and offers US shipping; dispatch time is not stated. Custom lengths need a separate seller arrangement and are not included at this price."
+        },
+        {
+          "productId": "p-df1458eaa4",
+          "rank": 2,
+          "reason": "Silver silk-cord belt with silk tassels, made in Italy. Merchant lists one fully adjustable size up to 45 inches and a 2.15-inch strap width. Its wide stacked-cord cummerbund construction differs from the narrow single rope in the costume image. Live feed lists the orderable one-size belt at $395. No production lead time is stated; shipping timing must be checked at checkout."
+        }
+      ]
+    },
+    {
+      "id": "celestial-sorcerer-black-boots",
+      "name": "Black boots",
+      "category": "footwear",
+      "required": true,
+      "order": 2,
+      "sizeKind": "shoe",
+      "queries": [
+        "black low heel costume boots"
+      ],
+      "styleNotes": "Low-heeled black boots ground the robe. Plain tall boots substitute for the generated embroidered ankle boots. Budget stock is verified only in S. Premium stock is limited to sizes 7-10. None has the generated silver boot embroidery.",
+      "matches": [
+        {
+          "productId": "p-6c25477681",
+          "rank": 0,
+          "reason": "Distressed black faux leather with decorative lacing and buttons; inner zipper, 1.5-inch flat heel and rubber lug sole. Shaft height is 16-17 inches excluding the heel. The tall black shape suits the robe, but the buttons and lacing are more steampunk than the image. All listed S-XL variants are available at $120.95. These are grouped boot sizes; use the merchant size chart. No production lead time is stated."
+        },
+        {
+          "productId": "p-99a22fc86e",
+          "rank": 1,
+          "reason": "Black PU knee-high costume boots with a low heel and inner side zipper. They are plain, without the generated boot embroidery. Current merchant markup confirms $67.95 USD, purchasable=true and in_stock_attributes=[28768]; option 28768 is S. Only S is included. M/L/XL appear in the form but are outside that in-stock list. Check the merchant size chart for this grouped boot size. No dispatch lead time is stated."
+        },
+        {
+          "productId": "p-bfb0395c79",
+          "rank": 2,
+          "reason": "Black leather pull-on boots with a low heel, square toe and leather pull loops. The shaft is 15 inches at the back, plus a 3-inch front rise. These are taller and plainer than the generated embroidered boots. Sizes 7, 8, 9 and 10 are available at $269.95; 11-13 are sold out and excluded. No production lead time is stated."
+        }
+      ]
+    },
+    {
+      "id": "celestial-sorcerer-moon-pendant",
+      "name": "Silver moon pendant necklace",
+      "category": "accessories",
+      "required": true,
+      "order": 3,
+      "sizeKind": "one_size",
+      "queries": [
+        "silver crescent moon pendant necklace"
+      ],
+      "styleNotes": "A visible silver crescent hangs over the robe. Compare pendant scale and orientation before choosing. The middle pendant is only 8 x 9 mm. The lower and upper price options hang with tips downward.",
+      "matches": [
+        {
+          "productId": "p-8b19a67cce",
+          "rank": 0,
+          "reason": "Italian-made .925 sterling-silver necklace with rhodium finish. Pendant face is 8 x 9 mm and chain adjusts from 16 to 18 inches. It is a much smaller, open-outline crescent than the statement pendant in the costume image. The live merchant feed lists the single variant available at $72. No production lead time is stated."
+        },
+        {
+          "productId": "p-b972e98eb6",
+          "rank": 1,
+          "reason": "Silver-color crescent pendant and dainty rope chain, both stainless steel. Pendant diameter is 1 inch, with a lobster clasp. All four stated chain-length variants are orderable at $54. The pendant hangs with its tips downward, unlike the sideways crescent in the generated image. The feed permits purchase but does not track a physical inventory count. No dispatch lead time is stated."
+        },
+        {
+          "productId": "p-1fc53fccf7",
+          "rank": 2,
+          "reason": "Handcrafted .925 sterling-silver crescent necklace, made in NYC. All listed chain lengths are orderable at $118. Its tips hang downward and its crescent is thin and smooth, rather than the textured sideways moon in the generated image. Each necklace is made after ordering; merchant requests about two weeks plus shipping time. US shipping is offered. Orderable production is not ready-to-ship stock."
+        }
+      ]
+    }
+  ],
+  "products": [
+    {
+      "id": "p-5eae316914",
+      "title": "Handmade Velvet Wizard Robe with Hat, Custom star Embroidery",
+      "url": "https://www.etsy.com/listing/4482344267/handmade-velvet-wizard-robe-with-hat?currency=USD&variation0=6467677165&variation1=6469716624",
+      "priceCents": 50000,
+      "currency": "USD",
+      "image": "/products/price-tiers/p-5eae316914.webp",
+      "merchantImage": "/products/price-tiers/p-5eae316914.webp",
+      "sourceImages": [
+        "https://i.etsystatic.com/6407748/r/il/66378f/7921287535/il_1588xN.7921287535_voha.jpg"
+      ],
+      "availability": "in_stock",
+      "sizes": [
+        "M US letter"
+      ],
+      "merchantId": "etsy-boltsofrohan-on-etsy",
+      "tagSlugs": [],
+      "description": "Made-to-order heavy velvet robe with matching lined wizard hat. Blue/M US letter was selected in the live merchant page at $500 with Add to basket enabled. Merchant asks for chest and neck-to-floor measurements. Actual photos show dark blue velvet with gold moon/star embroidery and gold trim, rather than silver constellations; the pictured design is an example and each piece is custom. The underlayer is not listed as included. Production is 2-5 weeks before shipping from the UK; US shipping is offered. This is orderable production capacity, not a ready-to-ship garment.",
+      "checkedAt": "2026-10-25T08:52:20Z",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-25T08:52:20Z",
+        "url": "https://www.etsy.com/listing/4482344267/handmade-velvet-wizard-robe-with-hat?currency=USD&variation0=6467677165&variation1=6469716624",
+        "notes": "Made-to-order heavy velvet robe with matching lined wizard hat. Blue/M US letter was selected in the live merchant page at $500 with Add to basket enabled. Merchant asks for chest and neck-to-floor measurements. Actual photos show dark blue velvet with gold moon/star embroidery and gold trim, rather than silver constellations; the pictured design is an example and each piece is custom. The underlayer is not listed as included. Production is 2-5 weeks before shipping from the UK; US shipping is offered. This is orderable production capacity, not a ready-to-ship garment."
+      }
+    },
+    {
+      "id": "p-fb28757f77",
+      "title": "Celestial Wizard Robe - Adult Costume",
+      "url": "https://chicagocostume.com/products/celestial-wizard-robe-blue?variant=44545451327730",
+      "priceCents": 8999,
+      "currency": "USD",
+      "image": "/products/price-tiers/p-fb28757f77.webp",
+      "merchantImage": "/products/price-tiers/p-fb28757f77.webp",
+      "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/0610/0208/8690/products/30365.jpg?v=1664487349"
+      ],
+      "availability": "in_stock",
+      "sizes": [
+        "Standard"
+      ],
+      "merchantId": "chicagocostume-com",
+      "tagSlugs": [],
+      "description": "Blue set includes a pointed hat and open-front tunic robe with an inset cover. The photo shows a brighter blue and metallic silver celestial foil print, rather than navy velvet with stitched constellations. Standard/Blue is $89.99; XXL costs $99.99 and is excluded at this price. Beard, staff and crystal ball are not listed as included. Merchant ships Monday-Friday from Chicago.",
+      "checkedAt": "2026-10-25T08:52:20Z",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-25T08:52:20Z",
+        "url": "https://chicagocostume.com/products/celestial-wizard-robe-blue.js",
+        "notes": "Blue set includes a pointed hat and open-front tunic robe with an inset cover. The photo shows a brighter blue and metallic silver celestial foil print, rather than navy velvet with stitched constellations. Standard/Blue is $89.99; XXL costs $99.99 and is excluded at this price. Beard, staff and crystal ball are not listed as included. Merchant ships Monday-Friday from Chicago."
+      }
+    },
+    {
+      "id": "p-ddf8d6eac8",
+      "title": "Spell Master - Adult Costume",
+      "url": "https://chicagocostume.com/products/spell-master-adult-costume?variant=47864013914354",
+      "priceCents": 11499,
+      "currency": "USD",
+      "image": "/products/price-tiers/p-ddf8d6eac8.webp",
+      "merchantImage": "/products/price-tiers/p-ddf8d6eac8.webp",
+      "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/0610/0208/8690/files/81GQ2gcqshL._AC_SY741.jpg?v=1755715116"
+      ],
+      "availability": "in_stock",
+      "sizes": [
+        "XX-Large (48-50 Chest 42 Waist)"
+      ],
+      "merchantId": "chicagocostume-com",
+      "tagSlugs": [],
+      "description": "Set includes open-front tunic robe and matching pointed hat; 100% polyester. The actual photo shows dark blue fabric, large gold/yellow stars and moons, and silver trim. These are bold appliques, rather than fine silver constellations. Only the listed XX-Large variant is available; One Size is sold out. Beard and shoes in the photo are not listed as included. Merchant ships Monday-Friday from Chicago.",
+      "checkedAt": "2026-10-25T08:52:20Z",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-25T08:52:20Z",
+        "url": "https://chicagocostume.com/products/spell-master-adult-costume.js",
+        "notes": "Set includes open-front tunic robe and matching pointed hat; 100% polyester. The actual photo shows dark blue fabric, large gold/yellow stars and moons, and silver trim. These are bold appliques, rather than fine silver constellations. Only the listed XX-Large variant is available; One Size is sold out. Beard and shoes in the photo are not listed as included. Merchant ships Monday-Friday from Chicago."
+      }
+    },
+    {
+      "id": "p-6bde7543cf",
+      "title": "Silver Braided Rope Belt with Tassels: Bohemian Wedding Waist Belt",
+      "url": "https://www.etsy.com/listing/878618490/silver-braided-rope-belt-with-tassels?currency=USD",
+      "priceCents": 2600,
+      "currency": "USD",
+      "image": "/products/price-tiers/p-6bde7543cf.webp",
+      "merchantImage": "/products/price-tiers/p-6bde7543cf.webp",
+      "sourceImages": [
+        "https://i.etsystatic.com/10320055/r/il/70a53d/5913159905/il_1588xN.5913159905_n7vp.jpg"
+      ],
+      "availability": "in_stock",
+      "sizes": [
+        "240 cm total length"
+      ],
+      "merchantId": "etsy-wovenslavicbelts-on-etsy",
+      "tagSlugs": [],
+      "description": "One ready belt is listed available at $26. Hand-braided white/silver polyamide and metallic polyester yarn, about 7 mm wide. Total length is 240 cm including tassels; seller says it best fits a 70-80 cm waist for two wraps. The tassels are looser and finer than the generated belt. Ships from Ukraine and offers US shipping; dispatch time is not stated. Custom lengths need a separate seller arrangement and are not included at this price.",
+      "checkedAt": "2026-10-25T08:52:20Z",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-25T08:52:20Z",
+        "url": "https://www.etsy.com/listing/878618490/silver-braided-rope-belt-with-tassels?currency=USD",
+        "notes": "One ready belt is listed available at $26. Hand-braided white/silver polyamide and metallic polyester yarn, about 7 mm wide. Total length is 240 cm including tassels; seller says it best fits a 70-80 cm waist for two wraps. The tassels are looser and finer than the generated belt. Ships from Ukraine and offers US shipping; dispatch time is not stated. Custom lengths need a separate seller arrangement and are not included at this price."
+      }
+    },
+    {
+      "id": "p-754204b498",
+      "title": "Tie-up Silver Rope belt in soft leather",
+      "url": "https://www.etsy.com/listing/4306793447/tie-up-silver-rope-belt-in-soft-leather?currency=USD&variation0=5402895181&variation1=5424795020",
+      "priceCents": 3290,
+      "currency": "USD",
+      "image": "/products/price-tiers/p-754204b498.webp",
+      "merchantImage": "/products/price-tiers/p-754204b498.webp",
+      "sourceImages": [
+        "https://i.etsystatic.com/38315185/r/il/0560e3/7896853382/il_1588xN.7896853382_hobe.jpg"
+      ],
+      "availability": "in_stock",
+      "sizes": [
+        "M - 85in"
+      ],
+      "merchantId": "etsy-bestpointjewelry-on-etsy",
+      "tagSlugs": [],
+      "description": "Silver PU faux-leather cord with interfaced core and silver hardware, 6 mm wide. M - 85in and Silver hardware were selected on the live merchant page: $32.90, Add to basket enabled. Other lengths are excluded because their final variant prices were not checked. This has metal end caps and no tassels, so it preserves the silver tie-belt shape with a simpler finish. Ships from California; US shipping is offered. Custom sizing adds $3 and is excluded.",
+      "checkedAt": "2026-10-25T08:52:20Z",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-25T08:52:20Z",
+        "url": "https://www.etsy.com/listing/4306793447/tie-up-silver-rope-belt-in-soft-leather?currency=USD&variation0=5402895181&variation1=5424795020",
+        "notes": "Silver PU faux-leather cord with interfaced core and silver hardware, 6 mm wide. M - 85in and Silver hardware were selected on the live merchant page: $32.90, Add to basket enabled. Other lengths are excluded because their final variant prices were not checked. This has metal end caps and no tassels, so it preserves the silver tie-belt shape with a simpler finish. Ships from California; US shipping is offered. Custom sizing adds $3 and is excluded."
+      }
+    },
+    {
+      "id": "p-df1458eaa4",
+      "title": "Wrap Corded Cummerbund Belt Silver",
+      "url": "https://judithleiber.com/products/wrap-corded-belt-silver?variant=40183400005750",
+      "priceCents": 39500,
+      "currency": "USD",
+      "image": "/products/price-tiers/p-df1458eaa4.webp",
+      "merchantImage": "/products/price-tiers/p-df1458eaa4.webp",
+      "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/0036/8594/1366/files/WrapCordedBeltRhine-web.jpg?v=1763044189"
+      ],
+      "availability": "in_stock",
+      "sizes": [
+        "One Size - Fully adjustable up to 45\""
+      ],
+      "merchantId": "judithleiber-com",
+      "tagSlugs": [],
+      "description": "Silver silk-cord belt with silk tassels, made in Italy. Merchant lists one fully adjustable size up to 45 inches and a 2.15-inch strap width. Its wide stacked-cord cummerbund construction differs from the narrow single rope in the costume image. Live feed lists the orderable one-size belt at $395. No production lead time is stated; shipping timing must be checked at checkout.",
+      "checkedAt": "2026-10-25T08:52:20Z",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-25T08:52:20Z",
+        "url": "https://judithleiber.com/products/wrap-corded-belt-silver.js",
+        "notes": "Silver silk-cord belt with silk tassels, made in Italy. Merchant lists one fully adjustable size up to 45 inches and a 2.15-inch strap width. Its wide stacked-cord cummerbund construction differs from the narrow single rope in the costume image. Live feed lists the orderable one-size belt at $395. No production lead time is stated; shipping timing must be checked at checkout."
+      }
+    },
+    {
+      "id": "p-99a22fc86e",
+      "title": "Funtasma Pirate Cosplay Adult Mens Halloween Costume Black Boots Captain-100",
+      "url": "https://www.fearlessapparel.com/funtasma-pirate-cosplay-adult-mens-halloween-costume-black-boots-captain-100/",
+      "priceCents": 6795,
+      "currency": "USD",
+      "image": "/products/price-tiers/p-99a22fc86e.webp",
+      "merchantImage": "/products/price-tiers/p-99a22fc86e.webp",
+      "sourceImages": [
+        "https://cdn11.bigcommerce.com/s-863teu/images/stencil/1280x1280/products/16104/73042/56c48101-f934-543b-8573-8404ad4fd359__61189.1557925809.jpg?c=2"
+      ],
+      "availability": "in_stock",
+      "sizes": [
+        "S"
+      ],
+      "merchantId": "fearlessapparel-com",
+      "tagSlugs": [],
+      "description": "Black PU knee-high costume boots with a low heel and inner side zipper. They are plain, without the generated boot embroidery. Current merchant markup confirms $67.95 USD, purchasable=true and in_stock_attributes=[28768]; option 28768 is S. Only S is included. M/L/XL appear in the form but are outside that in-stock list. Check the merchant size chart for this grouped boot size. No dispatch lead time is stated.",
+      "checkedAt": "2026-10-25T08:52:20Z",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-25T08:52:20Z",
+        "url": "https://www.fearlessapparel.com/funtasma-pirate-cosplay-adult-mens-halloween-costume-black-boots-captain-100/",
+        "notes": "Black PU knee-high costume boots with a low heel and inner side zipper. They are plain, without the generated boot embroidery. Current merchant markup confirms $67.95 USD, purchasable=true and in_stock_attributes=[28768]; option 28768 is S. Only S is included. M/L/XL appear in the form but are outside that in-stock list. Check the merchant size chart for this grouped boot size. No dispatch lead time is stated."
+      }
+    },
+    {
+      "id": "p-6c25477681",
+      "title": "Sky Pilot Faux Leather Boots - Black",
+      "url": "https://historicalemporium.com/products/mens-faux-leather-sky-pilot-boots-black?variant=51717725913382",
+      "priceCents": 12095,
+      "currency": "USD",
+      "image": "/products/price-tiers/p-6c25477681.webp",
+      "merchantImage": "/products/price-tiers/p-6c25477681.webp",
+      "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/0980/0974/3654/files/006564_01_2b95236b-324e-4978-8373-e0a04ae81a5c.jpg?v=1769539801"
+      ],
+      "availability": "in_stock",
+      "sizes": [
+        "S",
+        "M",
+        "L",
+        "XL"
+      ],
+      "merchantId": "historicalemporium-com",
+      "tagSlugs": [],
+      "description": "Distressed black faux leather with decorative lacing and buttons; inner zipper, 1.5-inch flat heel and rubber lug sole. Shaft height is 16-17 inches excluding the heel. The tall black shape suits the robe, but the buttons and lacing are more steampunk than the image. All listed S-XL variants are available at $120.95. These are grouped boot sizes; use the merchant size chart. No production lead time is stated.",
+      "checkedAt": "2026-10-25T08:52:20Z",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-25T08:52:20Z",
+        "url": "https://historicalemporium.com/products/mens-faux-leather-sky-pilot-boots-black.js",
+        "notes": "Distressed black faux leather with decorative lacing and buttons; inner zipper, 1.5-inch flat heel and rubber lug sole. Shaft height is 16-17 inches excluding the heel. The tall black shape suits the robe, but the buttons and lacing are more steampunk than the image. All listed S-XL variants are available at $120.95. These are grouped boot sizes; use the merchant size chart. No production lead time is stated."
+      }
+    },
+    {
+      "id": "p-bfb0395c79",
+      "title": "Long Leather Cavalry Boots - Black",
+      "url": "https://historicalemporium.com/products/long-leather-cavalry-boots-black?variant=51717700813094",
+      "priceCents": 26995,
+      "currency": "USD",
+      "image": "/products/price-tiers/p-bfb0395c79.webp",
+      "merchantImage": "/products/price-tiers/p-bfb0395c79.webp",
+      "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/0980/0974/3654/files/006560_01_b92ad657-0bbc-43e4-8301-c833d954a5df.jpg?v=1769539795"
+      ],
+      "availability": "in_stock",
+      "sizes": [
+        "7",
+        "8",
+        "9",
+        "10"
+      ],
+      "merchantId": "historicalemporium-com",
+      "tagSlugs": [],
+      "description": "Black leather pull-on boots with a low heel, square toe and leather pull loops. The shaft is 15 inches at the back, plus a 3-inch front rise. These are taller and plainer than the generated embroidered boots. Sizes 7, 8, 9 and 10 are available at $269.95; 11-13 are sold out and excluded. No production lead time is stated.",
+      "checkedAt": "2026-10-25T08:52:20Z",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-25T08:52:20Z",
+        "url": "https://historicalemporium.com/products/long-leather-cavalry-boots-black.js",
+        "notes": "Black leather pull-on boots with a low heel, square toe and leather pull loops. The shaft is 15 inches at the back, plus a 3-inch front rise. These are taller and plainer than the generated embroidered boots. Sizes 7, 8, 9 and 10 are available at $269.95; 11-13 are sold out and excluded. No production lead time is stated."
+      }
+    },
+    {
+      "id": "p-8b19a67cce",
+      "title": "Tiny Crescent Moon Necklace",
+      "url": "https://supersilver.com/products/tiny-crescent-moon-necklace?variant=42539974787155",
+      "priceCents": 7200,
+      "currency": "USD",
+      "image": "/products/price-tiers/p-8b19a67cce.webp",
+      "merchantImage": "/products/price-tiers/p-8b19a67cce.webp",
+      "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/0150/4090/5316/files/SLV-CEL-NCK-F-STE-CTTT0417RHLU_1.jpg?v=1754007391"
+      ],
+      "availability": "in_stock",
+      "sizes": [
+        "Adjustable 16\"-18\""
+      ],
+      "merchantId": "supersilver-com",
+      "tagSlugs": [],
+      "description": "Italian-made .925 sterling-silver necklace with rhodium finish. Pendant face is 8 x 9 mm and chain adjusts from 16 to 18 inches. It is a much smaller, open-outline crescent than the statement pendant in the costume image. The live merchant feed lists the single variant available at $72. No production lead time is stated.",
+      "checkedAt": "2026-10-25T08:52:20Z",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-25T08:52:20Z",
+        "url": "https://supersilver.com/products/tiny-crescent-moon-necklace.js",
+        "notes": "Italian-made .925 sterling-silver necklace with rhodium finish. Pendant face is 8 x 9 mm and chain adjusts from 16 to 18 inches. It is a much smaller, open-outline crescent than the statement pendant in the costume image. The live merchant feed lists the single variant available at $72. No production lead time is stated."
+      }
+    },
+    {
+      "id": "p-b972e98eb6",
+      "title": "CRESCENT MOON NECKLACE",
+      "url": "https://shopretailexpo.com/products/crescent-moon-necklace?variant=53405418684723",
+      "priceCents": 5400,
+      "currency": "USD",
+      "image": "/products/price-tiers/p-b972e98eb6.webp",
+      "merchantImage": "/products/price-tiers/p-b972e98eb6.webp",
+      "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/1563/9555/files/IMG-0305.png?v=1790273192"
+      ],
+      "availability": "in_stock",
+      "sizes": [
+        "16”",
+        "18”",
+        "20”",
+        "24”"
+      ],
+      "merchantId": "shopretailexpo-com",
+      "tagSlugs": [],
+      "description": "Silver-color crescent pendant and dainty rope chain, both stainless steel. Pendant diameter is 1 inch, with a lobster clasp. All four stated chain-length variants are orderable at $54. The pendant hangs with its tips downward, unlike the sideways crescent in the generated image. The feed permits purchase but does not track a physical inventory count. No dispatch lead time is stated.",
+      "checkedAt": "2026-10-25T08:52:20Z",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-25T08:52:20Z",
+        "url": "https://shopretailexpo.com/products/crescent-moon-necklace.js",
+        "notes": "Silver-color crescent pendant and dainty rope chain, both stainless steel. Pendant diameter is 1 inch, with a lobster clasp. All four stated chain-length variants are orderable at $54. The pendant hangs with its tips downward, unlike the sideways crescent in the generated image. The feed permits purchase but does not track a physical inventory count. No dispatch lead time is stated."
+      }
+    },
+    {
+      "id": "p-1fc53fccf7",
+      "title": "Silver Crescent Moon Necklace",
+      "url": "https://elkevandyke.com/products/crescent-moon-necklace?variant=39566222655626",
+      "priceCents": 11800,
+      "currency": "USD",
+      "image": "/products/price-tiers/p-1fc53fccf7.webp",
+      "merchantImage": "/products/price-tiers/p-1fc53fccf7.webp",
+      "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/0069/0067/8727/products/Elke-Van-Dyke-Design-Silver-Crescent-Moon-Necklace.jpg?v=1713051819"
+      ],
+      "availability": "in_stock",
+      "sizes": [
+        "15\" (38.1cm)",
+        "16\" (40.6cm)",
+        "17\" (43.2cm)",
+        "18\" (45.7cm)",
+        "19\" (48.2cm)",
+        "20\" (50.8cm)",
+        "22\" (55.8cm)"
+      ],
+      "merchantId": "elkevandyke-com",
+      "tagSlugs": [],
+      "description": "Handcrafted .925 sterling-silver crescent necklace, made in NYC. All listed chain lengths are orderable at $118. Its tips hang downward and its crescent is thin and smooth, rather than the textured sideways moon in the generated image. Each necklace is made after ordering; merchant requests about two weeks plus shipping time. US shipping is offered. Orderable production is not ready-to-ship stock.",
+      "checkedAt": "2026-10-25T08:52:20Z",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-25T08:52:20Z",
+        "url": "https://elkevandyke.com/products/crescent-moon-necklace.js",
+        "notes": "Handcrafted .925 sterling-silver crescent necklace, made in NYC. All listed chain lengths are orderable at $118. Its tips hang downward and its crescent is thin and smooth, rather than the textured sideways moon in the generated image. Each necklace is made after ordering; merchant requests about two weeks plus shipping time. US shipping is offered. Orderable production is not ready-to-ship stock."
+      }
+    }
+  ],
+  "merchants": [
+    {
+      "id": "chicagocostume-com",
+      "name": "Chicago Costume Company",
+      "domain": "chicagocostume.com",
+      "url": "https://chicagocostume.com/",
+      "kind": "boutique",
+      "neighborhoodId": null
+    },
+    {
+      "id": "etsy-boltsofrohan-on-etsy",
+      "name": "BoltsOfRohan on Etsy",
+      "domain": "etsy.com",
+      "url": "https://www.etsy.com/listing/4482344267/handmade-velvet-wizard-robe-with-hat?currency=USD&variation0=6467677165&variation1=6469716624",
+      "kind": "etsy",
+      "neighborhoodId": null
+    },
+    {
+      "id": "etsy-wovenslavicbelts-on-etsy",
+      "name": "WovenSlavicBelts on Etsy",
+      "domain": "etsy.com",
+      "url": "https://www.etsy.com/listing/878618490/silver-braided-rope-belt-with-tassels?currency=USD",
+      "kind": "etsy",
+      "neighborhoodId": null
+    },
+    {
+      "id": "etsy-bestpointjewelry-on-etsy",
+      "name": "BestPointJewelry on Etsy",
+      "domain": "etsy.com",
+      "url": "https://www.etsy.com/listing/4306793447/tie-up-silver-rope-belt-in-soft-leather?currency=USD&variation0=5402895181&variation1=5424795020",
+      "kind": "etsy",
+      "neighborhoodId": null
+    },
+    {
+      "id": "judithleiber-com",
+      "name": "Judith Leiber",
+      "domain": "judithleiber.com",
+      "url": "https://judithleiber.com/",
+      "kind": "boutique",
+      "neighborhoodId": null
+    },
+    {
+      "id": "fearlessapparel-com",
+      "name": "Fearless Apparel",
+      "domain": "fearlessapparel.com",
+      "url": "https://fearlessapparel.com/",
+      "kind": "boutique",
+      "neighborhoodId": null
+    },
+    {
+      "id": "historicalemporium-com",
+      "name": "Historical Emporium",
+      "domain": "historicalemporium.com",
+      "url": "https://historicalemporium.com/",
+      "kind": "boutique",
+      "neighborhoodId": null
+    },
+    {
+      "id": "shopretailexpo-com",
+      "name": "S&E Retail Expo",
+      "domain": "shopretailexpo.com",
+      "url": "https://shopretailexpo.com/",
+      "kind": "boutique",
+      "neighborhoodId": null
+    },
+    {
+      "id": "supersilver-com",
+      "name": "Super Silver",
+      "domain": "supersilver.com",
+      "url": "https://supersilver.com/",
+      "kind": "boutique",
+      "neighborhoodId": null
+    },
+    {
+      "id": "elkevandyke-com",
+      "name": "Elke Van Dyke Design",
+      "domain": "elkevandyke.com",
+      "url": "https://elkevandyke.com/",
+      "kind": "boutique",
+      "neighborhoodId": null
+    }
+  ],
+  "neighborhoods": [],
+  "tags": [],
+  "provenance": {
+    "method": "manual-research",
+    "generatedAt": "2026-10-25T08:52:20Z",
+    "priceTiers": true,
+    "heroImageKind": "generated-reference",
+    "notes": "Built-in web search and direct official merchant evidence. Three distinct relative price points per piece: $, $$, $$$. Prices exclude shipping/tax; stock is variant-specific and delivery is unconfirmed. See docs/sourcing/price-tiers/celestial-sorcerer.json."
+  }
+}

@@ -4,7 +4,7 @@ import { getCostume } from "@/lib/catalog";
 import { outfitRequestSchema, StylistError } from "@/lib/stylist/contracts";
 import { styleOutfit } from "@/lib/stylist/decide";
 
-export const maxDuration = 45;
+export const maxDuration = 300;
 const MAX_BODY = 16_000;
 // A local cost guard, not a deployment-wide quota. No request text is retained.
 const attempts = new Map<string, { count: number; expires: number }>();

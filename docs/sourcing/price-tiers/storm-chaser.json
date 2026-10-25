@@ -1,0 +1,365 @@
+{
+  "costumeSlug": "storm-chaser",
+  "checkedAt": "2026-10-25T08:50:56.026491Z",
+  "pieces": [
+    {
+      "pieceId": "storm-chaser-raincoat",
+      "pieceName": "Mustard hooded raincoat",
+      "category": "outerwear",
+      "required": true,
+      "order": 0,
+      "sizeKind": "apparel",
+      "styleNotes": "Warm mustard/yellow raincoat with a hood, mid-thigh length and snap or zip front. Keep it open to show the navy stripes. Exact mustard is available in limited Tanta sizes; other tiers use brighter yellow.",
+      "queries": [
+        "mustard yellow hooded raincoat adult",
+        "yellow waterproof rain jacket snap hood"
+      ],
+      "options": [
+        {
+          "tier": "$",
+          "title": "Men's New Englander® Rain Jacket",
+          "url": "https://www.charlesriver.com/products/mens-new-englander-rain-jacket-yellow?variant=50940056305946",
+          "priceCents": 7500,
+          "currency": "USD",
+          "merchantName": "Charles River",
+          "merchantDomain": "charlesriver.com",
+          "imageUrl": "https://cdn.shopify.com/s/files/1/0941/0415/8490/files/CharlesRiver-9199-150_Yellow_New-Englander-Rain-Jacket_Mens_Model-02.jpg?v=1759344892",
+          "sizes": [
+            "S",
+            "M",
+            "L",
+            "XL",
+            "XXL",
+            "3XL"
+          ],
+          "availability": "in_stock",
+          "evidenceUrl": "https://www.charlesriver.com/products/mens-new-englander-rain-jacket-yellow.js",
+          "notes": "Yellow waterproof polyurethane hooded rain jacket with woven backing and mesh lining. Brighter yellow and shorter than the mustard mid-thigh reference. Only the jacket is included. Current public feed verifies these Yellow variants at $75. Merchant states orders typically dispatch within 2–3 business days; delivery is not guaranteed.",
+          "localMerchantImage": "/products/price-tiers/p-5f79113768.webp"
+        },
+        {
+          "tier": "$$",
+          "title": "Drizzle Raincoat Mustard Yellow",
+          "url": "https://tantawear.com/products/drizzle-mustard-yellow?variant=47960208834879",
+          "priceCents": 12000,
+          "currency": "USD",
+          "merchantName": "Tanta Wear",
+          "merchantDomain": "tantawear.com",
+          "imageUrl": "https://cdn.shopify.com/s/files/1/0830/2041/5295/files/Drizzle-yellow1.png?v=1710063136",
+          "sizes": [
+            "8 (40)",
+            "10 (42)"
+          ],
+          "availability": "in_stock",
+          "evidenceUrl": "https://tantawear.com/products/drizzle-mustard-yellow.js",
+          "notes": "Mustard yellow waterproof A-line rain jacket with drawstring hood, elasticated cuffs and a large back pleat. Closest color match, but shorter and more flared than the reference. Coat only. Current public feed verifies only 8 (40) and 10 (42) available at $120. US storefront explicitly states it ships in the USA.",
+          "localMerchantImage": "/products/price-tiers/p-9c38b29014.webp"
+        },
+        {
+          "tier": "$$$",
+          "title": "Stockholm Original Raincoat Yellow",
+          "url": "https://stutterheim.com/en-us/men/jackets/stockholm-yellow",
+          "priceCents": 30000,
+          "currency": "USD",
+          "merchantName": "Stutterheim",
+          "merchantDomain": "stutterheim.com",
+          "imageUrl": "https://stutterheim.com/media/products/stockholm-yellow/12_c846ffd9f3-stockholm_yellow_flatlay_plp1.jpg",
+          "sizes": [
+            "XS",
+            "S",
+            "M",
+            "L",
+            "XL"
+          ],
+          "availability": "in_stock",
+          "evidenceUrl": "https://stutterheim.com/en-us/men/jackets/stockholm-yellow",
+          "notes": "Straight unisex yellow hooded raincoat with snap metal buttons, rubberized PVC coating and double-welded seams; yellow rather than exact ochre mustard. Coat only. Live page and structured Offer confirm current sale $300 USD, reduced from $400. Embedded product 431 size stock is XS15/S8/M10/L7/XL10; XXXS/XXS/XXL are sold out and excluded. US shipping selected; duties, taxes and tariffs included. Merchant aims to dispatch within 1–2 business days.",
+          "localMerchantImage": "/products/price-tiers/p-06edb85a9c.webp"
+        }
+      ],
+      "gaps": []
+    },
+    {
+      "pieceId": "storm-chaser-striped-sweater",
+      "pieceName": "Navy striped sweater",
+      "category": "tops",
+      "required": true,
+      "order": 1,
+      "sizeKind": "apparel",
+      "styleNotes": "Long-sleeved navy and cream horizontal striped knit visible under the open raincoat. Collar, boat neck, stripe balance and body length vary across these real garments.",
+      "queries": [
+        "navy cream striped knit sweater long sleeve"
+      ],
+      "options": [
+        {
+          "tier": "$",
+          "title": "Nautical Striped Sweater",
+          "url": "https://shopdeargigi.com/products/nautical-stripped-sweater?variant=45109857583266",
+          "priceCents": 6200,
+          "currency": "USD",
+          "merchantName": "Dear Gigi",
+          "merchantDomain": "shopdeargigi.com",
+          "imageUrl": "https://cdn.shopify.com/s/files/1/0629/9208/9250/files/B3DFE5E4-5FAA-4BE3-9525-F007C03124EC.jpg?v=1773865686",
+          "sizes": [
+            "S",
+            "M",
+            "L"
+          ],
+          "availability": "in_stock",
+          "evidenceUrl": "https://shopdeargigi.com/products/nautical-stripped-sweater.js",
+          "notes": "Navy and cream striped knit with a structured collar and foldable long sleeves. The collar differs from the reference crew neck. Sweater only. Current public feed confirms S/M/L available at $62.",
+          "localMerchantImage": "/products/price-tiers/p-9329628fc4.webp"
+        },
+        {
+          "tier": "$$",
+          "title": "Summer Striped Sweater, Cream/Navy",
+          "url": "https://www.everydaychicboutique.com/products/summer-striped-sweater-cream-navy?variant=47388883779804",
+          "priceCents": 6800,
+          "currency": "USD",
+          "merchantName": "Everyday Chic Boutique",
+          "merchantDomain": "everydaychicboutique.com",
+          "imageUrl": "https://cdn.shopify.com/s/files/1/1410/4048/files/D056C2E5-65D9-4C9F-8172-417793C6146D.jpg?v=1769143495",
+          "sizes": [
+            "Small",
+            "Medium",
+            "Large"
+          ],
+          "availability": "in_stock",
+          "evidenceUrl": "https://www.everydaychicboutique.com/products/summer-striped-sweater-cream-navy.js",
+          "notes": "Long-sleeved navy stripe on cream sweater with red-accented contrasting cuffs and hem; 60% cotton, 40% acrylic. Relaxed, short 20–21 inch body rather than the reference regular-length navy-dominant knit. Sweater only. Current feed confirms Small/Medium/Large available at $68; ships from Wilmington, Ohio.",
+          "localMerchantImage": "/products/price-tiers/p-4273ee2e39.webp"
+        },
+        {
+          "tier": "$$$",
+          "title": "Cream Navy Iro Sweater",
+          "url": "https://fourteenthboutique.com/products/cream-navy-iro-sweater?variant=71187554959613",
+          "priceCents": 16800,
+          "currency": "USD",
+          "merchantName": "Fourteenth Boutique",
+          "merchantDomain": "fourteenthboutique.com",
+          "imageUrl": "https://cdn.shopify.com/s/files/1/0533/6085/3168/files/CreamNavyIroSweater-1.jpg?v=1789056463",
+          "sizes": [
+            "Small",
+            "Medium",
+            "Large"
+          ],
+          "availability": "in_stock",
+          "evidenceUrl": "https://fourteenthboutique.com/products/cream-navy-iro-sweater.js",
+          "notes": "Cream/navy horizontal stripe boat-neck sweater, long dropped-shoulder sleeves, relaxed boxy shape; 50% nylon and 50% polyester. Boat neck and lighter ground differ from the navy crew-neck reference. Sweater only. Current public feed confirms Small/Medium/Large at $168; Extra Small sold out. Independent Lancaster, Pennsylvania boutique.",
+          "localMerchantImage": "/products/price-tiers/p-8e111682da.webp"
+        }
+      ],
+      "gaps": []
+    },
+    {
+      "pieceId": "storm-chaser-rain-trousers",
+      "pieceName": "Dark waterproof trousers",
+      "category": "bottoms",
+      "required": true,
+      "order": 2,
+      "sizeKind": "pants",
+      "styleNotes": "Loose dark navy or black waterproof trousers tucked into rain boots. These are separate overpants, not jacket bundles.",
+      "queries": [
+        "navy black waterproof rain pants adult"
+      ],
+      "options": [
+        {
+          "tier": "$",
+          "title": "Men's Voyager Waterproof Packable Rain Pant",
+          "url": "https://www.stormcreek.com/products/mens-voyager-packable-breathable-rain-pants?variant=41032516501662",
+          "priceCents": 3500,
+          "currency": "USD",
+          "merchantName": "Storm Creek",
+          "merchantDomain": "stormcreek.com",
+          "imageUrl": "https://cdn.shopify.com/s/files/1/0464/4225/0398/files/6561-BK-front.jpg?v=1760220943",
+          "sizes": [
+            "L",
+            "XL",
+            "2XL",
+            "3XL",
+            "4XL"
+          ],
+          "availability": "in_stock",
+          "evidenceUrl": "https://www.stormcreek.com/products/mens-voyager-packable-breathable-rain-pants.js",
+          "notes": "Black waterproof packable rain overpants with elastic waist. Black replaces the reference navy. Pants only; the matching jacket is separate. Current feed verifies L/XL/2XL/3XL/4XL at $35; S/M sold out. Merchant says these handle rain but are not intended for all-day downpours. Ships to contiguous United States.",
+          "localMerchantImage": "/products/price-tiers/p-047c54caa0.webp"
+        },
+        {
+          "tier": "$$",
+          "title": "Propper® Packable Waterproof Pant",
+          "url": "https://www.frontlinepse.com/products/propper%C2%AE-packable-waterproof-over-your-pants-pant-w-pass-through-pockets?variant=36988101755031",
+          "priceCents": 4999,
+          "currency": "USD",
+          "merchantName": "Frontline Public Safety Equipment",
+          "merchantDomain": "frontlinepse.com",
+          "imageUrl": "https://cdn.shopify.com/s/files/1/0491/5573/5703/products/ScreenShot2020-10-10at4.45.49PM.png?v=1602362981",
+          "sizes": [
+            "XXL",
+            "L",
+            "XL"
+          ],
+          "availability": "in_stock",
+          "evidenceUrl": "https://www.frontlinepse.com/products/propper%C2%AE-packable-waterproof-over-your-pants-pant-w-pass-through-pockets.js",
+          "notes": "LAPD NAVY waterproof 100% nylon ripstop overpants with taped seams, elastic waist and pass-through pockets. Pants only. Current feed verifies exactly L/XL/XXL in LAPD NAVY at $49.99. The similarly named LA NAVY is a different option and is excluded.",
+          "localMerchantImage": "/products/price-tiers/p-ec7aa03da1.webp"
+        },
+        {
+          "tier": "$$$",
+          "title": "Men's Dubliner Black Rain Pant",
+          "url": "https://hadfields.com/products/mens-dubliner-black-rain-pant?variant=8405307392044",
+          "priceCents": 7995,
+          "currency": "USD",
+          "merchantName": "C.M. Hadfield's Saddlery",
+          "merchantDomain": "hadfields.com",
+          "imageUrl": "https://cdn.shopify.com/s/files/1/0006/8429/4188/products/101265.jpg?v=1559069372",
+          "sizes": [
+            "SMALL",
+            "MEDIUM",
+            "LARGE"
+          ],
+          "availability": "in_stock",
+          "evidenceUrl": "https://hadfields.com/products/mens-dubliner-black-rain-pant.js",
+          "notes": "Helly Hansen Dubliner black waterproof, windproof rain pants with breathable lining, sealed seams, elastic waist and adjustable Velcro ankles. Black replaces reference navy. Pants only. Current public feed verifies SMALL/MEDIUM/LARGE at $79.95; XLARGE/XXLARGE sold out. US saddlery storefront.",
+          "localMerchantImage": "/products/price-tiers/p-edbb8e8e1f.webp"
+        }
+      ],
+      "gaps": []
+    },
+    {
+      "pieceId": "storm-chaser-rain-boots",
+      "pieceName": "Black rain boots",
+      "category": "footwear",
+      "required": true,
+      "order": 3,
+      "sizeKind": "shoe",
+      "styleNotes": "Solid black tall rubber rain boots with a low heel and a broad tread. Calf width, shaft height and extra laces vary.",
+      "queries": [
+        "black tall rubber rain boots adult"
+      ],
+      "options": [
+        {
+          "tier": "$",
+          "title": "Women's Tall Wide Calf Rain Boot - Black",
+          "url": "https://www.westernchief.com/products/womens-solid-vari-fit-rain-boot-black?variant=29852586836013",
+          "priceCents": 5500,
+          "currency": "USD",
+          "merchantName": "Western Chief",
+          "merchantDomain": "westernchief.com",
+          "imageUrl": "https://cdn.shopify.com/s/files/1/0834/2683/products/womens-tall-wide-calf-rain-boot-black-710056.jpg?v=1705388404",
+          "sizes": [
+            "6 Women's",
+            "8 Women's",
+            "9 Women's",
+            "10 Women's",
+            "11 Women's"
+          ],
+          "availability": "in_stock",
+          "evidenceUrl": "https://www.westernchief.com/products/womens-solid-vari-fit-rain-boot-black.js",
+          "notes": "Solid black 12.5-inch rain boot with adjustable rear buckle and wide calf shaft; low heel, rubber outsole, fabric lining and removable insole. Wider and slightly shorter than the reference narrow knee-high boot. Pair of boots only. Current feed verifies women’s 6/8/9/10/11 at $55; women’s 7 sold out. Merchant says fit runs large for thick socks; use its chart.",
+          "localMerchantImage": "/products/price-tiers/p-e8b6181e2a.webp"
+        },
+        {
+          "tier": "$$",
+          "title": "Bogs Women's Holly Lace Tall Rain Boots - Black",
+          "url": "https://lennyshoe.com/products/bogs-womens-holly-lace-tall-rain-boots-black?variant=45992261648609",
+          "priceCents": 12500,
+          "currency": "USD",
+          "merchantName": "Lenny's Shoe & Apparel",
+          "merchantDomain": "lennyshoe.com",
+          "imageUrl": "https://cdn.shopify.com/s/files/1/0568/0208/2989/files/bogs-womens-holly-lace-tall-rain-boots-black-290860.jpg?v=1740824339",
+          "sizes": [
+            "7",
+            "10"
+          ],
+          "availability": "in_stock",
+          "evidenceUrl": "https://lennyshoe.com/products/bogs-womens-holly-lace-tall-rain-boots-black.js",
+          "notes": "Black tall Bogs Holly rain boots in waterproof rubber with cushioning, lace detail and zipper. Lace/zip details, brown outsole and shorter shaft differ from the plain knee-high reference Wellington. Pair only. Current public feed marks women’s 7 and 10 available at $125; other sizes excluded. Product page also renders generic backorder text, so confirm dispatch before buying. US merchant states standard shipping under $75 costs $15; this pair qualifies for its over-$75 free standard shipping.",
+          "localMerchantImage": "/products/price-tiers/p-b8181df7a6.webp"
+        },
+        {
+          "tier": "$$$",
+          "title": "Fergie Tall Rain Boot // Black [Retired]",
+          "url": "https://us.merrypeople.com/products/fergie-tall-rain-boot-black?variant=40856212275261",
+          "priceCents": 18000,
+          "currency": "USD",
+          "merchantName": "Merry People",
+          "merchantDomain": "merrypeople.com",
+          "imageUrl": "https://cdn.shopify.com/s/files/1/0054/6838/9422/files/Fergie_Black_Angle_1.jpg?v=1767764265",
+          "sizes": [
+            "5",
+            "6",
+            "10",
+            "12"
+          ],
+          "availability": "in_stock",
+          "evidenceUrl": "https://us.merrypeople.com/products/fergie-tall-rain-boot-black.js",
+          "notes": "Black knee-high natural-rubber Fergie boot with neoprene lining, adjustable calf strap and chunky heel. Pair only. Retired style with remaining inventory: current feed verifies US women’s 5/6/10/12 available at $180; women’s 7/8/9/11 sold out. Merchant identifies these option labels as US Womens; do not treat them as US Mens. US storefront states weekday orders before noon PST aim for same-day dispatch; delivery timing is an estimate.",
+          "localMerchantImage": "/products/price-tiers/p-f825dd69d8.webp"
+        }
+      ],
+      "gaps": []
+    },
+    {
+      "pieceId": "storm-chaser-lightning-pin",
+      "pieceName": "Silver lightning-shaped brooch",
+      "category": "accessories",
+      "required": true,
+      "order": 4,
+      "sizeKind": "one_size",
+      "styleNotes": "A visible silver lightning bolt pinned near the upper chest. Each option includes its own fastening; size, proportion and glitter finish vary.",
+      "queries": [
+        "silver lightning bolt lapel pin brooch"
+      ],
+      "options": [
+        {
+          "tier": "$",
+          "title": "M11 - Lightning Bolt Lapel Pin",
+          "url": "https://stockpins.com/products/lightning-bolt-lapel-pin-1?variant=45602174599362",
+          "priceCents": 895,
+          "currency": "USD",
+          "merchantName": "StockPins",
+          "merchantDomain": "stockpins.com",
+          "imageUrl": "https://cdn.shopify.com/s/files/1/0697/5936/9410/files/nichenet-store_2263_65222131__27740.1514192874.1280.1280.jpg?v=1758676649",
+          "sizes": [],
+          "availability": "in_stock",
+          "evidenceUrl": "https://stockpins.com/products/lightning-bolt-lapel-pin-1.js",
+          "notes": "Silver-finish lightning bolt lapel pin, 3/4 by 1/2 inch, military clutch back, individually polybagged. Smaller than the reference brooch, with the same clear bolt silhouette. One pin only at the single-unit price $8.95, with free polybag rather than the optional paid gift box. Current public feed confirms Silver available.",
+          "localMerchantImage": "/products/price-tiers/p-0265935dc5.webp"
+        },
+        {
+          "tier": "$$",
+          "title": "Silver Toned Lightning Bolt Lapel Pin",
+          "url": "https://www.kioladesigns.com/products/silver-toned-lightning-bolt-lapel-pin?variant=20422662750306",
+          "priceCents": 1999,
+          "currency": "USD",
+          "merchantName": "Kiola Designs",
+          "merchantDomain": "kioladesigns.com",
+          "imageUrl": "https://cdn.shopify.com/s/files/1/0892/8594/products/Silver_Toned_Lightning_Bolt_Lapel_Pin.jpg?v=1558214443",
+          "sizes": [],
+          "availability": "in_stock",
+          "evidenceUrl": "https://www.kioladesigns.com/products/silver-toned-lightning-bolt-lapel-pin.js",
+          "notes": "Silver-tone lightning bolt lapel pin, approximately 3/4 by 3/4 inch, supplied in a gift box. One pin only. Smaller and broader than the reference bolt; silver-tone rather than solid silver. Current public product feed confirms the single $19.99 variant available, and merchant page states 2 items left. No production or dispatch lead time is stated on the product page.",
+          "localMerchantImage": "/products/price-tiers/p-0e46b18d9d.webp"
+        },
+        {
+          "tier": "$$$",
+          "title": "silver glittery éclair pin",
+          "url": "https://www.agnesb.com/en-us/men/accessories/pins-and-badges/silver-glittery-eclair-pin/707BKC51_909.html",
+          "priceCents": 2500,
+          "currency": "USD",
+          "merchantName": "agnès b.",
+          "merchantDomain": "agnesb.com",
+          "imageUrl": "https://res.cloudinary.com/agnesb-group/image/upload/w_2000,f_jpg,fl_progressive:steep,q_auto/v1757586364/CMC/Products/707BKC51_909_1.jpg",
+          "sizes": [
+            "UNIQUE"
+          ],
+          "availability": "in_stock",
+          "evidenceUrl": "https://www.agnesb.com/en-us/men/accessories/pins-and-badges/silver-glittery-eclair-pin/707BKC51_909.html",
+          "notes": "Silver ARGENT glittery lightning-shaped pin, approximately 3 inches long, one size UNIQUE. One pin only. Glitter texture and larger size differ from the small plain silver reference. Merchant description calls it pewter/enamel; composition specifies 95% Zamak and 5% epoxy resin. Live primary structured data confirms $25 USD and InStock, with US shipping $9 and estimated transit 3–5 days; no delivery promise.",
+          "localMerchantImage": "/products/price-tiers/p-e630af10d4.webp"
+        }
+      ],
+      "gaps": []
+    }
+  ]
+}

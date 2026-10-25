@@ -1,0 +1,744 @@
+{
+  "costume": {
+    "slug": "midnight-pirate",
+    "name": "Midnight Pirate",
+    "description": "A midnight brocade coat and ivory shirt with a burgundy sash, black tricorn, and buckled boots.",
+    "image": "/costumes/midnight-pirate.png",
+    "alt": "Black tricorn hat, midnight brocade coat over an ivory shirt, burgundy sash, black trousers, and buckled boots",
+    "status": "live"
+  },
+  "pieces": [
+    {
+      "id": "midnight-pirate-tricorn-hat",
+      "name": "Black tricorn hat",
+      "category": "headwear",
+      "required": true,
+      "order": 0,
+      "sizeKind": "hat",
+      "queries": [
+        "black tricorn pirate hat gold trim"
+      ],
+      "styleNotes": "A black three-corner pirate hat. Gold edging and a feather echo the reference; plain leather options give the same outline.",
+      "matches": [
+        {
+          "productId": "p-608f6c04fa",
+          "rank": 0,
+          "reason": "Distressed faux-leather finish over polyester, fabric lining, and elastic cotton sweatband. Weathered finish appears brown-black rather than solid black. Gold edging and feather are absent. Hat only. One Size chart lists 23.5-inch head circumference. Live stock notice confirmed 20 units."
+        },
+        {
+          "productId": "p-2ff8a1c847",
+          "rank": 1,
+          "reason": "Black fabric tricorn with gold braid and an included white feather. Feather differs from the reference black plume. Merchant materials list polyester. Hat only; shirt excluded. Live stock notice confirmed 18 units."
+        },
+        {
+          "productId": "p-9e4f924e2b",
+          "rank": 2,
+          "reason": "Selected Black top-grain leather. Plain hat has no gold trim or feather. Both listed black sizes have positive live stock counts; brown variants excluded."
+        }
+      ]
+    },
+    {
+      "id": "midnight-pirate-ruffled-shirt",
+      "name": "Ivory billowy shirt",
+      "category": "tops",
+      "required": true,
+      "order": 1,
+      "sizeKind": "apparel",
+      "queries": [
+        "ivory ruffled pirate shirt billowy sleeves"
+      ],
+      "styleNotes": "Loose light shirt with a ruffled front and cuffs. White options approximate the reference ivory shade.",
+      "matches": [
+        {
+          "productId": "p-4d5ad424a6",
+          "rank": 0,
+          "reason": "White rather than ivory. Polyester shirt has a high collar, three front ruffle rows, cuff ruffles, and white/silver buttons. Shirt only. Feed exposes positive inventory for all four listed sizes."
+        },
+        {
+          "productId": "p-d37d64fa7f",
+          "rank": 1,
+          "reason": "Ivory shirt with ruffles and lace-up neckline; shirt only. Only Small is available at $12; sold-out Medium has a different price. Made in USA. Merchant advertises same-day US dispatch before 5pm EST Monday-Friday, excluding holidays."
+        },
+        {
+          "productId": "p-368be886f2",
+          "rank": 2,
+          "reason": "White cotton-linen shirt includes detachable lace-edged neck jabot and adjustable lace cuffs. White differs from ivory. Listed sizes have physical stock; S/M 42 is sold out and excluded. Other pictured clothing is excluded. Merchant FAQ states normal 24-hour packing for fully stocked orders; no delivery date promised."
+        }
+      ]
+    },
+    {
+      "id": "midnight-pirate-brocade-coat",
+      "name": "Midnight blue long coat",
+      "category": "outerwear",
+      "required": true,
+      "order": 2,
+      "sizeKind": "apparel",
+      "queries": [
+        "midnight blue brocade pirate long coat"
+      ],
+      "styleNotes": "Long dark blue pirate or frock coat with ornate fabric or trim and substantial cuffs. Pattern and gold details vary.",
+      "matches": [
+        {
+          "productId": "p-9fa4c1cdef",
+          "rank": 0,
+          "reason": "Blue/gold brocade long pirate frock coat with large cuffs. Gold all-over pattern is stronger than the reference dark blue pattern. Coat only. Only these four size variants are available; Medium, Large, Extra large and 4XL are sold out. Colorado shop offers shipping; no dispatch date is stated."
+        },
+        {
+          "productId": "p-381cb7b30c",
+          "rank": 1,
+          "reason": "Blue-on-black brocade knee-length frock coat with turned cuffs, mandarin collar, pockets, and silver trim/buttons. Silver differs from the reference gold. Coat only. USD feed accepts all listed sizes but does not expose physical inventory; stock and dispatch timing remain unconfirmed. Store shipping estimator includes United States."
+        },
+        {
+          "productId": "p-a4ff1ae678",
+          "rank": 2,
+          "reason": "Blue cotton velvet long coat with gold brocade trim, period cuffs, front buttons, two side pockets and adjustable rear belt. Body is plain velvet rather than all-over brocade. Coat only. Positive physical inventory for S, L and XL; M has zero inventory and is excluded despite being orderable."
+        }
+      ]
+    },
+    {
+      "id": "midnight-pirate-black-trousers",
+      "name": "Black pirate trousers",
+      "category": "bottoms",
+      "required": true,
+      "order": 3,
+      "sizeKind": "pants",
+      "queries": [
+        "black pirate trousers drawstring"
+      ],
+      "styleNotes": "Loose black trousers tuck into tall boots. The burgundy waist sash is a separate piece.",
+      "matches": [
+        {
+          "productId": "p-7a7693db8b",
+          "rank": 0,
+          "reason": "Selected Black 100% cotton wide-leg sailor trousers with drawstring waist; tuck into boots. Trousers only. Positive live stock exists only for Black Small and Medium. Other black sizes are backordered and excluded."
+        },
+        {
+          "productId": "p-035b491978",
+          "rank": 1,
+          "reason": "Selected solid Black cotton trousers with drawstring waist, generous cut, slightly flared legs and deep pockets. Trousers only; sash, shirt, hat, vest and boots excluded. Both listed sizes have positive live inventory. Merchant specifies dry clean only."
+        },
+        {
+          "productId": "p-c1bf560c38",
+          "rank": 2,
+          "reason": "Selected Black cotton velveteen trousers with tie front, tie legs and functional pockets. Softer velvet finish differs from the reference. Made in USA. Trousers only. Black Medium and Large each have positive live stock; other black sizes are backordered and excluded."
+        }
+      ]
+    },
+    {
+      "id": "midnight-pirate-burgundy-sash",
+      "name": "Burgundy waist sash",
+      "category": "accessories",
+      "required": true,
+      "order": 4,
+      "sizeKind": "one_size",
+      "queries": [
+        "burgundy pirate waist sash long fabric"
+      ],
+      "styleNotes": "Wide burgundy fabric wraps around the waist and hangs at one side. Tie over the black trousers.",
+      "matches": [
+        {
+          "productId": "p-411e91eed9",
+          "rank": 0,
+          "reason": "Selected Burgundy metallic polyester sash, 88 inches long with tasseled edges. Gold woven details and tassels differ from the reference plain fabric. Sash only. Merchant feed exposes 40 units for the Burgundy variant."
+        },
+        {
+          "productId": "p-5855695cc9",
+          "rank": 1,
+          "reason": "Selected Burgundy cotton sash, 98 inches long by 10 inches wide. Merchant photo has a lighter raspberry cast than the reference deep burgundy. Sash only; blouse and skirt excluded. Variant is available in the merchant stock feed."
+        },
+        {
+          "productId": "p-d752cbedb2",
+          "rank": 2,
+          "reason": "Selected Burgundy Taffeta double-sided sash with black cotton reverse, approximately 12 feet by 6 inches. Fringed ends; fringe color depends on availability. Taffeta is shinier and narrower than the reference fabric. Sash only. One unit remains in merchant inventory; Jolly Roger variants excluded."
+        }
+      ]
+    },
+    {
+      "id": "midnight-pirate-buckled-boots",
+      "name": "Black buckled pirate boots",
+      "category": "footwear",
+      "required": true,
+      "order": 5,
+      "sizeKind": "shoe",
+      "queries": [
+        "black tall pirate boots buckle cuff"
+      ],
+      "styleNotes": "Tall black boots with a cuff and visible metal buckle. Actual products vary in buckle placement and boot height.",
+      "matches": [
+        {
+          "productId": "p-0a2d0b69cb",
+          "rank": 0,
+          "reason": "Selected Black synthetic-leather boots with inner zippers, folded cuffs, three ornate brass buckles and a 1.25-inch heel. More buckles than the reference. Pair of boots only. Every listed black size has positive live inventory."
+        },
+        {
+          "productId": "p-721e93a574",
+          "rank": 1,
+          "reason": "Black polyurethane boots with side zippers, high calf cuffs and a large ornate gold buckle at the foot. Buckle is below the cuff rather than on it. Pair of boots only. Every listed size has a positive live stock count."
+        },
+        {
+          "productId": "p-920213a3e2",
+          "rank": 2,
+          "reason": "Selected Nickel buckle on black cowhide boots, shown in merchant photo. Nickel differs from the reference brass. Large folding cuffs; merchant lists 17 inches folded and 31 inches raised, with a 1.75-inch heel. Pair of boots only. Only these Nickel sizes have positive stock; Brass and sold-out sizes excluded. Page resupply note refers to 2025 and is stale; rely on current per-variant inventory."
+        }
+      ]
+    }
+  ],
+  "products": [
+    {
+      "id": "p-2ff8a1c847",
+      "title": "Feathered Buccaneer Tricorn",
+      "url": "https://www.medievalcollectibles.com/product/feathered-buccaneer-tricorn/",
+      "priceCents": 1400,
+      "currency": "USD",
+      "image": "/products/price-tiers/p-2ff8a1c847.webp",
+      "merchantImage": "/products/price-tiers/p-2ff8a1c847.webp",
+      "sourceImages": [
+        "https://www.medievalcollectibles.com/wp-content/uploads/2020/05/RC-49314.jpg"
+      ],
+      "availability": "in_stock",
+      "sizes": [
+        "One Size"
+      ],
+      "merchantId": "medievalcollectibles-com",
+      "tagSlugs": [],
+      "description": "Black fabric tricorn with gold braid and an included white feather. Feather differs from the reference black plume. Merchant materials list polyester. Hat only; shirt excluded. Live stock notice confirmed 18 units.",
+      "checkedAt": "2026-10-25T08:47:48Z",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-25T08:47:48Z",
+        "url": "https://www.medievalcollectibles.com/product/feathered-buccaneer-tricorn/",
+        "notes": "Black fabric tricorn with gold braid and an included white feather. Feather differs from the reference black plume. Merchant materials list polyester. Hat only; shirt excluded. Live stock notice confirmed 18 units."
+      }
+    },
+    {
+      "id": "p-608f6c04fa",
+      "title": "Black Scallywag Hat",
+      "url": "https://www.medievalcollectibles.com/product/black-scallywag-hat/",
+      "priceCents": 3000,
+      "currency": "USD",
+      "image": "/products/price-tiers/p-608f6c04fa.webp",
+      "merchantImage": "/products/price-tiers/p-608f6c04fa.webp",
+      "sourceImages": [
+        "https://www.medievalcollectibles.com/wp-content/uploads/2020/05/LUA3461.jpg"
+      ],
+      "availability": "in_stock",
+      "sizes": [
+        "One Size"
+      ],
+      "merchantId": "medievalcollectibles-com",
+      "tagSlugs": [],
+      "description": "Distressed faux-leather finish over polyester, fabric lining, and elastic cotton sweatband. Weathered finish appears brown-black rather than solid black. Gold edging and feather are absent. Hat only. One Size chart lists 23.5-inch head circumference. Live stock notice confirmed 20 units.",
+      "checkedAt": "2026-10-25T08:47:48Z",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-25T08:47:48Z",
+        "url": "https://www.medievalcollectibles.com/product/black-scallywag-hat/",
+        "notes": "Distressed faux-leather finish over polyester, fabric lining, and elastic cotton sweatband. Weathered finish appears brown-black rather than solid black. Gold edging and feather are absent. Hat only. One Size chart lists 23.5-inch head circumference. Live stock notice confirmed 20 units."
+      }
+    },
+    {
+      "id": "p-9e4f924e2b",
+      "title": "Captain Jack Tricorn",
+      "url": "https://www.medievalcollectibles.com/product/captain-jack-tricorn/?attribute_pa_color=black&attribute_pa_size=small-medium",
+      "priceCents": 7000,
+      "currency": "USD",
+      "image": "/products/price-tiers/p-9e4f924e2b.webp",
+      "merchantImage": "/products/price-tiers/p-9e4f924e2b.webp",
+      "sourceImages": [
+        "https://www.medievalcollectibles.com/wp-content/uploads/2019/03/200550-Blk-M.jpg"
+      ],
+      "availability": "in_stock",
+      "sizes": [
+        "Small/Medium",
+        "Large/X-Large"
+      ],
+      "merchantId": "medievalcollectibles-com",
+      "tagSlugs": [],
+      "description": "Selected Black top-grain leather. Plain hat has no gold trim or feather. Both listed black sizes have positive live stock counts; brown variants excluded.",
+      "checkedAt": "2026-10-25T08:47:48Z",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-25T08:47:48Z",
+        "url": "https://www.medievalcollectibles.com/product/captain-jack-tricorn/?attribute_pa_color=black&attribute_pa_size=small-medium",
+        "notes": "Selected Black top-grain leather. Plain hat has no gold trim or feather. Both listed black sizes have positive live stock counts; brown variants excluded."
+      }
+    },
+    {
+      "id": "p-368be886f2",
+      "title": "Fancy Court Pirate Shirt",
+      "url": "https://piratefashions.com/products/fancy-court-pirate-shirt?variant=9215160909884",
+      "priceCents": 9000,
+      "currency": "USD",
+      "image": "/products/price-tiers/p-368be886f2.webp",
+      "merchantImage": "/products/price-tiers/p-368be886f2.webp",
+      "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/0358/8265/products/court_shirt1.jpg?v=1571274870"
+      ],
+      "availability": "in_stock",
+      "sizes": [
+        "L/XL 48 R",
+        "XXL 54"
+      ],
+      "merchantId": "piratefashions-com",
+      "tagSlugs": [],
+      "description": "White cotton-linen shirt includes detachable lace-edged neck jabot and adjustable lace cuffs. White differs from ivory. Listed sizes have physical stock; S/M 42 is sold out and excluded. Other pictured clothing is excluded. Merchant FAQ states normal 24-hour packing for fully stocked orders; no delivery date promised.",
+      "checkedAt": "2026-10-25T08:47:48Z",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-25T08:47:48Z",
+        "url": "https://piratefashions.com/products/fancy-court-pirate-shirt.js",
+        "notes": "White cotton-linen shirt includes detachable lace-edged neck jabot and adjustable lace cuffs. White differs from ivory. Listed sizes have physical stock; S/M 42 is sold out and excluded. Other pictured clothing is excluded. Merchant FAQ states normal 24-hour packing for fully stocked orders; no delivery date promised."
+      }
+    },
+    {
+      "id": "p-4d5ad424a6",
+      "title": "New Colonies White Ruffle Shirt",
+      "url": "https://www.costumesandcollectibles.com/products/new-colonies-white-ruffle-shirt?variant=21374030905403",
+      "priceCents": 6995,
+      "currency": "USD",
+      "image": "/products/price-tiers/p-4d5ad424a6.webp",
+      "merchantImage": "/products/price-tiers/p-4d5ad424a6.webp",
+      "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/1485/9888/products/0009877_0.jpeg?v=1567510722"
+      ],
+      "availability": "in_stock",
+      "sizes": [
+        "Small",
+        "Medium",
+        "Large",
+        "X-Large"
+      ],
+      "merchantId": "costumesandcollectibles-com",
+      "tagSlugs": [],
+      "description": "White rather than ivory. Polyester shirt has a high collar, three front ruffle rows, cuff ruffles, and white/silver buttons. Shirt only. Feed exposes positive inventory for all four listed sizes.",
+      "checkedAt": "2026-10-25T08:47:48Z",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-25T08:47:48Z",
+        "url": "https://www.costumesandcollectibles.com/products/new-colonies-white-ruffle-shirt.js",
+        "notes": "White rather than ivory. Polyester shirt has a high collar, three front ruffle rows, cuff ruffles, and white/silver buttons. Shirt only. Feed exposes positive inventory for all four listed sizes."
+      }
+    },
+    {
+      "id": "p-d37d64fa7f",
+      "title": "Pirate Shirt for Men Costume",
+      "url": "https://www.romaretailshop.com/products/pirate-shirt-for-men-costume?variant=33765644206218",
+      "priceCents": 1200,
+      "currency": "USD",
+      "image": "/products/price-tiers/p-d37d64fa7f.webp",
+      "merchantImage": "/products/price-tiers/p-d37d64fa7f.webp",
+      "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/0378/4186/2794/products/4651.jpg?v=1588888929"
+      ],
+      "availability": "in_stock",
+      "sizes": [
+        "Small"
+      ],
+      "merchantId": "romaretailshop-com",
+      "tagSlugs": [],
+      "description": "Ivory shirt with ruffles and lace-up neckline; shirt only. Only Small is available at $12; sold-out Medium has a different price. Made in USA. Merchant advertises same-day US dispatch before 5pm EST Monday-Friday, excluding holidays.",
+      "checkedAt": "2026-10-25T08:47:48Z",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-25T08:47:48Z",
+        "url": "https://www.romaretailshop.com/products/pirate-shirt-for-men-costume.js",
+        "notes": "Ivory shirt with ruffles and lace-up neckline; shirt only. Only Small is available at $12; sold-out Medium has a different price. Made in USA. Merchant advertises same-day US dispatch before 5pm EST Monday-Friday, excluding holidays."
+      }
+    },
+    {
+      "id": "p-a4ff1ae678",
+      "title": "Caribbean Coast Pirate Coat",
+      "url": "https://www.costumesandcollectibles.com/products/barbary-coast-pirate-coat?variant=12433902403643",
+      "priceCents": 19495,
+      "currency": "USD",
+      "image": "/products/price-tiers/p-a4ff1ae678.webp",
+      "merchantImage": "/products/price-tiers/p-a4ff1ae678.webp",
+      "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/1485/9888/products/0007577_0.jpg?v=1527489926"
+      ],
+      "availability": "in_stock",
+      "sizes": [
+        "S",
+        "M",
+        "L",
+        "XL"
+      ],
+      "merchantId": "costumesandcollectibles-com",
+      "tagSlugs": [],
+      "description": "Blue cotton velvet long coat with gold brocade trim, period cuffs, front buttons, two side pockets and adjustable rear belt. Body is plain velvet rather than all-over brocade. Coat only. Positive physical inventory for S, L and XL; M has zero inventory and is excluded despite being orderable.",
+      "checkedAt": "2026-10-25T08:47:48Z",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-25T08:47:48Z",
+        "url": "https://www.costumesandcollectibles.com/products/barbary-coast-pirate-coat.js",
+        "notes": "Blue cotton velvet long coat with gold brocade trim, period cuffs, front buttons, two side pockets and adjustable rear belt. Body is plain velvet rather than all-over brocade. Coat only. Positive physical inventory for S, L and XL; M has zero inventory and is excluded despite being orderable."
+      }
+    },
+    {
+      "id": "p-381cb7b30c",
+      "title": "Renaissance Men's Blue Brocade Goth Steampunk Victorian Velvet Frock Coat USA",
+      "url": "https://www.darkrock.net/products/renaissance-mens-blue-brocade-goth-steampunk-victorian-velvet-frock-coat-usa?variant=46473933324373",
+      "priceCents": 5675,
+      "currency": "USD",
+      "image": "/products/price-tiers/p-381cb7b30c.webp",
+      "merchantImage": "/products/price-tiers/p-381cb7b30c.webp",
+      "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/0729/6267/0677/files/dark-rock-Renaissance-Mens-Blue-Brocade-Goth-Steampunk-Victorian-Velvet-Frock-Coat-1.jpg?v=1792735594"
+      ],
+      "availability": "unknown",
+      "sizes": [
+        "S",
+        "M",
+        "L",
+        "XL",
+        "2XL",
+        "3XL"
+      ],
+      "merchantId": "darkrock-net",
+      "tagSlugs": [],
+      "description": "Blue-on-black brocade knee-length frock coat with turned cuffs, mandarin collar, pockets, and silver trim/buttons. Silver differs from the reference gold. Coat only. USD feed accepts all listed sizes but does not expose physical inventory; stock and dispatch timing remain unconfirmed. Store shipping estimator includes United States.",
+      "checkedAt": "2026-10-25T08:47:48Z",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-25T08:47:48Z",
+        "url": "https://www.darkrock.net/products/renaissance-mens-blue-brocade-goth-steampunk-victorian-velvet-frock-coat-usa.js",
+        "notes": "Blue-on-black brocade knee-length frock coat with turned cuffs, mandarin collar, pockets, and silver trim/buttons. Silver differs from the reference gold. Coat only. USD feed accepts all listed sizes but does not expose physical inventory; stock and dispatch timing remain unconfirmed. Store shipping estimator includes United States."
+      }
+    },
+    {
+      "id": "p-9fa4c1cdef",
+      "title": "Brocade Military Pirate Frock Coat | Blue & Gold",
+      "url": "https://fspartystore.com/products/brocade-military-pirate-frock-coat-blue-gold?variant=51472663216426",
+      "priceCents": 15000,
+      "currency": "USD",
+      "image": "/products/price-tiers/p-9fa4c1cdef.webp",
+      "merchantImage": "/products/price-tiers/p-9fa4c1cdef.webp",
+      "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/0272/4082/4943/files/CT23202-1-600x600.jpg?v=1777322723"
+      ],
+      "availability": "in_stock",
+      "sizes": [
+        "Small",
+        "2XL",
+        "3XL",
+        "5XL"
+      ],
+      "merchantId": "fspartystore-com",
+      "tagSlugs": [],
+      "description": "Blue/gold brocade long pirate frock coat with large cuffs. Gold all-over pattern is stronger than the reference dark blue pattern. Coat only. Only these four size variants are available; Medium, Large, Extra large and 4XL are sold out. Colorado shop offers shipping; no dispatch date is stated.",
+      "checkedAt": "2026-10-25T08:47:48Z",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-25T08:47:48Z",
+        "url": "https://fspartystore.com/products/brocade-military-pirate-frock-coat-blue-gold.js",
+        "notes": "Blue/gold brocade long pirate frock coat with large cuffs. Gold all-over pattern is stronger than the reference dark blue pattern. Coat only. Only these four size variants are available; Medium, Large, Extra large and 4XL are sold out. Colorado shop offers shipping; no dispatch date is stated."
+      }
+    },
+    {
+      "id": "p-035b491978",
+      "title": "First Mate Pants",
+      "url": "https://www.medievalcollectibles.com/product/first-mate-pants/?attribute_pa_color=black&attribute_pa_size=large-x-large",
+      "priceCents": 3900,
+      "currency": "USD",
+      "image": "/products/price-tiers/p-035b491978.webp",
+      "merchantImage": "/products/price-tiers/p-035b491978.webp",
+      "sourceImages": [
+        "https://www.medievalcollectibles.com/wp-content/uploads/2020/04/100518_2.jpg"
+      ],
+      "availability": "in_stock",
+      "sizes": [
+        "Small/Medium",
+        "Large/X-Large"
+      ],
+      "merchantId": "medievalcollectibles-com",
+      "tagSlugs": [],
+      "description": "Selected solid Black cotton trousers with drawstring waist, generous cut, slightly flared legs and deep pockets. Trousers only; sash, shirt, hat, vest and boots excluded. Both listed sizes have positive live inventory. Merchant specifies dry clean only.",
+      "checkedAt": "2026-10-25T08:47:48Z",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-25T08:47:48Z",
+        "url": "https://www.medievalcollectibles.com/product/first-mate-pants/?attribute_pa_color=black&attribute_pa_size=large-x-large",
+        "notes": "Selected solid Black cotton trousers with drawstring waist, generous cut, slightly flared legs and deep pockets. Trousers only; sash, shirt, hat, vest and boots excluded. Both listed sizes have positive live inventory. Merchant specifies dry clean only."
+      }
+    },
+    {
+      "id": "p-7a7693db8b",
+      "title": "Sailor Pants",
+      "url": "https://www.medievalcollectibles.com/product/sailor-pants-2/?attribute_pa_color=black&attribute_pa_size=small",
+      "priceCents": 6000,
+      "currency": "USD",
+      "image": "/products/price-tiers/p-7a7693db8b.webp",
+      "merchantImage": "/products/price-tiers/p-7a7693db8b.webp",
+      "sourceImages": [
+        "https://www.medievalcollectibles.com/wp-content/uploads/2019/03/SS-SPANTS-BLK.jpg"
+      ],
+      "availability": "in_stock",
+      "sizes": [
+        "Small",
+        "Medium"
+      ],
+      "merchantId": "medievalcollectibles-com",
+      "tagSlugs": [],
+      "description": "Selected Black 100% cotton wide-leg sailor trousers with drawstring waist; tuck into boots. Trousers only. Positive live stock exists only for Black Small and Medium. Other black sizes are backordered and excluded.",
+      "checkedAt": "2026-10-25T08:47:48Z",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-25T08:47:48Z",
+        "url": "https://www.medievalcollectibles.com/product/sailor-pants-2/?attribute_pa_color=black&attribute_pa_size=small",
+        "notes": "Selected Black 100% cotton wide-leg sailor trousers with drawstring waist; tuck into boots. Trousers only. Positive live stock exists only for Black Small and Medium. Other black sizes are backordered and excluded."
+      }
+    },
+    {
+      "id": "p-c1bf560c38",
+      "title": "Pirate Captain’s Pants",
+      "url": "https://www.medievalcollectibles.com/product/pirate-captains-pants/?attribute_pa_color=black&attribute_pa_size=medium",
+      "priceCents": 9500,
+      "currency": "USD",
+      "image": "/products/price-tiers/p-c1bf560c38.webp",
+      "merchantImage": "/products/price-tiers/p-c1bf560c38.webp",
+      "sourceImages": [
+        "https://www.medievalcollectibles.com/wp-content/uploads/2019/03/SS-CPANTS-Blk.jpg"
+      ],
+      "availability": "in_stock",
+      "sizes": [
+        "Medium",
+        "Large"
+      ],
+      "merchantId": "medievalcollectibles-com",
+      "tagSlugs": [],
+      "description": "Selected Black cotton velveteen trousers with tie front, tie legs and functional pockets. Softer velvet finish differs from the reference. Made in USA. Trousers only. Black Medium and Large each have positive live stock; other black sizes are backordered and excluded.",
+      "checkedAt": "2026-10-25T08:47:48Z",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-25T08:47:48Z",
+        "url": "https://www.medievalcollectibles.com/product/pirate-captains-pants/?attribute_pa_color=black&attribute_pa_size=medium",
+        "notes": "Selected Black cotton velveteen trousers with tie front, tie legs and functional pockets. Softer velvet finish differs from the reference. Made in USA. Trousers only. Black Medium and Large each have positive live stock; other black sizes are backordered and excluded."
+      }
+    },
+    {
+      "id": "p-5855695cc9",
+      "title": "Pirate Sash",
+      "url": "https://lostislandtrading.com/products/pirate-sash?variant=31872673153068",
+      "priceCents": 1500,
+      "currency": "USD",
+      "image": "/products/price-tiers/p-5855695cc9.webp",
+      "merchantImage": "/products/price-tiers/p-5855695cc9.webp",
+      "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/0290/9136/4908/products/SashBurgudyWS.jpg?v=1590427255"
+      ],
+      "availability": "in_stock",
+      "sizes": [],
+      "merchantId": "lostislandtrading-com",
+      "tagSlugs": [],
+      "description": "Selected Burgundy cotton sash, 98 inches long by 10 inches wide. Merchant photo has a lighter raspberry cast than the reference deep burgundy. Sash only; blouse and skirt excluded. Variant is available in the merchant stock feed.",
+      "checkedAt": "2026-10-25T08:47:48Z",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-25T08:47:48Z",
+        "url": "https://lostislandtrading.com/products/pirate-sash.js",
+        "notes": "Selected Burgundy cotton sash, 98 inches long by 10 inches wide. Merchant photo has a lighter raspberry cast than the reference deep burgundy. Sash only; blouse and skirt excluded. Variant is available in the merchant stock feed."
+      }
+    },
+    {
+      "id": "p-d752cbedb2",
+      "title": "Merchantmen's Sash",
+      "url": "https://piratefashions.com/products/merchantmen-s-sash?variant=3073065921",
+      "priceCents": 5200,
+      "currency": "USD",
+      "image": "/products/price-tiers/p-d752cbedb2.webp",
+      "merchantImage": "/products/price-tiers/p-d752cbedb2.webp",
+      "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/0358/8265/products/burgundy_merchantment.jpg?v=1762119153"
+      ],
+      "availability": "in_stock",
+      "sizes": [],
+      "merchantId": "piratefashions-com",
+      "tagSlugs": [],
+      "description": "Selected Burgundy Taffeta double-sided sash with black cotton reverse, approximately 12 feet by 6 inches. Fringed ends; fringe color depends on availability. Taffeta is shinier and narrower than the reference fabric. Sash only. One unit remains in merchant inventory; Jolly Roger variants excluded.",
+      "checkedAt": "2026-10-25T08:47:48Z",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-25T08:47:48Z",
+        "url": "https://piratefashions.com/products/merchantmen-s-sash.js",
+        "notes": "Selected Burgundy Taffeta double-sided sash with black cotton reverse, approximately 12 feet by 6 inches. Fringed ends; fringe color depends on availability. Taffeta is shinier and narrower than the reference fabric. Sash only. One unit remains in merchant inventory; Jolly Roger variants excluded."
+      }
+    },
+    {
+      "id": "p-411e91eed9",
+      "title": "Pirates Sash",
+      "url": "https://www.costumesandcollectibles.com/products/pirates-sash?variant=32061408452",
+      "priceCents": 2495,
+      "currency": "USD",
+      "image": "/products/price-tiers/p-411e91eed9.webp",
+      "merchantImage": "/products/price-tiers/p-411e91eed9.webp",
+      "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/1485/9888/products/pirates-sash_417_1_burgundy.jpg?v=1488362214"
+      ],
+      "availability": "in_stock",
+      "sizes": [],
+      "merchantId": "costumesandcollectibles-com",
+      "tagSlugs": [],
+      "description": "Selected Burgundy metallic polyester sash, 88 inches long with tasseled edges. Gold woven details and tassels differ from the reference plain fabric. Sash only. Merchant feed exposes 40 units for the Burgundy variant.",
+      "checkedAt": "2026-10-25T08:47:48Z",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-25T08:47:48Z",
+        "url": "https://www.costumesandcollectibles.com/products/pirates-sash.js",
+        "notes": "Selected Burgundy metallic polyester sash, 88 inches long with tasseled edges. Gold woven details and tassels differ from the reference plain fabric. Sash only. Merchant feed exposes 40 units for the Burgundy variant."
+      }
+    },
+    {
+      "id": "p-721e93a574",
+      "title": "Mens Buckled Pirate Boots",
+      "url": "https://www.medievalcollectibles.com/product/mens-buckled-pirate-boots/?attribute_pa_shoe-size=small-mens-8-9",
+      "priceCents": 8000,
+      "currency": "USD",
+      "image": "/products/price-tiers/p-721e93a574.webp",
+      "merchantImage": "/products/price-tiers/p-721e93a574.webp",
+      "sourceImages": [
+        "https://www.medievalcollectibles.com/wp-content/uploads/2021/10/FW1164-1.jpg"
+      ],
+      "availability": "in_stock",
+      "sizes": [
+        "Small (Mens 8-9)",
+        "Medium (Mens 10-11)",
+        "Large (Mens 12-13)",
+        "X-Large (Mens 14)"
+      ],
+      "merchantId": "medievalcollectibles-com",
+      "tagSlugs": [],
+      "description": "Black polyurethane boots with side zippers, high calf cuffs and a large ornate gold buckle at the foot. Buckle is below the cuff rather than on it. Pair of boots only. Every listed size has a positive live stock count.",
+      "checkedAt": "2026-10-25T08:47:48Z",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-25T08:47:48Z",
+        "url": "https://www.medievalcollectibles.com/product/mens-buckled-pirate-boots/?attribute_pa_shoe-size=small-mens-8-9",
+        "notes": "Black polyurethane boots with side zippers, high calf cuffs and a large ornate gold buckle at the foot. Buckle is below the cuff rather than on it. Pair of boots only. Every listed size has a positive live stock count."
+      }
+    },
+    {
+      "id": "p-0a2d0b69cb",
+      "title": "Men’s Ornate Captain Boots",
+      "url": "https://www.medievalcollectibles.com/product/mens-ornate-captain-boots/?attribute_pa_color=black&attribute_pa_shoe-size=small-mens-8-9",
+      "priceCents": 12000,
+      "currency": "USD",
+      "image": "/products/price-tiers/p-0a2d0b69cb.webp",
+      "merchantImage": "/products/price-tiers/p-0a2d0b69cb.webp",
+      "sourceImages": [
+        "https://www.medievalcollectibles.com/wp-content/uploads/2020/05/FW2075.jpg"
+      ],
+      "availability": "in_stock",
+      "sizes": [
+        "Small (Mens 8-9)",
+        "Medium (Mens 10-11)",
+        "Large (Mens 12-13)",
+        "X-Large (Mens 14)"
+      ],
+      "merchantId": "medievalcollectibles-com",
+      "tagSlugs": [],
+      "description": "Selected Black synthetic-leather boots with inner zippers, folded cuffs, three ornate brass buckles and a 1.25-inch heel. More buckles than the reference. Pair of boots only. Every listed black size has positive live inventory.",
+      "checkedAt": "2026-10-25T08:47:48Z",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-25T08:47:48Z",
+        "url": "https://www.medievalcollectibles.com/product/mens-ornate-captain-boots/?attribute_pa_color=black&attribute_pa_shoe-size=small-mens-8-9",
+        "notes": "Selected Black synthetic-leather boots with inner zippers, folded cuffs, three ornate brass buckles and a 1.25-inch heel. More buckles than the reference. Pair of boots only. Every listed black size has positive live inventory."
+      }
+    },
+    {
+      "id": "p-920213a3e2",
+      "title": "Pirate Musketeer Boots",
+      "url": "https://piratefashions.com/products/pirate-musketeer-boots?variant=30261161197628",
+      "priceCents": 28500,
+      "currency": "USD",
+      "image": "/products/price-tiers/p-920213a3e2.webp",
+      "merchantImage": "/products/price-tiers/p-920213a3e2.webp",
+      "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/0358/8265/products/musketeerboot1.jpg?v=1571274870"
+      ],
+      "availability": "in_stock",
+      "sizes": [
+        "Womens 8",
+        "US 8",
+        "US 9"
+      ],
+      "merchantId": "piratefashions-com",
+      "tagSlugs": [],
+      "description": "Selected Nickel buckle on black cowhide boots, shown in merchant photo. Nickel differs from the reference brass. Large folding cuffs; merchant lists 17 inches folded and 31 inches raised, with a 1.75-inch heel. Pair of boots only. Only these Nickel sizes have positive stock; Brass and sold-out sizes excluded. Page resupply note refers to 2025 and is stale; rely on current per-variant inventory.",
+      "checkedAt": "2026-10-25T08:47:48Z",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-25T08:47:48Z",
+        "url": "https://piratefashions.com/products/pirate-musketeer-boots.js",
+        "notes": "Selected Nickel buckle on black cowhide boots, shown in merchant photo. Nickel differs from the reference brass. Large folding cuffs; merchant lists 17 inches folded and 31 inches raised, with a 1.75-inch heel. Pair of boots only. Only these Nickel sizes have positive stock; Brass and sold-out sizes excluded. Page resupply note refers to 2025 and is stale; rely on current per-variant inventory."
+      }
+    }
+  ],
+  "merchants": [
+    {
+      "id": "medievalcollectibles-com",
+      "name": "Medieval Collectibles",
+      "domain": "medievalcollectibles.com",
+      "url": "https://medievalcollectibles.com/",
+      "kind": "boutique",
+      "neighborhoodId": null
+    },
+    {
+      "id": "romaretailshop-com",
+      "name": "Roma Retail Shop",
+      "domain": "romaretailshop.com",
+      "url": "https://romaretailshop.com/",
+      "kind": "boutique",
+      "neighborhoodId": null
+    },
+    {
+      "id": "costumesandcollectibles-com",
+      "name": "Costumes & Collectibles",
+      "domain": "costumesandcollectibles.com",
+      "url": "https://costumesandcollectibles.com/",
+      "kind": "boutique",
+      "neighborhoodId": null
+    },
+    {
+      "id": "piratefashions-com",
+      "name": "Pirate Fashions",
+      "domain": "piratefashions.com",
+      "url": "https://piratefashions.com/",
+      "kind": "boutique",
+      "neighborhoodId": null
+    },
+    {
+      "id": "darkrock-net",
+      "name": "DarkRock",
+      "domain": "darkrock.net",
+      "url": "https://darkrock.net/",
+      "kind": "boutique",
+      "neighborhoodId": null
+    },
+    {
+      "id": "fspartystore-com",
+      "name": "Fun Services Colorado",
+      "domain": "fspartystore.com",
+      "url": "https://fspartystore.com/",
+      "kind": "boutique",
+      "neighborhoodId": null
+    },
+    {
+      "id": "lostislandtrading-com",
+      "name": "Lost Island Trading",
+      "domain": "lostislandtrading.com",
+      "url": "https://lostislandtrading.com/",
+      "kind": "boutique",
+      "neighborhoodId": null
+    }
+  ],
+  "neighborhoods": [],
+  "tags": [],
+  "provenance": {
+    "method": "manual-research",
+    "generatedAt": "2026-10-25T08:47:48Z",
+    "priceTiers": true,
+    "heroImageKind": "generated-reference",
+    "notes": "Built-in web search and direct official merchant evidence. Three distinct relative price points per piece: $, $$, $$$. Prices exclude shipping/tax; stock is variant-specific and delivery is unconfirmed. See docs/sourcing/price-tiers/midnight-pirate.json."
+  }
+}

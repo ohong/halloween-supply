@@ -1,0 +1,702 @@
+{
+  "costume": {
+    "slug": "coral-mermaid",
+    "name": "Coral Mermaid",
+    "description": "A teal scale-textured skirt and seafoam blouse, layered with coral embroidery and a shell crown.",
+    "image": "/costumes/coral-mermaid.png",
+    "alt": "Shell crown, coral pink embroidered cropped jacket, seafoam draped blouse, teal scale-textured flared skirt, and sea-glass pendant",
+    "status": "live"
+  },
+  "pieces": [
+    {
+      "id": "coral-mermaid-shell-crown",
+      "name": "Shell crown",
+      "category": "headwear",
+      "required": true,
+      "order": 0,
+      "sizeKind": "hat",
+      "queries": [
+        "handmade mermaid shell crown",
+        "seashell crown adult"
+      ],
+      "styleNotes": "A shell-covered crown supplies the clearest ocean cue. These real crowns vary in height, metal color and weight; none reproduces the coral-pink illustrated crown.",
+      "matches": [
+        {
+          "productId": "p-b5be675386",
+          "rank": 0,
+          "reason": "One handmade crown with real shells, aqua baubles, vintage ornaments, metal sea charms and rhinestone chain. Taller and heavier-looking than the reference; aqua/gold/silver rather than coral pink. Feed confirms available standard piece. The optional custom-color service takes two weeks and is not included here."
+        },
+        {
+          "productId": "p-ee8e61ddf8",
+          "rank": 1,
+          "reason": "One crown on a grey fabric-wrapped flexible headband, with three main real shells, smaller shells, pearl antennae and head drapes. More ivory and silver than coral pink. Merchant lists 0.25 lb and only one left. Made in the USA; no dispatch time stated."
+        },
+        {
+          "productId": "p-51a7e510e3",
+          "rank": 2,
+          "reason": "One lightweight bendable metal-wire crown with seashells painted with 14k gold paint, pearls and iridescent glitter. Includes removable crystal star dangle earrings. This is a delicate gold open crown, not the dense coral crown. Merchant lists most stocked orders dispatching in 3–7 days; delivery is not guaranteed."
+        }
+      ]
+    },
+    {
+      "id": "coral-mermaid-draped-blouse",
+      "name": "Seafoam draped blouse",
+      "category": "tops",
+      "required": true,
+      "order": 1,
+      "sizeKind": "apparel",
+      "queries": [
+        "seafoam cowl neck blouse",
+        "sage draped top",
+        "mint green silk cowl top"
+      ],
+      "styleNotes": "Choose a pale green draped neckline under the pink jacket. These wearable options simplify the illustrated blouse: none includes its long sheer gathered sleeves.",
+      "matches": [
+        {
+          "productId": "p-ca72e0b7ee",
+          "rank": 0,
+          "reason": "One sage-green 100% polyester woven blouse with draped cowl neckline, relaxed short dolman sleeves and a loose body. A closer blouse silhouette but darker and less blue than seafoam. No long gathered sleeves or sleeve jewelry. All three named sizes are available at this price; no dispatch time stated."
+        },
+        {
+          "productId": "p-d5634fd561",
+          "rank": 1,
+          "reason": "One sage-green knit halter cowl top by Active Basic. Soft draping matches the neckline, but the top is cropped, sleeveless, and warmer sage rather than seafoam. Only Small, Medium and Large are verified at this price. No dispatch time stated."
+        },
+        {
+          "productId": "p-f1dddd744e",
+          "rank": 2,
+          "reason": "Mint Green 100% charmeuse silk sleeveless cowl top. The neckline and pale aqua-green color suit the concept, but it lacks the illustrated long sleeves. Current merchant HTML and embedded USD offer show $83, reduced from $119. Listed sizes have explicit positive inventory; other sizes are excluded. Merchant shipping data lists 1–2 handling days; delivery varies."
+        }
+      ]
+    },
+    {
+      "id": "coral-mermaid-embroidered-jacket",
+      "name": "Pink embroidered cropped jacket",
+      "category": "outerwear",
+      "required": true,
+      "order": 2,
+      "sizeKind": "apparel",
+      "queries": [
+        "pink embroidered bolero jacket",
+        "coral cropped embroidered jacket"
+      ],
+      "styleNotes": "A short open pink jacket with embroidery frames the blouse. Affordable options use pale lavender-pink or blush; the premium jacket is magenta. None has shell-and-coral embroidery.",
+      "matches": [
+        {
+          "productId": "p-0cd4267b57",
+          "rank": 0,
+          "reason": "One pink sheer organza Filipiniana bolero with floral embroidery, scalloped trim and structured butterfly sleeves. It is blush, with short butterfly sleeves rather than the reference long coral sleeves. Inner top and skirt are not included. All listed variants are purchasable at $69. Merchant gives an 18–25 day shipping window, including the explicitly labeled 2XL variant; verify timing before ordering."
+        },
+        {
+          "productId": "p-7708586a9f",
+          "rank": 1,
+          "reason": "One short-sleeve sheer synthetic-mesh bolero with raised embroidery/applique, scalloped edges and hook closure. Photo reads lavender-pink, not coral. Necklace and white underlayer are not included. Only the combined Large to Extra Large option is offered. Primary page lists $24.99 and usually ships in 2–3 business days; live stock count is not exposed."
+        },
+        {
+          "productId": "p-4bdc0f3102",
+          "rank": 2,
+          "reason": "Soutache Embroidery Magenta Pink cropped long-sleeve bolero in 100% cotton velvet, fully lined in polyester, with metallic-thread embroidery. Strong shape and ornament match, but magenta is deeper than coral and the fabric is opaque velvet. Dress and necklace are excluded. Only these available variant labels are included; the US-market feed prices them at $545."
+        }
+      ]
+    },
+    {
+      "id": "coral-mermaid-mermaid-skirt",
+      "name": "Teal mermaid skirt",
+      "category": "bottoms",
+      "required": true,
+      "order": 3,
+      "sizeKind": "apparel",
+      "queries": [
+        "teal scale mermaid maxi skirt",
+        "teal metallic flared mermaid skirt",
+        "green sequin mermaid skirt made to measure"
+      ],
+      "styleNotes": "A full-length fitted teal skirt with a flared hem creates the mermaid silhouette. The scale-print choice is closest; alternatives use smooth metallic fabric or sequins. None includes the illustrated coral embroidery or chiffon hip drape.",
+      "matches": [
+        {
+          "productId": "p-8819ec3e27",
+          "rank": 0,
+          "reason": "One 42-inch high-waisted skirt in shiny teal four-way-stretch lycra spandex, fitted through the knee with a full-circle flared hem. Smooth metallic fabric has no scale pattern or coral embroidery; pictured top is separate. Made to order; merchant states dispatch within five days. All eight listed sizes share $66.55."
+        },
+        {
+          "productId": "p-a6fa0ec463",
+          "rank": 1,
+          "reason": "Skirt only, in merchant color Blue: iridescent teal/purple scale print, stretchy fabric and flared full-length mermaid cut. This is printed shimmer, not layered embroidered scales. Only XS and XL are in stock at $31.80; S, M and L are excluded. Limited final run and final sale. Merchant offers US shipping; no arrival promise is made."
+        },
+        {
+          "productId": "p-702abbc0df",
+          "rank": 2,
+          "reason": "Skirt only, with green/teal sequins, a fishtail hem and sea-plant decoration. It is greener and uses sequins rather than raised scales; shell bra is excluded. The optional Ariel accessory set adds $10 and is excluded from $135. Merchant lists In Stock but requires waist, hips and height measurements; this is an existing made-to-measure product, not ready-stock standard sizing. Production timing needs merchant confirmation. Worldwide shipping is offered; US tariff and transit details need checking."
+        }
+      ]
+    },
+    {
+      "id": "coral-mermaid-sea-glass-pendant",
+      "name": "Sea-glass pendant necklace",
+      "category": "accessories",
+      "required": true,
+      "order": 4,
+      "sizeKind": "one_size",
+      "queries": [
+        "aqua sea glass pendant necklace",
+        "seafoam sea glass aquamarine necklace"
+      ],
+      "styleNotes": "A pale aqua or green sea-glass pendant finishes the neckline. These are smaller and simpler than the ornate gold-framed illustrated pendant.",
+      "matches": [
+        {
+          "productId": "p-871b38ba4c",
+          "rank": 0,
+          "reason": "Aqua variant: one natural Southern California sea-glass pendant on a sterling-silver crinkle paperclip chain. Tiny, simple silver bail rather than the large ornate gold setting. Current feed price is $75 for Aqua. Handmade to order in California; merchant states dispatch in 2–5 days, with natural color and shape variation. Description gives conflicting extender lengths, so confirm chain length with the maker."
+        },
+        {
+          "productId": "p-2841eb346e",
+          "rank": 1,
+          "reason": "A - green variant: one green sea-glass pendant on tan waterproof cord with small beige glass beads. Adjustable 13–24 inches by sliding knot. No metal-framed setting; more casual and greener than the reference. Green and light blue are available, but this URL selects green. Merchant states dispatch in 1–2 business days."
+        },
+        {
+          "productId": "p-2ef2d86b48",
+          "rank": 2,
+          "reason": "One-of-a-kind seafoam-green genuine sea-glass pendant with genuine aquamarine inset, textured Argentium sterling-silver bars, fine-silver bezel, simulated green-amethyst accent and silver-plated snake chain. About 1 3/8 inches including bail. More sculptural than the budget pieces, but silver and geometric rather than gold and coral. Handcrafted in Florida; feed confirms available. No dispatch time stated."
+        }
+      ]
+    }
+  ],
+  "products": [
+    {
+      "id": "p-ee8e61ddf8",
+      "title": "Mermaid Crown With Shells",
+      "url": "https://www.tribenawaar.com/product/mermaid-crown-with-shells/",
+      "priceCents": 3500,
+      "currency": "USD",
+      "image": "/products/price-tiers/p-ee8e61ddf8.webp",
+      "merchantImage": "/products/price-tiers/p-ee8e61ddf8.webp",
+      "sourceImages": [
+        "https://www.tribenawaar.com/wp-content/uploads/2024/10/crown-mermaid2alt.jpg"
+      ],
+      "availability": "in_stock",
+      "sizes": [
+        "One size fits all"
+      ],
+      "merchantId": "tribenawaar-com",
+      "tagSlugs": [],
+      "description": "One crown on a grey fabric-wrapped flexible headband, with three main real shells, smaller shells, pearl antennae and head drapes. More ivory and silver than coral pink. Merchant lists 0.25 lb and only one left. Made in the USA; no dispatch time stated.",
+      "checkedAt": "2026-10-25T08:48:27.664268Z",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-25T08:48:27.664268Z",
+        "url": "https://www.tribenawaar.com/product/mermaid-crown-with-shells/",
+        "notes": "One crown on a grey fabric-wrapped flexible headband, with three main real shells, smaller shells, pearl antennae and head drapes. More ivory and silver than coral pink. Merchant lists 0.25 lb and only one left. Made in the USA; no dispatch time stated."
+      }
+    },
+    {
+      "id": "p-b5be675386",
+      "title": "Mermaid Crown Hand Made",
+      "url": "https://shopdariasaccents.com/products/mermaid-crown?variant=40251492859994",
+      "priceCents": 15000,
+      "currency": "USD",
+      "image": "/products/price-tiers/p-b5be675386.webp",
+      "merchantImage": "/products/price-tiers/p-b5be675386.webp",
+      "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/2398/3299/products/267706659_427128145559785_3337190845405807959_n.jpg?v=1680137348"
+      ],
+      "availability": "in_stock",
+      "sizes": [
+        "Made to fit all sizes"
+      ],
+      "merchantId": "shopdariasaccents-com",
+      "tagSlugs": [],
+      "description": "One handmade crown with real shells, aqua baubles, vintage ornaments, metal sea charms and rhinestone chain. Taller and heavier-looking than the reference; aqua/gold/silver rather than coral pink. Feed confirms available standard piece. The optional custom-color service takes two weeks and is not included here.",
+      "checkedAt": "2026-10-25T08:48:27.664268Z",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-25T08:48:27.664268Z",
+        "url": "https://shopdariasaccents.com/products/mermaid-crown.js",
+        "notes": "One handmade crown with real shells, aqua baubles, vintage ornaments, metal sea charms and rhinestone chain. Taller and heavier-looking than the reference; aqua/gold/silver rather than coral pink. Feed confirms available standard piece. The optional custom-color service takes two weeks and is not included here."
+      }
+    },
+    {
+      "id": "p-51a7e510e3",
+      "title": "Siren’s Song  Mermaid Crown",
+      "url": "https://fioricouture.com/products/siren-s-song-mermaid-crown?variant=44242296275118",
+      "priceCents": 35000,
+      "currency": "USD",
+      "image": "/products/price-tiers/p-51a7e510e3.webp",
+      "merchantImage": "/products/price-tiers/p-51a7e510e3.webp",
+      "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/0307/1328/2696/files/0B593794-4923-4BB8-9C2D-E5501690510C.jpg?v=1696013504"
+      ],
+      "availability": "in_stock",
+      "sizes": [],
+      "merchantId": "fioricouture-com",
+      "tagSlugs": [],
+      "description": "One lightweight bendable metal-wire crown with seashells painted with 14k gold paint, pearls and iridescent glitter. Includes removable crystal star dangle earrings. This is a delicate gold open crown, not the dense coral crown. Merchant lists most stocked orders dispatching in 3–7 days; delivery is not guaranteed.",
+      "checkedAt": "2026-10-25T08:48:27.664268Z",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-25T08:48:27.664268Z",
+        "url": "https://fioricouture.com/products/siren-s-song-mermaid-crown.js",
+        "notes": "One lightweight bendable metal-wire crown with seashells painted with 14k gold paint, pearls and iridescent glitter. Includes removable crystal star dangle earrings. This is a delicate gold open crown, not the dense coral crown. Merchant lists most stocked orders dispatching in 3–7 days; delivery is not guaranteed."
+      }
+    },
+    {
+      "id": "p-f1dddd744e",
+      "title": "Silk Cowl Neck Top",
+      "url": "https://www.lilysilk.com/us/product/silk-cowl-neck-top-91T5432.html",
+      "priceCents": 8300,
+      "currency": "USD",
+      "image": "/products/price-tiers/p-f1dddd744e.webp",
+      "merchantImage": "/products/price-tiers/p-f1dddd744e.webp",
+      "sourceImages": [
+        "https://img.lilysilk.com/cdn-cgi/image/width=600,quality=90/media/catalog/product/91T5432/323GN/1.jpg"
+      ],
+      "availability": "in_stock",
+      "sizes": [
+        "2",
+        "4",
+        "12",
+        "14"
+      ],
+      "merchantId": "lilysilk-com",
+      "tagSlugs": [],
+      "description": "Mint Green 100% charmeuse silk sleeveless cowl top. The neckline and pale aqua-green color suit the concept, but it lacks the illustrated long sleeves. Current merchant HTML and embedded USD offer show $83, reduced from $119. Listed sizes have explicit positive inventory; other sizes are excluded. Merchant shipping data lists 1–2 handling days; delivery varies.",
+      "checkedAt": "2026-10-25T08:48:27.664268Z",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-25T08:48:27.664268Z",
+        "url": "https://www.lilysilk.com/us/product/silk-cowl-neck-top-91T5432.html",
+        "notes": "Mint Green 100% charmeuse silk sleeveless cowl top. The neckline and pale aqua-green color suit the concept, but it lacks the illustrated long sleeves. Current merchant HTML and embedded USD offer show $83, reduced from $119. Listed sizes have explicit positive inventory; other sizes are excluded. Merchant shipping data lists 1–2 handling days; delivery varies."
+      }
+    },
+    {
+      "id": "p-d5634fd561",
+      "title": "HALTER COWL NECK DROOPY GREEN SAGE TOP",
+      "url": "https://ontopstores.com/products/halter-cowl-neck-droopy-green-sage-top?variant=43213374030047",
+      "priceCents": 1999,
+      "currency": "USD",
+      "image": "/products/price-tiers/p-d5634fd561.webp",
+      "merchantImage": "/products/price-tiers/p-d5634fd561.webp",
+      "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/0652/0553/4943/products/12_b13edff2-136c-457b-b028-814491b90b83.jpg?v=1655846918"
+      ],
+      "availability": "in_stock",
+      "sizes": [
+        "Small",
+        "Medium",
+        "Large"
+      ],
+      "merchantId": "ontopstores-com",
+      "tagSlugs": [],
+      "description": "One sage-green knit halter cowl top by Active Basic. Soft draping matches the neckline, but the top is cropped, sleeveless, and warmer sage rather than seafoam. Only Small, Medium and Large are verified at this price. No dispatch time stated.",
+      "checkedAt": "2026-10-25T08:48:27.664268Z",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-25T08:48:27.664268Z",
+        "url": "https://ontopstores.com/products/halter-cowl-neck-droopy-green-sage-top.js",
+        "notes": "One sage-green knit halter cowl top by Active Basic. Soft draping matches the neckline, but the top is cropped, sleeveless, and warmer sage rather than seafoam. Only Small, Medium and Large are verified at this price. No dispatch time stated."
+      }
+    },
+    {
+      "id": "p-ca72e0b7ee",
+      "title": "Cowl | Neck Blouse",
+      "url": "https://shaynagibbonskeeley.com/products/cowl-neck-blouse?variant=49402925449409",
+      "priceCents": 5250,
+      "currency": "USD",
+      "image": "/products/price-tiers/p-ca72e0b7ee.webp",
+      "merchantImage": "/products/price-tiers/p-ca72e0b7ee.webp",
+      "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/0794/5139/0145/files/SAGE-DOLMAN-FLATLAY.png?v=1786925771"
+      ],
+      "availability": "in_stock",
+      "sizes": [
+        "SMALL",
+        "MEDIUM",
+        "LARGE"
+      ],
+      "merchantId": "shaynagibbonskeeley-com",
+      "tagSlugs": [],
+      "description": "One sage-green 100% polyester woven blouse with draped cowl neckline, relaxed short dolman sleeves and a loose body. A closer blouse silhouette but darker and less blue than seafoam. No long gathered sleeves or sleeve jewelry. All three named sizes are available at this price; no dispatch time stated.",
+      "checkedAt": "2026-10-25T08:48:27.664268Z",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-25T08:48:27.664268Z",
+        "url": "https://shaynagibbonskeeley.com/products/cowl-neck-blouse.js",
+        "notes": "One sage-green 100% polyester woven blouse with draped cowl neckline, relaxed short dolman sleeves and a loose body. A closer blouse silhouette but darker and less blue than seafoam. No long gathered sleeves or sleeve jewelry. All three named sizes are available at this price; no dispatch time stated."
+      }
+    },
+    {
+      "id": "p-7708586a9f",
+      "title": "Applique Embroidery Mesh Shrug Bolero Pink",
+      "url": "https://www.cmstylefashion.com/applique-embroidery-mesh-shrug-bolero-pink.html",
+      "priceCents": 2499,
+      "currency": "USD",
+      "image": "/products/price-tiers/p-7708586a9f.webp",
+      "merchantImage": "/products/price-tiers/p-7708586a9f.webp",
+      "sourceImages": [
+        "https://s.turbifycdn.com/aah/yhst-38766513433218/applique-embroidery-mesh-shrug-bolero-pink-115.png"
+      ],
+      "availability": "unknown",
+      "sizes": [
+        "Large to Extra Large (L~XL)"
+      ],
+      "merchantId": "cmstylefashion-com",
+      "tagSlugs": [],
+      "description": "One short-sleeve sheer synthetic-mesh bolero with raised embroidery/applique, scalloped edges and hook closure. Photo reads lavender-pink, not coral. Necklace and white underlayer are not included. Only the combined Large to Extra Large option is offered. Primary page lists $24.99 and usually ships in 2–3 business days; live stock count is not exposed.",
+      "checkedAt": "2026-10-25T08:48:27.664268Z",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-25T08:48:27.664268Z",
+        "url": "https://www.cmstylefashion.com/applique-embroidery-mesh-shrug-bolero-pink.html",
+        "notes": "One short-sleeve sheer synthetic-mesh bolero with raised embroidery/applique, scalloped edges and hook closure. Photo reads lavender-pink, not coral. Necklace and white underlayer are not included. Only the combined Large to Extra Large option is offered. Primary page lists $24.99 and usually ships in 2–3 business days; live stock count is not exposed."
+      }
+    },
+    {
+      "id": "p-0cd4267b57",
+      "title": "Organza Pink Classic Filipiniana Bolero - Shalanie - JV236",
+      "url": "https://barongworld.com/products/pink-organza-filipiniana-bolero-shalanie-jv236?variant=42134066266324",
+      "priceCents": 6900,
+      "currency": "USD",
+      "image": "/products/price-tiers/p-0cd4267b57.webp",
+      "merchantImage": "/products/price-tiers/p-0cd4267b57.webp",
+      "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/0504/9017/9784/files/BW05-01.png?v=1773574098"
+      ],
+      "availability": "in_stock",
+      "sizes": [
+        "Small",
+        "Medium",
+        "Large",
+        "XL",
+        "2XL - (Arrives in 18-25 Days)"
+      ],
+      "merchantId": "barongworld-com",
+      "tagSlugs": [],
+      "description": "One pink sheer organza Filipiniana bolero with floral embroidery, scalloped trim and structured butterfly sleeves. It is blush, with short butterfly sleeves rather than the reference long coral sleeves. Inner top and skirt are not included. All listed variants are purchasable at $69. Merchant gives an 18–25 day shipping window, including the explicitly labeled 2XL variant; verify timing before ordering.",
+      "checkedAt": "2026-10-25T08:48:27.664268Z",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-25T08:48:27.664268Z",
+        "url": "https://barongworld.com/products/pink-organza-filipiniana-bolero-shalanie-jv236.js",
+        "notes": "One pink sheer organza Filipiniana bolero with floral embroidery, scalloped trim and structured butterfly sleeves. It is blush, with short butterfly sleeves rather than the reference long coral sleeves. Inner top and skirt are not included. All listed variants are purchasable at $69. Merchant gives an 18–25 day shipping window, including the explicitly labeled 2XL variant; verify timing before ordering."
+      }
+    },
+    {
+      "id": "p-4bdc0f3102",
+      "title": "Cliona - Soutache Embroidery Magenta Pink",
+      "url": "https://rixolondon.com/en-us/products/cliona-jacket-soutache-embroidery-magenta-pink?variant=56343283532162",
+      "priceCents": 54500,
+      "currency": "USD",
+      "image": "/products/price-tiers/p-4bdc0f3102.webp",
+      "merchantImage": "/products/price-tiers/p-4bdc0f3102.webp",
+      "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/0327/1609/5533/files/060.05857.226.08119_Cliona_Jacket_Soutache_Embroidery_Magenta_Pink_1.jpg?v=1771503234"
+      ],
+      "availability": "in_stock",
+      "sizes": [
+        "M/UK12",
+        "L/UK14",
+        "XL/UK16",
+        "2XL/UK18",
+        "3XL/UK20"
+      ],
+      "merchantId": "rixolondon-com",
+      "tagSlugs": [],
+      "description": "Soutache Embroidery Magenta Pink cropped long-sleeve bolero in 100% cotton velvet, fully lined in polyester, with metallic-thread embroidery. Strong shape and ornament match, but magenta is deeper than coral and the fabric is opaque velvet. Dress and necklace are excluded. Only these available variant labels are included; the US-market feed prices them at $545.",
+      "checkedAt": "2026-10-25T08:48:27.664268Z",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-25T08:48:27.664268Z",
+        "url": "https://rixolondon.com/en-us/products/cliona-jacket-soutache-embroidery-magenta-pink.js",
+        "notes": "Soutache Embroidery Magenta Pink cropped long-sleeve bolero in 100% cotton velvet, fully lined in polyester, with metallic-thread embroidery. Strong shape and ornament match, but magenta is deeper than coral and the fabric is opaque velvet. Dress and necklace are excluded. Only these available variant labels are included; the US-market feed prices them at $545."
+      }
+    },
+    {
+      "id": "p-702abbc0df",
+      "title": "P141 high Waist Green sequins Mermaid Skirt Fish Ariel tail Costume sea plant",
+      "url": "https://angel-secret.com/mermaid/p141-high-waist-green-sequins-mermaid-skirt-fish-ariel-tail-costume-sea-plant.html",
+      "priceCents": 13500,
+      "currency": "USD",
+      "image": "/products/price-tiers/p-702abbc0df.webp",
+      "merchantImage": "/products/price-tiers/p-702abbc0df.webp",
+      "sourceImages": [
+        "https://angel-secret.com/image/cache/catalog/product-id-29132179077153652/p141-high-waist-green-sequins-mermaid-skirt-fish-ariel-tail-costume-sea-plant-503-550x550h.JPG"
+      ],
+      "availability": "in_stock",
+      "sizes": [
+        "Custom made size"
+      ],
+      "merchantId": "angel-secret-com",
+      "tagSlugs": [],
+      "description": "Skirt only, with green/teal sequins, a fishtail hem and sea-plant decoration. It is greener and uses sequins rather than raised scales; shell bra is excluded. The optional Ariel accessory set adds $10 and is excluded from $135. Merchant lists In Stock but requires waist, hips and height measurements; this is an existing made-to-measure product, not ready-stock standard sizing. Production timing needs merchant confirmation. Worldwide shipping is offered; US tariff and transit details need checking.",
+      "checkedAt": "2026-10-25T08:48:27.664268Z",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-25T08:48:27.664268Z",
+        "url": "https://angel-secret.com/mermaid/p141-high-waist-green-sequins-mermaid-skirt-fish-ariel-tail-costume-sea-plant.html",
+        "notes": "Skirt only, with green/teal sequins, a fishtail hem and sea-plant decoration. It is greener and uses sequins rather than raised scales; shell bra is excluded. The optional Ariel accessory set adds $10 and is excluded from $135. Merchant lists In Stock but requires waist, hips and height measurements; this is an existing made-to-measure product, not ready-stock standard sizing. Production timing needs merchant confirmation. Worldwide shipping is offered; US tariff and transit details need checking."
+      }
+    },
+    {
+      "id": "p-a6fa0ec463",
+      "title": "Teal Iridescent Scale Mermaid Maxi Skirt",
+      "url": "https://www.legavenue.com/en-us/products/86710-Iridescent-Scale-Mermaid-Skirt?variant=48800334512283",
+      "priceCents": 3180,
+      "currency": "USD",
+      "image": "/products/price-tiers/p-a6fa0ec463.webp",
+      "merchantImage": "/products/price-tiers/p-a6fa0ec463.webp",
+      "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/2030/6253/products/legavenue-com-iridescent-scale-mermaid-skirt-14839548346503_57f2dc7e-7250-4f90-a589-094945398ad3.jpg?v=1756919971"
+      ],
+      "availability": "in_stock",
+      "sizes": [
+        "XS",
+        "XL"
+      ],
+      "merchantId": "legavenue-com",
+      "tagSlugs": [],
+      "description": "Skirt only, in merchant color Blue: iridescent teal/purple scale print, stretchy fabric and flared full-length mermaid cut. This is printed shimmer, not layered embroidered scales. Only XS and XL are in stock at $31.80; S, M and L are excluded. Limited final run and final sale. Merchant offers US shipping; no arrival promise is made.",
+      "checkedAt": "2026-10-25T08:48:27.664268Z",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-25T08:48:27.664268Z",
+        "url": "https://www.legavenue.com/en-us/products/86710-Iridescent-Scale-Mermaid-Skirt.js",
+        "notes": "Skirt only, in merchant color Blue: iridescent teal/purple scale print, stretchy fabric and flared full-length mermaid cut. This is printed shimmer, not layered embroidered scales. Only XS and XL are in stock at $31.80; S, M and L are excluded. Limited final run and final sale. Merchant offers US shipping; no arrival promise is made."
+      }
+    },
+    {
+      "id": "p-8819ec3e27",
+      "title": "Teal Metallic High Waist Mermaid Skirt",
+      "url": "https://coquetryclothing.com/products/teal-metallic-high-waist-mermaid-skirt?variant=44234948837463",
+      "priceCents": 6655,
+      "currency": "USD",
+      "image": "/products/price-tiers/p-8819ec3e27.webp",
+      "merchantImage": "/products/price-tiers/p-8819ec3e27.webp",
+      "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/1140/4312/files/teal-metallic-high-waist-mermaid-skirt-6024768.jpg?v=1788590173"
+      ],
+      "availability": "in_stock",
+      "sizes": [
+        "XXS",
+        "XS",
+        "S",
+        "M",
+        "L",
+        "XL",
+        "2XL",
+        "3XL"
+      ],
+      "merchantId": "coquetryclothing-com",
+      "tagSlugs": [],
+      "description": "One 42-inch high-waisted skirt in shiny teal four-way-stretch lycra spandex, fitted through the knee with a full-circle flared hem. Smooth metallic fabric has no scale pattern or coral embroidery; pictured top is separate. Made to order; merchant states dispatch within five days. All eight listed sizes share $66.55.",
+      "checkedAt": "2026-10-25T08:48:27.664268Z",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-25T08:48:27.664268Z",
+        "url": "https://coquetryclothing.com/products/teal-metallic-high-waist-mermaid-skirt.js",
+        "notes": "One 42-inch high-waisted skirt in shiny teal four-way-stretch lycra spandex, fitted through the knee with a full-circle flared hem. Smooth metallic fabric has no scale pattern or coral embroidery; pictured top is separate. Made to order; merchant states dispatch within five days. All eight listed sizes share $66.55."
+      }
+    },
+    {
+      "id": "p-2ef2d86b48",
+      "title": "Artisan Sea Glass & Aquamarine Pendant Necklace | Sterling Silver",
+      "url": "https://www.cozycovestudio.com/products/artisan-sea-glass-aquamarine-pendant-necklace-sterling-silver?variant=41906388959267",
+      "priceCents": 18500,
+      "currency": "USD",
+      "image": "/products/price-tiers/p-2ef2d86b48.webp",
+      "merchantImage": "/products/price-tiers/p-2ef2d86b48.webp",
+      "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/0288/6287/3635/files/968_front.jpg?v=1771444742"
+      ],
+      "availability": "in_stock",
+      "sizes": [],
+      "merchantId": "cozycovestudio-com",
+      "tagSlugs": [],
+      "description": "One-of-a-kind seafoam-green genuine sea-glass pendant with genuine aquamarine inset, textured Argentium sterling-silver bars, fine-silver bezel, simulated green-amethyst accent and silver-plated snake chain. About 1 3/8 inches including bail. More sculptural than the budget pieces, but silver and geometric rather than gold and coral. Handcrafted in Florida; feed confirms available. No dispatch time stated.",
+      "checkedAt": "2026-10-25T08:48:27.664268Z",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-25T08:48:27.664268Z",
+        "url": "https://www.cozycovestudio.com/products/artisan-sea-glass-aquamarine-pendant-necklace-sterling-silver.js",
+        "notes": "One-of-a-kind seafoam-green genuine sea-glass pendant with genuine aquamarine inset, textured Argentium sterling-silver bars, fine-silver bezel, simulated green-amethyst accent and silver-plated snake chain. About 1 3/8 inches including bail. More sculptural than the budget pieces, but silver and geometric rather than gold and coral. Handcrafted in Florida; feed confirms available. No dispatch time stated."
+      }
+    },
+    {
+      "id": "p-2841eb346e",
+      "title": "Sea Glass Dagger Pendant Necklace",
+      "url": "https://samesunco.com/products/sea-glass-dagger-pendant-necklace?variant=44968429387965",
+      "priceCents": 2900,
+      "currency": "USD",
+      "image": "/products/price-tiers/p-2841eb346e.webp",
+      "merchantImage": "/products/price-tiers/p-2841eb346e.webp",
+      "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/0554/4122/7965/files/IMG_3148.jpg?v=1729124638"
+      ],
+      "availability": "in_stock",
+      "sizes": [],
+      "merchantId": "samesunco-com",
+      "tagSlugs": [],
+      "description": "A - green variant: one green sea-glass pendant on tan waterproof cord with small beige glass beads. Adjustable 13–24 inches by sliding knot. No metal-framed setting; more casual and greener than the reference. Green and light blue are available, but this URL selects green. Merchant states dispatch in 1–2 business days.",
+      "checkedAt": "2026-10-25T08:48:27.664268Z",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-25T08:48:27.664268Z",
+        "url": "https://samesunco.com/products/sea-glass-dagger-pendant-necklace.js",
+        "notes": "A - green variant: one green sea-glass pendant on tan waterproof cord with small beige glass beads. Adjustable 13–24 inches by sliding knot. No metal-framed setting; more casual and greener than the reference. Green and light blue are available, but this URL selects green. Merchant states dispatch in 1–2 business days."
+      }
+    },
+    {
+      "id": "p-871b38ba4c",
+      "title": "Sea Glass Pendant Necklace Tiny",
+      "url": "https://danabrynnjewelry.com/products/sea-glass-pendant-necklace-tiny?variant=46119956545687",
+      "priceCents": 7500,
+      "currency": "USD",
+      "image": "/products/price-tiers/p-871b38ba4c.webp",
+      "merchantImage": "/products/price-tiers/p-871b38ba4c.webp",
+      "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/0405/1815/6439/files/SeaGlassPendantTinyAqua1.2N.jpg?v=1757184460"
+      ],
+      "availability": "in_stock",
+      "sizes": [],
+      "merchantId": "danabrynnjewelry-com",
+      "tagSlugs": [],
+      "description": "Aqua variant: one natural Southern California sea-glass pendant on a sterling-silver crinkle paperclip chain. Tiny, simple silver bail rather than the large ornate gold setting. Current feed price is $75 for Aqua. Handmade to order in California; merchant states dispatch in 2–5 days, with natural color and shape variation. Description gives conflicting extender lengths, so confirm chain length with the maker.",
+      "checkedAt": "2026-10-25T08:48:27.664268Z",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-25T08:48:27.664268Z",
+        "url": "https://danabrynnjewelry.com/products/sea-glass-pendant-necklace-tiny.js",
+        "notes": "Aqua variant: one natural Southern California sea-glass pendant on a sterling-silver crinkle paperclip chain. Tiny, simple silver bail rather than the large ornate gold setting. Current feed price is $75 for Aqua. Handmade to order in California; merchant states dispatch in 2–5 days, with natural color and shape variation. Description gives conflicting extender lengths, so confirm chain length with the maker."
+      }
+    }
+  ],
+  "merchants": [
+    {
+      "id": "tribenawaar-com",
+      "name": "Tribe Nawaar",
+      "domain": "tribenawaar.com",
+      "url": "https://tribenawaar.com/",
+      "kind": "boutique",
+      "neighborhoodId": null
+    },
+    {
+      "id": "shopdariasaccents-com",
+      "name": "Darias Accents",
+      "domain": "shopdariasaccents.com",
+      "url": "https://shopdariasaccents.com/",
+      "kind": "boutique",
+      "neighborhoodId": null
+    },
+    {
+      "id": "fioricouture-com",
+      "name": "Fiori Couture",
+      "domain": "fioricouture.com",
+      "url": "https://fioricouture.com/",
+      "kind": "boutique",
+      "neighborhoodId": null
+    },
+    {
+      "id": "ontopstores-com",
+      "name": "ON TOP",
+      "domain": "ontopstores.com",
+      "url": "https://ontopstores.com/",
+      "kind": "boutique",
+      "neighborhoodId": null
+    },
+    {
+      "id": "shaynagibbonskeeley-com",
+      "name": "Shayna Gibbons Keeley Boutique",
+      "domain": "shaynagibbonskeeley.com",
+      "url": "https://shaynagibbonskeeley.com/",
+      "kind": "boutique",
+      "neighborhoodId": null
+    },
+    {
+      "id": "lilysilk-com",
+      "name": "LILYSILK",
+      "domain": "lilysilk.com",
+      "url": "https://lilysilk.com/",
+      "kind": "boutique",
+      "neighborhoodId": null
+    },
+    {
+      "id": "cmstylefashion-com",
+      "name": "CM Style Fashion",
+      "domain": "cmstylefashion.com",
+      "url": "https://cmstylefashion.com/",
+      "kind": "boutique",
+      "neighborhoodId": null
+    },
+    {
+      "id": "barongworld-com",
+      "name": "Barong World",
+      "domain": "barongworld.com",
+      "url": "https://barongworld.com/",
+      "kind": "boutique",
+      "neighborhoodId": null
+    },
+    {
+      "id": "rixolondon-com",
+      "name": "RIXO",
+      "domain": "rixolondon.com",
+      "url": "https://rixolondon.com/",
+      "kind": "boutique",
+      "neighborhoodId": null
+    },
+    {
+      "id": "legavenue-com",
+      "name": "Leg Avenue",
+      "domain": "legavenue.com",
+      "url": "https://legavenue.com/",
+      "kind": "boutique",
+      "neighborhoodId": null
+    },
+    {
+      "id": "coquetryclothing-com",
+      "name": "Coquetry Clothing",
+      "domain": "coquetryclothing.com",
+      "url": "https://coquetryclothing.com/",
+      "kind": "boutique",
+      "neighborhoodId": null
+    },
+    {
+      "id": "angel-secret-com",
+      "name": "Angel Secret",
+      "domain": "angel-secret.com",
+      "url": "https://angel-secret.com/",
+      "kind": "boutique",
+      "neighborhoodId": null
+    },
+    {
+      "id": "samesunco-com",
+      "name": "SAME SUN CO",
+      "domain": "samesunco.com",
+      "url": "https://samesunco.com/",
+      "kind": "boutique",
+      "neighborhoodId": null
+    },
+    {
+      "id": "danabrynnjewelry-com",
+      "name": "Dana Brynn Jewelry",
+      "domain": "danabrynnjewelry.com",
+      "url": "https://danabrynnjewelry.com/",
+      "kind": "boutique",
+      "neighborhoodId": null
+    },
+    {
+      "id": "cozycovestudio-com",
+      "name": "Cozy Cove Studio",
+      "domain": "cozycovestudio.com",
+      "url": "https://cozycovestudio.com/",
+      "kind": "boutique",
+      "neighborhoodId": null
+    }
+  ],
+  "neighborhoods": [],
+  "tags": [],
+  "provenance": {
+    "method": "manual-research",
+    "generatedAt": "2026-10-25T08:48:27.664268Z",
+    "priceTiers": true,
+    "heroImageKind": "generated-reference",
+    "notes": "Built-in web search and direct official merchant evidence. Three distinct relative price points per piece: $, $$, $$$. Prices exclude shipping/tax; stock is variant-specific and delivery is unconfirmed. See docs/sourcing/price-tiers/coral-mermaid.json."
+  }
+}

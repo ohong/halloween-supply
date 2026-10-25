@@ -145,6 +145,7 @@ export interface CostumeSnapshot {
     generatedAt: string;
     notes?: string;
     priceTiers?: boolean;
+    heroImageKind?: "generated-reference";
   };
 }
 

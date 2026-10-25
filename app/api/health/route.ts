@@ -10,7 +10,7 @@ export async function GET() {
   await connection();
   const started = performance.now();
   const { source, snapshots } = await readCatalogs();
-  const catalogs = await Promise.all(costumes.filter((item) => item.status === "live").map(async (costume) => {
+  const catalogs = await Promise.all(costumes.map(async (costume) => {
     const view = await getCostume(snapshots, costume.slug);
     return {
       costumeSlug: costume.slug, source,
@@ -23,7 +23,8 @@ export async function GET() {
         new Set(options.map(({ pick }) => pick.priceTier)).size === 3 && options.every(({ product }) => Boolean(product.merchantImage))) ?? false),
     };
   }));
-  const complete = catalogs.length > 0 && catalogs.every((item) => item.complete);
+  const missingCostumeSlugs = catalogs.filter((item) => !item.complete || !item.pricePointsComplete).map((item) => item.costumeSlug);
+  const complete = catalogs.length === costumes.length && missingCostumeSlugs.length === 0;
   const ok = source === "database" && complete;
   const key = process.env.STRIPE_SECRET_KEY ?? "";
   return Response.json({
@@ -37,6 +38,7 @@ export async function GET() {
     },
     database: { provider: "turso", configured: isDatabaseConfigured(), ok: source === "database", latencyMs: Math.round(performance.now() - started),
       costumes: snapshots.length, products: new Set(snapshots.flatMap((s) => s.products.map((p) => p.id))).size },
+    coverage: { expectedCostumes: costumes.length, shoppableCostumes: catalogs.filter((item) => item.complete && item.pricePointsComplete).length, missingCostumeSlugs },
     catalogSource: source, catalog: catalogs.find((item) => item.costumeSlug === liveCostumeSlug), catalogs,
   }, { status: complete ? 200 : 503, headers: { "Cache-Control": "no-store" } });
 }

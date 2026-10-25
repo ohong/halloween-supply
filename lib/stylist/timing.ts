@@ -6,7 +6,7 @@ export function minimumLeadDays(description: string): number | null {
   const durations: number[] = [];
   const patterns = [
     /(?:lead[ -]?time|turnaround|creation(?: time)?|production(?: time)?|processing(?: time)?|dispatch(?: time)?|shipping(?: time)?|delivery(?: time)?|ships?|dispatches?|delivers?|made[ -]to[ -]order)([^.!?]{0,55}?)(?<![\d.])(\d{1,3}(?:\.\d{1,3})?)(?:\s*(?:[-–—]|to)\s*\d{1,3}(?:\.\d{1,3})?)?\s*(?:(?:business|working)\s*)?(days?|weeks?|months?)\b/gi,
-    /(?<![\d.])(\d{1,3}(?:\.\d{1,3})?)(?:\s*(?:[-–—]|to)\s*\d{1,3}(?:\.\d{1,3})?)?\s*(?:(?:business|working)\s*)?(days?|weeks?|months?)[ -]+(?:lead[ -]?time|turnaround|creation|production|processing|dispatch)\b/gi,
+    /(?<![\d.])(\d{1,3}(?:\.\d{1,3})?)(?:\s*(?:[-–—]|to)\s*\d{1,3}(?:\.\d{1,3})?)?\s*(?:(?:business|working)\s*)?(days?|weeks?|months?)[ -]+(?:lead[ -]?time|turnaround|creation|production|processing|dispatch|shipping|delivery|transit)\b/gi,
   ];
   for (const [index, pattern] of patterns.entries()) {
     for (const match of description.matchAll(pattern)) {

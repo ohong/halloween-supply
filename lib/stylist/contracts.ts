@@ -36,6 +36,16 @@ export type StylistResult = {
     inspirationPhotoIncluded: true;
     photoProductIds: string[];
     textOnlyProductIds: string[];
+    comparison: {
+      strategy: "single" | "grouped";
+      batchCount: number;
+      /** A valid review_needed choice means no outfit advanced from this group. */
+      declinedBatchCount: number;
+      finalistsCompared: number;
+      decisionCalls: number;
+      /** Counts presentations; finalists are evaluated again in the final decision. */
+      candidateEvaluations: number;
+    };
     selected: {
       pieceId: string;
       productId: string;

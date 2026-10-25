@@ -1,15 +1,18 @@
 /** Real no-purchase checks. Starts no checkout and changes no saved catalog.
  * bun --env-file=.env.local scripts/verify-stylist.ts http://localhost:3000
- * Makes three paid Decisions requests against the running app's configured key.
+ * Makes three paid styling requests against the running app's configured key.
+ * Each request can make bounded grouped Decisions calls for larger catalogs.
+ * --costume=SLUG runs the same real-runtime checks against another live catalog.
+ * --require-piece-count=6 or =7 requires that real catalog shape in preflight.
  * --preflight-only checks real catalog timing and ownership without API requests.
  */
 import assert from "node:assert/strict";
-import { readFile } from "node:fs/promises";
+import { readFile, readdir } from "node:fs/promises";
 import { requestedSize, sizeMatches, type PieceUse, type ShoppingBrief } from "../lib/outfits";
 import type { CostumeSnapshot, CostumeView } from "../lib/types";
 import { getCostume as getSnapshotCostume } from "../lib/catalog/queries";
-import { enumerateOutfits } from "../lib/stylist/candidates";
-import { minimumLeadDays } from "../lib/stylist/timing";
+import { budgetInCents, enumerateOutfits } from "../lib/stylist/candidates";
+import { isExplicitlyTooLate, minimumLeadDays } from "../lib/stylist/timing";
 import { outfitRequestSchema, StylistError, type OutfitRequest, type StylistResult } from "../lib/stylist/contracts";
 
 type BunRuntime = { plugin(plugin: { name: string; setup(build: { module(name: string, loader: () => unknown): void }): void }): void };
@@ -19,10 +22,12 @@ type BunRuntime = { plugin(plugin: { name: string; setup(build: { module(name: s
 });
 
 const { getCostume } = await import("../lib/catalog");
-const { stylistPhotoEvidence } = await import("../lib/stylist/images");
+const { stylistPhotoEvidence, MAX_STYLIST_PRODUCTS } = await import("../lib/stylist/images");
+const { comparisonLimits, measureDecisionEvidence, prepareOutfitComparison } = await import("../lib/stylist/decide");
 const base = new URL(process.argv.find((argument) => /^https?:\/\//.test(argument)) ?? "http://127.0.0.1:3300").origin;
-const view = await getCostume("cosmic-cowboy");
-assert(view && view.pieces.length > 0, "A real Cosmic Cowboy catalog is required.");
+const costumeSlug = process.argv.find((argument) => argument.startsWith("--costume="))?.split("=")[1] ?? "cosmic-cowboy";
+const view = await getCostume(costumeSlug);
+assert(view && view.pieces.length > 0, `A real live ${costumeSlug} catalog is required.`);
 const checks: string[] = [];
 const pass = (label: string) => { checks.push(label); console.log(`PASS ${label}`); };
 const amount = (cents: number) => (cents / 100).toFixed(2);
@@ -30,7 +35,7 @@ const optionsFor = (view: CostumeView) => view.pieces.map(({ options }) => optio
 assert(optionsFor(view).every((options) => options.length > 0), "The real catalog must have a buyable option for every piece.");
 const minimum = optionsFor(view).reduce((sum, options) => sum + Math.min(...options.map(({ product }) => product.priceCents)), 0);
 const maximum = optionsFor(view).reduce((sum, options) => sum + Math.max(...options.map(({ product }) => product.priceCents)), 0);
-const brief: ShoppingBrief = { budget: "", eventDate: "", preference: "styling", sizes: {}, notes: "Preserve the western silhouette. Keep simple pieces affordable; do not spend money just to use the budget." };
+const brief: ShoppingBrief = { budget: "", eventDate: "", preference: "styling", sizes: {}, notes: "Preserve the costume silhouette. Keep simple pieces affordable; do not spend money just to use the budget." };
 const request = (overrides: Partial<ShoppingBrief> = {}, uses: Record<string, PieceUse> = {}): OutfitRequest => ({ costumeSlug: view.costume.slug, brief: { ...brief, ...overrides }, uses });
 
 // Exercise the same preflight code as the route against actual researched product
@@ -54,6 +59,12 @@ assert.throws(() => enumerateOutfits(moonMoth, { ...brief, budget: "" }, { [requ
 const withOwnedRequired = enumerateOutfits(moonMoth, { ...brief, budget: "" }, { [requiredMoonPiece.piece.id]: "owned" }).affordable;
 assert(withOwnedRequired.every(({ lines }) => lines.some((line) => line.view.piece.id === requiredMoonPiece.piece.id && line.use === "owned" && !line.option)));
 pass("real Moon Moth creation timing excludes a late decimal-range item without blocking later dates or owned required pieces");
+const coralSnapshot = JSON.parse(await readFile(new URL("../data/costumes/coral-mermaid.json", import.meta.url), "utf8")) as CostumeSnapshot;
+const longTransit = coralSnapshot.products.find((product) => /18[–-]25 day shipping/.test(product.description));
+assert(longTransit, "The real Coral Mermaid shipping-window evidence must remain available.");
+assert.equal(minimumLeadDays(longTransit.description), 18);
+assert(isExplicitlyTooLate(longTransit, dayFromNow(3)), "A stated 18-day shipping minimum cannot enter a three-day event outfit.");
+pass("real Coral Mermaid reverse-worded shipping minimum excludes a known late item");
 const vampireSnapshot = JSON.parse(await readFile(new URL("../data/costumes/velvet-vampire.json", import.meta.url), "utf8")) as CostumeSnapshot;
 const vampire = await getSnapshotCostume([vampireSnapshot], "velvet-vampire");
 assert(vampire);
@@ -74,15 +85,52 @@ const clearedSizes = enumerateOutfits(vampire, clearedSizeBrief, {}).affordable;
 assert(clearedSizes.length > exactSizes.length, "Clearing the waistcoat size must reopen its actual catalog options instead of reusing generic Medium.");
 assert(clearedSizes.every(({ unknownSizes }) => unknownSizes.includes(vampire.pieces.find(({ piece }) => piece.id === "black-waistcoat")!.piece.name)));
 pass("real merchant shirt Medium and waistcoat 42 coexist with exact prices and scoped per-piece sizes");
-for (const slug of ["cosmic-cowboy", "moon-moth", "velvet-vampire", "linen-ghost", "woodland-mushroom"]) {
-  const snapshot = JSON.parse(await readFile(new URL(`../data/costumes/${slug}.json`, import.meta.url), "utf8")) as CostumeSnapshot;
+const pieceCounts = new Set<number>();
+let photoCount = 0;
+const catalogDirectory = new URL("../data/costumes/", import.meta.url);
+for (const file of (await readdir(catalogDirectory)).filter((name) => name.endsWith(".json")).sort()) {
+  const snapshot = JSON.parse(await readFile(new URL(file, catalogDirectory), "utf8")) as CostumeSnapshot;
+  const slug = snapshot.costume.slug;
+  const actual = await getSnapshotCostume([snapshot], slug);
+  assert(actual, `${slug}: the saved real catalog must have complete live picks.`);
+  pieceCounts.add(actual.pieces.length);
+  const prepared = prepareOutfitComparison(actual, { costumeSlug: slug, brief: { ...brief, budget: "" }, uses: {} });
+  const presented = prepared.batches.flatMap((batch) => batch.candidates.map((candidate) => candidate.id));
+  assert.deepEqual(presented, prepared.affordable.map((candidate) => candidate.id), `${slug}: every feasible complete outfit must enter exactly one group.`);
+  assert.equal(new Set(presented).size, presented.length);
+  assert(prepared.batches.length <= comparisonLimits.batches);
   const photos = await stylistPhotoEvidence(slug, snapshot.products);
-  assert.equal(photos.photoProductIds.length, 15, `${slug}: every researched product needs its actual merchant photo.`);
+  photoCount += photos.photoProductIds.length;
+  assert.equal(photos.photoProductIds.length, snapshot.products.length, `${slug}: every researched product needs its actual merchant photo.`);
   assert.equal(photos.textOnlyProductIds.length, 0);
-  assert.equal(photos.content.filter((part) => part.type === "input_image").length, 16, `${slug}: include one generated inspiration image and fifteen product photos.`);
+  assert.equal(photos.content.filter((part) => part.type === "input_image").length, snapshot.products.length + 1, `${slug}: include one inspiration image and every actual product photo.`);
   assert(photos.content.filter((part) => part.type === "input_image").every((part) => part.image_url.startsWith("data:image/jpeg;base64,")));
+  for (const batch of prepared.batches) {
+    const measured = measureDecisionEvidence(batch.evidence);
+    assert(batch.candidates.length >= 1 && batch.candidates.length <= comparisonLimits.outfitsPerDecision);
+    assert(measured.values <= comparisonLimits.jsonValues && measured.bytes <= comparisonLimits.jsonBytes && measured.depth <= comparisonLimits.jsonDepth, `${slug}: every complete-evidence group must fit the real Decisions input limits.`);
+    const ids = batch.evidence.products.map((product) => product.id);
+    const references = photos.forProducts(ids);
+    assert.deepEqual(references.photoProductIds, ids, `${slug}: group photos must match the products used in its complete outfits.`);
+    assert.equal(references.content.filter((part) => part.type === "input_image").length, ids.length + 1);
+    for (const candidate of batch.candidates) {
+      assert.equal(candidate.lines.length, actual.pieces.length);
+      assert.equal(candidate.total, candidate.lines.reduce((sum, line) => sum + (line.option?.product.priceCents ?? 0), 0));
+      assert(candidate.lines.every((line) => line.option && ids.includes(line.option.product.id)));
+    }
+  }
+  if (actual.pieces.length >= 6) {
+    assert(prepared.affordable.length > comparisonLimits.outfitsPerDecision, `${slug}: a real six- or seven-piece catalog must exercise grouped comparison.`);
+    assert(prepared.batches.length > 1);
+    pass(`${slug}: ${actual.pieces.length} real pieces, ${prepared.affordable.length} complete outfits, ${prepared.batches.length} bounded Decisions groups, and ${photos.photoProductIds.length} actual merchant photos`);
+  }
 }
-pass("all 75 cached merchant photos and five generated inspiration images load as bounded inline Decisions references");
+const requiredCountText = process.argv.find((argument) => argument.startsWith("--require-piece-count="))?.split("=")[1];
+if (requiredCountText) {
+  assert(["6", "7"].includes(requiredCountText), "Use --require-piece-count=6 or =7.");
+  assert(pieceCounts.has(Number(requiredCountText)), `No real ${requiredCountText}-piece catalog is available. This coverage is not verified.`);
+}
+pass(`${photoCount} cached merchant photos load, and every saved catalog's complete outfit groups fit Decisions limits`);
 if (process.argv.includes("--preflight-only")) {
   console.log("Real catalog preflight checks passed; no API request or catalog mutation occurred.");
   process.exit(0);
@@ -91,14 +139,14 @@ if (process.argv.includes("--preflight-only")) {
 async function post(body: unknown, extraHeaders: Record<string, string> = {}) {
   const response = await fetch(new URL("/api/outfits", base), {
     method: "POST", headers: { "Content-Type": "application/json", Origin: base, ...extraHeaders },
-    body: JSON.stringify(body), signal: AbortSignal.timeout(50_000), cache: "no-store",
+    body: JSON.stringify(body), signal: AbortSignal.timeout(comparisonLimits.timeoutMs + 15_000), cache: "no-store",
   });
   return { response, body: await response.json() };
 }
 
 function verifyResult(result: StylistResult, sent: OutfitRequest) {
   assert.equal(result.method, "decisions", "A successful result must come from the real Decisions API.");
-  assert(Number.isSafeInteger(result.candidatesCompared) && result.candidatesCompared >= 1 && result.candidatesCompared <= 254);
+  assert(Number.isSafeInteger(result.candidatesCompared) && result.candidatesCompared >= 1 && result.candidatesCompared <= 5000);
   assert.equal(result.feasibleOutfits, result.candidatesCompared, "Every feasible outfit must reach Decisions.");
   assert.equal(result.candidatesCompared, enumerateOutfits(view!, sent.brief, sent.uses).affordable.length, "The comparison must cover all real catalog combinations that meet the constraints.");
   assert.equal(result.plan.lines.length, view!.pieces.length);
@@ -139,12 +187,20 @@ function verifyResult(result: StylistResult, sent: OutfitRequest) {
   assert.equal(result.plan.unknownStock, unknownStockPieces.length > 0);
   assert.equal(result.evidence.deliveryConfirmed, false);
   assert.equal(result.evidence.inspirationPhotoIncluded, true);
-  assert(result.evidence.photoProductIds.length <= 15);
+  assert(result.evidence.photoProductIds.length <= MAX_STYLIST_PRODUCTS);
+  const prepared = prepareOutfitComparison(view!, sent);
+  const comparison = result.evidence.comparison;
+  assert.equal(comparison.batchCount, prepared.batches.length);
+  assert.equal(comparison.strategy, prepared.batches.length === 1 ? "single" : "grouped");
+  assert(Number.isSafeInteger(comparison.declinedBatchCount) && comparison.declinedBatchCount >= 0);
+  assert.equal(comparison.decisionCalls, prepared.batches.length + (prepared.batches.length > 1 ? 1 : 0));
+  assert.equal(comparison.finalistsCompared, prepared.batches.length > 1 ? prepared.batches.length - comparison.declinedBatchCount : 0);
+  assert.equal(comparison.candidateEvaluations, result.candidatesCompared + comparison.finalistsCompared);
   for (const line of result.plan.lines) {
     if (line.option?.product.merchantImage) assert(result.evidence.photoProductIds.includes(line.option.product.id), "The chosen product's actual photo must be included in the comparison.");
   }
   if (sent.brief.budget) {
-    const cents = Math.round(Number(sent.brief.budget) * 100);
+    const cents = budgetInCents(sent.brief.budget)!;
     assert(subtotal <= cents, "The stylist must never exceed the shopper's pieces budget.");
     assert.equal(result.evidence.remainingBudget, cents - subtotal);
   }

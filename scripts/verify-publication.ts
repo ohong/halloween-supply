@@ -8,16 +8,17 @@ import { validateDeployedImages, validatePublicationImages } from "../lib/catalo
 import { validateSnapshot } from "../lib/catalog/validate";
 import { upsertSnapshot } from "../lib/db/catalog";
 import { writeCheckpoint, writeSnapshotFile } from "./source/write";
+import { costumes } from "../lib/costumes";
 import type { CostumeSnapshot } from "../lib/types";
 
 const root = process.cwd();
-const slugs = ["cosmic-cowboy", "velvet-vampire", "moon-moth", "linen-ghost", "woodland-mushroom"];
+const slugs = ["cosmic-cowboy", ...costumes.filter(({ slug }) => slug !== "cosmic-cowboy").map(({ slug }) => slug)];
 const snapshots: CostumeSnapshot[] = [];
 for (const slug of slugs) {
   const snapshot = validateSnapshot(JSON.parse(await readFile(`data/costumes/${slug}.json`, "utf8")));
   await validateDeployedImages(await validatePublicationImages(snapshot));
   snapshots.push(snapshot);
-  console.log(`PASS ${slug}: all reviewed merchant photos and complete flat-lay decode`);
+  console.log(`PASS ${slug}: all reviewed merchant photos and costume references decode`);
 }
 
 // Negative cases must fail at the image gate, before any database connection is attempted.

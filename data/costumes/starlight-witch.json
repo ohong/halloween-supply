@@ -1,0 +1,725 @@
+{
+  "costume": {
+    "slug": "starlight-witch",
+    "name": "Starlight Witch",
+    "description": "A midnight velvet hat and star-embroidered cape over a dark dress, finished with a silver crescent.",
+    "image": "/costumes/starlight-witch.png",
+    "alt": "Midnight pointed witch hat, navy cape with silver embroidered stars, dark dress, lace-up boots, and crescent pendant",
+    "status": "live"
+  },
+  "pieces": [
+    {
+      "id": "starlight-witch-pointed-hat",
+      "name": "Pointed witch hat",
+      "category": "headwear",
+      "required": true,
+      "order": 0,
+      "sizeKind": "hat",
+      "queries": [
+        "blue velvet pointed witch hat adult",
+        "black star embroidered wizard hat"
+      ],
+      "styleNotes": "A dark pointed hat anchors the witch silhouette. Options vary from black velvet to blue velvet or black star embroidery; none exactly matches the reference silver-on-navy hat.",
+      "matches": [
+        {
+          "productId": "p-22314038bb",
+          "rank": 0,
+          "reason": "Blue velvet wide-brim pointed hat; blue is brighter than midnight navy and has no silver embroidery. Only the hat is included. Exact Blue XS/S/M/L/XL variants are available at $76 USD. Merchant chart gives head circumferences XS 54 cm, S 56 cm, M 58 cm, L 60.5 cm, XL 63 cm. Handmade in Ukraine; shipping policy states 1–5 business days processing plus 10–25 business days standard international transit. US shipping is supported; no Halloween delivery promise."
+        },
+        {
+          "productId": "p-45bc046658",
+          "rank": 1,
+          "reason": "Black polyester velour hat with a 14-inch pointed crown and 3.5-inch flat brim. Plain black rather than embroidered navy. Head measurement 22–23 inches. Hat only; photo styling is excluded. Merchant feed marks the exact adult one-size variant available at $25. US small business ships from its own stock; dispatch date is not specified."
+        },
+        {
+          "productId": "p-1ff589970a",
+          "rank": 2,
+          "reason": "Black pointed hat with gold/yellow embroidered stars, not navy velvet or silver embroidery. Heavy 80% polyester/20% rayon Melton outer and nylon lining. Made in Texas. Only Medium is currently available at $95; merchant states Medium fits a 23-inch head. Large is sold out and excluded. Hat only; dispatch time is not stated."
+        }
+      ]
+    },
+    {
+      "id": "starlight-witch-celestial-cape",
+      "name": "Star and moon cape",
+      "category": "outerwear",
+      "required": true,
+      "order": 1,
+      "sizeKind": "one_size",
+      "queries": [
+        "navy star velvet cape adult",
+        "silver celestial moon cape"
+      ],
+      "styleNotes": "A dark cape with celestial decoration provides the main starlight detail. These are honest alternatives: black/silver sheer, short navy/gold velvet, or black/gold embroidered netting.",
+      "matches": [
+        {
+          "productId": "p-276861ac75",
+          "rank": 0,
+          "reason": "Navy polyester velvet cloak with gold stars and star trim, satin lining, wide hood, closure and two pockets. Stars are gold rather than silver; 31-inch length is shorter than the full-length reference. Cloak only. Merchant feed marks the single variant available at $170. Shipping policy states dispatch within two business days unless a notice overrides it. US shipping is supported; arrival is not guaranteed."
+        },
+        {
+          "productId": "p-1214815a11",
+          "rank": 1,
+          "reason": "Silver Detail selection: full-length tie-front sheer black cape with metallic moons, suns and stars. It is transparent black rather than opaque navy velvet, and the decoration is metallic detail rather than embroidery. Cape only; dress is not included. Merchant WooCommerce variation 4308 applies to either offered color and marks is_in_stock true at $28.98 USD. Actual second merchant gallery photo shows the silver version. Processing time is not stated."
+        },
+        {
+          "productId": "p-0439c06c0f",
+          "rank": 2,
+          "reason": "Gold, Medium is the only available selection represented here: two layers of black metallic-embroidered netting with zodiac constellations, moon motifs, pointed hood and moon charms. Sheer black/gold rather than navy/silver velvet; medium length is about 24–44 inches. Cape only. Current feed confirms $175 and available true; $150 Short and all Silver variants are sold out and excluded. US shipping policy states dispatch within three business days, subject to posted pauses."
+        }
+      ]
+    },
+    {
+      "id": "starlight-witch-dark-dress",
+      "name": "Dark dress",
+      "category": "dresses",
+      "required": true,
+      "order": 2,
+      "sizeKind": "apparel",
+      "queries": [
+        "black velvet maxi dress",
+        "black renaissance laced bodice dress"
+      ],
+      "styleNotes": "Wear one dark dress under the cape. The reference has a laced bodice and layered navy skirt; these single dresses provide simpler black silhouettes.",
+      "matches": [
+        {
+          "productId": "p-83eb78bcbc",
+          "rank": 0,
+          "reason": "Black Midnight rayon Renaissance dress with front lacing, long bell sleeves, pointed flowing hem and pockets; not velvet or celestial embroidery. Regular S/M/L/XL/1X are purchasable at $175. Larger sizes cost more and are excluded from this price. Made to order in India; available true means orders are accepted, not ready-made warehouse stock. Product page offers standard/rush production but its estimated shipping widget does not provide a readable date. Confirm production timing before ordering."
+        },
+        {
+          "productId": "p-0078853d2d",
+          "rank": 1,
+          "reason": "Black sleeveless 95% polyester/5% spandex velvet maxi dress with embroidered V-neck, adjustable strappy tie back, pockets and side slit. Relaxed shape instead of the reference fitted corset and layered skirt. Dress only. Current feed confirms Black S/M/L available at $72. US shipping supported; merchant usually processes within 24–48 hours, excluding weekends and holidays."
+        },
+        {
+          "productId": "p-64f22fd467",
+          "rank": 2,
+          "reason": "Plain black velvet dress with long sleeves, high neck and flared skirt. Merchant title calls it maxi; the actual model photo shows a calf-length hem, so it is shorter and simpler than the reference full-length layered gown. Dress only. Feed confirms XS/S/M/L available at $200 USD. Merchant states in stock/ready to ship and international delivery 7–15 business days; actual arrival is unverified."
+        }
+      ]
+    },
+    {
+      "id": "starlight-witch-lace-up-boots",
+      "name": "Black lace-up boots",
+      "category": "footwear",
+      "required": true,
+      "order": 3,
+      "sizeKind": "shoe",
+      "queries": [
+        "black lace up ankle boots women",
+        "black Victorian lace up boots"
+      ],
+      "styleNotes": "Black ankle boots with visible lacing finish the outfit. These pairs have no crescent or star embroidery; heels and soles differ from the reference.",
+      "matches": [
+        {
+          "productId": "p-982c5731f8",
+          "rank": 0,
+          "reason": "Black full-grain leather lace-up combat boot with glove-leather lining, YKK side zipper, 6-inch shaft, 1.5-inch heel and rubber outsole. No celestial embroidery. Standard-width women’s US 5–12, including all offered half sizes, are available at $190. This option represents Standard width only. Pair of boots; free domestic US ground shipping is offered, but arrival is not verified."
+        },
+        {
+          "productId": "p-ed0b6d3416",
+          "rank": 1,
+          "reason": "Black faux-leather combat boots with lace front, inner zipper, microfiber lining and chunky treaded rubber sole. 1.8-inch heel; more casual than the reference decorative heeled boots. Pair of boots only. Feed confirms US women’s 6, 6.5, 7, 7.5, 8, 8.5, 9, 9.5, 10 and 11 available at the current $55.97 sale price; 12 is sold out. US direct store; dispatch timing is not stated."
+        },
+        {
+          "productId": "p-9ceb60b1a5",
+          "rank": 2,
+          "reason": "Black calf-leather Balmoral ankle boots with cotton-twill/pigskin lining, leather soles, adjustable laces, 5-inch shaft and 1-inch heel. Vintage shape; no stars or crescent detail and a lower heel than the reference. Pair of boots. Current feed confirms women’s US 5, 6, 6.5, 7, 7.5, 8, 8.5, 9, 9.5, 10 and 12 at $285; 10.5 and 11 are unavailable. Regular B width. US merchant; dispatch date is not stated."
+        }
+      ]
+    },
+    {
+      "id": "starlight-witch-crescent-necklace",
+      "name": "Silver crescent necklace",
+      "category": "accessories",
+      "required": true,
+      "order": 4,
+      "sizeKind": "one_size",
+      "queries": [
+        "silver crescent moon necklace stainless steel",
+        "sterling silver crescent moon necklace handmade"
+      ],
+      "styleNotes": "A silver-colored crescent pendant on a chain remains visible at the neckline. Options include complete necklaces, not loose pendants.",
+      "matches": [
+        {
+          "productId": "p-c647cdb853",
+          "rank": 0,
+          "reason": "Sterling-silver crescent necklace, hand-forged in the USA, with a slender 1.25-inch pendant. Selected Sterling silver with included 16-, 17- or 18-inch chain is available at $52. Gold-filled variants are excluded; the selected gallery photo is the silver version. Larger and slimmer crescent than the reference. Production/dispatch timing is not stated."
+        },
+        {
+          "productId": "p-2d77c3f04b",
+          "rank": 1,
+          "reason": "Silver-tone titanium-plated stainless-steel crescent pendant, about 0.75 inches wide, with included silver stainless-steel chain adjustable from 18–20 inches. The crescent points downward, unlike the side-facing reference. Current merchant feed confirms the single complete necklace variant available at $42. US economy and priority shipping are offered; processing time is not stated."
+        },
+        {
+          "productId": "p-14bc912ac2",
+          "rank": 2,
+          "reason": "Handmade hammered sterling-silver crescent, roughly 1 1/8 by 1 inch, with an included 18-inch sterling rolo chain and lobster clasp. Chain length label 18 is the exact $63 available variant. The $45 option is pendant-only and is not represented here. Moon hangs from moving jump rings, so its position can rotate. Made in Austin, Texas; production/dispatch timing is not stated."
+        }
+      ]
+    }
+  ],
+  "products": [
+    {
+      "id": "p-45bc046658",
+      "title": "Black Magic Velvet Witch Hat",
+      "url": "https://wildtimefashion.com/products/black-magic-velvet-witch-hat?variant=49791665111207",
+      "priceCents": 2500,
+      "currency": "USD",
+      "image": "/products/price-tiers/p-45bc046658.webp",
+      "merchantImage": "/products/price-tiers/p-45bc046658.webp",
+      "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/0140/7198/8281/files/black-magic-velvet-witch-hat-one-size-adults-698.webp?v=1780351430"
+      ],
+      "availability": "in_stock",
+      "sizes": [
+        "One size"
+      ],
+      "merchantId": "wildtimefashion-com",
+      "tagSlugs": [],
+      "description": "Black polyester velour hat with a 14-inch pointed crown and 3.5-inch flat brim. Plain black rather than embroidered navy. Head measurement 22–23 inches. Hat only; photo styling is excluded. Merchant feed marks the exact adult one-size variant available at $25. US small business ships from its own stock; dispatch date is not specified.",
+      "checkedAt": "2026-10-25T08:48:40.074055Z",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-25T08:48:40.074055Z",
+        "url": "https://wildtimefashion.com/products/black-magic-velvet-witch-hat.js",
+        "notes": "Black polyester velour hat with a 14-inch pointed crown and 3.5-inch flat brim. Plain black rather than embroidered navy. Head measurement 22–23 inches. Hat only; photo styling is excluded. Merchant feed marks the exact adult one-size variant available at $25. US small business ships from its own stock; dispatch date is not specified."
+      }
+    },
+    {
+      "id": "p-1ff589970a",
+      "title": "Embroidered Wizard Hat- Black with Stars",
+      "url": "https://cravencrow.com/products/embroidered-wizard-hat-black-with-stars?variant=44403880722535",
+      "priceCents": 9500,
+      "currency": "USD",
+      "image": "/products/price-tiers/p-1ff589970a.webp",
+      "merchantImage": "/products/price-tiers/p-1ff589970a.webp",
+      "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/0551/3815/6647/files/rn-image_picker_lib_temp_1832255e-c3bc-4aca-8f1a-7ce0a40d5c38.jpg?v=1786555875"
+      ],
+      "availability": "in_stock",
+      "sizes": [
+        "Medium"
+      ],
+      "merchantId": "cravencrow-com",
+      "tagSlugs": [],
+      "description": "Black pointed hat with gold/yellow embroidered stars, not navy velvet or silver embroidery. Heavy 80% polyester/20% rayon Melton outer and nylon lining. Made in Texas. Only Medium is currently available at $95; merchant states Medium fits a 23-inch head. Large is sold out and excluded. Hat only; dispatch time is not stated.",
+      "checkedAt": "2026-10-25T08:48:40.074055Z",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-25T08:48:40.074055Z",
+        "url": "https://cravencrow.com/products/embroidered-wizard-hat-black-with-stars.js",
+        "notes": "Black pointed hat with gold/yellow embroidered stars, not navy velvet or silver embroidery. Heavy 80% polyester/20% rayon Melton outer and nylon lining. Made in Texas. Only Medium is currently available at $95; merchant states Medium fits a 23-inch head. Large is sold out and excluded. Hat only; dispatch time is not stated."
+      }
+    },
+    {
+      "id": "p-22314038bb",
+      "title": "Velvet Wizard Hats – Fantasy & Witch Style",
+      "url": "https://sanctumofspells.com/products/velvet-wizard-hat?variant=48076457771175",
+      "priceCents": 7600,
+      "currency": "USD",
+      "image": "/products/price-tiers/p-22314038bb.webp",
+      "merchantImage": "/products/price-tiers/p-22314038bb.webp",
+      "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/0724/8851/7799/files/30-11-2025_47_80bdf82a-6947-4ef5-813b-a214336af83b.jpg?v=1773997782"
+      ],
+      "availability": "in_stock",
+      "sizes": [
+        "XS",
+        "S",
+        "M",
+        "L",
+        "XL"
+      ],
+      "merchantId": "sanctumofspells-com",
+      "tagSlugs": [],
+      "description": "Blue velvet wide-brim pointed hat; blue is brighter than midnight navy and has no silver embroidery. Only the hat is included. Exact Blue XS/S/M/L/XL variants are available at $76 USD. Merchant chart gives head circumferences XS 54 cm, S 56 cm, M 58 cm, L 60.5 cm, XL 63 cm. Handmade in Ukraine; shipping policy states 1–5 business days processing plus 10–25 business days standard international transit. US shipping is supported; no Halloween delivery promise.",
+      "checkedAt": "2026-10-25T08:48:40.074055Z",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-25T08:48:40.074055Z",
+        "url": "https://sanctumofspells.com/products/velvet-wizard-hat.js",
+        "notes": "Blue velvet wide-brim pointed hat; blue is brighter than midnight navy and has no silver embroidery. Only the hat is included. Exact Blue XS/S/M/L/XL variants are available at $76 USD. Merchant chart gives head circumferences XS 54 cm, S 56 cm, M 58 cm, L 60.5 cm, XL 63 cm. Handmade in Ukraine; shipping policy states 1–5 business days processing plus 10–25 business days standard international transit. US shipping is supported; no Halloween delivery promise."
+      }
+    },
+    {
+      "id": "p-1214815a11",
+      "title": "Celestial Cape Adult Costume",
+      "url": "https://www.gypsytreasure.com/product/celestial-cape-adult-costume/?attribute_color=Silver%20Detail",
+      "priceCents": 2898,
+      "currency": "USD",
+      "image": "/products/price-tiers/p-1214815a11.webp",
+      "merchantImage": "/products/price-tiers/p-1214815a11.webp",
+      "sourceImages": [
+        "https://www.gypsytreasure.com/wp-content/uploads/2022/09/Celestial-Cape-2.jpg"
+      ],
+      "availability": "in_stock",
+      "sizes": [
+        "ONE SIZE"
+      ],
+      "merchantId": "gypsytreasure-com",
+      "tagSlugs": [],
+      "description": "Silver Detail selection: full-length tie-front sheer black cape with metallic moons, suns and stars. It is transparent black rather than opaque navy velvet, and the decoration is metallic detail rather than embroidery. Cape only; dress is not included. Merchant WooCommerce variation 4308 applies to either offered color and marks is_in_stock true at $28.98 USD. Actual second merchant gallery photo shows the silver version. Processing time is not stated.",
+      "checkedAt": "2026-10-25T08:48:40.074055Z",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-25T08:48:40.074055Z",
+        "url": "https://www.gypsytreasure.com/product/celestial-cape-adult-costume/",
+        "notes": "Silver Detail selection: full-length tie-front sheer black cape with metallic moons, suns and stars. It is transparent black rather than opaque navy velvet, and the decoration is metallic detail rather than embroidery. Cape only; dress is not included. Merchant WooCommerce variation 4308 applies to either offered color and marks is_in_stock true at $28.98 USD. Actual second merchant gallery photo shows the silver version. Processing time is not stated."
+      }
+    },
+    {
+      "id": "p-0439c06c0f",
+      "title": "Celestial Cape",
+      "url": "https://forestgirlclothing.com/products/celestial-cape?variant=40876687458462",
+      "priceCents": 17500,
+      "currency": "USD",
+      "image": "/products/price-tiers/p-0439c06c0f.webp",
+      "merchantImage": "/products/price-tiers/p-0439c06c0f.webp",
+      "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/0549/1438/4030/products/IMG_0384.jpg?v=1647563505"
+      ],
+      "availability": "in_stock",
+      "sizes": [
+        "Medium"
+      ],
+      "merchantId": "forestgirlclothing-com",
+      "tagSlugs": [],
+      "description": "Gold, Medium is the only available selection represented here: two layers of black metallic-embroidered netting with zodiac constellations, moon motifs, pointed hood and moon charms. Sheer black/gold rather than navy/silver velvet; medium length is about 24–44 inches. Cape only. Current feed confirms $175 and available true; $150 Short and all Silver variants are sold out and excluded. US shipping policy states dispatch within three business days, subject to posted pauses.",
+      "checkedAt": "2026-10-25T08:48:40.074055Z",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-25T08:48:40.074055Z",
+        "url": "https://forestgirlclothing.com/products/celestial-cape.js",
+        "notes": "Gold, Medium is the only available selection represented here: two layers of black metallic-embroidered netting with zodiac constellations, moon motifs, pointed hood and moon charms. Sheer black/gold rather than navy/silver velvet; medium length is about 24–44 inches. Cape only. Current feed confirms $175 and available true; $150 Short and all Silver variants are sold out and excluded. US shipping policy states dispatch within three business days, subject to posted pauses."
+      }
+    },
+    {
+      "id": "p-276861ac75",
+      "title": "Celestial Cloak",
+      "url": "https://enchantedmothhollow.com/products/celestial-fleece-cloak?variant=42527972294838",
+      "priceCents": 17000,
+      "currency": "USD",
+      "image": "/products/price-tiers/p-276861ac75.webp",
+      "merchantImage": "/products/price-tiers/p-276861ac75.webp",
+      "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/0631/5452/0246/files/07-2026-02-16_8575d7c0-7206-4b2d-ad68-c1655e51436c.webp?v=1789059009"
+      ],
+      "availability": "in_stock",
+      "sizes": [],
+      "merchantId": "enchantedmothhollow-com",
+      "tagSlugs": [],
+      "description": "Navy polyester velvet cloak with gold stars and star trim, satin lining, wide hood, closure and two pockets. Stars are gold rather than silver; 31-inch length is shorter than the full-length reference. Cloak only. Merchant feed marks the single variant available at $170. Shipping policy states dispatch within two business days unless a notice overrides it. US shipping is supported; arrival is not guaranteed.",
+      "checkedAt": "2026-10-25T08:48:40.074055Z",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-25T08:48:40.074055Z",
+        "url": "https://enchantedmothhollow.com/products/celestial-fleece-cloak.js",
+        "notes": "Navy polyester velvet cloak with gold stars and star trim, satin lining, wide hood, closure and two pockets. Stars are gold rather than silver; 31-inch length is shorter than the full-length reference. Cloak only. Merchant feed marks the single variant available at $170. Shipping policy states dispatch within two business days unless a notice overrides it. US shipping is supported; arrival is not guaranteed."
+      }
+    },
+    {
+      "id": "p-83eb78bcbc",
+      "title": "Lorien Maxi",
+      "url": "https://holyclothing.com/products/lorien-maxi-3?variant=43473423990886",
+      "priceCents": 17500,
+      "currency": "USD",
+      "image": "/products/price-tiers/p-83eb78bcbc.webp",
+      "merchantImage": "/products/price-tiers/p-83eb78bcbc.webp",
+      "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/1135/9810/files/A101X0001B.jpg?v=1764015219"
+      ],
+      "availability": "in_stock",
+      "sizes": [
+        "Regular"
+      ],
+      "merchantId": "holyclothing-com",
+      "tagSlugs": [],
+      "description": "Black Midnight rayon Renaissance dress with front lacing, long bell sleeves, pointed flowing hem and pockets; not velvet or celestial embroidery. Regular S/M/L/XL/1X are purchasable at $175. Larger sizes cost more and are excluded from this price. Made to order in India; available true means orders are accepted, not ready-made warehouse stock. Product page offers standard/rush production but its estimated shipping widget does not provide a readable date. Confirm production timing before ordering.",
+      "checkedAt": "2026-10-25T08:48:40.074055Z",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-25T08:48:40.074055Z",
+        "url": "https://holyclothing.com/products/lorien-maxi-3.js",
+        "notes": "Black Midnight rayon Renaissance dress with front lacing, long bell sleeves, pointed flowing hem and pockets; not velvet or celestial embroidery. Regular S/M/L/XL/1X are purchasable at $175. Larger sizes cost more and are excluded from this price. Made to order in India; available true means orders are accepted, not ready-made warehouse stock. Product page offers standard/rush production but its estimated shipping widget does not provide a readable date. Confirm production timing before ordering."
+      }
+    },
+    {
+      "id": "p-64f22fd467",
+      "title": "Black Velvet Maxi Dress",
+      "url": "https://shilateliav.com/products/black-velvet-maxi-dress?variant=44832987676993",
+      "priceCents": 20000,
+      "currency": "USD",
+      "image": "/products/price-tiers/p-64f22fd467.webp",
+      "merchantImage": "/products/price-tiers/p-64f22fd467.webp",
+      "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/0689/2240/9281/products/DSCF9749.jpg?v=1679953845"
+      ],
+      "availability": "in_stock",
+      "sizes": [
+        "XS",
+        "S",
+        "M",
+        "L"
+      ],
+      "merchantId": "shilateliav-com",
+      "tagSlugs": [],
+      "description": "Plain black velvet dress with long sleeves, high neck and flared skirt. Merchant title calls it maxi; the actual model photo shows a calf-length hem, so it is shorter and simpler than the reference full-length layered gown. Dress only. Feed confirms XS/S/M/L available at $200 USD. Merchant states in stock/ready to ship and international delivery 7–15 business days; actual arrival is unverified.",
+      "checkedAt": "2026-10-25T08:48:40.074055Z",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-25T08:48:40.074055Z",
+        "url": "https://shilateliav.com/products/black-velvet-maxi-dress.js",
+        "notes": "Plain black velvet dress with long sleeves, high neck and flared skirt. Merchant title calls it maxi; the actual model photo shows a calf-length hem, so it is shorter and simpler than the reference full-length layered gown. Dress only. Feed confirms XS/S/M/L available at $200 USD. Merchant states in stock/ready to ship and international delivery 7–15 business days; actual arrival is unverified."
+      }
+    },
+    {
+      "id": "p-0078853d2d",
+      "title": "Find Me Velvet Maxi Dress",
+      "url": "https://www.shoplovestitch.com/products/find-me-velvet-maxi-dress?variant=41832646279246",
+      "priceCents": 7200,
+      "currency": "USD",
+      "image": "/products/price-tiers/p-0078853d2d.webp",
+      "merchantImage": "/products/price-tiers/p-0078853d2d.webp",
+      "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/0501/3057/files/092024_499.jpg?v=1748478544"
+      ],
+      "availability": "in_stock",
+      "sizes": [
+        "S",
+        "M",
+        "L"
+      ],
+      "merchantId": "shoplovestitch-com",
+      "tagSlugs": [],
+      "description": "Black sleeveless 95% polyester/5% spandex velvet maxi dress with embroidered V-neck, adjustable strappy tie back, pockets and side slit. Relaxed shape instead of the reference fitted corset and layered skirt. Dress only. Current feed confirms Black S/M/L available at $72. US shipping supported; merchant usually processes within 24–48 hours, excluding weekends and holidays.",
+      "checkedAt": "2026-10-25T08:48:40.074055Z",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-25T08:48:40.074055Z",
+        "url": "https://www.shoplovestitch.com/products/find-me-velvet-maxi-dress.js",
+        "notes": "Black sleeveless 95% polyester/5% spandex velvet maxi dress with embroidered V-neck, adjustable strappy tie back, pockets and side slit. Relaxed shape instead of the reference fitted corset and layered skirt. Dress only. Current feed confirms Black S/M/L available at $72. US shipping supported; merchant usually processes within 24–48 hours, excluding weekends and holidays."
+      }
+    },
+    {
+      "id": "p-9ceb60b1a5",
+      "title": "Rainey Vintage Lace-Up Boots (Black)",
+      "url": "https://www.americanduchess.com/products/rainey-womens-vintage-lace-up-boots-black?variant=42358320824470",
+      "priceCents": 28500,
+      "currency": "USD",
+      "image": "/products/price-tiers/p-9ceb60b1a5.webp",
+      "merchantImage": "/products/price-tiers/p-9ceb60b1a5.webp",
+      "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/0450/5721/2566/products/rainey-vintage-boots-dandy-wellington-black-of.jpg?v=1671580774"
+      ],
+      "availability": "in_stock",
+      "sizes": [
+        "5",
+        "6",
+        "6.5",
+        "7",
+        "7.5",
+        "8",
+        "8.5",
+        "9",
+        "9.5",
+        "10",
+        "12"
+      ],
+      "merchantId": "americanduchess-com",
+      "tagSlugs": [],
+      "description": "Black calf-leather Balmoral ankle boots with cotton-twill/pigskin lining, leather soles, adjustable laces, 5-inch shaft and 1-inch heel. Vintage shape; no stars or crescent detail and a lower heel than the reference. Pair of boots. Current feed confirms women’s US 5, 6, 6.5, 7, 7.5, 8, 8.5, 9, 9.5, 10 and 12 at $285; 10.5 and 11 are unavailable. Regular B width. US merchant; dispatch date is not stated.",
+      "checkedAt": "2026-10-25T08:48:40.074055Z",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-25T08:48:40.074055Z",
+        "url": "https://www.americanduchess.com/products/rainey-womens-vintage-lace-up-boots-black.js",
+        "notes": "Black calf-leather Balmoral ankle boots with cotton-twill/pigskin lining, leather soles, adjustable laces, 5-inch shaft and 1-inch heel. Vintage shape; no stars or crescent detail and a lower heel than the reference. Pair of boots. Current feed confirms women’s US 5, 6, 6.5, 7, 7.5, 8, 8.5, 9, 9.5, 10 and 12 at $285; 10.5 and 11 are unavailable. Regular B width. US merchant; dispatch date is not stated."
+      }
+    },
+    {
+      "id": "p-982c5731f8",
+      "title": "Combat | Black",
+      "url": "https://thursdayboots.com/products/womens-combat-boot-black?variant=32904484126810",
+      "priceCents": 19000,
+      "currency": "USD",
+      "image": "/products/price-tiers/p-982c5731f8.webp",
+      "merchantImage": "/products/price-tiers/p-982c5731f8.webp",
+      "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/0419/1525/products/1024x1024-Women-Combat-Black-081721-Side.jpg?v=1683319134"
+      ],
+      "availability": "in_stock",
+      "sizes": [
+        "5",
+        "5.5",
+        "6",
+        "6.5",
+        "7",
+        "7.5",
+        "8",
+        "8.5",
+        "9",
+        "9.5",
+        "10",
+        "10.5",
+        "11",
+        "11.5",
+        "12"
+      ],
+      "merchantId": "thursdayboots-com",
+      "tagSlugs": [],
+      "description": "Black full-grain leather lace-up combat boot with glove-leather lining, YKK side zipper, 6-inch shaft, 1.5-inch heel and rubber outsole. No celestial embroidery. Standard-width women’s US 5–12, including all offered half sizes, are available at $190. This option represents Standard width only. Pair of boots; free domestic US ground shipping is offered, but arrival is not verified.",
+      "checkedAt": "2026-10-25T08:48:40.074055Z",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-25T08:48:40.074055Z",
+        "url": "https://thursdayboots.com/products/womens-combat-boot-black.js",
+        "notes": "Black full-grain leather lace-up combat boot with glove-leather lining, YKK side zipper, 6-inch shaft, 1.5-inch heel and rubber outsole. No celestial embroidery. Standard-width women’s US 5–12, including all offered half sizes, are available at $190. This option represents Standard width only. Pair of boots; free domestic US ground shipping is offered, but arrival is not verified."
+      }
+    },
+    {
+      "id": "p-ed0b6d3416",
+      "title": "Prima Black Combat Boots",
+      "url": "https://www.rocketdog.com/products/prima-black-combat-boots?variant=45600624508998",
+      "priceCents": 5597,
+      "currency": "USD",
+      "image": "/products/price-tiers/p-ed0b6d3416.webp",
+      "merchantImage": "/products/price-tiers/p-ed0b6d3416.webp",
+      "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/1903/5555/files/prima_grinnel_pu_black_002.jpg?v=1784302923"
+      ],
+      "availability": "in_stock",
+      "sizes": [
+        "6",
+        "6.5",
+        "7",
+        "7.5",
+        "8",
+        "8.5",
+        "9",
+        "9.5",
+        "10",
+        "11"
+      ],
+      "merchantId": "rocketdog-com",
+      "tagSlugs": [],
+      "description": "Black faux-leather combat boots with lace front, inner zipper, microfiber lining and chunky treaded rubber sole. 1.8-inch heel; more casual than the reference decorative heeled boots. Pair of boots only. Feed confirms US women’s 6, 6.5, 7, 7.5, 8, 8.5, 9, 9.5, 10 and 11 available at the current $55.97 sale price; 12 is sold out. US direct store; dispatch timing is not stated.",
+      "checkedAt": "2026-10-25T08:48:40.074055Z",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-25T08:48:40.074055Z",
+        "url": "https://www.rocketdog.com/products/prima-black-combat-boots.js",
+        "notes": "Black faux-leather combat boots with lace front, inner zipper, microfiber lining and chunky treaded rubber sole. 1.8-inch heel; more casual than the reference decorative heeled boots. Pair of boots only. Feed confirms US women’s 6, 6.5, 7, 7.5, 8, 8.5, 9, 9.5, 10 and 11 available at the current $55.97 sale price; 12 is sold out. US direct store; dispatch timing is not stated."
+      }
+    },
+    {
+      "id": "p-2d77c3f04b",
+      "title": "Silver Crescent Moon Necklace",
+      "url": "https://creekandelm.com/products/silver-crescent-moon-necklace?variant=43874505556167",
+      "priceCents": 4200,
+      "currency": "USD",
+      "image": "/products/price-tiers/p-2d77c3f04b.webp",
+      "merchantImage": "/products/price-tiers/p-2d77c3f04b.webp",
+      "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/0525/8094/2023/files/CrescentNecklace-Silver1.png?v=1732140486"
+      ],
+      "availability": "in_stock",
+      "sizes": [],
+      "merchantId": "creekandelm-com",
+      "tagSlugs": [],
+      "description": "Silver-tone titanium-plated stainless-steel crescent pendant, about 0.75 inches wide, with included silver stainless-steel chain adjustable from 18–20 inches. The crescent points downward, unlike the side-facing reference. Current merchant feed confirms the single complete necklace variant available at $42. US economy and priority shipping are offered; processing time is not stated.",
+      "checkedAt": "2026-10-25T08:48:40.074055Z",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-25T08:48:40.074055Z",
+        "url": "https://creekandelm.com/products/silver-crescent-moon-necklace.js",
+        "notes": "Silver-tone titanium-plated stainless-steel crescent pendant, about 0.75 inches wide, with included silver stainless-steel chain adjustable from 18–20 inches. The crescent points downward, unlike the side-facing reference. Current merchant feed confirms the single complete necklace variant available at $42. US economy and priority shipping are offered; processing time is not stated."
+      }
+    },
+    {
+      "id": "p-14bc912ac2",
+      "title": "Small Sterling Crescent Moon Necklace - Hammered Crescent Moon - Silver Moon Necklace - Witchy Moon - Moon Phase Necklace - Hammered Moon",
+      "url": "https://handscapesjewelry.com/products/small-sterling-crescent-moon-necklace-hammered-crescent-moon-silver-moon-necklace-witchy-moon-moon-phase-necklace-hammered-moon?variant=40348697821241",
+      "priceCents": 6300,
+      "currency": "USD",
+      "image": "/products/price-tiers/p-14bc912ac2.webp",
+      "merchantImage": "/products/price-tiers/p-14bc912ac2.webp",
+      "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/0605/5788/5497/products/il_fullxfull.1652107172_4a2g_f77d12b0-2d60-46dd-9753-5308d6d04f54.jpg?v=1657569387"
+      ],
+      "availability": "in_stock",
+      "sizes": [
+        "18"
+      ],
+      "merchantId": "handscapesjewelry-com",
+      "tagSlugs": [],
+      "description": "Handmade hammered sterling-silver crescent, roughly 1 1/8 by 1 inch, with an included 18-inch sterling rolo chain and lobster clasp. Chain length label 18 is the exact $63 available variant. The $45 option is pendant-only and is not represented here. Moon hangs from moving jump rings, so its position can rotate. Made in Austin, Texas; production/dispatch timing is not stated.",
+      "checkedAt": "2026-10-25T08:48:40.074055Z",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-25T08:48:40.074055Z",
+        "url": "https://handscapesjewelry.com/products/small-sterling-crescent-moon-necklace-hammered-crescent-moon-silver-moon-necklace-witchy-moon-moon-phase-necklace-hammered-moon.js",
+        "notes": "Handmade hammered sterling-silver crescent, roughly 1 1/8 by 1 inch, with an included 18-inch sterling rolo chain and lobster clasp. Chain length label 18 is the exact $63 available variant. The $45 option is pendant-only and is not represented here. Moon hangs from moving jump rings, so its position can rotate. Made in Austin, Texas; production/dispatch timing is not stated."
+      }
+    },
+    {
+      "id": "p-c647cdb853",
+      "title": "Crescent Moon Necklace - 14K Gold Filled or Sterling Silver",
+      "url": "https://www.tomijojewelry.com/products/crescent-moon-necklace?variant=47047513309358",
+      "priceCents": 5200,
+      "currency": "USD",
+      "image": "/products/price-tiers/p-c647cdb853.webp",
+      "merchantImage": "/products/price-tiers/p-c647cdb853.webp",
+      "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/0699/1400/1582/files/9963E9F3-DF38-4CFE-BC9D-4F37413AA1F4.jpg?v=1760798812"
+      ],
+      "availability": "in_stock",
+      "sizes": [
+        "16”",
+        "17”",
+        "18”"
+      ],
+      "merchantId": "tomijojewelry-com",
+      "tagSlugs": [],
+      "description": "Sterling-silver crescent necklace, hand-forged in the USA, with a slender 1.25-inch pendant. Selected Sterling silver with included 16-, 17- or 18-inch chain is available at $52. Gold-filled variants are excluded; the selected gallery photo is the silver version. Larger and slimmer crescent than the reference. Production/dispatch timing is not stated.",
+      "checkedAt": "2026-10-25T08:48:40.074055Z",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-25T08:48:40.074055Z",
+        "url": "https://www.tomijojewelry.com/products/crescent-moon-necklace.js",
+        "notes": "Sterling-silver crescent necklace, hand-forged in the USA, with a slender 1.25-inch pendant. Selected Sterling silver with included 16-, 17- or 18-inch chain is available at $52. Gold-filled variants are excluded; the selected gallery photo is the silver version. Larger and slimmer crescent than the reference. Production/dispatch timing is not stated."
+      }
+    }
+  ],
+  "merchants": [
+    {
+      "id": "wildtimefashion-com",
+      "name": "Wild Time Fashion",
+      "domain": "wildtimefashion.com",
+      "url": "https://wildtimefashion.com/",
+      "kind": "boutique",
+      "neighborhoodId": null
+    },
+    {
+      "id": "sanctumofspells-com",
+      "name": "Sanctum Of Spells",
+      "domain": "sanctumofspells.com",
+      "url": "https://sanctumofspells.com/",
+      "kind": "boutique",
+      "neighborhoodId": null
+    },
+    {
+      "id": "cravencrow-com",
+      "name": "Cravencrow Costuming",
+      "domain": "cravencrow.com",
+      "url": "https://cravencrow.com/",
+      "kind": "boutique",
+      "neighborhoodId": null
+    },
+    {
+      "id": "gypsytreasure-com",
+      "name": "Gypsy Treasure",
+      "domain": "gypsytreasure.com",
+      "url": "https://gypsytreasure.com/",
+      "kind": "boutique",
+      "neighborhoodId": null
+    },
+    {
+      "id": "enchantedmothhollow-com",
+      "name": "Enchanted Moth Hollow",
+      "domain": "enchantedmothhollow.com",
+      "url": "https://enchantedmothhollow.com/",
+      "kind": "boutique",
+      "neighborhoodId": null
+    },
+    {
+      "id": "forestgirlclothing-com",
+      "name": "Forest Girl Clothing",
+      "domain": "forestgirlclothing.com",
+      "url": "https://forestgirlclothing.com/",
+      "kind": "boutique",
+      "neighborhoodId": null
+    },
+    {
+      "id": "shoplovestitch-com",
+      "name": "LOVESTITCH",
+      "domain": "shoplovestitch.com",
+      "url": "https://shoplovestitch.com/",
+      "kind": "boutique",
+      "neighborhoodId": null
+    },
+    {
+      "id": "holyclothing-com",
+      "name": "HolyClothing",
+      "domain": "holyclothing.com",
+      "url": "https://holyclothing.com/",
+      "kind": "boutique",
+      "neighborhoodId": null
+    },
+    {
+      "id": "shilateliav-com",
+      "name": "SHILAT ELIAV",
+      "domain": "shilateliav.com",
+      "url": "https://shilateliav.com/",
+      "kind": "boutique",
+      "neighborhoodId": null
+    },
+    {
+      "id": "rocketdog-com",
+      "name": "Rocket Dog",
+      "domain": "rocketdog.com",
+      "url": "https://rocketdog.com/",
+      "kind": "boutique",
+      "neighborhoodId": null
+    },
+    {
+      "id": "thursdayboots-com",
+      "name": "Thursday Boot Company",
+      "domain": "thursdayboots.com",
+      "url": "https://thursdayboots.com/",
+      "kind": "boutique",
+      "neighborhoodId": null
+    },
+    {
+      "id": "americanduchess-com",
+      "name": "American Duchess",
+      "domain": "americanduchess.com",
+      "url": "https://americanduchess.com/",
+      "kind": "boutique",
+      "neighborhoodId": null
+    },
+    {
+      "id": "creekandelm-com",
+      "name": "Creek + Elm",
+      "domain": "creekandelm.com",
+      "url": "https://creekandelm.com/",
+      "kind": "boutique",
+      "neighborhoodId": null
+    },
+    {
+      "id": "tomijojewelry-com",
+      "name": "Tomi Jo",
+      "domain": "tomijojewelry.com",
+      "url": "https://tomijojewelry.com/",
+      "kind": "boutique",
+      "neighborhoodId": null
+    },
+    {
+      "id": "handscapesjewelry-com",
+      "name": "Handscapes Jewelry",
+      "domain": "handscapesjewelry.com",
+      "url": "https://handscapesjewelry.com/",
+      "kind": "boutique",
+      "neighborhoodId": null
+    }
+  ],
+  "neighborhoods": [],
+  "tags": [],
+  "provenance": {
+    "method": "manual-research",
+    "generatedAt": "2026-10-25T08:48:40.074055Z",
+    "priceTiers": true,
+    "heroImageKind": "generated-reference",
+    "notes": "Built-in web search and direct official merchant evidence. Three distinct relative price points per piece: $, $$, $$$. Prices exclude shipping/tax; stock is variant-specific and delivery is unconfirmed. See docs/sourcing/price-tiers/starlight-witch.json."
+  }
+}

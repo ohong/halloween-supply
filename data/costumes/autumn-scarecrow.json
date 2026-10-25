@@ -1,0 +1,927 @@
+{
+  "costume": {
+    "slug": "autumn-scarecrow",
+    "name": "Autumn Scarecrow",
+    "description": "An ochre plaid shirt and patched denim overalls, topped with a soft rust hat and cloth straw details.",
+    "image": "/costumes/autumn-scarecrow.png",
+    "alt": "Rust patchwork hat, ochre plaid shirt, patched denim overalls, straw-colored fabric tufts, and brown boots",
+    "status": "live"
+  },
+  "pieces": [
+    {
+      "id": "autumn-scarecrow-patchwork-hat",
+      "name": "Rust or brown pointed scarecrow hat",
+      "category": "headwear",
+      "required": true,
+      "order": 0,
+      "sizeKind": "hat",
+      "queries": [
+        "brown patched scarecrow costume hat",
+        "rust floppy pointed witch hat"
+      ],
+      "styleNotes": "A floppy pointed hat anchors the scarecrow. Choose warm rust or brown; none reproduces every patch, rope and sunflower in the generated image. The separate patch fabric can personalize an undecorated hat. Rust hat alternatives differ in shape and decoration. The premium hat has no published sizing; confirm fit before purchase.",
+      "matches": [
+        {
+          "productId": "p-aa7634974a",
+          "rank": 0,
+          "reason": "Faux suede hat includes tall peak, jagged brim, patches, rope band and attached small black crow. About 25-inch circumference; fits most teens and adults per merchant. Brown rather than the image's orange rust; crow replaces its sunflower. Live feed confirms available at $19.99."
+        },
+        {
+          "productId": "p-ab758b6f95",
+          "rank": 1,
+          "reason": "Tan pointed costume hat with wide ragged brim, dark stitching and straw-textured trim. Paler than rust. Hat only; the model photo also shows a wig and neck trim, which are not described as included. Merchant calls the hat straw; its fiber is not specified. Live feed confirms the single variant available at $14.99. Ships Monday–Friday from Chicago; no arrival promise."
+        },
+        {
+          "productId": "p-c0462857a9",
+          "rank": 2,
+          "reason": "Rust-colored pointed witch hat with a black band and edging provides the warm color. Its compact brim differs from the illustrated floppy brim. Patchwork, rope, straw and sunflower are not included. Merchant does not state fiber, dimensions or a size range. Primary HTML marks InStock and quantity 1 at $229 USD. US shipping is offered. More expensive does not mean a closer finished scarecrow match."
+        }
+      ]
+    },
+    {
+      "id": "autumn-scarecrow-plaid-shirt",
+      "name": "Ochre or warm plaid shirt",
+      "category": "tops",
+      "required": true,
+      "order": 1,
+      "sizeKind": "apparel",
+      "queries": [
+        "yellow ochre plaid cotton flannel shirt",
+        "warm brown plaid button front shirt"
+      ],
+      "styleNotes": "Long sleeves, a button front and warm plaid show under the bib. The budget option is bright yellow and black; Earth is darker brown and green; Filson is red-brown.",
+      "matches": [
+        {
+          "productId": "p-9057beddf0",
+          "rank": 0,
+          "reason": "Earth plaid is brown, green and black, darker and less golden than the image. Relaxed men's fit, organic cotton 5.6 oz flannel, button cuffs and two flap pockets; cut and sewn in USA. Live feed confirms Earth XS, S and 2X at $88.80; M, L and XL are unavailable. No dispatch promise stated."
+        },
+        {
+          "productId": "p-a9bbe810b3",
+          "rank": 1,
+          "reason": "Rothco 8 oz 100% cotton yellow-and-black buffalo plaid shirt with button front and two flap chest pockets. Larger, brighter checks than the image. Merchant product-attribute endpoint independently confirms Small, Medium, Large and XLarge purchasable/in stock at $47.99; 2X returns $49.99 and is excluded. Other clothes are not included. No dispatch date is stated."
+        },
+        {
+          "productId": "p-7481a0935d",
+          "rank": 2,
+          "reason": "Brown / Mahogany plaid long-sleeve shirt in dense 8 oz cotton flannel, with button front, button cuffs and pleated back. Warmer red-brown rather than ochre. Relaxed men's fit. Live merchant feed confirms all offered sizes XS through 3XL available at $149 USD. Other clothing shown on the model is not included. No dispatch date is promised."
+        }
+      ]
+    },
+    {
+      "id": "autumn-scarecrow-denim-overalls",
+      "name": "Blue denim bib overalls",
+      "category": "one-piece",
+      "required": true,
+      "order": 2,
+      "sizeKind": "pants",
+      "queries": [
+        "blue denim bib overalls adjustable straps",
+        "stonewashed denim work overalls"
+      ],
+      "styleNotes": "Full-length blue denim bib overalls with adjustable straps. All options arrive unpatched; cut and hand-tack the separately sourced patch fabric to recreate the illustrated knees and bib. All three overalls need DIY patchwork. Needle and thread are not included with the fabric bundles.",
+      "matches": [
+        {
+          "productId": "p-fc714a0f46",
+          "rank": 0,
+          "reason": "Made-in-USA stonewashed blue denim bib overalls. Softer faded blue is closer to the generated image than rigid dark denim. No decorative patches are included. Only available true size variants at $59.95 are listed; placeholder Choose Size and unavailable OUTLET variants are excluded."
+        },
+        {
+          "productId": "p-2172101b5e",
+          "rank": 1,
+          "reason": "Dark blue denim bib overalls with large zippered bib pocket. Not sewn in USA; merchant states 100% American-grown cotton. No decorative patches or distressing included. Listed sizes include only available No delay variants; the 50 / 34 preorder ships in 1–3 weeks and is excluded. Price $39.95. The darker, rigid denim differs from the illustrated faded wash."
+        },
+        {
+          "productId": "p-cf63a0b770",
+          "rank": 2,
+          "reason": "Made-in-USA classic blue denim overalls with button fly, produced in a limited size range. Darker and cleaner than the illustration; add the separate patch supplies. Only available actual size variants at $79.95 are listed. The higher price buys a different fly construction, not included patchwork or a closer wash."
+        }
+      ]
+    },
+    {
+      "id": "autumn-scarecrow-cotton-cuff-strips",
+      "name": "Soft straw-colored cotton cuff fabric",
+      "category": "accessories",
+      "required": true,
+      "order": 3,
+      "sizeKind": "one_size",
+      "queries": [
+        "natural cotton muslin fabric by yard",
+        "Kona cotton straw fabric"
+      ],
+      "styleNotes": "Real cotton fabric supplies replace loose straw at wrists and ankles. Cut narrow strips with scissors, leave a solid band at one edge, and tack the band inside each cuff. These are DIY materials, not finished cuffs.",
+      "matches": [
+        {
+          "productId": "p-8a1b8e3829",
+          "rank": 0,
+          "reason": "One continuous yard of 47-inch-wide, 100 GSM, 100% unbleached cotton muslin at $4.99. Natural ecru is paler than straw. Prewash before cutting; merchant warns of 3–5% first-wash shrinkage. Cut narrow strips and stitch into wrist and ankle bands. Feed confirms Natural Unbleached available. Ships from the US; no exact dispatch date stated."
+        },
+        {
+          "productId": "p-6828df77b8",
+          "rank": 1,
+          "reason": "Natural 100% cotton muslin, 44 inches wide. The actual purchasable unit is 0.25 yard at $2.50; the storefront displays $10 per full yard. Live HTML quantity selector defaults to 0.25 yard and feed confirms available. One unit is about 9 × 44 inches: measure wrist and ankle bands before cutting and order more quarter-yard units if needed. This cream fabric must be cut and sewn into fringe; scissors, thread and completed cuffs are not included."
+        },
+        {
+          "productId": "p-6f7050efd4",
+          "rank": 2,
+          "reason": "Price is one full yard at $10 per yard. 44-inch-wide, 100% cotton in Straw, 4.35 oz / 147.5 GSM. The warm tan color is closer to the illustrated straw than undyed muslin. Primary page shows 12 yards in stock and InStock structured data. Fabric must be cut into strips and attached to cuffs; it is not raffia or ready-made fringe. No dispatch promise stated."
+        }
+      ]
+    },
+    {
+      "id": "autumn-scarecrow-patch-fabric",
+      "name": "Rustic fabric for bib and knee patches",
+      "category": "accessories",
+      "required": true,
+      "order": 4,
+      "sizeKind": "one_size",
+      "queries": [
+        "spice mustard cotton homespun fat quarter bundle",
+        "rustic plaid cotton patch fabric"
+      ],
+      "styleNotes": "A separate fabric bundle supplies real visible patchwork for the overalls. Cut several mismatched squares and tack them onto the bib and knees. Finished patched overalls are not included.",
+      "matches": [
+        {
+          "productId": "p-b3a38e3486",
+          "rank": 0,
+          "reason": "Five 18 × 22-inch cotton homespun cuts: ticking, large plaid, small check and two windowpane plaids. Mustard and black is more yellow than the image's rust plaid. The URL says bundle of 4; current merchant title and description explicitly say 5. Primary merchant HTML confirms USD price and instock. Cut ragged squares and hand-tack to the overalls and optional hat; sewing supplies and garments are not included. No dispatch lead time is stated."
+        },
+        {
+          "productId": "p-2ba1acc532",
+          "rank": 1,
+          "reason": "Four 18 × 22-inch cotton homespun cuts: ticking, large plaid, small check and windowpane plaid. Spice orange and black provides several rustic patch patterns; it does not include the image's olive and burlap squares. Primary merchant HTML confirms USD price and instock. Cut ragged squares and hand-tack to the overalls and optional hat; sewing supplies and garments are not included. No dispatch lead time is stated."
+        },
+        {
+          "productId": "p-a6adaaa2ea",
+          "rank": 2,
+          "reason": "Seven approximately 18 × 22-inch 100% cotton homespun cuts in wheat and cream. Neutral rustic patches, without the illustration's darker green and rust accents. More fabric is included, not a pre-sewn upgrade. Primary merchant HTML confirms USD price and instock. Cut ragged squares and hand-tack to the overalls and optional hat; sewing supplies and garments are not included. No dispatch lead time is stated."
+        }
+      ]
+    },
+    {
+      "id": "autumn-scarecrow-brown-boots",
+      "name": "Brown lace-up work-style boots",
+      "category": "footwear",
+      "required": true,
+      "order": 5,
+      "sizeKind": "shoe",
+      "queries": [
+        "brown lace up ankle work boots",
+        "brown leather cap toe boots"
+      ],
+      "styleNotes": "Brown ankle boots with laces and a rounded toe show beneath rolled hems. These are new boots and do not arrive worn or scuffed. Check each merchant's own size chart; the options use different shoe sizing.",
+      "matches": [
+        {
+          "productId": "p-ba0acbf53c",
+          "rank": 0,
+          "reason": "Men's Brown Thursday Chrome leather lace-up cap-toe boots with studded rubber sole and low heel. Standard width only is listed; live feed confirms each listed US size at $199. Free domestic US ground shipping is offered. These arrive new, not pre-scuffed."
+        },
+        {
+          "productId": "p-9f0ec3e56f",
+          "rank": 1,
+          "reason": "Women's Dark Brown faux-leather lace-up ankle boots with side zip and chunky lug sole. Current $55.97 sale price; only US 7, 7.5, 8, 8.5, 9, 9.5 and 10 are available. The 5.3 cm heel/platform is higher than the image's work boots. No tools or other costume pieces included."
+        },
+        {
+          "productId": "p-a880ab278b",
+          "rank": 2,
+          "reason": "Men's Saddle Tan vegetable-tanned Minerva leather plain-toe lace-up boots, leather sole, brass eyelets and speed hooks. Lighter and smoother than the image's aged brown pair. Standard D width only; feed confirms every listed US size at $435. New boots with natural leather color variation; no scuffing service or delivery date is promised."
+        }
+      ]
+    }
+  ],
+  "products": [
+    {
+      "id": "p-c0462857a9",
+      "title": "La Sorciere Witch Hat in Rust",
+      "url": "https://omen-salem.shoplightspeed.com/omen-la-sorciere-witch-hat-in-rust.html",
+      "priceCents": 22900,
+      "currency": "USD",
+      "image": "/products/price-tiers/p-c0462857a9.webp",
+      "merchantImage": "/products/price-tiers/p-c0462857a9.webp",
+      "sourceImages": [
+        "https://cdn.shoplightspeed.com/shops/608314/files/21919961/omen-la-sorciere-witch-hat-in-rust.jpg"
+      ],
+      "availability": "in_stock",
+      "sizes": [],
+      "merchantId": "omen-salem-shoplightspeed-com",
+      "tagSlugs": [],
+      "description": "Rust-colored pointed witch hat with a black band and edging provides the warm color. Its compact brim differs from the illustrated floppy brim. Patchwork, rope, straw and sunflower are not included. Merchant does not state fiber, dimensions or a size range. Primary HTML marks InStock and quantity 1 at $229 USD. US shipping is offered. More expensive does not mean a closer finished scarecrow match.",
+      "checkedAt": "2026-10-25T08:50:26.071556Z",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-25T08:50:26.071556Z",
+        "url": "https://omen-salem.shoplightspeed.com/omen-la-sorciere-witch-hat-in-rust.html",
+        "notes": "Rust-colored pointed witch hat with a black band and edging provides the warm color. Its compact brim differs from the illustrated floppy brim. Patchwork, rope, straw and sunflower are not included. Merchant does not state fiber, dimensions or a size range. Primary HTML marks InStock and quantity 1 at $229 USD. US shipping is offered. More expensive does not mean a closer finished scarecrow match."
+      }
+    },
+    {
+      "id": "p-aa7634974a",
+      "title": "Scary Cute Scarecrow Hat - Crow - Straw Trim - Costume Accessory - One Size",
+      "url": "https://arlenescostumes.com/products/scary-scarecrow-hat-crow-straw-trim-costume-accessory-one-size?variant=47641436520693",
+      "priceCents": 1999,
+      "currency": "USD",
+      "image": "/products/price-tiers/p-aa7634974a.webp",
+      "merchantImage": "/products/price-tiers/p-aa7634974a.webp",
+      "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/0672/5015/9861/files/scarecrow-hat-scary.jpg?v=1771760817"
+      ],
+      "availability": "in_stock",
+      "sizes": [
+        "One Size"
+      ],
+      "merchantId": "arlenescostumes-com",
+      "tagSlugs": [],
+      "description": "Faux suede hat includes tall peak, jagged brim, patches, rope band and attached small black crow. About 25-inch circumference; fits most teens and adults per merchant. Brown rather than the image's orange rust; crow replaces its sunflower. Live feed confirms available at $19.99.",
+      "checkedAt": "2026-10-25T08:50:26.071556Z",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-25T08:50:26.071556Z",
+        "url": "https://arlenescostumes.com/products/scary-scarecrow-hat-crow-straw-trim-costume-accessory-one-size.js",
+        "notes": "Faux suede hat includes tall peak, jagged brim, patches, rope band and attached small black crow. About 25-inch circumference; fits most teens and adults per merchant. Brown rather than the image's orange rust; crow replaces its sunflower. Live feed confirms available at $19.99."
+      }
+    },
+    {
+      "id": "p-ab758b6f95",
+      "title": "Scarecrow Hat",
+      "url": "https://chicagocostume.com/products/scarecrow-hat?variant=50529440104690",
+      "priceCents": 1499,
+      "currency": "USD",
+      "image": "/products/price-tiers/p-ab758b6f95.webp",
+      "merchantImage": "/products/price-tiers/p-ab758b6f95.webp",
+      "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/0610/0208/8690/files/ScarecrowHat1.jpg?v=1790182745"
+      ],
+      "availability": "in_stock",
+      "sizes": [],
+      "merchantId": "chicagocostume-com",
+      "tagSlugs": [],
+      "description": "Tan pointed costume hat with wide ragged brim, dark stitching and straw-textured trim. Paler than rust. Hat only; the model photo also shows a wig and neck trim, which are not described as included. Merchant calls the hat straw; its fiber is not specified. Live feed confirms the single variant available at $14.99. Ships Monday–Friday from Chicago; no arrival promise.",
+      "checkedAt": "2026-10-25T08:50:26.071556Z",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-25T08:50:26.071556Z",
+        "url": "https://chicagocostume.com/products/scarecrow-hat.js",
+        "notes": "Tan pointed costume hat with wide ragged brim, dark stitching and straw-textured trim. Paler than rust. Hat only; the model photo also shows a wig and neck trim, which are not described as included. Merchant calls the hat straw; its fiber is not specified. Live feed confirms the single variant available at $14.99. Ships Monday–Friday from Chicago; no arrival promise."
+      }
+    },
+    {
+      "id": "p-a9bbe810b3",
+      "title": "Extra Heavyweight Buffalo Yellow Plaid Flannel Shirts",
+      "url": "https://www.fatiguesarmynavy.com/apparel/casual-outdoor-shirts/flannel-shirts/extra-heavyweight-buffalo-yellow-plaid-flannel-shirts/",
+      "priceCents": 4799,
+      "currency": "USD",
+      "image": "/products/price-tiers/p-a9bbe810b3.webp",
+      "merchantImage": "/products/price-tiers/p-a9bbe810b3.webp",
+      "sourceImages": [
+        "https://cdn11.bigcommerce.com/s-0ot44/images/stencil/1280x1280/products/9578/14876/Flannel_4649_Y__83660.1385348449.jpg?c=2"
+      ],
+      "availability": "in_stock",
+      "sizes": [
+        "Small - Fits 33\" - 37\" Chest",
+        "Medium - Fits 37\" - 41\" Chest",
+        "Large - Fits 41\" - 45\" Chest",
+        "XLarge - Fits 46\" - 48\" Chest"
+      ],
+      "merchantId": "fatiguesarmynavy-com",
+      "tagSlugs": [],
+      "description": "Rothco 8 oz 100% cotton yellow-and-black buffalo plaid shirt with button front and two flap chest pockets. Larger, brighter checks than the image. Merchant product-attribute endpoint independently confirms Small, Medium, Large and XLarge purchasable/in stock at $47.99; 2X returns $49.99 and is excluded. Other clothes are not included. No dispatch date is stated.",
+      "checkedAt": "2026-10-25T08:50:26.071556Z",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-25T08:50:26.071556Z",
+        "url": "https://www.fatiguesarmynavy.com/apparel/casual-outdoor-shirts/flannel-shirts/extra-heavyweight-buffalo-yellow-plaid-flannel-shirts/",
+        "notes": "Rothco 8 oz 100% cotton yellow-and-black buffalo plaid shirt with button front and two flap chest pockets. Larger, brighter checks than the image. Merchant product-attribute endpoint independently confirms Small, Medium, Large and XLarge purchasable/in stock at $47.99; 2X returns $49.99 and is excluded. Other clothes are not included. No dispatch date is stated."
+      }
+    },
+    {
+      "id": "p-7481a0935d",
+      "title": "Alaskan Guide Shirt - Brown / Mahogany Plaid",
+      "url": "https://www.filson.com/products/alaskan-guide-shirt-brown-mahogany-plaid?variant=49414241976472",
+      "priceCents": 14900,
+      "currency": "USD",
+      "image": "/products/price-tiers/p-7481a0935d.webp",
+      "merchantImage": "/products/price-tiers/p-7481a0935d.webp",
+      "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/0657/0557/4552/files/7dd58c10d644ad1c9e5f5790ac6b16a5e386ed95ec69685a61c33ad41b0470c4.jpg?v=1789700268"
+      ],
+      "availability": "in_stock",
+      "sizes": [
+        "XS",
+        "S",
+        "M",
+        "L",
+        "XL",
+        "2XL",
+        "3XL"
+      ],
+      "merchantId": "filson-com",
+      "tagSlugs": [],
+      "description": "Brown / Mahogany plaid long-sleeve shirt in dense 8 oz cotton flannel, with button front, button cuffs and pleated back. Warmer red-brown rather than ochre. Relaxed men's fit. Live merchant feed confirms all offered sizes XS through 3XL available at $149 USD. Other clothing shown on the model is not included. No dispatch date is promised.",
+      "checkedAt": "2026-10-25T08:50:26.071556Z",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-25T08:50:26.071556Z",
+        "url": "https://www.filson.com/products/alaskan-guide-shirt-brown-mahogany-plaid.js",
+        "notes": "Brown / Mahogany plaid long-sleeve shirt in dense 8 oz cotton flannel, with button front, button cuffs and pleated back. Warmer red-brown rather than ochre. Relaxed men's fit. Live merchant feed confirms all offered sizes XS through 3XL available at $149 USD. Other clothing shown on the model is not included. No dispatch date is promised."
+      }
+    },
+    {
+      "id": "p-9057beddf0",
+      "title": "Easyweight Men's Classic Flannel Shirt - Earth",
+      "url": "https://www.vermontflannel.com/products/mens-classic-flannel-shirt-easy-weight-earth?variant=52667236024684",
+      "priceCents": 8880,
+      "currency": "USD",
+      "image": "/products/price-tiers/p-9057beddf0.webp",
+      "merchantImage": "/products/price-tiers/p-9057beddf0.webp",
+      "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/0729/2210/4107/files/VFC_Easyweight-Mens-Classic_Earth_Silo-1_d339efc7-1d81-4fcd-bb1d-963b34d47a81.jpg?v=1765292235"
+      ],
+      "availability": "in_stock",
+      "sizes": [
+        "XS",
+        "S",
+        "2X"
+      ],
+      "merchantId": "vermontflannel-com",
+      "tagSlugs": [],
+      "description": "Earth plaid is brown, green and black, darker and less golden than the image. Relaxed men's fit, organic cotton 5.6 oz flannel, button cuffs and two flap pockets; cut and sewn in USA. Live feed confirms Earth XS, S and 2X at $88.80; M, L and XL are unavailable. No dispatch promise stated.",
+      "checkedAt": "2026-10-25T08:50:26.071556Z",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-25T08:50:26.071556Z",
+        "url": "https://www.vermontflannel.com/products/mens-classic-flannel-shirt-easy-weight-earth.js",
+        "notes": "Earth plaid is brown, green and black, darker and less golden than the image. Relaxed men's fit, organic cotton 5.6 oz flannel, button cuffs and two flap pockets; cut and sewn in USA. Live feed confirms Earth XS, S and 2X at $88.80; M, L and XL are unavailable. No dispatch promise stated."
+      }
+    },
+    {
+      "id": "p-cf63a0b770",
+      "title": "#327 Made in USA Button Fly Blue Denim Bib Overalls",
+      "url": "https://www.round-house.com/products/327-made-in-usa-button-fly-blue-denim-bib-overalls?variant=41998378565706",
+      "priceCents": 7995,
+      "currency": "USD",
+      "image": "/products/price-tiers/p-cf63a0b770.webp",
+      "merchantImage": "/products/price-tiers/p-cf63a0b770.webp",
+      "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/0388/0957/files/966_CH_FRONT1_copy_b6c264a1-a911-4547-821f-5a22795e74c9.jpg?v=1758735175"
+      ],
+      "availability": "in_stock",
+      "sizes": [
+        "32x30",
+        "32x32",
+        "32x34",
+        "34x30",
+        "34x32",
+        "34x34",
+        "36x30",
+        "36x32",
+        "38x30",
+        "38x32",
+        "40x30",
+        "40x32",
+        "40x34",
+        "42x32",
+        "42x34",
+        "44x30",
+        "44x32",
+        "46x30",
+        "46x32",
+        "46x34",
+        "48x30",
+        "50x30",
+        "50x32",
+        "52x30",
+        "54x30"
+      ],
+      "merchantId": "round-house-com",
+      "tagSlugs": [],
+      "description": "Made-in-USA classic blue denim overalls with button fly, produced in a limited size range. Darker and cleaner than the illustration; add the separate patch supplies. Only available actual size variants at $79.95 are listed. The higher price buys a different fly construction, not included patchwork or a closer wash.",
+      "checkedAt": "2026-10-25T08:50:26.071556Z",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-25T08:50:26.071556Z",
+        "url": "https://www.round-house.com/products/327-made-in-usa-button-fly-blue-denim-bib-overalls.js",
+        "notes": "Made-in-USA classic blue denim overalls with button fly, produced in a limited size range. Darker and cleaner than the illustration; add the separate patch supplies. Only available actual size variants at $79.95 are listed. The higher price buys a different fly construction, not included patchwork or a closer wash."
+      }
+    },
+    {
+      "id": "p-fc714a0f46",
+      "title": "#699 Made in USA Stone Washed Blue Denim Overalls",
+      "url": "https://www.round-house.com/products/699-round-house-made-in-usa-stone-washed-blue-denim-overalls?variant=44055312728138",
+      "priceCents": 5995,
+      "currency": "USD",
+      "image": "/products/price-tiers/p-fc714a0f46.webp",
+      "merchantImage": "/products/price-tiers/p-fc714a0f46.webp",
+      "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/0388/0957/files/699_BO_FRONT1_copy.jpg?v=1756925825"
+      ],
+      "availability": "in_stock",
+      "sizes": [
+        "30x30",
+        "30x32",
+        "30x34",
+        "32x30",
+        "32x32",
+        "32x34",
+        "32x36",
+        "34x30",
+        "34x32",
+        "34x34",
+        "34x36",
+        "36x30",
+        "36x32",
+        "36x34",
+        "38x30",
+        "38x32",
+        "38x34",
+        "40x30",
+        "40x32",
+        "40x34",
+        "42x30",
+        "42x32",
+        "42x34",
+        "44x30",
+        "44x32",
+        "44x34",
+        "46x30",
+        "46x32",
+        "48x30",
+        "48x32",
+        "50x30",
+        "50x32"
+      ],
+      "merchantId": "round-house-com",
+      "tagSlugs": [],
+      "description": "Made-in-USA stonewashed blue denim bib overalls. Softer faded blue is closer to the generated image than rigid dark denim. No decorative patches are included. Only available true size variants at $59.95 are listed; placeholder Choose Size and unavailable OUTLET variants are excluded.",
+      "checkedAt": "2026-10-25T08:50:26.071556Z",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-25T08:50:26.071556Z",
+        "url": "https://www.round-house.com/products/699-round-house-made-in-usa-stone-washed-blue-denim-overalls.js",
+        "notes": "Made-in-USA stonewashed blue denim bib overalls. Softer faded blue is closer to the generated image than rigid dark denim. No decorative patches are included. Only available true size variants at $59.95 are listed; placeholder Choose Size and unavailable OUTLET variants are excluded."
+      }
+    },
+    {
+      "id": "p-2172101b5e",
+      "title": "#980 Utility Zipper-Bib Blue Denim Overalls",
+      "url": "https://www.roundhouseoutlet.com/products/980-utility-zipper-bib-blue-denim-overalls?variant=42675044090029",
+      "priceCents": 3995,
+      "currency": "USD",
+      "image": "/products/price-tiers/p-2172101b5e.webp",
+      "merchantImage": "/products/price-tiers/p-2172101b5e.webp",
+      "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/0557/5219/6269/files/980_UN_FRONT1.jpg?v=1770817990"
+      ],
+      "availability": "in_stock",
+      "sizes": [
+        "30 / 30 / No delay",
+        "30 / 32 / No delay",
+        "30 / 34 / No delay",
+        "32 / 30 / No delay",
+        "32 / 32 / No delay",
+        "32 / 34 / No delay",
+        "32 / 36 / No delay",
+        "34 / 30 / No delay",
+        "34 / 32 / No delay",
+        "34 / 34 / No delay",
+        "34 / 36 / No delay",
+        "36 / 30 / No delay",
+        "36 / 32 / No delay",
+        "36 / 34 / No delay",
+        "36 / 36 / No delay",
+        "38 / 30 / No delay",
+        "38 / 32 / No delay",
+        "38 / 34 / No delay",
+        "38 / 36 / No delay",
+        "40 / 30 / No delay",
+        "40 / 32 / No delay",
+        "40 / 34 / No delay",
+        "40 / 36 / No delay",
+        "42 / 30 / No delay",
+        "42 / 32 / No delay",
+        "42 / 34 / No delay",
+        "42 / 36 / No delay",
+        "44 / 30 / No delay",
+        "44 / 32 / No delay",
+        "44 / 34 / No delay",
+        "46 / 30 / No delay",
+        "46 / 32 / No delay",
+        "46 / 34 / No delay",
+        "48 / 30 / No delay",
+        "48 / 32 / No delay",
+        "48 / 34 / No delay",
+        "50 / 30 / No delay",
+        "50 / 32 / No delay",
+        "52 / 30 / No delay",
+        "52 / 32 / No delay",
+        "54 / 30 / No delay",
+        "54 / 32 / No delay",
+        "56 / 30 / No delay",
+        "56 / 32 / No delay",
+        "58 / 30 / No delay",
+        "58 / 32 / No delay",
+        "60 / 30 / No delay",
+        "60 / 32 / No delay"
+      ],
+      "merchantId": "roundhouseoutlet-com",
+      "tagSlugs": [],
+      "description": "Dark blue denim bib overalls with large zippered bib pocket. Not sewn in USA; merchant states 100% American-grown cotton. No decorative patches or distressing included. Listed sizes include only available No delay variants; the 50 / 34 preorder ships in 1–3 weeks and is excluded. Price $39.95. The darker, rigid denim differs from the illustrated faded wash.",
+      "checkedAt": "2026-10-25T08:50:26.071556Z",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-25T08:50:26.071556Z",
+        "url": "https://www.roundhouseoutlet.com/products/980-utility-zipper-bib-blue-denim-overalls.js",
+        "notes": "Dark blue denim bib overalls with large zippered bib pocket. Not sewn in USA; merchant states 100% American-grown cotton. No decorative patches or distressing included. Listed sizes include only available No delay variants; the 50 / 34 preorder ships in 1–3 weeks and is excluded. Price $39.95. The darker, rigid denim differs from the illustrated faded wash."
+      }
+    },
+    {
+      "id": "p-6f7050efd4",
+      "title": "Kona Cotton – Straw",
+      "url": "https://stonemountainfabric.com/product/kona-straw/",
+      "priceCents": 1000,
+      "currency": "USD",
+      "image": "/products/price-tiers/p-6f7050efd4.webp",
+      "merchantImage": "/products/price-tiers/p-6f7050efd4.webp",
+      "sourceImages": [
+        "https://storage.googleapis.com/stmdf-production/2020/11/k001_186.jpg"
+      ],
+      "availability": "in_stock",
+      "sizes": [],
+      "merchantId": "stonemountainfabric-com",
+      "tagSlugs": [],
+      "description": "Price is one full yard at $10 per yard. 44-inch-wide, 100% cotton in Straw, 4.35 oz / 147.5 GSM. The warm tan color is closer to the illustrated straw than undyed muslin. Primary page shows 12 yards in stock and InStock structured data. Fabric must be cut into strips and attached to cuffs; it is not raffia or ready-made fringe. No dispatch promise stated.",
+      "checkedAt": "2026-10-25T08:50:26.071556Z",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-25T08:50:26.071556Z",
+        "url": "https://stonemountainfabric.com/product/kona-straw/",
+        "notes": "Price is one full yard at $10 per yard. 44-inch-wide, 100% cotton in Straw, 4.35 oz / 147.5 GSM. The warm tan color is closer to the illustrated straw than undyed muslin. Primary page shows 12 yards in stock and InStock structured data. Fabric must be cut into strips and attached to cuffs; it is not raffia or ready-made fringe. No dispatch promise stated."
+      }
+    },
+    {
+      "id": "p-6828df77b8",
+      "title": "Cotton Muslin - Natural",
+      "url": "https://boltandspool.com/products/cotton-muslin-natural-1?variant=46257068015873",
+      "priceCents": 250,
+      "currency": "USD",
+      "image": "/products/price-tiers/p-6828df77b8.webp",
+      "merchantImage": "/products/price-tiers/p-6828df77b8.webp",
+      "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/0764/9551/files/0362AFFA-1EC4-4ECB-A0E2-FDE9FA2D098D.jpg?v=1773418496"
+      ],
+      "availability": "in_stock",
+      "sizes": [],
+      "merchantId": "boltandspool-com",
+      "tagSlugs": [],
+      "description": "Natural 100% cotton muslin, 44 inches wide. The actual purchasable unit is 0.25 yard at $2.50; the storefront displays $10 per full yard. Live HTML quantity selector defaults to 0.25 yard and feed confirms available. One unit is about 9 × 44 inches: measure wrist and ankle bands before cutting and order more quarter-yard units if needed. This cream fabric must be cut and sewn into fringe; scissors, thread and completed cuffs are not included.",
+      "checkedAt": "2026-10-25T08:50:26.071556Z",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-25T08:50:26.071556Z",
+        "url": "https://boltandspool.com/products/cotton-muslin-natural-1.js",
+        "notes": "Natural 100% cotton muslin, 44 inches wide. The actual purchasable unit is 0.25 yard at $2.50; the storefront displays $10 per full yard. Live HTML quantity selector defaults to 0.25 yard and feed confirms available. One unit is about 9 × 44 inches: measure wrist and ankle bands before cutting and order more quarter-yard units if needed. This cream fabric must be cut and sewn into fringe; scissors, thread and completed cuffs are not included."
+      }
+    },
+    {
+      "id": "p-8a1b8e3829",
+      "title": "UNBLEACHED COTTON MUSLIN 47\" | SH001",
+      "url": "https://zelouffabrics.com/products/cotton-muslin-fabric-by-the-yard?variant=47055530393830",
+      "priceCents": 499,
+      "currency": "USD",
+      "image": "/products/price-tiers/p-8a1b8e3829.webp",
+      "merchantImage": "/products/price-tiers/p-8a1b8e3829.webp",
+      "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/0253/9972/2072/files/SH001-Natural-Fold.jpg?v=1766767323"
+      ],
+      "availability": "in_stock",
+      "sizes": [],
+      "merchantId": "zelouffabrics-com",
+      "tagSlugs": [],
+      "description": "One continuous yard of 47-inch-wide, 100 GSM, 100% unbleached cotton muslin at $4.99. Natural ecru is paler than straw. Prewash before cutting; merchant warns of 3–5% first-wash shrinkage. Cut narrow strips and stitch into wrist and ankle bands. Feed confirms Natural Unbleached available. Ships from the US; no exact dispatch date stated.",
+      "checkedAt": "2026-10-25T08:50:26.071556Z",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-25T08:50:26.071556Z",
+        "url": "https://zelouffabrics.com/products/cotton-muslin-fabric-by-the-yard.js",
+        "notes": "One continuous yard of 47-inch-wide, 100 GSM, 100% unbleached cotton muslin at $4.99. Natural ecru is paler than straw. Prewash before cutting; merchant warns of 3–5% first-wash shrinkage. Cut narrow strips and stitch into wrist and ankle bands. Feed confirms Natural Unbleached available. Ships from the US; no exact dispatch date stated."
+      }
+    },
+    {
+      "id": "p-2ba1acc532",
+      "title": "Dunroven House Spice And Black Woven Cotton Homespun Fabric Fat Quarter Bundle Of 4",
+      "url": "https://www.kittredgemercantile.com/collections/fat-quarters/products/spiced-pumpkin-and-black-woven-cotton-homespun-fat-quarter-bundle-of-4",
+      "priceCents": 1500,
+      "currency": "USD",
+      "image": "/products/price-tiers/p-2ba1acc532.webp",
+      "merchantImage": "/products/price-tiers/p-2ba1acc532.webp",
+      "sourceImages": [
+        "https://cdn.supadupa.me/shop/2414/images/2721838/collage_2017_09_09_1__grande.jpg"
+      ],
+      "availability": "in_stock",
+      "sizes": [],
+      "merchantId": "kittredgemercantile-com",
+      "tagSlugs": [],
+      "description": "Four 18 × 22-inch cotton homespun cuts: ticking, large plaid, small check and windowpane plaid. Spice orange and black provides several rustic patch patterns; it does not include the image's olive and burlap squares. Primary merchant HTML confirms USD price and instock. Cut ragged squares and hand-tack to the overalls and optional hat; sewing supplies and garments are not included. No dispatch lead time is stated.",
+      "checkedAt": "2026-10-25T08:50:26.071556Z",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-25T08:50:26.071556Z",
+        "url": "https://www.kittredgemercantile.com/collections/fat-quarters/products/spiced-pumpkin-and-black-woven-cotton-homespun-fat-quarter-bundle-of-4",
+        "notes": "Four 18 × 22-inch cotton homespun cuts: ticking, large plaid, small check and windowpane plaid. Spice orange and black provides several rustic patch patterns; it does not include the image's olive and burlap squares. Primary merchant HTML confirms USD price and instock. Cut ragged squares and hand-tack to the overalls and optional hat; sewing supplies and garments are not included. No dispatch lead time is stated."
+      }
+    },
+    {
+      "id": "p-b3a38e3486",
+      "title": "Mustard And Black Woven Cotton Homespun Fabric Fat Quarter Bundle Of 5",
+      "url": "https://www.kittredgemercantile.com/collections/fat-quarters/products/mustard-and-black-woven-cotton-homespun-fabric-fat-quarter-bundle-of-4",
+      "priceCents": 1875,
+      "currency": "USD",
+      "image": "/products/price-tiers/p-b3a38e3486.webp",
+      "merchantImage": "/products/price-tiers/p-b3a38e3486.webp",
+      "sourceImages": [
+        "https://cdn.supadupa.me/shop/2414/images/2817008/2018_03_08_079_grande.JPG"
+      ],
+      "availability": "in_stock",
+      "sizes": [],
+      "merchantId": "kittredgemercantile-com",
+      "tagSlugs": [],
+      "description": "Five 18 × 22-inch cotton homespun cuts: ticking, large plaid, small check and two windowpane plaids. Mustard and black is more yellow than the image's rust plaid. The URL says bundle of 4; current merchant title and description explicitly say 5. Primary merchant HTML confirms USD price and instock. Cut ragged squares and hand-tack to the overalls and optional hat; sewing supplies and garments are not included. No dispatch lead time is stated.",
+      "checkedAt": "2026-10-25T08:50:26.071556Z",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-25T08:50:26.071556Z",
+        "url": "https://www.kittredgemercantile.com/collections/fat-quarters/products/mustard-and-black-woven-cotton-homespun-fabric-fat-quarter-bundle-of-4",
+        "notes": "Five 18 × 22-inch cotton homespun cuts: ticking, large plaid, small check and two windowpane plaids. Mustard and black is more yellow than the image's rust plaid. The URL says bundle of 4; current merchant title and description explicitly say 5. Primary merchant HTML confirms USD price and instock. Cut ragged squares and hand-tack to the overalls and optional hat; sewing supplies and garments are not included. No dispatch lead time is stated."
+      }
+    },
+    {
+      "id": "p-a6adaaa2ea",
+      "title": "Wheat And Cream Homespun Fabric Fat Quarter Bundle Of 7",
+      "url": "https://www.kittredgemercantile.com/collections/fat-quarters/products/wheat-and-cream-homespun-fabric-fat-quarter-bundle-of-7",
+      "priceCents": 2625,
+      "currency": "USD",
+      "image": "/products/price-tiers/p-a6adaaa2ea.webp",
+      "merchantImage": "/products/price-tiers/p-a6adaaa2ea.webp",
+      "sourceImages": [
+        "https://cdn.supadupa.me/shop/2414/images/3018195/DSC09314_grande.JPG"
+      ],
+      "availability": "in_stock",
+      "sizes": [],
+      "merchantId": "kittredgemercantile-com",
+      "tagSlugs": [],
+      "description": "Seven approximately 18 × 22-inch 100% cotton homespun cuts in wheat and cream. Neutral rustic patches, without the illustration's darker green and rust accents. More fabric is included, not a pre-sewn upgrade. Primary merchant HTML confirms USD price and instock. Cut ragged squares and hand-tack to the overalls and optional hat; sewing supplies and garments are not included. No dispatch lead time is stated.",
+      "checkedAt": "2026-10-25T08:50:26.071556Z",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-25T08:50:26.071556Z",
+        "url": "https://www.kittredgemercantile.com/collections/fat-quarters/products/wheat-and-cream-homespun-fabric-fat-quarter-bundle-of-7",
+        "notes": "Seven approximately 18 × 22-inch 100% cotton homespun cuts in wheat and cream. Neutral rustic patches, without the illustration's darker green and rust accents. More fabric is included, not a pre-sewn upgrade. Primary merchant HTML confirms USD price and instock. Cut ragged squares and hand-tack to the overalls and optional hat; sewing supplies and garments are not included. No dispatch lead time is stated."
+      }
+    },
+    {
+      "id": "p-ba0acbf53c",
+      "title": "Captain | Brown",
+      "url": "https://thursdayboots.com/products/mens-brown-captain?variant=7609600581",
+      "priceCents": 19900,
+      "currency": "USD",
+      "image": "/products/price-tiers/p-ba0acbf53c.webp",
+      "merchantImage": "/products/price-tiers/p-ba0acbf53c.webp",
+      "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/0419/1525/files/1024x1024-Men-Captain-Brown-081226-3.4-d17ac2.jpg?v=1790357464"
+      ],
+      "availability": "in_stock",
+      "sizes": [
+        "6",
+        "6.5",
+        "7",
+        "7.5",
+        "8",
+        "8.5",
+        "9",
+        "9.5",
+        "10",
+        "10.5",
+        "11",
+        "11.5",
+        "12",
+        "12.5",
+        "13",
+        "13.5",
+        "14",
+        "15",
+        "16"
+      ],
+      "merchantId": "thursdayboots-com",
+      "tagSlugs": [],
+      "description": "Men's Brown Thursday Chrome leather lace-up cap-toe boots with studded rubber sole and low heel. Standard width only is listed; live feed confirms each listed US size at $199. Free domestic US ground shipping is offered. These arrive new, not pre-scuffed.",
+      "checkedAt": "2026-10-25T08:50:26.071556Z",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-25T08:50:26.071556Z",
+        "url": "https://thursdayboots.com/products/mens-brown-captain.js",
+        "notes": "Men's Brown Thursday Chrome leather lace-up cap-toe boots with studded rubber sole and low heel. Standard width only is listed; live feed confirms each listed US size at $199. Free domestic US ground shipping is offered. These arrive new, not pre-scuffed."
+      }
+    },
+    {
+      "id": "p-9f0ec3e56f",
+      "title": "Danie Brown Boots",
+      "url": "https://www.rocketdog.com/products/danner-brown-boots?variant=43737405587526",
+      "priceCents": 5597,
+      "currency": "USD",
+      "image": "/products/price-tiers/p-9f0ec3e56f.webp",
+      "merchantImage": "/products/price-tiers/p-9f0ec3e56f.webp",
+      "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/1903/5555/files/DANNERAO_DARKBROWN_2.jpg?v=1756989780"
+      ],
+      "availability": "in_stock",
+      "sizes": [
+        "7",
+        "7.5",
+        "8",
+        "8.5",
+        "9",
+        "9.5",
+        "10"
+      ],
+      "merchantId": "rocketdog-com",
+      "tagSlugs": [],
+      "description": "Women's Dark Brown faux-leather lace-up ankle boots with side zip and chunky lug sole. Current $55.97 sale price; only US 7, 7.5, 8, 8.5, 9, 9.5 and 10 are available. The 5.3 cm heel/platform is higher than the image's work boots. No tools or other costume pieces included.",
+      "checkedAt": "2026-10-25T08:50:26.071556Z",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-25T08:50:26.071556Z",
+        "url": "https://www.rocketdog.com/products/danner-brown-boots.js",
+        "notes": "Women's Dark Brown faux-leather lace-up ankle boots with side zip and chunky lug sole. Current $55.97 sale price; only US 7, 7.5, 8, 8.5, 9, 9.5 and 10 are available. The 5.3 cm heel/platform is higher than the image's work boots. No tools or other costume pieces included."
+      }
+    },
+    {
+      "id": "p-a880ab278b",
+      "title": "Diesel Boot Saddle Tan",
+      "url": "https://grantstoneshoes.com/products/diesel-boot-saddle-tan?variant=12617336651840",
+      "priceCents": 43500,
+      "currency": "USD",
+      "image": "/products/price-tiers/p-a880ab278b.webp",
+      "merchantImage": "/products/price-tiers/p-a880ab278b.webp",
+      "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/1163/3390/files/GRANT2SIDE2-Edit-Edit_27ba84f7-bb9a-4473-89e4-2683d625de2f.jpg?v=1783616239"
+      ],
+      "availability": "in_stock",
+      "sizes": [
+        "6",
+        "6.5",
+        "7",
+        "7.5",
+        "8",
+        "8.5",
+        "9",
+        "9.5",
+        "10",
+        "10.5",
+        "11",
+        "11.5",
+        "12",
+        "13"
+      ],
+      "merchantId": "grantstoneshoes-com",
+      "tagSlugs": [],
+      "description": "Men's Saddle Tan vegetable-tanned Minerva leather plain-toe lace-up boots, leather sole, brass eyelets and speed hooks. Lighter and smoother than the image's aged brown pair. Standard D width only; feed confirms every listed US size at $435. New boots with natural leather color variation; no scuffing service or delivery date is promised.",
+      "checkedAt": "2026-10-25T08:50:26.071556Z",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-25T08:50:26.071556Z",
+        "url": "https://grantstoneshoes.com/products/diesel-boot-saddle-tan.js",
+        "notes": "Men's Saddle Tan vegetable-tanned Minerva leather plain-toe lace-up boots, leather sole, brass eyelets and speed hooks. Lighter and smoother than the image's aged brown pair. Standard D width only; feed confirms every listed US size at $435. New boots with natural leather color variation; no scuffing service or delivery date is promised."
+      }
+    }
+  ],
+  "merchants": [
+    {
+      "id": "chicagocostume-com",
+      "name": "Chicago Costume Company",
+      "domain": "chicagocostume.com",
+      "url": "https://chicagocostume.com/",
+      "kind": "boutique",
+      "neighborhoodId": null
+    },
+    {
+      "id": "arlenescostumes-com",
+      "name": "Arlene's Costumes",
+      "domain": "arlenescostumes.com",
+      "url": "https://arlenescostumes.com/",
+      "kind": "boutique",
+      "neighborhoodId": null
+    },
+    {
+      "id": "omen-salem-shoplightspeed-com",
+      "name": "Omen: Psychic Parlor & Witchcraft Emporium",
+      "domain": "omen-salem.shoplightspeed.com",
+      "url": "https://omen-salem.shoplightspeed.com/",
+      "kind": "boutique",
+      "neighborhoodId": null
+    },
+    {
+      "id": "fatiguesarmynavy-com",
+      "name": "Fatigues Army Navy",
+      "domain": "fatiguesarmynavy.com",
+      "url": "https://fatiguesarmynavy.com/",
+      "kind": "boutique",
+      "neighborhoodId": null
+    },
+    {
+      "id": "vermontflannel-com",
+      "name": "Vermont Flannel",
+      "domain": "vermontflannel.com",
+      "url": "https://vermontflannel.com/",
+      "kind": "boutique",
+      "neighborhoodId": null
+    },
+    {
+      "id": "filson-com",
+      "name": "Filson",
+      "domain": "filson.com",
+      "url": "https://filson.com/",
+      "kind": "boutique",
+      "neighborhoodId": null
+    },
+    {
+      "id": "roundhouseoutlet-com",
+      "name": "Round House Outlet",
+      "domain": "roundhouseoutlet.com",
+      "url": "https://roundhouseoutlet.com/",
+      "kind": "boutique",
+      "neighborhoodId": null
+    },
+    {
+      "id": "round-house-com",
+      "name": "Round House",
+      "domain": "round-house.com",
+      "url": "https://round-house.com/",
+      "kind": "boutique",
+      "neighborhoodId": null
+    },
+    {
+      "id": "boltandspool-com",
+      "name": "Bolt & Spool",
+      "domain": "boltandspool.com",
+      "url": "https://boltandspool.com/",
+      "kind": "boutique",
+      "neighborhoodId": null
+    },
+    {
+      "id": "zelouffabrics-com",
+      "name": "Zelouf Fabrics",
+      "domain": "zelouffabrics.com",
+      "url": "https://zelouffabrics.com/",
+      "kind": "boutique",
+      "neighborhoodId": null
+    },
+    {
+      "id": "stonemountainfabric-com",
+      "name": "Stonemountain & Daughter Fabrics",
+      "domain": "stonemountainfabric.com",
+      "url": "https://stonemountainfabric.com/",
+      "kind": "boutique",
+      "neighborhoodId": null
+    },
+    {
+      "id": "kittredgemercantile-com",
+      "name": "Kittredge Mercantile",
+      "domain": "kittredgemercantile.com",
+      "url": "https://kittredgemercantile.com/",
+      "kind": "boutique",
+      "neighborhoodId": null
+    },
+    {
+      "id": "rocketdog-com",
+      "name": "Rocket Dog",
+      "domain": "rocketdog.com",
+      "url": "https://rocketdog.com/",
+      "kind": "boutique",
+      "neighborhoodId": null
+    },
+    {
+      "id": "thursdayboots-com",
+      "name": "Thursday Boot Company",
+      "domain": "thursdayboots.com",
+      "url": "https://thursdayboots.com/",
+      "kind": "boutique",
+      "neighborhoodId": null
+    },
+    {
+      "id": "grantstoneshoes-com",
+      "name": "Grant Stone",
+      "domain": "grantstoneshoes.com",
+      "url": "https://grantstoneshoes.com/",
+      "kind": "boutique",
+      "neighborhoodId": null
+    }
+  ],
+  "neighborhoods": [],
+  "tags": [],
+  "provenance": {
+    "method": "manual-research",
+    "generatedAt": "2026-10-25T08:50:26.071556Z",
+    "priceTiers": true,
+    "heroImageKind": "generated-reference",
+    "notes": "Built-in web search and direct official merchant evidence. Three distinct relative price points per piece: $, $$, $$$. Prices exclude shipping/tax; stock is variant-specific and delivery is unconfirmed. See docs/sourcing/price-tiers/autumn-scarecrow.json."
+  }
+}

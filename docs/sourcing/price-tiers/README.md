@@ -1,25 +1,46 @@
 # Price-tier catalog research
 
-Built-in web search and direct official merchant evidence. No Firecrawl was used for this research pass. Exact checked timestamps, product URLs, photos, sizes, and compromises are preserved in the costume JSON files.
+All 25 looks have researched shopping catalogs. Built-in web search and direct official merchant evidence supplied the options. No Firecrawl was used for this research. Exact checked timestamps, URLs, selected sizes, original photos, lead times, and compromises are preserved in each costume JSON.
 
-Price tiers are relative within each piece. Listed totals exclude shipping and tax; stock and size coverage can change. Higher prices do not imply better quality.
+Each purchasable component has three ascending USD price points. Bundles count once; DIY supplies have their own component and assembly notes. Higher prices do not imply better quality.
 
-| Costume | Lowest five-piece subtotal |
-|---|---:|
-| [Cosmic Cowboy](cosmic-cowboy.json) | $100.95 |
-| [Linen Ghost](linen-ghost.json) | $201.49 |
-| [Moon Moth](moon-moth.json) | $195.97 |
-| [Velvet Vampire](velvet-vampire.json) | $166.34 |
-| [Woodland Mushroom](woodland-mushroom.json) | $175.24 |
+| Costume | Purchasable components | Lowest pieces subtotal |
+|---|---:|---:|
+| [Velvet Vampire](velvet-vampire.json) | 5 | $166.34 |
+| [Cosmic Cowboy](cosmic-cowboy.json) | 5 | $100.95 |
+| [Moon Moth](moon-moth.json) | 5 | $195.97 |
+| [Linen Ghost](linen-ghost.json) | 5 | $201.49 |
+| [Woodland Mushroom](woodland-mushroom.json) | 5 | $175.24 |
+| [Starlight Witch](starlight-witch.json) | 5 | $223.95 |
+| [Clockwork Aviator](clockwork-aviator.json) | 6 | $276.29 |
+| [Autumn Scarecrow](autumn-scarecrow.json) | 6 | $176.40 |
+| [Midnight Pirate](midnight-pirate.json) | 6 | $216.75 |
+| [Enchanted Jester](enchanted-jester.json) | 6 | $211.29 |
+| [Forest Sprite](forest-sprite.json) | 5 | $167.93 |
+| [Celestial Sorcerer](celestial-sorcerer.json) | 4 | $237.94 |
+| [Pumpkin Harlequin](pumpkin-harlequin.json) | 6 | $158.76 |
+| [Victorian Detective](victorian-detective.json) | 6 | $468.83 |
+| [Storm Chaser](storm-chaser.json) | 5 | $235.95 |
+| [Disco Phantom](disco-phantom.json) | 5 | $243.93 |
+| [Garden Beekeeper](garden-beekeeper.json) | 5 | $235.54 |
+| [Coral Mermaid](coral-mermaid.json) | 5 | $140.78 |
+| [Snow Owl](snow-owl.json) | 6 | $203.30 |
+| [Velvet Ringmaster](velvet-ringmaster.json) | 5 | $194.42 |
+| [Desert Alchemist](desert-alchemist.json) | 7 | $358.13 |
+| [Rose Garden Queen](rose-garden-queen.json) | 6 | $307.59 |
+| [Retro Astronaut](retro-astronaut.json) | 6 | $141.88 |
+| [Raven Scholar](raven-scholar.json) | 6 | $325.25 |
+| [Candy Corn Sorceress](candy-corn-sorceress.json) | 4 | $131.91 |
 
-Owned or skipped optional pieces reduce these subtotals. Some lower-priced choices offer few sizes or a looser visual match. Handmade options may require production time. Unknown selected-variant stock remains labeled unknown, rather than being converted into a claim of finished inventory.
+These exact research subtotals exclude shipping and tax and do not confirm fit or delivery. Owned or skipped optional pieces reduce them. Stock and size coverage can change. Made-to-order items can accept orders without finished stock; uncertainty remains explicit.
 
-`images.json` records the exact source URL and SHA-256 of every cached merchant photograph. The images preserve the merchant photograph; no substitute products were generated.
+Merchant photos are cached without inventing replacement products. images.json records their original URLs and reviewed SHA-256 hashes. The generated complete costume remains a styling reference, not proof of an exact retail garment.
 
-Import reviewed research locally, cache its merchant photos, then verify before publishing:
+Prepare reviewed research, cache its photos, deploy the assets, and only then seed the shared database:
 
 ```sh
 bun scripts/source/import-price-tier-research.ts /path/to/research
 bun scripts/source/cache-price-tier-images.ts /path/to/research
 bun --env-file=.env.local scripts/seed.ts --all
+bun --env-file=.env.local scripts/verify-full-catalog.ts https://halloween.supply
 ```

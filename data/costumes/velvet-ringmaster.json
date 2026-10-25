@@ -1,0 +1,668 @@
+{
+  "costume": {
+    "slug": "velvet-ringmaster",
+    "name": "Velvet Ringmaster",
+    "description": "A red velvet tailcoat with gold braid, a cream ruffled shirt, and a classic black top hat.",
+    "image": "/costumes/velvet-ringmaster.png",
+    "alt": "Black top hat, deep red velvet tailcoat with gold braid, cream ruffled shirt, black high-waisted trousers, and polished black boots",
+    "status": "live"
+  },
+  "pieces": [
+    {
+      "id": "velvet-ringmaster-top-hat",
+      "name": "Black top hat",
+      "category": "headwear",
+      "required": true,
+      "order": 0,
+      "sizeKind": "hat",
+      "queries": [
+        "black satin top hat adult",
+        "black wool Victorian top hat"
+      ],
+      "styleNotes": "Use a tall black crown and curved brim. The reference red hat band is a small optional ribbon addition; these hats have black bands.",
+      "matches": [
+        {
+          "productId": "p-a5306831a3",
+          "rank": 0,
+          "reason": "Black structured wool felt, mid-rise crown, grosgrain band and leather sweatband; unlined. Only M is currently available at $81.95. Shorter crown than the reference; red ribbon is not included."
+        },
+        {
+          "productId": "p-54e2a4cf48",
+          "rank": 1,
+          "reason": "Masquerade black satin-style costume top hat in 100% polyester. Merchant specifies one size fits most and dimensions 14 inches high by 10 inches wide, but does not give head circumference. Its feed confirms availability. A lighter costume hat rather than wool felt; check fit before ordering."
+        },
+        {
+          "productId": "p-005fe33405",
+          "rank": 2,
+          "reason": "Black 100% wool felt, 7-inch crown, 2-inch curled brim and 2-inch grosgrain band with flat side bow; unlined. Only L and XL currently available. No red ribbon included."
+        }
+      ]
+    },
+    {
+      "id": "velvet-ringmaster-red-tailcoat",
+      "name": "Red tailcoat with gold trim",
+      "category": "outerwear",
+      "required": true,
+      "order": 1,
+      "sizeKind": "apparel",
+      "queries": [
+        "red velvet gold braid ringmaster tailcoat",
+        "red black gold long tailcoat"
+      ],
+      "styleNotes": "Preserve the red long-tailed coat, black contrast and gold trim. Products differ in cut and finish; the reference ornate embroidered lapels and cuffs are not reproduced exactly. The $ and $$ coats use women's fitted size charts. Their one listed size is the only size at the stated price. The $$ photo shows sequins and black tails; choose the $ or $$$ option for a closer velvet coat.",
+      "matches": [
+        {
+          "productId": "p-9437603696",
+          "rank": 0,
+          "reason": "Includes one women's red/black open-front long-tail coat with gold trim. Material compromise: merchant calls it polyester plush velvet, but the selected Red photo visibly shows a sequined red front and black tails. It does not reproduce plain deep-red velvet. Only Red/S costs $56.46; other sizes have different prices. US economy shipping estimate is 5–8 business days, not a delivery guarantee."
+        },
+        {
+          "productId": "p-87734c54a0",
+          "rank": 1,
+          "reason": "Includes one fitted women's long-sleeve red velvet-style swallow-tail coat, black lapels/cuffs, gold braided edging and single-button front. Less ornate than the reference; no shirt or vest included. Exact $39.48 applies only to Red/M; other available sizes cost more. Merchant lists the material as \"95% Velvet, 5% Metal\", which does not identify fiber content. US shipping policy estimates 5–8 business days for economy shipping; no delivery guarantee."
+        },
+        {
+          "productId": "p-1bb478cabf",
+          "rank": 2,
+          "reason": "Leg Avenue 87388 three-piece set: red velvet tailcoat with attached red/white harlequin vest, dickey and top hat. Manufacturer confirms gold trim, chains, black cuffs and fringed epaulettes; coat is 93% polyester/7% spandex. The attached vest differs from the reference black/gold waistcoat and cannot be bought separately in this listing. Pants, boots and whip are not included. All three listed MULTICOLOR sizes available at $82.99. Dispatch time is not stated on this merchant product page."
+        }
+      ]
+    },
+    {
+      "id": "velvet-ringmaster-ruffled-shirt",
+      "name": "Cream or white ruffled shirt",
+      "category": "tops",
+      "required": true,
+      "order": 2,
+      "sizeKind": "apparel",
+      "queries": [
+        "ivory ruffled pirate shirt men",
+        "white jabot ruffled shirt"
+      ],
+      "styleNotes": "Use a pale long-sleeve shirt with chest ruffles under the coat. The budget option is ivory; the other tiers are white rather than cream. Only the budget shirt is ivory. The white alternatives preserve the pale ruffled chest but are not exact cream matches.",
+      "matches": [
+        {
+          "productId": "p-449c56afc5",
+          "rank": 0,
+          "reason": "White 100% rayon button-front shirt, three-tier front jabot ruffles, tall collar, gathered sleeves and ruffled cuffs. Only L available at $69.95. Closer ruffle volume than the budget shirt; white instead of cream. Trousers in the photo are not included."
+        },
+        {
+          "productId": "p-670c3fec1d",
+          "rank": 1,
+          "reason": "Ivory lace-up ruffled shirt only, made in USA. Only Small/Ivory is available at the $12 sale price. Hat, trousers and boots in its photograph are excluded. The lace-up neckline differs from the reference high collar and dense jabot. Merchant advertises same-day US dispatch before 5 PM Eastern on weekdays; weekends and holidays excluded."
+        },
+        {
+          "productId": "p-2b5518f3ab",
+          "rank": 2,
+          "reason": "White cotton early-1800s reproduction shirt, bone buttons at neck/wrists and ruffled bosom slit. All six named sizes available at $120. Ruffles are narrower and cuffs plainer than the reference; white instead of cream. The black neckcloth shown is a styling accessory, not included."
+        }
+      ]
+    },
+    {
+      "id": "velvet-ringmaster-high-waist-trousers",
+      "name": "Black high-waisted trousers",
+      "category": "bottoms",
+      "required": true,
+      "order": 3,
+      "sizeKind": "pants",
+      "queries": [
+        "black Victorian high waist trousers",
+        "black fall front trousers"
+      ],
+      "styleNotes": "Use a high waist and straight black trouser leg that can tuck into tall boots. The reference double rows of gold buttons are decorative and not present on every option. The highest-price trousers are currently available only in size 46. Use the merchant natural-waist measurement guidance rather than converting modern jeans sizes.",
+      "matches": [
+        {
+          "productId": "p-20f318e7bd",
+          "rank": 0,
+          "reason": "Black 100% brushed cotton, high waist, button-front fly, suspender buttons and back buckle. Softer dress-style finish than canvas; buttons are black rather than gold. 36-inch inseam; local hemming may be needed. Size 30 is unavailable and excluded. Suspenders pictured are sold separately."
+        },
+        {
+          "productId": "p-ec3e09029c",
+          "rank": 1,
+          "reason": "Black 100% cotton canvas work trousers with high waist, button fly, suspender buttons and adjustable back strap. More casual matte fabric than the reference dress trousers. 36-inch inseam may need local hemming. Only the enumerated sizes are currently available; 34 and 38 are excluded. Suspenders sold separately."
+        },
+        {
+          "productId": "p-3b1499c169",
+          "rank": 2,
+          "reason": "Black 100% cotton twill reproduction with broad buttoned fall front, hidden button fly, internal suspender buttons and adjustable back buckle; unlined. Only size 46 available at $86.95. The front button arrangement approximates the reference but uses black buttons, not gold."
+        }
+      ]
+    },
+    {
+      "id": "velvet-ringmaster-black-boots",
+      "name": "Tall black boots",
+      "category": "footwear",
+      "required": true,
+      "order": 4,
+      "sizeKind": "shoe",
+      "queries": [
+        "mens black knee high costume boots",
+        "black leather cavalry boots"
+      ],
+      "styleNotes": "Use tall black low-heeled boots. Clean cavalry boots are closest; lower tiers use costume vinyl or distressed faux leather.",
+      "matches": [
+        {
+          "productId": "p-6c25477681",
+          "rank": 0,
+          "reason": "Pair of distressed black faux-leather boots with 16–17-inch shaft, inner zipper, decorative lacing/buttons and 1.5-inch heel with lug sole. All S–XL grouped boot sizes currently available; consult merchant sizing chart. The textured steampunk finish is less polished than the reference."
+        },
+        {
+          "productId": "p-691dccf66e",
+          "rank": 1,
+          "reason": "Pair of black theatrical pirate/cavalier boots in heavy foam-backed vinyl, side zipper, 1-inch heel and approximately 16-inch total height. Photo shows a folded cuff, unlike the reference smooth riding boot. Available merchant sizes are Men's Shoe S (8 - 9), M (10 - 11), and L (12 - 13); no XL stock claimed."
+        },
+        {
+          "productId": "p-bfb0395c79",
+          "rank": 2,
+          "reason": "Pair of 100% black leather cavalry boots, low heel, square toe, pull loops and 15-inch back shaft with 3-inch front rise. Best smooth riding-boot silhouette of these choices; square toe differs from the reference rounded toe. Only 7, 8, 9 and 10 available; 11–13 excluded."
+        }
+      ]
+    }
+  ],
+  "products": [
+    {
+      "id": "p-a5306831a3",
+      "title": "Regency Top Hat - Black Wool",
+      "url": "https://historicalemporium.com/products/regency-top-hat-black-wool?variant=51717783126310",
+      "priceCents": 8195,
+      "currency": "USD",
+      "image": "/products/price-tiers/p-a5306831a3.webp",
+      "merchantImage": "/products/price-tiers/p-a5306831a3.webp",
+      "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/0980/0974/3654/files/007628_01_5f6fc9cc-e846-4e55-87f4-af33e987da9f.jpg?v=1769541911"
+      ],
+      "availability": "in_stock",
+      "sizes": [
+        "M"
+      ],
+      "merchantId": "historicalemporium-com",
+      "tagSlugs": [],
+      "description": "Black structured wool felt, mid-rise crown, grosgrain band and leather sweatband; unlined. Only M is currently available at $81.95. Shorter crown than the reference; red ribbon is not included.",
+      "checkedAt": "2026-10-25T08:51:41.862679Z",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-25T08:51:41.862679Z",
+        "url": "https://historicalemporium.com/products/regency-top-hat-black-wool.js",
+        "notes": "Black structured wool felt, mid-rise crown, grosgrain band and leather sweatband; unlined. Only M is currently available at $81.95. Shorter crown than the reference; red ribbon is not included."
+      }
+    },
+    {
+      "id": "p-005fe33405",
+      "title": "Victorian Top Hat - Black",
+      "url": "https://historicalemporium.com/products/victorian-top-hat-black?variant=51717865341222",
+      "priceCents": 11795,
+      "currency": "USD",
+      "image": "/products/price-tiers/p-005fe33405.webp",
+      "merchantImage": "/products/price-tiers/p-005fe33405.webp",
+      "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/0980/0974/3654/files/007625_01_1d609ce7-abed-4a59-a866-79866ed514d6.jpg?v=1769541909"
+      ],
+      "availability": "in_stock",
+      "sizes": [
+        "L",
+        "XL"
+      ],
+      "merchantId": "historicalemporium-com",
+      "tagSlugs": [],
+      "description": "Black 100% wool felt, 7-inch crown, 2-inch curled brim and 2-inch grosgrain band with flat side bow; unlined. Only L and XL currently available. No red ribbon included.",
+      "checkedAt": "2026-10-25T08:51:41.862679Z",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-25T08:51:41.862679Z",
+        "url": "https://historicalemporium.com/products/victorian-top-hat-black.js",
+        "notes": "Black 100% wool felt, 7-inch crown, 2-inch curled brim and 2-inch grosgrain band with flat side bow; unlined. Only L and XL currently available. No red ribbon included."
+      }
+    },
+    {
+      "id": "p-54e2a4cf48",
+      "title": "Deluxe Black Satin Top Hat",
+      "url": "https://easytot.com/products/deluxe-black-satin-top-hat?variant=44217941721162",
+      "priceCents": 1099,
+      "currency": "USD",
+      "image": "/products/price-tiers/p-54e2a4cf48.webp",
+      "merchantImage": "/products/price-tiers/p-54e2a4cf48.webp",
+      "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/0556/0519/8922/files/top_hat.png?v=1789507827"
+      ],
+      "availability": "in_stock",
+      "sizes": [
+        "One size fits most"
+      ],
+      "merchantId": "easytot-com",
+      "tagSlugs": [],
+      "description": "Masquerade black satin-style costume top hat in 100% polyester. Merchant specifies one size fits most and dimensions 14 inches high by 10 inches wide, but does not give head circumference. Its feed confirms availability. A lighter costume hat rather than wool felt; check fit before ordering.",
+      "checkedAt": "2026-10-25T08:51:41.862679Z",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-25T08:51:41.862679Z",
+        "url": "https://easytot.com/products/deluxe-black-satin-top-hat.js",
+        "notes": "Masquerade black satin-style costume top hat in 100% polyester. Merchant specifies one size fits most and dimensions 14 inches high by 10 inches wide, but does not give head circumference. Its feed confirms availability. A lighter costume hat rather than wool felt; check fit before ordering."
+      }
+    },
+    {
+      "id": "p-87734c54a0",
+      "title": "Velvet Circus Ringmaster Gold-Trimmed Swallow-Tail Blazer Coat",
+      "url": "https://teejaytraders.com/products/velvet-circus-ringmaster-gold-trimmed-swallow-tail-blazer-coat?variant=47479427432636",
+      "priceCents": 3948,
+      "currency": "USD",
+      "image": "/products/price-tiers/p-87734c54a0.webp",
+      "merchantImage": "/products/price-tiers/p-87734c54a0.webp",
+      "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/0611/3240/6972/files/H00c993a337f046e58e3415aa995a8bd0s.webp?v=1789370964"
+      ],
+      "availability": "in_stock",
+      "sizes": [
+        "M"
+      ],
+      "merchantId": "teejaytraders-com",
+      "tagSlugs": [],
+      "description": "Includes one fitted women's long-sleeve red velvet-style swallow-tail coat, black lapels/cuffs, gold braided edging and single-button front. Less ornate than the reference; no shirt or vest included. Exact $39.48 applies only to Red/M; other available sizes cost more. Merchant lists the material as \"95% Velvet, 5% Metal\", which does not identify fiber content. US shipping policy estimates 5–8 business days for economy shipping; no delivery guarantee.",
+      "checkedAt": "2026-10-25T08:51:41.862679Z",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-25T08:51:41.862679Z",
+        "url": "https://teejaytraders.com/products/velvet-circus-ringmaster-gold-trimmed-swallow-tail-blazer-coat.js",
+        "notes": "Includes one fitted women's long-sleeve red velvet-style swallow-tail coat, black lapels/cuffs, gold braided edging and single-button front. Less ornate than the reference; no shirt or vest included. Exact $39.48 applies only to Red/M; other available sizes cost more. Merchant lists the material as \"95% Velvet, 5% Metal\", which does not identify fiber content. US shipping policy estimates 5–8 business days for economy shipping; no delivery guarantee."
+      }
+    },
+    {
+      "id": "p-9437603696",
+      "title": "Velvet Circus Ringmaster Tailcoat Jacket Marching Band Halloween Showman Outerwear",
+      "url": "https://teejaytraders.com/products/velvet-circus-ringmaster-tailcoat-jacket-marching-band-halloween-showman-outerwear?variant=47479214014652",
+      "priceCents": 5646,
+      "currency": "USD",
+      "image": "/products/price-tiers/p-9437603696.webp",
+      "merchantImage": "/products/price-tiers/p-9437603696.webp",
+      "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/0611/3240/6972/files/S15e6db84cd9a4390ac0535380f1e72e7o.webp?v=1789369815"
+      ],
+      "availability": "in_stock",
+      "sizes": [
+        "S"
+      ],
+      "merchantId": "teejaytraders-com",
+      "tagSlugs": [],
+      "description": "Includes one women's red/black open-front long-tail coat with gold trim. Material compromise: merchant calls it polyester plush velvet, but the selected Red photo visibly shows a sequined red front and black tails. It does not reproduce plain deep-red velvet. Only Red/S costs $56.46; other sizes have different prices. US economy shipping estimate is 5–8 business days, not a delivery guarantee.",
+      "checkedAt": "2026-10-25T08:51:41.862679Z",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-25T08:51:41.862679Z",
+        "url": "https://teejaytraders.com/products/velvet-circus-ringmaster-tailcoat-jacket-marching-band-halloween-showman-outerwear.js",
+        "notes": "Includes one women's red/black open-front long-tail coat with gold trim. Material compromise: merchant calls it polyester plush velvet, but the selected Red photo visibly shows a sequined red front and black tails. It does not reproduce plain deep-red velvet. Only Red/S costs $56.46; other sizes have different prices. US economy shipping estimate is 5–8 business days, not a delivery guarantee."
+      }
+    },
+    {
+      "id": "p-1bb478cabf",
+      "title": "Men's 3 PC Ring Master Costume - 87388",
+      "url": "https://thesultryvixen.com/products/mens-3-pc-ring-master-costume-87388?variant=50931820691623",
+      "priceCents": 8299,
+      "currency": "USD",
+      "image": "/products/price-tiers/p-1bb478cabf.webp",
+      "merchantImage": "/products/price-tiers/p-1bb478cabf.webp",
+      "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/0060/4245/2004/files/87388_06_101.jpg?v=1783114552"
+      ],
+      "availability": "in_stock",
+      "sizes": [
+        "X-LARGE",
+        "MED/LGE",
+        "SML/MED"
+      ],
+      "merchantId": "thesultryvixen-com",
+      "tagSlugs": [],
+      "description": "Leg Avenue 87388 three-piece set: red velvet tailcoat with attached red/white harlequin vest, dickey and top hat. Manufacturer confirms gold trim, chains, black cuffs and fringed epaulettes; coat is 93% polyester/7% spandex. The attached vest differs from the reference black/gold waistcoat and cannot be bought separately in this listing. Pants, boots and whip are not included. All three listed MULTICOLOR sizes available at $82.99. Dispatch time is not stated on this merchant product page.",
+      "checkedAt": "2026-10-25T08:51:41.862679Z",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-25T08:51:41.862679Z",
+        "url": "https://thesultryvixen.com/products/mens-3-pc-ring-master-costume-87388.js",
+        "notes": "Leg Avenue 87388 three-piece set: red velvet tailcoat with attached red/white harlequin vest, dickey and top hat. Manufacturer confirms gold trim, chains, black cuffs and fringed epaulettes; coat is 93% polyester/7% spandex. The attached vest differs from the reference black/gold waistcoat and cannot be bought separately in this listing. Pants, boots and whip are not included. All three listed MULTICOLOR sizes available at $82.99. Dispatch time is not stated on this merchant product page."
+      }
+    },
+    {
+      "id": "p-449c56afc5",
+      "title": "Bard Ruffled Shirt - White",
+      "url": "https://historicalemporium.com/products/bard-shirt-white?variant=51717516263718",
+      "priceCents": 6995,
+      "currency": "USD",
+      "image": "/products/price-tiers/p-449c56afc5.webp",
+      "merchantImage": "/products/price-tiers/p-449c56afc5.webp",
+      "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/0980/0974/3654/files/003972_01_3133988b-9bdb-4519-a9fa-c3d54881f664.jpg?v=1769539508"
+      ],
+      "availability": "in_stock",
+      "sizes": [
+        "L"
+      ],
+      "merchantId": "historicalemporium-com",
+      "tagSlugs": [],
+      "description": "White 100% rayon button-front shirt, three-tier front jabot ruffles, tall collar, gathered sleeves and ruffled cuffs. Only L available at $69.95. Closer ruffle volume than the budget shirt; white instead of cream. Trousers in the photo are not included.",
+      "checkedAt": "2026-10-25T08:51:41.862679Z",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-25T08:51:41.862679Z",
+        "url": "https://historicalemporium.com/products/bard-shirt-white.js",
+        "notes": "White 100% rayon button-front shirt, three-tier front jabot ruffles, tall collar, gathered sleeves and ruffled cuffs. Only L available at $69.95. Closer ruffle volume than the budget shirt; white instead of cream. Trousers in the photo are not included."
+      }
+    },
+    {
+      "id": "p-2b5518f3ab",
+      "title": "Ruffled Cotton Shirt | Regency",
+      "url": "https://samsonhistorical.com/products/ruffled-cotton-shirt-regency?variant=43812843454685",
+      "priceCents": 12000,
+      "currency": "USD",
+      "image": "/products/price-tiers/p-2b5518f3ab.webp",
+      "merchantImage": "/products/price-tiers/p-2b5518f3ab.webp",
+      "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/0440/7857/products/Samson_02_Lynn_Jackson_0084.jpg?v=1681955899"
+      ],
+      "availability": "in_stock",
+      "sizes": [
+        "Small",
+        "Medium",
+        "Large",
+        "X Large",
+        "XX Large",
+        "XXX Large"
+      ],
+      "merchantId": "samsonhistorical-com",
+      "tagSlugs": [],
+      "description": "White cotton early-1800s reproduction shirt, bone buttons at neck/wrists and ruffled bosom slit. All six named sizes available at $120. Ruffles are narrower and cuffs plainer than the reference; white instead of cream. The black neckcloth shown is a styling accessory, not included.",
+      "checkedAt": "2026-10-25T08:51:41.862679Z",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-25T08:51:41.862679Z",
+        "url": "https://samsonhistorical.com/products/ruffled-cotton-shirt-regency.js",
+        "notes": "White cotton early-1800s reproduction shirt, bone buttons at neck/wrists and ruffled bosom slit. All six named sizes available at $120. Ruffles are narrower and cuffs plainer than the reference; white instead of cream. The black neckcloth shown is a styling accessory, not included."
+      }
+    },
+    {
+      "id": "p-670c3fec1d",
+      "title": "Pirate Shirt for Men Costume",
+      "url": "https://romaretailshop.com/products/pirate-shirt-for-men-costume?variant=33765644206218",
+      "priceCents": 1200,
+      "currency": "USD",
+      "image": "/products/price-tiers/p-670c3fec1d.webp",
+      "merchantImage": "/products/price-tiers/p-670c3fec1d.webp",
+      "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/0378/4186/2794/products/4651.jpg?v=1588888929"
+      ],
+      "availability": "in_stock",
+      "sizes": [
+        "Small"
+      ],
+      "merchantId": "romaretailshop-com",
+      "tagSlugs": [],
+      "description": "Ivory lace-up ruffled shirt only, made in USA. Only Small/Ivory is available at the $12 sale price. Hat, trousers and boots in its photograph are excluded. The lace-up neckline differs from the reference high collar and dense jabot. Merchant advertises same-day US dispatch before 5 PM Eastern on weekdays; weekends and holidays excluded.",
+      "checkedAt": "2026-10-25T08:51:41.862679Z",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-25T08:51:41.862679Z",
+        "url": "https://romaretailshop.com/products/pirate-shirt-for-men-costume.js",
+        "notes": "Ivory lace-up ruffled shirt only, made in USA. Only Small/Ivory is available at the $12 sale price. Hat, trousers and boots in its photograph are excluded. The lace-up neckline differs from the reference high collar and dense jabot. Merchant advertises same-day US dispatch before 5 PM Eastern on weekdays; weekends and holidays excluded."
+      }
+    },
+    {
+      "id": "p-ec3e09029c",
+      "title": "Classic Canvas Trousers - Black",
+      "url": "https://historicalemporium.com/products/classic-canvas-trousers-black?variant=51717553750310",
+      "priceCents": 5995,
+      "currency": "USD",
+      "image": "/products/price-tiers/p-ec3e09029c.webp",
+      "merchantImage": "/products/price-tiers/p-ec3e09029c.webp",
+      "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/0980/0974/3654/files/003861_01_f93e74ca-2712-4f08-9e99-1ba20fc11789.jpg?v=1769539492"
+      ],
+      "availability": "in_stock",
+      "sizes": [
+        "26",
+        "28",
+        "30",
+        "32",
+        "36",
+        "40",
+        "42",
+        "44",
+        "46",
+        "48",
+        "50",
+        "52",
+        "54",
+        "56",
+        "58",
+        "60"
+      ],
+      "merchantId": "historicalemporium-com",
+      "tagSlugs": [],
+      "description": "Black 100% cotton canvas work trousers with high waist, button fly, suspender buttons and adjustable back strap. More casual matte fabric than the reference dress trousers. 36-inch inseam may need local hemming. Only the enumerated sizes are currently available; 34 and 38 are excluded. Suspenders sold separately.",
+      "checkedAt": "2026-10-25T08:51:41.862679Z",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-25T08:51:41.862679Z",
+        "url": "https://historicalemporium.com/products/classic-canvas-trousers-black.js",
+        "notes": "Black 100% cotton canvas work trousers with high waist, button fly, suspender buttons and adjustable back strap. More casual matte fabric than the reference dress trousers. 36-inch inseam may need local hemming. Only the enumerated sizes are currently available; 34 and 38 are excluded. Suspenders sold separately."
+      }
+    },
+    {
+      "id": "p-20f318e7bd",
+      "title": "Livingston Brushed Cotton Trousers - Black",
+      "url": "https://historicalemporium.com/products/livingston-brushed-cotton-trousers-black?variant=51717696684326",
+      "priceCents": 7595,
+      "currency": "USD",
+      "image": "/products/price-tiers/p-20f318e7bd.webp",
+      "merchantImage": "/products/price-tiers/p-20f318e7bd.webp",
+      "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/0980/0974/3654/files/002981_01_c0bf3e68-33aa-4ec5-a823-9a54dd425571.jpg?v=1769539399"
+      ],
+      "availability": "in_stock",
+      "sizes": [
+        "26",
+        "28",
+        "32",
+        "34",
+        "36",
+        "38",
+        "40",
+        "42",
+        "44",
+        "46",
+        "48",
+        "50",
+        "52",
+        "54",
+        "56",
+        "58",
+        "60"
+      ],
+      "merchantId": "historicalemporium-com",
+      "tagSlugs": [],
+      "description": "Black 100% brushed cotton, high waist, button-front fly, suspender buttons and back buckle. Softer dress-style finish than canvas; buttons are black rather than gold. 36-inch inseam; local hemming may be needed. Size 30 is unavailable and excluded. Suspenders pictured are sold separately.",
+      "checkedAt": "2026-10-25T08:51:41.862679Z",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-25T08:51:41.862679Z",
+        "url": "https://historicalemporium.com/products/livingston-brushed-cotton-trousers-black.js",
+        "notes": "Black 100% brushed cotton, high waist, button-front fly, suspender buttons and back buckle. Softer dress-style finish than canvas; buttons are black rather than gold. 36-inch inseam; local hemming may be needed. Size 30 is unavailable and excluded. Suspenders pictured are sold separately."
+      }
+    },
+    {
+      "id": "p-3b1499c169",
+      "title": "Regency Fall Front Twill Trousers - Black",
+      "url": "https://historicalemporium.com/products/regency-fall-front-twill-trousers-black?variant=51717782307110",
+      "priceCents": 8695,
+      "currency": "USD",
+      "image": "/products/price-tiers/p-3b1499c169.webp",
+      "merchantImage": "/products/price-tiers/p-3b1499c169.webp",
+      "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/0980/0974/3654/files/007807_01_ad66c2ab-3cc1-4dcf-be8f-7f5cb892d66d.jpg?v=1769541963"
+      ],
+      "availability": "in_stock",
+      "sizes": [
+        "46"
+      ],
+      "merchantId": "historicalemporium-com",
+      "tagSlugs": [],
+      "description": "Black 100% cotton twill reproduction with broad buttoned fall front, hidden button fly, internal suspender buttons and adjustable back buckle; unlined. Only size 46 available at $86.95. The front button arrangement approximates the reference but uses black buttons, not gold.",
+      "checkedAt": "2026-10-25T08:51:41.862679Z",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-25T08:51:41.862679Z",
+        "url": "https://historicalemporium.com/products/regency-fall-front-twill-trousers-black.js",
+        "notes": "Black 100% cotton twill reproduction with broad buttoned fall front, hidden button fly, internal suspender buttons and adjustable back buckle; unlined. Only size 46 available at $86.95. The front button arrangement approximates the reference but uses black buttons, not gold."
+      }
+    },
+    {
+      "id": "p-6c25477681",
+      "title": "Sky Pilot Faux Leather Boots - Black",
+      "url": "https://historicalemporium.com/products/mens-faux-leather-sky-pilot-boots-black?variant=51717725913382",
+      "priceCents": 12095,
+      "currency": "USD",
+      "image": "/products/price-tiers/p-6c25477681.webp",
+      "merchantImage": "/products/price-tiers/p-6c25477681.webp",
+      "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/0980/0974/3654/files/006564_01_2b95236b-324e-4978-8373-e0a04ae81a5c.jpg?v=1769539801"
+      ],
+      "availability": "in_stock",
+      "sizes": [
+        "S",
+        "M",
+        "L",
+        "XL"
+      ],
+      "merchantId": "historicalemporium-com",
+      "tagSlugs": [],
+      "description": "Pair of distressed black faux-leather boots with 16–17-inch shaft, inner zipper, decorative lacing/buttons and 1.5-inch heel with lug sole. All S–XL grouped boot sizes currently available; consult merchant sizing chart. The textured steampunk finish is less polished than the reference.",
+      "checkedAt": "2026-10-25T08:51:41.862679Z",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-25T08:51:41.862679Z",
+        "url": "https://historicalemporium.com/products/mens-faux-leather-sky-pilot-boots-black.js",
+        "notes": "Pair of distressed black faux-leather boots with 16–17-inch shaft, inner zipper, decorative lacing/buttons and 1.5-inch heel with lug sole. All S–XL grouped boot sizes currently available; consult merchant sizing chart. The textured steampunk finish is less polished than the reference."
+      }
+    },
+    {
+      "id": "p-bfb0395c79",
+      "title": "Long Leather Cavalry Boots - Black",
+      "url": "https://historicalemporium.com/products/long-leather-cavalry-boots-black?variant=51717700813094",
+      "priceCents": 26995,
+      "currency": "USD",
+      "image": "/products/price-tiers/p-bfb0395c79.webp",
+      "merchantImage": "/products/price-tiers/p-bfb0395c79.webp",
+      "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/0980/0974/3654/files/006560_01_b92ad657-0bbc-43e4-8301-c833d954a5df.jpg?v=1769539795"
+      ],
+      "availability": "in_stock",
+      "sizes": [
+        "7",
+        "8",
+        "9",
+        "10"
+      ],
+      "merchantId": "historicalemporium-com",
+      "tagSlugs": [],
+      "description": "Pair of 100% black leather cavalry boots, low heel, square toe, pull loops and 15-inch back shaft with 3-inch front rise. Best smooth riding-boot silhouette of these choices; square toe differs from the reference rounded toe. Only 7, 8, 9 and 10 available; 11–13 excluded.",
+      "checkedAt": "2026-10-25T08:51:41.862679Z",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-25T08:51:41.862679Z",
+        "url": "https://historicalemporium.com/products/long-leather-cavalry-boots-black.js",
+        "notes": "Pair of 100% black leather cavalry boots, low heel, square toe, pull loops and 15-inch back shaft with 3-inch front rise. Best smooth riding-boot silhouette of these choices; square toe differs from the reference rounded toe. Only 7, 8, 9 and 10 available; 11–13 excluded."
+      }
+    },
+    {
+      "id": "p-691dccf66e",
+      "title": "Men's Pirate Boot - Black",
+      "url": "https://halloweenhallway.com/products/mens-pirate-boot-black?variant=35353964511397",
+      "priceCents": 7200,
+      "currency": "USD",
+      "image": "/products/price-tiers/p-691dccf66e.webp",
+      "merchantImage": "/products/price-tiers/p-691dccf66e.webp",
+      "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/0439/5935/3509/products/HA52BK.jpg?v=1596013396"
+      ],
+      "availability": "in_stock",
+      "sizes": [
+        "Men's Shoe M (10 - 11)",
+        "Men's Shoe L (12 - 13)",
+        "Men's Shoe S (8 - 9)"
+      ],
+      "merchantId": "halloweenhallway-com",
+      "tagSlugs": [],
+      "description": "Pair of black theatrical pirate/cavalier boots in heavy foam-backed vinyl, side zipper, 1-inch heel and approximately 16-inch total height. Photo shows a folded cuff, unlike the reference smooth riding boot. Available merchant sizes are Men's Shoe S (8 - 9), M (10 - 11), and L (12 - 13); no XL stock claimed.",
+      "checkedAt": "2026-10-25T08:51:41.862679Z",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-25T08:51:41.862679Z",
+        "url": "https://halloweenhallway.com/products/mens-pirate-boot-black.js",
+        "notes": "Pair of black theatrical pirate/cavalier boots in heavy foam-backed vinyl, side zipper, 1-inch heel and approximately 16-inch total height. Photo shows a folded cuff, unlike the reference smooth riding boot. Available merchant sizes are Men's Shoe S (8 - 9), M (10 - 11), and L (12 - 13); no XL stock claimed."
+      }
+    }
+  ],
+  "merchants": [
+    {
+      "id": "easytot-com",
+      "name": "EasyTot",
+      "domain": "easytot.com",
+      "url": "https://easytot.com/",
+      "kind": "boutique",
+      "neighborhoodId": null
+    },
+    {
+      "id": "historicalemporium-com",
+      "name": "Historical Emporium",
+      "domain": "historicalemporium.com",
+      "url": "https://historicalemporium.com/",
+      "kind": "boutique",
+      "neighborhoodId": null
+    },
+    {
+      "id": "teejaytraders-com",
+      "name": "Tee Jay Traders",
+      "domain": "teejaytraders.com",
+      "url": "https://teejaytraders.com/",
+      "kind": "boutique",
+      "neighborhoodId": null
+    },
+    {
+      "id": "thesultryvixen-com",
+      "name": "The Sultry Vixen",
+      "domain": "thesultryvixen.com",
+      "url": "https://thesultryvixen.com/",
+      "kind": "boutique",
+      "neighborhoodId": null
+    },
+    {
+      "id": "romaretailshop-com",
+      "name": "Roma Retail Shop",
+      "domain": "romaretailshop.com",
+      "url": "https://romaretailshop.com/",
+      "kind": "boutique",
+      "neighborhoodId": null
+    },
+    {
+      "id": "samsonhistorical-com",
+      "name": "Samson Historical",
+      "domain": "samsonhistorical.com",
+      "url": "https://samsonhistorical.com/",
+      "kind": "boutique",
+      "neighborhoodId": null
+    },
+    {
+      "id": "halloweenhallway-com",
+      "name": "Halloween Hallway",
+      "domain": "halloweenhallway.com",
+      "url": "https://halloweenhallway.com/",
+      "kind": "boutique",
+      "neighborhoodId": null
+    }
+  ],
+  "neighborhoods": [],
+  "tags": [],
+  "provenance": {
+    "method": "manual-research",
+    "generatedAt": "2026-10-25T08:51:41.862679Z",
+    "priceTiers": true,
+    "heroImageKind": "generated-reference",
+    "notes": "Built-in web search and direct official merchant evidence. Three distinct relative price points per piece: $, $$, $$$. Prices exclude shipping/tax; stock is variant-specific and delivery is unconfirmed. See docs/sourcing/price-tiers/velvet-ringmaster.json."
+  }
+}

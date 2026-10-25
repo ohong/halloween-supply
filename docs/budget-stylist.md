@@ -1,6 +1,6 @@
 # Budget stylist
 
-Each of the five live costumes has five pieces. Every piece has three distinct
+All 25 costumes have complete shopping catalogs with four to seven purchasable components. Every piece has three distinct
 merchant price points, labeled $, $$, and $$$ relative to that piece. A higher
 price is not a quality claim. Rank still records the editorial default independently
 of price.
@@ -20,15 +20,19 @@ The server enumerates complete combinations, removes sold-out products, rejects
 known size mismatches and explicitly late production times, and sums integer cents.
 Only affordable combinations reach OpenAI Decisions, using `gpt-6-luna`.
 
-Five pieces with three choices produce at most 243 combinations. Decisions sees
+Five pieces with three choices produce 243 combinations; seven produce 2,187. Decisions sees
 all affordable combinations, the generated costume reference, actual merchant
 photographs, factual product notes, and the shopper's constraints. It selects one
 supplied outfit ID or declines. Application code resolves that ID back to catalog
 products and prices. It never trusts model-generated amounts or product IDs.
 
-The provider supports 255 choices. This endpoint permits at most 254 affordable
-outfits plus a decline choice, and fails clearly if the catalog exceeds that limit.
-The former 24-outfit heuristic shortlist was removed so it cannot hide a useful mix.
+The provider supports 255 choices and bounded structured input. Each request holds
+at most 254 complete outfits plus a decline choice. Larger catalogs enter exhaustive
+groups; each group winner reaches a final comparison. No heuristic drops a feasible
+outfit before Decisions sees it. Small catalogs retain one call. At most three
+groups run concurrently, with 24 groups and one final call as a hard request limit.
+Evidence records unique outfits, groups, calls, finalists, and repeated evaluations.
+Provider errors stop the request; partial winners are never returned.
 
 If the budget is too small, the endpoint returns the exact lowest matching subtotal
 and shortfall. It does not recommend an over-budget outfit. A provider error is
@@ -44,12 +48,17 @@ costume remains the first carousel image; clicks and arrow keys reach the produc
 
 A listed price applies only to the recorded variants and sizes at that price.
 For example, a larger tee may cost more than its smaller variants. The importer
-keeps those prices separate by restricting each offer's size list. Marketplace
+and daily refresh keep those prices separate by restricting each offer's size list.
+Placeholder selectors such as “Choose Size...” are never treated as stocked sizes. Marketplace
 sellers remain separate suppliers, even when they share the same domain.
 
 Unknown stock and unknown sizes remain explicit. A made-to-order listing can be
 orderable without finished stock. Clear minimum production or dispatch times can
 exclude a product for a near event; missing or ambiguous times never prove arrival.
+Confirmed dress-and-hat bundles form one purchasable component, so the cart does
+not charge for a second hat. DIY fabric and trim appear as separate components;
+the catalog and assistant state the required assembly.
+
 Shipping and tax are outside the pieces budget. Checkout still rechecks merchant
 prices, availability, and sizes before an unpaid Stripe session is created.
 
@@ -67,7 +76,8 @@ bun run build
 bun run start --port 3401
 bun --env-file=.env.local scripts/verify-stylist.ts http://localhost:3401
 bun --env-file=.env.local scripts/verify-stylist-chat.ts http://localhost:3401
-bun --env-file=.env.local scripts/verify-costumes.ts http://localhost:3401
+bun --env-file=.env.local scripts/verify-full-catalog.ts http://localhost:3401
+bun --env-file=.env.local scripts/verify-stylist.ts http://localhost:3401 --costume=desert-alchemist --require-piece-count=7
 ```
 
 For local catalog QA before publication, build and run with `TURSO_DATABASE_URL=''`

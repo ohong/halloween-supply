@@ -1,0 +1,830 @@
+{
+  "costume": {
+    "slug": "raven-scholar",
+    "name": "Raven Scholar",
+    "description": "A black feather-textured shoulder cape over an ivory shirt and charcoal waistcoat, with a long dark skirt.",
+    "image": "/costumes/raven-scholar.png",
+    "alt": "Small raven-inspired headpiece, black feather-textured shoulder cape, charcoal waistcoat, ivory high-collar shirt, long black skirt, and boots",
+    "status": "live"
+  },
+  "pieces": [
+    {
+      "id": "raven-scholar-headpiece",
+      "name": "Small raven headpiece",
+      "category": "headwear",
+      "required": true,
+      "order": 0,
+      "sizeKind": "one_size",
+      "queries": [
+        "black raven fascinator headband",
+        "black pewter raven hair clip"
+      ],
+      "styleNotes": "A compact black raven shape with feathers above the head; a flat raven barrette is an honest budget simplification.",
+      "matches": [
+        {
+          "productId": "p-a50ff4050c",
+          "rank": 0,
+          "reason": "One adult black raven fascinator with feathers and tulle; merchant says one size fits all adults. Perched whole bird with mesh base rather than the reference’s profile raven head. Live variant available. Merchant offers US shipping; dispatch time is not stated."
+        },
+        {
+          "productId": "p-387c976a88",
+          "rank": 1,
+          "reason": "One black pewter raven barrette with a spring hair clasp; handmade in England by Alchemy Gothic. Compact, flat spread-wing bird instead of the reference’s sculptural bird head and feather fan. Merchant lists free US shipping. Live single variant is available. No dispatch estimate stated."
+        },
+        {
+          "productId": "p-56a09e0ccf",
+          "rank": 2,
+          "reason": "One adult headband fascinator with a realistic raven, feathers, jewels and pearls. More colorful jewel details and a small hat base than the reference. Personalization is not available. The image is the merchant’s older physical-product photograph; newer generated lifestyle pictures were excluded. Live single variant available. Dispatch time unstated."
+        }
+      ]
+    },
+    {
+      "id": "raven-scholar-feather-cape",
+      "name": "Black feather shoulder cape",
+      "category": "outerwear",
+      "required": true,
+      "order": 1,
+      "sizeKind": "one_size",
+      "queries": [
+        "black feather shoulder cape rooster feathers"
+      ],
+      "styleNotes": "Layered black feathers spread over the shoulders while the ivory collar stays visible. Iridescence and shorter collar shapes are acceptable approximations.",
+      "matches": [
+        {
+          "productId": "p-b16ad9d630",
+          "rank": 0,
+          "reason": "One black/iridescent cape made from 6–10-inch dyed rooster coque feathers, sewn to a black satin shell with velvet ribbon trim. Merchant measures it 30 x 28 inches, one size fits most. Hook-and-eye front closure; feather layer can stand up as a collar. Iridescent rather than flat black. Live variant available; dispatch time unstated."
+        },
+        {
+          "productId": "p-6c366a858b",
+          "rank": 1,
+          "reason": "Black feather collar/cape shown with a ribbon tie; listed width 27–30 cm. Shorter, rounder feathers than the reference. Primary listing confirms USD25 and Add to cart, but ready-stock quantity is unverified; listing says made to order. Ships from China to the US. Seller states 7–20 days standard shipping; production time is unspecified. Do not promise Halloween delivery."
+        },
+        {
+          "productId": "p-1458aa2e28",
+          "rank": 2,
+          "reason": "Petite Size / NONE only at USD65: feather cape with pleather fabric lining and black ribbon ties. No metal mask is included. Standard Size costs USD75 and is excluded from this price. Merchant calls Petite suitable for most women; shoulder measurements are unstated. Actual garment photograph selected. Live Petite variant available. Dispatch time unstated."
+        }
+      ]
+    },
+    {
+      "id": "raven-scholar-ivory-blouse",
+      "name": "Ivory high-collar blouse",
+      "category": "tops",
+      "required": true,
+      "order": 2,
+      "sizeKind": "apparel",
+      "queries": [
+        "ivory Victorian high collar blouse"
+      ],
+      "styleNotes": "An ivory long-sleeve blouse with a high neckline and full sleeves. The reference has ornate ruffled cuffs and collar; simpler trims are noted.",
+      "matches": [
+        {
+          "productId": "p-ca2db9e903",
+          "rank": 0,
+          "reason": "Ivory cotton sateen blouse with a buttoned high neckline, lace yoke and cuffs. Made in the USA. More restrained sleeves than the reference. Blouse only; brooch and skirt in photo are not included. XS, SM, MD, LG, XL and XXL cost USD119 and are available; 3X and 4X cost USD135 and are excluded. No dispatch estimate stated."
+        },
+        {
+          "productId": "p-36fb3393ab",
+          "rank": 1,
+          "reason": "Ivory 100% cotton blouse with a simple stand collar, button front and gathered sleeves/back. Plain cuffs and collar have less ruffle and ornament than the reference. Blouse only; skirt in photograph is separate. Only M, L, XL and 2X are available; XS and S are sold out. Dispatch time unstated."
+        },
+        {
+          "productId": "p-dd19c6de45",
+          "rank": 2,
+          "reason": "Ivory silk charmeuse blouse; merchant states 92% silk/8% spandex. Dramatic gathered sleeves, long cuffs and covered buttons. Neck sash ties as a bow or loose cravat; it differs from the reference’s rigid ruffled stand collar. Ivory XS–5X variants available at USD132. Merchant lists 3–5 business days processing for in-stock goods, plus transit; holidays may take longer."
+        }
+      ]
+    },
+    {
+      "id": "raven-scholar-waistcoat",
+      "name": "Charcoal waistcoat",
+      "category": "tops",
+      "required": true,
+      "order": 3,
+      "sizeKind": "apparel",
+      "queries": [
+        "charcoal women waistcoat Victorian brocade vest"
+      ],
+      "styleNotes": "A fitted dark button-front waistcoat over the blouse. Gray tweed and black brocade approximate charcoal; the blouse is bought separately.",
+      "matches": [
+        {
+          "productId": "p-dbf9a6582b",
+          "rank": 0,
+          "reason": "Gray tweed women’s vest with notched lapels, five buttons, faux pockets and adjustable back belt. 100% polyester with satin acetate back, fully lined. Gray tweed is lighter and less ornate than the reference’s charcoal brocade. Vest only; blouse and skirt are separate. S, M, L, XL, 2X and 3X are available at USD64.95 in the live feed; use the live size selector, as description text stops at 2X. Dispatch time unstated."
+        },
+        {
+          "productId": "p-43dbc8c569",
+          "rank": 1,
+          "reason": "Black Victorian damask brocade vest, 65% cotton/35% polyester, lined in black polyester sateen. Collarless V neck with three metal buttons and adjustable back buckle. Men’s slim cut differs from the reference’s shaped women’s charcoal lapel vest; measure chest before selecting. Vest only. All S–5XL variants are available at USD32.45. Listing says custom made; production/dispatch time is not specified."
+        },
+        {
+          "productId": "p-9309900a8e",
+          "rank": 2,
+          "reason": "Black tone-on-tone brocade women’s vest with lapels, covered buttons, two welt pockets and an adjustable buckle back. 100% polyester microfiber front with acetate backing, fully lined. Close in ornate fitted shape, but black rather than charcoal and no decorative chain. Vest only. All XS–2X variants available. Dispatch time unstated."
+        }
+      ]
+    },
+    {
+      "id": "raven-scholar-black-skirt",
+      "name": "Long black skirt",
+      "category": "bottoms",
+      "required": true,
+      "order": 4,
+      "sizeKind": "apparel",
+      "queries": [
+        "black Victorian maxi skirt layered ruffles"
+      ],
+      "styleNotes": "A long dark skirt beneath the vest. The reference has layered ruffles and embroidery; plain and lace alternatives preserve the long silhouette.",
+      "matches": [
+        {
+          "productId": "p-a45f18ae26",
+          "rank": 0,
+          "reason": "One deep black lace maxi skirt with cascading ruffled tiers, embroidered detail, irregular hem and elastic drawstring waist. Closer layered texture than the plain walking skirt, but sheer lace replaces the reference’s opaque cloth. Only merchant size F is sold and available; body measurements and lining coverage are not stated. Other styled garments/accessories are excluded. USD currency confirmed in merchant page data. Dispatch time unstated."
+        },
+        {
+          "productId": "p-d618ba035e",
+          "rank": 1,
+          "reason": "Black 100% cotton full-length walking skirt with adjustable button waistband. Plain, slim silhouette replaces the reference’s layered ruffles and embroidery. Skirt only; no hoop is required or included. Only XS and 3X are currently available; all other sizes sold out. Merchant gives approximate lengths of 41 inches in S and 43 inches in 2X, but those sizes are not offered here. Dispatch time unstated."
+        },
+        {
+          "productId": "p-90ba76fee6",
+          "rank": 2,
+          "reason": "Black unlined 100% cotton twill skirt, about 40 inches long, with elastic waist and back ruffles creating a bustle. Ruffles run mainly at the back; it lacks the reference’s front embroidery and angled layered overskirt. Skirt only; shown hoop underskirt is sold separately and is optional. S, M, L, XL and 2X are available; XS and 3X are sold out. Dispatch time unstated."
+        }
+      ]
+    },
+    {
+      "id": "raven-scholar-boots",
+      "name": "Black lace-up boots",
+      "category": "footwear",
+      "required": true,
+      "order": 5,
+      "sizeKind": "shoe",
+      "queries": [
+        "black Victorian lace up boots women"
+      ],
+      "styleNotes": "Black mid-calf lace-up boots with a heel, visible beneath the skirt. Heel height and materials vary.",
+      "matches": [
+        {
+          "productId": "p-336f983a8e",
+          "rank": 0,
+          "reason": "Black full-grain leather Edwardian lace-up boots with leather soles, canvas lining, silicone inserts and a 1.2-inch heel. Lower heel and more practical shape than the reference. All displayed EU35–43 regular and wide variants are available at the live USD207.20 sale price. Exact merchant size labels retained. US store ships from Ohio; dispatch estimate unstated."
+        },
+        {
+          "productId": "p-babffa879d",
+          "rank": 1,
+          "reason": "Black vegan PU mid-calf lace-up boots with a 2¾-inch kitten heel and inner side zipper. Close lace-up silhouette, with a narrower heel than the reference. Pair of boots only. Available women’s US sizes: 6, 8, 9 and 12. Sizes 7, 10 and 11 are sold out. Dispatch time unstated."
+        },
+        {
+          "productId": "p-3c7b273e7c",
+          "rank": 2,
+          "reason": "Black leather Edwardian lace-up boots with brogue detail, 3-inch French spool heel, and an 8-inch shaft excluding heel. Regular B width; this listing does not cover the separate wide product. Included two sets of laces. Close silhouette, but higher heel than the reference. Available women’s US sizes: 6, 6.5, 7.5, 8, 8.5, 9, 9.5, 10, 10.5, 11 and 12. Sizes 5 and 7 sold out. Dispatch time unstated."
+        }
+      ]
+    }
+  ],
+  "products": [
+    {
+      "id": "p-387c976a88",
+      "title": "Black Raven Hair Slide Clip Barrette by Alchemy Gothic",
+      "url": "https://dragonweave.com/products/black-raven-hair-slide-clip-barrette-by-alchemy-gothic?variant=41879433445494",
+      "priceCents": 3595,
+      "currency": "USD",
+      "image": "/products/price-tiers/p-387c976a88.webp",
+      "merchantImage": "/products/price-tiers/p-387c976a88.webp",
+      "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/0891/9522/files/HH10__48143.jpg?v=1734708986"
+      ],
+      "availability": "in_stock",
+      "sizes": [
+        "one size"
+      ],
+      "merchantId": "dragonweave-com",
+      "tagSlugs": [],
+      "description": "One black pewter raven barrette with a spring hair clasp; handmade in England by Alchemy Gothic. Compact, flat spread-wing bird instead of the reference’s sculptural bird head and feather fan. Merchant lists free US shipping. Live single variant is available. No dispatch estimate stated.",
+      "checkedAt": "2026-10-25T08:49:51.686928+00:00",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-25T08:49:51.686928+00:00",
+        "url": "https://dragonweave.com/products/black-raven-hair-slide-clip-barrette-by-alchemy-gothic.js",
+        "notes": "One black pewter raven barrette with a spring hair clasp; handmade in England by Alchemy Gothic. Compact, flat spread-wing bird instead of the reference’s sculptural bird head and feather fan. Merchant lists free US shipping. Live single variant is available. No dispatch estimate stated."
+      }
+    },
+    {
+      "id": "p-a50ff4050c",
+      "title": "Raven Fascinator - Black",
+      "url": "https://www.masqueradestore.com/products/raven-feather-fascinator-black?variant=51121714889007",
+      "priceCents": 9000,
+      "currency": "USD",
+      "image": "/products/price-tiers/p-a50ff4050c.webp",
+      "merchantImage": "/products/price-tiers/p-a50ff4050c.webp",
+      "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/0738/6159/5439/files/raven-feather-fascinator-black.jpg?v=1742536205"
+      ],
+      "availability": "in_stock",
+      "sizes": [
+        "one size"
+      ],
+      "merchantId": "masqueradestore-com",
+      "tagSlugs": [],
+      "description": "One adult black raven fascinator with feathers and tulle; merchant says one size fits all adults. Perched whole bird with mesh base rather than the reference’s profile raven head. Live variant available. Merchant offers US shipping; dispatch time is not stated.",
+      "checkedAt": "2026-10-25T08:49:51.686928+00:00",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-25T08:49:51.686928+00:00",
+        "url": "https://www.masqueradestore.com/products/raven-feather-fascinator-black.js",
+        "notes": "One adult black raven fascinator with feathers and tulle; merchant says one size fits all adults. Perched whole bird with mesh base rather than the reference’s profile raven head. Live variant available. Merchant offers US shipping; dispatch time is not stated."
+      }
+    },
+    {
+      "id": "p-56a09e0ccf",
+      "title": "Enchanted Crow Fascinator Hat",
+      "url": "https://www.masqueradestore.com/products/raven-feather-jeweled-fascinator-hat-black?variant=51333471142191",
+      "priceCents": 15800,
+      "currency": "USD",
+      "image": "/products/price-tiers/p-56a09e0ccf.webp",
+      "merchantImage": "/products/price-tiers/p-56a09e0ccf.webp",
+      "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/0738/6159/5439/files/787B88C9-8270-4F70-A5F8-46203E091FFE_1_105_c.jpg?v=1747290808"
+      ],
+      "availability": "in_stock",
+      "sizes": [
+        "one size"
+      ],
+      "merchantId": "masqueradestore-com",
+      "tagSlugs": [],
+      "description": "One adult headband fascinator with a realistic raven, feathers, jewels and pearls. More colorful jewel details and a small hat base than the reference. Personalization is not available. The image is the merchant’s older physical-product photograph; newer generated lifestyle pictures were excluded. Live single variant available. Dispatch time unstated.",
+      "checkedAt": "2026-10-25T08:49:51.686928+00:00",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-25T08:49:51.686928+00:00",
+        "url": "https://www.masqueradestore.com/products/raven-feather-jeweled-fascinator-hat-black.js",
+        "notes": "One adult headband fascinator with a realistic raven, feathers, jewels and pearls. More colorful jewel details and a small hat base than the reference. Personalization is not available. The image is the merchant’s older physical-product photograph; newer generated lifestyle pictures were excluded. Live single variant available. Dispatch time unstated."
+      }
+    },
+    {
+      "id": "p-6c366a858b",
+      "title": "black feather cape Black Feathered collar black feather cape gothic feather collar/gothic fashion Halloween Costume",
+      "url": "https://www.etsy.com/listing/1424529107/black-feather-cape-black-feathered",
+      "priceCents": 2500,
+      "currency": "USD",
+      "image": "/products/price-tiers/p-6c366a858b.webp",
+      "merchantImage": "/products/price-tiers/p-6c366a858b.webp",
+      "sourceImages": [
+        "https://i.etsystatic.com/17338879/r/il/abcad9/4659691848/il_794xN.4659691848_j3io.jpg"
+      ],
+      "availability": "unknown",
+      "sizes": [],
+      "merchantId": "etsy-fancycraftsupply-on-etsy",
+      "tagSlugs": [],
+      "description": "Black feather collar/cape shown with a ribbon tie; listed width 27–30 cm. Shorter, rounder feathers than the reference. Primary listing confirms USD25 and Add to cart, but ready-stock quantity is unverified; listing says made to order. Ships from China to the US. Seller states 7–20 days standard shipping; production time is unspecified. Do not promise Halloween delivery.",
+      "checkedAt": "2026-10-25T08:49:51.686928+00:00",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-25T08:49:51.686928+00:00",
+        "url": "https://www.etsy.com/listing/1424529107/black-feather-cape-black-feathered",
+        "notes": "Black feather collar/cape shown with a ribbon tie; listed width 27–30 cm. Shorter, rounder feathers than the reference. Primary listing confirms USD25 and Add to cart, but ready-stock quantity is unverified; listing says made to order. Ships from China to the US. Seller states 7–20 days standard shipping; production time is unspecified. Do not promise Halloween delivery."
+      }
+    },
+    {
+      "id": "p-1458aa2e28",
+      "title": "Black Feather Cape - Viking Warrior",
+      "url": "https://www.masqueradestore.com/products/black-feather-cape-viking-warrior-cape-pagan-ritual-cape-samhain-festival?variant=50128562520367",
+      "priceCents": 6500,
+      "currency": "USD",
+      "image": "/products/price-tiers/p-1458aa2e28.webp",
+      "merchantImage": "/products/price-tiers/p-1458aa2e28.webp",
+      "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/0738/6159/5439/files/BlackvikingWarriorFeatherCape.png?v=1719043249"
+      ],
+      "availability": "in_stock",
+      "sizes": [
+        "Petite Size"
+      ],
+      "merchantId": "masqueradestore-com",
+      "tagSlugs": [],
+      "description": "Petite Size / NONE only at USD65: feather cape with pleather fabric lining and black ribbon ties. No metal mask is included. Standard Size costs USD75 and is excluded from this price. Merchant calls Petite suitable for most women; shoulder measurements are unstated. Actual garment photograph selected. Live Petite variant available. Dispatch time unstated.",
+      "checkedAt": "2026-10-25T08:49:51.686928+00:00",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-25T08:49:51.686928+00:00",
+        "url": "https://www.masqueradestore.com/products/black-feather-cape-viking-warrior-cape-pagan-ritual-cape-samhain-festival.js",
+        "notes": "Petite Size / NONE only at USD65: feather cape with pleather fabric lining and black ribbon ties. No metal mask is included. Standard Size costs USD75 and is excluded from this price. Merchant calls Petite suitable for most women; shoulder measurements are unstated. Actual garment photograph selected. Live Petite variant available. Dispatch time unstated."
+      }
+    },
+    {
+      "id": "p-b16ad9d630",
+      "title": "High Collar Feather Cape-Black/Irid",
+      "url": "https://zuckerfeather.com/products/high-collar-feather-cape-black-irid-clcq12-bl-irid-clcq12-bl-irid?variant=44730358038779",
+      "priceCents": 5944,
+      "currency": "USD",
+      "image": "/products/price-tiers/p-b16ad9d630.webp",
+      "merchantImage": "/products/price-tiers/p-b16ad9d630.webp",
+      "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/0630/5605/2475/files/high-collar-feather-cape-black-irid-feathers-393.jpg?v=1723062484"
+      ],
+      "availability": "in_stock",
+      "sizes": [
+        "one size"
+      ],
+      "merchantId": "zuckerfeather-com",
+      "tagSlugs": [],
+      "description": "One black/iridescent cape made from 6–10-inch dyed rooster coque feathers, sewn to a black satin shell with velvet ribbon trim. Merchant measures it 30 x 28 inches, one size fits most. Hook-and-eye front closure; feather layer can stand up as a collar. Iridescent rather than flat black. Live variant available; dispatch time unstated.",
+      "checkedAt": "2026-10-25T08:49:51.686928+00:00",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-25T08:49:51.686928+00:00",
+        "url": "https://zuckerfeather.com/products/high-collar-feather-cape-black-irid-clcq12-bl-irid-clcq12-bl-irid.js",
+        "notes": "One black/iridescent cape made from 6–10-inch dyed rooster coque feathers, sewn to a black satin shell with velvet ribbon trim. Merchant measures it 30 x 28 inches, one size fits most. Hook-and-eye front closure; feather layer can stand up as a collar. Iridescent rather than flat black. Live variant available; dispatch time unstated."
+      }
+    },
+    {
+      "id": "p-36fb3393ab",
+      "title": "Lorraine Work Blouse - Ivory",
+      "url": "https://historicalemporium.com/products/lorraine-work-blouse-ivory?variant=52047715696934",
+      "priceCents": 6795,
+      "currency": "USD",
+      "image": "/products/price-tiers/p-36fb3393ab.webp",
+      "merchantImage": "/products/price-tiers/p-36fb3393ab.webp",
+      "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/0980/0974/3654/files/005389_01_af8d1b6b-13d5-4ac9-aa8a-e5e8981950a7.jpg?v=1769539701"
+      ],
+      "availability": "in_stock",
+      "sizes": [
+        "M",
+        "L",
+        "XL",
+        "2X"
+      ],
+      "merchantId": "historicalemporium-com",
+      "tagSlugs": [],
+      "description": "Ivory 100% cotton blouse with a simple stand collar, button front and gathered sleeves/back. Plain cuffs and collar have less ruffle and ornament than the reference. Blouse only; skirt in photograph is separate. Only M, L, XL and 2X are available; XS and S are sold out. Dispatch time unstated.",
+      "checkedAt": "2026-10-25T08:49:51.686928+00:00",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-25T08:49:51.686928+00:00",
+        "url": "https://historicalemporium.com/products/lorraine-work-blouse-ivory.js",
+        "notes": "Ivory 100% cotton blouse with a simple stand collar, button front and gathered sleeves/back. Plain cuffs and collar have less ruffle and ornament than the reference. Blouse only; skirt in photograph is separate. Only M, L, XL and 2X are available; XS and S are sold out. Dispatch time unstated."
+      }
+    },
+    {
+      "id": "p-ca2db9e903",
+      "title": "Victorian Women's Western Blouse",
+      "url": "https://cattlekate.com/products/victoria-blouse?variant=44979889504577",
+      "priceCents": 11900,
+      "currency": "USD",
+      "image": "/products/price-tiers/p-ca2db9e903.webp",
+      "merchantImage": "/products/price-tiers/p-ca2db9e903.webp",
+      "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/0724/0450/0801/files/VictoriaBlouse.jpg?v=1731989901"
+      ],
+      "availability": "in_stock",
+      "sizes": [
+        "XS",
+        "SM",
+        "MD",
+        "LG",
+        "XL",
+        "XXL"
+      ],
+      "merchantId": "cattlekate-com",
+      "tagSlugs": [],
+      "description": "Ivory cotton sateen blouse with a buttoned high neckline, lace yoke and cuffs. Made in the USA. More restrained sleeves than the reference. Blouse only; brooch and skirt in photo are not included. XS, SM, MD, LG, XL and XXL cost USD119 and are available; 3X and 4X cost USD135 and are excluded. No dispatch estimate stated.",
+      "checkedAt": "2026-10-25T08:49:51.686928+00:00",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-25T08:49:51.686928+00:00",
+        "url": "https://cattlekate.com/products/victoria-blouse.js",
+        "notes": "Ivory cotton sateen blouse with a buttoned high neckline, lace yoke and cuffs. Made in the USA. More restrained sleeves than the reference. Blouse only; brooch and skirt in photo are not included. XS, SM, MD, LG, XL and XXL cost USD119 and are available; 3X and 4X cost USD135 and are excluded. No dispatch estimate stated."
+      }
+    },
+    {
+      "id": "p-dd19c6de45",
+      "title": "Victorian Silk Blouse in Ivory",
+      "url": "https://lafemmeennoir.net/products/victorian-blouse-in-ivory?variant=32104615870534",
+      "priceCents": 13200,
+      "currency": "USD",
+      "image": "/products/price-tiers/p-dd19c6de45.webp",
+      "merchantImage": "/products/price-tiers/p-dd19c6de45.webp",
+      "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/2112/0571/files/Silk_Blouse_7.png?v=1734686817"
+      ],
+      "availability": "in_stock",
+      "sizes": [
+        "XS",
+        "S",
+        "M",
+        "L",
+        "XL",
+        "2X",
+        "3X",
+        "4X",
+        "5X"
+      ],
+      "merchantId": "lafemmeennoir-net",
+      "tagSlugs": [],
+      "description": "Ivory silk charmeuse blouse; merchant states 92% silk/8% spandex. Dramatic gathered sleeves, long cuffs and covered buttons. Neck sash ties as a bow or loose cravat; it differs from the reference’s rigid ruffled stand collar. Ivory XS–5X variants available at USD132. Merchant lists 3–5 business days processing for in-stock goods, plus transit; holidays may take longer.",
+      "checkedAt": "2026-10-25T08:49:51.686928+00:00",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-25T08:49:51.686928+00:00",
+        "url": "https://lafemmeennoir.net/products/victorian-blouse-in-ivory.js",
+        "notes": "Ivory silk charmeuse blouse; merchant states 92% silk/8% spandex. Dramatic gathered sleeves, long cuffs and covered buttons. Neck sash ties as a bow or loose cravat; it differs from the reference’s rigid ruffled stand collar. Ivory XS–5X variants available at USD132. Merchant lists 3–5 business days processing for in-stock goods, plus transit; holidays may take longer."
+      }
+    },
+    {
+      "id": "p-9309900a8e",
+      "title": "Ladies Weathersby Vest - Black",
+      "url": "https://historicalemporium.com/products/weathersby-ladies-vest-black?variant=52047634333990",
+      "priceCents": 7495,
+      "currency": "USD",
+      "image": "/products/price-tiers/p-9309900a8e.webp",
+      "merchantImage": "/products/price-tiers/p-9309900a8e.webp",
+      "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/0980/0974/3654/files/001692_01_09198bde-301d-4992-a74a-d1131c2998f6.jpg?v=1769539239"
+      ],
+      "availability": "in_stock",
+      "sizes": [
+        "XS",
+        "S",
+        "M",
+        "L",
+        "XL",
+        "2X"
+      ],
+      "merchantId": "historicalemporium-com",
+      "tagSlugs": [],
+      "description": "Black tone-on-tone brocade women’s vest with lapels, covered buttons, two welt pockets and an adjustable buckle back. 100% polyester microfiber front with acetate backing, fully lined. Close in ornate fitted shape, but black rather than charcoal and no decorative chain. Vest only. All XS–2X variants available. Dispatch time unstated.",
+      "checkedAt": "2026-10-25T08:49:51.686928+00:00",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-25T08:49:51.686928+00:00",
+        "url": "https://historicalemporium.com/products/weathersby-ladies-vest-black.js",
+        "notes": "Black tone-on-tone brocade women’s vest with lapels, covered buttons, two welt pockets and an adjustable buckle back. 100% polyester microfiber front with acetate backing, fully lined. Close in ornate fitted shape, but black rather than charcoal and no decorative chain. Vest only. All XS–2X variants available. Dispatch time unstated."
+      }
+    },
+    {
+      "id": "p-dbf9a6582b",
+      "title": "Ladies Tweed Vest - Gray",
+      "url": "https://historicalemporium.com/products/ladies-tweed-vest-gray?variant=51717681578278",
+      "priceCents": 6495,
+      "currency": "USD",
+      "image": "/products/price-tiers/p-dbf9a6582b.webp",
+      "merchantImage": "/products/price-tiers/p-dbf9a6582b.webp",
+      "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/0980/0974/3654/files/008849_01_ec09afad-1654-42ef-87db-4e326db99949.jpg?v=1769619184"
+      ],
+      "availability": "in_stock",
+      "sizes": [
+        "S",
+        "M",
+        "L",
+        "XL",
+        "2X",
+        "3X"
+      ],
+      "merchantId": "historicalemporium-com",
+      "tagSlugs": [],
+      "description": "Gray tweed women’s vest with notched lapels, five buttons, faux pockets and adjustable back belt. 100% polyester with satin acetate back, fully lined. Gray tweed is lighter and less ornate than the reference’s charcoal brocade. Vest only; blouse and skirt are separate. S, M, L, XL, 2X and 3X are available at USD64.95 in the live feed; use the live size selector, as description text stops at 2X. Dispatch time unstated.",
+      "checkedAt": "2026-10-25T08:49:51.686928+00:00",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-25T08:49:51.686928+00:00",
+        "url": "https://historicalemporium.com/products/ladies-tweed-vest-gray.js",
+        "notes": "Gray tweed women’s vest with notched lapels, five buttons, faux pockets and adjustable back belt. 100% polyester with satin acetate back, fully lined. Gray tweed is lighter and less ornate than the reference’s charcoal brocade. Vest only; blouse and skirt are separate. S, M, L, XL, 2X and 3X are available at USD64.95 in the live feed; use the live size selector, as description text stops at 2X. Dispatch time unstated."
+      }
+    },
+    {
+      "id": "p-43dbc8c569",
+      "title": "Men's Waistcoat Vest Black Brocade Gothic Steampunk VTG /USA",
+      "url": "https://www.darkrock.net/products/mens-waistcoat-vest-black-brocade-gothic-steampunk-vtg-usa?variant=46475594137685",
+      "priceCents": 3245,
+      "currency": "USD",
+      "image": "/products/price-tiers/p-43dbc8c569.webp",
+      "merchantImage": "/products/price-tiers/p-43dbc8c569.webp",
+      "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/0729/6267/0677/files/Document-37-page0001.jpg?v=1792737878"
+      ],
+      "availability": "in_stock",
+      "sizes": [
+        "S",
+        "M",
+        "L",
+        "XL",
+        "2XL",
+        "3XL",
+        "4XL",
+        "5XL"
+      ],
+      "merchantId": "darkrock-net",
+      "tagSlugs": [],
+      "description": "Black Victorian damask brocade vest, 65% cotton/35% polyester, lined in black polyester sateen. Collarless V neck with three metal buttons and adjustable back buckle. Men’s slim cut differs from the reference’s shaped women’s charcoal lapel vest; measure chest before selecting. Vest only. All S–5XL variants are available at USD32.45. Listing says custom made; production/dispatch time is not specified.",
+      "checkedAt": "2026-10-25T08:49:51.686928+00:00",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-25T08:49:51.686928+00:00",
+        "url": "https://www.darkrock.net/products/mens-waistcoat-vest-black-brocade-gothic-steampunk-vtg-usa.js",
+        "notes": "Black Victorian damask brocade vest, 65% cotton/35% polyester, lined in black polyester sateen. Collarless V neck with three metal buttons and adjustable back buckle. Men’s slim cut differs from the reference’s shaped women’s charcoal lapel vest; measure chest before selecting. Vest only. All S–5XL variants are available at USD32.45. Listing says custom made; production/dispatch time is not specified."
+      }
+    },
+    {
+      "id": "p-90ba76fee6",
+      "title": "Twill Bustle Skirt - Black",
+      "url": "https://historicalemporium.com/products/twill-bustle-skirt-black?variant=51717849088294",
+      "priceCents": 10295,
+      "currency": "USD",
+      "image": "/products/price-tiers/p-90ba76fee6.webp",
+      "merchantImage": "/products/price-tiers/p-90ba76fee6.webp",
+      "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/0980/0974/3654/files/002598_01_b5e088ed-11b5-4698-954f-08af8bae96e3.jpg?v=1769539358"
+      ],
+      "availability": "in_stock",
+      "sizes": [
+        "S",
+        "M",
+        "L",
+        "XL",
+        "2X"
+      ],
+      "merchantId": "historicalemporium-com",
+      "tagSlugs": [],
+      "description": "Black unlined 100% cotton twill skirt, about 40 inches long, with elastic waist and back ruffles creating a bustle. Ruffles run mainly at the back; it lacks the reference’s front embroidery and angled layered overskirt. Skirt only; shown hoop underskirt is sold separately and is optional. S, M, L, XL and 2X are available; XS and 3X are sold out. Dispatch time unstated.",
+      "checkedAt": "2026-10-25T08:49:51.686928+00:00",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-25T08:49:51.686928+00:00",
+        "url": "https://historicalemporium.com/products/twill-bustle-skirt-black.js",
+        "notes": "Black unlined 100% cotton twill skirt, about 40 inches long, with elastic waist and back ruffles creating a bustle. Ruffles run mainly at the back; it lacks the reference’s front embroidery and angled layered overskirt. Skirt only; shown hoop underskirt is sold separately and is optional. S, M, L, XL and 2X are available; XS and 3X are sold out. Dispatch time unstated."
+      }
+    },
+    {
+      "id": "p-d618ba035e",
+      "title": "Cotton Twill Walking Skirt - Black",
+      "url": "https://historicalemporium.com/products/cotton-twill-walking-skirt-black?variant=51717579079974",
+      "priceCents": 8195,
+      "currency": "USD",
+      "image": "/products/price-tiers/p-d618ba035e.webp",
+      "merchantImage": "/products/price-tiers/p-d618ba035e.webp",
+      "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/0980/0974/3654/files/001836_01_a3fa85f6-bbdb-4372-851b-63a614e18335.jpg?v=1769539250"
+      ],
+      "availability": "in_stock",
+      "sizes": [
+        "XS",
+        "3X"
+      ],
+      "merchantId": "historicalemporium-com",
+      "tagSlugs": [],
+      "description": "Black 100% cotton full-length walking skirt with adjustable button waistband. Plain, slim silhouette replaces the reference’s layered ruffles and embroidery. Skirt only; no hoop is required or included. Only XS and 3X are currently available; all other sizes sold out. Merchant gives approximate lengths of 41 inches in S and 43 inches in 2X, but those sizes are not offered here. Dispatch time unstated.",
+      "checkedAt": "2026-10-25T08:49:51.686928+00:00",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-25T08:49:51.686928+00:00",
+        "url": "https://historicalemporium.com/products/cotton-twill-walking-skirt-black.js",
+        "notes": "Black 100% cotton full-length walking skirt with adjustable button waistband. Plain, slim silhouette replaces the reference’s layered ruffles and embroidery. Skirt only; no hoop is required or included. Only XS and 3X are currently available; all other sizes sold out. Merchant gives approximate lengths of 41 inches in S and 43 inches in 2X, but those sizes are not offered here. Dispatch time unstated."
+      }
+    },
+    {
+      "id": "p-a45f18ae26",
+      "title": "Vintage Gothic Lace Layered Maxi Skirt KW432",
+      "url": "https://www.darkinlove.com/products/vintage-gothic-lace-layered-maxi-skirt-kw432?variant=56851148931232",
+      "priceCents": 8317,
+      "currency": "USD",
+      "image": "/products/price-tiers/p-a45f18ae26.webp",
+      "merchantImage": "/products/price-tiers/p-a45f18ae26.webp",
+      "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/0051/7088/8794/files/KW432.jpg?v=1774244294"
+      ],
+      "availability": "in_stock",
+      "sizes": [
+        "F"
+      ],
+      "merchantId": "darkinlove-com",
+      "tagSlugs": [],
+      "description": "One deep black lace maxi skirt with cascading ruffled tiers, embroidered detail, irregular hem and elastic drawstring waist. Closer layered texture than the plain walking skirt, but sheer lace replaces the reference’s opaque cloth. Only merchant size F is sold and available; body measurements and lining coverage are not stated. Other styled garments/accessories are excluded. USD currency confirmed in merchant page data. Dispatch time unstated.",
+      "checkedAt": "2026-10-25T08:49:51.686928+00:00",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-25T08:49:51.686928+00:00",
+        "url": "https://www.darkinlove.com/products/vintage-gothic-lace-layered-maxi-skirt-kw432.js",
+        "notes": "One deep black lace maxi skirt with cascading ruffled tiers, embroidered detail, irregular hem and elastic drawstring waist. Closer layered texture than the plain walking skirt, but sheer lace replaces the reference’s opaque cloth. Only merchant size F is sold and available; body measurements and lining coverage are not stated. Other styled garments/accessories are excluded. USD currency confirmed in merchant page data. Dispatch time unstated."
+      }
+    },
+    {
+      "id": "p-3c7b273e7c",
+      "title": "Edith Edwardian Boots (Black)",
+      "url": "https://www.americanduchess.com/products/edith-edwardian-boots-black?variant=44085623816342",
+      "priceCents": 29900,
+      "currency": "USD",
+      "image": "/products/price-tiers/p-3c7b273e7c.webp",
+      "merchantImage": "/products/price-tiers/p-3c7b273e7c.webp",
+      "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/0450/5721/2566/files/78_c559ee36-2553-4892-b413-58b3061ff17b.jpg?v=1752504201"
+      ],
+      "availability": "in_stock",
+      "sizes": [
+        "6",
+        "6.5",
+        "7.5",
+        "8",
+        "8.5",
+        "9",
+        "9.5",
+        "10",
+        "10.5",
+        "11",
+        "12"
+      ],
+      "merchantId": "americanduchess-com",
+      "tagSlugs": [],
+      "description": "Black leather Edwardian lace-up boots with brogue detail, 3-inch French spool heel, and an 8-inch shaft excluding heel. Regular B width; this listing does not cover the separate wide product. Included two sets of laces. Close silhouette, but higher heel than the reference. Available women’s US sizes: 6, 6.5, 7.5, 8, 8.5, 9, 9.5, 10, 10.5, 11 and 12. Sizes 5 and 7 sold out. Dispatch time unstated.",
+      "checkedAt": "2026-10-25T08:49:51.686928+00:00",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-25T08:49:51.686928+00:00",
+        "url": "https://www.americanduchess.com/products/edith-edwardian-boots-black.js",
+        "notes": "Black leather Edwardian lace-up boots with brogue detail, 3-inch French spool heel, and an 8-inch shaft excluding heel. Regular B width; this listing does not cover the separate wide product. Included two sets of laces. Close silhouette, but higher heel than the reference. Available women’s US sizes: 6, 6.5, 7.5, 8, 8.5, 9, 9.5, 10, 10.5, 11 and 12. Sizes 5 and 7 sold out. Dispatch time unstated."
+      }
+    },
+    {
+      "id": "p-babffa879d",
+      "title": "Victorian-120",
+      "url": "https://pleasershoes.com/products/victorian-120bpu?variant=40958065475632",
+      "priceCents": 8195,
+      "currency": "USD",
+      "image": "/products/price-tiers/p-babffa879d.webp",
+      "merchantImage": "/products/price-tiers/p-babffa879d.webp",
+      "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/2089/7573/files/victorian-120_blk_pu_new_material.jpg?v=1759790610"
+      ],
+      "availability": "in_stock",
+      "sizes": [
+        "6",
+        "8",
+        "9",
+        "12"
+      ],
+      "merchantId": "pleasershoes-com",
+      "tagSlugs": [],
+      "description": "Black vegan PU mid-calf lace-up boots with a 2¾-inch kitten heel and inner side zipper. Close lace-up silhouette, with a narrower heel than the reference. Pair of boots only. Available women’s US sizes: 6, 8, 9 and 12. Sizes 7, 10 and 11 are sold out. Dispatch time unstated.",
+      "checkedAt": "2026-10-25T08:49:51.686928+00:00",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-25T08:49:51.686928+00:00",
+        "url": "https://pleasershoes.com/products/victorian-120bpu.js",
+        "notes": "Black vegan PU mid-calf lace-up boots with a 2¾-inch kitten heel and inner side zipper. Close lace-up silhouette, with a narrower heel than the reference. Pair of boots only. Available women’s US sizes: 6, 8, 9 and 12. Sizes 7, 10 and 11 are sold out. Dispatch time unstated."
+      }
+    },
+    {
+      "id": "p-336f983a8e",
+      "title": "1910s Everyday Lace-up Boots - Black - Ruth",
+      "url": "https://memery.us/products/everyday-working-boots-1915-1920-ruth?variant=48269113295164",
+      "priceCents": 20720,
+      "currency": "USD",
+      "image": "/products/price-tiers/p-336f983a8e.webp",
+      "merchantImage": "/products/price-tiers/p-336f983a8e.webp",
+      "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/0814/5469/4716/files/1910s-everyday-lace-up-boots-black-ruth-685752.jpg?v=1755162430"
+      ],
+      "availability": "in_stock",
+      "sizes": [
+        "EU35 - UK2 - US4",
+        "EU35 - UK2 - US4 (Wide version)",
+        "EU36 - UK3 - US5",
+        "EU36 - UK3 - US5 (Wide version)",
+        "EU37 - UK4 - US6",
+        "EU37 - UK4 - US6 (Wide version)",
+        "EU38 - UK5 - US7",
+        "EU38 - UK5 - US7 (Wide version)",
+        "EU39 - UK6 - US8",
+        "EU39 - UK6 - US8 (Wide version)",
+        "EU40 - UK7 - US9",
+        "EU40 - UK7 - US9 (Wide version)",
+        "EU41 - UK8 - US10",
+        "EU41 - UK8 - US10 (Wide version)",
+        "EU42 - UK9 - US11",
+        "EU42 - UK9 - US11 (Wide version)",
+        "EU43 - UK10 - US12",
+        "EU43 - UK10 - US12 (Wide version)"
+      ],
+      "merchantId": "memery-us",
+      "tagSlugs": [],
+      "description": "Black full-grain leather Edwardian lace-up boots with leather soles, canvas lining, silicone inserts and a 1.2-inch heel. Lower heel and more practical shape than the reference. All displayed EU35–43 regular and wide variants are available at the live USD207.20 sale price. Exact merchant size labels retained. US store ships from Ohio; dispatch estimate unstated.",
+      "checkedAt": "2026-10-25T08:49:51.686928+00:00",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-25T08:49:51.686928+00:00",
+        "url": "https://memery.us/products/everyday-working-boots-1915-1920-ruth.js",
+        "notes": "Black full-grain leather Edwardian lace-up boots with leather soles, canvas lining, silicone inserts and a 1.2-inch heel. Lower heel and more practical shape than the reference. All displayed EU35–43 regular and wide variants are available at the live USD207.20 sale price. Exact merchant size labels retained. US store ships from Ohio; dispatch estimate unstated."
+      }
+    }
+  ],
+  "merchants": [
+    {
+      "id": "dragonweave-com",
+      "name": "DragonWeave Jewelry",
+      "domain": "dragonweave.com",
+      "url": "https://dragonweave.com/",
+      "kind": "boutique",
+      "neighborhoodId": null
+    },
+    {
+      "id": "masqueradestore-com",
+      "name": "Masquerade Store",
+      "domain": "masqueradestore.com",
+      "url": "https://masqueradestore.com/",
+      "kind": "boutique",
+      "neighborhoodId": null
+    },
+    {
+      "id": "etsy-fancycraftsupply-on-etsy",
+      "name": "fancycraftsupply on Etsy",
+      "domain": "etsy.com",
+      "url": "https://www.etsy.com/listing/1424529107/black-feather-cape-black-feathered",
+      "kind": "etsy",
+      "neighborhoodId": null
+    },
+    {
+      "id": "zuckerfeather-com",
+      "name": "Zucker Feather Products",
+      "domain": "zuckerfeather.com",
+      "url": "https://zuckerfeather.com/",
+      "kind": "boutique",
+      "neighborhoodId": null
+    },
+    {
+      "id": "historicalemporium-com",
+      "name": "Historical Emporium",
+      "domain": "historicalemporium.com",
+      "url": "https://historicalemporium.com/",
+      "kind": "boutique",
+      "neighborhoodId": null
+    },
+    {
+      "id": "cattlekate-com",
+      "name": "Cattle Kate",
+      "domain": "cattlekate.com",
+      "url": "https://cattlekate.com/",
+      "kind": "boutique",
+      "neighborhoodId": null
+    },
+    {
+      "id": "lafemmeennoir-net",
+      "name": "La Femme En Noir",
+      "domain": "lafemmeennoir.net",
+      "url": "https://lafemmeennoir.net/",
+      "kind": "boutique",
+      "neighborhoodId": null
+    },
+    {
+      "id": "darkrock-net",
+      "name": "DarkRock",
+      "domain": "darkrock.net",
+      "url": "https://darkrock.net/",
+      "kind": "boutique",
+      "neighborhoodId": null
+    },
+    {
+      "id": "darkinlove-com",
+      "name": "Dark In Love",
+      "domain": "darkinlove.com",
+      "url": "https://darkinlove.com/",
+      "kind": "boutique",
+      "neighborhoodId": null
+    },
+    {
+      "id": "pleasershoes-com",
+      "name": "Pleaser Shoes / Funtasma",
+      "domain": "pleasershoes.com",
+      "url": "https://pleasershoes.com/",
+      "kind": "boutique",
+      "neighborhoodId": null
+    },
+    {
+      "id": "memery-us",
+      "name": "memery",
+      "domain": "memery.us",
+      "url": "https://memery.us/",
+      "kind": "boutique",
+      "neighborhoodId": null
+    },
+    {
+      "id": "americanduchess-com",
+      "name": "American Duchess",
+      "domain": "americanduchess.com",
+      "url": "https://americanduchess.com/",
+      "kind": "boutique",
+      "neighborhoodId": null
+    }
+  ],
+  "neighborhoods": [],
+  "tags": [],
+  "provenance": {
+    "method": "manual-research",
+    "generatedAt": "2026-10-25T08:49:51.686928+00:00",
+    "priceTiers": true,
+    "heroImageKind": "generated-reference",
+    "notes": "Built-in web search and direct official merchant evidence. Three distinct relative price points per piece: $, $$, $$$. Prices exclude shipping/tax; stock is variant-specific and delivery is unconfirmed. See docs/sourcing/price-tiers/raven-scholar.json."
+  }
+}
