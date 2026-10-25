@@ -205,8 +205,19 @@ export function screenshotSourcing(signal: AbortSignal, log: SourcingLog, catalo
 
   async function readCandidates(results: SearchResult[], piece: ScreenshotPiece, seen: Set<string>) {
     const perHost = new Map<string, number>();
+    // Firecrawl highlights can expose exact product links even when the ranked hit is a collection.
+    // These links are discovery only; all facts still come from the selected merchant page/feed.
+    const expanded = results.flatMap((result) => {
+      const links: SearchResult[] = [];
+      for (const match of (result.description ?? "").slice(0, 16_000).matchAll(/\[([^\]\n]{1,180})\]\((https:\/\/[^\s)]+)\)/g)) {
+        if (hostnameOf(match[2]) !== hostnameOf(result.url)) continue;
+        links.push({ title: `${match[1].replace(/[!*_]/g, "")} ${result.title}`, url: match[2] });
+        if (links.length === 12) break;
+      }
+      return [result, ...links];
+    });
     const candidates: SearchResult[] = [];
-    for (const result of [...results].sort((a, b) => relevance(piece, b) - relevance(piece, a))) {
+    for (const result of expanded.sort((a, b) => relevance(piece, b) - relevance(piece, a))) {
       try {
         const url = new URL(result.url);
         const host = hostnameOf(result.url)!;

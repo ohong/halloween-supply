@@ -132,7 +132,7 @@ export async function POST(request: Request) {
   const t0 = performance.now();
   // Reuse complete looks for 15 minutes. Partial runs retry sourcing and reuse only image analysis.
   // Checkout still re-verifies every merchant price, stock level, and selected size.
-  const runKey = { image: createHash("sha256").update(image).digest("hex"), model: MODEL, v: 7 };
+  const runKey = { image: createHash("sha256").update(image).digest("hex"), model: MODEL, v: 8 };
   const replay = await readCache<Record<string, unknown>[]>("screenshot-look", runKey).catch(() => undefined);
   let open = true;
   const cancelled = new AbortController();
