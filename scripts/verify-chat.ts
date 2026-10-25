@@ -74,7 +74,7 @@ console.log(`PASS real Anthropic getAlternatives returns ${output.products.lengt
 const reason = await chat([user(`Why did you pick product ${picked.id} for piece ${piece.id}? Please call getPickPath and explain its recorded reason.`)]);
 const path = toolOutput(reason, "getPickPath");
 assert(Array.isArray(path.path) && path.path.length > 1 && typeof path.reason === "string", "The reason must include a recorded catalog path.");
-console.log("PASS real Anthropic getPickPath returns the recorded merchant explanation and graph path");
+console.log("PASS real Anthropic getPickPath returns the recorded merchant explanation and catalog evidence");
 
 const merchant = snapshot.merchants.find((entry) => entry.id === picked.merchantId);
 assert(merchant, "The selected product must have a merchant.");
@@ -91,7 +91,7 @@ const sharedOutput = toolOutput(sharedResult, "getFewestShops");
 assert(Array.isArray(sharedOutput.shops), "Fewest-shops must return a structured result, including an honest empty result.");
 const filteredOutput = toolOutput(filteredResult, "getAlternatives");
 const filterCall = filteredResult.calls.find((entry) => entry.toolName === "getAlternatives")!;
-assert.equal((filterCall.input as Record<string, unknown>).localOnly, true, "The local request must become a local graph filter.");
+assert.equal((filterCall.input as Record<string, unknown>).localOnly, true, "The local request must become a local catalog filter.");
 assert.equal((filterCall.input as Record<string, unknown>).maxPriceCents, picked.priceCents, "The dollar budget must become integer cents.");
 assert(Array.isArray(filteredOutput.products));
 assert((filteredOutput.products as Record<string, unknown>[]).every((product) => product.isLocal === true && Number(product.priceCents) <= picked.priceCents), "Every filtered product must satisfy the local and budget request.");

@@ -1,5 +1,4 @@
-// Pure helpers shared by the graph and snapshot implementations so both produce
-// identical results. No I/O here.
+// Catalog matching and recommendation helpers. No I/O here.
 
 import type {
   Merchant,
@@ -15,7 +14,7 @@ import type {
 
 export const LOCAL_REGION = "Bay Area";
 
-/** One (:Piece)-[:MATCHED_BY]->(:Product) edge with everything hanging off the product. */
+/** One piece-to-product match, joined to its merchant and location. */
 export interface RawMatch {
   piece: Omit<Piece, "required" | "order">;
   costumeSlug: string;

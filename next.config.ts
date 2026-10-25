@@ -6,7 +6,6 @@ const nextConfig: NextConfig = {
     agentFeedback: true,
   },
   cacheComponents: true,
-  serverExternalPackages: ["falkordb"],
   partialPrefetching: true,
   turbopack: {
     rules: {

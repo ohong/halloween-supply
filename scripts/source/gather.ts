@@ -1,5 +1,5 @@
-// Step 3 + 4: fetch each candidate through Web Unlocker and parse it (JSON-LD / OG, then Claude).
-import { fetchProductPage } from "../../lib/brightdata/client";
+// Step 3 + 4: fetch each candidate through Firecrawl and parse it (JSON-LD / OG, then Claude).
+import { fetchProductPage } from "../../lib/firecrawl/client";
 import { extractMerchantHints, type MerchantHints } from "../../lib/products/hints";
 import { extractProductWithClaude, htmlToText, parseProduct, type ParsedProduct } from "../../lib/products/parse";
 import { readShopifyProduct, selectShopifyVariants } from "../../lib/products/shopify";
@@ -12,7 +12,6 @@ import { researchedMerchantLocation } from "./curated";
 export interface PricedCandidate {
   url: string;
   domain: string;
-  serpTitle: string;
   parsed: ParsedProduct & { priceCents: number; title: string };
   hints: MerchantHints;
 }
@@ -25,7 +24,7 @@ export interface GatherOptions {
 
 export async function gatherCandidates(candidates: Candidate[], opts: GatherOptions = {}): Promise<PricedCandidate[]> {
   let claudeBudget = opts.maxClaudeFallbacks ?? 3;
-  const results = await mapLimit(candidates, opts.concurrency ?? 4, async (c): Promise<PricedCandidate | null> => {
+  const results = await mapLimit(candidates, opts.concurrency ?? 2, async (c): Promise<PricedCandidate | null> => {
     const page = await fetchProductPage(c.url, { cache: true });
     const finalUrl = page.finalUrl && !isBlockedDomain(page.finalUrl) ? page.finalUrl : null;
     if (!finalUrl) {
@@ -91,7 +90,6 @@ export async function gatherCandidates(candidates: Candidate[], opts: GatherOpti
     return {
       url: productUrl,
       domain: registrableDomain(finalUrl) ?? "",
-      serpTitle: c.title,
       parsed: { ...parsed, priceCents, title },
       hints,
     };

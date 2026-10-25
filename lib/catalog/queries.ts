@@ -1,12 +1,4 @@
-// In-memory implementations of the catalog functions over the committed snapshots
-// in data/costumes/*.json. Same results as lib/graph/queries.ts. JSON is imported
-// statically so it is bundled on Vercel (no filesystem reads at runtime).
-
-import cosmicCowboy from "../../data/costumes/cosmic-cowboy.json";
-import velvetVampire from "../../data/costumes/velvet-vampire.json";
-import moonMoth from "../../data/costumes/moon-moth.json";
-import linenGhost from "../../data/costumes/linen-ghost.json";
-import woodlandMushroom from "../../data/costumes/woodland-mushroom.json";
+// Catalog queries shared by the database and the bundled fallback.
 import type {
   CostumeSnapshot,
   CostumeView,
@@ -25,10 +17,10 @@ import {
   type ShopCandidate,
 } from "./assemble";
 
-export const SNAPSHOTS: CostumeSnapshot[] = [cosmicCowboy, velvetVampire, moonMoth, linenGhost, woodlandMushroom] as unknown as CostumeSnapshot[];
+
 
 /** Every (piece, product) match edge, fully joined, across the given snapshots. */
-function allMatches(snapshots: CostumeSnapshot[] = SNAPSHOTS): Array<RawMatch & { pieceFull: Piece }> {
+function allMatches(snapshots: CostumeSnapshot[]): Array<RawMatch & { pieceFull: Piece }> {
   const out: Array<RawMatch & { pieceFull: Piece }> = [];
   for (const s of snapshots) {
     const products = new Map(s.products.map((p) => [p.id, p]));
@@ -80,8 +72,8 @@ function allMatches(snapshots: CostumeSnapshot[] = SNAPSHOTS): Array<RawMatch & 
   return out;
 }
 
-export async function getCostume(slug: string): Promise<CostumeView | null> {
-  const s = SNAPSHOTS.find((x) => x.costume.slug === slug);
+export async function getCostume(snapshots: CostumeSnapshot[], slug: string): Promise<CostumeView | null> {
+  const s = snapshots.find((x) => x.costume.slug === slug);
   if (!s || s.costume.status !== "live") return null;
   const raws = allMatches([s]);
   const pieces = s.pieces
@@ -98,10 +90,11 @@ export async function getCostume(slug: string): Promise<CostumeView | null> {
 }
 
 export async function getAlternatives(
+  snapshots: CostumeSnapshot[],
   pieceId: string,
   opts: { localOnly?: boolean; maxPriceCents?: number; costumeSlug?: string } = {},
 ): Promise<ProductOption[]> {
-  const options = allMatches()
+  const options = allMatches(snapshots)
     .filter((r) => r.piece.id === pieceId)
     .filter((r) => !opts.costumeSlug || r.costumeSlug === opts.costumeSlug)
     .filter((r) => opts.maxPriceCents === undefined || r.product.priceCents <= opts.maxPriceCents)
@@ -110,8 +103,8 @@ export async function getAlternatives(
   return sortCheapest(options);
 }
 
-export async function getMerchantCatalog(merchantId: string, costumeSlug: string): Promise<ProductOption[]> {
-  const s = SNAPSHOTS.find((x) => x.costume.slug === costumeSlug);
+export async function getMerchantCatalog(snapshots: CostumeSnapshot[], merchantId: string, costumeSlug: string): Promise<ProductOption[]> {
+  const s = snapshots.find((x) => x.costume.slug === costumeSlug);
   if (!s) return [];
   const order = new Map(s.pieces.map((p) => [p.id, p.order]));
   return allMatches([s])
@@ -125,9 +118,9 @@ export async function getMerchantCatalog(merchantId: string, costumeSlug: string
     .map(buildOption);
 }
 
-export async function getFewestShops(productIds: string[]): Promise<SharedMerchant[]> {
+export async function getFewestShops(snapshots: CostumeSnapshot[], productIds: string[]): Promise<SharedMerchant[]> {
   if (productIds.length < 2) return [];
-  const all = allMatches();
+  const all = allMatches(snapshots);
   const cart = new Set(productIds);
   const cartPieces = new Set(all.filter((r) => cart.has(r.product.id)).map((r) => r.piece.id));
   const candidates: ShopCandidate[] = all
@@ -142,11 +135,11 @@ export async function getFewestShops(productIds: string[]): Promise<SharedMercha
   return consolidate(candidates, productIds);
 }
 
-export async function getProductOption(productId: string, pieceId: string): Promise<ProductOption | null> {
-  const best = lowestRank(allMatches().filter((r) => r.product.id === productId && r.piece.id === pieceId));
+export async function getProductOption(snapshots: CostumeSnapshot[], productId: string, pieceId: string): Promise<ProductOption | null> {
+  const best = lowestRank(allMatches(snapshots).filter((r) => r.product.id === productId && r.piece.id === pieceId));
   return best ? buildOption(best) : null;
 }
 
-export async function getPickPath(productId: string, pieceId: string): Promise<PickReason | null> {
-  return (await getProductOption(productId, pieceId))?.pick ?? null;
+export async function getPickPath(snapshots: CostumeSnapshot[], productId: string, pieceId: string): Promise<PickReason | null> {
+  return (await getProductOption(snapshots, productId, pieceId))?.pick ?? null;
 }
