@@ -1,11 +1,11 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import { frame, gather, pairRequest, sendPhoto } from "@/lib/phone-camera/connection";
+import { frame, connectPeer, pairRequest, sendPhoto } from "@/lib/phone-camera/connection";
 import "./virtual-try-on.css";
 import "./phone-camera.css";
 
-type Session = { id: string; token: string; controller: AbortController; peer?: RTCPeerConnection; channel?: RTCDataChannel; stream?: MediaStream; timer?: ReturnType<typeof setTimeout>; expiry?: ReturnType<typeof setTimeout>; heartbeat?: ReturnType<typeof setInterval>; lastPing: number };
+type Session = { id: string; token: string; controller: AbortController; peer?: RTCPeerConnection; channel?: RTCDataChannel; stream?: MediaStream; expiry?: ReturnType<typeof setTimeout>; heartbeat?: ReturnType<typeof setInterval>; lastPing: number };
 export function PhoneCapture() {
   const sessionRef = useRef<Session | null>(null);
   const video = useRef<HTMLVideoElement>(null);
@@ -21,7 +21,7 @@ export function PhoneCapture() {
     const session = sessionRef.current; sessionRef.current = null;
     if (session) {
       if (session.channel?.readyState === "open") session.channel.send(JSON.stringify({ type: "stop" }));
-      session.controller.abort(); clearTimeout(session.timer); clearTimeout(session.expiry); clearInterval(session.heartbeat);
+      session.controller.abort(); clearTimeout(session.expiry); clearInterval(session.heartbeat);
       session.stream?.getTracks().forEach(track => track.stop()); session.peer?.close();
       void fetch(`/api/camera-pair/${session.id}`, { method: "DELETE", headers: { Authorization: `Bearer ${session.token}` }, keepalive: true }).catch(() => {});
     }
@@ -51,7 +51,8 @@ export function PhoneCapture() {
       const stream = await navigator.mediaDevices.getUserMedia({ video: { facingMode: facing, width: { ideal: 1280 }, height: { ideal: 720 }, frameRate: { ideal: 24, max: 30 } }, audio: audio ? { echoCancellation: true, noiseSuppression: true } : false });
       if (!current()) { stream.getTracks().forEach(track => track.stop()); return; }
       session.stream = stream;
-      if (video.current) { video.current.srcObject = stream; await video.current.play(); }
+      if (video.current) { video.current.srcObject = stream; void video.current.play().catch(() => {}); }
+      if (!current()) return;
       const peer = new RTCPeerConnection({ iceServers: config.iceServers }); session.peer = peer;
       stream.getTracks().forEach(track => { peer.addTrack(track, stream); track.addEventListener("ended", () => fail("Your camera stopped. Scan a new code to reconnect."), { once: true }); });
       const channel = peer.createDataChannel("camera-control"); session.channel = channel;
@@ -72,22 +73,10 @@ export function PhoneCapture() {
           if (message.type === "capture-error") { takingPhoto.current = false; if (capturePending.current) clearTimeout(capturePending.current); setError("The computer could not capture that photo. Try again."); }
         } catch { /* Ignore malformed peer controls. */ }
       };
-      peer.onconnectionstatechange = () => { if (peer.connectionState === "failed") fail("The connection failed. Try the same Wi-Fi network, then scan a new code."); };
+      peer.onconnectionstatechange = () => { if (peer.connectionState === "failed") fail("The video connection failed. Check your internet connection, then scan a new code."); };
       session.expiry = setTimeout(() => fail("This ten-minute connection ended. Scan a new code to continue."), config.expires - Date.now());
-      await peer.setLocalDescription(await peer.createOffer()); await gather(peer, session.controller.signal);
-      if (!current()) return;
-      await pairRequest(id, token, { action: "signal", description: peer.localDescription, claimant }, session.controller.signal);
-      const deadline = Date.now() + 30_000;
-      const poll = async () => {
-        try {
-          const result = await pairRequest<{ description: RTCSessionDescriptionInit | null }>(id, token, undefined, session.controller.signal);
-          if (!current()) return;
-          if (result.description) { await peer.setRemoteDescription(result.description); session.timer = setTimeout(() => { if (peer.connectionState !== "connected") fail("The devices could not connect. Try the same Wi-Fi network, then scan a new code."); }, 20_000); }
-          else if (Date.now() < deadline) session.timer = setTimeout(poll, 1000);
-          else fail("Your computer did not respond. Scan a new code to reconnect.");
-        } catch (error) { if (!session.controller.signal.aborted) fail(error instanceof Error ? error.message : "Connection failed."); }
-      };
-      void poll();
+      void connectPeer(peer, { id, token, claimant, role: "phone", signal: session.controller.signal, isReady: () => channel.readyState === "open" })
+        .catch(error => { if (!session.controller.signal.aborted) fail(error instanceof Error ? error.message : "Connection failed."); });
     } catch (error) { fail(error instanceof DOMException && error.name === "NotAllowedError" ? "Camera access was declined. Allow it in your browser, then scan a new code." : error instanceof Error ? error.message : "The camera could not start."); }
   }
   async function switchCamera() {

@@ -43,6 +43,7 @@ for (const [index, file] of files.entries()) {
   if (index === 1 && signature.item.availableSizes.some((size: string) => /[SML]/.test(size))) assert.equal(signature.item.sizeKind, "apparel");
   const done = events.find((event) => event.t === "done");
   assert.equal(done?.found, hits.length);
+  assert.equal(hits.length, look.pieces.length, `Reference ${index + 1}: every requested visible piece must have a verified offer`);
   const summary = { reference: index + 1, character: look.character, model: response.headers.get("x-vision-model"), found: hits.length, requested: look.pieces.length, elapsedMs: done.ms, signature: signature.product };
   summaries.push(summary);
   console.log(JSON.stringify(summary));

@@ -10,12 +10,19 @@ const hash = (value: string) => createHash("sha256").update(value).digest("hex")
 const token = () => randomBytes(32).toString("hex");
 let ready: Promise<unknown> | undefined;
 export async function database() {
-  ready ??= getDatabase().execute(`CREATE TABLE IF NOT EXISTS camera_pair (
-    id TEXT PRIMARY KEY, host TEXT NOT NULL, phone TEXT NOT NULL, claimant TEXT,
-    expires INTEGER NOT NULL, offer TEXT, answer TEXT, closed INTEGER NOT NULL DEFAULT 0
-  )`).catch(error => { ready = undefined; throw error; });
+  ready ??= getDatabase().batch([
+    `CREATE TABLE IF NOT EXISTS camera_pair (
+      id TEXT PRIMARY KEY, host TEXT NOT NULL, phone TEXT NOT NULL, claimant TEXT,
+      expires INTEGER NOT NULL, offer TEXT, answer TEXT, closed INTEGER NOT NULL DEFAULT 0
+    )`,
+    `CREATE TABLE IF NOT EXISTS camera_pair_candidates (
+      pair_id TEXT NOT NULL, role TEXT NOT NULL, candidates TEXT NOT NULL,
+      PRIMARY KEY (pair_id, role)
+    )`,
+  ], "write").catch(error => { ready = undefined; throw error; });
   await ready;
   await getDatabase().execute({ sql: "DELETE FROM camera_pair WHERE expires < ?", args: [Date.now()] });
+  await getDatabase().execute("DELETE FROM camera_pair_candidates WHERE pair_id NOT IN (SELECT id FROM camera_pair)");
   return getDatabase();
 }
 export async function createPair() {
@@ -63,9 +70,16 @@ export async function iceServers(): Promise<RTCIceServer[]> {
   if (!id || !key) return [{ urls: "stun:stun.cloudflare.com:3478" }];
   const response = await fetch(`https://rtc.live.cloudflare.com/v1/turn/keys/${id}/credentials/generate-ice-servers`, {
     method: "POST", headers: { Authorization: `Bearer ${key}`, "Content-Type": "application/json" },
-    body: JSON.stringify({ ttl: 900 }), signal: AbortSignal.timeout(8000), cache: "no-store",
+    body: JSON.stringify({ ttl: isTryOnTesting() ? 86400 : 900 }), signal: AbortSignal.timeout(8000), cache: "no-store",
   });
   if (!response.ok) throw new PairError(503, "The phone relay is unavailable. Please try again.");
   const body = await response.json();
-  return body.iceServers;
+  const parsed = z.array(z.object({
+    urls: z.union([z.string(), z.array(z.string())]),
+    username: z.string().optional(), credential: z.string().optional(),
+  })).safeParse(body.iceServers);
+  if (!parsed.success || !parsed.data.some(server => server.credential && [server.urls].flat().some(url => /^turns?:/.test(url)))) {
+    throw new PairError(503, "The phone relay is unavailable. Please try again.");
+  }
+  return parsed.data.map(server => ({ ...server, urls: [server.urls].flat().filter(url => !/:53(?:\?|$)/.test(url)) })).filter(server => server.urls.length);
 }

@@ -1,5 +1,5 @@
 import { z } from "zod";
-import { readVideoJson, reserveVideoRequest, VIDEO_MODEL, VideoError, videoFailure, videoResponse } from "@/lib/live-mirror/video-server";
+import { readVideoJson, VIDEO_MODEL, VideoError, videoFailure, videoResponse } from "@/lib/live-mirror/video-server";
 import { mirrorSessionSeconds } from "@/lib/try-on-policy";
 
 export const maxDuration = 30;
@@ -12,7 +12,6 @@ export async function POST(request: Request) {
   try {
     z.object({ consent: z.literal(true) }).strict().parse(await readVideoJson(request));
     if (!process.env.FAL_KEY) throw new VideoError(503, "Live video try-on is unavailable. You can still build your outfit and use photo try-on.");
-    reserveVideoRequest(request, "token");
     // fal scopes tokens to the app alias (owner/model), not its /realtime path.
     // This short-lived token authenticates signaling; it is not a session timer.
     const response = await fetch("https://rest.fal.ai/tokens/", {

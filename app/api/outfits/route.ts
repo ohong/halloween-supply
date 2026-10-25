@@ -1,4 +1,3 @@
-import { createHash } from "node:crypto";
 import { z } from "zod";
 import { getCostume } from "@/lib/catalog";
 import { outfitRequestSchema, StylistError } from "@/lib/stylist/contracts";
@@ -6,19 +5,11 @@ import { styleOutfit } from "@/lib/stylist/decide";
 
 export const maxDuration = 300;
 const MAX_BODY = 16_000;
-// A local cost guard, not a deployment-wide quota. No request text is retained.
-const attempts = new Map<string, { count: number; expires: number }>();
+// Bound simultaneous provider work without limiting repeated demo attempts.
 let active = 0;
 
-function reserve(request: Request) {
-  const now = Date.now();
-  for (const [key, value] of attempts) if (value.expires <= now) attempts.delete(key);
-  const address = request.headers.get("x-real-ip") ?? request.headers.get("x-forwarded-for")?.split(",")[0] ?? "local";
-  const id = createHash("sha256").update(address).digest("hex");
-  const entry = attempts.get(id) ?? { count: 0, expires: now + 3_600_000 };
-  if (entry.count >= 12) throw new StylistError(429, "You have reached twelve styling requests this hour. Please try again later.", "busy");
-  if (active >= 4 || attempts.size >= 2000) throw new StylistError(429, "The personal stylist is busy. Please try again shortly.", "busy");
-  attempts.set(id, { ...entry, count: entry.count + 1 });
+function reserve() {
+  if (active >= 4) throw new StylistError(429, "The personal stylist is busy. Please try again shortly.", "busy");
   active++;
 }
 
@@ -48,7 +39,7 @@ export async function POST(request: Request) {
     const body = outfitRequestSchema.parse(await readBody(request));
     const costume = await getCostume(body.costumeSlug);
     if (!costume) throw new StylistError(404, "That costume is not in the catalog.", "invalid_request");
-    reserve(request); reserved = true;
+    reserve(); reserved = true;
     const result = await styleOutfit(costume, body, request.signal);
     return respond(200, result);
   } catch (error) {

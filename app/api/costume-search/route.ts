@@ -40,7 +40,7 @@ export async function POST(request: Request) {
     const raw = await readBody(request);
     if (raw === BODY_TOO_LARGE) return respond({ error: "The search request is too large." }, 413);
     const { query } = requestSchema.parse(raw);
-    return respond(await semanticSearch(query, request));
+    return respond(await semanticSearch(query));
   } catch (error) {
     if (error instanceof z.ZodError || error instanceof SyntaxError) return respond({ error: "Enter a search of at most 160 characters." }, 400);
     if (request.signal.aborted) return new Response(null, { status: 499 });

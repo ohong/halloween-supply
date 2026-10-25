@@ -9,7 +9,7 @@ const schema = requestBase.extend({ actions: z.array(action).min(1).max(6) }).st
 /** Resolve source IDs again at application time; never accept client product data or prices. */
 export async function POST(request: Request) {
   try {
-    const { costumeSlug, outfit, actions } = schema.parse(await readVoiceRequest(request, "command"));
+    const { costumeSlug, outfit, actions } = schema.parse(await readVoiceRequest(request));
     const inventory = await readMirrorInventory();
     const current = await validatedCostume(costumeSlug, outfit, inventory.views);
     const base = inventory.views.find(view => view.costume.slug === costumeSlug)!;
