@@ -35,18 +35,18 @@ Microphone ──WebRTC──> GPT-Live ──native delegation──> Decisions
                                                     │
 Catalog piece names ── clothing-only prompt ─────────┤
                                                     ▼
-Camera ──WebRTC──> Decart Lucy VTON ──WebRTC─> live preview
+Camera ──WebRTC──> Decart Lucy 2.5 ──WebRTC─> live preview
                         ▲
                    fal signaling
 ```
 
 - `FAL_KEY`: server-only fal key. The app uses
-  `decart/lucy2-vton/realtime`, the dedicated try-on endpoint. A direct Decart key is not required.
+  `decart/lucy-2-5/realtime`. A direct Decart key is not required.
 - `OPENAI_API_KEY`: server-only OpenAI key with GPT-Live and Decisions access.
 - `OPENAI_LIVE_MODEL`: defaults to `gpt-live-1`, verified available on the account.
 - `OPENAI_DECISION_MODEL`: defaults to `gpt-6-luna`.
 
-The browser receives a 60-second fal token scoped to `decart/lucy2-vton`.
+The browser receives a 60-second fal token scoped to `decart/lucy-2-5`.
 The permanent key stays on the server. Camera video goes directly to Decart;
 fal relays the connection and outfit controls. Microphone audio goes to OpenAI.
 The app does not persist camera frames or recordings. Appearance questions
@@ -90,22 +90,24 @@ to the app's state; GPT Live receives fresh visual observations only when the sh
 appearance feedback; control state alone is not visual evidence. Video and
 microphone data continue to use their separate providers.
 
-The server describes the complete desired outfit using catalog piece names.
-The reference endpoint returns `image: null`; the browser explicitly sends
-`reference_image_url: null` at startup and on every update. Merchant photos can
-include models' faces, hair and makeup. Sending those photos through Lucy's
-shared character-swap/try-on reference input can introduce a competing identity.
-Text-only editing avoids that input, at the cost of exact garment detail.
-Garment images need a separate garment-only review before they can return.
-Every edit sends the full intended outfit, preserving owned clothing.
+The server builds the earlier product-reference board from local catalog assets.
+Each cell uses a product cutout when available, otherwise its catalog image.
+The browser sends the board as `reference_image_url` to
+`decart/lucy-2-5/realtime`, with prompt expansion disabled. The prompt asks Lucy
+to substitute those garments and preserve the camera person's face, hair,
+body shape, skin tone, pose, background and lighting. Owned pieces remain unchanged.
+Color and style overrides still apply to garments.
 
-The app uses the dedicated Lucy VTON endpoint instead of Lucy 2.5 general
-video editing. Face and likeness preservation takes priority over clothing edits. Prompts
-prohibit facial changes, makeup, beauty filters and body reshaping. Prompt
-expansion stays disabled. The voice stylist must acknowledge reported face
-changes and cannot claim the pixels are unchanged or fixed. These controls
-reduce identity-transfer risk; they do not guarantee pixel-level preservation
-in generated video. Real-person visual verification remains required.
+This restores the rendering behavior from before commit `dc2349d`, while keeping
+camera switching and on-request GPT Live visual feedback. It does not revert
+photo generation or catalog changes. The separate fal Lucy 2.1 VTON endpoint
+is not used.
+
+A reference board can contain a merchant model when no cutout exists. The prompt
+instructs Lucy to treat references as garments, never identity references, but
+this is not an enforced face lock. Do not promise unchanged faces based on a
+successful connection or prompt check. Visual comparisons with the original
+camera remain available through GPT Live.
 
 ## Lifetime and rendering limits
 
@@ -142,8 +144,8 @@ MIRROR_BASE_URL=http://localhost:3028 node scripts/verify-mirror-identity.mjs
 ```
 
 This checks every published look at three available product tiers, plus color
-and owned-piece changes. It verifies that merchant images are absent and face
-preservation instructions remain present. It does not measure generated likeness.
+and owned-piece changes. It verifies that product boards and face preservation
+instructions remain present. It does not measure generated likeness.
 
 ```sh
 bun install
@@ -201,7 +203,6 @@ motion, iPhone Safari, and garment fidelity on a person remain unverified.
 
 ## Official contracts
 
-- https://fal.ai/models/decart/lucy2-vton/realtime/api
 - https://fal.ai/models/decart/lucy-2-5/realtime/api
 - https://fal.ai/lucy-2.5
 - https://github.com/fal-ai/fal-js/blob/main/libs/client/src/realtime/lucy.ts
