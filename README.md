@@ -44,6 +44,19 @@ merchant listings.
 
 ## Checks
 
+### Costume Mirror
+
+Each costume page includes a fullscreen live mirror with voice and typed outfit
+commands, piece alternatives, kept/owned pieces, budget controls, undo, and saved
+look comparisons. Applying a look updates the existing page selections; it does
+not place an order. Photo try-on remains available.
+
+The mirror reuses `OPENAI_API_KEY` for GPT-Live and native Decisions. Set
+`DECART_API_KEY` on the server to enable transformed live video. The video session
+uses a short-lived, model-restricted token and is capped at three minutes. Missing
+credentials show an unavailable state rather than a simulated transformation.
+See [the mirror implementation and demo checklist](docs/live-costume-mirror.md).
+
 ```sh
 bun run lint
 bun run typecheck

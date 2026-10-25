@@ -14,6 +14,8 @@ import { ShopForMe } from "./shop-for-me";
 import { flatlayScale } from "@/lib/products/flatlay";
 import { OutfitPlanner } from "./outfit-planner";
 import { VirtualTryOn } from "./virtual-try-on";
+import { LiveMirror } from "./live-mirror";
+import type { MirrorOutfit } from "@/lib/live-mirror/types";
 import { emptyBrief, sizeMatches, type OutfitPlan, type PieceUse } from "@/lib/outfits";
 
 export function CostumeExperience({ costume, editorial }: { costume: CostumeView; editorial?: { image: string; alt: string } }) {
@@ -102,8 +104,24 @@ export function CostumeExperience({ costume, editorial }: { costume: CostumeView
     setApplied(`${plan.title} selected. Review your pieces above, or preview them on your photo.`);
   }
 
+  function applyMirror(outfit: MirrorOutfit) {
+    const nextChosen: Record<string, number> = {};
+    for (const view of pieces) {
+      const index = view.options.findIndex(({ product }) => product.id === outfit.selection[view.piece.id]);
+      if (index >= 0) nextChosen[view.piece.id] = index;
+      if (ownsCart && cart.items.some((item) => item.pieceId === view.piece.id)) {
+        if (outfit.uses[view.piece.id] !== "buy") cart.remove(view.piece.id);
+        else if (index >= 0) cart.add(toCartItem(view.piece, view.options[index], brief.sizes[view.piece.sizeKind]?.trim() || null), costumeSlug);
+      }
+    }
+    setChosen(nextChosen);
+    setUses(outfit.uses);
+    setBrief((current) => ({ ...current, budget: outfit.budget }));
+    setApplied("Your mirror look is selected. Review your pieces and sizes below.");
+  }
+
   return <div className="costume-layout costume-layout-planned">
-    <div className="costume-media"><Carousel slides={slides} /><VirtualTryOn costumeSlug={costumeSlug} selection={pickedOptions.map(({ view, option }) => ({ pieceId: view.piece.id, productId: option.product.id }))} ownedPieceIds={pieces.filter(({ piece }) => uses[piece.id] === "owned").map(({ piece }) => piece.id)} skippedPieceIds={pieces.filter(({ piece }) => uses[piece.id] === "skip").map(({ piece }) => piece.id)} /></div>
+    <div className="costume-media"><LiveMirror costume={costume} initialOutfit={{ selection: Object.fromEntries(pieces.flatMap((view) => { const option = picked.get(view.piece.id); return option ? [[view.piece.id, option.product.id]] : []; })), uses, locked: [], budget: brief.budget }} onApply={applyMirror} /><Carousel slides={slides} /><VirtualTryOn costumeSlug={costumeSlug} selection={pickedOptions.map(({ view, option }) => ({ pieceId: view.piece.id, productId: option.product.id }))} ownedPieceIds={pieces.filter(({ piece }) => uses[piece.id] === "owned").map(({ piece }) => piece.id)} skippedPieceIds={pieces.filter(({ piece }) => uses[piece.id] === "skip").map(({ piece }) => piece.id)} /></div>
     <div className="costume-info">
       <Link href="/" className="back-link">All costumes</Link>
       <h1 className="costume-title">{costume.costume.name}</h1>
