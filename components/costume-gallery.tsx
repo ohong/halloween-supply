@@ -12,6 +12,7 @@ import type { CustomLookEvent, CustomPiece } from "@/lib/custom-looks/types";
 import { modelImage, useCostumeModel } from "@/lib/model-selection";
 import { SaveLook, useSavedLooks } from "./saved-looks";
 import { searchPlaceholder, useSearchPlaceholder } from "./use-search-placeholder";
+import { LandingFilm } from "./landing-film";
 import "./landing-search.css";
 
 type Refinement = { key: string; response: SearchResponse; failed: boolean };
@@ -142,6 +143,7 @@ export function CostumeGallery({ pieceCounts }: { pieceCounts: Record<string, nu
   }
 
   return <main id="main" className="home-page page">
+    <div className="landing-hero">
     <section className="landing-search" aria-labelledby="costume-search-heading">
       <h1 id="costume-search-heading">What will you be?</h1>
       <p className="landing-description">Discover costume ideas, try them on, and shop the whole look.</p>
@@ -163,6 +165,9 @@ export function CostumeGallery({ pieceCounts }: { pieceCounts: Record<string, nu
         <Link href="/screenshot" className="search-screenshot"><Camera size={15} aria-hidden="true" />Use a screenshot<ArrowUpRight size={14} aria-hidden="true" /></Link>
       </div>
     </section>
+
+    <LandingFilm />
+    </div>
 
     <section className="costume-collection" aria-labelledby="costume-collection-heading">
       <div className="gallery-heading">
