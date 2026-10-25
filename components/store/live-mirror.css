@@ -41,8 +41,6 @@
 .mirror-command-form input { min-width: 0; width: 100%; flex: 1; min-height: 44px; border: 0; outline-offset: -2px; background: transparent; font-size: 12px; color: #26251f; }
 .mirror-command-form input::placeholder { color: #8d8779; }
 .mirror-mic-on { color: #845c18 !important; background: #e6d8bd !important; }
-.mirror-listening { display: flex; align-items: center; gap: 7px; font-size: 10px; color: #7b6e50; margin-top: 11px; }
-.mirror-listening button { background: transparent; border: 0; padding: 5px 0 5px 7px; text-decoration: underline; margin-left: auto; font-size: 10px; }
 .mirror-transcript { font-size: 12px; line-height: 1.6; margin-top: 12px; max-height: 100px; overflow-y: auto; overflow-wrap: anywhere; }
 .mirror-transcript span { display: block; font-size: 9px; text-transform: uppercase; letter-spacing: .1em; color: var(--mirror-muted); margin-bottom: 3px; }
 .mirror-link { display: inline-flex; align-items: center; gap: 7px; padding: 8px 0; min-height: 32px; border: 0; background: transparent; font-size: 11px; text-decoration: underline; text-underline-offset: 4px; text-align: left; }
