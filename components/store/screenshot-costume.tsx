@@ -12,7 +12,7 @@ import "./screenshot-costume.css";
 interface LookPiece { name: string; slot: string; query: string; sizeKind: CartItem["sizeKind"] }
 type Slot =
   | { state: "looking"; name: string }
-  | { state: "found"; name: string; item: CartItem }
+  | { state: "found"; name: string; item: CartItem; why?: string }
   | { state: "missing"; name: string };
 interface LogLine { kind: string; text: string; ms: number }
 type Phase = "idle" | "running" | "done" | "error";
@@ -106,7 +106,7 @@ export function ScreenshotCostume() {
             setSlots((event.pieces as LookPiece[]).map((piece) => ({ state: "looking", name: piece.name })));
           } else if (event.t === "piece") {
             const item = event.item as CartItem;
-            setSlots((current) => current.map((slot, i) => i === event.i ? { state: "found", name: slot.name, item } : slot));
+            setSlots((current) => current.map((slot, i) => i === event.i ? { state: "found", name: slot.name, item, why: typeof event.why === "string" ? event.why : undefined } : slot));
           } else if (event.t === "miss") {
             setSlots((current) => current.map((slot, i) => i === event.i ? { state: "missing", name: slot.name } : slot));
           } else if (event.t === "done") {
@@ -142,7 +142,11 @@ export function ScreenshotCostume() {
     if (inCart(item)) cart.setSize(item.pieceId, value);
   }
 
+  const replacesScreenshot = cart.costumeSlug === SCREENSHOT_SLUG && cart.items.some((line) => !found.some((item) => item.pieceId === line.pieceId && item.productId === line.productId));
+
   function addLook() {
+    // Screenshot uploads share one cart slug, so remove lines belonging to an earlier image.
+    if (replacesScreenshot) cart.clear();
     cart.addMany(found.map((item) => ({ ...item, size: sizeOf(item) })), SCREENSHOT_SLUG);
     cart.setOpen(true);
   }
@@ -154,12 +158,13 @@ export function ScreenshotCostume() {
 
   function addSelected() {
     if (!selected || !cart.ready) return;
-    if (!inCart(selected)) cart.add({ ...selected, size: sizeOf(selected) }, SCREENSHOT_SLUG);
+    if (replacesScreenshot) cart.clear();
+    if (!inCart(selected) || replacesScreenshot) cart.add({ ...selected, size: sizeOf(selected) }, SCREENSHOT_SLUG);
     cart.setOpen(true);
   }
 
   const running = phase === "running";
-  const allInCart = found.length > 0 && found.every((item) => inCart(item));
+  const allInCart = !replacesScreenshot && found.length > 0 && found.every((item) => inCart(item));
   const missing = visible.filter((slot) => slot.state === "missing").length;
 
   return <div className="page shot">
@@ -228,6 +233,7 @@ export function ScreenshotCostume() {
                 <span className="shot-piece">{slot.name}</span>
                 <span className="shot-title">{slot.item.title}</span>
                 <span className="meta">{slot.item.merchantName} · {formatPrice(slot.item.priceCents)}</span>
+                {slot.why && <span className="meta shot-match">{slot.why}</span>}
                 <span className="shot-inspect-hint">{selected?.pieceId === slot.item.pieceId ? "Viewing details" : "Inspect piece"}</span>
               </span>
             </button>
@@ -244,12 +250,12 @@ export function ScreenshotCostume() {
         </li>)}
         </ul>
         {selected && <PieceInspectionPanel id="screenshot-piece-inspection" item={selected}
-          size={sizeOf(selected)} inCart={inCart(selected)} addDisabled={!cart.ready}
+          size={sizeOf(selected)} inCart={inCart(selected) && !replacesScreenshot} addDisabled={!cart.ready}
           onSizeChange={(size) => chooseSize(selected, size)} onAdd={addSelected} onClose={closeInspection} />}
       </div> : !running && <div className="shot-empty" aria-hidden="true">{TILT.slice(0, 6).map((r, i) => <span key={i} style={{ "--r": `${r}deg` } as CSSProperties} />)}</div>}
 
       {found.length > 0 && !running && <div className="shot-foot">
-        <p className="meta">{missing > 0 ? `${missing} ${missing === 1 ? "piece still needs" : "pieces still need"} a verified match. ` : ""}Prices and stock are checked again at checkout.</p>
+        <p className="meta">{replacesScreenshot ? "This replaces the previous screenshot look in your cart. " : ""}{missing > 0 ? `${missing} ${missing === 1 ? "piece still needs" : "pieces still need"} a verified match. ` : ""}Prices and stock are checked again at checkout.</p>
         <button type="button" className="btn" disabled={!cart.ready} onClick={allInCart ? () => cart.setOpen(true) : addLook}>
           {allInCart ? "View cart" : `Add the look to cart · ${formatPrice(total)}`}
         </button>

@@ -119,6 +119,10 @@ async function verifyCatalogSelection(snapshots: CostumeSnapshot[], databaseUp: 
     console.warn("WARN SKIP real Turso parity checks: database unavailable (--allow-database-down)");
     return;
   }
+  if (process.argv.includes("--skip-migration-parity")) {
+    console.warn("WARN SKIP archived migration-fixture parity; current page, catalog and checkout checks still run.");
+    return;
+  }
   assert(databaseUrl, "TURSO_DATABASE_URL is required for migration verification.");
   const stored = await readSnapshots();
   assert.equal((await catalog.readCatalogs()).source, "database");
@@ -278,10 +282,10 @@ async function main() {
     const response = await get(`/costumes/${slug}`);
     assert.equal(response.status, 200, `${slug}: costume page failed`);
     const html = decode(await response.text());
-    assert(html.includes("Add whole costume") && html.includes("Change") && html.includes("Why this pick"));
+    assert(html.includes("Add costume to cart") && html.includes("Complete the look") && html.includes("Change any piece"), `${slug}: shopping actions must render`);
     const editorial = costumes.find((costume) => costume.slug === slug);
     assert(editorial && html.includes(editorial.image), `${slug}: page must keep its generated full-costume reference`);
-    assert(html.includes("Price points for"), `${slug}: price-point controls must render`);
+    assert(snapshot.pieces.every((piece) => html.includes(`aria-label="Change ${piece.name}"`)), `${slug}: every piece needs a swap control`);
     for (const piece of snapshot.pieces) {
       assert.deepEqual(piece.matches.map((match) => match.rank).sort(), [0, 1, 2]);
       assert.equal(new Set(piece.matches.map((match) => match.productId)).size, 3);
@@ -335,7 +339,12 @@ async function main() {
   await verifyCatalogSelection(snapshots, databaseUp);
   if (checkoutEnabled) {
     const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!);
-    for (const snapshot of snapshots) for (const rank of process.argv.includes("--all-options") ? [0, 1, 2] : [0]) await verifyCheckout(snapshot, stripe, rank);
+    const failures: string[] = [];
+    for (const snapshot of snapshots) for (const rank of process.argv.includes("--all-options") ? [0, 1, 2] : [0]) {
+      try { await verifyCheckout(snapshot, stripe, rank); }
+      catch (error) { const failure = `${snapshot.costume.slug} rank ${rank}: ${error instanceof Error ? error.message.split("\n")[0] : "checkout failed"}`; failures.push(failure); console.error(`FAIL ${failure}`); }
+    }
+    if (failures.length) throw new Error(`${failures.length} checkout checks failed: ${failures.join("; ")}`);
   }
   if (process.argv.includes("--chat")) for (let i = 0; i < snapshots.length; i++) await verifyChat(snapshots[i], snapshots[(i + 1) % snapshots.length]);
   console.log(`${checks.length} checks passed against ${base}; ${fetchedAssets.size} reviewed public images matched.`);
