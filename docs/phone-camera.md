@@ -1,6 +1,6 @@
 # Phone camera for photo and live try-on
 
-One QR connection supplies the desktop's raw preview, full-resolution photos, Lucy video, and optional GPT Live microphone input.
+One QR connection supplies the desktop's raw preview, photos from the original camera feed, Lucy video, and optional GPT Live microphone input.
 
 ```text
 Phone camera ── WebRTC video ────────> Desktop preview ── fal/Lucy ──> Live costume
@@ -11,7 +11,7 @@ Vercel + Turso: temporary connection descriptions only; no camera images or audi
 Optional TURN relay: encrypted forwarding if direct connectivity fails
 ```
 
-The alternative was to run Lucy on the phone and forward its output. Keeping inference connections on the desktop preserves the existing outfit controls and lets photo and live modes share one phone connection. It adds a second video connection and depends on WebRTC connectivity between the devices. Photos travel at the phone's capture resolution over the ordered data channel, rather than using potentially reduced-resolution video frames.
+The alternative was to run Lucy on the phone and forward its output. Keeping inference connections on the desktop preserves the existing outfit controls and lets photo and live modes share one phone connection. It adds a second video connection and depends on WebRTC connectivity between the devices. Photos come from the phone camera rather than the lower-resolution received video. They are resized to at most 1,600 pixels before transfer over the ordered data channel.
 
 ## User flow
 
@@ -54,4 +54,4 @@ Set `PHONE_PROVIDER_E2E=1` to additionally run real OpenAI photo generation, GPT
 
 Physical iPhone/Safari behavior, cellular connectivity, and camera quality must be distinguished from synthetic Chromium tests. Set `PHONE_FORCE_RELAY=1` to require and verify a TURN relay candidate. TURN is intentionally unconfigured at the owner's request; forced-relay verification therefore does not apply.
 
-Verified locally: raw phone preview, repeated native-resolution photos with receipt acknowledgement, camera switching, a real OpenAI photo result, real Lucy output, spoken outfit edits through the phone microphone in both modes, mode switching without re-pairing, and full media cleanup. Typecheck, lint, build, and the existing 15 mirror checks passed. Hosted raw camera streaming, repeat photos, and real OpenAI photo generation passed. Hosted Lucy/GPT Live verification was blocked by the existing per-IP firewall limits after other live sessions used the allowance. No firewall rules were changed.
+Verified locally: raw phone preview, repeated native-resolution photos with receipt acknowledgement, camera switching, a real OpenAI photo result, real Lucy output, spoken outfit edits through the phone microphone in both modes, mode switching without re-pairing, and full media cleanup. Typecheck, lint, build, and the existing 15 mirror checks passed. The final local run required at least 20 decoded Lucy frames and passed voice edits in both modes plus cleanup. Some earlier Lucy attempts returned `video_input_timeout`; the UI ended those sessions and showed an explicit retry. Hosted raw camera streaming, repeat photos, and real OpenAI photo generation passed. Hosted Lucy/GPT Live verification was blocked by the existing per-IP firewall limits after other live sessions used the allowance. No firewall rules were changed.

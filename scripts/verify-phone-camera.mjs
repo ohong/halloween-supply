@@ -23,9 +23,9 @@ for(const page of [desktop,phone]) {
  page.on('console', msg=>{if(msg.type()==='error') console.log('console-error',msg.text());});
  page.on('pageerror', error=>errors.push(error.message));
  await page.addInitScript(forceRelay=>{
-  window.cameraTest={peers:[],tracks:[],requests:[],events:[]};
+  window.cameraTest={peers:[],tracks:[],requests:[],events:[],peerEvents:[]};
   const Peer=window.RTCPeerConnection;
-  window.RTCPeerConnection=class extends Peer {constructor(...args){if(forceRelay && args[0]?.iceServers?.some(s=>JSON.stringify(s.urls).includes('cloudflare.com')))args[0]={...args[0],iceTransportPolicy:'relay'};super(...args);window.cameraTest.peers.push(this);}createDataChannel(...args){const channel=super.createDataChannel(...args);channel.addEventListener('message',({data})=>{try{const event=JSON.parse(data);window.cameraTest.events.push({type:event.type,delta:event.delta});}catch{}});return channel;}};
+  window.RTCPeerConnection=class extends Peer {constructor(...args){if(forceRelay && args[0]?.iceServers?.some(s=>JSON.stringify(s.urls).includes('cloudflare.com')))args[0]={...args[0],iceTransportPolicy:'relay'};super(...args);window.cameraTest.peers.push(this); const index=window.cameraTest.peers.length-1; this.addEventListener("connectionstatechange",()=>window.cameraTest.peerEvents.push({index,state:this.connectionState,at:performance.now()})); this.addEventListener("icecandidate",event=>{if(event.candidate)window.cameraTest.peerEvents.push({index,candidateType:event.candidate.type,protocol:event.candidate.protocol,at:performance.now()});});} close(){window.cameraTest.peerEvents.push({close:window.cameraTest.peers.indexOf(this),at:performance.now(),stack:new Error().stack}); return super.close();}createDataChannel(...args){const channel=super.createDataChannel(...args);channel.addEventListener('message',({data})=>{try{const event=JSON.parse(data);window.cameraTest.events.push({type:event.type,delta:event.delta});}catch{}});return channel;}};
   const capture=navigator.mediaDevices.getUserMedia.bind(navigator.mediaDevices);
   navigator.mediaDevices.getUserMedia=async constraints=>{window.cameraTest.requests.push(constraints);const stream=await capture(constraints);window.cameraTest.tracks.push(...stream.getTracks());return stream;};
  },process.env.PHONE_FORCE_RELAY==='1');
@@ -81,16 +81,28 @@ try{
   const mirror=desktop.getByRole('dialog',{name:/Costume Mirror/});
   await mirror.getByRole('checkbox').check();
   await mirror.getByRole('button',{name:'Start my mirror',exact:true}).click();
-  await desktop.waitForFunction(()=>document.querySelector('video[aria-label="Live costume preview"]')?.videoWidth>0,{}, {timeout:60000});
+  const videoDeadline=Date.now()+60000;
+  let decoded=false;
+  while(Date.now()<videoDeadline){
+    const problem=await mirror.locator('.mirror-error').count()?await mirror.locator('.mirror-error').textContent():null;
+    if(problem)throw new Error(problem);
+    decoded=await desktop.evaluate(async()=>{const video=document.querySelector('video[aria-label="Live costume preview"]');if(!video?.srcObject || !video.videoWidth)return false;let streams=0;for(const peer of window.cameraTest.peers){if(peer.connectionState!=='connected')continue;for(const stat of (await peer.getStats()).values())if(stat.type==='inbound-rtp'&&stat.kind==='video'&&stat.framesDecoded>=20)streams++;}return streams===2;});
+    if(decoded)break;
+    await new Promise(resolve=>setTimeout(resolve,250));
+  }
+  assert.equal(decoded,true,'Both phone and Lucy must deliver decoded video frames.');
   await desktop.waitForFunction(()=>window.cameraTest.events.some(event=>event.type==='session.started'),{}, {timeout:30000});
   assert.equal(await desktop.evaluate(()=>window.cameraTest.requests.length),0);
   const stats=await desktop.evaluate(async()=>{const result=[];for(const peer of window.cameraTest.peers)for(const stat of (await peer.getStats()).values())if(stat.type==='inbound-rtp')result.push({kind:stat.kind,framesDecoded:stat.framesDecoded,totalSamplesReceived:stat.totalSamplesReceived});return result;});
   log('real-lucy-and-gpt-live-use-phone-media',{stats});
+  assert.equal(await desktop.evaluate(()=>window.cameraTest.peers.filter(peer=>peer.connectionState==='connected').length),3);
+  await mirror.evaluate(element=>element.scrollTo(0,0));
   await desktop.screenshot({path:path.join(output,'live-result.png')});
   const cowboy=await (await desktopContext.request.get(`${origin}/api/live-mirror/catalog?slug=cosmic-cowboy`)).json();
   const jacket=cowboy.pieces.find(({piece})=>piece.id==='fringe-jacket');
   const cheap=[...jacket.options].sort((a,b)=>a.product.priceCents-b.product.priceCents)[0].product.id;
   await desktop.waitForFunction(id=>document.getElementById('mirror-piece-fringe-jacket')?.value===id,cheap,{timeout:35000});
+  assert.equal(await mirror.locator('.mirror-error').count(),0);
   log('spoken-phone-command-changes-live-outfit');
   await mirror.getByRole('button',{name:'Use photo mode',exact:true}).click();
   assert.equal(await desktop.getByText('Phone camera connected',{exact:true}).isVisible(),true);
@@ -121,5 +133,5 @@ try{
  assert.deepEqual(errors,[]);
  writeFileSync(path.join(output,'results.json'),JSON.stringify({checks,errors},null,2));
  console.log(`PASS ${output}`);
-}catch(error){console.error(error);await desktop.screenshot({path:path.join(output,'desktop-failure.png')});await phone.screenshot({path:path.join(output,'phone-failure.png')});writeFileSync(path.join(output,'failure.json'),JSON.stringify({error:String(error),checks,errors,desktopMedia:await desktop.evaluate(async()=>{const stats=[];for(const p of window.cameraTest.peers)for(const s of (await p.getStats()).values())if(s.type==='inbound-rtp')stats.push({kind:s.kind,frameWidth:s.frameWidth,frameHeight:s.frameHeight,framesDecoded:s.framesDecoded});return {stats,videos:[...document.querySelectorAll('video')].map(v=>({label:v.ariaLabel,width:v.videoWidth,height:v.videoHeight,paused:v.paused,ready:v.readyState}))};}),desktop:await desktop.locator('body').innerText(),phone:await phone.locator('body').innerText()},null,2));console.error(`FAIL ${output}`);process.exitCode=1;}
+}catch(error){console.error(error);await desktop.screenshot({path:path.join(output,'desktop-failure.png')});await phone.screenshot({path:path.join(output,'phone-failure.png')});writeFileSync(path.join(output,'failure.json'),JSON.stringify({error:String(error),checks,errors,desktopMedia:await desktop.evaluate(async()=>{const stats=[];for(const p of window.cameraTest.peers)for(const s of (await p.getStats()).values())if(s.type==='inbound-rtp')stats.push({kind:s.kind,frameWidth:s.frameWidth,frameHeight:s.frameHeight,framesDecoded:s.framesDecoded});return {peerEvents:window.cameraTest.peerEvents,events:window.cameraTest.events.slice(-20),stats,videos:[...document.querySelectorAll('video')].map(v=>({label:v.ariaLabel,width:v.videoWidth,height:v.videoHeight,paused:v.paused,ready:v.readyState}))};}),desktop:await desktop.locator('body').innerText(),phone:await phone.locator('body').innerText()},null,2));console.error(`FAIL ${output}`);process.exitCode=1;}
 finally{await browser.close();}
