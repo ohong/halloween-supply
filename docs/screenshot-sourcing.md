@@ -1,71 +1,74 @@
 # Screenshot sourcing
 
-The screenshot route reads one image, then streams verified merchant products into the flat-lay. It does not publish a new editorial catalog.
+The screenshot route analyzes one reference image, then streams real merchant offers into the flat-lay. It does not publish an editorial catalog.
 
-## Search and verification
+## Image understanding and identity
+
+Screenshot analysis now defaults to **OpenAI `gpt-6-astra`**, with high-detail images up to 1600 pixels and structured JSON output. The former route used `gpt-4.1`, low-detail images, and a 768-pixel resize. `OPENAI_VISION_MODEL` can override the default. The response's `X-Vision-Model` header identifies the effective model without exposing credentials.
+
+The model records visible construction, silhouette, colors, motifs and a concise search plan for each item. It must not invent wigs from natural hair, hidden shoes, or the character's usual accessories. Uploaded UI titles and search logs are ignored when analyzing a reference picture.
+
+A character guess alone cannot become the title. Distinctive outfits receive a Firecrawl identity search. Neutral wardrobe searches and a separate identity-hypothesis search are compared. The leading non-social source from each is read because excerpts often name a film but omit the character. A second OpenAI call checks the picture against the supplied sources and cites a source index internally. It also improves shopping terminology when the sources resolve a vague motif or garment name. Uncorroborated identities use a neutral outfit title. Generic outfits can stay descriptive without an identity lookup. An uncertain cached identity is checked again on retry.
+
+## Search and acceptance
 
 ```text
-compressed screenshot -> cached image analysis
+high-detail reference -> visible pieces + search phrasings
                               |
-                    reviewed merchant URL hints
+                    corroborate character / film
                               |
-               exact product feed / product page
+             reviewed catalog hints + Firecrawl search
                               |
-              no suitable offer? Firecrawl search
+                 verify merchant offer and variant
                               |
-             ranked product URLs + links in excerpts
+             compare reference AND product photographs
                               |
-                verify garment, color, variant,
-                adult audience, stock, USD price
-                              |
-                    stream product + cart item
+                  best supported offer, or missing
 ```
 
-Two approaches were considered. An additional AI ranking call can compare nuanced visual details, but adds provider latency and cost for every piece. This route uses bounded garment, color, audience, and style checks. They reject known bad substitutions while keeping screenshot sourcing quick. The separately shipped typed costume-creation flow retains its stricter semantic review.
+Two approaches were compared. More search retries plus keyword rules are quick, but cannot distinguish a convincing title from a wrong product. This route combines bounded keyword checks with OpenAI visual comparison of the reference, merchant photographs, descriptions and selected variants. It costs more and takes longer on a cold run. It can reject kits, goggles and wrong garments that previously passed.
 
-Previously sourced catalog URLs are hints, not stock or price answers. The route reads their current merchant feed or page before returning an offer. Firecrawl handles unknown pieces and failed hints. No mock products or invented prices are used.
+The strongest suitable offer wins; a fast merchant response cannot win before visual review. Essential garment type, dominant colors, broad construction and signature motifs must agree. Non-defining hardware or brand details can differ for a close match. Match notes disclose differences beside each result. Actor stills alone do not prove a finished garment is for sale.
 
-Discovery keeps the precise product query first. Generic gender suffixes are removed because observed results often returned collections. A second, broader adult query excludes the dominant blocked/noise domains. The complete merchant blocklist applies to every candidate and redirect, independently of search filtering.
+Each piece starts with up to three distinct searches: a concise product query, a useful synonym and, for distinctive replicas, a corroborated character query. The first pass prefers product URLs. Ranking precedes the six-page read limit, with at most two pages per host and four verified offers per visual comparison. After two failures, OpenAI can rewrite the remaining query from the rejected search excerpts and reference image, with one final broad retail synonym as a fallback. This permits at most four searches without weakening product acceptance. Failed searches can advance to another phrasing. Same-merchant product links in excerpts are discovery hints only.
 
-Firecrawl result excerpts sometimes contain exact product links under a collection hit. The route extracts same-merchant links and verifies their product pages directly. It never treats excerpt prices or stock claims as checkout facts.
+Previously reviewed URLs are also discovery hints. `data/sourcing/screenshot-hints.json` preserves real merchant URLs found and visually verified during acceptance runs. It stores no price or stock promise, and does not bypass image analysis or offer checks. These seeds help cold deployments recover popular pieces when search wording varies. New, unseen items still use Firecrawl. Only add a URL after live merchant verification and reference/product image review. Merchant feeds/pages establish actual price, USD currency, stock, image and size facts. Shopify variants preserve color, purchase type and size family. A title that omits a color can use its merchant description as evidence; an explicit wrong color variant cannot. The product photograph must still pass visual review. Harnesses with actual size options require size selection.
 
-Candidates are ranked before applying the four-page limit. Up to two products from one host remain eligible. Reads race so a slow merchant cannot delay another acceptable match. Losing reads are cancelled. Shopify feeds and direct currency-page checks have a 3.5-second timeout; cart currency reads have 2.5 seconds. Other merchant pages get a five-second Firecrawl timeout. The screenshot run has a shared 50-second deadline, including queued searches and retries.
+The hard merchant blocklist applies to every offer and redirect. Child, pet and doll products, rentals, knitting/yarn kits, sewing patterns, digital files and wholesale lots cannot stand in for adult clothing. Glasses and goggles have separate checks. Known public Shopify CDN images are bounded, decoded and inlined for visual review, so provider-side image retrieval does not invalidate an otherwise usable shortlist.
 
-Shopify offers carry an explicit USD selection into checkout. The merchant page and cart must agree on currency. A cart claiming USD cannot override a page that still prices the same cents in EUR. Abbreviated child sizes such as `18–24m`, `2–4y`, and `3T` are filtered before selecting the purchasable variant family.
+Missing or unverifiable matches stay missing. External stock and search quality still limit completion. An industrial harness can be labeled a close costume substitute; it is not represented as the film prop or as assessed safety equipment.
 
-The route rejects incompatible garment types, wrong color variants, explicit child/pet/doll audiences, age-labeled variants, rentals, digital patterns, and unsupported identifying style details. It checks secondary colors in merchant evidence for details such as red lining or white spots. These checks are conservative heuristics, not visual proof of an exact match. Color families include close alternatives, such as ivory/cream/white.
+## Limits and caching
 
-## Caching and limits
+- The request has a shared 105-second deadline; the Vercel route allows 120 seconds. Browser disconnects cancel the run.
+- Three screenshot searches run concurrently. A 429 permits one bounded cooldown/retry under the same deadline.
+- Identity research has a 30-second budget. Product visual reviews have 22 seconds each.
+- Shopify and direct currency-page reads have 3.5 seconds; cart currency reads have 2.5 seconds. Other product pages get five seconds.
+- Search and image analysis expire after 24 hours. Failed searches are not cached as successful analysis.
+- Merchant facts, complete looks and individually verified image-specific piece matches expire after 15 minutes.
+- Partial looks are never replayed as complete. Their successful pieces can be reused while missing pieces retry.
+- Cached matches explicitly say they are recent. Checkout independently rechecks merchant prices, stock and sizes.
+- Analysis, complete-look and piece caches include model/policy versions. Earlier incorrect identities and weak matches cannot replay under the new policy.
+- Caches and quotas are per instance; they do not guarantee a warm hit or account-wide rate enforcement.
+- Uploads stay below the deployed multipart limit. No image data or credential values are logged. Stripe remains in test mode.
 
-- Firecrawl discovery and image analysis expire after 24 hours.
-- Merchant pages, Shopify facts, merchant currencies, and complete screenshot looks expire after 15 minutes.
-- Partial looks are never cached as finished results. Their image analysis can be reused on retry.
-- Complete replays return immediately with an explicit cache message. They do not simulate old searches or delay the response.
-- Timeouts are excluded from discovery cache keys; changing a deadline cannot duplicate an otherwise identical search.
-- Failed or cancelled Shopify reads are not cached as missing products.
-- Vercel caches use `/tmp`; local runs use ignored `data/cache`. `SOURCING_CACHE_DIR` isolates acceptance runs.
-- Caches and concurrency guards are per instance. They do not promise a hit after a cold start or deployment-wide quotas.
-- Three screenshot searches can run concurrently. A 429 starts a bounded cooldown. Only short explicit `Retry-After` values permit one retry.
-- Browser uploads are re-encoded below 3 MB. The route's multipart body limit stays below Vercel's function upload limit.
-
-Checkout independently rechecks merchant prices, stock, and explicit sizes. Stripe remains in test mode. Screenshot results do not order from merchants.
-
-## Reproduce acceptance checks
+## Real acceptance checks
 
 ```sh
 bun run build
-SOURCING_CACHE_DIR=/tmp/halloween-screenshot-check bun run start --port 3402
-# A separate terminal; real OpenAI, Firecrawl, and merchant calls:
-bun scripts/verify-screenshot-sourcing.ts http://localhost:3402 --repeat --require-complete
-# Also create and inspect five TEST sessions, then expire them unpaid:
-bun scripts/verify-screenshot-sourcing.ts http://localhost:3402 --checkout --require-complete
+bun run start --port 3402
+# In another terminal:
+bun scripts/verify-screenshot-sourcing.ts http://localhost:3402 --checkout
+# The two user regressions, using cropped reference photos kept outside Git:
+bun scripts/verify-screenshot-references.ts http://localhost:3402 /path/cardigan.jpg /path/harness.jpg
 ```
 
-Use `SCREENSHOT_SAMPLES` for comma-separated public costume image slugs. Use `SCREENSHOT_EVIDENCE_DIR` to save NDJSON and timing summaries. The default samples are the original five demo costumes. `--require-complete` deliberately fails if an external merchant or provider prevents a complete look; it does not hide partial results.
+The reference check requires both correct Ryland Grace / Project Hail Mary titles, a real finished cardigan and a real orange harness offer. It rejects invented wigs, hidden footwear, goggles and yarn kits. It also checks that a sized harness exposes size selection. `SCREENSHOT_EVIDENCE_DIR` saves NDJSON and summaries. The five-costume script checks real offers and can inspect exact Stripe test-session line items, then expire the unpaid sessions. `--require-complete` fails on any missing piece instead of hiding it.
 
-The benchmark uses the same public reference PNGs before and after the change. Vision output and external search/inventory can vary. These are sample acceptance measurements, not a general quality or latency guarantee. Follow [the manual checklist](./demo-manual-checklist.md) for unseen screenshots, physical camera/voice, phone handoff, sharing, and generated appearance.
+These are sample acceptance checks, not a guarantee for unseen images or merchant inventory. Follow [the manual checklist](./demo-manual-checklist.md) for camera, microphone, live voice, physical phones, cross-device handoff and human visual review.
 
 ## References
 
+- [OpenAI GPT-6 Astra](https://developers.openai.com/api/docs/models/gpt-6-astra)
+- [OpenAI image inputs and detail](https://developers.openai.com/api/docs/guides/images-vision)
 - [Firecrawl search and selective scraping](https://docs.firecrawl.dev/features/search)
-- [Firecrawl v2 search parameters](https://docs.firecrawl.dev/api-reference/endpoint/search)
