@@ -54,7 +54,7 @@ export const costumes = [
   },
   {
     slug: "starlight-witch",
-    status: "style_guide",
+    status: "live",
     name: "Starlight Witch",
     description: "A midnight velvet hat and star-embroidered cape over a dark dress, finished with a silver crescent.",
     image: "/costumes/starlight-witch.png",
@@ -64,7 +64,7 @@ export const costumes = [
   },
   {
     slug: "clockwork-aviator",
-    status: "style_guide",
+    status: "live",
     name: "Clockwork Aviator",
     description: "Brass goggles and a shearling flight jacket bring a warm, adventurous feel to everyday utility trousers.",
     image: "/costumes/clockwork-aviator.png",
@@ -74,7 +74,7 @@ export const costumes = [
   },
   {
     slug: "autumn-scarecrow",
-    status: "style_guide",
+    status: "live",
     name: "Autumn Scarecrow",
     description: "An ochre plaid shirt and patched denim overalls, topped with a soft rust hat and cloth straw details.",
     image: "/costumes/autumn-scarecrow.png",
@@ -84,7 +84,7 @@ export const costumes = [
   },
   {
     slug: "midnight-pirate",
-    status: "style_guide",
+    status: "live",
     name: "Midnight Pirate",
     description: "A midnight brocade coat and ivory shirt with a burgundy sash, black tricorn, and buckled boots.",
     image: "/costumes/midnight-pirate.png",
@@ -94,7 +94,7 @@ export const costumes = [
   },
   {
     slug: "enchanted-jester",
-    status: "style_guide",
+    status: "live",
     name: "Enchanted Jester",
     description: "Plum and sage velvet diamonds, a cream ruff, and a playful two-point cap create a soft theatrical look.",
     image: "/costumes/enchanted-jester.png",
@@ -104,7 +104,7 @@ export const costumes = [
   },
   {
     slug: "forest-sprite",
-    status: "style_guide",
+    status: "live",
     name: "Forest Sprite",
     description: "Moss-green layers and a leafy crown turn a simple tunic into a woodland costume.",
     image: "/costumes/forest-sprite.png",
@@ -114,7 +114,7 @@ export const costumes = [
   },
   {
     slug: "celestial-sorcerer",
-    status: "style_guide",
+    status: "live",
     name: "Celestial Sorcerer",
     description: "A deep blue robe and pointed hat traced with silver constellations, tied with a simple silver belt.",
     image: "/costumes/celestial-sorcerer.png",
@@ -124,7 +124,7 @@ export const costumes = [
   },
   {
     slug: "pumpkin-harlequin",
-    status: "style_guide",
+    status: "live",
     name: "Pumpkin Harlequin",
     description: "Burnt orange and charcoal diamonds, a ruffled collar, and a tiny pumpkin beret make a graphic autumn look.",
     image: "/costumes/pumpkin-harlequin.png",
@@ -134,7 +134,7 @@ export const costumes = [
   },
   {
     slug: "victorian-detective",
-    status: "style_guide",
+    status: "live",
     name: "Victorian Detective",
     description: "Brown herringbone layers, a deerstalker cap, and polished brogues build a quietly recognizable detective.",
     image: "/costumes/victorian-detective.png",
@@ -144,7 +144,7 @@ export const costumes = [
   },
   {
     slug: "storm-chaser",
-    status: "style_guide",
+    status: "live",
     name: "Storm Chaser",
     description: "A mustard raincoat, navy stripes, and sturdy rain boots make a weather-ready costume with a lightning detail.",
     image: "/costumes/storm-chaser.png",
@@ -154,7 +154,7 @@ export const costumes = [
   },
   {
     slug: "disco-phantom",
-    status: "style_guide",
+    status: "live",
     name: "Disco Phantom",
     description: "A shimmering hooded cape over an ivory flared jumpsuit, with silver gloves and platform boots.",
     image: "/costumes/disco-phantom.png",
@@ -164,7 +164,7 @@ export const costumes = [
   },
   {
     slug: "garden-beekeeper",
-    status: "style_guide",
+    status: "live",
     name: "Garden Beekeeper",
     description: "Cream cotton utility layers and a mesh veil hood, softened by tan gloves and a tiny bee brooch.",
     image: "/costumes/garden-beekeeper.png",
@@ -174,7 +174,7 @@ export const costumes = [
   },
   {
     slug: "coral-mermaid",
-    status: "style_guide",
+    status: "live",
     name: "Coral Mermaid",
     description: "A teal scale-textured skirt and seafoam blouse, layered with coral embroidery and a shell crown.",
     image: "/costumes/coral-mermaid.png",
@@ -184,7 +184,7 @@ export const costumes = [
   },
   {
     slug: "snow-owl",
-    status: "style_guide",
+    status: "live",
     name: "Snow Owl",
     description: "Ivory feather textures and taupe speckles form a soft winged cape over simple cream layers.",
     image: "/costumes/snow-owl.png",
@@ -194,7 +194,7 @@ export const costumes = [
   },
   {
     slug: "velvet-ringmaster",
-    status: "style_guide",
+    status: "live",
     name: "Velvet Ringmaster",
     description: "A red velvet tailcoat with gold braid, a cream ruffled shirt, and a classic black top hat.",
     image: "/costumes/velvet-ringmaster.png",
@@ -204,7 +204,7 @@ export const costumes = [
   },
   {
     slug: "desert-alchemist",
-    status: "style_guide",
+    status: "live",
     name: "Desert Alchemist",
     description: "A sand linen cloak and terracotta tunic, grounded by a brown belt with small bottle pouches.",
     image: "/costumes/desert-alchemist.png",
@@ -214,7 +214,7 @@ export const costumes = [
   },
   {
     slug: "rose-garden-queen",
-    status: "style_guide",
+    status: "live",
     name: "Rose Garden Queen",
     description: "Burgundy velvet and embroidered roses, with a sage cape and a delicate brass-colored crown.",
     image: "/costumes/rose-garden-queen.png",
@@ -224,7 +224,7 @@ export const costumes = [
   },
   {
     slug: "retro-astronaut",
-    status: "style_guide",
+    status: "live",
     name: "Retro Astronaut",
     description: "A cream flight jumpsuit with burnt orange panels, silver accessories, and a rounded space helmet.",
     image: "/costumes/retro-astronaut.png",
@@ -234,7 +234,7 @@ export const costumes = [
   },
   {
     slug: "raven-scholar",
-    status: "style_guide",
+    status: "live",
     name: "Raven Scholar",
     description: "A black feather-textured shoulder cape over an ivory shirt and charcoal waistcoat, with a long dark skirt.",
     image: "/costumes/raven-scholar.png",
@@ -244,7 +244,7 @@ export const costumes = [
   },
   {
     slug: "candy-corn-sorceress",
-    status: "style_guide",
+    status: "live",
     name: "Candy Corn Sorceress",
     description: "Ivory, orange, and golden yellow tiers bring a sweet autumn palette to a pointed hat and little black cape.",
     image: "/costumes/candy-corn-sorceress.png",
