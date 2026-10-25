@@ -74,7 +74,8 @@ export function CostumeExperience({ costume }: { costume: CostumeView }) {
   const needed = pieces.filter(({ piece }) => !uses[piece.id] || uses[piece.id] === "buy");
   const flatlayItems = needed.flatMap((view) => {
     const option = picked.get(view.piece.id);
-    return option?.product.cutout ? [{ key: view.piece.id, src: option.product.cutout, alt: `${view.piece.name}: ${option.product.title}`, scale: flatlayScale(view.piece) }] : [];
+    if (!option) return [];
+    return [{ key: view.piece.id, slideKey: `${view.piece.id}:${option.product.id}`, name: view.piece.name, src: option.product.cutout ?? shot(option.product), alt: option.product.title, scale: option.product.cutout ? flatlayScale(view.piece) : 1, photo: !option.product.cutout }];
   });
 
   const slides: Slide[] = [
@@ -83,8 +84,8 @@ export function CostumeExperience({ costume }: { costume: CostumeView }) {
       const option = picked.get(view.piece.id);
       return option ? [{ kind: "image" as const, key: `${view.piece.id}:${option.product.id}`, src: shot(option.product), alt: option.product.title, caption: `${view.piece.name} · ${option.merchant.name}` }] : [];
     }),
-    ...(flatlayItems.length > 0 && flatlayItems.length === needed.length
-      ? [{ kind: "flatlay" as const, key: "flat-lay", items: flatlayItems, caption: `${flatlayItems.length} selected pieces` }]
+    ...(flatlayItems.length > 0
+      ? [{ kind: "flatlay" as const, key: "flat-lay", items: flatlayItems, caption: `${flatlayItems.length} selected pieces · select one for a closer look` }]
       : []),
   ];
 
