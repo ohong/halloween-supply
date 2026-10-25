@@ -3,15 +3,16 @@ import sharp from "sharp";
 import { z } from "zod";
 import { PreviewError } from "@/lib/ai/openai";
 import { readCache, writeCache } from "@/lib/sourcing/cache";
-import { sourcePiece, toCartItem, type SourceLog } from "@/lib/custom-looks/source";
+import { screenshotSourcing, type SourcingLog as Log } from "@/lib/sourcing/screenshot";
+import { toCartItem } from "@/lib/custom-looks/source";
+import { SNAPSHOTS } from "@/lib/catalog/fallback";
 
 export const maxDuration = 60;
 
-const MAX_BODY = 8 * 1024 * 1024;
+const MAX_BODY = 4 * 1024 * 1024;
 const FORMATS = ["jpeg", "png", "webp", "gif", "heif", "avif"];
 const SLOTS = ["head", "top", "outer", "bottom", "feet", "accessory"] as const;
 const SIZE_KINDS = ["apparel", "pants", "shoe", "hat", "one_size"] as const;
-const money = (cents: number) => `$${(cents / 100).toFixed(2)}`;
 const MODEL = process.env.OPENAI_VISION_MODEL || "gpt-4.1";
 
 const lookSchema = z.object({
@@ -43,7 +44,7 @@ function reserve(request: Request) {
 
 async function readPhoto(request: Request) {
   if (!request.headers.get("content-type")?.startsWith("multipart/form-data")) throw new PreviewError(400, "Upload a screenshot with the form.");
-  if (Number(request.headers.get("content-length")) > MAX_BODY) throw new PreviewError(413, "Choose an image smaller than 8 MB.");
+  if (Number(request.headers.get("content-length")) > MAX_BODY) throw new PreviewError(413, "Choose an image smaller than 4 MB.");
   const reader = request.body?.getReader();
   if (!reader) throw new PreviewError(400, "The screenshot is missing.");
   const chunks: Uint8Array[] = [];
@@ -52,7 +53,7 @@ async function readPhoto(request: Request) {
     const { value, done } = await reader.read();
     if (done) break;
     size += value.byteLength;
-    if (size > MAX_BODY) { await reader.cancel(); throw new PreviewError(413, "Choose an image smaller than 8 MB."); }
+    if (size > MAX_BODY) { await reader.cancel(); throw new PreviewError(413, "Choose an image smaller than 4 MB."); }
     chunks.push(value);
   }
   let form: FormData;
@@ -109,6 +110,8 @@ async function decompose(image: Buffer, signal: AbortSignal): Promise<Look> {
   return parsed.data;
 }
 
+const money = (cents: number) => `$${(cents / 100).toFixed(2)}`;
+
 export async function POST(request: Request) {
   const respond = (status: number, body: object) => Response.json(body, { status, headers: { "Cache-Control": "private, no-store", "X-Content-Type-Options": "nosniff" } });
   let reserved = false;
@@ -127,42 +130,45 @@ export async function POST(request: Request) {
 
   const encoder = new TextEncoder();
   const t0 = performance.now();
-  // The same screenshot replays its finished run, so a demo sample costs no searches and lands in a few seconds.
-  // Checkout re-reads every price and size, so a replayed product can't be sold stale.
-  const runKey = { image: createHash("sha256").update(image).digest("hex"), model: MODEL, v: 3 };
+  // Reuse complete looks for 15 minutes. Partial runs retry sourcing and reuse only image analysis.
+  // Checkout still re-verifies every merchant price, stock level, and selected size.
+  const runKey = { image: createHash("sha256").update(image).digest("hex"), model: MODEL, v: 10 };
   const replay = await readCache<Record<string, unknown>[]>("screenshot-look", runKey).catch(() => undefined);
+  let open = true;
+  const cancelled = new AbortController();
   const stream = new ReadableStream<Uint8Array>({
     async start(controller) {
-      let open = true;
       const recorded: Record<string, unknown>[] = [];
       const emit = (event: Record<string, unknown>) => {
         const line = { ...event, ms: Math.round(performance.now() - t0) };
         recorded.push(line);
         if (open) controller.enqueue(encoder.encode(JSON.stringify(line) + "\n"));
       };
-      const log: SourceLog = (kind, text) => emit({ t: "log", kind, text });
-      const signal = AbortSignal.any([request.signal, AbortSignal.timeout(55_000)]);
+      const log: Log = (kind, text) => emit({ t: "log", kind, text });
+      const signal = AbortSignal.any([request.signal, cancelled.signal, AbortSignal.timeout(50_000)]);
       try {
-        if (replay) {
+        if (replay?.some((event) => event.t === "done")) {
+          log("cache", "Using recently verified matches. Prices and stock are checked again at checkout.");
           for (const event of replay) {
-            const at = Number(event.ms) * 0.3;
-            const wait = at - (performance.now() - t0);
-            if (wait > 0) await new Promise((resolve) => setTimeout(resolve, wait));
-            if (request.signal.aborted) return;
-            emit({ ...event });
+            signal.throwIfAborted();
+            if (["look", "piece", "done"].includes(String(event.t))) emit({ ...event, cached: true });
           }
           return;
         }
         log("think", "Reading the screenshot…");
-        const look = await decompose(image, signal);
+        const analysisKey = { image: runKey.image, model: MODEL, v: 1 };
+        const saved = lookSchema.safeParse(await readCache("screenshot-analysis", analysisKey));
+        const look = saved.success ? saved.data : await decompose(image, signal);
+        if (!saved.success) await writeCache("screenshot-analysis", analysisKey, look);
         emit({ t: "look", ...look });
         log("look", `Spotted ${look.character}: ${look.pieces.map((p) => p.name.toLowerCase()).join(", ")}`);
 
+        const source = screenshotSourcing(signal, log, SNAPSHOTS.flatMap((snapshot) => snapshot.products));
         let found = 0;
         await Promise.all(look.pieces.map(async (piece, i) => {
-          const hit = await sourcePiece(piece, log);
+          const hit = await source(piece);
           if (signal.aborted) return;
-          if (!hit) { log("fail", `${piece.name}: nothing in stock`); emit({ t: "miss", i }); return; }
+          if (!hit) { log("fail", `${piece.name}: no verified match yet`); emit({ t: "miss", i }); return; }
           found++;
           log("found", `${piece.name} → ${hit.merchant}, ${money(hit.priceCents)}`);
           emit({
@@ -173,7 +179,7 @@ export async function POST(request: Request) {
         }));
         if (signal.aborted) throw new DOMException("Timed out", "TimeoutError");
         emit({ t: "done", found });
-        if (found > 0) await writeCache("screenshot-look", runKey, recorded).catch(() => undefined);
+        if (found === look.pieces.length) await writeCache("screenshot-look", runKey, recorded).catch(() => undefined);
       } catch (error) {
         const text = error instanceof PreviewError ? error.message
           : error instanceof Error && ["AbortError", "TimeoutError"].includes(error.name) ? "The stylist took too long. Please try again."
@@ -182,10 +188,10 @@ export async function POST(request: Request) {
         emit({ t: "error", text });
       } finally {
         active--;
-        open = false;
-        controller.close();
+        if (open) { open = false; controller.close(); }
       }
     },
+    cancel() { open = false; cancelled.abort(); },
   });
   return new Response(stream, { headers: { "Content-Type": "application/x-ndjson; charset=utf-8", "Cache-Control": "private, no-store", "X-Content-Type-Options": "nosniff" } });
 }
