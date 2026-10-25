@@ -30,6 +30,7 @@ globalThis.fetch = async (url, options) => {
       assert.equal(input.decimation_target, 40000);
       assert.equal(input.texture_size, 1024);
     } else {
+      assert.equal(String(url), "https://queue.fal.run/fal-ai/hunyuan-3d/v3.1/pro/image-to-3d");
       assert.equal(input.face_count, 40000);
       assert.equal(input.generate_type, "Normal");
       assert.equal(input.input_image_url, image);
@@ -50,9 +51,9 @@ async function expect(handler, body, code, origin) {
 }
 try {
   process.env.TRY_ON_3D_PROVIDER = "";
-  assert.equal(configuredProvider(), "trellis");
+  assert.equal(configuredProvider(), "hunyuan");
   process.env.TRY_ON_3D_PROVIDER = "unknown";
-  assert.equal(configuredProvider(), "trellis");
+  assert.equal(configuredProvider(), "hunyuan");
   delete process.env.FAL_KEY;
   assert.equal(configuredProvider(), null);
   process.env.FAL_KEY = "test-only-fal";

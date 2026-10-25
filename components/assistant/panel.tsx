@@ -226,16 +226,16 @@ export function AssistantPanel({ costume, onChoose }: { costume: CostumeView; on
   });
 
   return <>
-    {!open && <Button ref={triggerRef} onClick={() => setOpen(true)} aria-label="Ask the assistant" aria-expanded={open} aria-controls="shopping-assistant" className="assistant-trigger fixed z-40">Help</Button>}
+    {!open && <Button ref={triggerRef} onClick={() => setOpen(true)} aria-label="Talk to your personal shopper" aria-expanded={open} aria-controls="shopping-assistant" className="assistant-trigger fixed z-40">Help</Button>}
     {open && <>
     <div className="fixed inset-0 z-40 bg-black/20" onClick={close} aria-hidden="true" />
-    <section ref={panelRef} id="shopping-assistant" role="dialog" aria-modal="true" aria-label="Shopping assistant" className="fixed inset-x-0 bottom-0 z-50 flex h-[85dvh] flex-col rounded-t-[4px] border border-[#CCC] bg-white text-[#333] md:inset-x-auto md:right-4 md:bottom-4 md:h-[640px] md:max-h-[calc(100dvh-32px)] md:w-[400px] md:rounded-[4px]">
+    <section ref={panelRef} id="shopping-assistant" role="dialog" aria-modal="true" aria-label="Your personal shopper" className="fixed inset-x-0 bottom-0 z-50 flex h-[85dvh] flex-col rounded-t-[4px] border border-[#CCC] bg-white text-[#333] md:inset-x-auto md:right-4 md:bottom-4 md:h-[640px] md:max-h-[calc(100dvh-32px)] md:w-[400px] md:rounded-[4px]">
       <header className="flex shrink-0 items-center justify-between border-b border-[#CCC] px-4 py-2">
-        <h2 className="text-sm font-normal text-[#111]">Shopping assistant</h2>
-        <Button variant="ghost" onClick={close} aria-label="Close the assistant">Close</Button>
+        <h2 className="text-sm font-normal text-[#111]">Your personal shopper</h2>
+        <Button variant="ghost" onClick={close} aria-label="Close your personal shopper">Close</Button>
       </header>
       {savedLabels.length > 0 && <p className="assistant-sizes max-h-[25%] shrink-0 overflow-y-auto border-b border-[#CCC] text-xs leading-relaxed text-[#666]" aria-live="polite">Saved sizes: {savedLabels.join(" · ")}</p>}
-      <Conversation aria-label="Conversation with the shopping assistant">
+      <Conversation aria-label="Conversation with your personal shopper">
         <ConversationContent>
           {messages.length === 0 && <div className="flex flex-col items-start gap-3">
             <p className="text-sm leading-relaxed">I can help with the {costume.costume.name} pieces, find swaps, save your sizes and add picks to your cart.</p>
@@ -252,7 +252,7 @@ export function AssistantPanel({ costume, onChoose }: { costume: CostumeView; on
         <ConversationScrollButton />
       </Conversation>
       <form onSubmit={onSubmit} className="assistant-form flex shrink-0 gap-2 border-t border-[#CCC] p-3">
-        <input ref={inputRef} value={input} onChange={(event) => setInput(event.target.value)} maxLength={6000} autoComplete="off" enterKeyHint="send" placeholder="Ask about a piece or share your sizes" aria-label="Message the assistant" className="min-h-11 min-w-0 flex-1 rounded-[4px] border border-[#CCC] bg-white px-3 text-base text-[#333] outline-none placeholder:text-[#999] focus-visible:ring-2 focus-visible:ring-[#111]" />
+        <input ref={inputRef} value={input} onChange={(event) => setInput(event.target.value)} maxLength={6000} autoComplete="off" enterKeyHint="send" placeholder="Ask about a piece or share your sizes" aria-label="Message your personal shopper" className="min-h-11 min-w-0 flex-1 rounded-[4px] border border-[#CCC] bg-white px-3 text-base text-[#333] outline-none placeholder:text-[#999] focus-visible:ring-2 focus-visible:ring-[#111]" />
         {busy ? <Button variant="outline" onClick={() => { void stop(); }}>Stop</Button> : <Button type="submit" disabled={!input.trim()}>Send</Button>}
       </form>
     </section></>}

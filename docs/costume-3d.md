@@ -6,9 +6,9 @@ The viewer supports orbit, zoom, keyboard rotation, whole-look reset, and an ite
 
 ## Provider decision — October 25, 2026
 
-The default is **TRELLIS.2 through fal**. Meshy 7.1 and Hunyuan 3D 3.1 Pro stay available behind `TRY_ON_3D_PROVIDER`. All three use the existing `FAL_KEY`.
+The default is **Hunyuan 3D 3.1 Pro through fal**, using `fal-ai/hunyuan-3d/v3.1/pro/image-to-3d`, as selected by the project owner. TRELLIS.2 and Meshy 7.1 remain available through explicit `TRY_ON_3D_PROVIDER` overrides. All three use the existing `FAL_KEY`. Existing signed jobs retain their original provider.
 
-We ran one dressed try-on image (the knit model) through each model and compared the GLBs side by side:
+The previous provider evaluation compared one dressed try-on image (the knit model). These historical observations are not a general quality benchmark:
 
 | Model | Cost per generation | Settings | Result |
 | --- | --- | --- | --- |
@@ -17,7 +17,7 @@ We ran one dressed try-on image (the knit model) through each model and compared
 | Rodin 2.5 | $0.40 | PBR | Washed-out, near-white textures. Not wired in. |
 | Meshy 7.1 | $1.20 (textured) | 40k polygons, remeshed | Good shape, but the slowest (198 s) at 4× the TRELLIS price. 4.4 MB. |
 
-TRELLIS.2 gives the best detail for the lowest price. Its default output (500k vertices, 2048px texture) was 17 MB, which is too heavy for phones, so the app requests 40k vertices and a 1024px texture.
+Hunyuan uses the existing textured `Normal` mode and 40k-face target to limit browser rendering cost. This change selects the requested model; it does not establish a new quality benchmark.
 
 Sources:
 
@@ -29,7 +29,7 @@ Sources:
 ## Configuration
 
 - `FAL_KEY`: enables 3D generation for every provider.
-- `TRY_ON_3D_PROVIDER`: optional `trellis` (default), `meshy` or `hunyuan`. An unknown value falls back to `trellis`.
+- `TRY_ON_3D_PROVIDER`: optional `hunyuan` (default), `trellis` or `meshy`. An unknown value falls back to `hunyuan`.
 - `TRY_ON_3D_SIGNING_SECRET`: optional dedicated signing key, stable across deployment instances. Falls back to `FAL_KEY`.
 
 No provider key reaches the browser. Without `FAL_KEY`, photo try-on remains available and 3D reports its unavailable state.

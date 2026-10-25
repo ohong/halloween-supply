@@ -3,7 +3,7 @@
 .landing-search h1 { color: var(--ink); font-size: clamp(30px, 3.5vw, 40px); line-height: 1.15; font-weight: 400; letter-spacing: -.035em; }
 .landing-description { margin-top: 12px; color: var(--mid); font-size: 14px; line-height: 1.65; text-wrap: pretty; }
 .landing-search form { margin-top: 22px; }
-.costume-search-field { display: flex; align-items: center; gap: 12px; min-height: 54px; padding-inline: 16px 4px; border: 1px solid #d8d8d8; border-radius: 8px; background: #fff; color: var(--mid); }
+.costume-search-field { display: flex; align-items: center; gap: 12px; min-height: 60px; padding-inline: 18px 8px; border: 1px solid #d8d8d8; border-radius: 12px; background: #fff; color: var(--mid); }
 .costume-search-field:focus-within { border-color: var(--ink); outline: 2px solid #111; outline-offset: 3px; }
 .costume-search-field > svg { flex-shrink: 0; }
 .costume-search-field input { flex: 1; min-width: 0; width: 100%; padding: 14px 0; border: 0; background: transparent; color: var(--ink); font: inherit; font-size: 16px; font-weight: 400; border-radius: 0; outline: none; }
@@ -34,7 +34,8 @@
 .tile { position: relative; min-width: 0; }
 .tile-body { display: block; border-radius: 8px; }
 .tile-picture { position: relative; display: block; aspect-ratio: 4 / 5; overflow: hidden; border-radius: 8px; background: #f6f5f4; }
-.tile-picture img { object-fit: contain; padding: 14px 10px; }
+.tile-picture img { object-fit: contain; padding: 14px 10px; filter: grayscale(1); transition: filter 180ms ease; }
+.tile:has(.save-look[aria-pressed="true"]) .tile-picture img { filter: grayscale(0); }
 .tile-caption { display: grid; gap: 6px; padding-block: 12px 0; color: var(--ink); }
 .tile-name { font-size: 14px; font-weight: 500; line-height: 1.35; }
 .tile-detail { display: flex; align-items: center; justify-content: space-between; gap: 8px; color: var(--mid); font-size: 12px; }
@@ -69,8 +70,8 @@
   .gallery-heading { align-items: stretch; flex-direction: column; gap: 16px; padding-bottom: 20px; }
   .gallery-controls { width: 100%; justify-content: space-between; gap: 8px; }
   .gallery-model { gap: 6px; }
-  .gallery-views button { padding-inline: 10px; }
-  .gallery-model select { width: 105px; padding-inline: 10px 22px; font-size: 16px; }
+  .gallery-views button { padding-inline: 8px; }
+  .gallery-model select { width: 120px; padding-inline: 10px 22px; font-size: 16px; }
   .tile-picture img { padding: 14px 6px; }
   .tile-name { font-size: 13px; }
   .tile-detail { font-size: 11px; }
@@ -82,10 +83,12 @@
   .costume-search-field input { font-size: 16px; }
 }
 @media (hover: hover) and (pointer: fine) {
+  .tile:hover .tile-picture img { filter: grayscale(0); }
   .search-screenshot:hover { color: var(--ink); }
   .tile-body:hover .tile-name { text-decoration: underline; text-underline-offset: 3px; }
   .home-page .save-look:hover { background: #f2f2f2; color: var(--ink); }
 }
 @media (prefers-reduced-motion: reduce) {
+  .tile-picture img { transition: none; }
   .home-page [data-slot="button"], .home-page .save-look { transition: none; }
 }

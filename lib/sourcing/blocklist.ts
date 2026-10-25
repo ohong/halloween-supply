@@ -19,7 +19,7 @@ export const BLOCKED_DOMAINS: readonly string[] = [
 const BLOCKED_BRAND_RE = /(^|\.)(amazon|ebay|aliexpress|temu|shein|walmart)\.(com?\.[a-z]{2}|[a-z]{2,3})$/;
 
 // Sites that are never product pages (social, video, wikis, search engines).
-const NOISE_DOMAINS = [
+export const NOISE_DOMAINS = [
   "google.com", "pinterest.com", "youtube.com", "reddit.com", "facebook.com", "instagram.com",
   "tiktok.com", "wikipedia.org", "x.com", "twitter.com", "quora.com", "medium.com", "bing.com",
 ];

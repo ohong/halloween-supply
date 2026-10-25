@@ -11,6 +11,7 @@ import { localSearch, normalizeSearchQuery, type SearchResponse } from "@/lib/co
 import type { CustomLookEvent, CustomPiece } from "@/lib/custom-looks/types";
 import { modelImage, useCostumeModel } from "@/lib/model-selection";
 import { SaveLook, useSavedLooks } from "./saved-looks";
+import { searchPlaceholder, useSearchPlaceholder } from "./use-search-placeholder";
 import "./landing-search.css";
 
 type Refinement = { key: string; response: SearchResponse; failed: boolean };
@@ -31,7 +32,6 @@ export function CostumeGallery({ pieceCounts }: { pieceCounts: Record<string, nu
   const [savedOnly, setSavedOnly] = useState(false);
   const { model, setModel } = useCostumeModel();
   const { saved } = useSavedLooks();
-  const input = useRef<HTMLInputElement>(null);
   const creationAbort = useRef<AbortController | null>(null);
   const attempt = useRef<{ key: string; id: string } | null>(null);
   const normalized = normalizeSearchQuery(query);
@@ -42,6 +42,7 @@ export function CostumeGallery({ pieceCounts }: { pieceCounts: Record<string, nu
   const result = resolved?.response ?? local;
   const pending = normalized.length >= 2 && (composing || !resolved);
   const running = creation?.phase === "running";
+  const input = useSearchPlaceholder(query.length === 0 && !running && !composing);
   const bySlug = new Map(costumes.map((costume) => [costume.slug, costume]));
   // Saved is a view of global results, never evidence that a costume is absent.
   const visible = result.matches.flatMap(({ slug }) => {
@@ -149,7 +150,7 @@ export function CostumeGallery({ pieceCounts }: { pieceCounts: Record<string, nu
         <div className="costume-search-field">
           <Search size={19} aria-hidden="true" />
           <input ref={input} id="costume-search" type="search" value={query} maxLength={160} autoComplete="off" spellCheck={false}
-            placeholder="Vampire, fairy, space cowboy…" disabled={running} aria-controls="costume-results" aria-describedby="costume-search-status"
+            placeholder={searchPlaceholder} disabled={running} aria-controls="costume-results" aria-describedby="costume-search-status"
             onChange={(event) => { setQuery(event.target.value); setCreation(null); }}
             onCompositionStart={() => setComposing(true)}
             onCompositionEnd={(event) => { setQuery(event.currentTarget.value); setComposing(false); }}
