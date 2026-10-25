@@ -1,10 +1,25 @@
 // POST /api/checkout request and response contract (cart -> Stripe Checkout).
 
+import type { SizeKind } from "../types";
+
+/** Cart slug for a look sourced from a screenshot rather than the catalog. */
+export const SCREENSHOT_SLUG = "screenshot-look";
+
 export interface CheckoutRequest {
   costumeSlug: string;
-  items: { pieceId: string; productId: string; size: string | null }[];
+  items: { pieceId: string; productId: string; size: string | null; web?: WebItem }[];
   /** Acknowledgment only. The server still re-fetches and charges the merchant's exact live price. */
   acceptedPrices?: { pieceId: string; productId: string; priceCents: number }[];
+}
+
+/** A screenshot-look piece found on the open web. The server re-derives its id and live price from the URL. */
+export interface WebItem {
+  url: string;
+  title: string;
+  image: string;
+  merchantName: string;
+  pieceName: string;
+  sizeKind: SizeKind;
 }
 
 export interface PriceChange {

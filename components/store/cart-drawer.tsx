@@ -77,7 +77,13 @@ export function CartDrawer() {
     setStatus({ kind: "loading", cartKey });
     const body: CheckoutRequest = {
       costumeSlug,
-      items: items.map((line) => ({ pieceId: line.pieceId, productId: line.productId, size: line.size })),
+      items: items.map((line) => ({
+        pieceId: line.pieceId,
+        productId: line.productId,
+        size: line.size,
+        // Screenshot pieces are not in the catalog, so the server re-verifies them from these details.
+        ...(costumeSlug === SCREENSHOT_SLUG ? { web: { url: line.productUrl, title: line.title, image: line.image, merchantName: line.merchantName, pieceName: line.pieceName, sizeKind: line.sizeKind } } : {}),
+      })),
       acceptedPrices: items.map((line) => ({
         pieceId: line.pieceId,
         productId: line.productId,

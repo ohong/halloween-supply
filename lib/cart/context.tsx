@@ -41,7 +41,8 @@ type CartState = (
 const emptyCart: CartState = { costumeSlug: null, items: [], notice: null };
 
 /** A look rebuilt from a screenshot: pieces drawn from any costume in the catalog. */
-export const SCREENSHOT_SLUG = "screenshot-look";
+import { SCREENSHOT_SLUG } from "../checkout/types";
+export { SCREENSHOT_SLUG };
 
 const knownSlug = (slug: string) => slug === SCREENSHOT_SLUG || costumes.some((costume) => costume.slug === slug);
 
