@@ -20,21 +20,16 @@ let calls = [];
 globalThis.fetch = async (url, options) => {
   calls.push(String(url));
   assert(String(url).startsWith("https://api.openai.com/v1/"), "Unexpected external request");
-  if (String(url).endsWith("/decisions")) {
-    const body = JSON.parse(options.body);
-    assert.equal(body.model, process.env.OPENAI_DECISION_MODEL || "gpt-6-luna");
-    assert.equal(body.questions[0].name, "photo_suitability");
-    assert(body.input[0].content[1].image_url.startsWith("data:image/jpeg;base64,"));
-    if (mode === "unavailable") return new Response("", { status: 429 });
-    if (mode === "malformed") return Response.json({ answers: [] });
-    return Response.json({ answers: [mode === "refusal" ? { name: "photo_suitability", type: "refusal" } : { name: "photo_suitability", type: "choice", choice: mode }] });
-  }
   assert(String(url).endsWith("/images/edits"));
   assert(options.body instanceof FormData);
+  if (mode === "unavailable") return new Response("", { status: 429 });
+  if (mode === "malformed") return Response.json({ data: [] });
   assert.equal(options.body.get("model"), process.env.OPENAI_IMAGE_MODEL || "gpt-image-2.5-sunburst");
   assert.equal(options.body.get("output_format"), "jpeg");
   assert(options.body.getAll("image[]").length >= 1);
   assert(options.body.get("prompt").includes("Preserve the same face"));
+  assert(options.body.get("prompt").includes("Choose its main foreground subject"));
+  assert(options.body.get("prompt").includes("Ignore and remove all other people"));
   return Response.json({ data: [{ b64_json: image.toString("base64") }] });
 };
 let sequence = 0;
@@ -59,23 +54,26 @@ await expectStatus(new Request("http://localhost/api/try-on", { method: "POST", 
 assert.equal(calls.length, 0, "Invalid inputs must never reach OpenAI");
 console.log("PASS origin, consent, file decoding, file type, body size and costume validation");
 
-for (const rejected of ["cropped", "multiple", "unsuitable", "refusal", "malformed"]) {
-  mode = rejected; calls = [];
-  await expectStatus(request(), 422);
-  assert.equal(calls.length, 1, "Rejected photos must not reach the image model");
-}
+mode = "malformed";
+await expectStatus(request(), 502);
 mode = "unavailable";
 await expectStatus(request(), 429);
-console.log("PASS unsuitable-photo and refusal handling; no image call after rejection; upstream rate limit");
+console.log("PASS image-provider errors without a photo-classifier dependency");
 
 mode = "usable";
 for (const costume of costumes) {
   calls = [];
   const response = await expectStatus(request({ slug: costume.slug }), 200);
   assert((await response.json()).image.startsWith("data:image/jpeg;base64,"));
-  assert.equal(calls.length, 2);
+  assert.equal(calls.length, 1);
 }
-console.log("PASS all costume references through Decisions → image edits (provider responses simulated)");
+console.log("PASS all costume references go directly to image edits (provider responses simulated)");
+
+const tiny = await sharp({ create: { width: 80, height: 120, channels: 3, background: "#aaa" } }).jpeg().toBuffer();
+calls = [];
+await expectStatus(request({ photo: new File([tiny], "small.jpg", { type: "image/jpeg" }) }), 200);
+assert.equal(calls.length, 1);
+console.log("PASS small readable photos are accepted without a minimum-resolution gate");
 
 const selection = view.pieces.map(({ piece, options }) => ({ pieceId: piece.id, productId: options[0].product.id }));
 await expectStatus(request({ selection }), 200);

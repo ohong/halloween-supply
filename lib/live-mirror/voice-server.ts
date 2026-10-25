@@ -5,6 +5,7 @@ import { getCostume } from "@/lib/catalog";
 import type { CostumeView } from "@/lib/types";
 import { composeMirrorCostume } from "./mixed-outfit";
 import type { MirrorOutfit } from "./types";
+import { appearanceSchema } from "./appearance-schema";
 
 export class VoiceError extends Error {
   constructor(public status: number, message: string) { super(message); }
@@ -12,6 +13,7 @@ export class VoiceError extends Error {
 const id = z.string().min(1).max(150);
 export { mixSchema } from "./mix-schema";
 export const outfitSchema = z.object({
+  appearance: appearanceSchema.optional(),
   mixes: z.array(mixSchema).max(12).optional(),
   selection: z.record(id, id), uses: z.record(id, z.enum(["buy", "owned", "skip"])),
   locked: z.array(id).max(20), budget: z.string().max(20).refine(value => !value.trim() || (/^\d+(\.\d{1,2})?$/.test(value) && Number(value) <= 1000000)),
@@ -66,7 +68,7 @@ export async function validatedCostume(slug: string, outfit: MirrorOutfit, inven
     costume = composeMirrorCostume(base, outfit.mixes, inventory);
   } } catch (error) { throw new VoiceError(400, error instanceof Error ? error.message : "Invalid outfit pieces."); }
   const ids = new Set(costume.pieces.map(({ piece }) => piece.id));
-  if ([...Object.keys(outfit.selection), ...Object.keys(outfit.uses), ...outfit.locked].some(key => !ids.has(key))) throw new VoiceError(400, "An outfit piece is no longer available.");
+  if ([...Object.keys(outfit.selection), ...Object.keys(outfit.uses), ...Object.keys(outfit.appearance ?? {}), ...outfit.locked].some(key => !ids.has(key))) throw new VoiceError(400, "An outfit piece is no longer available.");
   for (const { piece, options } of costume.pieces) {
     if (!options.some(({ product }) => product.id === outfit.selection[piece.id])) throw new VoiceError(400, "Select a valid product for each piece.");
     if (piece.required && outfit.uses[piece.id] === "skip") throw new VoiceError(400, "Required pieces cannot be skipped.");
