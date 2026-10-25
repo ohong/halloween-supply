@@ -109,7 +109,7 @@ export function Carousel({ slides, hotspots }: { slides: Slide[]; hotspots?: Car
           }}>
           {slides.map((slide, i) => (
             <figure className={`slide${slide.kind === "image" && slide.editorial ? " slide-costume" : ""}`} key={slide.key} data-slide-key={slide.key} inert={i !== current} aria-hidden={i !== current} aria-roledescription="slide" aria-label={`${i + 1} of ${slides.length}`}>
-              <SlideContent slide={slide} preload={i === 0} onSelectPiece={(key) => {
+              <SlideContent slide={slide} preload={i === 0} onInspectPiece={hotspots?.onSelect} onSelectPiece={(key) => {
                 go(slides.findIndex((candidate) => candidate.key === key));
                 track.current?.focus({ preventScroll: true });
               }} />
@@ -134,9 +134,9 @@ export function Carousel({ slides, hotspots }: { slides: Slide[]; hotspots?: Car
   );
 }
 
-function SlideContent({ slide, preload, onSelectPiece }: { slide: Slide; preload: boolean; onSelectPiece: (key: string) => void }) {
+function SlideContent({ slide, preload, onSelectPiece, onInspectPiece }: { slide: Slide; preload: boolean; onSelectPiece: (key: string) => void; onInspectPiece?: CarouselHotspotsProps["onSelect"] }) {
   if (slide.kind === "flatlay") return <div className="carousel-flatlay" aria-label="Selected pieces laid out together" style={{ gridTemplateRows: `repeat(${Math.ceil(slide.items.length / 2)}, minmax(0, 1fr))` }}>
-    {slide.items.map((item, at) => <button type="button" key={item.key} className={`carousel-piece${item.photo ? " carousel-piece-photo" : ""}`} aria-label={`View ${item.name}`} onClick={() => onSelectPiece(item.slideKey)} style={at === slide.items.length - 1 && slide.items.length % 2 === 1 ? { gridColumn: "1 / -1", width: "50%", justifySelf: "center" } : undefined}>
+    {slide.items.map((item, at) => <button type="button" key={item.key} className={`carousel-piece${item.photo ? " carousel-piece-photo" : ""}`} aria-label={`${onInspectPiece ? "Inspect" : "View"} ${item.name}`} onClick={(event) => onInspectPiece ? onInspectPiece(item.key, event.currentTarget) : onSelectPiece(item.slideKey)} style={at === slide.items.length - 1 && slide.items.length % 2 === 1 ? { gridColumn: "1 / -1", width: "50%", justifySelf: "center" } : undefined}>
       <span className="carousel-piece-image" style={{ transform: `scale(${item.scale})` }}><ProductImage src={item.src} alt={item.alt} /></span>
       <span className="carousel-piece-name">{item.name}</span>
     </button>)}

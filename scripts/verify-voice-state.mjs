@@ -87,6 +87,13 @@ try {
   await page.waitForFunction(() => window.voiceStateFixture.samples >= 3);
   assert.equal(await page.locator(".voice-state").getAttribute("data-state"), "listening");
   checks.push("transcript-does-not-imply-speaking");
+  await emit({ type: "session.input_transcript.delta", delta: "Cheaper", start_ms: 0, end_ms: 500 });
+  await emit({ type: "session.output_transcript.delta", delta: "Which piece?", start_ms: 3000, end_ms: 3500 });
+  await emit({ type: "session.input_transcript.delta", delta: "Cheaper", start_ms: 3000, end_ms: 3500 });
+  await page.waitForFunction(() => [...document.querySelectorAll(".live-transcript-entries li")].filter(entry => entry.querySelector(".live-transcript-speaker")?.textContent === "You").length === 2);
+  const userTurns = await page.locator(".live-transcript-entries li").filter({ has: page.getByText("You", { exact: true }) }).locator("p").allTextContents();
+  assert.deepEqual(userTurns, ["Cheaper", "Cheaper"]);
+  checks.push("repeated-transcript-turns-stay-distinct");
   await emit({ type: "session.delegation.created", delegation: { id: "local-change" } });
   await state("thinking");
   const animation = await page.locator(".voice-state-orb > span").first().evaluate(element => getComputedStyle(element).animationName);
