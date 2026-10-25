@@ -11,6 +11,7 @@ import type { CostumeSnapshot } from "../lib/types";
 const snapshot = snapshotJson as CostumeSnapshot;
 const base = process.argv.find((arg) => /^https?:\/\//.test(arg)) ?? "http://localhost:3000";
 const checks: string[] = [];
+const allowGraphDown = process.argv.includes("--allow-graph-down");
 const pass = (name: string) => { checks.push(name); console.log(`PASS ${name}`); };
 
 async function jsonPost(route: string, body: unknown) {
@@ -57,11 +58,17 @@ async function main() {
   pass("costume HTML renders merchant picks, explanations, swaps, whole-costume cart action");
 
   const health = await (await fetch(new URL("/api/health", base))).json();
-  assert(health.graph.ok && health.graph.costume, "Graph must connect and contain the cowboy");
+  const graphUp = Boolean(health.graph.ok && health.graph.costume);
+  if (!graphUp && allowGraphDown) {
+    // Honest degraded run: the site must say so and still serve the bundled snapshot.
+    assert.equal(health.status, "degraded", "Health must report degraded while the graph is down");
+    assert.equal(health.catalogSource, "snapshot", "Graph down must fall back to the snapshot");
+    console.warn("WARN FalkorDB unreachable or unseeded; continuing on snapshot fallback (--allow-graph-down)");
+  } else assert(graphUp, "Graph must connect and contain the cowboy (pass --allow-graph-down to verify the snapshot fallback only)");
   for (const key of ["ANTHROPIC_API_KEY", "BRIGHTDATA_API_KEY", "BRIGHTDATA_SERP_ZONE", "BRIGHTDATA_UNLOCKER_ZONE", "FALKORDB_URL", "STRIPE_SECRET_KEY"]) {
     assert.equal(health.env[key], true, `Missing server ${key}`);
   }
-  pass("server credentials present by name; FalkorDB reachable and seeded");
+  pass(graphUp ? "server credentials present by name; FalkorDB reachable and seeded" : "server credentials present by name; FalkorDB DOWN (degraded, snapshot fallback)");
 
   const malformed = await jsonPost("/api/checkout", {});
   assert.equal(malformed.response.status, 400);
