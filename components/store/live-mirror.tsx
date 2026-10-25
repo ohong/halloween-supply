@@ -13,6 +13,7 @@ import { costumes } from "@/lib/costumes";
 import { applyActions, createOutfit, outfitTotal } from "@/lib/live-mirror/state";
 import { sendMirrorCommand, useLiveVoice } from "@/lib/live-mirror/use-live-voice";
 import { useLiveVideo } from "@/lib/live-mirror/use-live-video";
+import { VoiceStateIndicator } from "./voice-state-indicator";
 import "./live-mirror.css";
 
 type Props = { costume: CostumeView; initialOutfit: MirrorOutfit; onApply: (outfit: MirrorOutfit) => void };
@@ -324,7 +325,7 @@ function MirrorRoom({ costume: initialCostume, initialOutfit, onApply, onClose }
             {availability?.voiceAvailable && <button type="button" className={`mirror-icon-button${voice.status === "live" && !voice.muted ? " mirror-mic-on" : ""}`} disabled={!consent || voice.status === "connecting"} onClick={() => voice.status === "live" ? voice.toggleMute() : void voice.start()} aria-label={voice.status === "live" ? voice.muted ? "Unmute microphone" : "Mute microphone" : "Start voice styling"}>{voice.status === "live" && voice.muted ? <MicOff size={19} /> : <Mic size={19} />}</button>}
           </form>
           {sending && <p className="mirror-muted" role="status">Considering your change…</p>}
-          {voice.status === "live" && <p className="mirror-listening"><span className={`mirror-dot${voice.muted ? "" : " is-live"}`} />{voice.muted ? "Microphone muted" : "Listening — you can speak naturally"}<button onClick={voice.stop}>End voice</button></p>}
+          {availability?.voiceAvailable && <VoiceStateIndicator status={voice.status} activity={voice.activity} muted={voice.muted} onStop={voice.stop} />}
           {utterance && <p className="mirror-transcript"><span>{utterance.role === "user" ? "You" : "Stylist"}</span>{utterance.text}</p>}
         </div>
         <div className="mirror-pieces" aria-label="Selected costume pieces">
