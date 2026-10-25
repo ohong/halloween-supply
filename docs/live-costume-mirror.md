@@ -144,8 +144,8 @@ MIRROR_BASE_URL=http://localhost:3028 node scripts/verify-mirror-identity.mjs
 ```
 
 This checks every published look at three available product tiers, plus color
-and owned-piece changes. It verifies that merchant images are absent and face
-preservation instructions remain present. It does not measure generated likeness.
+and owned-piece changes. It verifies that product boards and face preservation
+instructions remain present. It does not measure generated likeness.
 
 ```sh
 bun install
