@@ -17,7 +17,7 @@ export const screenshotLookSchema = z.object({
 });
 export type ScreenshotLook = z.infer<typeof screenshotLookSchema>;
 
-/** One short vision call leaves most of the twenty-second budget for shopping. */
+/** One short vision call leaves most of the search budget for shopping. */
 export async function decomposeScreenshot(image: Buffer, signal: AbortSignal): Promise<ScreenshotLook> {
   const schema = z.toJSONSchema(screenshotLookSchema);
   delete schema.$schema;

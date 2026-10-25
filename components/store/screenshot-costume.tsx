@@ -206,7 +206,7 @@ export function ScreenshotCostume() {
         <div>
           <p className="meta">Screenshot to costume</p>
           <h1>{character ?? (restored ? "Your screenshot look" : running ? "Reading the look…" : "Turn any screenshot into a costume.")}</h1>
-          <p className="shot-summary">{summary || (restored ? "These pieces are in your cart. Pick sizes, then check out." : !character && !running ? "We spot who it is, break the outfit into the pieces you’d actually buy, and find similar items at real shops. Matches appear as we find them, within 30 seconds." : "")}</p>
+          <p className="shot-summary">{summary || (restored ? "These pieces are in your cart. Pick sizes, then check out." : !character && !running ? "We read the outfit, break it into pieces, and find similar items at real shops. Matches appear as we find them, within 30 seconds." : "")}</p>
         </div>
         {found.length > 0 && <div className="shot-total"><span className="meta">{found.length} priced {found.length === 1 ? "piece" : "pieces"}</span><strong>{formatPrice(total)}</strong></div>}
       </div>
