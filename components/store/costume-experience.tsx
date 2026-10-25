@@ -2,6 +2,11 @@
 
 import { useEffect, useMemo, useState } from "react";
 import Link from "next/link";
+import { ArrowLeft, ArrowRight, Check, ChevronDown, ChevronRight, ShoppingBag, Sparkles } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { Dialog, DialogClose, DialogContent, DialogDescription, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import "./costume-experience.css";
 import { AssistantPanel } from "@/components/assistant/panel";
 import { formatPrice, useCart } from "@/lib/cart/context";
 import { toCartItem } from "@/lib/cart/item";
@@ -119,35 +124,59 @@ export function CostumeExperience({ costume }: { costume: CostumeView }) {
     setMirrorBudget(outfit.budget);
   }
 
-  return <div className="costume-layout costume-layout-simple">
-    <div className="costume-media"><Carousel slides={slides} /><LiveMirror costume={costume} initialOutfit={{ selection: Object.fromEntries(pieces.flatMap((view) => { const option = picked.get(view.piece.id); return option ? [[view.piece.id, option.product.id]] : []; })), uses, locked: [], budget: mirrorBudget }} onApply={applyMirror} /><VirtualTryOn costumeSlug={costumeSlug} pieces={pieces.map(({ piece }) => ({ id: piece.id, name: piece.name, category: piece.category }))} selection={pickedOptions.map(({ view, option }) => ({ pieceId: view.piece.id, productId: option.product.id }))} ownedPieceIds={pieces.filter(({ piece }) => uses[piece.id] === "owned").map(({ piece }) => piece.id)} skippedPieceIds={pieces.filter(({ piece }) => uses[piece.id] === "skip").map(({ piece }) => piece.id)} totalCents={total} /></div>
-    <div className="costume-info">
-      <Link href="/" className="back-link">All costumes</Link>
-      <h1 className="costume-title">{costume.costume.name}</h1>
+  return <div className="costume-layout costume-shop">
+    <header className="costume-heading">
+      <Link href="/" className="back-link"><ArrowLeft size={14} aria-hidden="true" />All costumes</Link>
+      <div className="costume-heading-title">
+        <h1 className="costume-title">{costume.costume.name}</h1>
+        <SaveLook slug={costumeSlug} name={costume.costume.name} />
+      </div>
       <p className="costume-description">{costume.costume.description}</p>
+    </header>
 
-      <ShopForMe pieces={sourcingPieces} onComplete={(choices) => {
-        for (const view of pieces) {
-          const index = choices[view.piece.id];
-          if (index !== undefined) choose(view, index);
-        }
-      }} />
+    <Tabs defaultValue="look" className="costume-media">
+      <TabsList aria-label="Costume preview">
+        <TabsTrigger value="look">The look</TabsTrigger>
+        <TabsTrigger value="try-on"><Sparkles size={15} aria-hidden="true" />Try it on</TabsTrigger>
+      </TabsList>
+      {/* Keep photos and gallery position in memory when switching tabs. */}
+      <TabsContent value="look" forceMount><Carousel slides={slides} /><p className="costume-image-note">Style inspiration. Preview may differ from the selected pieces.</p></TabsContent>
+      <TabsContent value="try-on" forceMount>
+        <VirtualTryOn costumeSlug={costumeSlug} pieces={pieces.map(({ piece }) => ({ id: piece.id, name: piece.name, category: piece.category }))} selection={pickedOptions.map(({ view, option }) => ({ pieceId: view.piece.id, productId: option.product.id }))} ownedPieceIds={pieces.filter(({ piece }) => uses[piece.id] === "owned").map(({ piece }) => piece.id)} skippedPieceIds={pieces.filter(({ piece }) => uses[piece.id] === "skip").map(({ piece }) => piece.id)} totalCents={total} />
+        <div className="costume-live-option"><span>Prefer a live preview?</span><LiveMirror costume={costume} initialOutfit={{ selection: Object.fromEntries(pieces.flatMap((view) => { const option = picked.get(view.piece.id); return option ? [[view.piece.id, option.product.id]] : []; })), uses, locked: [], budget: mirrorBudget }} onApply={applyMirror} /></div>
+      </TabsContent>
+    </Tabs>
 
+    <div className="costume-info">
       {pickedOptions.length > 0
-        ? <div className="whole-costume" id="selected-outfit">
-            <button type="button" className="btn btn-block" disabled={!complete || !cart.ready} onClick={addAll}>Add whole costume · {formatPrice(total)}</button>
-            <p className="meta">{pickedOptions.length} pieces · {shopCount} {shopCount === 1 ? "shop" : "shops"} · Merchant prices only. No added charges.</p>
-            <button type="button" className="text-btn assistant-size-link" onClick={() => window.dispatchEvent(new Event("halloween:open-assistant"))}>Set your budget & sizes →</button>
-            {cart.ready && cart.items.length > 0 && !ownsCart && <p className="meta">Replaces the other outfit in your cart.</p>}
+        ? <div className="costume-purchase" id="selected-outfit">
+            <div className="costume-total"><span>{formatPrice(total)}<small>USD</small></span><p>{pickedOptions.length} pieces · {shopCount} {shopCount === 1 ? "shop" : "shops"}</p></div>
+            <Button className="costume-add" disabled={!complete || !cart.ready} onClick={addAll}><ShoppingBag aria-hidden="true" />Add costume to cart<ArrowRight aria-hidden="true" /></Button>
+            <p className="costume-purchase-note">Merchant prices only. No added fees.</p>
+            {cart.ready && cart.items.length > 0 && !ownsCart && <p className="meta">This costume replaces the outfit in your cart.</p>}
             {ownsCart && cart.notice && !cart.isOpen && <div className="notice" role="status"><p>{cart.notice}</p><button type="button" className="text-btn" onClick={cart.dismissNotice}>Dismiss</button></div>}
           </div>
         : <p className="sourcing-note">Nothing to buy.</p>}
 
-      <ul className="piece-list">
+      <div className="costume-pieces-heading"><h2>Complete the look</h2><span>Change any piece</span></div>
+      <ul className="outfit-pieces">
         {needed.map((view) => <PieceRow key={view.piece.id} costumeSlug={costumeSlug} view={view} index={selectedIndex(view)} onChoose={(i) => choose(view, i)} />)}
       </ul>
 
-      <div className="costume-actions"><SaveLook slug={costume.costume.slug} name={costume.costume.name} showLabel /></div>
+      <div className="costume-help">
+        <div><Sparkles size={18} aria-hidden="true" /><div><h2>Make it yours</h2><p>Set a budget, find local shops, or use what you own.</p></div></div>
+        <Button variant="outline" onClick={() => window.dispatchEvent(new Event("halloween:open-assistant"))}>Ask the assistant<ArrowRight aria-hidden="true" /></Button>
+      </div>
+      <details className="costume-sourcing">
+        <summary>Find a lower-price outfit<ChevronDown size={16} aria-hidden="true" /></summary>
+        <p>Compare the lowest-priced available picks in our catalog.</p>
+        <ShopForMe pieces={sourcingPieces} onComplete={(choices) => {
+          for (const view of pieces) {
+            const index = choices[view.piece.id];
+            if (index !== undefined) choose(view, index);
+          }
+        }} />
+      </details>
 
       <AssistantPanel costume={costume} onChoose={(pieceId, productId) => {
         setUses((current) => ({ ...current, [pieceId]: "buy" }));
@@ -161,67 +190,40 @@ export function CostumeExperience({ costume }: { costume: CostumeView }) {
 
 function PieceRow({ costumeSlug, view, index, onChoose }: { costumeSlug: string; view: PieceView; index: number; onChoose: (index: number) => void }) {
   const cart = useCart();
-  const [swapOpen, setSwapOpen] = useState(false);
+  const [open, setOpen] = useState(false);
   const { piece, options } = view;
   const option = options[index] ?? options[0];
-
-  const header = <div className="piece-head">
-    <h2 className="piece-name">{piece.name}</h2>
-  </div>;
-
-  if (!option) {
-    return <li className="piece">{header}<p className="sourcing-note">No available pick. Ask the assistant for help.</p></li>;
-  }
-
+  if (!option) return <li className="outfit-piece"><p>{piece.name}</p><p className="meta">No available pick. Ask the assistant for help.</p></li>;
   const inCart = cart.ready && cart.costumeSlug === costumeSlug && cart.items.some((line) => line.pieceId === piece.id && line.productId === option.product.id);
-  const hood = option.neighborhood;
 
-  return <li className="piece">
-    {header}
-    <div className="piece-main">
-      <a href={option.product.url} target="_blank" rel="noopener noreferrer" className="piece-thumb" aria-label={`${option.product.title} at ${option.merchant.name}`}>
-        <ProductImage src={shot(option.product)} alt="" />
-      </a>
-      <div className="piece-body">
-        <p className="piece-title">{option.product.title}</p>
-        <p className="piece-merchant">{option.merchant.name}{hood ? ` · ${hood.name}` : ""}</p>
-        <div className="piece-tags">
-          <span className="pill">{option.pick.priceTier}</span>
-          {option.product.availability === "unknown" && <span className="pill">Check stock</span>}
-          {option.pick.isLocal && <span className="pill pill-local">Support local</span>}
-          {option.product.availability === "out_of_stock" && <span className="pill">Sold out</span>}
+  return <li className="outfit-piece">
+    <Dialog open={open} onOpenChange={setOpen}>
+      <DialogTrigger asChild>
+        <button type="button" className="outfit-piece-trigger" aria-label={`Change ${piece.name}`}>
+          <span className="outfit-piece-image"><ProductImage src={shot(option.product)} alt="" /></span>
+          <span className="outfit-piece-copy"><span className="outfit-piece-name">{piece.name}</span><span className="outfit-piece-product">{option.product.title}</span><span className="outfit-piece-merchant">{option.merchant.name}{option.pick.isLocal ? " · Local" : ""}{option.product.availability === "out_of_stock" ? " · Sold out" : ""}</span></span>
+          <span className="outfit-piece-side"><span>{formatPrice(option.product.priceCents)}</span><span className="outfit-piece-change">Change<ChevronRight size={14} aria-hidden="true" /></span></span>
+        </button>
+      </DialogTrigger>
+      <DialogContent className="piece-dialog">
+        <div className="piece-dialog-heading"><DialogTitle>{piece.name}</DialogTitle><DialogDescription>Choose the piece that suits your style and budget.</DialogDescription></div>
+        <div className="piece-options" role="group" aria-label={`Options for ${piece.name}`}>
+          {[...options].sort((a, b) => a.product.priceCents - b.product.priceCents).map((candidate) => {
+            const selected = candidate.product.id === option.product.id;
+            return <button type="button" className="piece-option" key={candidate.product.id} aria-pressed={selected} disabled={candidate.product.availability === "out_of_stock"} onClick={() => onChoose(options.indexOf(candidate))}>
+              <span className="piece-option-image"><ProductImage src={shot(candidate.product)} alt="" /></span>
+              <span className="piece-option-copy"><span className="piece-option-title">{candidate.product.title}</span><span className="piece-option-merchant">{candidate.merchant.name}{candidate.pick.isLocal ? " · Local" : ""}</span><span className="piece-option-price">{formatPrice(candidate.product.priceCents)}{candidate.product.availability === "out_of_stock" ? " · Sold out" : candidate.product.availability === "unknown" ? " · Check stock" : ""}</span></span>
+              <span className="piece-option-check" aria-hidden="true">{selected && <Check size={14} />}</span>
+            </button>;
+          })}
         </div>
-      </div>
-      <p className="piece-price">{formatPrice(option.product.priceCents)}</p>
-    </div>
-
-    <div className="piece-price-tiers" role="group" aria-label={`Price points for ${piece.name}`}>
-      {[...options].sort((a, b) => a.product.priceCents - b.product.priceCents).map((candidate) => <button key={candidate.product.id} type="button" className={candidate.product.id === option.product.id ? "is-current" : ""} aria-pressed={candidate.product.id === option.product.id} disabled={candidate.product.availability === "out_of_stock"} onClick={() => onChoose(options.indexOf(candidate))}>
-        <span>{candidate.pick.priceTier}</span><span>{formatPrice(candidate.product.priceCents)}</span>
-      </button>)}
-    </div>
-    <div className="piece-actions">
-      <button type="button" className="text-btn" disabled={!cart.ready || inCart || option.product.availability === "out_of_stock"}
-        onClick={() => cart.add(toCartItem(piece, option), costumeSlug)}>
-        {inCart ? "In cart" : "Add to cart"}
-      </button>
-      {options.length > 1 && <button type="button" className="text-btn" aria-expanded={swapOpen} aria-label={`Change ${piece.name}`} onClick={() => setSwapOpen((open) => !open)}>
-        Change
-      </button>}
-      <details className="why">
-        <summary>Why this pick</summary>
-        <p>{option.pick.reason}</p>
-      </details>
-    </div>
-
-    {swapOpen && <div className="swap" role="group" aria-label={`Choose ${piece.name}`}>
-      {options.map((candidate, i) => <button type="button" aria-pressed={i === index} key={candidate.product.id} disabled={candidate.product.availability === "out_of_stock"}
-        className={`swap-option ${i === index ? "is-current" : ""}`} onClick={() => onChoose(i)}>
-        <span className="swap-thumb"><ProductImage src={shot(candidate.product)} alt="" /></span>
-        <span className="swap-label">{candidate.pick.priceTier}</span>
-        <span className="swap-title">{candidate.product.title}</span>
-        <span className="swap-meta">{candidate.merchant.name} · {formatPrice(candidate.product.priceCents)}{candidate.pick.isLocal ? " · local" : ""}{candidate.product.availability === "out_of_stock" ? " · sold out" : ""}</span>
-      </button>)}
-    </div>}
+        <details className="piece-reason"><summary>Why this pick?</summary><p>{option.pick.reason}</p></details>
+        <a className="piece-merchant-link" href={option.product.url} target="_blank" rel="noopener noreferrer">View at {option.merchant.name}<ArrowRight size={14} aria-hidden="true" /></a>
+        <div className="piece-dialog-footer">
+          <Button variant="outline" disabled={!cart.ready || inCart || option.product.availability === "out_of_stock"} onClick={() => cart.add(toCartItem(piece, option), costumeSlug)}>{inCart ? <><Check aria-hidden="true" />In cart</> : "Add this piece"}</Button>
+          <DialogClose asChild><Button>Done</Button></DialogClose>
+        </div>
+      </DialogContent>
+    </Dialog>
   </li>;
 }

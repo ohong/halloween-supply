@@ -3,8 +3,8 @@ import sharp from "sharp";
 import { z } from "zod";
 import { PreviewError } from "@/lib/ai/openai";
 import { readCache, writeCache } from "@/lib/sourcing/cache";
-import { screenshotSourcing, type ScreenshotProduct as Found, type SourcingLog as Log } from "@/lib/sourcing/screenshot";
-import type { CartItem } from "@/lib/types";
+import { screenshotSourcing, type SourcingLog as Log } from "@/lib/sourcing/screenshot";
+import { toCartItem } from "@/lib/custom-looks/source";
 import { SNAPSHOTS } from "@/lib/catalog/fallback";
 
 export const maxDuration = 60;
@@ -112,25 +112,6 @@ async function decompose(image: Buffer, signal: AbortSignal): Promise<Look> {
 
 const money = (cents: number) => `$${(cents / 100).toFixed(2)}`;
 
-const slug = (s: string) => s.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "").slice(0, 40) || "piece";
-
-function toItem(i: number, piece: Look["pieces"][number], found: Found): CartItem {
-  return {
-    pieceId: `shot-${i}-${slug(piece.name)}`,
-    pieceName: piece.name,
-    sizeKind: piece.sizeKind,
-    productId: createHash("sha256").update(found.url).digest("hex").slice(0, 24),
-    title: found.title.slice(0, 200),
-    productUrl: found.url,
-    image: found.image,
-    merchantId: found.merchant,
-    merchantName: found.merchant,
-    priceCents: found.priceCents,
-    availableSizes: [...new Set(found.sizes)].slice(0, 100),
-    size: null,
-  };
-}
-
 export async function POST(request: Request) {
   const respond = (status: number, body: object) => Response.json(body, { status, headers: { "Cache-Control": "private, no-store", "X-Content-Type-Options": "nosniff" } });
   let reserved = false;
@@ -193,7 +174,7 @@ export async function POST(request: Request) {
           emit({
             t: "piece", i, fit: "close", why: piece.query,
             product: { title: hit.title, image: hit.image, url: hit.url, priceCents: hit.priceCents, merchant: hit.merchant },
-            item: toItem(i, piece, hit),
+            item: toCartItem(i, piece, hit),
           });
         }));
         if (signal.aborted) throw new DOMException("Timed out", "TimeoutError");

@@ -5,6 +5,7 @@ import { readShopifyProduct, selectShopifyVariants, shopifySizes } from "../prod
 import { BLOCKED_DOMAINS, NOISE_DOMAINS, hostnameOf, isBlockedDomain, isNoiseDomain, registrableDomain } from "./blocklist";
 import { readCache, writeCache } from "./cache";
 import type { Product } from "../types";
+import { supportsWearerAudience } from "../custom-looks/audience";
 
 export interface ScreenshotPiece { name: string; query: string }
 export interface ScreenshotProduct { title: string; image: string; url: string; priceCents: number; merchant: string; sizes: string[] }
@@ -56,10 +57,9 @@ const DETAILS = [
 ];
 const allowedHost = (host: string) => !isBlockedDomain(host) && !isNoiseDomain(host) && !EXCLUDED.some((domain) => host === domain || host.endsWith(`.${domain}`));
 function wrongAudience(piece: ScreenshotPiece, text: string) {
+  if (!supportsWearerAudience(text)) return true;
   return [
-    /\b(kids?|children|child|toddler|infant|baby|youth)\b/i,
     /\b\d+\s*(?:[-–]\s*\d+\s*)?(?:years?|months?|yrs?|mos?)\b/i,
-    /\b(doll|dollhouse|miniature|dog|pet)\b/i,
     /\b(pattern|tutorial|download|printable|charm|ornament|keychain|hand fan)\b/i,
     /\b(rent|rental)\b/i,
   ].some((kind) => kind.test(text) && !kind.test(`${piece.name} ${piece.query}`));
@@ -68,7 +68,8 @@ function wrongAudience(piece: ScreenshotPiece, text: string) {
 export function matchesScreenshotPiece(piece: ScreenshotPiece, title: string, colorEvidence = title, details = title): boolean {
   if (wrongAudience(piece, title)) return false;
   const kind = kindOf(piece);
-  if (kind ? !kind.test(title) : !tokens(piece.name).some((word) => word.length > 3 && tokens(title).includes(word))) return false;
+  const noun = tokens(piece.name).at(-1)?.replace(/s$/, "");
+  if (kind ? !kind.test(title) : !noun || !tokens(title).some((word) => word.replace(/s$/, "") === noun)) return false;
   if (/\b(dress|formal|tailored|tuxedo)\s+(pants?|trousers?|shoes?)\b/i.test(piece.query)
     && !/\b(dress|formal|tailored|tuxedo|wedding|oxfords?|derby|derbies|brogues?)\b/i.test(details)) return false;
   return desiredColors(piece).every((group) => wordsMatch(colorEvidence, group))

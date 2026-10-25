@@ -6,6 +6,17 @@ import type { SizeKind } from "../types";
 export const SCREENSHOT_SLUG = "screenshot-look";
 export const DEMO_DEFAULT_SIZE = "M";
 
+/** Saved custom looks are separate from reviewed editorial catalog slugs. */
+export function customLookId(slug: string | null): string | null {
+  const match = slug?.match(/^custom-look:([0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12})$/i);
+  return match ? match[1].toLowerCase() : null;
+}
+
+export function costumePath(slug: string) {
+  const id = customLookId(slug);
+  return id ? `/create/${id}` : slug === SCREENSHOT_SLUG ? "/screenshot" : `/costumes/${slug}`;
+}
+
 export interface CheckoutRequest {
   costumeSlug: string;
   items: { pieceId: string; productId: string; size: string | null; web?: WebItem }[];
