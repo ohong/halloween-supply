@@ -8,17 +8,49 @@ export async function pairRequest<T>(id: string, token: string, body?: object, s
   if (!response.ok) throw new Error(data.error ?? "The phone could not connect. Try a new QR code.");
   return data;
 }
-export async function gather(peer: RTCPeerConnection, signal: AbortSignal) {
-  if (peer.iceGatheringState === "complete") return;
-  await new Promise<void>((resolve, reject) => {
-    const finish = () => { clearTimeout(timer); peer.removeEventListener("icegatheringstatechange", check); signal.removeEventListener("abort", abort); resolve(); };
-    const check = () => { if (peer.iceGatheringState === "complete") finish(); };
-    const abort = () => { finish(); reject(new Error("Connection cancelled.")); };
-    // SDP contains candidates gathered so far, including TURN. No trickle endpoint needed.
-    const timer = setTimeout(finish, 6000);
-    peer.addEventListener("icegatheringstatechange", check); signal.addEventListener("abort", abort, { once: true }); check();
-  });
-  if (signal.aborted) throw new Error("Connection cancelled.");
+/** Exchange candidates as they arrive: relay discovery can finish after the SDP. */
+export async function connectPeer(peer: RTCPeerConnection, options: {
+  id: string; token: string; claimant?: string; role: "host" | "phone";
+  signal: AbortSignal; isReady: () => boolean; onRemote?: () => void;
+}) {
+  const { id, token, claimant, role, signal } = options;
+  const candidates: RTCIceCandidateInit[] = [];
+  let sent = 0, received = 0;
+  const collect = (event: RTCPeerConnectionIceEvent) => {
+    if (event.candidate && candidates.length < 128) candidates.push(event.candidate.toJSON());
+  };
+  peer.addEventListener("icecandidate", collect);
+  const publish = async () => {
+    const description = role === "phone" ? await peer.createOffer() : await peer.createAnswer();
+    await peer.setLocalDescription(description);
+    await pairRequest(id, token, { action: "signal", description, claimant }, signal);
+  };
+  try {
+    if (role === "phone") await publish();
+    // A host can wait for the QR scan until its pairing link expires.
+    let deadline = role === "phone" ? Date.now() + 60_000 : Infinity;
+    while (!signal.aborted && !options.isReady()) {
+      if (Date.now() > deadline) throw new Error("The devices could not connect. Keep both pages open and scan a new code.");
+      if (candidates.length > sent) {
+        const snapshot = candidates.slice();
+        await pairRequest(id, token, { action: "candidates", candidates: snapshot, claimant }, signal);
+        sent = snapshot.length;
+      }
+      const remote = await pairRequest<{ description: RTCSessionDescriptionInit | null; candidates?: RTCIceCandidateInit[] }>(id, token, undefined, signal);
+      if (signal.aborted) return;
+      if (remote.description && !peer.remoteDescription) {
+        options.onRemote?.();
+        await peer.setRemoteDescription(remote.description);
+        if (role === "host") { deadline = Date.now() + 60_000; await publish(); }
+      }
+      if (peer.remoteDescription) {
+        for (const candidate of (remote.candidates ?? []).slice(received)) {
+          await peer.addIceCandidate(candidate); received++;
+        }
+      }
+      await new Promise(resolve => setTimeout(resolve, 500));
+    }
+  } finally { peer.removeEventListener("icecandidate", collect); }
 }
 export async function frame(video: HTMLVideoElement): Promise<Blob> {
   // WebRTC can start with tiny frames while bandwidth estimation warms up.

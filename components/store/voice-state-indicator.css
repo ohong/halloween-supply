@@ -6,7 +6,7 @@
 .voice-state-label { font-size: 12px; line-height: 1.45; font-weight: 500; }
 .voice-state-detail { margin-top: 2px; font-size: 10px; line-height: 1.5; color: #686256; }
 .voice-state-end { flex: 0 0 auto; min-height: 44px; padding: 8px 0 8px 8px; border: 0; background: transparent; color: inherit; font: inherit; font-size: 10px; text-decoration: underline; text-underline-offset: 4px; }
-.voice-state-end:hover { text-decoration-thickness: 2px; }
+@media (hover: hover) and (pointer: fine) { .voice-state-end:hover { text-decoration-thickness: 2px; } }
 .voice-state-end:focus-visible { outline: 2px solid currentColor; outline-offset: 3px; border-radius: 2px; }
 .voice-state[data-state="idle"] .voice-state-orb > span,
 .voice-state[data-state="error"] .voice-state-orb > span { transform: scaleY(.2); }

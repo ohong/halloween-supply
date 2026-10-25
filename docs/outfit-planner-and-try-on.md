@@ -1,7 +1,7 @@
 # Photo try-on
 
-The costume page opens with the selected product flat-lay, followed by individual
-products and the editorial reference. Local badges and collapsed pick explanations
+The costume page opens with the worn costume, followed by individual products
+and the selected pieces overview. Local badges and collapsed pick explanations
 remain beside the pieces. Wardrobe choices and budget changes belong to the voice
 stylist. There is no shopping brief, event-date form, outfit comparison or final
 plan screen. Voice changes update selected products directly. Shop for me and
@@ -55,9 +55,10 @@ The current implementation does not call Decart or send it photos.
 
 There is no photo-suitability classifier, person-count rejection, full-body
 requirement, or minimum-resolution gate. The image model chooses the main
-foreground subject and removes background people. Visual prominence, size,
-sharpness, and central placement guide its choice. If several people are equally
-prominent, the person nearest the center is selected. Selfies, cropped photos,
+foreground subject and removes background people. The largest foreground
+person is the identity reference; central placement breaks ties. Smaller people
+are ignored even when they already wear the requested costume. Clothing-reference
+images never supply the shopper’s face or body. Selfies, cropped photos,
 seated poses, occlusion, and clutter are passed directly to the model. Missing
 regions are inferred for the finished portrait. Subject choice is model-generated
 and can be ambiguous when people have equal prominence.
@@ -79,11 +80,11 @@ images under its API data policies. Downloads are saved only at the shopper's re
 Generated images approximate appearance. They do not verify fit, measurements,
 fabric behavior, product accuracy, stock, or delivery.
 
-Requests use origin checks, bounded uploads and provider timeouts. Demo testing
-mode disables the per-process photo quota and concurrency guard; the production
-photo firewall rule is also disabled. Outside testing mode, the app allows three
-attempts per client address per hour and two concurrent requests per process.
-See [testing policy and restoration steps](./mirror-session-limits.md).
+Requests use origin checks, bounded uploads, timeouts, and at most two
+simultaneous requests per process. Repeated previews have no hourly app quota.
+Testing mode also bypasses the simultaneous-work guard. The former hourly
+firewall rule for photo try-on was removed. Provider-side limits can still
+return a busy response.
 
 ## Verification
 
@@ -97,7 +98,7 @@ The last command runs the actual route, catalog lookup, file reads, and image
 decoding. It replaces only the OpenAI HTTP boundary and the Next.js server-only
 import marker. It checks all five costume references, selected products, owned
 pieces, invalid uploads, consent, origin, small readable photos, provider errors,
-quotas, and missing credentials. It does not establish real provider access or
+repeated requests, and missing credentials. It does not establish real provider access or
 rendering quality. A funded key and an authorized test photo are needed for that.
 
 ### Local production-build verification — October 24, 2026

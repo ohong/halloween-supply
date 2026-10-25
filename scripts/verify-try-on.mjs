@@ -7,7 +7,7 @@ import sharp from "sharp";
 
 mock.module("server-only", () => ({}));
 process.env.OPENAI_API_KEY = "test-only-not-a-key";
-delete process.env.TRY_ON_TESTING_MODE;
+process.env.TRY_ON_TESTING_MODE = "0";
 process.env.FALKORDB_URL = "";
 const { POST } = await import("../app/api/try-on/route.ts");
 const { costumes } = await import("../lib/costumes.ts");
@@ -17,11 +17,13 @@ const image = await sharp({ create: { width: 400, height: 600, channels: 3, back
 const realFetch = globalThis.fetch;
 let mode = "usable";
 let calls = [];
+let lastEdit;
 globalThis.fetch = async (url, options) => {
   calls.push(String(url));
   assert(String(url).startsWith("https://api.openai.com/v1/"), "Unexpected external request");
   assert(String(url).endsWith("/images/edits"));
   assert(options.body instanceof FormData);
+  lastEdit = options.body;
   if (mode === "unavailable") return new Response("", { status: 429 });
   if (mode === "malformed") return Response.json({ data: [] });
   assert.equal(options.body.get("model"), process.env.OPENAI_IMAGE_MODEL || "gpt-image-2.5-flare");
@@ -30,8 +32,8 @@ globalThis.fetch = async (url, options) => {
   assert.equal(options.body.get("output_format"), "jpeg");
   assert(options.body.getAll("image[]").length >= 1);
   assert(options.body.get("prompt").includes("Preserve the same face"));
-  assert(options.body.get("prompt").includes("Choose its main foreground subject"));
-  assert(options.body.get("prompt").includes("Ignore and remove all other people"));
+  assert(options.body.get("prompt").includes("Use the largest foreground person"));
+  assert(options.body.get("prompt").includes("Remove every other person"));
   return Response.json({ data: [{ b64_json: image.toString("base64") }] });
 };
 let sequence = 0;
@@ -79,6 +81,8 @@ console.log("PASS small readable photos are accepted without a minimum-resolutio
 
 const selection = view.pieces.map(({ piece, options }) => ({ pieceId: piece.id, productId: options[0].product.id }));
 await expectStatus(request({ selection }), 200);
+assert.equal(lastEdit.getAll("image[]").length, 1 + view.pieces.filter(({ options }) => options[0].product.cutout?.startsWith("/products/")).length, "Raw merchant models must not be sent as garment references");
+assert(lastEdit.getAll("image[]").every(image => image.type === "image/jpeg"));
 await expectStatus(request({ selection: [{ ...selection[0], productId: "invented" }, ...selection.slice(1)] }), 400);
 await expectStatus(request({ selection: selection.slice(1) }), 400);
 await expectStatus(request({ selection, owned: [selection[0].pieceId] }), 400);
@@ -87,34 +91,41 @@ await expectStatus(request({ selection: selection.slice(1), owned: [selection[0]
 await expectStatus(request({ owned: view.pieces.map(({ piece }) => piece.id) }), 200);
 console.log("PASS selected products, owned pieces, duplicate protection, missing pieces and required-piece validation");
 
-for (let i = 0; i < 3; i++) await expectStatus(request({ ip: "quota-test" }), 200);
-await expectStatus(request({ ip: "quota-test" }), 429);
+for (let i = 0; i < 5; i++) await expectStatus(request({ ip: "repeat-demo" }), 200);
 process.env.TRY_ON_TESTING_MODE = "1";
-for (let i = 0; i < 4; i++) await expectStatus(request({ ip: "quota-test" }), 200);
-delete process.env.TRY_ON_TESTING_MODE;
-await expectStatus(request({ ip: "quota-test" }), 429);
+for (let i = 0; i < 5; i++) await expectStatus(request({ ip: "repeat-demo" }), 200);
+process.env.TRY_ON_TESTING_MODE = "0";
+await expectStatus(request({ ip: "repeat-demo" }), 200);
 delete process.env.OPENAI_API_KEY;
 await expectStatus(request(), 503);
-console.log("PASS default quota, repeated testing-mode requests, quota restoration and missing-key response");
+console.log("PASS repeated previews from one client and missing-key response");
 
 // Optionally verify that the running storefront still exposes this feature.
 // The route contract alone cannot catch components disconnected from the pages.
 const storefront = process.argv.find((arg) => /^https?:\/\//.test(arg));
 if (storefront) {
   globalThis.fetch = realFetch;
-  await Promise.all(costumes.map(async (costume) => {
-    const response = await realFetch(new URL(`/costumes/${costume.slug}`, storefront), { signal: AbortSignal.timeout(30_000) });
-    assert.equal(response.status, 200);
-    const html = await response.text();
-    assert(html.includes('class="try-on"'), `${costume.slug} is missing the try-on form`);
-    assert(html.includes('capture="environment"'), `${costume.slug} is missing mobile camera capture`);
-    assert(html.includes("Take photo"), `${costume.slug} is missing the camera button`);
-    if (costume.status === "live") assert(html.includes("Shop for me"), `${costume.slug} is missing Shop for me`);
-    assert(!html.includes("outfit-planner"), "Removed planner is still rendered");
-    assert(!html.includes("Compare outfits"), "Removed comparisons are still rendered");
-    assert(!html.includes("I own this"), "Removed wardrobe controls are still rendered");
-    const carousel = html.slice(html.indexOf('aria-label="Costume images"'));
-    if (costume.status === "live") assert((carousel.match(/<img[^>]+src="([^"]+)"/)?.[1] ?? "").includes("-cutout.png"), "Selected product flat-lay must be first");
-  }));
-  console.log("PASS running storefront exposes try-on on all costume pages and Shop for me on shoppable costumes, without the removed planner or wardrobe controls");
+  const { chromium } = await import("playwright");
+  const browser = await chromium.launch({ headless: true });
+  const page = await browser.newPage();
+  try {
+    for (const costume of costumes) {
+      const response = await page.goto(new URL(`/costumes/${costume.slug}`, storefront).href);
+      assert.equal(response.status(), 200);
+      await page.locator(".try-on").waitFor({ state: "attached" });
+      const tab = page.getByRole("tab", { name: "Try it on", exact: true });
+      if (await tab.count()) await tab.click();
+      // Shared-look restoration intentionally hides controls until hydration.
+      await page.locator(".try-on").waitFor({ state: "visible" });
+      assert.equal(await page.locator('.try-on input[capture="environment"]').count(), 1);
+      assert.equal(await page.getByRole("button", { name: "Take photo", exact: true }).count(), 1);
+      assert.equal(await page.locator(".outfit-planner").count(), 0);
+      if (costume.status === "live") {
+        assert.equal(await page.getByRole("button", { name: "Shop for me", exact: true }).count(), 1);
+        assert.equal(await page.locator(".carousel .slide").first().getAttribute("data-slide-key"), "complete-look");
+        assert.equal(await page.locator('.carousel [data-slide-key="flat-lay"]').count(), 1);
+      }
+    }
+  } finally { await browser.close(); }
+  console.log("PASS hydrated storefront exposes photo upload and camera controls on all costume pages, with worn-look and pieces views on shoppable costumes");
 }

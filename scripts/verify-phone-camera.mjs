@@ -44,6 +44,17 @@ try{
  const link=desktop.getByRole('link',{name:'Open phone camera link'});
  await link.waitFor({timeout:20000});
  const url=await link.getAttribute('href');
+ let delayedCandidates=0;
+ if(process.env.PHONE_DELAY_CANDIDATES==='1') {
+  for(const page of [desktop,phone]) await page.route('**/api/camera-pair/*',async route=>{
+   const request=route.request();
+   if(request.method()==='POST'&&request.postDataJSON()?.action==='candidates') {
+    delayedCandidates++;
+    await new Promise(resolve=>setTimeout(resolve,7000));
+   }
+   await route.continue();
+  });
+ }
  assert.equal(await desktop.evaluate(()=>window.cameraTest.requests.length),0);
  await phone.goto(url);
  await phone.getByRole('checkbox').check();
@@ -51,6 +62,11 @@ try{
  await desktop.getByText('Phone camera connected',{exact:true}).waitFor({timeout:40000});
  await desktop.waitForFunction(()=>document.querySelector('video[aria-label="Phone camera preview"]')?.videoWidth>0);
  log('phone-video-on-desktop-without-desktop-camera');
+ if(process.env.PHONE_DELAY_CANDIDATES==='1') {
+  assert.ok(delayedCandidates>=2,'Both peers must exchange late candidates.');
+  log('late-candidates-connect-after-old-six-second-cutoff',{delayedCandidates});
+  for(const page of [desktop,phone])await page.unroute('**/api/camera-pair/*');
+ }
  if(process.env.PHONE_TESTING_MODE==='1') {
   for(const page of [desktop,phone])assert.equal(await page.evaluate(()=>[...window.cameraTest.cutoffs.values()].some(delay=>delay>500000)),false,'Connected demo phone must clear its ten-minute cutoff.');
   log('testing-mode-clears-connected-phone-cutoff');
@@ -62,6 +78,8 @@ try{
  const [id,token]=new URL(url).hash.slice(1).split('.');
  const base=`${origin}/api/camera-pair/${id}`;
  assert.equal((await phoneContext.request.get(base)).status(),401);
+ assert.equal((await phoneContext.request.post(base,{headers:{origin,authorization:`Bearer ${token}`},data:{action:'candidates',candidates:[],claimant:crypto.randomUUID()}})).status(),403);
+ assert.equal((await phoneContext.request.post(base,{headers:{origin,authorization:`Bearer ${token}`},data:{action:'candidates',candidates:Array.from({length:129},()=>({candidate:'x'}))}})).status(),400);
  assert.equal((await phoneContext.request.post(base,{headers:{origin,authorization:`Bearer ${token}`},data:{action:'claim',claimant:crypto.randomUUID()}})).status(),409);
  assert.equal((await phoneContext.request.post(base,{headers:{origin,authorization:`Bearer ${token}`},data:{action:'signal',description:{type:'answer',sdp:'invalid'}}})).status(),403);
  log('pairing-rejects-missing-token-second-phone-and-wrong-role');
@@ -80,6 +98,13 @@ try{
  log('camera-switch-keeps-one-live-camera');
  await desktop.screenshot({path:path.join(output,'desktop-phone-preview.png')});
  await phone.screenshot({path:path.join(output,'phone-controls.png')});
+ if(process.env.PHONE_PROVIDER_E2E!=='1'){
+  await desktop.getByRole('button',{name:'Try it on live',exact:true}).click();
+  await desktop.getByRole('button',{name:'Use photo mode',exact:true}).click();
+  await desktop.getByText('Phone camera connected',{exact:true}).waitFor();
+  assert.equal(await desktop.evaluate(()=>window.cameraTest.peers.filter(peer=>peer.connectionState==='connected').length),1);
+  log('photo-mode-retains-paired-phone');
+ }
  if(process.env.PHONE_PROVIDER_E2E==='1'){
   if(process.env.PHONE_SKIP_PHOTO!=='1') {
   await desktop.getByRole('button',{name:'Try it on',exact:true}).click();

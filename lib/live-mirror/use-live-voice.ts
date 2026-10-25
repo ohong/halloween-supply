@@ -147,7 +147,7 @@ export function useLiveVoice(options: VoiceOptions) {
     session.decisionSnapshot = snapshot;
     const eventId = `outfit_${crypto.randomUUID()}`;
     if (report) session.pendingReports.set(eventId, report);
-    emit(session, { type: "decision.item.create", event_id: eventId, item: { type: "message", role: "user", content: [{ type: "input_text", text: snapshot }] } });
+    emit(session, { type: "decision.item.create", event_id: eventId, item: { type: "message", role: "developer", content: [{ type: "input_text", text: snapshot }] } });
   }, []);
 
   useEffect(() => {

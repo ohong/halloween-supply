@@ -109,9 +109,9 @@ in generated video. Real-person visual verification remains required.
 Camera capture starts only after consent and an explicit Start action. Closing,
 leaving, or hiding the page releases media. Freeze disconnects video and releases
 the camera while voice remains available; Resume creates a new video connection.
-Failed connections require an explicit retry. Testing mode disables the app session
-cutoffs. Outside testing mode, each UI session stops after three minutes. Token expiry
-alone does not terminate a running fal session. See [testing policy](./mirror-session-limits.md).
+Failed connections require an explicit retry. Outside testing mode, each UI
+session stops after three minutes. Token expiry alone does not terminate a running fal session; the
+three-minute limit is client-side, not a provider-enforced spending cap.
 
 The interface marks video live only after the video element begins playing.
 A control send confirms only that an outfit request was sent. The fal extension
@@ -124,13 +124,11 @@ assessment with a person. This implementation does not promise sub-second
 speech-to-visible-garment latency.
 
 Live video, voice and Decisions consume provider credits. Verify current
-pricing for the dedicated VTON endpoint before changing session limits. The application has per-process
-request limits; deployment-wide quotas and provider spending controls remain
-separate operations.
-
-The four try-on firewall quotas are disabled during demo testing. Restoring the
-normal limits requires both an environment change and firewall publication; see
-[testing policy](./mirror-session-limits.md). Provider limits remain independent.
+pricing for the dedicated VTON endpoint before changing session duration. Repeated live sessions,
+resumes, and voice commands have no hourly app or project firewall quota.
+Testing mode disables the app session cutoff. Outside testing mode, each video
+connection ends after three minutes and restarts explicitly.
+See [current session behavior](./mirror-session-limits.md).
 
 ## Reproduce the real-provider test
 
