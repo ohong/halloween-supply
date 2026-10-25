@@ -16,7 +16,15 @@ export function generateStaticParams() {
 export async function generateMetadata({ params }: { params: Params }): Promise<Metadata> {
   const { slug } = await params;
   const costume = costumes.find((item) => item.slug === slug);
-  return { title: costume ? `${costume.name} — Halloween Supply` : "Costume not found", description: costume?.description };
+  if (!costume) return { title: "Costume not found" };
+  // Shared look links unfurl with the costume's own image, not the store default.
+  const images = [{ url: costume.image, alt: costume.alt }];
+  return {
+    title: `${costume.name} — Halloween Supply`,
+    description: costume.description,
+    openGraph: { title: costume.name, description: costume.description, type: "website", images },
+    twitter: { card: "summary_large_image", title: costume.name, description: costume.description, images },
+  };
 }
 
 async function CostumeData({ params }: { params: Params }) {
