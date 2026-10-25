@@ -16,7 +16,7 @@ export interface FetchedPage {
 }
 
 type RequestOptions = { cache?: boolean; timeoutMs?: number; signal?: AbortSignal };
-type SearchOptions = RequestOptions & { excludeDomains?: readonly string[]; retryAt?: number };
+type SearchOptions = RequestOptions & { limit?: number; excludeDomains?: readonly string[]; retryAt?: number };
 
 export class FirecrawlError extends Error {
   constructor(public status: number, public retryAfterMs: number, endpoint: string) {
@@ -46,7 +46,7 @@ async function request<T>(endpoint: "search" | "scrape", body: object, timeoutMs
 
 /** Discover merchant URLs, then scrape only shortlisted product pages. */
 export async function searchWeb(query: string, opts: SearchOptions = {}): Promise<SearchResult[]> {
-  const body = { query: query.trim().replace(/\s+/g, " "), limit: 10, country: "US", location: "San Francisco,California,United States",
+  const body = { query: query.trim().replace(/\s+/g, " "), limit: opts.limit ?? 10, country: "US", location: "San Francisco,California,United States",
     ...(opts.excludeDomains ? { excludeDomains: [...opts.excludeDomains].sort() } : {}),
   };
   if (opts.cache) {

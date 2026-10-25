@@ -16,7 +16,7 @@ for (const [index, file] of files.entries()) {
   form.set("photo", new File([await readFile(file)], path.basename(file), { type: "image/jpeg" }));
   const response = await fetch(`${base}/api/screenshot-costume`, { method: "POST", body: form, signal: AbortSignal.timeout(115_000) });
   assert.equal(response.status, 200);
-  assert.equal(response.headers.get("x-vision-model"), "gpt-6-astra");
+  assert.equal(response.headers.get("x-vision-model"), process.env.OPENAI_VISION_MODEL || "gpt-6.1-sol");
   const text = await response.text();
   if (output) await writeFile(path.join(output, `reference-${index + 1}.ndjson`), text);
   const events = text.trim().split("\n").map((line) => JSON.parse(line));
