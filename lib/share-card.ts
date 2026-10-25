@@ -1,15 +1,18 @@
 // Share cards are composed in the browser from the in-memory preview, so the
 // photo never leaves the device unless the guest shares it themselves.
 
+import type { MirrorMix } from "./live-mirror/types";
+
 const W = 1080;
 const H = 1920;
 const FOOTER = 300;
 
 export const lookParam = "look";
 
-export function lookUrl(origin: string, costumeSlug: string, productIds: string[]) {
+export function lookUrl(origin: string, costumeSlug: string, productIds: string[], mixes?: MirrorMix[]) {
   const url = new URL(`/costumes/${costumeSlug}`, origin);
   if (productIds.length > 0) url.searchParams.set(lookParam, productIds.join(","));
+  if (mixes?.length) url.searchParams.set("mix", JSON.stringify(mixes));
   return url.toString();
 }
 

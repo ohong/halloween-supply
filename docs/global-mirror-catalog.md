@@ -19,8 +19,23 @@ latency and exceed Live's 500-token append limit. Instead:
 5. Live receives concise verified results after the updated context is accepted.
 
 Searches and comparisons are read-only. An explicit “try the second result” or
-the result card's button loads its complete costume with that exact product.
-It does not silently mix garments across costumes or change the cart.
+“use the shiny pair” now mixes that product into the current outfit. The result
+card offers **Add to outfit**. A complete costume switch requires an explicit
+whole-look request. The backend matches meaning, function, price, descriptions,
+and ordered results; it asks when a reference remains ambiguous.
+
+Mixed outfits retain real source costume/piece/product references plus the original
+slot being replaced. The server resolves them again when applying an edit, starting
+Live, building a video reference, restoring a shared link, and checking out. It never
+accepts model-generated product details or prices. Matching garments replace slots;
+new accessories append optional slots. Locked slots reject replacements. Undo
+restores both the prior outfit and its piece definitions. Added optional pieces can
+be skipped by voice. At most twelve imported pieces and twenty total slots are allowed.
+
+The original costume stays selected, and every unrelated selection stays in place.
+Subtotal, merchant links, the flat-lay, photo styling, and the shopping page use the
+composed outfit. Existing cart lines follow swaps as they already do for local edits;
+adding a piece to an outfit does not start checkout or place an order.
 Previous result references are revalidated against fresh catalog data.
 Outdated voice results are discarded after manual outfit or search changes.
 
@@ -34,10 +49,13 @@ database index, origin validation and forged-reference rejection.
 
 Add `--live` to run real Decisions and reasoning requests. It checks that a
 vampire-page search finds silver boots from other costumes without applying
-edits, then resolves “try the second result” to the exact costume and product.
+edits, then resolves “try the second result” to the exact source product while
+keeping the current costume. It applies the edit through the real mix endpoint,
+checks locked/forged references, adds pirate headwear by meaning without an exact
+product name, restores mixed references, and builds a real mixed preview board.
 
 Browser checks cover result cards, preserving the current look during search,
-explicit switching, and a Live WebRTC connection without microphone capture.
+cross-costume swaps, undo, the shopping handoff, and a Live WebRTC connection without microphone capture.
 Real microphone playback remains a separate manual acceptance check.
 
 API behavior follows [native Decisions delegation](https://developers.openai.com/api/docs/guides/decisions-voice)

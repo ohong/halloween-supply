@@ -13,7 +13,7 @@ export function createOutfit(costume: CostumeView, initial: Partial<MirrorOutfit
     uses[piece.id] = use === "owned" ? "owned" : use === "skip" && !piece.required ? "skip" : "buy";
   }
   const ids = new Set(costume.pieces.map(({ piece }) => piece.id));
-  return { selection, uses, locked: [...new Set(initial.locked ?? [])].filter((id) => ids.has(id)), budget: validBudget(initial.budget ?? "") ?? "" };
+  return { ...(initial.mixes?.length ? { mixes: initial.mixes.map(ref => ({ ...ref })) } : {}), selection, uses, locked: [...new Set(initial.locked ?? [])].filter((id) => ids.has(id)), budget: validBudget(initial.budget ?? "") ?? "" };
 }
 
 function validBudget(amount: string) {

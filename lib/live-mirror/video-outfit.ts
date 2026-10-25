@@ -1,8 +1,10 @@
+import { mixSchema } from "./mix-schema";
 import { z } from "zod";
 import type { CostumeView } from "@/lib/types";
 import type { MirrorOutfit } from "./types";
 
 export const videoOutfitSchema = z.object({
+  mixes: z.array(mixSchema).max(12).optional(),
   costumeSlug: z.string().min(1).max(100),
   selection: z.record(z.string().max(150), z.string().max(150)),
   uses: z.record(z.string().max(150), z.enum(["buy", "owned", "skip"])),
@@ -13,6 +15,7 @@ export const videoOutfitSchema = z.object({
 export function videoOutfitRequest(costume: CostumeView, outfit: MirrorOutfit) {
   return {
     costumeSlug: costume.costume.slug,
+    ...(outfit.mixes?.length ? { mixes: outfit.mixes } : {}),
     selection: Object.fromEntries(costume.pieces.map(({ piece, options }) => [piece.id, outfit.selection[piece.id] ?? options[0]?.product.id ?? ""])),
     uses: Object.fromEntries(costume.pieces.map(({ piece }) => [piece.id, outfit.uses[piece.id] ?? "buy"])),
   };
