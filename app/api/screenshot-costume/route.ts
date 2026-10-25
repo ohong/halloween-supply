@@ -1,11 +1,9 @@
 import { createHash } from "node:crypto";
 import sharp from "sharp";
-import { SCREENSHOT_VISION_MODEL as MODEL, screenshotLookSchema as lookSchema, decomposeScreenshot as decompose, corroborateScreenshotIdentity } from "@/lib/sourcing/screenshot-vision";
+import { SCREENSHOT_VISION_MODEL as MODEL, decomposeScreenshot as decompose } from "@/lib/sourcing/screenshot-vision";
 import { PreviewError } from "@/lib/ai/openai";
-import { readCache, writeCache } from "@/lib/sourcing/cache";
 import { screenshotSourcing, type SourcingLog as Log } from "@/lib/sourcing/screenshot";
 import { toCartItem } from "@/lib/custom-looks/source";
-import { SNAPSHOTS } from "@/lib/catalog/fallback";
 
 export const maxDuration = 120;
 
@@ -75,42 +73,23 @@ export async function POST(request: Request) {
 
   const encoder = new TextEncoder();
   const t0 = performance.now();
-  // Reuse complete looks for 15 minutes. Partial runs retry sourcing and reuse only image analysis.
-  // Checkout still re-verifies every merchant price, stock level, and selected size.
-  const runKey = { image: createHash("sha256").update(image).digest("hex"), model: MODEL, v: 14 };
-  const replay = await readCache<Record<string, unknown>[]>("screenshot-look", runKey).catch(() => undefined);
   let open = true;
   const cancelled = new AbortController();
   const stream = new ReadableStream<Uint8Array>({
     async start(controller) {
-      const recorded: Record<string, unknown>[] = [];
       const emit = (event: Record<string, unknown>) => {
         const line = { ...event, ms: Math.round(performance.now() - t0) };
-        recorded.push(line);
         if (open) controller.enqueue(encoder.encode(JSON.stringify(line) + "\n"));
       };
       const log: Log = (kind, text) => emit({ t: "log", kind, text });
       const signal = AbortSignal.any([request.signal, cancelled.signal, AbortSignal.timeout(105_000)]);
       try {
-        if (replay?.some((event) => event.t === "done")) {
-          log("cache", "Using recently verified matches. Prices and stock are checked again at checkout.");
-          for (const event of replay) {
-            signal.throwIfAborted();
-            if (["look", "piece", "done"].includes(String(event.t))) emit({ ...event, cached: true });
-          }
-          return;
-        }
         log("think", "Reading the screenshot…");
-        const analysisKey = { image: runKey.image, model: MODEL, v: 5 };
-        const saved = lookSchema.safeParse(await readCache("screenshot-analysis", analysisKey));
-        const look = !saved.success ? await decompose(image, signal, log)
-          : saved.data.identityConfidence === "high" ? saved.data
-          : await corroborateScreenshotIdentity(saved.data, image, signal, log);
-        if (!saved.success || saved.data.identityConfidence !== "high") await writeCache("screenshot-analysis", analysisKey, look);
+        const look = await decompose(image, signal, log);
         emit({ t: "look", ...look });
         log("look", `Spotted ${look.character}: ${look.pieces.map((p) => p.name.toLowerCase()).join(", ")}`);
 
-        const source = screenshotSourcing(signal, log, SNAPSHOTS.flatMap((snapshot) => snapshot.products), image);
+        const source = screenshotSourcing(signal, log, image);
         let found = 0;
         await Promise.all(look.pieces.map(async (piece, i) => {
           const hit = await source(piece);
@@ -128,7 +107,6 @@ export async function POST(request: Request) {
         }));
         if (signal.aborted) throw new DOMException("Timed out", "TimeoutError");
         emit({ t: "done", found });
-        if (found === look.pieces.length) await writeCache("screenshot-look", runKey, recorded).catch(() => undefined);
       } catch (error) {
         const text = error instanceof PreviewError ? error.message
           : error instanceof Error && ["AbortError", "TimeoutError"].includes(error.name) ? "The stylist took too long. Please try again."

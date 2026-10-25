@@ -28,7 +28,7 @@ export async function screenshotJSON<T>(schema: z.ZodType<T>, name: string, cont
   const jsonSchema = z.toJSONSchema(schema);
   delete jsonSchema.$schema;
   const response = await fetch("https://api.openai.com/v1/responses", {
-    method: "POST",
+    method: "POST", cache: "no-store",
     headers: { Authorization: `Bearer ${process.env.OPENAI_API_KEY}`, "Content-Type": "application/json" },
     body: JSON.stringify({
       model: SCREENSHOT_VISION_MODEL, store: false, max_output_tokens: 6000,
@@ -72,7 +72,7 @@ export async function corroborateScreenshotIdentity(look: ScreenshotLook, image:
     const signature = look.pieces.find((piece) => /\b(ringer|graphic|motif)\b/i.test(`${piece.name} ${piece.query}`));
     const queries = [...new Set([neutralQuery, look.identityHypothesis ? `${look.identityHypothesis} costume` : "",
       look.identityHypothesis && signature ? `${look.identityHypothesis} ${signature.name}` : ""].filter(Boolean))];
-    const groups = await Promise.all(queries.map((query) => searchWeb(query, { cache: true, timeoutMs: 8_000, signal: identitySignal }).catch(() => [])));
+    const groups = await Promise.all(queries.map((query) => searchWeb(query, { cache: false, timeoutMs: 8_000, signal: identitySignal }).catch(() => [])));
     const relevant = groups.map((results) => results.filter((source) => !isNoiseDomain(source.url)));
     const clues = [...new Set(look.pieces.flatMap((piece) => `${piece.name} ${piece.query}`.toLowerCase().split(/[^a-z]+/).filter((word) => word.length > 3)))];
     const score = (source: { title: string; description?: string }) => clues.reduce((sum, clue) => sum + (`${source.title} ${source.description ?? ""}`.toLowerCase().includes(clue) ? /ringer|motif|harness|cardigan/.test(clue) ? 4 : 1 : 0), 0);
@@ -82,7 +82,7 @@ export async function corroborateScreenshotIdentity(look: ScreenshotLook, image:
     const sourceTexts = new Map<string, string>();
     await Promise.all(sources.slice(0, 2).map((source) => source.url).map(async (url) => {
       try {
-        const page = await fetchProductPage(url, { cache: true, timeoutMs: 5_000, signal: identitySignal });
+        const page = await fetchProductPage(url, { cache: false, timeoutMs: 5_000, signal: identitySignal });
         const article = page.html.match(/<article\b[^>]*>([\s\S]*?)<\/article>/i)?.[1] ?? page.html;
         sourceTexts.set(url, htmlToText(article).slice(0, 7_000));
       } catch { /* A failed page is not identity proof; usable excerpts remain available. */ }
@@ -111,7 +111,7 @@ export async function corroborateScreenshotIdentity(look: ScreenshotLook, image:
 export async function screenshotOfferImage(url: string, signal: AbortSignal): Promise<string | null> {
   try {
     if (new URL(url).hostname !== "cdn.shopify.com") return url;
-    const response = await fetch(url, { redirect: "error", signal: AbortSignal.any([signal, AbortSignal.timeout(5_000)]) });
+    const response = await fetch(url, { cache: "no-store", redirect: "error", signal: AbortSignal.any([signal, AbortSignal.timeout(5_000)]) });
     if (!response.ok || !response.headers.get("content-type")?.startsWith("image/")) return null;
     const reader = response.body?.getReader();
     if (!reader) return null;

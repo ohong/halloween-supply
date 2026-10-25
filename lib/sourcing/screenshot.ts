@@ -1,13 +1,10 @@
 import { z } from "zod";
-import { createHash } from "node:crypto";
-import { screenshotJSON, screenshotOfferImage, SCREENSHOT_VISION_MODEL } from "./screenshot-vision";
+import { screenshotJSON, screenshotOfferImage } from "./screenshot-vision";
 import { setTimeout as delay } from "node:timers/promises";
 import { FirecrawlError, fetchProductPage, searchWeb, type SearchResult } from "../firecrawl/client";
 import { htmlToText, parseProduct } from "../products/parse";
 import { readShopifyProduct, selectShopifyVariants, shopifySizes } from "../products/shopify";
 import { BLOCKED_DOMAINS, NOISE_DOMAINS, hostnameOf, isBlockedDomain, isNoiseDomain, registrableDomain } from "./blocklist";
-import { readCache, writeCache } from "./cache";
-import type { Product } from "../types";
 import screenshotHints from "../../data/sourcing/screenshot-hints.json";
 import { supportsWearerAudience } from "../custom-looks/audience";
 
@@ -87,10 +84,10 @@ export function matchesScreenshotPiece(piece: ScreenshotPiece, title: string, co
     && DETAILS.filter((detail) => detail.test(piece.query)).every((detail) => detail.test(details));
 }
 
-function relevance(piece: ScreenshotPiece, result: SearchResult): number {
+function relevance(piece: ScreenshotPiece, result: SearchResult & { verifiedHint?: boolean }): number {
   const title = tokens(result.title);
   const kind = kindOf(piece);
-  return (kind?.test(result.title) ? 20 : 0)
+  return (result.verifiedHint ? 12 : 0) + (kind?.test(result.title) ? 20 : 0)
     + desiredColors(piece).filter((group) => wordsMatch(result.title, group)).length * 8
     + tokens(piece.query).filter((word) => word.length > 2 && title.includes(word)).length * 2;
 }
@@ -121,7 +118,7 @@ function releaseSearch() {
   }
 }
 
-export function screenshotSourcing(signal: AbortSignal, log: SourcingLog, catalog: readonly Product[] = [], reference?: Buffer) {
+export function screenshotSourcing(signal: AbortSignal, log: SourcingLog, reference?: Buffer) {
   const searches = new Map<string, Promise<SearchResult[]>>();
   const currencies = new Map<string, Promise<string | null>>();
   async function search(query: string) {
@@ -133,13 +130,15 @@ export function screenshotSourcing(signal: AbortSignal, log: SourcingLog, catalo
         try {
           for (let attempt = 0; ; attempt++) {
             try {
-              // Disk hits remain usable during a provider cooldown.
-              return await searchWeb(query, { cache: true, timeoutMs: 10_000, signal,
+              const cooldown = searchRetryAt - Date.now();
+              if (cooldown > 0) { log("retry", "Search is busy. Waiting to run a fresh search…"); await delay(cooldown, undefined, { signal }); }
+              log("search", `“${query}”`);
+              return await searchWeb(query, { cache: false, timeoutMs: 10_000, signal,
                 excludeDomains: SEARCH_EXCLUDED, retryAt: searchRetryAt });
             }
             catch (error) {
               if (!(error instanceof FirecrawlError) || error.status !== 429) throw error;
-              searchRetryAt = Date.now() + (error.retryAfterMs || 30_000);
+              searchRetryAt = Math.max(searchRetryAt, Date.now() + (error.retryAfterMs || 30_000));
               if (attempt) throw error;
               log("retry", "Search is busy. Waiting for its rate limit before one retry…");
               await delay(Math.max(1_000, Math.min(30_000, searchRetryAt - Date.now())), undefined, { signal });
@@ -156,14 +155,10 @@ export function screenshotSourcing(signal: AbortSignal, log: SourcingLog, catalo
     let pending = currencies.get(origin);
     if (!pending) {
       pending = (async () => {
-        const key = { origin, currency: "USD" };
-        const cached = await readCache<string>("shop-currency", key);
-        if (cached) return cached;
         try {
-          const response = await fetch(`${origin}/cart.js?currency=USD`, { signal: AbortSignal.any([signal, AbortSignal.timeout(2_500)]), headers: { Accept: "application/json" } });
+          const response = await fetch(`${origin}/cart.js?currency=USD`, { cache: "no-store", signal: AbortSignal.any([signal, AbortSignal.timeout(2_500)]), headers: { Accept: "application/json" } });
           const cart = response.ok ? await response.json() as { currency?: string } : null;
           const value = typeof cart?.currency === "string" ? cart.currency : null;
-          if (value) await writeCache("shop-currency", key, value);
           return value;
         } catch { return null; }
       })();
@@ -176,18 +171,15 @@ export function screenshotSourcing(signal: AbortSignal, log: SourcingLog, catalo
     const pageCurrency = async () => {
       const pageUrl = new URL(url); pageUrl.search = "?currency=USD";
       const key = pageUrl.toString();
-      const cached = await readCache<string>("shop-page-currency", key);
-      if (cached) return cached;
       try {
-        const response = await fetch(pageUrl, { signal: AbortSignal.any([readSignal, AbortSignal.timeout(3_500)]), headers: { Accept: "text/html" } });
+        const response = await fetch(pageUrl, { cache: "no-store", signal: AbortSignal.any([readSignal, AbortSignal.timeout(3_500)]), headers: { Accept: "text/html" } });
         if (!response.ok || registrableDomain(response.url) !== registrableDomain(url)) return null;
         const declared = parseProduct(await response.text(), key).currency ?? "unknown";
-        await writeCache("shop-page-currency", key, declared);
         return declared;
       } catch { return null; }
     };
     const [raw, money, declared] = await Promise.all([
-      readShopifyProduct(url, true, { signal: readSignal, timeoutMs: 3_500 }), currency(new URL(url).origin), pageCurrency(),
+      readShopifyProduct(url, false, { signal: readSignal, timeoutMs: 3_500 }), currency(new URL(url).origin), pageCurrency(),
     ]);
     // Some stores report USD in cart.js while their product facts still price the same cents in EUR.
     // Match checkout's currency agreement before showing that offer as purchasable.
@@ -224,7 +216,7 @@ export function screenshotSourcing(signal: AbortSignal, log: SourcingLog, catalo
 
   async function scrape(url: string, piece: ScreenshotPiece, readSignal: AbortSignal): Promise<ScreenshotProduct | null> {
     try {
-      const page = await fetchProductPage(url, { cache: true, timeoutMs: 5_000, signal: readSignal });
+      const page = await fetchProductPage(url, { cache: false, timeoutMs: 5_000, signal: readSignal });
       const host = hostnameOf(page.finalUrl);
       if (!host || !allowedHost(host) || !page.finalUrl.startsWith("https://")) return null;
       const product = parseProduct(page.html, page.finalUrl);
@@ -234,7 +226,7 @@ export function screenshotSourcing(signal: AbortSignal, log: SourcingLog, catalo
     } catch { return null; }
   }
 
-  async function readCandidates(results: SearchResult[], piece: ScreenshotPiece, seen: Set<string>) {
+  async function readCandidates(results: (SearchResult & { verifiedHint?: boolean })[], piece: ScreenshotPiece, seen: Set<string>) {
     const perHost = new Map<string, number>();
     // Firecrawl highlights can expose exact product links even when the ranked hit is a collection.
     // These links are discovery only; all facts still come from the selected merchant page/feed.
@@ -300,17 +292,6 @@ export function screenshotSourcing(signal: AbortSignal, log: SourcingLog, catalo
 
   const source = async (piece: ScreenshotPiece): Promise<ScreenshotProduct | null> => {
     const seen = new Set<string>();
-    // Reviewed URLs are discovery hints, never price/stock answers. Re-read the merchant before use.
-    const known = [...catalog.filter((product) => product.availability === "in_stock"), ...screenshotHints].filter((product) =>
-      matchesScreenshotPiece(piece, product.title, `${product.title} ${product.description}`, `${product.title} ${product.description}`))
-      .map((product) => ({ title: product.title, url: product.url }))
-      .sort((a, b) => relevance(piece, b) - relevance(piece, a));
-    const unique = [...new Map(known.map((item) => [item.url.split("?")[0], item])).values()].slice(0, 4);
-    if (unique.length) {
-      log("catalog", `${piece.name}: checking previously sourced shops`);
-      const hit = await readCandidates(unique, piece, seen);
-      if (hit) return hit;
-    }
     // Independent phrasings recover replicas and unusual construction without weakening acceptance.
     const planned = [...new Set([piece.query, piece.queries?.[1], piece.queries?.at(-1)].filter((query): query is string => Boolean(query)))].slice(0, 3);
     if (planned.length === 1) planned.push(`${piece.query} adult clothing`);
@@ -331,7 +312,6 @@ export function screenshotSourcing(signal: AbortSignal, log: SourcingLog, catalo
       }
       signal.throwIfAborted();
       const actualQuery = index === 0 ? `${query} inurl:products` : query;
-      log("search", `“${actualQuery}”`);
       let results: SearchResult[];
       try { results = await search(actualQuery); }
       catch (error) {
@@ -341,20 +321,15 @@ export function screenshotSourcing(signal: AbortSignal, log: SourcingLog, catalo
         continue;
       }
       discovered.push(...results);
-      const hit = await readCandidates(results, piece, seen);
+      // Every upload has already searched Firecrawl. These real URLs only supplement its shortlist;
+      // no saved prices, images, variants or match verdicts are replayed.
+      const hints = index === 0 ? screenshotHints.filter((hint) => matchesScreenshotPiece(piece, hint.title, hint.description, hint.description))
+        .map((hint) => ({ title: hint.title, url: hint.url, description: hint.description, verifiedHint: true })) : [];
+      const hit = await readCandidates([...results, ...hints], piece, seen);
       if (hit) return hit;
       if (index < planned.length - 1) log("retry", `${piece.name}: trying another precise search`);
     }
     return null;
   };
-  const imageKey = reference ? createHash("sha256").update(reference).digest("hex") : null;
-  return async (piece: ScreenshotPiece): Promise<ScreenshotProduct | null> => {
-    const key = { image: imageKey, piece, model: SCREENSHOT_VISION_MODEL, policy: 2 };
-    const cached = imageKey ? await readCache<ScreenshotProduct>("screenshot-piece", key) : undefined;
-    if (cached) { log("cache", `${piece.name}: using a recently verified visual match; checkout rechecks price and stock`); return cached; }
-    const hit = await source(piece);
-    if (hit && imageKey) await writeCache("screenshot-piece", key, hit);
-    return hit;
-  };
-
+  return source;
 }

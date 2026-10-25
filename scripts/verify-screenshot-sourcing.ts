@@ -47,7 +47,8 @@ for (const slug of samples) {
       assert.equal(item.productId, createHash("sha256").update(item.productUrl).digest("hex").slice(0, 24));
     }
     const cached = events.some((event) => event.cached);
-    if (cached) assert(!events.some((event) => event.kind === "search" || event.kind === "candidate"), "Replay must not fabricate a search trace");
+    assert(!cached && !events.some((event) => event.kind === "cache" || event.kind === "catalog"), "Every upload must run fresh sourcing, without replay or catalog shortcuts");
+    assert(events.some((event) => event.kind === "search"), "Every upload must show real web searches, including repeated images");
     const summary = { slug, attempt, elapsedMs: Math.round(performance.now() - start), streamMs: done?.ms, found: items.length, requested: look.pieces.length,
       searches: events.filter((event) => event.kind === "search").length, cached };
     summaries.push(summary);

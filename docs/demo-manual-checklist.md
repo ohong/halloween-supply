@@ -11,10 +11,10 @@ The checks below cover physical devices, human judgment, and operating-system be
 3. Confirm the character, garment types, main colors, silhouettes, and adult sizing match your reference. For the two supplied film stills, both titles should identify Ryland Grace from Project Hail Mary.
 4. Open each merchant link. Check that its selected color and product image agree with the result.
 5. Confirm the fox cardigan is a finished sweater, not a yarn kit. Confirm the spacecraft look has clear glasses and an orange strap harness, with no steampunk goggles or invented wig. Read the match notes for differences.
-6. Upload the same file again. A complete recent look should return immediately and say it uses recent matches.
+6. Upload the same file again. Confirm image analysis, Firecrawl searches and merchant verification run again; a previous result must not replay.
 7. Choose offered sizes, add the look, and open the cart. Confirm pieces and prices agree. Upload a different screenshot and add it; confirm products from the old screenshot leave the cart.
 
-Also try paste from your actual screenshot tool and drag-and-drop from Finder. Clipboard formats and phone image decoders differ. Automated samples cannot establish match quality for an unseen screenshot. Search can still return partial results or hit provider limits. Recent complete results are cached for 15 minutes on a warm server instance; a new instance can take longer.
+Also try paste from your actual screenshot tool and drag-and-drop from Finder. Clipboard formats and phone image decoders differ. Automated samples cannot establish match quality for an unseen screenshot. Search can still return partial results or hit provider limits. Every upload runs fresh analysis and sourcing. Provider limits and merchant response times can make a repeat slower, too.
 
 ## 2. Physical camera and microphone
 
