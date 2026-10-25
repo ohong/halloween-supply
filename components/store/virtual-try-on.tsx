@@ -9,30 +9,10 @@ import { composeShareCard, lookUrl } from "@/lib/share-card";
 import "./virtual-try-on.css";
 import { TryOn3D } from "./try-on-3d";
 import type { FocusPiece, RenderOffer } from "@/lib/try-on-3d/types";
+import { preparePhoto } from "@/lib/photo/prepare";
+import { renderSVG } from "uqr";
 
 type Selection = { pieceId: string; productId: string }[];
-
-// Re-encode camera and library images the browser can decode as JPEGs under 3 MB.
-async function preparePhoto(file: File): Promise<Blob> {
-  if (!file.type.startsWith("image/")) throw new Error("Choose a photo.");
-  let image: ImageBitmap;
-  try { image = await createImageBitmap(file); } catch { throw new Error("This photo could not be opened. Try another one."); }
-  try {
-    if (Math.min(image.width, image.height) < 256) throw new Error("This photo is too small. Try a larger one.");
-    const scale = Math.min(1, 1600 / Math.max(image.width, image.height));
-    const canvas = document.createElement("canvas");
-    canvas.width = Math.round(image.width * scale);
-    canvas.height = Math.round(image.height * scale);
-    const context = canvas.getContext("2d");
-    if (!context) throw new Error("This browser could not prepare your photo. Try another browser.");
-    context.fillStyle = "#fff";
-    context.fillRect(0, 0, canvas.width, canvas.height);
-    context.drawImage(image, 0, 0, canvas.width, canvas.height);
-    const blob = await new Promise<Blob | null>((resolve) => canvas.toBlob(resolve, "image/jpeg", .88));
-    if (!blob || blob.size > 3 * 1024 * 1024) throw new Error("This photo is too large. Try another one.");
-    return blob;
-  } finally { image.close(); }
-}
 
 const Icon = ({ d, size = 22 }: { d: string; size?: number }) => <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d={d} /></svg>;
 const CAMERA = "M3 8.5A2.5 2.5 0 0 1 5.5 6h2l1.5-2h6l1.5 2h2A2.5 2.5 0 0 1 21 8.5v9a2.5 2.5 0 0 1-2.5 2.5h-13A2.5 2.5 0 0 1 3 17.5zM12 16.5a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7z";
@@ -99,7 +79,10 @@ export function VirtualTryOn({ costumeSlug, selection = [], ownedPieceIds = [], 
   async function upload(event: ChangeEvent<HTMLInputElement>) {
     const file = event.target.files?.[0];
     event.target.value = "";
-    if (!file) return;
+    if (file) await acceptPhoto(file);
+  }
+
+  async function acceptPhoto(file: Blob) {
     const version = ++uploadVersion.current;
     controller.current?.abort();
     setCard(null); setPhoto(null); setPhotoUrl(""); setBusy(false); setPreparing(true); setError(""); setResult(null); setPeek(false);
@@ -111,6 +94,25 @@ export function VirtualTryOn({ costumeSlug, selection = [], ownedPieceIds = [], 
     } catch (caught) { if (version === uploadVersion.current) setError(caught instanceof Error ? caught.message : "This photo could not be opened."); }
     finally { if (version === uploadVersion.current) setPreparing(false); }
   }
+
+  // Desktops have no useful camera, so a QR code lets a phone take the photo.
+  const [handoff, setHandoff] = useState<string | null>(null);
+  function takePhoto() {
+    if (matchMedia("(pointer: fine)").matches) setHandoff(crypto.randomUUID());
+    else cameraInput.current?.click();
+  }
+  useEffect(() => {
+    if (!handoff) return;
+    let live = true;
+    const poll = async () => {
+      const response = await fetch(`/api/capture/${handoff}`, { cache: "no-store" }).catch(() => null);
+      if (!live) return;
+      if (response?.status === 200) { setHandoff(null); void acceptPhoto(await response.blob()); }
+      else timer = setTimeout(poll, 1500);
+    };
+    let timer = setTimeout(poll, 1500);
+    return () => { live = false; clearTimeout(timer); };
+  }, [handoff]);
 
   function reset() {
     uploadVersion.current++;
@@ -164,7 +166,7 @@ export function VirtualTryOn({ costumeSlug, selection = [], ownedPieceIds = [], 
     )}
     {!busy && <>
       <div className="try-on-actions try-on-photo-actions">
-        <button type="button" className="btn btn-ghost try-on-camera" onClick={() => cameraInput.current?.click()} disabled={preparing}><Icon d={CAMERA} size={18} />{photoUrl ? "Retake photo" : "Take photo"}</button>
+        <button type="button" className="btn btn-ghost try-on-camera" onClick={takePhoto} disabled={preparing}><Icon d={CAMERA} size={18} />{photoUrl ? "Retake photo" : "Take photo"}</button>
         <button type="button" className="btn btn-ghost" onClick={() => fileInput.current?.click()} disabled={preparing}>{photoUrl ? "Change photo" : "Upload photo"}</button>
       </div>
       {!photoUrl && <p className="try-on-fine" role="status">{preparing ? "Preparing your photo…" : "Use a full-body photo with just you in the frame."}</p>}
@@ -183,6 +185,14 @@ export function VirtualTryOn({ costumeSlug, selection = [], ownedPieceIds = [], 
     {current && shareNote && <p className="try-on-fine" role="status">{shareNote}</p>}
     {error && <p className="try-on-error" role="alert">{error}</p>}
     {photoUrl && !current && !busy && <p className="try-on-fine">Tapping sends your photo to OpenAI for a preview. This app does not save your photo or preview. OpenAI processes uploads under its API data policies.</p>}
+    {handoff && <div className="try-on-qr" role="dialog" aria-modal="true" aria-label="Take a photo with your phone" onClick={() => setHandoff(null)}>
+      <div className="try-on-qr-card" onClick={(event) => event.stopPropagation()}>
+        <button type="button" className="try-on-close" onClick={() => setHandoff(null)} aria-label="Close"><Icon d={CLOSE} size={18} /></button>
+        <h2>Scan with your phone</h2>
+        <div dangerouslySetInnerHTML={{ __html: renderSVG(`${location.origin}/capture#${handoff}`, { border: 1 }) }} />
+        <p className="try-on-fine">Take the photo on your phone. It appears here when it is sent.</p>
+      </div>
+    </div>}
     {current && <TryOn3D key={current.key} image={current.image} offer={current.render3d} pieces={(pieces ?? costume.pieces.map((name, index) => ({ id: String(index), name }))).filter((piece) => !skippedPieceIds.includes(piece.id))} />}
   </section>;
 }

@@ -19,9 +19,13 @@
 .try-on-actions { display: flex; gap: 10px; }
 .try-on-primary { flex: 1; min-height: 52px; font-size: 15px; }
 .try-on-photo-actions > .btn { flex: 1; min-width: 0; min-height: 48px; }
-.try-on-photo-actions > .try-on-camera { display: none; }
-@media (max-width: 900px), (pointer: coarse) { .try-on-photo-actions > .try-on-camera { display: inline-flex; } }
 .try-on-error { padding: 12px; border-radius: 4px; background: #f9eee8; font-size: 13px; line-height: 1.5; color: #8a351a; }
 .try-on-fine { font-size: 11px; line-height: 1.5; color: var(--mid); text-align: center; }
 @media (prefers-reduced-motion: reduce) { .try-on-cta, .try-on-stage.is-busy::after, .try-on-progress span { animation: none; } }
 .try-on-icon { flex: 0 0 52px; min-height: 52px; padding: 0; display: inline-flex; align-items: center; justify-content: center; }
+.phone-capture { display: grid; gap: 16px; max-width: 420px; margin: 0 auto; padding: 48px 16px; text-align: center; }
+.phone-capture h1 { font-size: 24px; font-weight: 400; }
+.try-on-qr { position: fixed; inset: 0; z-index: 60; display: grid; place-items: center; padding: 16px; background: rgba(17,17,17,.5); }
+.try-on-qr-card { position: relative; display: grid; gap: 12px; justify-items: center; width: min(360px, 100%); padding: 28px 24px 22px; border-radius: 8px; background: #fff; text-align: center; }
+.try-on-qr-card svg { width: 220px; height: 220px; }
+.try-on-qr-card h2 { font-size: 18px; font-weight: 400; }
