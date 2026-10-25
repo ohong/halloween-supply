@@ -4,6 +4,7 @@ import type { SizeKind } from "../types";
 
 /** Cart slug for a look sourced from a screenshot rather than the catalog. */
 export const SCREENSHOT_SLUG = "screenshot-look";
+export const DEMO_DEFAULT_SIZE = "M";
 
 export interface CheckoutRequest {
   costumeSlug: string;
@@ -31,13 +32,13 @@ export interface PriceChange {
 }
 
 export type CheckoutResponse =
-  /** Session created only after every product, selected size, stock and price pass the live re-check. */
+  /** Live offers are re-checked; assumed demo sizes are marked in Stripe metadata. */
   | { status: "ok"; url: string; sessionId: string; priceChanges: PriceChange[] }
   /** No session exists yet. The customer must accept these amounts before retrying. */
   | { status: "price_changed"; priceChanges: PriceChange[]; message: string }
   /** A piece sold out at the merchant; checkout is blocked until the user swaps it. */
   | { status: "sold_out"; pieceId: string; pieceName: string; message: string }
-  /** Some pieces still need a size; the assistant should ask for them. */
+  /** Live-money checkout still requires explicit sizes. */
   | { status: "needs_sizes"; pieceIds: string[]; message: string }
   | { status: "invalid_size"; pieceId: string; pieceName: string; availableSizes: string[]; message: string }
   | { status: "unverified"; pieceId: string; pieceName: string; message: string }

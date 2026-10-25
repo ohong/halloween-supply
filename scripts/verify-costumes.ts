@@ -301,8 +301,8 @@ async function main() {
       }
     }
     const items = selectedItems(snapshot, 0);
-    const noSizes = await post({ costumeSlug: slug, items: items.map((item) => ({ ...item, size: null })) });
-    assert.equal(noSizes.body.status, "needs_sizes");
+    // Malformed sizes must fail before merchant checks or session creation.
+    assert.equal((await post({ costumeSlug: slug, items: [{ ...items[0], size: 42 }] })).response.status, 400);
     assert.equal((await post({ costumeSlug: slug, items: [items[0], items[0]] })).response.status, 400);
     assert.equal((await post({ costumeSlug: slug, items: [{ ...items[0], productId: "not-a-catalog-product" }] })).response.status, 400);
     pass(`${slug}: five pieces, three distinct price points each, actual merchant photos, research evidence and safe checkout validation`);

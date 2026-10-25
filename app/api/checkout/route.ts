@@ -2,7 +2,8 @@ import { createHash } from "node:crypto";
 import type Stripe from "stripe";
 import { getCostume } from "@/lib/catalog";
 import { getStripe } from "@/lib/checkout/stripe";
-import { SCREENSHOT_SLUG, type CheckoutRequest, type CheckoutResponse, type PriceChange, type WebItem } from "@/lib/checkout/types";
+import { DEMO_DEFAULT_SIZE, SCREENSHOT_SLUG, type CheckoutRequest, type CheckoutResponse, type PriceChange, type WebItem } from "@/lib/checkout/types";
+import { usesDemoSizes } from "@/lib/checkout/mode";
 import { verifyProduct, type Verification } from "@/lib/checkout/verify";
 import { isBlockedDomain, isNoiseDomain, registrableDomain } from "@/lib/sourcing/blocklist";
 import type { SizeKind } from "@/lib/types";
@@ -124,15 +125,26 @@ export async function POST(request: Request) {
       }
     }
 
+    const demoDefaults = new Set<string>();
+    if (usesDemoSizes()) {
+      for (const line of lines) {
+        if (line.sizeKind !== "one_size" && !line.size) {
+          line.size = DEMO_DEFAULT_SIZE;
+          demoDefaults.add(line.pieceId);
+        }
+      }
+    }
     const missing = lines.filter((l) => l.sizeKind !== "one_size" && !l.size).map((l) => l.pieceId);
     if (missing.length) {
       const names = lines.filter((l) => missing.includes(l.pieceId)).map((l) => l.pieceName);
       return reply({ status: "needs_sizes", pieceIds: missing, message: `Sizes are still needed for: ${names.join(", ")}.` });
     }
 
-    // Merchant sizes can change after sourcing. Only the live offer decides
-    // whether a size is valid, including full variant titles and size aliases.
-    const checks = await Promise.all(lines.map((line) => verifyProduct(line.product, line.sizeKind === "one_size" ? null : line.size)));
+    // A demo default is a placeholder, not a claim that a merchant offers M.
+    // Still verify price/stock; explicit shopper sizes keep exact variant checks.
+    const checks = await Promise.all(lines.map((line) => verifyProduct(line.product,
+      demoDefaults.has(line.pieceId) ? undefined : line.sizeKind === "one_size" ? null : line.size,
+    )));
 
     for (let i = 0; i < lines.length; i++) {
       const c = checks[i];
@@ -191,7 +203,7 @@ export async function POST(request: Request) {
           unit_amount: cents,
           product_data: {
             name: clip(`${l.pieceName}: ${p.title}`, 250),
-            description: clip(`From ${l.merchant.name}${l.size ? ` · Size ${l.size}` : ""}`),
+            description: clip(`From ${l.merchant.name}${l.size ? ` · Size ${l.size}${demoDefaults.has(l.pieceId) ? " (demo default)" : ""}` : ""}`),
             ...(image ? { images: [image] } : {}),
             metadata: {
               merchant: clip(l.merchant.name),
@@ -200,6 +212,7 @@ export async function POST(request: Request) {
               product_url: clip(c.productUrl),
               piece_id: l.pieceId,
               size: l.size ?? "one size",
+              ...(demoDefaults.has(l.pieceId) ? { size_defaulted_for_demo: "true" } : {}),
               ...(c.variantId ? { variant_id: c.variantId } : {}),
               verified_at: c.checkedAt,
             },
@@ -208,7 +221,7 @@ export async function POST(request: Request) {
       });
 
       metadata[`item_${i + 1}`] = clip(
-        JSON.stringify({ piece: l.pieceId, merchant: l.merchant.name, url: c.productUrl, size: l.size ?? "one size", cents }),
+        JSON.stringify({ piece: l.pieceId, merchant: l.merchant.name, url: c.productUrl, size: l.size ?? "one size", cents, ...(demoDefaults.has(l.pieceId) ? { size_defaulted_for_demo: true } : {}) }),
       );
     });
 

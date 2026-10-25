@@ -15,7 +15,7 @@ type Status =
   | { kind: "price_changed"; cartKey: string; changes: PriceChange[]; text: string }
   | { kind: "message"; cartKey: string; text: string };
 
-export function CartDrawer() {
+export function CartDrawer({ demoDefaultSizes = false }: { demoDefaultSizes?: boolean }) {
   const cart = useCart();
   const { items, isOpen, setOpen, costumeSlug } = cart;
   const [status, setStatus] = useState<Status>({ kind: "idle" });
@@ -153,8 +153,8 @@ export function CartDrawer() {
                   <div className="cart-line-body">
                     <p className="cart-line-piece">{line.pieceName}</p>
                     <a className="cart-line-title" href={line.productUrl} target="_blank" rel="noopener noreferrer">{line.title}</a>
-                    <p className={`cart-line-size ${line.size || line.sizeKind === "one_size" ? "" : "is-needed"}`}>
-                      {line.sizeKind === "one_size" ? "One size" : line.size ? `Size ${line.size}` : "Size needed"}
+                    <p className={`cart-line-size ${demoDefaultSizes || line.size || line.sizeKind === "one_size" ? "" : "is-needed"}`}>
+                      {line.sizeKind === "one_size" ? "One size" : line.size ? `Size ${line.size}` : demoDefaultSizes ? "Medium · demo default" : "Size needed"}
                     </p>
                   </div>
                   <div className="cart-line-side">
@@ -174,12 +174,12 @@ export function CartDrawer() {
         <div className="subtotal"><span>Subtotal</span><span>{formatPrice(cart.totalCents)}</span></div>
         <p className="meta">Merchant prices only. Shipping address is collected at checkout.</p>
         {sizedPieces > 0 && <div className="size-reminder">
-          {missingSizes > 0 && <p className="meta is-needed">{missingSizes} {missingSizes === 1 ? "piece needs" : "pieces need"} a size.</p>}
+          {missingSizes > 0 && <p className={`meta${demoDefaultSizes ? "" : " is-needed"}`}>{demoDefaultSizes ? "Unselected sizes default to Medium for this demo." : `${missingSizes} ${missingSizes === 1 ? "piece needs" : "pieces need"} a size.`}</p>}
           {screenshotLook
-            ? <Link className="text-btn" href="/screenshot" onClick={() => setOpen(false)}>{missingSizes > 0 ? "Pick sizes on your look" : "Update sizes on your look"} →</Link>
+            ? <Link className="text-btn" href="/screenshot" onClick={() => setOpen(false)}>{missingSizes > 0 && !demoDefaultSizes ? "Pick sizes on your look" : "Update sizes on your look"} →</Link>
             : onCostume
-            ? <button type="button" className="text-btn" onClick={askForSizes}>{missingSizes > 0 ? "Tell the assistant your sizes" : "Update sizes with the assistant"} →</button>
-            : <Link className="text-btn" href={`/costumes/${costumeSlug}?assistant=sizes`} onClick={() => setOpen(false)}>{missingSizes > 0 ? "Tell the assistant your sizes" : "Update sizes with the assistant"} →</Link>}
+            ? <button type="button" className="text-btn" onClick={askForSizes}>{missingSizes > 0 && !demoDefaultSizes ? "Tell the assistant your sizes" : "Update sizes with the assistant"} →</button>
+            : <Link className="text-btn" href={`/costumes/${costumeSlug}?assistant=sizes`} onClick={() => setOpen(false)}>{missingSizes > 0 && !demoDefaultSizes ? "Tell the assistant your sizes" : "Update sizes with the assistant"} →</Link>}
         </div>}
         {currentStatus.kind === "message" && <p className="notice" role="alert">{currentStatus.text}</p>}
         {currentStatus.kind === "price_changed" && <div className="notice" role="alert">
@@ -188,7 +188,7 @@ export function CartDrawer() {
           <p>New subtotal: {formatExactPrice(items.reduce((sum, line) => sum + (currentStatus.changes.find((change) => change.pieceId === line.pieceId && change.productId === line.productId)?.newCents ?? line.priceCents), 0))}</p>
         </div>}
         {currentStatus.kind === "redirecting" && <p className="notice" role="status">Taking you to checkout…</p>}
-        <button type="button" className="btn btn-block" onClick={() => void checkout(currentStatus.kind === "price_changed")} disabled={busy || missingSizes > 0}>
+        <button type="button" className="btn btn-block" onClick={() => void checkout(currentStatus.kind === "price_changed")} disabled={busy || (!demoDefaultSizes && missingSizes > 0)}>
           {currentStatus.kind === "loading" ? "Checking stock and prices…" : currentStatus.kind === "price_changed" ? "Accept prices and checkout" : "Checkout"}
         </button>
       </div>}
