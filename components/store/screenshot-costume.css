@@ -158,3 +158,8 @@
   .shot-drop.is-scanning::after, .shot-frame img, .shot-log li, .shot-log .is-cursor span { animation: none; }
   .shot-slot, .shot-frame { transition: none; }
 }
+
+.shot-discovery-photo { width: 88%; height: 88%; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 12px; padding: 16px; background: var(--bg); text-align: center; font-size: 12px; color: var(--mid); overflow-wrap: anywhere; }
+.shot-discovery-photo strong { color: var(--ink); font-weight: 400; }
+.shot-inspect[href] { text-decoration: none; }
+@media (pointer: coarse) { .shot-size { font-size: 16px; } }

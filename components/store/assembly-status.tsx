@@ -1,15 +1,15 @@
 import { useState } from "react";
 import "./assembly-status.css";
 
-export function AssemblyStatus({ found, total, missing = 0, running, stopped = false }: {
-  found: number; total: number; missing?: number; running: boolean; stopped?: boolean;
+export function AssemblyStatus({ found, total, missing = 0, running, stopped = false, discovery = false }: {
+  found: number; total: number; missing?: number; running: boolean; stopped?: boolean; discovery?: boolean;
 }) {
   const pending = Math.max(0, total - found - missing);
   return <p className="assembly-status" role="status" aria-atomic="true">
     <span className="assembly-status-mark" data-running={running} aria-hidden="true" />
     <span>{total === 0
       ? running ? "Finding the pieces in your look…" : "No pieces to assemble"
-      : `${found} of ${total} pieces assembled${missing ? ` · ${missing} without a source` : ""}${stopped && pending ? ` · ${pending} unfinished` : ""}`}</span>
+      : `${found} of ${total} ${discovery ? "matches found" : "pieces assembled"}${missing ? ` · ${missing} without a source` : ""}${stopped && pending ? ` · ${pending} unfinished` : ""}`}</span>
     {running && total > 0 && <span className="assembly-status-note">Adding each match as it arrives</span>}
   </p>;
 }
@@ -17,7 +17,7 @@ export function AssemblyStatus({ found, total, missing = 0, running, stopped = f
 export function AssemblyPlaceholder({ state, index }: { state: "looking" | "missing" | "stopped"; index: number }) {
   return <span className={`assembly-placeholder is-${state}`}>
     <span className="assembly-placeholder-index" aria-hidden="true">{String(index + 1).padStart(2, "0")}</span>
-    <span>{state === "missing" ? "No verified match yet" : state === "stopped" ? "Search unfinished" : "Finding a match"}</span>
+    <span>{state === "missing" ? "No match found this time" : state === "stopped" ? "Search unfinished" : "Finding a match"}</span>
   </span>;
 }
 

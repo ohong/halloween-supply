@@ -6,6 +6,7 @@ export interface SearchResult {
   title: string;
   url: string;
   description?: string;
+  image?: string;
 }
 
 export interface FetchedPage {
@@ -16,7 +17,7 @@ export interface FetchedPage {
 }
 
 type RequestOptions = { cache?: boolean; timeoutMs?: number; signal?: AbortSignal };
-type SearchOptions = RequestOptions & { limit?: number; excludeDomains?: readonly string[]; retryAt?: number };
+type SearchOptions = RequestOptions & { limit?: number; excludeDomains?: readonly string[]; retryAt?: number; highlights?: boolean; images?: boolean };
 
 export class FirecrawlError extends Error {
   constructor(public status: number, public retryAfterMs: number, endpoint: string) {
@@ -47,6 +48,8 @@ async function request<T>(endpoint: "search" | "scrape", body: object, timeoutMs
 /** Discover merchant URLs, then scrape only shortlisted product pages. */
 export async function searchWeb(query: string, opts: SearchOptions = {}): Promise<SearchResult[]> {
   const body = { query: query.trim().replace(/\s+/g, " "), limit: opts.limit ?? 10, country: "US", location: "San Francisco,California,United States",
+    ...(opts.images ? { sources: ["web", "images"] } : {}),
+    ...(opts.highlights !== undefined ? { highlights: opts.highlights } : {}),
     ...(opts.excludeDomains ? { excludeDomains: [...opts.excludeDomains].sort() } : {}),
   };
   if (opts.cache) {
@@ -55,9 +58,13 @@ export async function searchWeb(query: string, opts: SearchOptions = {}): Promis
   }
   if (opts.retryAt && Date.now() < opts.retryAt) throw new FirecrawlError(429, opts.retryAt - Date.now(), "search");
   const timeout = opts.timeoutMs ?? 25_000;
-  const data = await request<{ web?: SearchResult[] }>("search", { ...body, timeout }, timeout, opts.signal);
+  const data = await request<{ web?: SearchResult[]; images?: { title: string; url: string; imageUrl: string }[] }>("search", { ...body, timeout }, timeout, opts.signal);
   if (!Array.isArray(data.web)) throw new Error("Firecrawl search returned an invalid result list.");
-  const results = data.web.filter((item) => typeof item.url === "string" && /^https?:\/\//.test(item.url) && typeof item.title === "string");
+  const images = opts.images ? (data.images ?? []).filter(item => typeof item.title === "string" && typeof item.url === "string" && typeof item.imageUrl === "string").map(item => ({ title: item.title, url: item.url, image: item.imageUrl })) : [];
+  const pageKey = (value: string) => { try { const url = new URL(value); return `${url.origin}${url.pathname}`; } catch { return value; } };
+  const imageByPage = new Map(images.map(image => [pageKey(image.url), image.image]));
+  const withImages = data.web.map(result => ({ ...result, ...(imageByPage.has(pageKey(result.url)) ? { image: imageByPage.get(pageKey(result.url)) } : {}) }));
+  const results = [...withImages, ...images].filter((item) => typeof item.url === "string" && /^https?:\/\//.test(item.url) && typeof item.title === "string");
   if (opts.cache) await writeCache("firecrawl-search", body, results);
   return results;
 }

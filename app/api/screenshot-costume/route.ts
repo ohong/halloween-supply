@@ -4,7 +4,8 @@ import { PreviewError } from "@/lib/ai/openai";
 import { screenshotSourcing, type SourcingLog as Log } from "@/lib/sourcing/screenshot";
 import { toCartItem } from "@/lib/custom-looks/source";
 
-export const maxDuration = 120;
+export const maxDuration = 40;
+const SEARCH_BUDGET_MS = 30_000;
 
 const MAX_BODY = 4 * 1024 * 1024;
 const FORMATS = ["jpeg", "png", "webp", "gif", "heif", "avif"];
@@ -40,11 +41,10 @@ async function readPhoto(request: Request) {
     const meta = await input.metadata();
     if (!FORMATS.includes(meta.format ?? "") || !meta.width || !meta.height || Math.min(meta.width, meta.height) < 64) throw new Error("Invalid image");
     // Re-encode: strips metadata, flattens animation to one frame, and keeps the vision call small and fast.
-    return await input.rotate().flatten({ background: "#ffffff" }).resize({ width: 1600, height: 1600, fit: "inside", withoutEnlargement: true }).jpeg({ quality: 90 }).toBuffer();
+    return await input.rotate().flatten({ background: "#ffffff" }).resize({ width: 1024, height: 1024, fit: "inside", withoutEnlargement: true }).jpeg({ quality: 85 }).toBuffer();
   } catch { throw new PreviewError(400, "This image could not be read. Try a JPEG, PNG or WebP screenshot."); }
 }
 
-const money = (cents: number) => `$${(cents / 100).toFixed(2)}`;
 
 export async function POST(request: Request) {
   const respond = (status: number, body: object) => Response.json(body, { status, headers: { "Cache-Control": "private, no-store", "X-Content-Type-Options": "nosniff", "X-Vision-Model": MODEL } });
@@ -73,43 +73,55 @@ export async function POST(request: Request) {
         if (open) controller.enqueue(encoder.encode(JSON.stringify(line) + "\n"));
       };
       const log: Log = (kind, text) => emit({ t: "log", kind, text });
-      const signal = AbortSignal.any([request.signal, cancelled.signal, AbortSignal.timeout(105_000)]);
+      const deadline = new AbortController();
+      const timer = setTimeout(() => deadline.abort(new DOMException("Search budget reached", "TimeoutError")), SEARCH_BUDGET_MS);
+      const signal = AbortSignal.any([request.signal, cancelled.signal, deadline.signal]);
+      const matched = new Set<number>();
+      const priced = new Set<number>();
+      let pieceCount = 0;
       try {
-        log("think", "Reading the screenshot…");
-        const look = await decompose(image, signal, log);
+        log("think", "Reading the visible pieces. Results appear as soon as we find them…");
+        const look = await decompose(image, signal);
+        if (signal.aborted) signal.throwIfAborted();
+        pieceCount = look.pieces.length;
         emit({ t: "look", ...look });
-        log("look", `Spotted ${look.character}: ${look.pieces.map((p) => p.name.toLowerCase()).join(", ")}`);
-
+        log("look", `Looking for ${look.pieces.map(piece => piece.name.toLowerCase()).join(", ")}`);
         const source = screenshotSourcing(signal, log, image);
-        let found = 0;
-        await Promise.all(look.pieces.map(async (piece, i) => {
-          const hit = await source(piece);
+        const work = Promise.allSettled(look.pieces.map((piece, i) => source(piece, match => {
           if (signal.aborted) return;
-          if (!hit) { log("fail", `${piece.name}: no verified match yet`); emit({ t: "miss", i }); return; }
-          found++;
-          log("found", `${piece.name} → ${hit.merchant}, ${money(hit.priceCents)}`);
-          const sizedPiece = piece.sizeKind === "one_size" && /harness/i.test(piece.name) && hit.sizes.some((size) => !/^one[ -]?size$|^default title$/i.test(size))
+          matched.add(i);
+          emit({ t: "candidate", i, match });
+        }, hit => {
+          if (signal.aborted) return;
+          priced.add(i);
+          matched.add(i);
+          const sizedPiece = piece.sizeKind === "one_size" && /harness/i.test(piece.name) && hit.sizes.some(size => !/^one[ -]?size$|^default title$/i.test(size))
             ? { ...piece, sizeKind: "apparel" as const } : piece;
-          emit({
-            t: "piece", i, fit: hit.fit ?? "close", why: hit.why ?? piece.query,
-            product: { title: hit.title, image: hit.image, url: hit.url, priceCents: hit.priceCents, merchant: hit.merchant },
-            item: toCartItem(i, sizedPiece, hit),
-          });
-        }));
-        if (signal.aborted) throw new DOMException("Timed out", "TimeoutError");
-        emit({ t: "done", found });
+          emit({ t: "piece", i, why: hit.why ?? "Similar style. Colors and details may differ.", item: toCartItem(i, sizedPiece, hit) });
+        })));
+        await Promise.race([work, new Promise<void>(resolve => {
+          if (signal.aborted) resolve();
+          else signal.addEventListener("abort", () => resolve(), { once: true });
+        })]);
+        if (!request.signal.aborted && !cancelled.signal.aborted) {
+          for (let i = 0; i < pieceCount; i++) if (!matched.has(i)) emit({ t: "miss", i });
+          emit({ t: "done", found: matched.size, priced: priced.size, timedOut: deadline.signal.aborted });
+        }
       } catch (error) {
-        const text = error instanceof PreviewError ? error.message
-          : error instanceof Error && ["AbortError", "TimeoutError"].includes(error.name) ? "The stylist took too long. Please try again."
-          : "The stylist couldn’t finish this look. Please try again.";
-        if (!(error instanceof PreviewError)) console.warn("[screenshot-costume] failed", error instanceof Error ? error.name : "UnknownError");
-        emit({ t: "error", text });
+        if (!request.signal.aborted && !cancelled.signal.aborted) {
+          const text = error instanceof PreviewError ? error.message
+            : deadline.signal.aborted ? "We couldn’t read this screenshot within 30 seconds. Try a closer crop of the outfit."
+            : "The stylist couldn’t read this look. Please try again.";
+          emit({ t: "error", text });
+        }
       } finally {
+        clearTimeout(timer);
+        deadline.abort();
         active--;
         if (open) { open = false; controller.close(); }
       }
     },
     cancel() { open = false; cancelled.abort(); },
   });
-  return new Response(stream, { headers: { "Content-Type": "application/x-ndjson; charset=utf-8", "Cache-Control": "private, no-store", "X-Content-Type-Options": "nosniff", "X-Vision-Model": MODEL } });
+  return new Response(stream, { headers: { "Content-Type": "application/x-ndjson; charset=utf-8", "Cache-Control": "private, no-store, no-transform", "X-Content-Type-Options": "nosniff", "X-Accel-Buffering": "no", "X-Vision-Model": MODEL } });
 }
