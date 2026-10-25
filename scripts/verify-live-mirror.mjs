@@ -74,9 +74,11 @@ await page.addInitScript(speech => {
     createDataChannel(...args) {
       const channel = super.createDataChannel(...args);
       const send = channel.send.bind(channel);
+      let closing = false;
       channel.send = data => {
         try {
           const event = JSON.parse(data);
+          if (event.type === "session.close") closing = true;
           window.mirrorTest.events.push({ time: performance.now(), direction: "send", type: event.type, eventId: event.event_id, look: event.session?.delegation?.decisions?.questions?.find(question => question.name === "look")?.instructions });
         } catch { /* Binary transport data is outside this check. */ }
         return send(data);
@@ -84,7 +86,7 @@ await page.addInitScript(speech => {
       channel.addEventListener("message", ({ data }) => {
         try {
           const event = JSON.parse(data);
-          window.mirrorTest.events.push({ time: performance.now(), type: event.type, delta: event.delta, error: event.type === "error", delegationId: event.delegation_id ?? event.delegation?.id, clientEventId: event.client_event_id, answers: event.event?.decision?.answers });
+          window.mirrorTest.events.push({ time: performance.now(), type: event.type, delta: event.delta, error: event.type === "error", errorCode: event.error?.code, errorMessage: event.error?.message, closing, delegationId: event.delegation_id ?? event.delegation?.id, clientEventId: event.client_event_id, answers: event.event?.decision?.answers });
         } catch { /* Ignore non-JSON transport messages. */ }
       });
       return channel;
@@ -130,7 +132,8 @@ const postCommand = async text => {
   await page.getByRole("button", { name: "Send styling request", exact: true }).click();
   const completed = await response;
   assert.equal(completed.status(), 200);
-  log("typed-command", { text, command: await completed.json() });
+  const command = await completed.json();
+  log("typed-command", { text, actions: command.actions, message: command.message });
 };
 try {
   // Bootstrap the deployment's access cookie without persisting it or logging the URL.
@@ -201,6 +204,7 @@ try {
   assert(await page.evaluate(() => window.mirrorTest.tracks.some(track => track.kind === "audio" && track.readyState === "live")));
   await page.getByRole("button", { name: "Resume camera", exact: true }).click();
   await waitForVideo();
+  await page.screenshot({ path: path.join(evidence, "resumed-live-mirror.png") });
   log("freeze-releases-camera-and-resume-restores-video");
   const stats = await page.evaluate(async () => {
     const records = [];
@@ -229,7 +233,12 @@ try {
   await page.getByRole("button", { name: "Close costume mirror", exact: true }).click();
   await page.waitForFunction(() => window.mirrorTest.peers.every(peer => peer.connectionState === "closed") && window.mirrorTest.tracks.every(track => track.readyState === "ended"), {}, { timeout: 5000 });
   log("all-media-released-on-close");
-  writeFileSync(path.join(evidence, "session-events.json"), JSON.stringify(await page.evaluate(() => window.mirrorTest.events), null, 2));
+  const events = await page.evaluate(() => window.mirrorTest.events);
+  writeFileSync(path.join(evidence, "session-events.json"), JSON.stringify(events, null, 2));
+  // Closing deliberately cancels pending context injection. Other provider errors fail.
+  assert.deepEqual(events.filter(event => event.error && !(event.closing && event.errorCode === "context_injection_incomplete")), []);
+  assert(events.some(event => event.type === "decision.item.created"));
+  log("native-decision-context-accepted-without-active-session-errors");
   // Verify the destination restores owned pieces without starting another session.
   await page.goto(new URL(href, origin).href);
   await page.getByRole("tab", { name: "Try it on", exact: true }).click();
