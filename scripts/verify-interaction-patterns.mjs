@@ -116,6 +116,7 @@ try {
   await next.focus();
   await page.keyboard.press("Enter");
   await page.waitForFunction(title => document.querySelector('.wardrobe-rail-option[aria-pressed="true"] .wardrobe-rail-title')?.textContent === title, nextTitle);
+  await page.waitForFunction(() => [...document.querySelectorAll('.wardrobe-rail-option[aria-pressed="true"] img')].some(image => image.offsetWidth > 0 && image.complete && image.naturalWidth > 0));
   await noOverflow();
   await capture("phone-wardrobe.png");
   await page.keyboard.press("Escape");
