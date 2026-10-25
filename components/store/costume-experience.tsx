@@ -41,6 +41,11 @@ export function CostumeExperience({ costume, editorial }: { costume: CostumeView
     // The URL is only readable on the client.
     // eslint-disable-next-line react-hooks/set-state-in-effect
     setChosen(next);
+    const params = new URLSearchParams(window.location.search);
+    const owned = (params.get("owned") ?? "").split(",");
+    const skipped = (params.get("skipped") ?? "").split(",");
+    // Restore only catalog-known choices; required pieces cannot be omitted.
+    setUses(Object.fromEntries(pieces.map(({ piece }) => [piece.id, owned.includes(piece.id) ? "owned" : !piece.required && skipped.includes(piece.id) ? "skip" : "buy"])));
   }, [pieces]);
   const sourcingPieces = useMemo(() => pieces.map(({ piece, options }) => ({
     id: piece.id, name: piece.name, queries: piece.queries, options,

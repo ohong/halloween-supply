@@ -3,7 +3,7 @@ import "server-only";
 import { createHash } from "node:crypto";
 import { z } from "zod";
 
-export const VIDEO_MODEL = "lucy-vton-3.6";
+export const VIDEO_MODEL = "decart/lucy-2-5/realtime";
 export const VIDEO_SESSION_SECONDS = 180;
 
 export class VideoError extends Error {
