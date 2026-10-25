@@ -18,6 +18,7 @@ export function CostumeGallery() {
     <div className="page home-bar">
       <h1 className="home-title">{savedOnly ? "Saved costumes" : "Halloween costumes, built from pieces."}</h1>
       <div className="home-controls">
+        <Link href="/screenshot" className="btn btn-small">Turn a screenshot into a costume</Link>
         <div className="view-toggle" role="group" aria-label="Model">
           <button type="button" aria-pressed={model === "male"} onClick={() => setModel("male")}>Male</button>
           <button type="button" aria-pressed={model === "female"} onClick={() => setModel("female")}>Female</button>
