@@ -82,7 +82,7 @@ export async function corroborateScreenshotIdentity(look: ScreenshotLook, image:
     const signature = look.pieces.find((piece) => /\b(ringer|graphic|motif)\b/i.test(`${piece.name} ${piece.query}`));
     const wardrobe = look.pieces.find((piece) => /\b(motif|harness|cardigan|wings?|headpiece)\b/i.test(`${piece.name} ${piece.query}`)) ?? signature;
     const wardrobeQuery = wardrobe ? `${wardrobe.query} film costume` : "";
-    const queries = [...new Set([neutralQuery, wardrobeQuery, ...candidates.map((candidate) => `${candidate} ${signature?.name ?? "costume"}`)].filter(Boolean))];
+    const queries = [...new Set([wardrobeQuery || neutralQuery, ...candidates.map((candidate) => `${candidate} ${signature?.name ?? "costume"}`)].filter(Boolean))];
     const groups: Awaited<ReturnType<typeof searchWeb>>[] = [];
     for (let index = 0; index < queries.length; index += 3) {
       groups.push(...await Promise.all(queries.slice(index, index + 3).map((query) => searchWeb(query, { cache: false, timeoutMs: 8_000, signal: identitySignal }).catch(() => []))));
@@ -90,7 +90,10 @@ export async function corroborateScreenshotIdentity(look: ScreenshotLook, image:
     const relevant = groups.map((results) => results.filter((source) => !isNoiseDomain(source.url)));
     const clues = [...new Set(look.pieces.flatMap((piece) => `${piece.name} ${piece.query}`.toLowerCase().split(/[^a-z]+/).filter((word) => word.length > 3)))];
     const score = (source: { title: string; description?: string }) => clues.reduce((sum, clue) => sum + (`${source.title} ${source.description ?? ""}`.toLowerCase().includes(clue) ? /ringer|motif|harness|cardigan/.test(clue) ? 4 : 1 : 0), 0);
-    const sources = [...new Map(relevant.flat().map((source) => [source.url, source])).values()].sort((a, b) => score(b) - score(a)).slice(0, 6);
+    const ranked = relevant.map((results) => results.sort((a, b) => score(b) - score(a)));
+    // Preserve each independent search: generic garment hits must not crowd out character evidence.
+    const leaders = ranked.flatMap((results) => results.slice(0, 1));
+    const sources = [...new Map([...leaders, ...ranked.flat().sort((a, b) => score(b) - score(a))].map((source) => [source.url, source])).values()].slice(0, 6);
     if (!sources.length) throw new Error("No identity sources");
     // Check neutral wardrobe evidence alongside the hypothesis, so a familiar wrong character cannot anchor the title.
     const sourceTexts = new Map<string, string>();
