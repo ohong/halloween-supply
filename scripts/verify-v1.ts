@@ -1,5 +1,5 @@
 // Run against a running production build or the deployed site. No payment is made.
-// bun scripts/verify-v1.ts https://halloween.supply [--checkout] [--all-options]
+// bun scripts/verify-v1.ts https://halloween.supply [--checkout] [--all-options] [--allow-database-down]
 import assert from "node:assert/strict";
 import { access } from "node:fs/promises";
 import path from "node:path";
@@ -10,8 +10,8 @@ import type { CostumeSnapshot } from "../lib/types";
 
 const snapshot = snapshotJson as CostumeSnapshot;
 const base = process.argv.find((arg) => /^https?:\/\//.test(arg)) ?? "http://localhost:3000";
+const allowDatabaseDown = process.argv.includes("--allow-database-down");
 const checks: string[] = [];
-const allowGraphDown = process.argv.includes("--allow-graph-down");
 const pass = (name: string) => { checks.push(name); console.log(`PASS ${name}`); };
 
 async function jsonPost(route: string, body: unknown) {
@@ -58,17 +58,16 @@ async function main() {
   pass("costume HTML renders merchant picks, explanations, swaps, whole-costume cart action");
 
   const health = await (await fetch(new URL("/api/health", base))).json();
-  const graphUp = Boolean(health.graph.ok && health.graph.costume);
-  if (!graphUp && allowGraphDown) {
-    // Honest degraded run: the site must say so and still serve the bundled snapshot.
-    assert.equal(health.status, "degraded", "Health must report degraded while the graph is down");
-    assert.equal(health.catalogSource, "snapshot", "Graph down must fall back to the snapshot");
-    console.warn("WARN FalkorDB unreachable or unseeded; continuing on snapshot fallback (--allow-graph-down)");
-  } else assert(graphUp, "Graph must connect and contain the cowboy (pass --allow-graph-down to verify the snapshot fallback only)");
-  for (const key of ["ANTHROPIC_API_KEY", "BRIGHTDATA_API_KEY", "BRIGHTDATA_SERP_ZONE", "BRIGHTDATA_UNLOCKER_ZONE", "FALKORDB_URL", "STRIPE_SECRET_KEY"]) {
+  const databaseUp = Boolean(health.database.ok && health.catalog.complete);
+  if (!databaseUp && allowDatabaseDown) {
+    assert.equal(health.status, "degraded", "Health must report degraded while the database is down");
+    assert.equal(health.catalogSource, "snapshot", "Database down must fall back to the snapshot");
+    console.warn("WARN Turso unreachable or unseeded; continuing on snapshot fallback (--allow-database-down)");
+  } else assert(databaseUp, "Database must connect and contain the complete cowboy catalog (pass --allow-database-down to verify fallback only)");
+  for (const key of ["ANTHROPIC_API_KEY", "FIRECRAWL_API_KEY", "TURSO_DATABASE_URL", "TURSO_AUTH_TOKEN", "STRIPE_SECRET_KEY"]) {
     assert.equal(health.env[key], true, `Missing server ${key}`);
   }
-  pass(graphUp ? "server credentials present by name; FalkorDB reachable and seeded" : "server credentials present by name; FalkorDB DOWN (degraded, snapshot fallback)");
+  pass(databaseUp ? "server credentials present by name; Turso reachable and seeded" : "server credentials present by name; Turso DOWN (degraded, snapshot fallback)");
 
   const malformed = await jsonPost("/api/checkout", {});
   assert.equal(malformed.response.status, 400);

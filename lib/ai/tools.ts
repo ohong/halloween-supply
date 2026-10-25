@@ -70,7 +70,7 @@ export function createTools(view: CostumeView) {
       },
     }),
     getPickPath: tool({
-      description: "The graph path behind why a product was picked for a piece (local, cheapest, merchant, tags).",
+      description: "The catalog evidence behind why a product was picked for a piece (local, cheapest, merchant, tags).",
       inputSchema: z.object({ productId: id, pieceId: id }),
       execute: async ({ productId, pieceId }) => {
         if (!options.some((option) => option.product.id === productId && option.pick.pieceId === pieceId)) return { error: "That product does not match this piece." };

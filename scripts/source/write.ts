@@ -1,4 +1,4 @@
-// Step 7: assemble the CostumeSnapshot, write data/costumes/<slug>.json, upsert into FalkorDB.
+// Step 7: assemble the CostumeSnapshot, write data/costumes/<slug>.json, save to Turso.
 import { createHash } from "node:crypto";
 import { existsSync } from "node:fs";
 import { mkdir, readFile, writeFile } from "node:fs/promises";
@@ -94,7 +94,7 @@ export function mergeSnapshot(existing: CostumeSnapshot, partial: CostumeSnapsho
     merchants: byId(existing.merchants, partial.merchants),
     neighborhoods: byId(existing.neighborhoods, partial.neighborhoods),
     tags: [...new Map([...existing.tags, ...partial.tags].map((t) => [t.slug, t])).values()],
-    provenance: { ...partial.provenance, notes: "Bright Data SERP and Web Unlocker, with direct public merchant pages and Shopify variant feeds when Shopping links or Unlocker were unusable; Claude decomposition and ranking. Only verified in-stock USD variants are included." },
+    provenance: { ...partial.provenance, notes: "Firecrawl search and raw merchant pages, with Shopify variant feeds; Claude decomposition and ranking. Only verified in-stock USD variants are included." },
   };
   return prune(merged);
 }
@@ -115,20 +115,11 @@ export async function writeSnapshotFile(s: CostumeSnapshot): Promise<string> {
   return file;
 }
 
-export async function upsertToGraph(s: CostumeSnapshot, log: (m: string) => void): Promise<void> {
-  if (!process.env.FALKORDB_URL) {
-    log("FALKORDB_URL is not set: skipped graph upsert (snapshot file was still written).");
-    return;
+export async function saveToDatabase(s: CostumeSnapshot, log: (m: string) => void): Promise<void> {
+  if (!process.env.TURSO_DATABASE_URL || !process.env.TURSO_AUTH_TOKEN) {
+    throw new Error("Turso is not configured; the local snapshot was saved, but publication failed.");
   }
-  try {
-    const { upsertSnapshot } = await import("../../lib/graph/upsert");
-    const counts = await upsertSnapshot(s);
-    log(`Upserted to FalkorDB: ${JSON.stringify(counts)}`);
-  } catch (e) {
-    log(`FalkorDB upsert failed (snapshot file was still written): ${(e as Error).message}`);
-    process.exitCode = 1;
-  } finally {
-    const { resetGraph } = await import("../../lib/graph/client");
-    await resetGraph();
-  }
+  const { upsertSnapshot } = await import("../../lib/db/catalog");
+  await upsertSnapshot(s);
+  log(`Saved ${s.costume.slug} to Turso.`);
 }

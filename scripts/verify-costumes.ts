@@ -1,6 +1,7 @@
 /** Real release checks for the five demo costumes. No payment is completed.
- * bun scripts/verify-costumes.ts https://halloween.supply [--checkout] [--all-options] [--chat]
- * --allow-graph-down downgrades the FalkorDB assertions to WARN/SKIP (snapshot fallback only). --checkout creates and expires unpaid Stripe TEST sessions. --all-options checks all three pick sets.
+ * bun scripts/verify-costumes.ts https://halloween.supply [--checkout] [--all-options] [--chat] [--allow-database-down]
+ * --allow-database-down verifies snapshot fallback when Turso is unavailable.
+ * --checkout creates and expires unpaid Stripe TEST sessions. --all-options checks all three pick sets.
  */
 import assert from "node:assert/strict";
 import { createHash } from "node:crypto";
@@ -12,7 +13,7 @@ import type { UIMessage } from "ai";
 import type { ChatContext } from "../lib/ai/chat-context";
 import type { CheckoutRequest, CheckoutResponse } from "../lib/checkout/types";
 import type { CostumeSnapshot, CostumeView, ProductOption } from "../lib/types";
-import { validateSnapshot } from "../lib/graph/validate";
+import { validateSnapshot } from "../lib/catalog/validate";
 
 // Next resolves this package at build time. Bun only needs its server modules here.
 type BunRuntime = { plugin(plugin: { name: string; setup(build: { module(name: string, loader: () => unknown): void }): void }): void };
@@ -24,7 +25,7 @@ type BunRuntime = { plugin(plugin: { name: string; setup(build: { module(name: s
 const base = new URL(process.argv.find((argument) => /^https?:\/\//.test(argument)) ?? "http://127.0.0.1:3300").origin;
 const slugs = ["cosmic-cowboy", "velvet-vampire", "moon-moth", "linen-ghost", "woodland-mushroom"];
 const checkoutEnabled = process.argv.includes("--checkout");
-const allowGraphDown = process.argv.includes("--allow-graph-down");
+const allowDatabaseDown = process.argv.includes("--allow-database-down");
 const checks: string[] = [];
 const pass = (name: string) => { checks.push(name); console.log(`PASS ${name}`); };
 const decode = (html: string) => html.replaceAll("&amp;", "&").replaceAll("&#x27;", "'").replaceAll("&quot;", '"').replaceAll("&lt;", "<").replaceAll("&gt;", ">");
@@ -95,55 +96,45 @@ const optionIdentity = (options: ProductOption[]) => options.map((option) => ({
   rank: option.pick.rank, priceCents: option.product.priceCents,
 }));
 
-async function verifyCatalogSelection(snapshots: CostumeSnapshot[], graphUp: boolean) {
+async function verifyCatalogSelection(snapshots: CostumeSnapshot[], databaseUp: boolean) {
   const catalog = await import("../lib/catalog");
-  const snapshotImpl = await import("../lib/graph/snapshot");
-  const graphImpl = await import("../lib/graph/queries");
-  const { resetGraph } = await import("../lib/graph/client");
-  const graphUrl = process.env.FALKORDB_URL;
+  const queries = await import("../lib/catalog/queries");
+  const { readSnapshots } = await import("../lib/db/catalog");
+  const databaseUrl = process.env.TURSO_DATABASE_URL;
   try {
-    // This exercises the actual data-access fallback, without inventing provider data.
-    await resetGraph();
-    delete process.env.FALKORDB_URL;
+    delete process.env.TURSO_DATABASE_URL;
+    assert.equal((await catalog.readCatalogs()).source, "snapshot");
     for (const snapshot of snapshots) {
       const view = await catalog.getCostume(snapshot.costume.slug);
-      assert(view && view.pieces.length === 5, `${snapshot.costume.slug}: snapshot fallback is incomplete`);
-      assert.equal(catalog.getCatalogSource(), "snapshot");
-      assert.deepEqual(identity(view), identity(await snapshotImpl.getCostume(snapshot.costume.slug)));
+      assert(view && view.pieces.length === 5, `${snapshot.costume.slug}: fallback is incomplete`);
+      assert.deepEqual(identity(view), identity(await queries.getCostume(snapshots, snapshot.costume.slug)));
     }
     assert.equal(await catalog.getCostume("unknown-costume"), null);
-    pass("all five use the committed catalog when FalkorDB is unconfigured; unknown costumes stay missing");
+    pass("all five bundled catalogs work without the database");
   } finally {
-    if (graphUrl === undefined) delete process.env.FALKORDB_URL;
-    else process.env.FALKORDB_URL = graphUrl;
+    if (databaseUrl !== undefined) process.env.TURSO_DATABASE_URL = databaseUrl;
   }
-  if (!graphUp && allowGraphDown) {
-    console.warn("WARN SKIP real FalkorDB parity checks: health reports the graph is down (--allow-graph-down)");
+  if (!databaseUp && allowDatabaseDown) {
+    console.warn("WARN SKIP real Turso parity checks: database unavailable (--allow-database-down)");
     return;
   }
-  if (!graphUrl) throw new Error("FALKORDB_URL is needed to verify the real graph and snapshot parity.");
-  try {
-    for (const snapshot of snapshots) {
-      const slug = snapshot.costume.slug;
-      const graphView = await graphImpl.getCostume(slug);
-      assert.deepEqual(identity(graphView), identity(await snapshotImpl.getCostume(slug)), `${slug}: graph and snapshot differ`);
-      const catalogView = await catalog.getCostume(slug);
-      assert.deepEqual(identity(catalogView), identity(graphView));
-      assert.equal(catalog.getCatalogSource(), "graph", `${slug}: a warm graph read must use FalkorDB`);
-      for (const piece of snapshot.pieces) {
-        for (const filters of [{ costumeSlug: slug }, { costumeSlug: slug, localOnly: true }, { costumeSlug: slug, maxPriceCents: 10_000 }]) {
-          assert.deepEqual(optionIdentity(await graphImpl.getAlternatives(piece.id, filters)), optionIdentity(await snapshotImpl.getAlternatives(piece.id, filters)), `${slug}/${piece.id}: alternatives differ`);
-        }
+  assert(databaseUrl, "TURSO_DATABASE_URL is required for migration verification.");
+  const stored = await readSnapshots();
+  assert.equal((await catalog.readCatalogs()).source, "database");
+  for (const snapshot of snapshots) {
+    const slug = snapshot.costume.slug;
+    assert.deepEqual(identity(await catalog.getCostume(slug)), identity(await queries.getCostume(snapshots, slug)), `${slug}: migrated catalog differs`);
+    for (const piece of snapshot.pieces) {
+      for (const filters of [{ costumeSlug: slug }, { costumeSlug: slug, localOnly: true }, { costumeSlug: slug, maxPriceCents: 10_000 }]) {
+        assert.deepEqual(optionIdentity(await queries.getAlternatives(stored, piece.id, filters)), optionIdentity(await queries.getAlternatives(snapshots, piece.id, filters)));
       }
-      for (const merchant of snapshot.merchants) {
-        assert.deepEqual(optionIdentity(await graphImpl.getMerchantCatalog(merchant.id, slug)), optionIdentity(await snapshotImpl.getMerchantCatalog(merchant.id, slug)), `${slug}: merchant catalog differs`);
-      }
-      const ids = selectedItems(snapshot, 0).map((item) => item.productId);
-      assert.deepEqual(await graphImpl.getFewestShops(ids), await snapshotImpl.getFewestShops(ids), `${slug}: fewest-shops differs`);
-      pass(`${slug}: real FalkorDB selection, complete picks, alternatives, filters, merchants and fewest-shops match the snapshot`);
     }
-  } finally {
-    await resetGraph();
+    for (const merchant of snapshot.merchants) {
+      assert.deepEqual(optionIdentity(await queries.getMerchantCatalog(stored, merchant.id, slug)), optionIdentity(await queries.getMerchantCatalog(snapshots, merchant.id, slug)));
+    }
+    const ids = selectedItems(snapshot, 0).map((item) => item.productId);
+    assert.deepEqual(await queries.getFewestShops(stored, ids), await queries.getFewestShops(snapshots, ids));
+    pass(`${slug}: migrated picks, filters, merchants and fewest-shops match the saved catalog`);
   }
 }
 
@@ -316,26 +307,26 @@ async function main() {
   const healthResponse = await get("/api/health");
   assert.equal(healthResponse.status, 200);
   const health = await healthResponse.json();
-  for (const name of ["ANTHROPIC_API_KEY", "BRIGHTDATA_API_KEY", "BRIGHTDATA_SERP_ZONE", "BRIGHTDATA_UNLOCKER_ZONE", "FALKORDB_URL", "STRIPE_SECRET_KEY", "CRON_SECRET"]) assert.equal(health.env[name], true, `Missing server credential: ${name}`);
+  for (const name of ["ANTHROPIC_API_KEY", "FIRECRAWL_API_KEY", "TURSO_DATABASE_URL", "TURSO_AUTH_TOKEN", "STRIPE_SECRET_KEY", "CRON_SECRET"]) assert.equal(health.env[name], true, `Missing server credential: ${name}`);
   assert.equal(health.env.STRIPE_SECRET_KEY_IS_TEST, true, "Deployed checkout must stay in TEST mode.");
-  const graphUp = health.graph.ok === true;
-  if (!graphUp && allowGraphDown) {
-    assert.equal(health.status, "degraded", "Health must report degraded while the graph is down");
-    assert.equal(health.catalogSource, "snapshot", "Graph down must fall back to the snapshot");
-    console.warn("WARN FalkorDB unreachable; continuing on snapshot fallback (--allow-graph-down)");
-  } else assert.equal(graphUp, true, "The deployed server must reach FalkorDB (pass --allow-graph-down to verify the snapshot fallback only).");
+  const databaseUp = health.database.ok === true;
+  if (!databaseUp && allowDatabaseDown) {
+    assert.equal(health.status, "degraded", "Health must report degraded while the database is down");
+    assert.equal(health.catalogSource, "snapshot", "Database down must fall back to the snapshot");
+    console.warn("WARN Turso unreachable; continuing on snapshot fallback (--allow-database-down)");
+  } else assert.equal(databaseUp, true, "The deployed server must reach Turso (pass --allow-database-down to verify fallback only).");
   const catalogHealth = health.catalogs ?? health.costumes ?? (Array.isArray(health.catalog) ? health.catalog : null);
   assert(Array.isArray(catalogHealth), "Health must report every live costume.");
   for (const slug of slugs) {
     const entry = catalogHealth.find((catalog) => catalog.slug === slug || catalog.costumeSlug === slug);
     assert(entry?.complete && entry.pieces === 5 && entry.products >= 15, `${slug}: deployed catalog health is incomplete`);
-    assert(entry.source === "graph" || entry.source === "snapshot", `${slug}: catalog source must be explicit`);
+    assert(entry.source === "database" || entry.source === "snapshot", `${slug}: catalog source must be explicit`);
   }
   assert.equal((await post({})).response.status, 400);
   assert.equal((await post({ costumeSlug: slugs[0], items: selectedItems(snapshots[0], 0) }, { Origin: "https://unrelated.example" })).response.status, 403);
   assert.equal((await get("/api/cron/refresh")).status, 401);
   pass("all five server catalogs healthy; credentials present by name; Stripe remains TEST; foreign origin and unauthenticated cron are rejected");
-  await verifyCatalogSelection(snapshots, graphUp);
+  await verifyCatalogSelection(snapshots, databaseUp);
   if (checkoutEnabled) {
     const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!);
     for (const snapshot of snapshots) for (const rank of process.argv.includes("--all-options") ? [0, 1, 2] : [0]) await verifyCheckout(snapshot, stripe, rank);

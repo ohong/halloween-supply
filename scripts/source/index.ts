@@ -1,6 +1,5 @@
 // Precomputed sourcing pipeline: bun run source <costume-slug> [--dry-run] [--skip-images] [--only=<pieceId>]
 //   [--allow-partial] [--force-images]
-import { resetGraph } from "../../lib/graph/client";
 import { flatlayScale } from "../../lib/products/flatlay";
 import { costumes } from "../../lib/costumes";
 import { buildFlatlay, applyExistingTiles, processProductImages } from "./images";
@@ -9,9 +8,9 @@ import { decompose } from "./decompose";
 import { gatherCandidates } from "./gather";
 import { rankPiece } from "./rank";
 import { searchPiece } from "./search";
-import { assembleSnapshot, loadExisting, mergeSnapshot, prune, type PiecePicks, upsertToGraph, writeSnapshotFile } from "./write";
+import { assembleSnapshot, loadExisting, mergeSnapshot, prune, type PiecePicks, saveToDatabase, writeSnapshotFile } from "./write";
 
-const REQUIRED_ENV = ["ANTHROPIC_API_KEY", "BRIGHTDATA_API_KEY", "BRIGHTDATA_SERP_ZONE", "BRIGHTDATA_UNLOCKER_ZONE"];
+const REQUIRED_ENV = ["ANTHROPIC_API_KEY", "FIRECRAWL_API_KEY"];
 
 function log(msg: string) {
   console.log(msg);
@@ -52,7 +51,7 @@ async function main() {
   }
   const missing = REQUIRED_ENV.filter((k) => !process.env[k]);
   if (missing.length) {
-    console.error(`Missing ${missing.join(", ")}. Set them in .env.local (see .env.example); the pipeline needs Anthropic and Bright Data credentials.`);
+    console.error(`Missing ${missing.join(", ")}. Set them in .env.local (see .env.example); the pipeline needs Anthropic and Firecrawl credentials.`);
     process.exit(1);
   }
 
@@ -103,14 +102,14 @@ async function main() {
     perPiece.push({ piece, picks });
     if (!args.dryRun && picks.length === 3) {
       // Preserve completed pieces if a later network or model request fails.
-      const partial = assembleSnapshot(costume, [{ piece, picks }], "Sourced from live merchant pages with Bright Data discovery and public merchant data.");
+      const partial = assembleSnapshot(costume, [{ piece, picks }], "Sourced from live merchant pages with Firecrawl discovery and public merchant data.");
       const existing = await loadExisting(costume.slug);
       await writeSnapshotFile(existing ? mergeSnapshot(existing, partial) : partial);
       log(`  saved ${piece.id} incrementally`);
     }
   }
 
-  let snapshot: CostumeSnapshot = assembleSnapshot(costume, perPiece, `Bright Data SERP and Web Unlocker, with direct public merchant pages and Shopify variant feeds when Shopping links or Unlocker were unusable; Claude decomposition and ranking. Only verified in-stock USD variants are included. Bay Area boost +1.5/10.`);
+  let snapshot: CostumeSnapshot = assembleSnapshot(costume, perPiece, `Firecrawl search and raw merchant pages, with Shopify variant feeds; Claude decomposition and ranking. Only verified in-stock USD variants are included. Bay Area boost +1.5/10.`);
   const short = perPiece.filter((p) => p.picks.length < 3);
 
   if (args.only) {
@@ -155,10 +154,10 @@ async function main() {
   }
   const file = await writeSnapshotFile(snapshot);
   log(`\nWrote ${file}`);
-  await upsertToGraph(snapshot, log);
+  await saveToDatabase(snapshot, log);
 }
 
 main().catch((e) => {
   console.error(e instanceof Error ? e.message : e);
   process.exitCode = 1;
-}).finally(() => resetGraph());
+});

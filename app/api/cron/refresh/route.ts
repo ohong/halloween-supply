@@ -22,8 +22,8 @@ export async function GET(request: Request) {
   const startedAt = Date.now();
   try {
     const summary = await refreshAllProducts();
-    if (summary.graphWritten > 0) revalidateTag("catalog", { expire: 0 });
-    const failed = Boolean(summary.graphError) || summary.checked === 0 || summary.verified === 0;
+    if (summary.databaseWritten > 0) revalidateTag("catalog", { expire: 0 });
+    const failed = Boolean(summary.databaseError) || summary.checked === 0 || summary.verified === 0;
     const partial = !failed && summary.unverified.length > 0;
     return Response.json(
       {

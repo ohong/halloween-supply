@@ -1,6 +1,6 @@
 import "server-only";
 
-import { fetchProductPage } from "../brightdata/client";
+import { fetchProductPage } from "../firecrawl/client";
 import { parseProduct, readJsonLdBlocks } from "../products/parse";
 import { parsePriceToCents } from "../products/price";
 import { isBlockedDomain, isNoiseDomain, registrableDomain } from "../sourcing/blocklist";
@@ -43,7 +43,7 @@ async function livePage(url: string): Promise<string> {
   try {
     return await (await merchantFetch(url)).text();
   } catch {
-    const page = await fetchProductPage(url, { timeoutMs: VERIFY_TIMEOUT_MS, retries: 0 });
+    const page = await fetchProductPage(url, { timeoutMs: VERIFY_TIMEOUT_MS });
     if (!sameMerchant(page.finalUrl, url)) throw new Error("Merchant redirected to another shop.");
     return page.html;
   }
