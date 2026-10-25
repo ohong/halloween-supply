@@ -35,18 +35,18 @@ Microphone ──WebRTC──> GPT-Live ──native delegation──> Decisions
                                                     │
 Catalog piece names ── clothing-only prompt ─────────┤
                                                     ▼
-Camera ──WebRTC──> Decart Lucy VTON ──WebRTC─> live preview
+Camera ──WebRTC──> Decart Lucy 2.5 ──WebRTC─> live preview
                         ▲
                    fal signaling
 ```
 
 - `FAL_KEY`: server-only fal key. The app uses
-  `decart/lucy2-vton/realtime`, the dedicated try-on endpoint. A direct Decart key is not required.
+  `decart/lucy-2-5/realtime`. A direct Decart key is not required.
 - `OPENAI_API_KEY`: server-only OpenAI key with GPT-Live and Decisions access.
 - `OPENAI_LIVE_MODEL`: defaults to `gpt-live-1`, verified available on the account.
 - `OPENAI_DECISION_MODEL`: defaults to `gpt-6-luna`.
 
-The browser receives a 60-second fal token scoped to `decart/lucy2-vton`.
+The browser receives a 60-second fal token scoped to `decart/lucy-2-5`.
 The permanent key stays on the server. Camera video goes directly to Decart;
 fal relays the connection and outfit controls. Microphone audio goes to OpenAI.
 The app does not persist camera frames or recordings. Appearance questions
@@ -201,7 +201,6 @@ motion, iPhone Safari, and garment fidelity on a person remain unverified.
 
 ## Official contracts
 
-- https://fal.ai/models/decart/lucy2-vton/realtime/api
 - https://fal.ai/models/decart/lucy-2-5/realtime/api
 - https://fal.ai/lucy-2.5
 - https://github.com/fal-ai/fal-js/blob/main/libs/client/src/realtime/lucy.ts
