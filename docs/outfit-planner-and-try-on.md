@@ -72,12 +72,10 @@ images under its API data policies. Downloads are saved only at the shopper's re
 Generated images approximate appearance. They do not verify fit, measurements,
 fabric behavior, product accuracy, stock, or delivery.
 
-Requests use origin checks, bounded uploads, timeouts, and a per-process cost guard:
-three attempts per client address per hour, two concurrent requests per process.
-These are not deployment-wide quotas. Production also has a Vercel firewall rule
-for POST `/api/try-on`: three requests per client IP per hour, using a fixed
-window and a deny action. The rule applies across function instances and deployments.
-It counts rejected uploads too. It does not impose a total project spending cap.
+Requests use origin checks, bounded uploads, timeouts, and at most two
+simultaneous requests per process. Repeated previews have no hourly app quota.
+The former hourly firewall rule for photo try-on was removed. Provider-side
+limits can still return a busy response.
 
 ## Verification
 

@@ -9,7 +9,7 @@ const resultSchema = z.object({ session: z.object({ id: z.string() }), transport
 
 export async function POST(request: Request) {
   try {
-    const { costumeSlug, outfit, sdp } = schema.parse(await readVoiceRequest(request, "session"));
+    const { costumeSlug, outfit, sdp } = schema.parse(await readVoiceRequest(request));
     const inventory = await readMirrorInventory();
     const costume = await validatedCostume(costumeSlug, outfit, inventory.views);
     const result = resultSchema.safeParse(await voiceOpenAI("live/sessions", {

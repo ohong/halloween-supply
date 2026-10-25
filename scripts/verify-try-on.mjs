@@ -86,11 +86,10 @@ await expectStatus(request({ selection: selection.slice(1), owned: [selection[0]
 await expectStatus(request({ owned: view.pieces.map(({ piece }) => piece.id) }), 200);
 console.log("PASS selected products, owned pieces, duplicate protection, missing pieces and required-piece validation");
 
-for (let i = 0; i < 3; i++) await expectStatus(request({ ip: "quota-test" }), 200);
-await expectStatus(request({ ip: "quota-test" }), 429);
+for (let i = 0; i < 5; i++) await expectStatus(request({ ip: "repeat-demo" }), 200);
 delete process.env.OPENAI_API_KEY;
 await expectStatus(request(), 503);
-console.log("PASS per-client quota and missing-key response");
+console.log("PASS repeated previews from one client and missing-key response");
 
 // Optionally verify that the running storefront still exposes this feature.
 // The route contract alone cannot catch components disconnected from the pages.

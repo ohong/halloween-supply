@@ -1,8 +1,6 @@
 import "server-only";
 
-import { createHash } from "node:crypto";
 import { z } from "zod";
-import { MIRROR_SESSION_STARTS_PER_HOUR } from "./session-limits";
 
 export const VIDEO_MODEL = "decart/lucy-2-5/realtime";
 export const VIDEO_SESSION_SECONDS = 180;
@@ -20,20 +18,6 @@ export function videoFailure(error: unknown) {
   if (error instanceof z.ZodError || error instanceof SyntaxError) return videoResponse({ error: "The mirror request is invalid. Please try again." }, 400);
   console.warn("[live-mirror] Video request failed", error instanceof Error ? error.name : "UnknownError");
   return videoResponse({ error: "The live mirror could not connect. Please try again shortly." }, 502);
-}
-
-/** Per-process backstop; the firewall enforces quotas across deployments. */
-const attempts = new Map<string, { count: number; expires: number }>();
-export function reserveVideoRequest(request: Request, kind: "token" | "reference" | "pair") {
-  const now = Date.now();
-  for (const [key, value] of attempts) if (value.expires <= now) attempts.delete(key);
-  const address = request.headers.get("x-real-ip") ?? request.headers.get("x-forwarded-for")?.split(",")[0]?.trim() ?? "local";
-  const key = `${kind}:${createHash("sha256").update(address).digest("hex")}`;
-  const entry = attempts.get(key) ?? { count: 0, expires: now + 3_600_000 };
-  if (entry.count >= (kind === "token" ? MIRROR_SESSION_STARTS_PER_HOUR : kind === "pair" ? 12 : 180) || attempts.size >= 2000) {
-    throw new VideoError(429, "The live mirror has reached its session limit. Please try again later.");
-  }
-  attempts.set(key, { ...entry, count: entry.count + 1 });
 }
 
 export function videoRequestOrigin(request: Request) {

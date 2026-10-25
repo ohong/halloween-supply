@@ -1,4 +1,3 @@
-import { createHash } from "node:crypto";
 import sharp from "sharp";
 import { SCREENSHOT_VISION_MODEL as MODEL, decomposeScreenshot as decompose } from "@/lib/sourcing/screenshot-vision";
 import { PreviewError } from "@/lib/ai/openai";
@@ -9,18 +8,10 @@ export const maxDuration = 120;
 
 const MAX_BODY = 4 * 1024 * 1024;
 const FORMATS = ["jpeg", "png", "webp", "gif", "heif", "avif"];
-// A local cost guard, not a distributed quota, mirroring the try-on route.
-const attempts = new Map<string, { count: number; expires: number }>();
+// Bound simultaneous provider work without limiting repeated demo attempts.
 let active = 0;
-function reserve(request: Request) {
-  const now = Date.now();
-  for (const [key, value] of attempts) if (value.expires <= now) attempts.delete(key);
-  const address = request.headers.get("x-real-ip") ?? request.headers.get("x-forwarded-for")?.split(",")[0] ?? "local";
-  const id = createHash("sha256").update(address).digest("hex");
-  const entry = attempts.get(id) ?? { count: 0, expires: now + 3_600_000 };
-  if (entry.count >= 20) throw new PreviewError(429, "You’ve built twenty looks this hour. Please try again later.");
-  if (active >= 4 || attempts.size >= 2000) throw new PreviewError(429, "The stylist is busy. Please try again shortly.");
-  attempts.set(id, { ...entry, count: entry.count + 1 });
+function reserve() {
+  if (active >= 4) throw new PreviewError(429, "The stylist is busy. Please try again shortly.");
   active++;
 }
 
@@ -64,7 +55,7 @@ export async function POST(request: Request) {
     if (origin && origin !== new URL(request.url).origin) throw new PreviewError(403, "Open the screenshot stylist from this site.");
     if (!process.env.OPENAI_API_KEY || !process.env.FIRECRAWL_API_KEY) throw new PreviewError(503, "The screenshot stylist is not available yet.");
     image = await readPhoto(request);
-    reserve(request); reserved = true;
+    reserve(); reserved = true;
   } catch (error) {
     if (reserved) active--;
     if (error instanceof PreviewError) return respond(error.status, { error: error.message });

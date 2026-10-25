@@ -6,7 +6,7 @@
  */
 import assert from "node:assert/strict";
 import { execFileSync } from "node:child_process";
-import { mkdtempSync, writeFileSync } from "node:fs";
+import { mkdirSync, mkdtempSync, writeFileSync } from "node:fs";
 import { tmpdir } from "node:os";
 import path from "node:path";
 import { chromium } from "playwright";
@@ -14,6 +14,7 @@ import { chromium } from "playwright";
 assert.equal(process.env.LIVE_MIRROR_E2E, "1", "Set LIVE_MIRROR_E2E=1 to authorize this paid provider test.");
 const origin = new URL(process.env.MIRROR_BASE_URL ?? "http://localhost:3025").origin;
 const evidence = process.env.MIRROR_EVIDENCE_DIR ?? mkdtempSync(path.join(tmpdir(), "mirror-e2e-"));
+mkdirSync(evidence, { recursive: true });
 const camera = process.env.MIRROR_TEST_VIDEO ?? path.join(evidence, "camera.y4m");
 const microphone = process.env.MIRROR_TEST_AUDIO ?? path.join(evidence, "speech.wav");
 if (!process.env.MIRROR_TEST_VIDEO) execFileSync("ffmpeg", ["-hide_banner", "-loglevel", "error", "-y", "-loop", "1", "-i", "public/costumes/cosmic-cowboy.png", "-t", "5", "-vf", "scale=1280:720:force_original_aspect_ratio=decrease,pad=1280:720:(ow-iw)/2:(oh-ih)/2:color=white", "-r", "15", "-pix_fmt", "yuv420p", camera]);
@@ -22,17 +23,19 @@ if (!process.env.MIRROR_TEST_AUDIO) {
   const cape = path.join(evidence, "cape.aiff");
   execFileSync("say", ["-o", jacket, "Keep the hat. Choose the cheapest jacket."]);
   execFileSync("say", ["-o", cape, "Choose the cheapest cape."]);
-  execFileSync("ffmpeg", ["-hide_banner", "-loglevel", "error", "-y", "-i", jacket, "-i", cape, "-filter_complex", "[0:a]adelay=10000,apad=whole_dur=30[a];[1:a]apad=pad_dur=30[b];[a][b]concat=n=2:v=0:a=1[out]", "-map", "[out]", "-ar", "48000", "-ac", "1", microphone]);
+  // Chromium loops this file. Silence prevents old requests repeating during later checks.
+  execFileSync("ffmpeg", ["-hide_banner", "-loglevel", "error", "-y", "-i", jacket, "-i", cape, "-filter_complex", "[0:a]adelay=10000,apad=whole_dur=30[a];[1:a]apad=whole_dur=210[b];[a][b]concat=n=2:v=0:a=1[out]", "-map", "[out]", "-ar", "48000", "-ac", "1", microphone]);
 }
 const browser = await chromium.launch({ headless: true, args: ["--use-fake-ui-for-media-stream", "--use-fake-device-for-media-stream", `--use-file-for-fake-video-capture=${camera}`, `--use-file-for-fake-audio-capture=${microphone}`, "--autoplay-policy=no-user-gesture-required"] });
 const context = await browser.newContext({ viewport: { width: 1440, height: 1100 }, permissions: ["camera", "microphone"], acceptDownloads: true });
 const page = await context.newPage();
+page.setDefaultTimeout(20000);
 const observations = [];
 const errors = [];
 const started = Date.now();
 const log = (check, detail = {}) => { const result = { check, ms: Date.now() - started, ...detail }; observations.push(result); console.log(JSON.stringify(result)); };
 page.on("pageerror", error => errors.push(error.message));
-page.on("response", response => { if (response.url().includes("/api/live-mirror/")) log("route", { path: new URL(response.url()).pathname, status: response.status() }); });
+page.on("response", response => { if (response.url().includes("/api/live-mirror/")) log("route", { path: new URL(response.url()).pathname, method: response.request().method(), status: response.status() }); });
 await page.addInitScript(() => {
   window.mirrorTest = { peers: [], tracks: [], events: [] };
   const Peer = window.RTCPeerConnection;
@@ -72,15 +75,12 @@ const postCommand = async text => {
 try {
   // Bootstrap the deployment's access cookie without persisting it or logging the URL.
   if (process.env.MIRROR_ACCESS_URL) await page.goto(process.env.MIRROR_ACCESS_URL);
-  // Hosted firewall limits count rejected requests too. Exercise these checks
-  // locally and reserve hosted allowance for the two real camera connections.
-  if (["localhost", "127.0.0.1"].includes(new URL(origin).hostname)) {
-    for (const [headers, data, status] of [
-      [{ origin: "https://unrelated.invalid" }, { consent: true }, 403],
-      [{ origin }, { consent: false }, 400],
-    ]) assert.equal((await context.request.post(`${origin}/api/live-mirror/video`, { headers, data })).status(), status);
-  }
+  for (const [headers, data, status] of [
+    [{ origin: "https://unrelated.invalid" }, { consent: true }, 403],
+    [{ origin }, { consent: false }, 400],
+  ]) assert.equal((await context.request.post(`${origin}/api/live-mirror/video`, { headers, data })).status(), status);
   await page.goto(`${origin}/costumes/cosmic-cowboy`);
+  await page.getByRole("tab", { name: "Try it on", exact: true }).click();
   await page.getByRole("button", { name: "Try it on live", exact: true }).click();
   assert.equal(await page.getByRole("button", { name: "Start my mirror", exact: true }).isEnabled(), false);
   assert.equal(await page.evaluate(() => window.mirrorTest.tracks.length), 0);
@@ -107,8 +107,14 @@ try {
   const cheapCape = [...cape.options].sort((a, b) => a.product.priceCents - b.product.priceCents)[0].product.id;
   await page.waitForFunction(({ id, value }) => document.getElementById(`mirror-piece-${id}`)?.value === value, { id: cape.piece.id, value: cheapCape }, { timeout: 30000 });
   assert.deepEqual((await selections()).slice(1), vampireBefore.slice(1));
-  await page.waitForFunction(() => window.mirrorTest.events.filter(event => event.type === "session.commentary.appended").length >= 3, {}, { timeout: 10000 });
+  await page.waitForFunction(() => [...document.querySelectorAll(".live-transcript-speaker")].filter(element => element.textContent === "Stylist").length >= 3, {}, { timeout: 10000 });
   log("spoken-cape-request-after-live-catalog-switch");
+  await page.getByRole("button", { name: "Mute microphone", exact: true }).click();
+  await page.locator('.voice-state[data-state="muted"]').waitFor();
+  assert(await page.evaluate(() => window.mirrorTest.tracks.filter(track => track.kind === "audio" && track.readyState === "live").every(track => !track.enabled)));
+  await page.getByRole("button", { name: "Unmute microphone", exact: true }).click();
+  assert(await page.evaluate(() => window.mirrorTest.tracks.some(track => track.kind === "audio" && track.readyState === "live" && track.enabled)));
+  log("mute-and-unmute-real-microphone-track");
   await postCommand("I already own the boots.");
   await page.getByText(/Already owned/).waitFor();
   const shopLink = page.getByRole("link", { name: /Shop this look/ });
@@ -143,11 +149,20 @@ try {
   await page.waitForFunction(() => document.getElementById("mirror-look")?.value === "moon-moth");
   assert.equal(await page.evaluate(() => window.mirrorTest.peers.length), connectionsBefore);
   log("typed-full-costume-switch-keeps-connections");
+  await page.getByRole("button", { name: "End voice", exact: true }).click();
+  await page.locator('.voice-state[data-state="idle"]').waitFor();
+  assert(await page.evaluate(() => window.mirrorTest.tracks.filter(track => track.kind === "audio").every(track => track.readyState === "ended")));
+  assert(await page.evaluate(() => window.mirrorTest.tracks.some(track => track.kind === "video" && track.readyState === "live")));
+  await page.getByRole("button", { name: "Start voice styling", exact: true }).click();
+  await page.getByRole("button", { name: "Mute microphone", exact: true }).waitFor();
+  assert(await page.evaluate(() => window.mirrorTest.tracks.some(track => track.kind === "audio" && track.readyState === "live")));
+  log("end-voice-releases-microphone-and-restart-restores-it");
   await page.getByRole("button", { name: "Close costume mirror", exact: true }).click();
   await page.waitForFunction(() => window.mirrorTest.peers.every(peer => peer.connectionState === "closed") && window.mirrorTest.tracks.every(track => track.readyState === "ended"), {}, { timeout: 5000 });
   log("all-media-released-on-close");
   // Verify the destination restores owned pieces without starting another session.
   await page.goto(new URL(href, origin).href);
+  await page.getByRole("tab", { name: "Try it on", exact: true }).click();
   await page.getByRole("button", { name: "Try it on live", exact: true }).click();
   await page.getByText(/Already owned/).waitFor();
   await page.setViewportSize({ width: 390, height: 844 });

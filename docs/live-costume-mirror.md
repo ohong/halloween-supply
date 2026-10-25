@@ -91,15 +91,10 @@ speech-to-visible-garment latency.
 
 Fal lists Lucy 2.5 at $0.04 per processed video second: approximately $2.40 per
 minute, or $7.20 for three minutes, plus voice and Decisions usage. Verify current
-provider pricing before changing session limits. The application has per-process
-request limits; deployment-wide quotas and provider spending controls remain
-separate operations.
-
-The existing Vercel firewall additionally limits video starts and voice starts
-to three requests per IP address per hour. Resume uses another video start.
-Rejected POST requests also count, so the test runs its invalid-request checks
-only on localhost. This firewall does not enforce the length of a running
-provider session or a total account spending cap.
+provider pricing before changing session duration. Repeated live sessions,
+resumes, and voice commands have no hourly app or project firewall quota.
+Each video connection still ends after three minutes and restarts explicitly.
+See [current session behavior](./mirror-session-limits.md).
 
 ## Reproduce the real-provider test
 

@@ -1,4 +1,3 @@
-import { createHash } from "node:crypto";
 import { z } from "zod";
 import { isDatabaseConfigured } from "@/lib/db/client";
 import { planCustomLook } from "@/lib/custom-looks/plan";
@@ -17,7 +16,6 @@ const bodySchema = z.object({
 }).strict();
 const headers = { "Cache-Control": "private, no-store", "X-Content-Type-Options": "nosniff" };
 const reply = (status: number, body: object) => Response.json(body, { status, headers });
-const attempts = new Map<string, { count: number; expires: number }>();
 let active = 0;
 
 class RequestError extends Error {
@@ -25,15 +23,8 @@ class RequestError extends Error {
 }
 
 // This bounds one process. The durable request claim prevents duplicate work across processes.
-function reserve(request: Request) {
-  const now = Date.now();
-  for (const [key, entry] of attempts) if (entry.expires <= now) attempts.delete(key);
-  const address = request.headers.get("x-real-ip") ?? request.headers.get("x-forwarded-for")?.split(",")[0] ?? "local";
-  const key = createHash("sha256").update(address).digest("hex");
-  const entry = attempts.get(key) ?? { count: 0, expires: now + 3_600_000 };
-  if (entry.count >= 8) throw new RequestError(429, "You have created eight looks this hour. Please try again later.");
-  if (active >= 3 || attempts.size >= 2000) throw new RequestError(429, "Costume creation is busy. Please try again shortly.");
-  attempts.set(key, { ...entry, count: entry.count + 1 });
+function reserve() {
+  if (active >= 3) throw new RequestError(429, "Costume creation is busy. Please try again shortly.");
   active++;
 }
 
@@ -98,13 +89,13 @@ export async function POST(request: Request) {
     }
     const body = await readBody(request);
     if (!isDatabaseConfigured()) throw new RequestError(503, "Costume creation is unavailable right now. Please try again later.");
-    // Reopening saved work needs neither provider availability nor another quota reservation.
+    // Reopening saved work needs neither provider availability nor a processing slot.
     const previous = await readCustomLookRequest(body.requestId);
     if (previous) return duplicate(previous, body);
     if (!process.env.ANTHROPIC_API_KEY || !process.env.FIRECRAWL_API_KEY) {
       throw new RequestError(503, "Costume creation is unavailable right now. Please try again later.");
     }
-    reserve(request); reserved = true;
+    reserve(); reserved = true;
     const result = await claimCustomLook(body);
     if (!result.claimed) {
       active--; reserved = false;
