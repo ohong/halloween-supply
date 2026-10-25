@@ -8,7 +8,7 @@ const get = async url => {
   return response.json();
 };
 const { looks } = await get("/api/live-mirror/catalog");
-assert.equal((await get("/api/live-mirror/video")).model, "decart/lucy2-vton/realtime");
+assert.equal((await get("/api/live-mirror/video")).model, "decart/lucy-2-5/realtime");
 let checked = 0;
 async function verify(input) {
   const response = await fetch(`${origin}/api/live-mirror/reference`, {
@@ -17,10 +17,10 @@ async function verify(input) {
   });
   const result = await response.json();
   assert.equal(response.status, 200, JSON.stringify(result));
-  assert.equal(result.image, null, "Merchant model faces must never reach Lucy");
-  assert(result.prompt.startsWith("Change clothing only."));
-  assert(result.prompt.includes("exact face and likeness"));
-  assert(result.prompt.endsWith("Identity preservation overrides every clothing edit."));
+  assert.match(result.image, /^data:image\/jpeg;base64,/, "A local product board must reach Lucy");
+  assert(result.prompt.startsWith("Substitute the outfit with these reference-board garments:"));
+  assert(result.prompt.includes("Preserve the person\'s face"));
+  assert(result.prompt.includes("never identity references"));
   assert(result.prompt.length <= 740);
   checked++;
   return result;
@@ -43,5 +43,5 @@ for (const look of looks) {
     }
   }
 }
-console.log(`PASS ${checked} real reference requests across ${looks.length} looks: no merchant images; identity instructions retained through product, color and owned-piece changes.`);
+console.log(`PASS ${checked} real reference requests across ${looks.length} looks: product boards restored; preservation instructions retained through product, color and owned-piece changes.`);
 console.log("Generated face fidelity remains unverified; these checks do not call Lucy.");

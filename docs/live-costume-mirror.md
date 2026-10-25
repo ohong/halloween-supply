@@ -90,22 +90,24 @@ to the app's state; GPT Live receives fresh visual observations only when the sh
 appearance feedback; control state alone is not visual evidence. Video and
 microphone data continue to use their separate providers.
 
-The server describes the complete desired outfit using catalog piece names.
-The reference endpoint returns `image: null`; the browser explicitly sends
-`reference_image_url: null` at startup and on every update. Merchant photos can
-include models' faces, hair and makeup. Sending those photos through Lucy's
-shared character-swap/try-on reference input can introduce a competing identity.
-Text-only editing avoids that input, at the cost of exact garment detail.
-Garment images need a separate garment-only review before they can return.
-Every edit sends the full intended outfit, preserving owned clothing.
+The server builds the earlier product-reference board from local catalog assets.
+Each cell uses a product cutout when available, otherwise its catalog image.
+The browser sends the board as `reference_image_url` to
+`decart/lucy-2-5/realtime`, with prompt expansion disabled. The prompt asks Lucy
+to substitute those garments and preserve the camera person's face, hair,
+body shape, skin tone, pose, background and lighting. Owned pieces remain unchanged.
+Color and style overrides still apply to garments.
 
-The app uses the dedicated Lucy VTON endpoint instead of Lucy 2.5 general
-video editing. Face and likeness preservation takes priority over clothing edits. Prompts
-prohibit facial changes, makeup, beauty filters and body reshaping. Prompt
-expansion stays disabled. The voice stylist must acknowledge reported face
-changes and cannot claim the pixels are unchanged or fixed. These controls
-reduce identity-transfer risk; they do not guarantee pixel-level preservation
-in generated video. Real-person visual verification remains required.
+This restores the rendering behavior from before commit `dc2349d`, while keeping
+camera switching and on-request GPT Live visual feedback. It does not revert
+photo generation or catalog changes. The separate fal Lucy 2.1 VTON endpoint
+is not used.
+
+A reference board can contain a merchant model when no cutout exists. The prompt
+instructs Lucy to treat references as garments, never identity references, but
+this is not an enforced face lock. Do not promise unchanged faces based on a
+successful connection or prompt check. Visual comparisons with the original
+camera remain available through GPT Live.
 
 ## Lifetime and rendering limits
 

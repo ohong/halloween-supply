@@ -6,7 +6,7 @@ import type { MirrorContext, MirrorStatus } from "./types";
 import { videoOutfitRequest } from "./video-outfit";
 import { readMirrorResponse } from "./read-response";
 
-type Reference = { image: null; prompt: string };
+type Reference = { image: string; prompt: string };
 type FacingMode = "user" | "environment";
 const cameraConstraints = (facingMode: MediaTrackConstraints["facingMode"], deviceId?: string): MediaStreamConstraints => ({
   audio: false,
@@ -33,8 +33,7 @@ async function referenceFor(key: string, signal: AbortSignal) {
     signal: AbortSignal.any([signal, AbortSignal.timeout(20_000)]),
   }));
 }
-// Explicit null also clears any previous character reference on outfit updates.
-const inputFor = (reference: Reference) => ({ prompt: reference.prompt, reference_image_url: null, enable_prompt_expansion: false });
+const inputFor = (reference: Reference) => ({ prompt: reference.prompt, reference_image_url: reference.image, enable_prompt_expansion: false });
 function release(session: VideoSession) {
   session.controller.abort();
   clearTimeout(session.timer);
