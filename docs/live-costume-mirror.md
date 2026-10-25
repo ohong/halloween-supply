@@ -1,101 +1,145 @@
 # Live Costume Mirror
 
-The mirror provides a camera preview and a voice stylist, with text as a fallback.
-Voice changes immediately update the page's selected products and existing cart
-lines. There are no manual wardrobe buttons, budget forms, saved-outfit comparisons
-or final plan/Apply screen. The piece list retains compact pick explanations and
-support-local badges from the store brief. Closing the mirror stops
-media; it does not start checkout. Photo try-on remains available.
+Open any costume page and select **Try it on live**. Allow camera and microphone
+processing, then select **Start my mirror**. The main view receives generated
+video; the small inset shows the original camera.
 
-A voice request to save downloads a preview image. Undo restores the previous
-selection. The engine still supports catalog selection, existing wardrobe pieces
-and budgets expressed in conversation.
+Swipe up/down on the mirror, use the arrow buttons, or choose a named costume to
+switch among all 25 looks. The existing video connection stays open. Change a
+piece with its selector, type a request, or speak naturally:
 
-## Connections and configuration
+- “Keep the hat. Choose the cheapest jacket.”
+- “Try Velvet Vampire.”
+- “Choose the cheapest cape.”
+- “I already own the boots.”
+- “Undo that.” / “Freeze the preview.” / “Resume.” / “Save this look.”
 
-- `OPENAI_API_KEY`: reuse the application's server-side key. It needs access to
-  GPT-Live, Decisions, and Responses for budget extraction.
-- `OPENAI_LIVE_MODEL`: defaults to `gpt-live-1`.
+Piece cards show the selected product, merchant, and price. Owned and skipped
+pieces do not contribute to the shopping subtotal. **Shop this look** carries
+selected products and owned/skipped choices to the matching costume page.
+Selecting a product does not buy it or confirm its size or availability.
+
+## Connections
+
+```text
+Microphone ──WebRTC──> GPT-Live ──native delegation──> Decisions
+                             <── confirmed catalog selection
+                                                    │
+Catalog product cutouts ── reference board + prompt ──┤
+                                                    ▼
+Camera ──WebRTC──> Decart Lucy 2.5 ──WebRTC──> live preview
+                        ▲
+                   fal signaling
+```
+
+- `FAL_KEY`: server-only fal key. The app uses
+  `decart/lucy-2-5/realtime`. A direct Decart key is no longer required.
+- `OPENAI_API_KEY`: server-only OpenAI key with GPT-Live and Decisions access.
+- `OPENAI_LIVE_MODEL`: defaults to `gpt-live-1`, verified available on the account.
 - `OPENAI_DECISION_MODEL`: defaults to `gpt-6-luna`.
-- `DECART_API_KEY`: server-only Decart key. The app issues short-lived browser
-  tokens restricted to the current origin and `lucy-vton-3.6`.
 
-Voice uses OpenAI's Live WebRTC session contract, not the older Realtime API.
-Native Decisions delegation selects bounded actions against catalog product IDs.
-Transcript triggers can identify the currently discussed piece without changing
-the outfit. Arbitrary budget amounts are extracted through Responses. Commands
-are validated against the catalog before they change local outfit state.
+The browser receives a 60-second fal token scoped to `decart/lucy-2-5`.
+The permanent key stays on the server. Camera video goes directly to Decart;
+fal relays the connection and outfit controls. Microphone audio goes to OpenAI.
+The app does not persist camera frames or recordings. Saved previews download
+from browser memory only when requested.
 
-The camera is streamed to Decart for transformed video. Microphone audio goes to
-OpenAI; it is not sent to Decart. The server builds a reference board from the
-selected catalog garments and submits the entire intended outfit with each edit.
-This avoids treating independent prompts as persistent garment layers. Generated
-video remains an approximate appearance preview, not a measurement or fit promise.
+`@fal-ai/client` is pinned to `1.11.0-alpha.3`: its official Lucy WebRTC extension
+owns signaling, ICE candidate ordering, and cancellation. The stable `1.10.1`
+release only offers the lower-level realtime WebSocket client. Pinning the
+extension avoids maintaining a second WebRTC signaling implementation here.
 
-Closing the mirror stops the sessions and device tracks. Freezing a preview stops
-video generation; voice can continue for shopping. A Decart token constrains active
-video sessions to 180 seconds. Token expiry alone would not end an existing
-connection. The application also performs client-side teardown.
+## Catalog and voice behavior
 
-## Cost and public rollout
+The existing catalog already supplies product IDs, descriptions, prices,
+merchants, categories, and reviewed local cutouts. Decisions receives that text;
+it does not receive camera frames. A single multi-question decision selects
+bounded actions instead of two sequential classification requests.
 
-At the rates researched on October 24, 2026, GPT-Live is $0.05/minute and standard
-Decart VTON is $0.02/second. Three minutes of simultaneous use is approximately
-$3.75 before Decisions, Responses and hosting. Verify provider pricing before
-launch. Start video explicitly and freeze when shoppers want to pause.
+Per-piece questions select actual product IDs. Whole-outfit optimization needs
+an explicit whole-outfit scope, so “cheapest jacket” does not replace the hat,
+trousers, boots, or scarf. A keep request prevents a simultaneous replacement.
 
-API routes have local request limits. These are per-process controls, not a
-distributed quota. Before a broad public rollout, configure shared quotas or
-hosting firewall limits and provider spending limits. Avoid silently enabling
-unbounded paid video on page load.
+Full-look switching loads the new catalog and replaces the voice session's
+questions and transcript triggers. The app waits for `session.updated` before
+sending the new outfit snapshot. Old pending decisions are discarded. The voice
+and video connections remain open across a look change.
 
-## Demo and verification checklist
+The server composites the complete desired outfit from local catalog assets.
+Boards are at least 512×512, including single-piece selections. Product files are
+included in the deployed reference function. Every edit sends the full intended
+outfit, preserving owned clothing instead of treating edits as permanent layers.
 
-1. Configure the keys in the target environment; use HTTPS or localhost.
-2. Open Cosmic Cowboy, enter the mirror, and start camera and voice. Frame one
-   person head-to-toe with even lighting.
-3. Say “Keep the hat. Choose another jacket.” Confirm the product card, garment
-   preview and page subtotal agree, and the hat and person's identity remain stable.
-4. Say “I own the boots” and confirm the boots no longer add to the subtotal.
-5. Set a budget and request a cheaper look. Kept pieces must remain selected;
-   an impossible budget must not be reported as satisfied.
-6. Interrupt and correct a selection. Confirm old decisions cannot overwrite the
-   newer state. Undo a change and confirm the page selection restores. Ask to save a live preview and check its download.
-7. Freeze the preview, resume, close the mirror, then reopen. Verify camera/mic
-   indicators turn off on close and no old sessions continue generating.
-8. Repeat on mobile, denied permissions, offline/reconnect, fast movements,
-   occluded arms and dim light. Inspect actual SKU details, not just the theme.
+## Lifetime and rendering limits
 
-Measure speech-to-selection separately from selection-to-visible-garment latency.
-Do not quote the decision API's latency as the full video transformation latency.
-Successful application tests do not establish garment fidelity or provider access;
-those require a real camera session with configured credentials.
+Camera capture starts only after consent and an explicit Start action. Closing,
+leaving, or hiding the page releases media. Freeze disconnects video and releases
+the camera while voice remains available; Resume creates a new video connection.
+Failed connections require an explicit retry. Each UI session stops after three
+minutes. Token expiry alone does not terminate a running fal session; the
+three-minute limit is client-side, not a provider-enforced spending cap.
 
-## Prior implementation verification
+The interface marks video live only after the video element begins playing.
+A control send confirms only that an outfit request was sent. The fal extension
+does not expose a garment-render acknowledgement. Neither an SDK send nor a
+returned frame proves that the latest garment is visibly correct.
 
-The following checks describe the earlier mirror implementation, before the simplified interface:
+Generated video is an approximate appearance preview. Fine garment details,
+identity preservation, occlusion, motion, and real-world fit require visual
+assessment with a person. This implementation does not promise sub-second
+speech-to-visible-garment latency.
 
-- Production build, TypeScript and ESLint checks.
-- 15 state, catalog-reference and native-decision tests, including locked pieces,
-  owned-item totals, impossible budgets, invalid products, duplicate selections,
-  refusals and atomic undo.
-- Chromium at desktop and mobile sizes: piece changes, budget optimization,
-  save/restore, parent selection updates, owned-item cart removal, keyboard focus
-  trapping and Escape restoration, without horizontal overflow or page errors.
-- Real local reference-board generation; video consent validation, same-origin
-  rejection and clear missing-credential responses.
-- Microphone failure cleanup with Chromium's synthetic input device and the actual
-  missing-key endpoint response. This is a lifecycle test, not a provider demo.
+Fal lists Lucy 2.5 at $0.04 per processed video second: approximately $2.40 per
+minute, or $7.20 for three minutes, plus voice and Decisions usage. Verify current
+provider pricing before changing session limits. The application has per-process
+request limits; deployment-wide quotas and provider spending controls remain
+separate operations.
 
-OpenAI and Decart live sessions were not executed. The existing deployment's
-OpenAI key was inaccessible from this workspace, and the user will configure
-Decart before live testing. No successful transformed video or latency claim is
-implied by these checks.
+The existing Vercel firewall additionally limits video starts and voice starts
+to three requests per IP address per hour. Resume uses another video start.
+Rejected POST requests also count, so the test runs its invalid-request checks
+only on localhost. This firewall does not enforce the length of a running
+provider session or a total account spending cap.
+
+## Reproduce the real-provider test
+
+```sh
+bun install
+bun run dev --port 3025
+# In another terminal; this spends fal/OpenAI credits:
+LIVE_MIRROR_E2E=1 node scripts/verify-live-mirror.mjs
+```
+
+The test uses Playwright Chromium, `ffmpeg`, and macOS `say`. Install Chromium with
+`bunx playwright install chromium` if needed. On other hosts supply
+`MIRROR_TEST_VIDEO` (Y4M) and `MIRROR_TEST_AUDIO` (48 kHz mono WAV, jacket request at
+10 seconds and cape request at 30 seconds). `MIRROR_BASE_URL` chooses the target;
+`MIRROR_EVIDENCE_DIR` chooses an existing output folder. The default evidence
+folder is temporary and contains screenshots, a saved preview, and JSON results.
+For a protected deployment, `MIRROR_ACCESS_URL` can bootstrap an authorized
+Vercel share link. It is not written to the evidence or used to bypass quotas.
+
+The camera fixture is a generated catalog mannequin. The microphone is synthetic
+speech. The app, route handlers, reference generation, fal video, OpenAI voice,
+and Decisions calls are real. This test does not use a sleeping user's devices.
+
+The test checks consent, cross-origin rejection, real decoded video and received
+voice audio, spoken piece changes, unrelated-piece preservation, live catalog
+replacement, owned pieces, downloads, freeze/resume, complete media cleanup,
+shopping-state restoration, mobile overflow, swipe navigation, and Escape.
+
+On October 25, 2026, the complete local real-provider test passed. The first
+decoded frame arrived 3.3 seconds after Start in that run. This measures initial
+connection time, not speech-to-visible-garment latency. Lint, TypeScript, all 15
+existing mirror checks, and the production build also passed. Physical webcam
+motion, iPhone Safari, and garment fidelity on a person remain unverified.
 
 ## Official contracts
 
+- https://fal.ai/models/decart/lucy-2-5/realtime/api
+- https://fal.ai/lucy-2.5
+- https://github.com/fal-ai/fal-js/blob/main/libs/client/src/realtime/lucy.ts
+- https://docs.platform.decart.ai/models/realtime/virtual-try-on
+- https://github.com/DecartAI/tryon-examples
 - https://developers.openai.com/api/docs/guides/voice-webrtc?api=live
 - https://developers.openai.com/api/docs/guides/decisions-voice
-- https://docs.platform.decart.ai/models/realtime/virtual-try-on
-- https://docs.platform.decart.ai/getting-started/client-tokens
-- https://docs.platform.decart.ai/getting-started/pricing

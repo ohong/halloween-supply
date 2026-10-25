@@ -34,7 +34,7 @@ export async function POST(request: Request) {
         .resize(cellWidth, cellHeight, { fit: "contain", background: "#ffffff" }).flatten({ background: "#ffffff" }).png().toBuffer();
       return { input: image, left: (index % columns) * cellWidth, top: Math.floor(index / columns) * cellHeight };
     }));
-    const image = await sharp({ create: { width: columns * cellWidth, height: Math.ceil(layers.length / columns) * cellHeight, channels: 3, background: "#ffffff" } })
+    const image = await sharp({ create: { width: Math.max(512, columns * cellWidth), height: Math.max(512, Math.ceil(layers.length / columns) * cellHeight), channels: 3, background: "#ffffff" } })
       .composite(layers).jpeg({ quality: 88 }).toBuffer();
     return videoResponse({ image: `data:image/jpeg;base64,${image.toString("base64")}`, prompt });
   } catch (error) { return videoFailure(error); }

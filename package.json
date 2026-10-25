@@ -14,7 +14,7 @@
   "dependencies": {
     "@ai-sdk/anthropic": "^4.0.88",
     "@ai-sdk/react": "^4.0.157",
-    "@decartai/sdk": "^0.2.12",
+    "@fal-ai/client": "1.11.0-alpha.3",
     "@libsql/client": "^0.18.0",
     "@radix-ui/react-collapsible": "^1.2.1",
     "@radix-ui/react-slot": "^1.5.0",
@@ -38,6 +38,7 @@
     "@types/react-dom": "^19",
     "eslint": "^9",
     "eslint-config-next": "16.4.3",
+    "playwright": "1.62.1",
     "tailwindcss": "^4",
     "typescript": "^5"
   },
