@@ -136,6 +136,6 @@ export function VirtualTryOn({ costumeSlug, selection = [], ownedPieceIds = [], 
       )}
     </div>}
     {error && <p className="try-on-error" role="alert">{error}</p>}
-    {photoUrl && !current && !busy && <p className="try-on-fine">Tapping sends this photo to OpenAI to make a one-off preview. Nothing is saved.</p>}
+    {photoUrl && !current && !busy && <p className="try-on-fine">Tapping sends your photo to OpenAI for a preview. This app does not save your photo or preview. OpenAI processes uploads under its API data policies.</p>}
   </section>;
 }

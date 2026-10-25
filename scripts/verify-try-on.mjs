@@ -101,7 +101,9 @@ if (storefront) {
     const response = await realFetch(new URL(`/costumes/${costume.slug}`, storefront), { signal: AbortSignal.timeout(30_000) });
     assert.equal(response.status, 200);
     const html = await response.text();
-    assert(html.includes("virtual-try-on-tryOn"), `${costume.slug} is missing the try-on form`);
+    assert(html.includes('class="try-on"'), `${costume.slug} is missing the try-on form`);
+    assert(html.includes('capture="environment"'), `${costume.slug} is missing mobile camera capture`);
+    assert(html.includes("Take photo"), `${costume.slug} is missing the camera button`);
     assert(html.includes("Shop for me"), `${costume.slug} is missing Shop for me`);
     if (costume.slug === "cosmic-cowboy") assert(html.includes("outfit-planner"), "The shopping brief and comparisons are missing");
   }));
