@@ -1,0 +1,42 @@
+.ui-dialog-content.wardrobe-rail-dialog { width: min(820px, calc(100% - 32px)); }
+.wardrobe-rail { min-width: 0; }
+.wardrobe-rail-tools { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-bottom: 4px; }
+.wardrobe-rail-tools p { font-size: 12px; line-height: 1.5; color: var(--mid); }
+.wardrobe-rail-arrows { display: flex; gap: 4px; }
+.wardrobe-rail-arrows button { display: grid; place-items: center; width: 44px; height: 44px; border: 1px solid var(--line); background: var(--bg); color: var(--ink); border-radius: 4px; }
+.wardrobe-rail-arrows button:disabled { color: var(--soft); border-color: var(--grey); cursor: default; }
+.wardrobe-rail-track { display: flex; gap: 16px; min-width: 0; padding: 8px 3px 16px; overflow-x: auto; overscroll-behavior-x: contain; scroll-snap-type: x proximity; scroll-padding-inline: 3px; scrollbar-width: thin; scrollbar-color: var(--mid) var(--grey); }
+.wardrobe-rail-slot { position: relative; flex: 1 0 210px; min-width: 0; scroll-snap-align: start; }
+/* The rack stays visible behind real product photos, including photos without an alpha channel. */
+.wardrobe-rail-slot::before { content: ""; position: absolute; top: 8px; left: -8px; right: -8px; height: 1px; background: var(--line); }
+.wardrobe-rail-slot:first-child::before { left: 0; }
+.wardrobe-rail-slot:last-child::before { right: 0; }
+.wardrobe-rail-option { display: flex; flex-direction: column; gap: 7px; width: 100%; min-width: 0; padding: 30px 10px 14px; border: 0; border-bottom: 2px solid transparent; background: transparent; text-align: left; color: var(--ink); }
+.wardrobe-rail-option::before { content: ""; position: absolute; top: 8px; left: 50%; height: 18px; width: 1px; background: var(--line); }
+.wardrobe-rail-option[aria-pressed="true"] { border-bottom-color: var(--ink); }
+.wardrobe-rail-option:disabled { color: var(--mid); cursor: not-allowed; }
+.wardrobe-rail-option:disabled .wardrobe-rail-image { opacity: .5; }
+.wardrobe-rail-image { display: block; width: 100%; aspect-ratio: 4 / 5; background: #f6f5f4; transition: transform 180ms cubic-bezier(.16,1,.3,1); }
+.wardrobe-rail-image img { width: 100%; height: 100%; padding: 8px; object-fit: contain; }
+.wardrobe-rail-option[aria-pressed="true"] .wardrobe-rail-image { transform: translateY(-5px); }
+.wardrobe-rail-choice { display: flex; align-items: center; gap: 4px; min-height: 24px; font-size: 11px; line-height: 1.4; color: var(--mid); }
+.wardrobe-rail-option[aria-pressed="true"] .wardrobe-rail-choice { color: var(--ink); font-weight: 500; }
+.wardrobe-rail-price { display: flex; align-items: baseline; justify-content: space-between; gap: 10px; width: 100%; font-family: var(--font-geist-mono), monospace; font-size: 16px; font-variant-numeric: tabular-nums; }
+.wardrobe-rail-tier { font-size: 11px; color: var(--mid); }
+.wardrobe-rail-title { font-size: 13px; line-height: 1.5; font-weight: 400; overflow-wrap: anywhere; }
+.wardrobe-rail-merchant, .wardrobe-rail-details, .wardrobe-rail-stock { font-size: 11px; line-height: 1.55; color: var(--mid); overflow-wrap: anywhere; }
+.wardrobe-rail-note { margin-top: 10px; font-size: 11px; line-height: 1.6; color: var(--mid); }
+@media (hover: hover) and (pointer: fine) {
+  .wardrobe-rail-arrows button:hover:not(:disabled) { background: var(--grey); }
+  .wardrobe-rail-option:hover:not(:disabled) .wardrobe-rail-image { transform: translateY(-5px); }
+  .wardrobe-rail-option:hover:not(:disabled) .wardrobe-rail-choice { color: var(--ink); }
+}
+@media (max-width: 640px) {
+  .wardrobe-rail-slot { flex: 0 0 82%; }
+  .wardrobe-rail-image { max-height: 250px; }
+  .wardrobe-rail-option { padding-inline: 8px; }
+  .wardrobe-rail-track { padding-bottom: 12px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .wardrobe-rail-image { transition: none; }
+}

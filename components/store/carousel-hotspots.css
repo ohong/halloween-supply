@@ -1,0 +1,23 @@
+.look-hotspots { position: absolute; inset: 12px; z-index: 2; pointer-events: none; }
+.look-hotspots-toggle { position: absolute; top: 0; right: 0; display: inline-flex; align-items: center; gap: 8px; min-height: 44px; padding: 10px 12px; border: 1px solid var(--line); border-radius: 4px; background: var(--bg); color: var(--ink); font-size: 12px; font-weight: 400; pointer-events: auto; }
+.look-hotspots-toggle > span { color: var(--mid); font-family: var(--font-geist-mono), ui-monospace, monospace; font-variant-numeric: tabular-nums; }
+.look-hotspots-basket { position: absolute; bottom: 0; left: 0; right: 0; pointer-events: auto; }
+.look-hotspots-basket > p { width: fit-content; margin: 0 0 6px; padding: 3px 6px; background: var(--bg); color: var(--mid); font-size: 11px; line-height: 1.4; }
+.look-hotspots-basket ul { display: flex; gap: 6px; overflow-x: auto; overscroll-behavior-x: contain; scroll-snap-type: x proximity; scrollbar-width: thin; scrollbar-color: var(--line) var(--bg); padding-bottom: 4px; }
+.look-hotspots-basket li { flex: 0 0 180px; min-width: 0; scroll-snap-align: start; }
+.look-hotspot { display: grid; align-content: center; gap: 6px; width: 100%; min-height: 72px; padding: 10px 12px; border: 1px solid var(--line); border-radius: 4px; color: var(--ink); background: var(--bg); text-align: left; }
+.look-hotspot[aria-pressed="true"] { background: var(--ink); border-color: var(--ink); color: var(--bg); }
+.look-hotspot-name { display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; font-size: 12px; font-weight: 400; line-height: 1.35; }
+.look-hotspot-meta { display: flex; align-items: baseline; gap: 8px; min-width: 0; font-size: 10px; line-height: 1.3; }
+.look-hotspot-meta > span:first-child { flex-shrink: 0; font-family: var(--font-geist-mono), ui-monospace, monospace; font-variant-numeric: tabular-nums; font-size: 11px; }
+.look-hotspot-meta > span:last-child { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.look-hotspots :is(button, ul):focus-visible { outline: 2px solid var(--ink); outline-offset: 3px; }
+@media (hover: hover) and (pointer: fine) {
+  .look-hotspots-toggle:hover, .look-hotspot:hover:not([aria-pressed="true"]) { background: var(--grey); }
+}
+@media (min-width: 600px) {
+  .look-hotspots-basket { right: auto; width: 190px; }
+  .look-hotspots-basket ul { display: grid; max-height: 380px; overflow-y: auto; overflow-x: hidden; scroll-snap-type: none; padding: 0; }
+  .look-hotspots-basket li { flex-basis: auto; }
+  .look-hotspot { min-height: 64px; }
+}
