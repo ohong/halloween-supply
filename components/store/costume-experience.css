@@ -35,15 +35,17 @@
 .costume-pieces-heading h2 { font-size: 15px; font-weight: 500; color: var(--ink); }
 .costume-pieces-heading > span { font-size: 11px; color: var(--mid); }
 .outfit-piece { border-bottom: 1px solid #e9e9e9; }
-.outfit-piece-trigger { display: flex; align-items: center; gap: 14px; width: 100%; padding: 14px 0; border: 0; background: transparent; text-align: left; border-radius: 4px; }
+.outfit-piece-row { display: flex; align-items: center; gap: 12px; }
+.outfit-piece-trigger { display: flex; align-items: center; gap: 14px; flex: 1; min-width: 0; padding: 14px 0; text-align: left; border-radius: 4px; }
 .outfit-piece-image { flex-shrink: 0; width: 60px; height: 72px; padding: 4px; border-radius: 5px; overflow: hidden; background: #f5f5f5; }
 .outfit-piece-image img, .piece-option-image img { width: 100%; height: 100%; object-fit: contain; }
 .outfit-piece-copy { display: grid; gap: 4px; flex: 1; min-width: 0; }
 .outfit-piece-name { font-size: 14px; font-weight: 500; color: var(--ink); }
 .outfit-piece-product { font-size: 12px; color: var(--mid); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 .outfit-piece-merchant { font-size: 12px; line-height: 1.4; color: var(--mid); }
-.outfit-piece-side { display: grid; gap: 12px; flex-shrink: 0; justify-items: end; font-size: 13px; font-weight: 400; color: var(--ink); font-variant-numeric: tabular-nums; }
-.outfit-piece-change { display: inline-flex; align-items: center; gap: 2px; font-size: 11px; font-weight: 300; color: var(--mid); }
+.outfit-piece-side { display: grid; flex-shrink: 0; justify-items: end; font-size: 13px; font-weight: 400; color: var(--ink); font-variant-numeric: tabular-nums; }
+.outfit-piece-side > a { display: inline-flex; align-items: center; min-height: 32px; }
+.outfit-piece-change { display: inline-flex; align-items: center; justify-content: end; gap: 2px; min-width: 60px; min-height: 44px; border: 0; border-radius: 4px; background: transparent; font-size: 11px; font-weight: 300; color: var(--mid); }
 .costume-help { display: grid; gap: 14px; margin-top: 24px; padding: 18px; border: 1px solid #e5e5e5; border-radius: 8px; }
 .costume-help > div { display: flex; align-items: start; gap: 10px; }
 .costume-help svg { flex-shrink: 0; margin-top: 1px; }
@@ -90,7 +92,7 @@
 .costume-shop [data-slot="button"]:active:not(:disabled), .piece-dialog [data-slot="button"]:active:not(:disabled) { transform: scale(.98); }
 @media (hover: hover) and (pointer: fine) {
   .outfit-piece-trigger:hover { background: #fafafa; }
-  .outfit-piece-trigger:hover .outfit-piece-change { color: var(--ink); }
+  .outfit-piece-change:hover { background: #fafafa; color: var(--ink); }
   .piece-option:hover:not(:disabled) { background: #f7f7f7; }
 }
 @media (min-width: 960px) {

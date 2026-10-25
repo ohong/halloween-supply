@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useState, type MouseEvent } from "react";
 import Link from "next/link";
 import { ArrowLeft, ArrowRight, Check, ChevronDown, ChevronRight, ShoppingBag, Sparkles } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -187,6 +187,16 @@ export function CostumeExperience({ costume }: { costume: CostumeView }) {
   </div>;
 }
 
+function openMerchant(event: MouseEvent<HTMLAnchorElement>) {
+  if (event.defaultPrevented || event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
+  const popup = window.open("", "_blank", "popup,width=1100,height=800");
+  // Keep the native link fallback when popups are blocked. Isolate the new window before loading the merchant.
+  if (!popup) return;
+  popup.opener = null;
+  popup.location.replace(event.currentTarget.href);
+  event.preventDefault();
+}
+
 function PieceRow({ costumeSlug, view, index, onChoose }: { costumeSlug: string; view: PieceView; index: number; onChoose: (index: number) => void }) {
   const cart = useCart();
   const [open, setOpen] = useState(false);
@@ -197,13 +207,18 @@ function PieceRow({ costumeSlug, view, index, onChoose }: { costumeSlug: string;
 
   return <li className="outfit-piece">
     <Dialog open={open} onOpenChange={setOpen}>
-      <DialogTrigger asChild>
-        <button type="button" className="outfit-piece-trigger" aria-label={`Change ${piece.name}`}>
+      <div className="outfit-piece-row">
+        <a className="outfit-piece-trigger" href={option.product.url} target="_blank" rel="noopener noreferrer" onClick={openMerchant} aria-label={`View ${piece.name} at ${option.merchant.name} (opens in a new window)`}>
           <span className="outfit-piece-image"><ProductImage src={shot(option.product)} alt="" /></span>
           <span className="outfit-piece-copy"><span className="outfit-piece-name">{piece.name}</span><span className="outfit-piece-product">{option.product.title}</span><span className="outfit-piece-merchant">{option.merchant.name}{option.pick.isLocal ? " · Local" : ""}{option.product.availability === "out_of_stock" ? " · Sold out" : ""}</span></span>
-          <span className="outfit-piece-side"><span>{formatPrice(option.product.priceCents)}</span><span className="outfit-piece-change">Change<ChevronRight size={14} aria-hidden="true" /></span></span>
-        </button>
-      </DialogTrigger>
+        </a>
+        <div className="outfit-piece-side">
+          <a href={option.product.url} target="_blank" rel="noopener noreferrer" onClick={openMerchant} aria-label={`View ${piece.name} for ${formatPrice(option.product.priceCents)} (opens in a new window)`}>{formatPrice(option.product.priceCents)}</a>
+          <DialogTrigger asChild>
+            <button type="button" className="outfit-piece-change" aria-label={`Change ${piece.name}`}>Change<ChevronRight size={14} aria-hidden="true" /></button>
+          </DialogTrigger>
+        </div>
+      </div>
       <DialogContent className="piece-dialog">
         <div className="piece-dialog-heading"><DialogTitle>{piece.name}</DialogTitle><DialogDescription>Choose the piece that suits your style and budget.</DialogDescription></div>
         <div className="piece-options" role="group" aria-label={`Options for ${piece.name}`}>
@@ -217,7 +232,7 @@ function PieceRow({ costumeSlug, view, index, onChoose }: { costumeSlug: string;
           })}
         </div>
         <details className="piece-reason"><summary>Why this pick?</summary><p>{option.pick.reason}</p></details>
-        <a className="piece-merchant-link" href={option.product.url} target="_blank" rel="noopener noreferrer">View at {option.merchant.name}<ArrowRight size={14} aria-hidden="true" /></a>
+        <a className="piece-merchant-link" href={option.product.url} target="_blank" rel="noopener noreferrer" onClick={openMerchant}>View at {option.merchant.name}<ArrowRight size={14} aria-hidden="true" /></a>
         <div className="piece-dialog-footer">
           <Button variant="outline" disabled={!cart.ready || inCart || option.product.availability === "out_of_stock"} onClick={() => cart.add(toCartItem(piece, option), costumeSlug)}>{inCart ? <><Check aria-hidden="true" />In cart</> : "Add this piece"}</Button>
           <DialogClose asChild><Button>Done</Button></DialogClose>
