@@ -2,7 +2,7 @@
 .live-transcript-heading { display: flex; align-items: center; justify-content: space-between; gap: 12px; min-height: 32px; margin-bottom: 5px; }
 .live-transcript-heading > span { display: flex; align-items: center; gap: 7px; font-size: 11px; }
 .live-transcript-heading button { display: inline-flex; align-items: center; justify-content: center; gap: 5px; min-height: 32px; padding: 4px 9px; border: 1px solid #c9c2b2; border-radius: 100px; background: #faf9f5; color: #26251f; font: inherit; font-size: 11px; cursor: pointer; }
-.live-transcript-heading button:hover { background: #e5e1d6; }
+@media (hover: hover) and (pointer: fine) { .live-transcript-heading button:hover { background: #e5e1d6; } }
 .live-transcript-viewport { max-height: 210px; overflow-y: auto; overflow-wrap: anywhere; overscroll-behavior: contain; scrollbar-width: thin; scrollbar-color: #8a8478 transparent; scroll-padding-block: 8px; }
 .live-transcript-entries { display: grid; gap: 18px; list-style: none; margin: 0; padding: 6px 7px 6px 0; }
 .live-transcript-speaker { display: block; color: #625e56; font-size: 11px; line-height: 1.5; margin-bottom: 3px; }

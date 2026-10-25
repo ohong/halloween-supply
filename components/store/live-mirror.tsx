@@ -5,7 +5,7 @@
 
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { createPortal } from "react-dom";
-import { ArrowRight, Camera, ChevronLeft, ChevronRight, Download, Mic, MicOff, Pause, Play, Undo2, X } from "lucide-react";
+import { ArrowRight, Camera, ChevronDown, ChevronLeft, ChevronRight, Download, SwitchCamera, Mic, MicOff, Pause, Play, Undo2, X } from "lucide-react";
 import { formatPrice } from "@/lib/cart/context";
 import type { CostumeView } from "@/lib/types";
 import type { MirrorCatalogContext, MirrorCatalogLook, MirrorCatalogResults, MirrorCommand, MirrorOutfit, MirrorAction } from "@/lib/live-mirror/types";
@@ -46,7 +46,8 @@ function MirrorRoom({ costume: initialCostume, initialOutfit, onApply, onClose }
     query: catalogResults.query,
     matches: catalogResults.matches.map(({ costumeSlug, pieceId, productId }) => ({ costumeSlug, pieceId, productId })),
   } : undefined, [catalogResults]);
-  const swipeStart = useRef<{ x: number; y: number } | null>(null);
+  const swipeStart = useRef<{ id: number; x: number; y: number } | null>(null);
+  const [conversationOpen, setConversationOpen] = useState(false);
   const [outfit, setOutfit] = useState(() => createOutfit(costume, initialOutfit));
   const outfitRef = useRef(outfit);
   const applyRef = useRef(onApply);
@@ -112,6 +113,8 @@ function MirrorRoom({ costume: initialCostume, initialOutfit, onApply, onClose }
 
   useEffect(() => {
     const previousOverflow = document.body.style.overflow;
+    const previousOverscroll = document.documentElement.style.overscrollBehavior;
+    document.documentElement.style.overscrollBehavior = "none";
     document.body.style.overflow = "hidden";
     closeRef.current?.focus();
     const controller = new AbortController();
@@ -128,6 +131,7 @@ function MirrorRoom({ costume: initialCostume, initialOutfit, onApply, onClose }
       stopRef.current.video();
       stopRef.current.voice();
       document.body.style.overflow = previousOverflow;
+      document.documentElement.style.overscrollBehavior = previousOverscroll;
     };
   }, []);
 
@@ -248,7 +252,6 @@ function MirrorRoom({ costume: initialCostume, initialOutfit, onApply, onClose }
     const index = catalogLooks.findIndex(look => look.slug === costume.costume.slug);
     void switchLook(catalogLooks[(index + direction + catalogLooks.length) % catalogLooks.length].slug).catch(() => {});
   };
-  const nextLook = catalogLooks[(catalogLooks.findIndex(look => look.slug === costume.costume.slug) + 1) % catalogLooks.length];
 
   const handleCommand = useCallback(async (command: MirrorCommand) => {
     if (command.catalogResults) {
@@ -333,7 +336,7 @@ function MirrorRoom({ costume: initialCostume, initialOutfit, onApply, onClose }
 
   function trapFocus(event: React.KeyboardEvent<HTMLDivElement>) {
     if (event.key !== "Tab") return;
-    const elements = [...(roomRef.current?.querySelectorAll<HTMLElement>('button:not(:disabled), a[href], input:not(:disabled), select:not(:disabled), [tabindex="0"]') ?? [])].filter((element) => element.getClientRects().length > 0);
+    const elements = [...(roomRef.current?.querySelectorAll<HTMLElement>('button:not(:disabled), a[href], input:not(:disabled), select:not(:disabled), summary, [tabindex="0"]') ?? [])].filter((element) => element.getClientRects().length > 0);
     const first = elements[0];
     const last = elements.at(-1);
     if (event.shiftKey && document.activeElement === first) { event.preventDefault(); last?.focus(); }
@@ -355,20 +358,26 @@ function MirrorRoom({ costume: initialCostume, initialOutfit, onApply, onClose }
     if (availability.voiceAvailable && voice.status !== "live") void voice.start();
   };
 
+  const microphoneButton = availability?.voiceAvailable && <button type="button" className={`mirror-tool${voice.status === "live" && !voice.muted ? " mirror-mic-on" : ""}`} disabled={!consent || voice.status === "connecting"} onClick={() => voice.status === "live" ? voice.toggleMute() : void voice.start()} aria-label={voice.status === "live" ? voice.muted ? "Unmute microphone" : "Mute microphone" : "Start voice styling"}>
+    {voice.status === "live" && voice.muted ? <MicOff size={18} /> : <Mic size={18} />}<span>{voice.status === "connecting" ? "Connecting…" : voice.status === "live" ? voice.muted ? "Unmute" : "Mic on" : "Voice"}</span>
+  </button>;
+
   return <div className="mirror-room" ref={roomRef} role="dialog" aria-modal="true" aria-labelledby="mirror-room-title" onKeyDown={trapFocus}>
     <header className="mirror-header">
       <div><h2 id="mirror-room-title">Costume Mirror<span>{costume.costume.name}</span></h2></div>
-      <div className="mirror-header-actions"><button className="mirror-link" onClick={close}>Use photo mode</button><button ref={closeRef} className="mirror-icon-button" onClick={close} aria-label="Close costume mirror"><X size={22} /></button></div>
+      <div className="mirror-header-actions"><button className="mirror-link" onClick={close} aria-label="Use photo mode">Photo mode</button><button ref={closeRef} className="mirror-icon-button" onClick={close} aria-label="Close costume mirror"><X size={22} /></button></div>
     </header>
     <div className="mirror-body">
       <section className="mirror-visual" aria-label="Costume preview">
         <div className={`mirror-stage${!video.stream && !frozen ? " is-idle" : ""}`} onPointerDown={event => {
-          if ((event.target as HTMLElement).closest("button")) return;
-          swipeStart.current = { x: event.clientX, y: event.clientY };
+          if (!event.isPrimary) { swipeStart.current = null; return; }
+          if ((event.target as HTMLElement).closest("button, input, label, a")) return;
+          swipeStart.current = { id: event.pointerId, x: event.clientX, y: event.clientY };
+          event.currentTarget.setPointerCapture(event.pointerId);
         }} onPointerUp={event => {
           const start = swipeStart.current;
           swipeStart.current = null;
-          if (start && Math.abs(event.clientY - start.y) > 70 && Math.abs(event.clientX - start.x) < 90) cycleLook(event.clientY < start.y ? 1 : -1);
+          if (start?.id === event.pointerId && Math.abs(event.clientX - start.x) > 70 && Math.abs(event.clientY - start.y) < 60) cycleLook(event.clientX < start.x ? 1 : -1);
         }} onPointerCancel={() => { swipeStart.current = null; }}>
           {frozen ? <img className="mirror-camera" src={frozen} alt="Your frozen costume preview" /> : <video ref={videoRef} className={`mirror-camera${video.stream ? "" : " mirror-hidden"}`} autoPlay playsInline muted onPlaying={video.onFrame} aria-label="Live costume preview" />}
           {!video.stream && !frozen && <div className="mirror-stage-intro">
@@ -378,41 +387,50 @@ function MirrorRoom({ costume: initialCostume, initialOutfit, onApply, onClose }
             {availability && !availability.videoAvailable && <p className="mirror-notice">Live camera try-on isn’t available right now. {availability.voiceAvailable ? "You can still change your look by voice, or " : "You can "} <button className="mirror-link" onClick={() => { close(); requestAnimationFrame(() => document.querySelector(".try-on")?.scrollIntoView({ behavior: "smooth", block: "start" })); }}>use photo try-on</button>.</p>}
             {configError && <p className="mirror-notice">{configError}</p>}
             {availability && (availability.videoAvailable || availability.voiceAvailable) && <>
-              <PhoneCameraControls compact /><p className="mirror-muted">{phoneStream ? `Using your phone camera. ${phoneStream.getAudioTracks().length ? "Voice uses your phone microphone." : "Voice uses this computer’s microphone."}` : "Use this device’s camera, or connect your phone above."}</p>
+              <p className="mirror-muted">{phoneStream ? `Using your phone camera. ${phoneStream.getAudioTracks().length ? "Voice uses your phone microphone." : "Voice uses this computer’s microphone."}` : "Use this device’s camera. On a phone, you can flip between the front and back cameras."}</p>
               <label className="mirror-consent"><input type="checkbox" checked={consent} onChange={(event) => setConsent(event.target.checked)} /><span>{availability.videoAvailable ? "Allow my camera video to be processed by Decart, connected through fal, for live try-on. " : ""}{availability.voiceAvailable ? "Allow my microphone audio to be processed by OpenAI for voice controls. " : ""}Media stops when I close the mirror.</span></label>
               <button className="btn" disabled={!canStart || connecting} onClick={startSession}><Camera size={17} />{connecting ? "Connecting…" : availability.videoAvailable ? "Start my mirror" : "Start voice styling"}</button>
+              <details className="mirror-phone-setup" open={phone.status !== "idle" ? true : undefined}><summary>{phoneStream ? "Connected phone camera" : "Connect another phone as a camera"}</summary><PhoneCameraControls compact /></details>
             </>}
             {!availability && !configError && <p className="mirror-muted">Checking camera and voice availability…</p>}
           </div>}
           </div>}
-          {video.cameraStream && <video ref={cameraRef} className="mirror-original" autoPlay playsInline muted aria-label="Original camera" />}
-          <div className="mirror-stage-label" role="status"><span className={live ? "mirror-dot is-live" : "mirror-dot"} />{frozen ? (phoneStream ? "Frozen preview · phone connected" : "Frozen preview · camera off") : live ? "Live preview" : connecting ? video.stream ? "Updating your look…" : "Connecting…" : "Your preview"}</div>
-          {video.stream && !frozen && <button className="mirror-next-look" onClick={() => cycleLook(1)} disabled={switchingLook} aria-label={`Switch to ${nextLook.name}`}><img src={nextLook.image} alt="" /><span>{switchingLook ? "Loading…" : "Swipe up to switch"}</span></button>}
-          {(video.stream || frozen) && <button className="mirror-freeze" disabled={!frozen && !video.isCurrent} onClick={frozen ? resume : freeze}>{frozen ? <Play size={15} /> : <Pause size={15} />}{frozen ? "Resume camera" : "Freeze look"}</button>}
+          {video.cameraStream && <video ref={cameraRef} className={`mirror-original${!phoneStream && video.facingMode === "user" ? " is-mirrored" : ""}`} autoPlay playsInline muted aria-label="Original camera" />}
+          <div className="mirror-stage-label" role="status"><span className={live ? "mirror-dot is-live" : "mirror-dot"} />{video.switchingCamera ? "Switching camera…" : frozen ? (phoneStream ? "Frozen preview · phone connected" : "Frozen preview · camera off") : live ? "Live preview" : connecting ? video.stream ? "Updating your look…" : "Connecting…" : "Your preview"}</div>
+
         </div>
+        {(video.stream || frozen) && <div className="mirror-toolbar" role="group" aria-label="Mirror controls">
+          {microphoneButton}
+          {video.canSwitchCamera && <button className="mirror-tool" onClick={() => void video.switchCamera()} disabled={video.switchingCamera || !live} aria-label="Switch camera" title={video.facingMode === "user" ? "Use back camera" : "Use front camera"}><SwitchCamera size={18} /><span>{video.switchingCamera ? "Switching…" : "Flip camera"}</span></button>}
+          <button className="mirror-tool mirror-freeze" disabled={!frozen && !video.isCurrent} onClick={frozen ? resume : freeze}>{frozen ? <Play size={18} /> : <Pause size={18} />}<span>{frozen ? "Resume camera" : "Freeze look"}</span></button>
+          <button className="mirror-tool" disabled={!frozen && !video.isCurrent} onClick={saveLook} aria-label="Save this preview"><Download size={18} /><span>Save photo</span></button>
+        </div>}
         <nav className="mirror-look-switch" aria-label="Switch costume">
           <button className="mirror-icon-button" onClick={() => cycleLook(-1)} disabled={switchingLook} aria-label="Previous costume"><ChevronLeft size={20} /></button>
-          <div className="mirror-current-look" aria-live="polite"><span>{costume.costume.name}</span><p>{switchingLook ? "Loading costume…" : 'Say “Change my costume” to try another look.'}</p></div>
+          <div className="mirror-current-look" aria-live="polite"><span>{costume.costume.name}</span><p>{switchingLook ? "Loading costume…" : 'Say “Change my costume” or swipe left.'}</p></div>
           <button className="mirror-icon-button" onClick={() => cycleLook(1)} disabled={switchingLook} aria-label="Next costume"><ChevronRight size={20} /></button>
         </nav>
         <div className="mirror-below-stage">
           <p>Stand back so your outfit is visible. Preview changes can take a moment. Fit and product details may vary.</p>
           {frozen && <p>The frozen image stays unchanged as you edit. Resume to preview your latest pieces.</p>}
 
-          {(video.error || voice.error) && <p className="mirror-error" role="alert">{video.error || voice.error}</p>}
+          {phoneStream && video.stream && <p>To use the other lens, tap Switch camera on your connected phone.</p>}
+          {(video.error || video.cameraError || voice.error) && <p className="mirror-error" role="alert">{video.error || video.cameraError || voice.error}</p>}
+          {notice && <p className="mirror-feedback" role="status" aria-live="polite">{notice}</p>}
         </div>
       </section>
       <section className="mirror-workbench" aria-label="Build your costume">
         <div className="mirror-workbench-heading"><h3>GPT Live</h3><button className="mirror-icon-button" disabled={!history.length} onClick={undo} aria-label="Undo last outfit change"><Undo2 size={19} /></button></div>
-        <p className="mirror-voice-hint">A new costume. A different piece. Any color.<br />Just ask.</p>
+        <p className="mirror-voice-hint">Ask for a new costume, a different piece, or any color.</p>
         <div className="mirror-voice-box">
           {availability?.voiceAvailable && <VoiceStateIndicator status={voice.status} activity={voice.activity} muted={voice.muted} onStop={voice.stop} />}
-          <LiveTranscript entries={transcript.entries} latestId={transcript.latestId} />
+          <button className="mirror-conversation-toggle" onClick={() => setConversationOpen(open => !open)} aria-expanded={conversationOpen} aria-controls="mirror-conversation">Conversation{transcript.entries.length > 0 && <span>{transcript.entries.length}</span>}<ChevronDown size={16} aria-hidden="true" /></button>
+          <div id="mirror-conversation" className={`mirror-conversation${conversationOpen ? " is-open" : ""}`}><LiveTranscript entries={transcript.entries} latestId={transcript.latestId} /></div>
           <form onSubmit={submitCommand} className="mirror-command-form">
             <label className="mirror-sr-only" htmlFor="mirror-command">Tell us how to change your look</label>
-            <input id="mirror-command" value={commandText} onChange={(event) => setCommandText(event.target.value)} placeholder="Or type a change…" maxLength={1000} />
+            <input id="mirror-command" value={commandText} onChange={(event) => setCommandText(event.target.value)} placeholder="Or type a change…" enterKeyHint="send" autoComplete="off" maxLength={1000} />
             <button type="submit" className="mirror-icon-button" disabled={sending || !commandText.trim()} aria-label={sending ? "Applying your request" : "Send styling request"}><ArrowRight size={19} /></button>
-            {availability?.voiceAvailable && <button type="button" className={`mirror-icon-button${voice.status === "live" && !voice.muted ? " mirror-mic-on" : ""}`} disabled={!consent || voice.status === "connecting"} onClick={() => voice.status === "live" ? voice.toggleMute() : void voice.start()} aria-label={voice.status === "live" ? voice.muted ? "Unmute microphone" : "Mute microphone" : "Start voice styling"}>{voice.status === "live" && voice.muted ? <MicOff size={19} /> : <Mic size={19} />}</button>}
+            {!video.stream && !frozen && microphoneButton}
           </form>
           {sending && <p className="mirror-muted" role="status">Considering your change…</p>}
 
@@ -451,8 +469,7 @@ function MirrorRoom({ costume: initialCostume, initialOutfit, onApply, onClose }
           if (costume.costume.slug === initialCostume.costume.slug) { event.preventDefault(); requestAnimationFrame(() => document.getElementById("selected-outfit")?.scrollIntoView({ behavior: "smooth" })); }
           close();
         }}>Shop this look · {formatPrice(outfitTotal(costume, outfit))}<ArrowRight size={16} /></a>
-        <button className="mirror-link" disabled={!frozen && !video.isCurrent} onClick={saveLook}><Download size={16} />Save this preview</button>
-        {notice && <p className="mirror-feedback" role="status" aria-live="polite">{notice}</p>}
+
       </section>
     </div>
   </div>;
