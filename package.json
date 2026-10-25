@@ -14,6 +14,7 @@
   "dependencies": {
     "@ai-sdk/anthropic": "^4.0.88",
     "@ai-sdk/react": "^4.0.157",
+    "@decartai/sdk": "^0.2.12",
     "@libsql/client": "^0.18.0",
     "@radix-ui/react-collapsible": "^1.2.1",
     "@radix-ui/react-slot": "^1.5.0",
