@@ -54,8 +54,8 @@ async function main() {
     const merchant = snapshot.merchants.find((item) => item.id === product.merchantId)!;
     assert(text.includes(merchant.name), `Page missing merchant ${merchant.name}`);
   }
-  assert(/Add whole costume/.test(html) && /Why this pick/.test(html) && /Swap/.test(html));
-  pass("costume HTML renders merchant picks, explanations, swaps, whole-costume cart action");
+  assert(/Add whole costume/.test(html) && /Change/.test(html));
+  pass("costume HTML renders merchant picks, product changes, whole-costume cart action");
 
   const health = await (await fetch(new URL("/api/health", base))).json();
   const databaseUp = Boolean(health.database.ok && health.catalog.complete);

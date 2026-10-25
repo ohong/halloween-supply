@@ -1,10 +1,14 @@
 # Live Costume Mirror
 
-The costume page opens a fullscreen fitting room. Shoppers can select exact
-catalog products, keep pieces, mark their own clothing, adjust a spending budget,
-undo edits, and save/restore outfit snapshots. Applying the look updates the page's
-shopping selections without initiating a purchase. Existing photo try-on remains
-available for devices or sessions without live video.
+The mirror provides a camera preview and a voice stylist, with text as a fallback.
+Voice changes immediately update the page's selected products and existing cart
+lines. There are no manual wardrobe buttons, budget forms, pick-reason panels,
+saved-outfit comparisons or final plan/Apply screen. Closing the mirror stops
+media; it does not start checkout. Photo try-on remains available.
+
+A voice request to save downloads a preview image. Undo restores the previous
+selection. The engine still supports catalog selection, existing wardrobe pieces
+and budgets expressed in conversation.
 
 ## Connections and configuration
 
@@ -37,7 +41,7 @@ connection. The application also performs client-side teardown.
 At the rates researched on October 24, 2026, GPT-Live is $0.05/minute and standard
 Decart VTON is $0.02/second. Three minutes of simultaneous use is approximately
 $3.75 before Decisions, Responses and hosting. Verify provider pricing before
-launch. Start video explicitly and freeze when shoppers are ready to compare.
+launch. Start video explicitly and freeze when shoppers want to pause.
 
 API routes have local request limits. These are per-process controls, not a
 distributed quota. Before a broad public rollout, configure shared quotas or
@@ -50,12 +54,12 @@ unbounded paid video on page load.
 2. Open Cosmic Cowboy, enter the mirror, and start camera and voice. Frame one
    person head-to-toe with even lighting.
 3. Say “Keep the hat. Choose another jacket.” Confirm the product card, garment
-   preview and subtotal agree, and the hat and person's identity remain stable.
+   preview and page subtotal agree, and the hat and person's identity remain stable.
 4. Say “I own the boots” and confirm the boots no longer add to the subtotal.
 5. Set a budget and request a cheaper look. Kept pieces must remain selected;
    an impossible budget must not be reported as satisfied.
 6. Interrupt and correct a selection. Confirm old decisions cannot overwrite the
-   newer state. Undo, save, change a piece, then restore the saved look.
+   newer state. Undo a change and confirm the page selection restores. Ask to save a live preview and check its download.
 7. Freeze the preview, resume, close the mirror, then reopen. Verify camera/mic
    indicators turn off on close and no old sessions continue generating.
 8. Repeat on mobile, denied permissions, offline/reconnect, fast movements,
@@ -66,9 +70,9 @@ Do not quote the decision API's latency as the full video transformation latency
 Successful application tests do not establish garment fidelity or provider access;
 those require a real camera session with configured credentials.
 
-## Implementation verification
+## Prior implementation verification
 
-Verified in the implementation workspace:
+The following checks describe the earlier mirror implementation, before the simplified interface:
 
 - Production build, TypeScript and ESLint checks.
 - 15 state, catalog-reference and native-decision tests, including locked pieces,
