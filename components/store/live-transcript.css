@@ -1,0 +1,14 @@
+.live-transcript { margin-top: 18px; color: #625e56; }
+.live-transcript-heading { display: flex; align-items: center; justify-content: space-between; gap: 12px; min-height: 32px; margin-bottom: 5px; }
+.live-transcript-heading > span { display: flex; align-items: center; gap: 7px; font-size: 11px; }
+.live-transcript-heading button { display: inline-flex; align-items: center; justify-content: center; gap: 5px; min-height: 32px; padding: 4px 9px; border: 1px solid #c9c2b2; border-radius: 100px; background: #faf9f5; color: #26251f; font: inherit; font-size: 11px; cursor: pointer; }
+.live-transcript-heading button:hover { background: #e5e1d6; }
+.live-transcript-viewport { max-height: 210px; overflow-y: auto; overflow-wrap: anywhere; overscroll-behavior: contain; scrollbar-width: thin; scrollbar-color: #8a8478 transparent; scroll-padding-block: 8px; }
+.live-transcript-entries { display: grid; gap: 18px; list-style: none; margin: 0; padding: 6px 7px 6px 0; }
+.live-transcript-speaker { display: block; color: #625e56; font-size: 11px; line-height: 1.5; margin-bottom: 3px; }
+.live-transcript-entries p { margin: 0; font-size: 14px; line-height: 1.65; white-space: pre-wrap; }
+.live-transcript-entries strong { color: #26251f; font-weight: 600; }
+.live-transcript-empty { margin: 0; font-size: 12px; line-height: 1.6; }
+.live-transcript :is(button, .live-transcript-viewport):focus-visible { outline: 2px solid #26251f; outline-offset: 3px; }
+.live-transcript ::selection { background: #d3cbb9; color: #26251f; }
+@media (max-width: 600px) { .live-transcript-viewport { max-height: 180px; } }
