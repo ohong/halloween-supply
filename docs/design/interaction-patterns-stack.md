@@ -32,6 +32,8 @@ A shared selection and inspection flow keeps the shopping path coherent. Separat
 
 The pieces overview and worn-image product tags open the same inline inspector. Alternatives keep the selected products, displayed prices, and existing cart lines synchronized. Gallery selection survives resizing and product-photo substitutions.
 
+Product size drafts survive closing inspection and apply to whole-costume additions. Explicit cart sizes remain authoritative; untouched products can still use saved size preferences. Piece slide identities remain stable when a product changes.
+
 Real sourcing events drive the screenshot assembly. The saved catalog sourcing demonstration remains labeled as a replay. Merchant photos remain usable when a transparent cutout is unavailable.
 
 Full 3D explosion, photo segmentation, swinging hanger physics, and animated receipt printing are excluded. They add work without a comparable gain in the core discovery-to-cart demonstration.
@@ -54,5 +56,14 @@ VOICE_STATE_BASE_URL=http://localhost:3122 node scripts/verify-voice-state.mjs
 ```
 
 The shopping check serves controlled streaming sourcing events through a local proxy and blocks other non-read API calls. The voice check uses real loopback WebRTC with synthetic audio and intercepted provider signaling. Both use the actual app UI and write screenshots and results to a temporary evidence folder.
+
+Completed checks:
+
+- Production build: passed, including TypeScript and 51 generated pages.
+- Project typecheck, full ESLint, and whitespace checks: passed.
+- Shopping browser check: passed at desktop and 390px, including draft sizes, whole-costume additions, swaps, stable close-ups, stream interruption, missing pieces, restoration, and reduced motion.
+- Voice browser check: passed connection, listening, decision work, audio playback, mute, release, disconnect, repeated transcript turns, and reduced motion.
+- Model gallery check: passed all 25 costume pages and 50 model image assets.
+- Independent code review: no remaining actionable findings. The structured Autoreview helper could not run because its configured model is unsupported on the current account.
 
 No production database writes, checkout submission, model inference calls, or personal camera/microphone capture are needed. Physical mobile devices, Safari, deployed provider behavior, and live sourcing latency remain unverified.
