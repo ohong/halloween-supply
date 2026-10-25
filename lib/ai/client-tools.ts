@@ -11,7 +11,7 @@ export const recordSizesSchema = z.object({
     .array(z.object({
       sizeKind: sizeKindSchema,
       pieceId: z.string().min(1).max(150).optional().describe("Include the piece id when a size belongs to one garment, especially when two garments use different merchant labels. Omit only for a general size preference."),
-      size: z.string().trim().min(1).max(80).describe("As the shopper said it, including any stated sizing system or exact merchant label, e.g. 'M', '40', 'C', '32x32', 'US men 10.5', '7 1/4'"),
+      size: z.string().trim().min(1).max(80).describe("Only the size label, with no notes or product names. Use the exact merchant label when the shopper confirms one, otherwise their words with any stated sizing system, e.g. 'M', '40', 'C', '32x32', 'US men 10.5', '7 1/4'"),
     }).strict())
     .min(1).max(24)
     .refine((entries) => new Set(entries.map((entry) => `${entry.sizeKind}:${entry.pieceId ?? "*"}`)).size === entries.length, "Give each piece or general size kind once."),
@@ -24,7 +24,7 @@ export const addToCartSchema = z.object({
 export const clientTools = {
   recordSizes: tool({
     description:
-      "Save the shopper's sizes as soon as they state them. Include pieceId for a particular garment; this updates only that piece and takes priority over its general size kind. Omit pieceId for a general apparel, pants, shoe or hat preference; this updates that kind and clears piece overrides in the active costume. Different garments may use different labels even when their sizeKind is the same.",
+      "Save the shopper's sizes as soon as they state them. Include pieceId for a particular garment; this updates only that piece and takes priority over its general size kind. Omit pieceId for a general apparel, pants, shoe or hat preference; this updates that kind and clears piece overrides in the active costume. Different garments may use different labels even when their sizeKind is the same. The result lists unmatched pieces whose merchant offers no matching label; those stay unsized, so tell the shopper and offer the available labels.",
     inputSchema: recordSizesSchema,
   }),
   addToCart: tool({

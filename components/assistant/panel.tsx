@@ -106,6 +106,7 @@ export function AssistantPanel({ costume, onChoose }: { costume: CostumeView; on
     const next = { ...sizesRef.current };
     const nextPieces = { ...pieceSizesRef.current };
     const updated = new Set<string>();
+    const unmatched: { pieceId: string; requested: string; availableSizes: string[] }[] = [];
     // Apply general preferences first so explicit piece choices win in the same call.
     for (const { sizeKind, size } of entries.filter((entry) => entry.pieceId === undefined)) {
       next[sizeKind] = size;
@@ -126,7 +127,8 @@ export function AssistantPanel({ costume, onChoose }: { costume: CostumeView; on
         const option = costumeRef.current.pieces.find(({ piece: candidate }) => candidate.id === line.pieceId)?.options.find(({ product }) => product.id === line.productId);
         const size = compatibleSize({ sizeKind: piece.sizeKind, availableSizes: option?.product.sizes ?? [] }, requested);
         cartRef.current.setSize(line.pieceId, size);
-        updated.add(line.pieceId);
+        if (size || piece.sizeKind === "one_size") updated.add(line.pieceId);
+        else unmatched.push({ pieceId: line.pieceId, requested, availableSizes: option?.product.sizes ?? [] });
         return { ...line, size };
       }),
     };
@@ -137,7 +139,8 @@ export function AssistantPanel({ costume, onChoose }: { costume: CostumeView; on
       localStorage.setItem(pieceSizesStorageKey, JSON.stringify(nextPieces));
     }
     catch { /* Sizes remain in the current conversation if storage is blocked. */ }
-    return { saved: entries, updatedPieceIds: [...updated] };
+    // Unmatched pieces stay unsized so the model can ask the shopper or retry with an exact label.
+    return { saved: entries, updatedPieceIds: [...updated], unmatched };
   }, []);
 
   const [transport] = useState(
