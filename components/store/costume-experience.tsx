@@ -48,17 +48,18 @@ export function CostumeExperience({ costume: initialCostume }: { costume: Costum
   const inspectionTrigger = useRef<HTMLButtonElement | null>(null);
   const [uses, setUses] = useState<MirrorOutfit["uses"]>({});
   const [mirrorBudget, setMirrorBudget] = useState("");
+  const [restoreState, setRestoreState] = useState<"loading" | "ready" | "error">("loading");
   useEffect(() => {
     const controller = new AbortController();
     const params = new URLSearchParams(window.location.search);
     const look = readLook(window.location.search);
-    if (!look.length && !params.has("mix")) return;
     void (async () => {
+      if (!look.length && !params.has("mix")) return;
       let view = initialCostume;
       let restoredMixes: MirrorOutfit["mixes"];
       if (params.has("mix")) {
         restoredMixes = z.array(mixSchema).max(12).parse(JSON.parse(params.get("mix")!));
-        const response = await fetch(`/api/live-mirror/catalog?slug=${encodeURIComponent(initialCostume.costume.slug)}&mix=${encodeURIComponent(JSON.stringify(restoredMixes))}`, { signal: controller.signal });
+        const response = await fetch(`/api/live-mirror/catalog?slug=${encodeURIComponent(initialCostume.costume.slug)}&mix=${encodeURIComponent(JSON.stringify(restoredMixes))}`, { signal: AbortSignal.any([controller.signal, AbortSignal.timeout(15_000)]) });
         if (!response.ok) throw new Error("That mixed outfit could not be restored.");
         view = await response.json() as CostumeView;
       }
@@ -74,7 +75,8 @@ export function CostumeExperience({ costume: initialCostume }: { costume: Costum
       setMixes(restoredMixes);
       setChosen(next);
       setUses(Object.fromEntries(view.pieces.map(({ piece }) => [piece.id, owned.includes(piece.id) ? "owned" : !piece.required && skipped.includes(piece.id) ? "skip" : "buy"])));
-    })().catch(() => { /* Invalid shared references never become outfit state. */ });
+    })().then(() => { if (!controller.signal.aborted) setRestoreState("ready"); })
+      .catch(() => { if (!controller.signal.aborted) setRestoreState("error"); });
     return () => controller.abort();
   }, [initialCostume]);
   const sourcingPieces = useMemo(() => pieces.map(({ piece, options }) => ({
@@ -221,11 +223,12 @@ export function CostumeExperience({ costume: initialCostume }: { costume: Costum
           if (pieceId === inspectedPieceId) document.getElementById("costume-piece-inspection")?.focus();
         },
       }} /></TabsContent>
-      <TabsContent value="try-on" forceMount><PhoneCameraProvider>
+      <TabsContent value="try-on" forceMount>{restoreState === "loading" ? <p role="status">Restoring your look…</p> : <PhoneCameraProvider>
+        {restoreState === "error" && <p role="alert">This shared look could not be restored. Showing the original costume.</p>}
         <VirtualTryOn mixes={mixes} costumeSlug={costumeSlug} pieces={pieces.map(({ piece }) => ({ id: piece.id, name: piece.name, category: piece.category }))} selection={pickedOptions.map(({ view, option }) => ({ pieceId: view.piece.id, productId: option.product.id }))} ownedPieceIds={pieces.filter(({ piece }) => uses[piece.id] === "owned").map(({ piece }) => piece.id)} skippedPieceIds={pieces.filter(({ piece }) => uses[piece.id] === "skip").map(({ piece }) => piece.id)} totalCents={total} />
         <PhotoVoiceStylist costume={costume} outfit={{ mixes, selection: Object.fromEntries(pieces.flatMap((view) => { const option = picked.get(view.piece.id); return option ? [[view.piece.id, option.product.id]] : []; })), uses, locked: [], budget: mirrorBudget }} onApply={applyMirror} />
         <div className="costume-live-option"><span>Prefer a live preview?</span><LiveMirror costume={costume} initialOutfit={{ mixes, selection: Object.fromEntries(pieces.flatMap((view) => { const option = picked.get(view.piece.id); return option ? [[view.piece.id, option.product.id]] : []; })), uses, locked: [], budget: mirrorBudget }} onApply={applyMirror} /></div>
-      </PhoneCameraProvider></TabsContent>
+      </PhoneCameraProvider>}</TabsContent>
     </Tabs>
 
     <div className="costume-info">
