@@ -31,9 +31,11 @@ Both tabs must remain visible. Hiding either tab or locking the phone stops shar
 
 Existing `TURSO_DATABASE_URL` and `TURSO_AUTH_TOKEN` store signaling. Existing `OPENAI_API_KEY` and `FAL_KEY` run inference.
 
-For connections across restrictive networks, set server-only `CLOUDFLARE_TURN_KEY_ID` and `CLOUDFLARE_TURN_API_TOKEN`. The server requests 15-minute TURN credentials from [Cloudflare's documented credential endpoint](https://developers.cloudflare.com/realtime/turn/generate-credentials/). Never expose the long-lived key to the browser.
+For connections across restrictive networks, set server-only `CLOUDFLARE_TURN_KEY_ID` and `CLOUDFLARE_TURN_API_TOKEN`. The server requests 15-minute TURN credentials (24 hours during testing) from [Cloudflare's documented credential endpoint](https://developers.cloudflare.com/realtime/turn/generate-credentials/). Never expose the long-lived key to the browser.
 
-The deployed flow uses direct WebRTC with a public STUN server. Cloudflare Realtime is not required or configured. Use the same Wi-Fi network on both devices; guest networks with device isolation can prevent connection. Cross-network support is not guaranteed. A failed connection ends with a retry instruction instead of silently falling back to a desktop camera.
+The flow first tries direct WebRTC. When the TURN credentials are configured, Cloudflare Realtime relays encrypted traffic if direct connectivity fails, including networks that isolate devices on the same Wi-Fi. A full SFU is unnecessary for one phone paired with one desktop; TURN preserves the existing peer connection and photo data channel. A failed connection ends with a retry instruction instead of silently falling back to a desktop camera.
+
+Connection candidates are exchanged as they arrive, including relay candidates discovered after the initial offer or answer. The former six-second gathering cutoff could drop those candidates. The authenticated signaling table stores bounded candidate lists and removes them with the pairing session.
 
 ## Connection and media handling
 
@@ -52,6 +54,8 @@ Run `node scripts/verify-phone-camera.mjs` against a development server on port 
 
 Set `PHONE_PROVIDER_E2E=1` to additionally run real OpenAI photo generation, GPT Live, and Lucy. This consumes provider credits. Tests use two independent browser sessions and never open personal hardware. Evidence goes to a temporary `phone-camera-e2e-*` folder.
 
-Physical iPhone/Safari behavior, cellular connectivity, and camera quality must be distinguished from synthetic Chromium tests. Set `PHONE_FORCE_RELAY=1` to require and verify a TURN relay candidate. TURN is intentionally unconfigured at the owner's request; forced-relay verification therefore does not apply.
+Physical iPhone/Safari behavior, cellular connectivity, and camera quality must be distinguished from synthetic Chromium tests. Set `PHONE_FORCE_RELAY=1` to require and verify a TURN relay candidate. Set `PHONE_DELAY_CANDIDATES=1` to delay candidate delivery beyond the old six-second cutoff and verify that pairing still completes.
 
-Verified locally: raw phone preview, repeated native-resolution photos with receipt acknowledgement, camera switching, a real OpenAI photo result, real Lucy output, spoken outfit edits through the phone microphone in both modes, mode switching without re-pairing, and full media cleanup. Typecheck, lint, build, and the existing 15 mirror checks passed. The final local run required at least 20 decoded Lucy frames and passed voice edits in both modes plus cleanup. Some earlier Lucy attempts returned `video_input_timeout`; the UI ended those sessions and showed an explicit retry. Hosted raw camera streaming, repeat photos, and real OpenAI photo generation passed. Hosted Lucy/GPT Live verification was blocked by the existing per-IP firewall limits after other live sessions used the allowance. No firewall rules were changed.
+The connection repair passed raw streaming, delayed candidate delivery (seven seconds), repeated full-resolution photo capture, camera switching, disconnect during camera switching, and all-track cleanup in two Chromium contexts. Authentication checks reject missing credentials, another phone claimant, wrong-role descriptions, unauthorized candidate writes, and oversized candidate lists. These checks do not establish physical iPhone/Safari connectivity.
+
+Cloudflare Realtime activation is currently blocked: the dashboard subscription action returns “The requested operation is not allowed.” TURN credentials are not configured and forced-relay verification remains pending. The account shows Super Administrator privileges and paid invoices; the provider does not expose the reason for rejection. Do not report the relay as active until activation, credentials, and forced-relay streaming all pass.
