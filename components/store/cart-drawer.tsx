@@ -29,6 +29,13 @@ export function CartDrawer() {
   const currentStatus = status.kind === "idle" || status.cartKey === cartKey ? status : { kind: "idle" } as const;
 
   useEffect(() => {
+    // Back from hosted checkout can restore this exact page from the browser cache.
+    const resume = () => setStatus((current) => current.kind === "redirecting" ? { kind: "idle" } : current);
+    window.addEventListener("pageshow", resume);
+    return () => window.removeEventListener("pageshow", resume);
+  }, []);
+
+  useEffect(() => {
     if (!isOpen) return;
     const drawer = drawerRef.current;
     const previousFocus = document.activeElement instanceof HTMLElement ? document.activeElement : null;

@@ -1,6 +1,6 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import Link from "next/link";
 import { AssistantPanel } from "@/components/assistant/panel";
 import { formatPrice, useCart } from "@/lib/cart/context";
@@ -18,6 +18,10 @@ export function CostumeExperience({ costume, editorial }: { costume: CostumeView
   const costumeSlug = costume.costume.slug;
   const ownsCart = cart.costumeSlug === costumeSlug;
   const pieces = useMemo(() => [...costume.pieces].sort((a, b) => a.piece.order - b.piece.order), [costume.pieces]);
+  const { ready, reconcile } = cart;
+  useEffect(() => {
+    if (ready) reconcile(pieces.flatMap(({ piece, options }) => options.map((option) => toCartItem(piece, option))), costumeSlug);
+  }, [ready, reconcile, pieces, costumeSlug]);
   // Chosen option index per piece; 0 is the default pick.
   const [chosen, setChosen] = useState<Record<string, number>>({});
   const sourcingPieces = useMemo(() => pieces.map(({ piece, options }) => ({

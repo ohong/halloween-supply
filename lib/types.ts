@@ -196,6 +196,8 @@ export interface CartItem {
   merchantId: string;
   merchantName: string;
   priceCents: Cents;
+  /** Current merchant labels for this product. Empty means no sized choice is confirmed. */
+  availableSizes: string[];
   /** Set by the assistant's recordSizes tool. null = not given yet. */
   size: string | null;
 }

@@ -16,7 +16,7 @@ export function Tool({ className, ...props }: ComponentProps<typeof Collapsible>
 export function ToolHeader({ title, state }: { title: string; state: ToolUIPart["state"] }) {
   const Icon = state === "output-available" ? CheckCircleIcon : state === "output-error" || state === "output-denied" ? XCircleIcon : state === "input-streaming" ? CircleIcon : ClockIcon;
   const status = state === "output-available" ? "Done" : state === "output-error" || state === "output-denied" ? "Could not finish" : "Working";
-  return <CollapsibleTrigger className="flex min-h-10 w-full items-center gap-2 px-3 py-2 text-left text-xs text-[#666] outline-none focus-visible:ring-2 focus-visible:ring-[#111]"><Icon className="size-3.5 shrink-0" aria-hidden /><span className="flex-1">{title}</span><span className="sr-only">{status}</span><ChevronDownIcon className="size-3.5 shrink-0 transition-transform duration-150 group-data-[state=open]/tool:rotate-180" aria-hidden /></CollapsibleTrigger>;
+  return <CollapsibleTrigger className="flex min-h-11 w-full items-center gap-2 px-3 py-2 text-left text-xs text-[#666] outline-none focus-visible:ring-2 focus-visible:ring-[#111]"><Icon className="size-3.5 shrink-0" aria-hidden /><span className="flex-1">{title}</span><span className="sr-only">{status}</span><ChevronDownIcon className="size-3.5 shrink-0 transition-transform duration-150 group-data-[state=open]/tool:rotate-180" aria-hidden /></CollapsibleTrigger>;
 }
 
 export function ToolContent({ className, ...props }: ComponentProps<typeof CollapsibleContent>) {

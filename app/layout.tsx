@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import { CartProvider } from "@/lib/cart/context";
 import { CartDrawer } from "@/components/store/cart-drawer";
@@ -16,6 +16,15 @@ export const metadata: Metadata = {
   title: "Halloween Supply — costumes built from pieces",
   description: "Halloween costumes built from individual pieces, sourced from independent and Bay Area shops. One checkout.",
   openGraph: { title: "Halloween Supply", description: "Halloween costumes built from individual pieces.", type: "website" },
+};
+
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  viewportFit: "cover",
+  interactiveWidget: "resizes-content",
+  themeColor: "#fff",
+  colorScheme: "light",
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
