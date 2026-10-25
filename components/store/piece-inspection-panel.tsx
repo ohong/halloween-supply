@@ -10,6 +10,7 @@ export interface PieceInspectionPanelProps {
   item: CartItem;
   size: string | null;
   inCart: boolean;
+  addDisabled?: boolean;
   onSizeChange: (size: string) => void;
   onAdd: () => void;
   onClose: () => void;
@@ -18,7 +19,7 @@ export interface PieceInspectionPanelProps {
 }
 
 /** A nonmodal inspection surface. The caller owns selection and trigger focus. */
-export function PieceInspectionPanel({ id, item, size, inCart, onSizeChange, onAdd, onClose, children }: PieceInspectionPanelProps) {
+export function PieceInspectionPanel({ id, item, size, inCart, addDisabled = false, onSizeChange, onAdd, onClose, children }: PieceInspectionPanelProps) {
   const panel = useRef<HTMLElement>(null);
 
   useEffect(() => { panel.current?.focus(); }, [id, item.pieceId]);
@@ -59,7 +60,7 @@ export function PieceInspectionPanel({ id, item, size, inCart, onSizeChange, onA
       </label>
       : <p className="piece-inspection-size-note">Sizes are not listed. Check the merchant page.</p>}
     <div className="piece-inspection-actions">
-      <button type="button" className="btn btn-block" onClick={onAdd}>{inCart ? "View cart" : "Add piece to cart"}</button>
+      <button type="button" className="btn btn-block" disabled={addDisabled} onClick={onAdd}>{inCart ? "View cart" : "Add piece to cart"}</button>
       <a href={item.productUrl} target="_blank" rel="noopener noreferrer">
         View at {item.merchantName}
         <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M3 11 11 3M4 3h7v7" stroke="currentColor" strokeWidth="1.25" /></svg>
