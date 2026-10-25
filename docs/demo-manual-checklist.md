@@ -51,7 +51,7 @@ Speech recognition with your voice, turn-taking, speaker volume, Bluetooth routi
 6. In a separate run, hide the tab or lock the phone. Confirm media stops. Return and restart explicitly.
 7. Let a session reach three minutes. Confirm it stops instead of continuing indefinitely.
 
-The production firewall allows three video starts and three voice starts per IP per hour. Resume consumes another video start. Failed POST requests also count. Keep the main rehearsal within this budget; perform failure tests afterward or in another hourly window. Provider usage is paid even though checkout is in Stripe test mode.
+Run permission and connection failure tests after the main rehearsal. Starting or resuming live previews consumes provider credits even though checkout remains in Stripe test mode. See [current live-session limits](./mirror-session-limits.md).
 
 ## 5. Phone photo and desktop QR handoff
 
