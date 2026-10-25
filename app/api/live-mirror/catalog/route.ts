@@ -1,12 +1,12 @@
-import { getCostume } from "@/lib/catalog";
-import { costumes } from "@/lib/costumes";
+import { readMirrorInventory } from "@/lib/live-mirror/catalog-server";
 import { videoResponse } from "@/lib/live-mirror/video-server";
 
 /** Public catalog metadata only; no camera, credentials, or inference. */
 export async function GET(request: Request) {
   const slug = new URL(request.url).searchParams.get("slug");
-  if (!costumes.some(costume => costume.slug === slug)) return videoResponse({ error: "Choose a costume from the gallery." }, 400);
-  const costume = await getCostume(slug!);
+  const inventory = await readMirrorInventory();
+  if (!slug) return videoResponse({ source: inventory.source, looks: inventory.looks, counts: inventory.counts });
+  const costume = inventory.views.find(view => view.costume.slug === slug);
   if (!costume) return videoResponse({ error: "This costume is unavailable." }, 404);
   return videoResponse(costume);
 }
