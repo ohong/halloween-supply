@@ -6,7 +6,7 @@ import type { RenderOffer, RenderProvider, RenderStatus } from "./types";
 
 export const FAL_MODELS = {
   meshy: { endpoint: "meshy/v7.1/image-to-3d", queue: "https://queue.fal.run/meshy/v7.1/requests", label: "fal / Meshy 7.1" },
-  hunyuan: { endpoint: "fal-ai/hunyuan-3d/v3.1/pro/image-to-3d", queue: "https://queue.fal.run/fal-ai/hunyuan-3d/requests", label: "fal / Hunyuan 3D" },
+  hunyuan: { endpoint: "fal-ai/hunyuan-3d/v3.1/pro/image-to-3d", queue: "https://queue.fal.run/fal-ai/hunyuan-3d/requests", label: "fal / Hunyuan 3D 3.1 Pro" },
   trellis: { endpoint: "fal-ai/trellis-2", queue: "https://queue.fal.run/fal-ai/trellis-2/requests", label: "fal / TRELLIS.2" },
 } as const;
 const providerSchema = z.enum(["trellis", "meshy", "hunyuan"]);
@@ -15,7 +15,7 @@ const jobSchema = z.object({ kind: z.literal("job"), id: z.string().regex(/^[a-z
 export function configuredProvider(): RenderProvider | null {
   if (!process.env.FAL_KEY) return null;
   const choice = process.env.TRY_ON_3D_PROVIDER === "fal" ? "hunyuan" : process.env.TRY_ON_3D_PROVIDER;
-  return providerSchema.catch("trellis").parse(choice);
+  return providerSchema.catch("hunyuan").parse(choice);
 }
 function secret() {
   const value = process.env.TRY_ON_3D_SIGNING_SECRET || process.env.FAL_KEY;
