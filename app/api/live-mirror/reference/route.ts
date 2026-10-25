@@ -3,7 +3,7 @@ import path from "node:path";
 import sharp from "sharp";
 import { readMirrorInventory } from "@/lib/live-mirror/catalog-server";
 import { composeMirrorCostume } from "@/lib/live-mirror/mixed-outfit";
-import { readVideoJson, reserveVideoRequest, VideoError, videoFailure, videoResponse } from "@/lib/live-mirror/video-server";
+import { readVideoJson, VideoError, videoFailure, videoResponse } from "@/lib/live-mirror/video-server";
 import { resolveVideoOutfit, videoOutfitPrompt, videoOutfitSchema } from "@/lib/live-mirror/video-outfit";
 
 export const maxDuration = 30;
@@ -13,7 +13,6 @@ export async function POST(request: Request) {
   let reserved = false;
   try {
     const input = videoOutfitSchema.parse(await readVideoJson(request));
-    reserveVideoRequest(request, "reference");
     if (active >= 3) throw new VideoError(429, "The fitting room is busy. Try again shortly.");
     active++; reserved = true;
     const inventory = await readMirrorInventory();

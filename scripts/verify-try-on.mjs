@@ -7,7 +7,7 @@ import sharp from "sharp";
 
 mock.module("server-only", () => ({}));
 process.env.OPENAI_API_KEY = "test-only-not-a-key";
-delete process.env.TRY_ON_TESTING_MODE;
+process.env.TRY_ON_TESTING_MODE = "0";
 process.env.FALKORDB_URL = "";
 const { POST } = await import("../app/api/try-on/route.ts");
 const { costumes } = await import("../lib/costumes.ts");
@@ -87,15 +87,14 @@ await expectStatus(request({ selection: selection.slice(1), owned: [selection[0]
 await expectStatus(request({ owned: view.pieces.map(({ piece }) => piece.id) }), 200);
 console.log("PASS selected products, owned pieces, duplicate protection, missing pieces and required-piece validation");
 
-for (let i = 0; i < 3; i++) await expectStatus(request({ ip: "quota-test" }), 200);
-await expectStatus(request({ ip: "quota-test" }), 429);
+for (let i = 0; i < 5; i++) await expectStatus(request({ ip: "repeat-demo" }), 200);
 process.env.TRY_ON_TESTING_MODE = "1";
-for (let i = 0; i < 4; i++) await expectStatus(request({ ip: "quota-test" }), 200);
-delete process.env.TRY_ON_TESTING_MODE;
-await expectStatus(request({ ip: "quota-test" }), 429);
+for (let i = 0; i < 5; i++) await expectStatus(request({ ip: "repeat-demo" }), 200);
+process.env.TRY_ON_TESTING_MODE = "0";
+await expectStatus(request({ ip: "repeat-demo" }), 200);
 delete process.env.OPENAI_API_KEY;
 await expectStatus(request(), 503);
-console.log("PASS default quota, repeated testing-mode requests, quota restoration and missing-key response");
+console.log("PASS repeated previews from one client and missing-key response");
 
 // Optionally verify that the running storefront still exposes this feature.
 // The route contract alone cannot catch components disconnected from the pages.
