@@ -4,6 +4,7 @@ import { useCallback, useEffect, useRef, useState } from "react";
 import type { CostumeView } from "@/lib/types";
 import type { MirrorCatalogContext, MirrorCatalogLook, MirrorCommand, MirrorOutfit, MirrorStatus } from "./types";
 import { commandFromAnswers, focusQuestion, needsBudget, needsCatalog, outfitQuestions, outfitSnapshot, type DecisionAnswer } from "./voice-decisions";
+import { readMirrorResponse } from "./read-response";
 
 export type VoiceActivity = "listening" | "thinking" | "speaking";
 
@@ -48,8 +49,7 @@ export async function sendMirrorCommand(input: { costumeSlug: string; outfit: Mi
   const response = await fetch("/api/live-mirror/command", {
     method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(input), signal,
   });
-  const result = await response.json();
-  if (!response.ok) throw new Error(typeof result.error === "string" ? result.error : "The stylist couldn't respond. Please try again.");
+  const result = await readMirrorResponse<MirrorCommand>(response);
   if (!Array.isArray(result.actions)) throw new Error("The stylist returned an unreadable response.");
   return result as MirrorCommand;
 }
@@ -380,8 +380,7 @@ export function useLiveVoice(options: VoiceOptions) {
         body: JSON.stringify({ costumeSlug: latest.current.costume.costume.slug, outfit: latest.current.outfit, sdp: peer.localDescription?.sdp }),
         signal: AbortSignal.any([session.controller.signal, AbortSignal.timeout(35000)]),
       });
-      const result = await response.json();
-      if (!response.ok) throw new Error(typeof result.error === "string" ? result.error : "Voice couldn't connect.");
+      const result = await readMirrorResponse<{ transport?: { sdp?: string }; catalog?: MirrorCatalogLook[] }>(response);
       if (!current()) return;
       if (typeof result.transport?.sdp !== "string") throw new Error("Voice returned an invalid connection.");
       if (!Array.isArray(result.catalog) || !result.catalog.length) throw new Error("The global catalog could not load. Please reconnect.");

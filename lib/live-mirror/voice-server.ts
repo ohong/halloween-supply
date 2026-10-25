@@ -4,6 +4,7 @@ import { z } from "zod";
 import { getCostume } from "@/lib/catalog";
 import type { CostumeView } from "@/lib/types";
 import type { MirrorOutfit } from "./types";
+import { MIRROR_SESSION_STARTS_PER_HOUR } from "./session-limits";
 
 export class VoiceError extends Error {
   constructor(public status: number, message: string) { super(message); }
@@ -49,7 +50,7 @@ export async function readVoiceRequest(request: Request, kind: "session" | "comm
   const address = request.headers.get("x-real-ip") ?? request.headers.get("x-forwarded-for")?.split(",")[0] ?? "local";
   const key = createHash("sha256").update(`${kind}:${address}`).digest("hex");
   const record = rates.get(key) ?? { count: 0, expires: now + 3600000 };
-  if (record.count >= (kind === "session" ? 12 : 120) || rates.size >= 2000) throw new VoiceError(429, "The styling room is busy. Please try again shortly.");
+  if (record.count >= (kind === "session" ? MIRROR_SESSION_STARTS_PER_HOUR : 120) || rates.size >= 2000) throw new VoiceError(429, "The styling room has reached its hourly request limit. Please try again later.");
   rates.set(key, { ...record, count: record.count + 1 });
   const reader = request.body?.getReader();
   if (!reader) throw new VoiceError(400, "The request is empty.");
