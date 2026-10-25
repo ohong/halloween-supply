@@ -10,7 +10,7 @@ import "./virtual-try-on.css";
 import { TryOn3D } from "./try-on-3d";
 import type { FocusPiece, RenderOffer } from "@/lib/try-on-3d/types";
 import { preparePhoto } from "@/lib/photo/prepare";
-import { renderSVG } from "uqr";
+import { PhoneCameraControls, usePhoneCamera } from "./phone-camera";
 
 type Selection = { pieceId: string; productId: string }[];
 
@@ -95,24 +95,20 @@ export function VirtualTryOn({ costumeSlug, selection = [], ownedPieceIds = [], 
     finally { if (version === uploadVersion.current) setPreparing(false); }
   }
 
-  // Desktops have no useful camera, so a QR code lets a phone take the photo.
-  const [handoff, setHandoff] = useState<string | null>(null);
+  const phone = usePhoneCamera();
+  const phonePreview = useRef<HTMLVideoElement>(null);
+  useEffect(() => { if (phonePreview.current) phonePreview.current.srcObject = phone.stream; }, [phone.stream, photoUrl]);
+  const lastPhonePhoto = useRef("");
+  useEffect(() => {
+    if (!phone.photo || lastPhonePhoto.current === phone.photo.id) return;
+    lastPhonePhoto.current = phone.photo.id;
+    void acceptPhoto(phone.photo.blob);
+  }, [phone.photo]);
   function takePhoto() {
-    if (matchMedia("(pointer: fine)").matches) setHandoff(crypto.randomUUID());
+    if (phone.status === "connected") void phone.capture().catch(error => setError(error.message));
+    else if (matchMedia("(pointer: fine)").matches) void phone.connect();
     else cameraInput.current?.click();
   }
-  useEffect(() => {
-    if (!handoff) return;
-    let live = true;
-    const poll = async () => {
-      const response = await fetch(`/api/capture/${handoff}`, { cache: "no-store" }).catch(() => null);
-      if (!live) return;
-      if (response?.status === 200) { setHandoff(null); void acceptPhoto(await response.blob()); }
-      else timer = setTimeout(poll, 1500);
-    };
-    let timer = setTimeout(poll, 1500);
-    return () => { live = false; clearTimeout(timer); };
-  }, [handoff]);
 
   function reset() {
     uploadVersion.current++;
@@ -148,7 +144,9 @@ export function VirtualTryOn({ costumeSlug, selection = [], ownedPieceIds = [], 
   return <section className="try-on" aria-label={`Try on ${costume.name}`}>
     <input ref={fileInput} className="try-on-file" type="file" accept="image/*" onChange={upload} tabIndex={-1} aria-hidden="true" />
     <input ref={cameraInput} className="try-on-file" type="file" accept="image/*" capture="environment" onChange={upload} tabIndex={-1} aria-hidden="true" />
-    {!photoUrl ? (
+    {!photoUrl ? phone.stream ? (
+      <figure className="try-on-stage"><video ref={phonePreview} className="try-on-phone-video" autoPlay playsInline muted aria-label="Phone camera preview" /><span className="try-on-badge">Live phone camera</span></figure>
+    ) : (
       <button type="button" className="try-on-stage try-on-empty" onClick={() => fileInput.current?.click()} disabled={preparing} aria-label="Add a full-body photo of yourself">
         <img src={costume.image} alt="" className="try-on-ghost" />
         <span className="try-on-cta"><Icon d={CAMERA} size={30} /></span>
@@ -186,13 +184,6 @@ export function VirtualTryOn({ costumeSlug, selection = [], ownedPieceIds = [], 
     {current && shareNote && <p className="try-on-fine" role="status">{shareNote}</p>}
     {error && <p className="try-on-error" role="alert">{error}</p>}
     {photoUrl && !current && !busy && <p className="try-on-fine">Tapping sends your photo to OpenAI for a preview. This app does not save your photo or preview. OpenAI processes uploads under its API data policies.</p>}
-    {handoff && <div className="try-on-qr" role="dialog" aria-modal="true" aria-label="Take a photo with your phone" onClick={() => setHandoff(null)}>
-      <div className="try-on-qr-card" onClick={(event) => event.stopPropagation()}>
-        <button type="button" className="try-on-close" onClick={() => setHandoff(null)} aria-label="Close"><Icon d={CLOSE} size={18} /></button>
-        <h2>Scan with your phone</h2>
-        <div dangerouslySetInnerHTML={{ __html: renderSVG(`${location.origin}/capture#${handoff}`, { border: 1 }) }} />
-        <p className="try-on-fine">Take the photo on your phone. It appears here when it is sent.</p>
-      </div>
-    </div>}
+    <PhoneCameraControls showPreview={Boolean(photoUrl)} />
   </section>;
 }

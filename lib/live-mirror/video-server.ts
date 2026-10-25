@@ -23,13 +23,13 @@ export function videoFailure(error: unknown) {
 
 /** Local protection only; configure deployment-wide quotas before public launch. */
 const attempts = new Map<string, { count: number; expires: number }>();
-export function reserveVideoRequest(request: Request, kind: "token" | "reference") {
+export function reserveVideoRequest(request: Request, kind: "token" | "reference" | "pair") {
   const now = Date.now();
   for (const [key, value] of attempts) if (value.expires <= now) attempts.delete(key);
   const address = request.headers.get("x-real-ip") ?? request.headers.get("x-forwarded-for")?.split(",")[0]?.trim() ?? "local";
   const key = `${kind}:${createHash("sha256").update(address).digest("hex")}`;
   const entry = attempts.get(key) ?? { count: 0, expires: now + 3_600_000 };
-  if (entry.count >= (kind === "token" ? 8 : 180) || attempts.size >= 2000) {
+  if (entry.count >= (kind === "token" ? 8 : kind === "pair" ? 12 : 180) || attempts.size >= 2000) {
     throw new VideoError(429, "The live mirror has reached its session limit. Please try again later.");
   }
   attempts.set(key, { ...entry, count: entry.count + 1 });

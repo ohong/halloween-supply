@@ -45,7 +45,7 @@ function release(session: VideoSession) {
 }
 
 /** Video goes to Decart through fal signaling; only the voice session captures audio. */
-export function useLiveVideo({ costume, outfit }: MirrorContext) {
+export function useLiveVideo({ costume, outfit }: MirrorContext, externalCamera?: MediaStream | null) {
   const [status, setStatus] = useState<MirrorStatus>("idle");
   const [error, setError] = useState<string | null>(null);
   const [stream, setStream] = useState<MediaStream | null>(null);
@@ -112,7 +112,7 @@ export function useLiveVideo({ costume, outfit }: MirrorContext) {
       if (!navigator.mediaDevices?.getUserMedia) throw new Error("Use HTTPS and allow camera access, or try photo try-on.");
       const [{ fal }, { lucyRealtime }] = await Promise.all([import("@fal-ai/client"), import("@fal-ai/client/realtime")]);
       if (sessionRef.current !== session) return;
-      const camera = await navigator.mediaDevices.getUserMedia({ audio: false, video: { facingMode: "user", frameRate: { ideal: 30 }, width: { ideal: 1280 }, height: { ideal: 720 } } });
+      const camera = externalCamera ? new MediaStream(externalCamera.getVideoTracks().map(track => track.clone())) : await navigator.mediaDevices.getUserMedia({ audio: false, video: { facingMode: "user", frameRate: { ideal: 30 }, width: { ideal: 1280 }, height: { ideal: 720 } } });
       // Permission dialogs cannot be aborted; stop any late result after close.
       if (sessionRef.current !== session) { camera.getTracks().forEach(track => track.stop()); return; }
       session.camera = camera;
@@ -169,7 +169,7 @@ export function useLiveVideo({ costume, outfit }: MirrorContext) {
           ? "No camera was found. Try photo try-on instead."
           : error instanceof Error ? error.message : "The live mirror could not start.");
     }
-  }, [fail, update]);
+  }, [fail, update, externalCamera]);
 
   useEffect(() => {
     mounted.current = true;

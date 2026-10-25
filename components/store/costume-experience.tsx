@@ -18,6 +18,8 @@ import { ShopForMe } from "./shop-for-me";
 import { flatlayScale } from "@/lib/products/flatlay";
 import { VirtualTryOn } from "./virtual-try-on";
 import { readLook } from "@/lib/share-card";
+import { PhotoVoiceStylist } from "./photo-voice-stylist";
+import { PhoneCameraProvider } from "./phone-camera";
 import { LiveMirror } from "./live-mirror";
 import type { MirrorOutfit } from "@/lib/live-mirror/types";
 import { modelImage, useCostumeModel } from "@/lib/model-selection";
@@ -141,10 +143,11 @@ export function CostumeExperience({ costume }: { costume: CostumeView }) {
       </TabsList>
       {/* Keep photos and gallery position in memory when switching tabs. */}
       <TabsContent value="look" forceMount><Carousel slides={slides} /><p className="costume-image-note">Style inspiration. Preview may differ from the selected pieces.</p></TabsContent>
-      <TabsContent value="try-on" forceMount>
+      <TabsContent value="try-on" forceMount><PhoneCameraProvider>
         <VirtualTryOn costumeSlug={costumeSlug} pieces={pieces.map(({ piece }) => ({ id: piece.id, name: piece.name, category: piece.category }))} selection={pickedOptions.map(({ view, option }) => ({ pieceId: view.piece.id, productId: option.product.id }))} ownedPieceIds={pieces.filter(({ piece }) => uses[piece.id] === "owned").map(({ piece }) => piece.id)} skippedPieceIds={pieces.filter(({ piece }) => uses[piece.id] === "skip").map(({ piece }) => piece.id)} totalCents={total} />
+        <PhotoVoiceStylist costume={costume} outfit={{ selection: Object.fromEntries(pieces.flatMap((view) => { const option = picked.get(view.piece.id); return option ? [[view.piece.id, option.product.id]] : []; })), uses, locked: [], budget: mirrorBudget }} onApply={applyMirror} />
         <div className="costume-live-option"><span>Prefer a live preview?</span><LiveMirror costume={costume} initialOutfit={{ selection: Object.fromEntries(pieces.flatMap((view) => { const option = picked.get(view.piece.id); return option ? [[view.piece.id, option.product.id]] : []; })), uses, locked: [], budget: mirrorBudget }} onApply={applyMirror} /></div>
-      </TabsContent>
+      </PhoneCameraProvider></TabsContent>
     </Tabs>
 
     <div className="costume-info">
