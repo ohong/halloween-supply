@@ -11,7 +11,7 @@ const costume = (await getCostume([snapshot], "cosmic-cowboy"))!;
 const outfit = createOutfit(costume);
 const first = costume.pieces[0];
 const alternative = first.options.find(option => option.product.id !== outfit.selection[first.piece.id])!;
-const choice = (name: string, value: string) => ({ type: "choice", name, choice: value });
+const choice = (name: string, value: string) => ({ type: "choice", name, choice: value, confidence: 1 });
 
 describe("native voice decisions", () => {
   it("cannot replace a kept piece unless the same request unlocks it", () => {
