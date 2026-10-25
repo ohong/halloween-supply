@@ -43,8 +43,15 @@ Browser photo → resize + explicit consent → server decode + validation
   → temporary browser preview + download
 ```
 
-The browser accepts JPEG, PNG, and WebP up to 15 MB. It creates a JPEG under 3 MB
-before upload. The server limits the request body to 4 MB, checks decoded image
+On mobile and touch devices, **Take photo** opens an image input with
+`accept="image/*"` and `capture="environment"`, requesting the phone's rear camera.
+**Upload photo** keeps the regular photo picker available. After selection,
+**Retake photo** and **Change photo** use the same preparation flow. Browsers that
+do not support camera capture can fall back to their regular file picker.
+
+The browser accepts images it can decode and creates a JPEG under 3 MB,
+with its longest edge at most 1600 pixels, before upload.
+The server limits the request body to 4 MB, checks decoded image
 dimensions, strips metadata, and rejects malformed or animated images.
 
 Decisions classifies the photo as usable, cropped, multiple people, or unsuitable.
@@ -58,8 +65,8 @@ corresponding photographed clothes where visible. Skipped pieces are omitted.
 Other costumes use their editorial image and descriptions; coming-soon concepts
 remain labeled as inspiration. Remote merchant images are not fetched by this route.
 
-Photos and up to six generated previews stay in page memory. The application does
-not write them to files, browser storage, or its database. Remove photo & previews,
+The photo and current generated preview stay in page memory. The application does
+not write them to files, browser storage, or its database. Remove photo,
 reload, or closing the page clears that page's state. OpenAI processes the submitted
 images under its API data policies. Downloads are saved only at the shopper's request.
 
