@@ -40,6 +40,8 @@ export function MessageView({ message, cartProductIds, pieceNames, onAdd }: {
   pieceNames: Record<string, string>;
   onAdd: (card: Card) => void;
 }) {
+  // The model may look up the same piece twice in one reply; show each product card once.
+  const shown = new Set<string>();
   return (
     <Message from={message.role}>
       {message.parts.map((part, index) => {
@@ -49,7 +51,12 @@ export function MessageView({ message, cartProductIds, pieceNames, onAdd }: {
         const output = part.state === "output-available" ? part.output as Output : undefined;
         const failed = part.state === "output-error" || part.state === "output-denied";
         const products = (output?.products as Card[] | undefined) ?? (Array.isArray(output?.shops) ? (output.shops as { products: Card[] }[]).flatMap((shop) => shop.products) : []);
-        const uniqueProducts = products.filter((card, i) => products.findIndex((other) => other.pieceId === card.pieceId && other.productId === card.productId) === i);
+        const uniqueProducts = products.filter((card) => {
+          const key = `${card.pieceId}-${card.productId}`;
+          if (shown.has(key)) return false;
+          shown.add(key);
+          return true;
+        });
         const summary = failed ? ("errorText" in part ? part.errorText : "This action did not complete.") : summarize(name, output, pieceNames);
         return (
           <div key={part.toolCallId} className="flex w-full flex-col gap-2">

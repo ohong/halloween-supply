@@ -1,5 +1,6 @@
 /** Real release checks for the five demo costumes. No payment is completed.
- * bun scripts/verify-costumes.ts https://halloween.supply [--checkout] [--all-options] [--chat]
+ * bun scripts/verify-costumes.ts https://halloween.supply [--checkout] [--all-options] [--chat] [--allow-database-down]
+ * --allow-database-down verifies snapshot fallback when Turso is unavailable.
  * --checkout creates and expires unpaid Stripe TEST sessions. --all-options checks all three pick sets.
  */
 import assert from "node:assert/strict";
@@ -24,6 +25,7 @@ type BunRuntime = { plugin(plugin: { name: string; setup(build: { module(name: s
 const base = new URL(process.argv.find((argument) => /^https?:\/\//.test(argument)) ?? "http://127.0.0.1:3300").origin;
 const slugs = ["cosmic-cowboy", "velvet-vampire", "moon-moth", "linen-ghost", "woodland-mushroom"];
 const checkoutEnabled = process.argv.includes("--checkout");
+const allowDatabaseDown = process.argv.includes("--allow-database-down");
 const checks: string[] = [];
 const pass = (name: string) => { checks.push(name); console.log(`PASS ${name}`); };
 const decode = (html: string) => html.replaceAll("&amp;", "&").replaceAll("&#x27;", "'").replaceAll("&quot;", '"').replaceAll("&lt;", "<").replaceAll("&gt;", ">");
@@ -94,7 +96,7 @@ const optionIdentity = (options: ProductOption[]) => options.map((option) => ({
   rank: option.pick.rank, priceCents: option.product.priceCents,
 }));
 
-async function verifyCatalogSelection(snapshots: CostumeSnapshot[]) {
+async function verifyCatalogSelection(snapshots: CostumeSnapshot[], databaseUp: boolean) {
   const catalog = await import("../lib/catalog");
   const queries = await import("../lib/catalog/queries");
   const { readSnapshots } = await import("../lib/db/catalog");
@@ -111,6 +113,10 @@ async function verifyCatalogSelection(snapshots: CostumeSnapshot[]) {
     pass("all five bundled catalogs work without the database");
   } finally {
     if (databaseUrl !== undefined) process.env.TURSO_DATABASE_URL = databaseUrl;
+  }
+  if (!databaseUp && allowDatabaseDown) {
+    console.warn("WARN SKIP real Turso parity checks: database unavailable (--allow-database-down)");
+    return;
   }
   assert(databaseUrl, "TURSO_DATABASE_URL is required for migration verification.");
   const stored = await readSnapshots();
@@ -304,7 +310,12 @@ async function main() {
   const health = await healthResponse.json();
   for (const name of ["ANTHROPIC_API_KEY", "FIRECRAWL_API_KEY", "TURSO_DATABASE_URL", "TURSO_AUTH_TOKEN", "STRIPE_SECRET_KEY", "CRON_SECRET"]) assert.equal(health.env[name], true, `Missing server credential: ${name}`);
   assert.equal(health.env.STRIPE_SECRET_KEY_IS_TEST, true, "Deployed checkout must stay in TEST mode.");
-  assert.equal(health.database.ok, true, "The deployed server must reach Turso.");
+  const databaseUp = health.database.ok === true;
+  if (!databaseUp && allowDatabaseDown) {
+    assert.equal(health.status, "degraded", "Health must report degraded while the database is down");
+    assert.equal(health.catalogSource, "snapshot", "Database down must fall back to the snapshot");
+    console.warn("WARN Turso unreachable; continuing on snapshot fallback (--allow-database-down)");
+  } else assert.equal(databaseUp, true, "The deployed server must reach Turso (pass --allow-database-down to verify fallback only).");
   const catalogHealth = health.catalogs ?? health.costumes ?? (Array.isArray(health.catalog) ? health.catalog : null);
   assert(Array.isArray(catalogHealth), "Health must report every live costume.");
   for (const slug of slugs) {
@@ -316,7 +327,7 @@ async function main() {
   assert.equal((await post({ costumeSlug: slugs[0], items: selectedItems(snapshots[0], 0) }, { Origin: "https://unrelated.example" })).response.status, 403);
   assert.equal((await get("/api/cron/refresh")).status, 401);
   pass("all five server catalogs healthy; credentials present by name; Stripe remains TEST; foreign origin and unauthenticated cron are rejected");
-  await verifyCatalogSelection(snapshots);
+  await verifyCatalogSelection(snapshots, databaseUp);
   if (checkoutEnabled) {
     const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!);
     for (const snapshot of snapshots) for (const rank of process.argv.includes("--all-options") ? [0, 1, 2] : [0]) await verifyCheckout(snapshot, stripe, rank);

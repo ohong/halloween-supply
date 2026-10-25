@@ -39,7 +39,7 @@ ul, ol { list-style: none; }
 
 /* Header and footer */
 .site-header { display: flex; align-items: center; justify-content: space-between; gap: 16px; min-height: 64px; padding-top: max(8px, env(safe-area-inset-top)); padding-bottom: 8px; position: sticky; top: 0; z-index: 10; background: var(--bg); }
-.wordmark { font-size: 16px; font-weight: 400; letter-spacing: .02em; }
+.wordmark { display: inline-flex; align-items: center; min-height: 44px; font-size: 16px; font-weight: 400; letter-spacing: .02em; }
 .site-footer { padding-block: 40px 28px; color: var(--soft); font-size: 12px; }
 
 /* Buttons */
@@ -73,7 +73,7 @@ ul, ol { list-style: none; }
 .tile-body img { object-fit: cover; filter: grayscale(1); transition: filter var(--t); }
 .tile:not(.tile-soon-state) .tile-body:focus-visible img { filter: grayscale(0); }
 .tile-soon-state .tile-body img { opacity: .55; }
-.tile-caption { position: absolute; left: 0; right: 0; bottom: 0; display: flex; flex-direction: column; gap: 2px; padding: 14px 14px 14px; background: linear-gradient(to top, rgb(255 255 255 / .92), rgb(255 255 255 / 0)); color: var(--ink); pointer-events: none; }
+.tile-caption { position: absolute; left: 0; right: 0; bottom: 0; display: flex; flex-direction: column; gap: 2px; padding: 14px 14px 14px; background: var(--bg); color: var(--ink); pointer-events: none; }
 .tile-name { font-size: 14px; font-weight: 400; }
 .tile-soon { font-size: 12px; color: var(--mid); }
 .save-look { position: absolute; top: 6px; right: 6px; z-index: 1; display: inline-flex; align-items: center; justify-content: center; width: 44px; height: 44px; border: 0; border-radius: 4px; background: transparent; color: var(--mid); transition: color var(--t), background-color var(--t); }
@@ -95,6 +95,8 @@ ul, ol { list-style: none; }
 .preview-status { margin-bottom: 12px; color: var(--mid); font-size: 12px; text-transform: uppercase; letter-spacing: .08em; }
 .fewest-note { font-size: 12px; line-height: 1.6; color: var(--mid); background: var(--grey); border-radius: 4px; padding: 10px 12px; margin-bottom: 8px; }
 .costume-actions { margin-block: 20px; }
+/* Keep the last content clear of the fixed assistant launcher on phones. */
+@media (max-width: 767px) { body:has(.assistant-trigger) { padding-bottom: calc(76px + env(safe-area-inset-bottom)); } }
 @media (min-width: 960px) {
   .costume-layout { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 56px; padding-top: 16px; align-items: start; }
   .costume-media { position: sticky; top: 80px; }

@@ -1,5 +1,5 @@
 // Run against a running production build or the deployed site. No payment is made.
-// bun scripts/verify-v1.ts https://halloween.supply [--checkout] [--all-options]
+// bun scripts/verify-v1.ts https://halloween.supply [--checkout] [--all-options] [--allow-database-down]
 import assert from "node:assert/strict";
 import { access } from "node:fs/promises";
 import path from "node:path";
@@ -10,6 +10,7 @@ import type { CostumeSnapshot } from "../lib/types";
 
 const snapshot = snapshotJson as CostumeSnapshot;
 const base = process.argv.find((arg) => /^https?:\/\//.test(arg)) ?? "http://localhost:3000";
+const allowDatabaseDown = process.argv.includes("--allow-database-down");
 const checks: string[] = [];
 const pass = (name: string) => { checks.push(name); console.log(`PASS ${name}`); };
 
@@ -57,11 +58,16 @@ async function main() {
   pass("costume HTML renders merchant picks, explanations, swaps, whole-costume cart action");
 
   const health = await (await fetch(new URL("/api/health", base))).json();
-  assert(health.database.ok && health.catalog.complete, "Database must connect and contain the complete cowboy catalog");
+  const databaseUp = Boolean(health.database.ok && health.catalog.complete);
+  if (!databaseUp && allowDatabaseDown) {
+    assert.equal(health.status, "degraded", "Health must report degraded while the database is down");
+    assert.equal(health.catalogSource, "snapshot", "Database down must fall back to the snapshot");
+    console.warn("WARN Turso unreachable or unseeded; continuing on snapshot fallback (--allow-database-down)");
+  } else assert(databaseUp, "Database must connect and contain the complete cowboy catalog (pass --allow-database-down to verify fallback only)");
   for (const key of ["ANTHROPIC_API_KEY", "FIRECRAWL_API_KEY", "TURSO_DATABASE_URL", "TURSO_AUTH_TOKEN", "STRIPE_SECRET_KEY"]) {
     assert.equal(health.env[key], true, `Missing server ${key}`);
   }
-  pass("server credentials present by name; Turso reachable and seeded");
+  pass(databaseUp ? "server credentials present by name; Turso reachable and seeded" : "server credentials present by name; Turso DOWN (degraded, snapshot fallback)");
 
   const malformed = await jsonPost("/api/checkout", {});
   assert.equal(malformed.response.status, 400);

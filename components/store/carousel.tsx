@@ -94,7 +94,7 @@ export function Carousel({ slides }: { slides: Slide[] }) {
 function SlideContent({ slide, preload }: { slide: Slide; preload: boolean }) {
   if (slide.kind === "flatlay") return <div aria-label="Selected pieces laid out together" style={{ position: "absolute", inset: 0, display: "grid", gridTemplateColumns: "repeat(2, minmax(0, 1fr))", gridTemplateRows: `repeat(${Math.ceil(slide.items.length / 2)}, minmax(0, 1fr))`, gap: "4%", padding: "6% 7%" }}>
     {slide.items.map((item, at) => <div key={item.key} style={{ minWidth: 0, minHeight: 0, transform: `scale(${item.scale})`, ...(at === slide.items.length - 1 && slide.items.length % 2 === 1 ? { gridColumn: "1 / -1", width: "50%", justifySelf: "center" } : {}) }}>
-      <ProductImage src={item.src} alt={item.alt} />
+      <ProductImage src={item.src} alt={item.alt} className="h-full w-full object-contain" />
     </div>)}
   </div>;
   return slide.local
