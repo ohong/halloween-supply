@@ -373,7 +373,7 @@ export function useLiveVoice(options: VoiceOptions) {
             ? `Global catalog checked: ${command.catalogResults.counts.costumes} costumes and ${command.catalogResults.counts.products} products. ${command.message ?? "Matching products are shown in the interface."} ${command.actions.length ? "An outfit change was requested; describe only confirmed state." : "No outfit or cart changes were applied."}`.slice(0, 1200)
             : command.actions.length
             ? `The request was sent to the outfit controls. ${session.frontendSnapshot ?? ""}. Briefly describe only confirmed selection changes. Saving or freezing is handled by the interface. Video may still be updating; never claim it has rendered.`
-            : "No outfit changes were applied. The current selection may already satisfy the request. Use the current outfit context and ask a brief clarification if needed. Do not infer that a matching product is unavailable from an unchanged selection." });
+            : command.message ?? "No outfit changes were applied. The current selection may already satisfy the request. Use the current outfit context and ask a brief clarification if needed. Do not infer that a matching product is unavailable from an unchanged selection." });
         }, 80);
       } catch (error) {
         if (!current()) return;

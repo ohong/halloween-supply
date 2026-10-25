@@ -1,7 +1,7 @@
 # Photo try-on
 
-The costume page opens with the selected product flat-lay, followed by individual
-products and the editorial reference. Local badges and collapsed pick explanations
+The costume page opens with the worn costume, followed by individual products
+and the selected pieces overview. Local badges and collapsed pick explanations
 remain beside the pieces. Wardrobe choices and budget changes belong to the voice
 stylist. There is no shopping brief, event-date form, outfit comparison or final
 plan screen. Voice changes update selected products directly. Shop for me and
@@ -14,7 +14,8 @@ photo try-on remain available.
 3. Open a costume page and upload or take a photo of yourself.
 4. Confirm photo processing and request a preview.
 
-Photo try-on uses `gpt-image-2.5-sunburst` directly. `OPENAI_IMAGE_MODEL` can
+Photo try-on uses `gpt-image-2.5-flare` directly, with `quality=low` and a
+672×1008 portrait (the smallest supported 2:3 image). `OPENAI_IMAGE_MODEL` can
 override it. The API key stays on the server. Image access may require
 organization verification. GPT Live styling uses its separate voice and Decisions models.
 
@@ -63,12 +64,13 @@ regions are inferred for the finished portrait. Subject choice is model-generate
 and can be ambiguous when people have equal prominence.
 
 For the current outfit, product IDs are validated against the server catalog.
-Local product images and descriptions guide the edit. Product-specific previews
-exclude the editorial image so its garments cannot compete with selected products.
+Garment-only product cutouts and descriptions guide the edit. Raw merchant
+photos and editorial models are excluded so their faces cannot compete with
+the shopper. Products without a cutout use their catalog descriptions.
 Owned pieces retain the
 corresponding photographed clothes where visible. Skipped pieces are omitted.
-Other costumes use their editorial image and descriptions; coming-soon concepts
-remain labeled as inspiration. Remote merchant images are not fetched by this route.
+Other costumes use their descriptions; coming-soon concepts remain labeled
+as inspiration. Remote merchant images are not fetched by this route.
 
 The photo and current generated preview stay in page memory. The application does
 not write them to files, browser storage, or its database. Remove photo,
@@ -179,3 +181,60 @@ printing it; no Decart integration or API request was added.
 
 - [Decisions](https://developers.openai.com/api/docs/guides/decisions)
 - [Image generation and edits](https://developers.openai.com/api/docs/guides/image-generation)
+
+
+## Photo latency — October 25, 2026
+
+The server prepares local garment references together, using JPEG at quality 85
+and at most 768×1024 pixels. It caches at most 64 prepared catalog assets per
+process, including concurrent requests for the same asset. Shopper photos and
+outputs are never cached. Failed preparations are evicted. The shopper input
+keeps its existing image bounds for identity detail.
+
+Successful responses include `Server-Timing` for preparation and generation,
+and `X-Try-On-Model` for release verification. There is one image edit request
+per preview, with no classifier, model fallback, or automatic paid retry.
+
+A synthetic catalog model and the same Pumpkin Harlequin selection were used
+for real API comparisons. Each configuration ran twice. The first comparison
+kept the exact prompt, seven image inputs, JPEG output, medium quality and
+1024×1536 resolution unchanged. Test order was reversed for the second round.
+
+| Configuration | Real generation times | Mean |
+| --- | --- | --- |
+| Sunburst, medium, 1024×1536 | 14.986 s, 14.295 s | 14.641 s |
+| Flare, medium, 1024×1536 | 10.921 s, 11.075 s | 10.998 s |
+| Flare, low, 672×1008, raw references | 9.687 s, 15.201 s | 12.444 s |
+| Flare, low, compact JPEG references | 9.441 s, 10.615 s | 10.028 s |
+| Flare, low, garment-only references | 9.530 s, 9.512 s | 9.521 s |
+
+The model-only change reduced mean generation time by 24.9%. The final settings
+and reference policy reduced it by 35.0% (about 1.54× as fast). These small
+samples are observations, not latency guarantees or reliable tail estimates.
+The low-quality result has less detail and lower resolution than the baseline.
+
+Raw garment photos caused both tested models to borrow a merchant model's face.
+The final reference policy removed those competing identities; both synthetic
+outputs retained a recognisable likeness on visual inspection. This is not
+pixel-identical face preservation or proof for every real shopper.
+
+Prepared request content fell from 5,095,200 bytes to 117,418 bytes for this
+selection (97.7% smaller). Cold preparation in the benchmark harness fell from
+449 ms to 149 ms; this excludes the browser upload and app-server transport.
+The actual local browser upload flow took 9.536 s from button click to visible
+preview, with 385.7 ms server preparation and 7.824 s provider generation.
+Before/after comparison, download, reset and browser error checks passed.
+
+Reproduce the paid synthetic comparison with:
+
+```sh
+BENCHMARK_IMAGE_EDITS=1 bun --env-file=.env.local scripts/benchmark-try-on.mjs /tmp/photo-benchmark
+```
+
+The script captures the current real route's prepared input using a simulated
+capture response. Every timed generation then calls the real Image API. Its
+results include prompt hashes, input sizes, settings and generated files.
+Baseline results above were captured before reference optimization. Rerunning
+now uses the current reference policy, so it does not reproduce the old payload.
+
+Official guidance: https://developers.openai.com/api/docs/guides/image-prompting

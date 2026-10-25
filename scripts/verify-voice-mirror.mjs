@@ -75,7 +75,7 @@ try {
   assert((await start.boundingBox()).y < 1000);
   await page.screenshot({ path: path.join(evidence, "desktop-ready.png") });
   log("video-dominates-and-no-capture-before-consent", { videoWidth: stage.width, sidebarWidth: sidebar.width });
-  await page.getByRole("checkbox").last().check();
+  await page.getByRole("dialog").getByRole("checkbox").check();
   await start.click();
   await waitVideo();
   log("real-decoded-video");
@@ -129,9 +129,9 @@ try {
   await typeChange("Make the jacket red and the hat purple in the preview. Keep the same products.");
   await page.waitForFunction(() => /red/.test(document.querySelector(".mirror-preview-edits").textContent) && /purple/.test(document.querySelector(".mirror-preview-edits").textContent));
   await typeChange("Make the jacket leather. Keep its current color and keep everything else.");
-  await page.waitForFunction(() => /red.*leather|leather.*red/.test(document.querySelector(".mirror-preview-edits").textContent));
+  await page.waitForFunction(() => /red.*leather|leather.*red/i.test(document.querySelector(".mirror-preview-edits").textContent));
   await page.getByRole("button", { name: "Undo last outfit change", exact: true }).click();
-  await page.waitForFunction(() => !/leather/.test(document.querySelector(".mirror-preview-edits").textContent) && /red/.test(document.querySelector(".mirror-preview-edits").textContent));
+  await page.waitForFunction(() => !/leather/i.test(document.querySelector(".mirror-preview-edits").textContent) && /red/.test(document.querySelector(".mirror-preview-edits").textContent));
   await typeChange("Restore the original colors of the jacket and the hat in the preview.");
   await page.waitForFunction(() => document.querySelector(".mirror-preview-edits").textContent === "");
   log("multiple-colors-material-preservation-undo-and-restore");
