@@ -64,7 +64,7 @@ export function TryOn3D({ image, offer, pieces }: { image: string; offer: Render
     finally { busy.current = false; }
   }
   return <section className="try-on-3d" aria-label="See your costume in 3D">
-    <header><div><span className="try-on-3d-eyebrow">A DIFFERENT PERSPECTIVE</span><h3>Your costume. Every angle.</h3></div><span className="try-on-3d-mark" aria-hidden="true">↗</span></header>
+    <header><div><span className="try-on-3d-eyebrow">YOUR NEXT STEP</span><h3>See yourself in 3D</h3></div><span className="try-on-3d-mark" aria-hidden="true">↗</span></header>
     {job.phase === "ready" ? <>
       <div className="try-on-3d-tabs" role="group" aria-label="Preview view"><button type="button" aria-pressed={view === "3d"} onClick={() => setView("3d")}>3D look</button><button type="button" aria-pressed={view === "photo"} onClick={() => setView("photo")}>Photo</button><a href={job.url} target="_blank" rel="noopener noreferrer" download="costume.glb">Download 3D ↗</a></div>
       {view === "3d" ? <CostumeModel url={job.url} pieces={pieces} /> : <img className="try-on-3d-photo" src={image} alt="Your costume photo preview" />}
@@ -76,8 +76,8 @@ export function TryOn3D({ image, offer, pieces }: { image: string; offer: Render
       {job.phase === "waiting" && <button type="button" onClick={() => setPolling(!polling)}>{polling ? "Pause updates" : "Check progress"}</button>}
       <small>Leaving this page removes the preview here. Generation may continue at the provider.</small>
     </div> : job.phase === "error" ? <div className="try-on-3d-error" role="alert"><p>{job.message}</p>{job.token ? <button type="button" onClick={() => { setPolling(true); setJob({ phase: "waiting", token: job.token!, status: "processing" }); }}>Reconnect</button> : <button type="button" onClick={generate}>Try again</button>}</div> : <>
-      <p>Turn your photo preview into a 3D look. Rotate it, then select a piece to see it up close.</p>
-      <button type="button" className="btn btn-block" onClick={generate} disabled={!offer}>Create my 3D look <span aria-hidden="true">↗</span></button>
+      <p>Create a 3D model of yourself wearing this outfit, using the try-on image above. Rotate it and explore each piece.</p>
+      <button type="button" className="btn btn-block" onClick={generate} disabled={!offer}>Create my 3D model <span aria-hidden="true">↗</span></button>
       <p className="try-on-3d-privacy">{offer ? `Tapping sends this costume preview to ${offer.label}. This app keeps your preview in this page’s memory only. The provider processes and retains it under its own policies.` : "3D generation is not configured yet. Your photo preview is ready to use."}</p>
     </>}
     {notice && <p role="status" className="try-on-3d-privacy">{notice}</p>}

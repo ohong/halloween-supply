@@ -164,6 +164,7 @@ export function VirtualTryOn({ costumeSlug, selection = [], ownedPieceIds = [], 
         <button type="button" className="try-on-close" onClick={reset} aria-label="Remove photo"><Icon d={CLOSE} size={18} /></button>
       </figure>
     )}
+    {current && <TryOn3D key={current.key} image={current.image} offer={current.render3d} pieces={(pieces ?? costume.pieces.map((name, index) => ({ id: String(index), name }))).filter((piece) => !skippedPieceIds.includes(piece.id))} />}
     {!busy && <>
       <div className="try-on-actions try-on-photo-actions">
         <button type="button" className="btn btn-ghost try-on-camera" onClick={takePhoto} disabled={preparing}><Icon d={CAMERA} size={18} />{photoUrl ? "Retake photo" : "Take photo"}</button>
@@ -193,6 +194,5 @@ export function VirtualTryOn({ costumeSlug, selection = [], ownedPieceIds = [], 
         <p className="try-on-fine">Take the photo on your phone. It appears here when it is sent.</p>
       </div>
     </div>}
-    {current && <TryOn3D key={current.key} image={current.image} offer={current.render3d} pieces={(pieces ?? costume.pieces.map((name, index) => ({ id: String(index), name }))).filter((piece) => !skippedPieceIds.includes(piece.id))} />}
   </section>;
 }
