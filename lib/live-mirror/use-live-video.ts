@@ -4,6 +4,7 @@ import { useCallback, useEffect, useRef, useState } from "react";
 import type { ManagedRealtimeSession, LucyRealtimeSession } from "@fal-ai/client/realtime";
 import type { MirrorContext, MirrorStatus } from "./types";
 import { videoOutfitRequest } from "./video-outfit";
+import { readMirrorResponse } from "./read-response";
 
 type Reference = { image: string; prompt: string };
 type VideoSession = {
@@ -18,17 +19,8 @@ type VideoSession = {
   decoded: boolean;
   updating: boolean;
 };
-async function readResponse<T>(response: Response): Promise<T> {
-  // Firewall blocks can arrive as HTML, so only the status is trusted for them.
-  const body = await response.json().catch(() => ({}));
-  if (!response.ok && (response.status === 429 || response.status === 403)) {
-    throw new Error("The site blocked this mirror request. Your network may have reached its hourly session limit. Please try again later.");
-  }
-  if (!response.ok) throw new Error(typeof body.error === "string" ? body.error : "The live mirror could not connect.");
-  return body as T;
-}
 async function referenceFor(key: string, signal: AbortSignal) {
-  return readResponse<Reference>(await fetch("/api/live-mirror/reference", {
+  return readMirrorResponse<Reference>(await fetch("/api/live-mirror/reference", {
     method: "POST", headers: { "Content-Type": "application/json" }, body: key,
     signal: AbortSignal.any([signal, AbortSignal.timeout(20_000)]),
   }));
@@ -125,7 +117,7 @@ export function useLiveVideo({ costume, outfit }: MirrorContext, externalCamera?
         reference = await referenceFor(key, session.controller.signal);
       }
       if (sessionRef.current !== session) return;
-      const token = await readResponse<{ token: string; model: string; maxSessionSeconds: number }>(await fetch("/api/live-mirror/video", {
+      const token = await readMirrorResponse<{ token: string; model: string; maxSessionSeconds: number }>(await fetch("/api/live-mirror/video", {
         method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ consent: true }),
         signal: AbortSignal.any([session.controller.signal, AbortSignal.timeout(20_000)]),
       }));
