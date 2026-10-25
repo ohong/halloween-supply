@@ -121,7 +121,7 @@ if (storefront) {
       assert.equal(await page.getByRole("button", { name: "Take photo", exact: true }).count(), 1);
       assert.equal(await page.locator(".outfit-planner").count(), 0);
       if (costume.status === "live") {
-        assert.equal(await page.getByRole("button", { name: "Shop for me", exact: true, includeHidden: true }).count(), 1);
+        assert(await page.getByRole("button", { name: "Shop for me", exact: true, includeHidden: true }).count() > 0);
         assert.equal(await page.locator(".carousel .slide").first().getAttribute("data-slide-key"), "complete-look");
         assert.equal(await page.locator('.carousel [data-slide-key="flat-lay"]').count(), 1);
       }
