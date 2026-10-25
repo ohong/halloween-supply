@@ -12,6 +12,7 @@ import type { MirrorCatalogContext, MirrorCatalogLook, MirrorCatalogResults, Mir
 import { costumes } from "@/lib/costumes";
 import { applyActions, createOutfit, outfitTotal } from "@/lib/live-mirror/state";
 import { sendMirrorCommand, useLiveVoice } from "@/lib/live-mirror/use-live-voice";
+import { useGeminiLiveVoice } from "@/lib/live-mirror/use-gemini-live-voice";
 import { useLiveVideo } from "@/lib/live-mirror/use-live-video";
 import { captureFeedbackFrame, sendVisualFeedback, type FeedbackFrames } from "@/lib/live-mirror/visual-feedback";
 import { VoiceStateIndicator } from "./voice-state-indicator";
@@ -19,7 +20,8 @@ import { LiveTranscript, useLiveTranscript } from "./live-transcript";
 import "./live-mirror.css";
 import { PhoneCameraControls, usePhoneCamera } from "./phone-camera";
 
-type Props = { costume: CostumeView; initialOutfit: MirrorOutfit; onApply: (outfit: MirrorOutfit, costume?: CostumeView) => void };
+type VoiceProvider = "openai" | "gemini";
+type Props = { costume: CostumeView; initialOutfit: MirrorOutfit; onApply: (outfit: MirrorOutfit, costume?: CostumeView) => void; voiceProvider?: VoiceProvider };
 const copyOutfit = (outfit: MirrorOutfit): MirrorOutfit => ({ ...outfit, ...(outfit.appearance ? { appearance: Object.fromEntries(Object.entries(outfit.appearance).map(([id, value]) => [id, { ...value }])) } : {}), selection: { ...outfit.selection }, uses: { ...outfit.uses }, locked: [...outfit.locked], ...(outfit.mixes ? { mixes: outfit.mixes.map(ref => ({ ...ref })) } : {}) });
 
 export function LiveMirror(props: Props) {
@@ -34,7 +36,10 @@ export function LiveMirror(props: Props) {
   </>;
 }
 
-function MirrorRoom({ costume: initialCostume, initialOutfit, onApply, onClose }: Props & { onClose: () => void }) {
+function MirrorRoom({ costume: initialCostume, initialOutfit, onApply, onClose, voiceProvider: serverProvider = "openai" }: Props & { onClose: () => void }) {
+  // ?voice=gemini|openai overrides the server flag for testing.
+  const [provider] = useState<VoiceProvider>(() => { const requested = new URLSearchParams(window.location.search).get("voice"); return requested === "gemini" || requested === "openai" ? requested : serverProvider; });
+  const gemini = provider === "gemini";
   const [costume, setCostume] = useState(initialCostume);
   const costumeRef = useRef(costume);
   const lookCache = useRef(new Map([[initialCostume.costume.slug, initialCostume]]));
@@ -103,7 +108,11 @@ function MirrorRoom({ costume: initialCostume, initialOutfit, onApply, onClose }
     if (!unchanged()) throw new Error("The preview changed while I was checking it. Please ask again.");
     return result;
   }, [consent, video.isCurrent, video.switchingCamera]);
-  const voice = useLiveVoice({ costume, outfit, microphone: phoneStream, catalogContext, pendingLook: switchingLook, preview: { status: video.status, isCurrent: video.isCurrent, frozen: !!frozen, error: video.error }, onFocus: setFocusedPiece, onCommand: (command) => commandHandler.current(command), onVisualFeedback: assessPreview, onTranscript: transcript.receive });
+  const voiceOptions = { costume, outfit, microphone: phoneStream, catalogContext, pendingLook: switchingLook, preview: { status: video.status, isCurrent: video.isCurrent, frozen: !!frozen, error: video.error }, onFocus: setFocusedPiece, onCommand: (command: MirrorCommand) => commandHandler.current(command), onVisualFeedback: assessPreview, onTranscript: transcript.receive };
+  // Both hooks are always called (Rules of Hooks); only the selected one is ever started, the other stays idle.
+  const openaiVoice = useLiveVoice(voiceOptions);
+  const geminiVoice = useGeminiLiveVoice({ ...voiceOptions, stream: video.stream });
+  const voice = gemini ? geminiVoice : openaiVoice;
   const stopRef = useRef({ video: video.stop, voice: voice.stop });
   useEffect(() => {
     if (previousPhone.current !== phoneStream) {
@@ -148,7 +157,11 @@ function MirrorRoom({ costume: initialCostume, initialOutfit, onApply, onClose }
     void fetch("/api/live-mirror/video", { signal: controller.signal }).then(async (response) => {
       if (!response.ok) throw new Error("Couldn't check camera and voice availability. Try again.");
       const result = await response.json();
-      setAvailability({ videoAvailable: result.videoAvailable === true, voiceAvailable: result.voiceAvailable === true });
+      // With Gemini selected, voice availability comes from the Gemini token route instead of the OpenAI key check.
+      const voiceAvailable = gemini
+        ? await fetch("/api/live-mirror/gemini-token", { signal: controller.signal }).then(reply => reply.ok ? reply.json() : null).then(body => body?.voiceAvailable === true)
+        : result.voiceAvailable === true;
+      setAvailability({ videoAvailable: result.videoAvailable === true, voiceAvailable });
     }).catch((error: unknown) => { if (!controller.signal.aborted) setConfigError(error instanceof Error ? error.message : "Camera and voice are unavailable. Try again."); });
     return () => {
       controller.abort();
@@ -160,7 +173,7 @@ function MirrorRoom({ costume: initialCostume, initialOutfit, onApply, onClose }
       document.body.style.overflow = previousOverflow;
       document.documentElement.style.overscrollBehavior = previousOverscroll;
     };
-  }, []);
+  }, [gemini]);
 
   useEffect(() => {
     if (videoRef.current) videoRef.current.srcObject = video.stream;
@@ -419,7 +432,7 @@ function MirrorRoom({ costume: initialCostume, initialOutfit, onApply, onClose }
             {configError && <p className="mirror-notice">{configError}</p>}
             {availability && (availability.videoAvailable || availability.voiceAvailable) && <>
               <p className="mirror-muted">{phoneStream ? `Using your phone camera. ${phoneStream.getAudioTracks().length ? "Voice uses your phone microphone." : "Voice uses this computer’s microphone."}` : "Use this device’s camera. On a phone, you can flip between the front and back cameras."}</p>
-              <label className="mirror-consent"><input type="checkbox" checked={consent} onChange={(event) => setConsent(event.target.checked)} /><span>{availability.videoAvailable ? "Allow my camera video to be processed by Decart, connected through fal, for live try-on. " : ""}{availability.voiceAvailable ? "Allow my microphone audio to be processed by OpenAI for voice controls. " : ""}When I ask how I look, send the preview to OpenAI. Likeness questions also send the paired original camera image. Media stops when I close the mirror.</span></label>
+              <label className="mirror-consent"><input type="checkbox" checked={consent} onChange={(event) => setConsent(event.target.checked)} /><span>{availability.videoAvailable ? "Allow my camera video to be processed by Decart, connected through fal, for live try-on. " : ""}{availability.voiceAvailable ? `Allow my microphone audio to be processed by ${gemini ? "Google" : "OpenAI"} for voice controls. ` : ""}{gemini ? availability.voiceAvailable ? "While voice is on, the live preview is streamed to Google about once per second so the stylist can see it. " : "" : "When I ask how I look, send the preview to OpenAI. Likeness questions also send the paired original camera image. "}Media stops when I close the mirror.</span></label>
               <button className="btn" disabled={!canStart || connecting} onClick={startSession}><Camera size={17} />{connecting ? "Connecting…" : availability.videoAvailable ? "Start my mirror" : "Start voice styling"}</button>
               <details className="mirror-phone-setup" open={phone.status !== "idle" || phone.error ? true : undefined}><summary>{phoneStream ? "Connected phone camera" : "Connect another phone as a camera"}</summary><PhoneCameraControls compact /></details>
             </>}

@@ -39,6 +39,22 @@ class Capture extends AudioWorkletProcessor {
 registerProcessor("capture", Capture);
 `;
 
+/** The subset of Live API server messages this hook reads. */
+type ServerMessage = {
+  setupComplete?: object;
+  goAway?: object;
+  error?: object;
+  toolCall?: { functionCalls?: { id: string; name: string; args?: Record<string, unknown> }[] };
+  toolCallCancellation?: { ids?: string[] };
+  serverContent?: {
+    interrupted?: boolean;
+    turnComplete?: boolean;
+    modelTurn?: { parts?: { inlineData?: { data?: string } }[] };
+    inputTranscription?: { text?: string };
+    outputTranscription?: { text?: string };
+  };
+};
+
 type Session = {
   socket: WebSocket;
   controller: AbortController;
@@ -288,7 +304,7 @@ export function useGeminiLiveVoice(options: VoiceOptions) {
       socket.onopen = () => socket.send(JSON.stringify({ setup: { model } }));
       socket.onmessage = async ({ data }) => {
         if (!current()) return;
-        let message: Record<string, any>;
+        let message: ServerMessage;
         try { message = JSON.parse(typeof data === "string" ? data : new TextDecoder().decode(data as ArrayBuffer)); } catch { return; }
         if (message.setupComplete) {
           active.ready = true; starting.current = false; setStatus("live");

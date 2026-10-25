@@ -41,7 +41,9 @@ async function CachedCostume({ slug }: { slug: string }) {
   if (inspiration.status !== "live") return <CostumePreview key={slug} costume={inspiration} />;
   const costume = await getCostume(slug);
   if (!costume || costume.pieces.length === 0 || costume.pieces.every(({ options }) => options.length === 0)) return <CostumePreview key={slug} costume={inspiration} />;
-  return <CostumeExperience key={slug} costume={costume} />;
+  // Server flag for the mirror's voice stylist: "openai" (default) or "gemini". The client may override it with ?voice= for testing.
+  const voiceProvider = process.env.LIVE_VOICE_PROVIDER === "gemini" ? "gemini" : "openai";
+  return <CostumeExperience key={slug} costume={costume} voiceProvider={voiceProvider} />;
 }
 
 export default function CostumePage({ params }: { params: Params }) {

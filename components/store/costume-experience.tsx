@@ -28,7 +28,7 @@ import { modelImage, useCostumeModel } from "@/lib/model-selection";
 import { WardrobeRail } from "./wardrobe-rail";
 import { CostumePieceInspector } from "./costume-piece-inspector";
 
-export function CostumeExperience({ costume: initialCostume }: { costume: CostumeView }) {
+export function CostumeExperience({ costume: initialCostume, voiceProvider }: { costume: CostumeView; voiceProvider?: "openai" | "gemini" }) {
   const [mixedCostume, setMixedCostume] = useState<CostumeView | null>(null);
   const [mixes, setMixes] = useState<MirrorOutfit["mixes"]>();
   const costume = mixedCostume ?? initialCostume;
@@ -231,7 +231,7 @@ export function CostumeExperience({ costume: initialCostume }: { costume: Costum
           <div className="try-on-option">
             <span className="try-on-option-icon" aria-hidden="true"><Camera size={18} /></span>
             <div><p>Live mirror</p><p className="try-on-option-hint">See the look on your camera in real time.</p></div>
-            <LiveMirror costume={costume} initialOutfit={{ mixes, selection: Object.fromEntries(pieces.flatMap((view) => { const option = picked.get(view.piece.id); return option ? [[view.piece.id, option.product.id]] : []; })), uses, locked: [], budget: mirrorBudget }} onApply={applyMirror} />
+            <LiveMirror costume={costume} voiceProvider={voiceProvider} initialOutfit={{ mixes, selection: Object.fromEntries(pieces.flatMap((view) => { const option = picked.get(view.piece.id); return option ? [[view.piece.id, option.product.id]] : []; })), uses, locked: [], budget: mirrorBudget }} onApply={applyMirror} />
           </div>
           <PhotoVoiceStylist costume={costume} outfit={{ mixes, selection: Object.fromEntries(pieces.flatMap((view) => { const option = picked.get(view.piece.id); return option ? [[view.piece.id, option.product.id]] : []; })), uses, locked: [], budget: mirrorBudget }} onApply={applyMirror} />
         </section>
