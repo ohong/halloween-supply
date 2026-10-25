@@ -402,7 +402,7 @@ function MirrorRoom({ costume: initialCostume, initialOutfit, onApply, onClose }
       <section className="mirror-visual" aria-label="Costume preview">
         <div className={`mirror-stage${!video.stream && !frozen ? " is-idle" : ""}`} onPointerDown={event => {
           if (!event.isPrimary) { swipeStart.current = null; return; }
-          if ((event.target as HTMLElement).closest("button, input, label, a")) return;
+          if ((event.target as HTMLElement).closest("button, input, label, a, summary")) return;
           swipeStart.current = { id: event.pointerId, x: event.clientX, y: event.clientY };
           event.currentTarget.setPointerCapture(event.pointerId);
         }} onPointerUp={event => {
@@ -421,7 +421,7 @@ function MirrorRoom({ costume: initialCostume, initialOutfit, onApply, onClose }
               <p className="mirror-muted">{phoneStream ? `Using your phone camera. ${phoneStream.getAudioTracks().length ? "Voice uses your phone microphone." : "Voice uses this computer’s microphone."}` : "Use this device’s camera. On a phone, you can flip between the front and back cameras."}</p>
               <label className="mirror-consent"><input type="checkbox" checked={consent} onChange={(event) => setConsent(event.target.checked)} /><span>{availability.videoAvailable ? "Allow my camera video to be processed by Decart, connected through fal, for live try-on. " : ""}{availability.voiceAvailable ? "Allow my microphone audio to be processed by OpenAI for voice controls. " : ""}When I ask how I look, send the preview to OpenAI. Likeness questions also send the paired original camera image. Media stops when I close the mirror.</span></label>
               <button className="btn" disabled={!canStart || connecting} onClick={startSession}><Camera size={17} />{connecting ? "Connecting…" : availability.videoAvailable ? "Start my mirror" : "Start voice styling"}</button>
-              <details className="mirror-phone-setup" open={phone.status !== "idle" ? true : undefined}><summary>{phoneStream ? "Connected phone camera" : "Connect another phone as a camera"}</summary><PhoneCameraControls compact /></details>
+              <details className="mirror-phone-setup" open={phone.status !== "idle" || phone.error ? true : undefined}><summary>{phoneStream ? "Connected phone camera" : "Connect another phone as a camera"}</summary><PhoneCameraControls compact /></details>
             </>}
             {!availability && !configError && <p className="mirror-muted">Checking camera and voice availability…</p>}
           </div>}
