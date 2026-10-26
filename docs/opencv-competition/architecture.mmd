@@ -1,0 +1,42 @@
+%% Source for architecture.svg. Render: bunx @mermaid-js/mermaid-cli -i architecture.mmd -o architecture.svg -b transparent
+flowchart LR
+  shopper(["Shopper's browser<br/>/screenshot page"])
+
+  subgraph vercel["Vercel (Next.js 16)"]
+    route["/api/screenshot-costume<br/>agent loop + trace stream"]
+    checkout["Cart + Stripe Checkout<br/>(shopper confirms)"]
+  end
+
+  subgraph web["Merchant search"]
+    firecrawl["Firecrawl web + image search<br/>merchant pages"]
+  end
+
+  subgraph aws["AWS us-east-1"]
+    cf["CloudFront<br/>HTTPS, no caching"]
+    subgraph ec2["EC2 Graviton (arm64)"]
+      svc["Vision service container<br/>FastAPI + OpenCV 5 cv2.dnn<br/>COOL build"]
+    end
+    ecr[("ECR<br/>halloween-vision image")]
+    ssm[("SSM Parameter Store<br/>VISION_SERVICE_TOKEN")]
+    cw[("CloudWatch<br/>logs, metrics, dashboard")]
+  end
+
+  stripe["Stripe"]
+
+  shopper -- "screenshot (multipart, ≤4 MB)" --> route
+  route -- "NDJSON events: candidate, piece, trace" --> shopper
+  route -- "POST /v1/analyze, /v1/match<br/>image bytes + Bearer token" --> cf
+  cf --> svc
+  route -- "queries from OpenCV pieces" --> firecrawl
+  firecrawl -- "offers + product photos" --> route
+  ecr -. "image pull at boot" .-> svc
+  ssm -. "token at boot (instance role)" .-> svc
+  svc -. "JSON log line per request" .-> cw
+  shopper -- "approves pieces, pays" --> checkout
+  checkout --> stripe
+
+  classDef opencv fill:#e8f5e9,stroke:#2e7d32,color:#1b5e20
+  classDef awsnode fill:#fff3e0,stroke:#e65100,color:#bf360c
+  classDef cool fill:#ede7f6,stroke:#4527a0,color:#311b92
+  class svc cool
+  class cf,ecr,ssm,cw awsnode
