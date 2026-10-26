@@ -1,0 +1,45 @@
+{
+  "note": "Approximate matching aids for eval/scripts. A predicted color name maps to a family; a garment phrase maps to a garment class. Matching is approximate by design; see eval/README.md.",
+  "slot_groups": {
+    "head": ["head"],
+    "top": ["top", "outer"],
+    "outer": ["outer", "top"],
+    "bottom": ["bottom"],
+    "feet": ["feet"],
+    "accessory": ["accessory"]
+  },
+  "color_families": {
+    "black": ["black", "charcoal", "jet", "onyx", "ebony"],
+    "white": ["white", "ivory", "cream", "off-white", "offwhite", "bone", "eggshell", "linen", "pearl"],
+    "gray": ["gray", "grey", "slate", "ash", "graphite", "charcoal gray"],
+    "silver": ["silver", "metallic", "chrome", "pewter", "gray", "grey"],
+    "brown": ["brown", "chocolate", "coffee", "espresso", "rust", "cognac", "camel", "tan", "chestnut", "mahogany", "bronze"],
+    "beige": ["beige", "tan", "sand", "khaki", "taupe", "camel", "oatmeal", "cream", "nude"],
+    "red": ["red", "crimson", "scarlet", "cherry", "maroon", "burgundy", "wine"],
+    "burgundy": ["burgundy", "maroon", "wine", "oxblood", "plum", "red"],
+    "orange": ["orange", "rust", "terracotta", "copper", "pumpkin", "coral", "amber"],
+    "yellow": ["yellow", "mustard", "gold", "ochre", "lemon", "amber"],
+    "gold": ["gold", "mustard", "brass", "yellow", "ochre", "bronze"],
+    "green": ["green", "sage", "olive", "moss", "emerald", "forest green", "mint", "seafoam", "lime", "teal"],
+    "olive": ["olive", "khaki", "moss", "green", "army green"],
+    "teal": ["teal", "turquoise", "aqua", "seafoam", "cyan", "green", "blue"],
+    "blue": ["blue", "denim", "navy", "cobalt", "royal blue", "sky blue", "light blue", "indigo", "teal"],
+    "navy": ["navy", "midnight", "dark blue", "indigo", "blue"],
+    "purple": ["purple", "plum", "violet", "lavender", "lilac", "mauve", "eggplant", "magenta"],
+    "pink": ["pink", "blush", "rose", "coral", "salmon", "magenta", "fuchsia", "mauve"]
+  },
+  "garment_classes": {
+    "hat": ["hat", "cap", "beret", "tricorn", "deerstalker", "fedora", "beanie", "hood", "headband", "headpiece", "crown", "tiara", "helmet", "antennae", "fascinator"],
+    "outerwear": ["cape", "cloak", "capelet", "coat", "jacket", "bomber", "blazer", "tailcoat", "raincoat", "poncho", "robe", "shawl", "wings", "sheet", "waistcoat", "vest", "parka", "kimono"],
+    "top": ["shirt", "blouse", "tunic", "sweater", "top", "tee", "t-shirt", "turtleneck", "bodysuit", "corset", "camisole", "jumper", "hoodie", "waistcoat", "vest"],
+    "onepiece": ["dress", "gown", "jumpsuit", "overalls", "shortalls", "unitard", "romper", "coverall", "catsuit", "robe", "bodysuit", "leotard"],
+    "bottom": ["trousers", "pants", "jeans", "leggings", "skirt", "shorts", "tights", "stockings", "breeches", "culottes", "overalls", "shortalls"],
+    "footwear": ["boots", "boot", "shoes", "shoe", "brogues", "sneakers", "heels", "loafers", "sandals", "slippers", "oxfords", "pumps", "flats", "wellies"],
+    "accessory": ["belt", "sash", "gloves", "glove", "scarf", "neckerchief", "bandana", "collar", "ruff", "necklace", "pendant", "brooch", "bag", "tie", "bow", "bracers", "goggles", "sunglasses"]
+  },
+  "class_compat": {
+    "outerwear": ["outerwear", "top", "onepiece"],
+    "top": ["top", "outerwear", "onepiece"],
+    "onepiece": ["onepiece", "top", "bottom", "outerwear"]
+  }
+}

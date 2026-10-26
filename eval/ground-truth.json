@@ -1,0 +1,182 @@
+{
+  "version": 1,
+  "source": "Drafted by Session D from data/costumes/*.json piece lists and a visual pass over public/costumes/*.png. Not yet verified by a human; Oscar spot-checks 5 costumes (see spot_check).",
+  "spot_check": ["midnight-pirate", "velvet-vampire", "cosmic-cowboy", "coral-mermaid", "linen-ghost"],
+  "conventions": {
+    "slot": "head | top | outer | bottom | feet | accessory. Capes, cloaks, coats and jackets worn over a top are outer. A one-piece (dress, gown, jumpsuit, overalls, unitard) is top with alt_slots [bottom].",
+    "color": "Main visible color, one family name from eval/synonyms.json color_families.",
+    "excluded": "Catalog pieces that are not visible in the image (DIY fabric, hidden base layers) are listed with a reason and not scored."
+  },
+  "costumes": [
+    {"slug": "autumn-scarecrow", "image": "eval/fixtures/editorial/autumn-scarecrow.jpg", "components": [
+      {"id": "hat", "slot": "head", "garment": "pointed patchwork hat", "color": "orange"},
+      {"id": "shirt", "slot": "top", "garment": "plaid flannel shirt", "color": "yellow"},
+      {"id": "overalls", "slot": "bottom", "alt_slots": ["top"], "garment": "denim overalls", "color": "blue"},
+      {"id": "boots", "slot": "feet", "garment": "work boots", "color": "brown"}
+    ], "excluded": [{"name": "straw cuffs and patch fabric", "reason": "small DIY trim"}]},
+    {"slug": "candy-corn-sorceress", "image": "eval/fixtures/editorial/candy-corn-sorceress.jpg", "components": [
+      {"id": "hat", "slot": "head", "garment": "witch hat", "color": "orange"},
+      {"id": "cape", "slot": "outer", "garment": "short cape", "color": "black"},
+      {"id": "dress", "slot": "top", "alt_slots": ["bottom"], "garment": "tiered dress", "color": "orange"},
+      {"id": "stockings", "slot": "accessory", "alt_slots": ["bottom"], "garment": "striped stockings", "color": "orange"},
+      {"id": "boots", "slot": "feet", "garment": "lace-up boots", "color": "black"}
+    ]},
+    {"slug": "celestial-sorcerer", "image": "eval/fixtures/editorial/celestial-sorcerer.jpg", "components": [
+      {"id": "hat", "slot": "head", "garment": "wizard hat", "color": "navy"},
+      {"id": "robe", "slot": "top", "alt_slots": ["outer", "bottom"], "garment": "star print robe", "color": "navy"},
+      {"id": "belt", "slot": "accessory", "garment": "rope belt", "color": "silver"},
+      {"id": "boots", "slot": "feet", "garment": "boots", "color": "black"}
+    ], "excluded": [{"name": "moon pendant", "reason": "under 0.5% of image area"}]},
+    {"slug": "clockwork-aviator", "image": "eval/fixtures/editorial/clockwork-aviator.jpg", "components": [
+      {"id": "cap", "slot": "head", "garment": "leather aviator cap with goggles", "color": "brown"},
+      {"id": "jacket", "slot": "outer", "garment": "shearling bomber jacket", "color": "brown"},
+      {"id": "shirt", "slot": "top", "garment": "button shirt", "color": "white"},
+      {"id": "belt", "slot": "accessory", "garment": "leather belt", "color": "brown"},
+      {"id": "trousers", "slot": "bottom", "garment": "cargo trousers", "color": "brown"},
+      {"id": "boots", "slot": "feet", "garment": "lace-up boots", "color": "brown"}
+    ]},
+    {"slug": "coral-mermaid", "image": "eval/fixtures/editorial/coral-mermaid.jpg", "components": [
+      {"id": "crown", "slot": "head", "garment": "shell crown", "color": "pink"},
+      {"id": "jacket", "slot": "outer", "garment": "cropped bolero jacket", "color": "pink"},
+      {"id": "blouse", "slot": "top", "garment": "draped blouse", "color": "green"},
+      {"id": "skirt", "slot": "bottom", "garment": "sequin mermaid skirt", "color": "teal"}
+    ]},
+    {"slug": "cosmic-cowboy", "image": "eval/fixtures/editorial/cosmic-cowboy.jpg", "components": [
+      {"id": "hat", "slot": "head", "garment": "cowboy hat", "color": "silver"},
+      {"id": "neckerchief", "slot": "accessory", "garment": "bandana neckerchief", "color": "blue"},
+      {"id": "jacket", "slot": "outer", "alt_slots": ["top"], "garment": "fringe jacket", "color": "silver"},
+      {"id": "trousers", "slot": "bottom", "garment": "metallic flared trousers", "color": "silver"},
+      {"id": "boots", "slot": "feet", "garment": "cowboy boots", "color": "silver"}
+    ]},
+    {"slug": "desert-alchemist", "image": "eval/fixtures/editorial/desert-alchemist.jpg", "components": [
+      {"id": "cloak", "slot": "outer", "garment": "hooded cloak", "color": "beige"},
+      {"id": "tunic", "slot": "top", "garment": "tunic", "color": "orange"},
+      {"id": "belt", "slot": "accessory", "garment": "leather belt", "color": "brown"},
+      {"id": "trousers", "slot": "bottom", "garment": "loose trousers", "color": "white"},
+      {"id": "boots", "slot": "feet", "garment": "boots", "color": "brown"}
+    ], "excluded": [{"name": "bracers and potion bottles", "reason": "small accessories"}]},
+    {"slug": "disco-phantom", "image": "eval/fixtures/editorial/disco-phantom.jpg", "components": [
+      {"id": "cape", "slot": "outer", "garment": "hooded sequin cape", "color": "silver"},
+      {"id": "jumpsuit", "slot": "top", "alt_slots": ["bottom"], "garment": "flared jumpsuit", "color": "white"},
+      {"id": "belt", "slot": "accessory", "garment": "metallic belt", "color": "silver"},
+      {"id": "gloves", "slot": "accessory", "garment": "gloves", "color": "silver"},
+      {"id": "boots", "slot": "feet", "garment": "platform boots", "color": "silver"}
+    ]},
+    {"slug": "enchanted-jester", "image": "eval/fixtures/editorial/enchanted-jester.jpg", "components": [
+      {"id": "cap", "slot": "head", "garment": "jester hat", "color": "purple"},
+      {"id": "collar", "slot": "accessory", "garment": "ruff collar", "color": "white"},
+      {"id": "tunic", "slot": "top", "garment": "harlequin tunic", "color": "purple"},
+      {"id": "trousers", "slot": "bottom", "garment": "velvet trousers", "color": "purple"},
+      {"id": "boots", "slot": "feet", "garment": "curled toe boots", "color": "purple"}
+    ], "excluded": [{"name": "diamond fabric", "reason": "DIY material"}]},
+    {"slug": "forest-sprite", "image": "eval/fixtures/editorial/forest-sprite.jpg", "components": [
+      {"id": "crown", "slot": "head", "garment": "leaf crown", "color": "green"},
+      {"id": "cape", "slot": "outer", "garment": "cape", "color": "green"},
+      {"id": "tunic", "slot": "top", "garment": "leaf tunic", "color": "green"},
+      {"id": "leggings", "slot": "bottom", "garment": "leggings", "color": "olive"},
+      {"id": "boots", "slot": "feet", "garment": "ankle boots", "color": "brown"}
+    ]},
+    {"slug": "garden-beekeeper", "image": "eval/fixtures/editorial/garden-beekeeper.jpg", "components": [
+      {"id": "jacket", "slot": "outer", "alt_slots": ["top", "head"], "garment": "beekeeper veil jacket", "color": "white"},
+      {"id": "trousers", "slot": "bottom", "garment": "cargo trousers", "color": "white"},
+      {"id": "gloves", "slot": "accessory", "garment": "gloves", "color": "yellow"},
+      {"id": "boots", "slot": "feet", "garment": "boots", "color": "brown"}
+    ], "excluded": [{"name": "bee brooch", "reason": "under 0.5% of image area"}]},
+    {"slug": "linen-ghost", "image": "eval/fixtures/editorial/linen-ghost.jpg", "components": [
+      {"id": "sheet", "slot": "outer", "alt_slots": ["top", "head"], "garment": "ghost sheet", "color": "white"},
+      {"id": "boots", "slot": "feet", "garment": "lace-up boots", "color": "brown"}
+    ], "excluded": [{"name": "base top and trousers", "reason": "hidden under the sheet"}]},
+    {"slug": "midnight-pirate", "image": "eval/fixtures/editorial/midnight-pirate.jpg", "components": [
+      {"id": "hat", "slot": "head", "garment": "tricorn hat", "color": "black"},
+      {"id": "shirt", "slot": "top", "garment": "ruffled shirt", "color": "white"},
+      {"id": "coat", "slot": "outer", "garment": "long frock coat", "color": "navy"},
+      {"id": "sash", "slot": "accessory", "garment": "waist sash", "color": "red"},
+      {"id": "trousers", "slot": "bottom", "garment": "trousers", "color": "black"},
+      {"id": "boots", "slot": "feet", "garment": "buckled boots", "color": "black"}
+    ]},
+    {"slug": "moon-moth", "image": "eval/fixtures/editorial/moon-moth.jpg", "components": [
+      {"id": "antennae", "slot": "head", "garment": "antennae headband", "color": "white"},
+      {"id": "collar", "slot": "accessory", "garment": "faux fur collar", "color": "white"},
+      {"id": "wings", "slot": "outer", "garment": "wing cape", "color": "green"},
+      {"id": "unitard", "slot": "top", "alt_slots": ["bottom"], "garment": "unitard", "color": "green"}
+    ]},
+    {"slug": "pumpkin-harlequin", "image": "eval/fixtures/editorial/pumpkin-harlequin.jpg", "components": [
+      {"id": "beret", "slot": "head", "garment": "beret", "color": "orange"},
+      {"id": "collar", "slot": "accessory", "garment": "ruff collar", "color": "orange"},
+      {"id": "jumpsuit", "slot": "top", "alt_slots": ["bottom"], "garment": "harlequin jumpsuit", "color": "orange"},
+      {"id": "boots", "slot": "feet", "garment": "ankle boots", "color": "black"}
+    ], "excluded": [{"name": "diamond fabric", "reason": "DIY material"}]},
+    {"slug": "raven-scholar", "image": "eval/fixtures/editorial/raven-scholar.jpg", "components": [
+      {"id": "headpiece", "slot": "head", "garment": "raven headpiece", "color": "black"},
+      {"id": "capelet", "slot": "outer", "garment": "feather capelet", "color": "black"},
+      {"id": "blouse", "slot": "top", "garment": "blouse", "color": "white"},
+      {"id": "waistcoat", "slot": "outer", "alt_slots": ["top"], "garment": "waistcoat", "color": "gray"},
+      {"id": "skirt", "slot": "bottom", "garment": "maxi skirt", "color": "black"},
+      {"id": "boots", "slot": "feet", "garment": "lace-up boots", "color": "black"}
+    ]},
+    {"slug": "retro-astronaut", "image": "eval/fixtures/editorial/retro-astronaut.jpg", "components": [
+      {"id": "helmet", "slot": "head", "garment": "space helmet", "color": "silver"},
+      {"id": "jumpsuit", "slot": "top", "alt_slots": ["bottom"], "garment": "flight jumpsuit", "color": "white"},
+      {"id": "belt", "slot": "accessory", "garment": "utility belt", "color": "gray"},
+      {"id": "gloves", "slot": "accessory", "garment": "gloves", "color": "white"},
+      {"id": "boots", "slot": "feet", "garment": "moon boots", "color": "silver"}
+    ], "excluded": [{"name": "orange panels", "reason": "DIY trim on the jumpsuit"}]},
+    {"slug": "rose-garden-queen", "image": "eval/fixtures/editorial/rose-garden-queen.jpg", "components": [
+      {"id": "crown", "slot": "head", "garment": "crown", "color": "gold"},
+      {"id": "cape", "slot": "outer", "garment": "short cape", "color": "green"},
+      {"id": "gown", "slot": "top", "alt_slots": ["bottom"], "garment": "velvet gown", "color": "burgundy"},
+      {"id": "gloves", "slot": "accessory", "garment": "opera gloves", "color": "burgundy"},
+      {"id": "boots", "slot": "feet", "garment": "boots", "color": "black"}
+    ]},
+    {"slug": "snow-owl", "image": "eval/fixtures/editorial/snow-owl.jpg", "components": [
+      {"id": "headpiece", "slot": "head", "garment": "owl headpiece", "color": "white"},
+      {"id": "cape", "slot": "outer", "garment": "feather cape", "color": "white"},
+      {"id": "tunic", "slot": "top", "garment": "tunic", "color": "white"},
+      {"id": "trousers", "slot": "bottom", "garment": "loose trousers", "color": "white"},
+      {"id": "boots", "slot": "feet", "garment": "ankle boots", "color": "brown"}
+    ], "excluded": [{"name": "rope waist tie", "reason": "under 0.5% of image area"}]},
+    {"slug": "starlight-witch", "image": "eval/fixtures/editorial/starlight-witch.jpg", "components": [
+      {"id": "hat", "slot": "head", "garment": "witch hat", "color": "navy"},
+      {"id": "cape", "slot": "outer", "garment": "star print cape", "color": "navy"},
+      {"id": "dress", "slot": "top", "alt_slots": ["bottom"], "garment": "dress", "color": "navy"},
+      {"id": "boots", "slot": "feet", "garment": "lace-up boots", "color": "black"}
+    ], "excluded": [{"name": "crescent necklace", "reason": "under 0.5% of image area"}]},
+    {"slug": "storm-chaser", "image": "eval/fixtures/editorial/storm-chaser.jpg", "components": [
+      {"id": "raincoat", "slot": "outer", "garment": "hooded raincoat", "color": "yellow"},
+      {"id": "sweater", "slot": "top", "garment": "striped sweater", "color": "navy"},
+      {"id": "trousers", "slot": "bottom", "garment": "trousers", "color": "navy"},
+      {"id": "boots", "slot": "feet", "garment": "rain boots", "color": "navy"}
+    ], "excluded": [{"name": "lightning pin", "reason": "under 0.5% of image area"}]},
+    {"slug": "velvet-ringmaster", "image": "eval/fixtures/editorial/velvet-ringmaster.jpg", "components": [
+      {"id": "hat", "slot": "head", "garment": "top hat", "color": "black"},
+      {"id": "tailcoat", "slot": "outer", "garment": "velvet tailcoat", "color": "red"},
+      {"id": "shirt", "slot": "top", "garment": "ruffled shirt", "color": "white"},
+      {"id": "waistcoat", "slot": "outer", "alt_slots": ["top"], "garment": "waistcoat", "color": "gold"},
+      {"id": "trousers", "slot": "bottom", "garment": "trousers", "color": "black"},
+      {"id": "boots", "slot": "feet", "garment": "riding boots", "color": "black"}
+    ]},
+    {"slug": "velvet-vampire", "image": "eval/fixtures/editorial/velvet-vampire.jpg", "components": [
+      {"id": "cape", "slot": "outer", "garment": "high collar cape", "color": "black"},
+      {"id": "shirt", "slot": "top", "garment": "ruffled shirt", "color": "white"},
+      {"id": "waistcoat", "slot": "outer", "alt_slots": ["top"], "garment": "waistcoat", "color": "black"},
+      {"id": "trousers", "slot": "bottom", "garment": "trousers", "color": "black"},
+      {"id": "boots", "slot": "feet", "garment": "boots", "color": "black"}
+    ], "excluded": [{"name": "brooch", "reason": "under 0.5% of image area"}]},
+    {"slug": "victorian-detective", "image": "eval/fixtures/editorial/victorian-detective.jpg", "components": [
+      {"id": "hat", "slot": "head", "garment": "deerstalker hat", "color": "brown"},
+      {"id": "coat", "slot": "outer", "garment": "tweed cape coat", "color": "brown"},
+      {"id": "shirt", "slot": "top", "garment": "button shirt", "color": "white"},
+      {"id": "waistcoat", "slot": "outer", "alt_slots": ["top"], "garment": "waistcoat", "color": "brown"},
+      {"id": "trousers", "slot": "bottom", "garment": "tweed trousers", "color": "brown"},
+      {"id": "shoes", "slot": "feet", "garment": "brogues", "color": "brown"}
+    ]},
+    {"slug": "woodland-mushroom", "image": "eval/fixtures/editorial/woodland-mushroom.jpg", "components": [
+      {"id": "hat", "slot": "head", "garment": "mushroom cap hat", "color": "red"},
+      {"id": "blouse", "slot": "top", "garment": "blouse", "color": "white"},
+      {"id": "neckerchief", "slot": "accessory", "garment": "neckerchief", "color": "green"},
+      {"id": "shortalls", "slot": "bottom", "alt_slots": ["top"], "garment": "corduroy shortalls", "color": "brown"},
+      {"id": "tights", "slot": "accessory", "alt_slots": ["bottom"], "garment": "tights", "color": "white"},
+      {"id": "boots", "slot": "feet", "garment": "boots", "color": "brown"}
+    ]}
+  ]
+}
