@@ -25,6 +25,19 @@ No generated model image is claimed for custom looks.
 
 See [the implementation spec](docs/semantic-search-and-create.md).
 
+## OpenCV AI Competition
+
+Screenshot sourcing (`/screenshot`) runs on an OpenCV 5 vision service hosted on
+AWS Graviton with COOL. OpenCV segments the person into garments, measures their
+colors, and scores every merchant product photo. An agent loop reads those scores
+and searches again or asks the shopper when a match is weak. `SCREENSHOT_VISION=luna`
+switches back to the previous language-model path.
+
+- [Report](docs/opencv-competition/report.md), with the evaluation and COOL benchmark
+- [Reproduce](docs/opencv-competition/reproduce.md): local run, AWS deploy, eval and bench commands
+- [Responsible use](docs/opencv-competition/responsible-use.md)
+- Code: `vision/` (service), `infra/` (AWS scripts), `lib/sourcing/` (agent loop), `eval/` (evaluation)
+
 ## Run
 
 ```sh

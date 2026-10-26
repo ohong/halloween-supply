@@ -64,9 +64,9 @@ TODO(numbers): instance type and hourly cost.
 
 ## 6. COOL
 
-TODO(verify): COOL listing, delivery option and how `cv2` is provided, from `vision/Dockerfile.cool` and `infra/README.md`.
+We use the [Cloud Optimized OpenCV For AWS Graviton4](https://aws.amazon.com/marketplace/pp/prodview-fdvbfiewzuehs) AMI (Ubuntu, arm64) on a `c8g.xlarge` in `us-east-1`. COOL installs its OpenCV on the host under `/opt/cool`, with Python 3.12 bindings and C++ libraries. We also looked at COOL's Docker listing, but it meters usage through ECS or EKS and exits on a plain EC2 Docker host, so we kept our own container and gave it COOL instead: the host mounts `/opt/cool` read-only into the container and points `PYTHONPATH` and `LD_LIBRARY_PATH` at it. TODO(verify): `infra/30-instance.sh` and `vision/Dockerfile.cool`.
 
-The service code does not care which `cv2` it imports. The stock image pins `opencv-python-headless==5.0.0.93`; the COOL image replaces it with COOL's OpenCV build for Graviton. `/healthz` and every response header report `build: "cool"` or `"stock"`, detected from `cv2.getBuildInformation()`, so a judge can confirm which build served a request.
+The service code does not care which `cv2` it imports. The stock image pins `opencv-python-headless==5.0.0.93`; the COOL image (Ubuntu 24.04 with system Python 3.12, matching the AMI) installs no OpenCV of its own and imports COOL's from the mount. `/healthz` and every response header report `build: "cool"` or `"stock"`, detected from `cv2.getBuildInformation()`, so a judge can confirm which build served a request.
 
 The benchmark (`vision/bench/`) imports the same service modules in-process and runs a fixed workload: the 25 catalog images through analyze, plus 25 match calls with 6 candidate photos each, with 3 warm-up and 10 measured runs. It also times the individual OpenCV operations the service uses. It ran in three configurations: COOL on Graviton, stock `opencv-python-headless==5.0.0.93` on the same Graviton instance type, and stock on x86 (`c7i.xlarge`). Each result file records `cv2.getBuildInformation()` as evidence of which build ran.
 
@@ -107,7 +107,7 @@ This is what makes it agentic in the sense the award describes: the visual measu
 
 TODO(numbers): all of this section from `eval/out/` on `oh-cv-eval`.
 
-**Data.** The 25 catalog costumes, each with an editorial image (`public/costumes/*.png`) and a ground-truth list of purchasable components with slot, garment phrase and main color (`eval/ground-truth.json`), drafted from the catalog and spot-checked by hand.
+**Data.** The 25 catalog costumes, each with an editorial image (`public/costumes/*.png`, ghost-mannequin renders on a transparent background, flattened onto white JPEGs in `eval/fixtures/editorial/` so OpenCV and the baseline get the same bytes) and a ground-truth list of purchasable components with slot, garment phrase and main color family (`eval/ground-truth.json`). The lists were drafted from the catalog piece lists (`data/costumes/*.json`) and a visual pass over each image; pieces that are not visible, such as DIY fabric or hidden base layers, are listed as excluded and not scored. TODO(verify): whether the human spot check of 5 costumes happened.
 
 **Decomposition** (`scripts/eval-decompose.ts`). Each editorial image goes through `/v1/analyze` and, as a baseline, through the previous `gpt-6-luna` decomposition. Predicted pieces are matched to ground truth by slot and garment-phrase similarity.
 
@@ -140,7 +140,7 @@ Source: [`eval/out/agent.md`](../../eval/out/agent.md).
 
 TODO(numbers): named failure cases with images from `eval/out/`.
 
-- The evaluation images are generated editorial images, not real screenshots, and there are only 25. The ground truth was drafted by us from our own catalog, and garment-phrase matching uses a small synonym table, so it is approximate.
+- The evaluation images are generated ghost-mannequin renders, mostly without a head, not real screenshots of people, and there are only 25. The ground truth was drafted by us from our own catalog, and garment-phrase matching uses a small synonym table, so it is approximate.
 - The garment vocabulary is fixed. A garment that isn't in it gets the nearest phrase, which can produce a reasonable color with the wrong noun.
 - Clothes parsing labels 18 classes. Costume-specific items (capes, wings, masks, props) have no label of their own, so they fall into the nearest class or are missed. TODO(verify) against the failure cases.
 - Merchant search coverage and inventory, not perception, limit many results: a perfect query can still return no good product within 30 s.
