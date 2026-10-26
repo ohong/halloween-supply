@@ -7,12 +7,20 @@ import { SNAPSHOTS } from "../catalog/fallback";
 import screenshotHints from "../../data/sourcing/screenshot-hints.json";
 import { supportsWearerAudience } from "../custom-looks/audience";
 import type { ScreenshotMatch } from "./screenshot-types";
-import { reviewScreenshotProducts } from "./screenshot-vision";
+import { offerImage, reviewScreenshotProducts } from "./screenshot-vision";
+import { decideNext, match as matchCandidates, type MatchResult, type TraceStep, type VisionPiece } from "./vision-client";
 
 export interface ScreenshotPiece { name: string; query: string; alternate?: string; appearance?: string; assembly?: string | null }
 export interface ScreenshotProduct { title: string; image: string; url: string; priceCents: number; merchant: string; sizes: string[]; why?: string }
 export type SourcingLog = (kind: string, text: string) => void;
 type Details = { match: ScreenshotMatch; sizes: string[]; cartReady: boolean };
+export interface AgentHooks {
+  deadline: number;
+  trace: (piece: number, step: TraceStep, detail: Record<string, unknown>) => void;
+  onMatch: (match: ScreenshotMatch | null) => void;
+  onOffer: (offer: ScreenshotProduct) => void;
+  onApproval: (offer: ScreenshotProduct, because: string) => void;
+}
 
 const EXCLUDED = [...BLOCKED_DOMAINS, ...NOISE_DOMAINS, "alibaba.com", "dhgate.com", "made-in-china.com",
   "alamy.com", "dreamstime.com", "gettyimages.com", "shutterstock.com", "depositphotos.com", "istockphoto.com"];
@@ -235,29 +243,26 @@ export function screenshotSourcing(signal: AbortSignal, log: SourcingLog, refere
       return true;
     }).sort((a, b) => relevance(piece, b) - relevance(piece, a)).slice(0, 3);
   }
-  return async (piece: ScreenshotPiece, onMatch: (match: ScreenshotMatch | null) => void, onOffer: (offer: ScreenshotProduct) => void) => {
-    let candidates: SearchResult[] = [];
-    for (const query of [...new Set([piece.query, piece.alternate].filter((query): query is string => !!query))]) {
+  async function discover(piece: ScreenshotPiece, queries: string[], hints: boolean) {
+    for (const query of [...new Set(queries.filter(Boolean))]) {
       signal.throwIfAborted();
-      try { candidates = shortlist(await search(`${query} buy`), piece); }
-      catch {
+      try {
+        const candidates = shortlist(await search(`${query} buy`), piece);
+        if (candidates.length) return candidates;
+      } catch {
         signal.throwIfAborted();
         log("search", `${piece.name}: live search is temporarily unavailable`);
         break;
       }
-      if (candidates.length) break;
     }
-    if (!candidates.length) {
-      const color = desiredColors(piece)[0];
-      const hints = [...screenshotHints, ...SNAPSHOTS.flatMap(snapshot => snapshot.products)]
-        .filter(hint => matchesScreenshotPiece(piece, hint.title, hint.description) && (!color || wordsMatch(hint.title, color)));
-      candidates = shortlist(hints, piece);
-    }
-    if (!candidates.length) return;
-    onMatch(matchFor(candidates[0], piece));
-    log("found", `${piece.name}: found a similar item at ${registrableDomain(candidates[0].url)}`);
+    if (!hints) return [];
+    const color = desiredColors(piece)[0];
+    return shortlist([...screenshotHints, ...SNAPSHOTS.flatMap(snapshot => snapshot.products)]
+      .filter(hint => matchesScreenshotPiece(piece, hint.title, hint.description) && (!color || wordsMatch(hint.title, color))), piece);
+  }
+  async function readAll(candidates: SearchResult[], piece: ScreenshotPiece, onMatch: (match: ScreenshotMatch | null) => void): Promise<Details[]> {
     let best = 0;
-    // Photos and facts are useful immediately, even before the model compares them.
+    // Photos and facts are useful immediately, even before anything compares them.
     const readResults = await Promise.allSettled(candidates.map(async result => {
       const details = await read(result, piece);
       if (!details || signal.aborted) return null;
@@ -266,7 +271,69 @@ export function screenshotSourcing(signal: AbortSignal, log: SourcingLog, refere
       if (quality > best) { best = quality; onMatch(match); }
       return details;
     }));
-    const details = readResults.flatMap(result => result.status === "fulfilled" && result.value?.match.image ? [result.value] : []);
+    return readResults.flatMap(result => result.status === "fulfilled" && result.value?.match.image ? [result.value] : []);
+  }
+  const offerFor = ({ match, sizes }: Details, why: string): ScreenshotProduct =>
+    ({ title: match.title, url: match.url, image: match.image!, priceCents: match.priceCents!, merchant: match.merchant, sizes, why });
+
+  /** Perceive → search → score → decide. Retries change one thing about the query; uncertain picks wait for the shopper. */
+  async function agent(piece: ScreenshotPiece, seen: VisionPiece, index: number, hooks: AgentHooks) {
+    const tried = new Set<string>();
+    let query = piece.query;
+    let current = piece;
+    let best: { result: MatchResult; details: Details } | null = null;
+    let shown = false;
+    for (let attempt = 0; ; attempt++) {
+      tried.add(query.toLowerCase());
+      const t0 = performance.now();
+      const candidates = await discover(current, attempt ? [query] : [query, piece.alternate ?? ""], attempt === 0);
+      hooks.trace(index, "search", { attempt, query, candidates: candidates.length, ms: Math.round(performance.now() - t0) });
+      if (candidates.length && !shown) { shown = true; hooks.onMatch(matchFor(candidates[0], current)); }
+      const details: Details[] = candidates.length ? await readAll(candidates, current, best || attempt ? () => {} : hooks.onMatch) : [];
+      signal.throwIfAborted();
+      const photos = (await Promise.all(details.map(async (d, i) => {
+        try { return { id: String(i), image: await offerImage(d.match.image!, signal) }; } catch { return null; }
+      }))).filter(photo => photo !== null);
+      const results = photos.length ? (await matchCandidates(seen, photos, AbortSignal.any([signal, AbortSignal.timeout(8_000)]))).results : [];
+      hooks.trace(index, "score", { attempt, results: results.map(r => ({
+        title: details[Number(r.id)].match.title, merchant: details[Number(r.id)].match.merchant, score: r.score, verdict: r.verdict,
+        reasons: r.reasons, embedding: r.embedding_similarity, delta_e: r.color_delta_e, color: r.candidate_color, foreground: r.foreground,
+      })) });
+      for (const result of results) {
+        if (result.verdict !== "reject" && (!best || result.score > best.result.score)) best = { result, details: details[Number(result.id)] };
+      }
+      const decision = decideNext(seen, results, attempt, hooks.deadline - performance.now(), tried);
+      hooks.trace(index, "decide", decision.action === "retry" ? { attempt, action: "retry", because: decision.because, next: decision.query }
+        : { attempt, action: decision.action, because: decision.action === "approve" ? decision.because : "match", best_score: best?.result.score ?? null });
+      if (decision.action === "retry") {
+        query = decision.query;
+        // The shop-title filters read the query, so the retried garment type or color applies to them too.
+        current = { ...piece, query, alternate: undefined, name: decision.because === "type_mismatch" ? query : piece.name };
+        log("retry", `${piece.name}: ${decision.because.replace("_", " ")}, trying "${query}"`);
+        continue;
+      }
+      if (!best) { hooks.onMatch(null); return; }
+      const { match, cartReady } = best.details;
+      const scored = `Matched by OpenCV: ${best.result.candidate_color.name}, score ${best.result.score.toFixed(2)}.`;
+      const note = `${piece.assembly ? `DIY: ${piece.assembly} ` : ""}${scored}`;
+      hooks.onMatch({ ...match, note });
+      if (!cartReady || !match.image || !match.priceCents) return;
+      if (decision.action === "accept") hooks.onOffer(offerFor(best.details, note));
+      else {
+        hooks.trace(index, "approve", { because: decision.because, score: best.result.score, title: match.title });
+        hooks.onApproval(offerFor(best.details, note), decision.because);
+      }
+      return;
+    }
+  }
+
+  return async (piece: ScreenshotPiece, onMatch: (match: ScreenshotMatch | null) => void, onOffer: (offer: ScreenshotProduct) => void, vision?: { seen: VisionPiece; index: number } & Omit<AgentHooks, "onMatch" | "onOffer">) => {
+    if (vision) return agent(piece, vision.seen, vision.index, { ...vision, onMatch, onOffer });
+    const candidates = await discover(piece, [piece.query, piece.alternate ?? ""], true);
+    if (!candidates.length) return;
+    onMatch(matchFor(candidates[0], piece));
+    log("found", `${piece.name}: found a similar item at ${registrableDomain(candidates[0].url)}`);
+    const details = await readAll(candidates, piece, onMatch);
     if (!details.length || signal.aborted) return;
     log("review", `${piece.name}: quick product-photo check`);
     try {
@@ -277,10 +344,9 @@ export function screenshotSourcing(signal: AbortSignal, log: SourcingLog, refere
         onMatch(null);
         return;
       }
-      const { match, sizes, cartReady } = selected;
       const note = `${piece.assembly ? `DIY: ${piece.assembly} ` : ""}${verdict.note}`;
-      onMatch({ ...match, note });
-      if (cartReady && match.image && match.priceCents) onOffer({ title: match.title, url: match.url, image: match.image, priceCents: match.priceCents, merchant: match.merchant, sizes, why: note });
+      onMatch({ ...selected.match, note });
+      if (selected.cartReady && selected.match.image && selected.match.priceCents) onOffer(offerFor(selected, note));
     } catch {
       // A slow or unavailable photo check keeps the discovered shop link on the board.
     }

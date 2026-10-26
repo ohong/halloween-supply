@@ -48,7 +48,8 @@ export async function decomposeScreenshot(image: Buffer, signal: AbortSignal): P
   return screenshotLookSchema.parse(JSON.parse(text));
 }
 
-async function offerImage(url: string, signal: AbortSignal) {
+/** Fetches a merchant photo as a small JPEG. Both the luna review and the OpenCV matcher use it. */
+export async function offerImage(url: string, signal: AbortSignal) {
   if (new URL(url).protocol !== "https:") throw new Error("Invalid photo URL");
   const response = await fetch(url, { cache: "no-store", redirect: "error", signal: AbortSignal.any([signal, AbortSignal.timeout(2_000)]) });
   if (!response.ok || !response.headers.get("content-type")?.startsWith("image/")) throw new Error("Photo unavailable");
@@ -63,14 +64,13 @@ async function offerImage(url: string, signal: AbortSignal) {
     if (bytes > 3 * 1024 * 1024) { await reader.cancel(); throw new Error("Photo too large"); }
     chunks.push(value);
   }
-  const image = await sharp(Buffer.concat(chunks), { limitInputPixels: 20_000_000 }).resize({ width: 600, height: 600, fit: "inside", withoutEnlargement: true }).jpeg({ quality: 80 }).toBuffer();
-  return `data:image/jpeg;base64,${image.toString("base64")}`;
+  return sharp(Buffer.concat(chunks), { limitInputPixels: 20_000_000 }).resize({ width: 600, height: 600, fit: "inside", withoutEnlargement: true }).jpeg({ quality: 80 }).toBuffer();
 }
 
 /** Discovery is already visible. This short check only refines its match note and selection. */
 export async function reviewScreenshotProducts(reference: Buffer, piece: { name: string; query: string; assembly?: string | null }, offers: ScreenshotMatch[], signal: AbortSignal) {
   const photos = await Promise.all(offers.map(async (offer, index) => {
-    try { return { index, image: await offerImage(offer.image!, signal) }; } catch { return null; }
+    try { return { index, image: `data:image/jpeg;base64,${(await offerImage(offer.image!, signal)).toString("base64")}` }; } catch { return null; }
   }));
   const usable = photos.filter((photo): photo is NonNullable<typeof photo> => photo !== null);
   if (!usable.length) return null;
