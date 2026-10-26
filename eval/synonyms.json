@@ -32,7 +32,7 @@
     "hat": ["hat", "cap", "beret", "tricorn", "deerstalker", "fedora", "beanie", "hood", "headband", "headpiece", "crown", "tiara", "helmet", "antennae", "fascinator"],
     "outerwear": ["cape", "cloak", "capelet", "coat", "jacket", "bomber", "blazer", "tailcoat", "raincoat", "poncho", "robe", "shawl", "wings", "sheet", "waistcoat", "vest", "parka", "kimono"],
     "top": ["shirt", "blouse", "tunic", "sweater", "top", "tee", "t-shirt", "turtleneck", "bodysuit", "corset", "camisole", "jumper", "hoodie", "waistcoat", "vest"],
-    "onepiece": ["dress", "gown", "jumpsuit", "overalls", "shortalls", "unitard", "romper", "coverall", "catsuit", "robe", "bodysuit", "leotard"],
+    "onepiece": ["dress", "gown", "jumpsuit", "overalls", "shortalls", "unitard", "romper", "coverall", "catsuit", "robe", "bodysuit", "leotard", "suit"],
     "bottom": ["trousers", "pants", "jeans", "leggings", "skirt", "shorts", "tights", "stockings", "breeches", "culottes", "overalls", "shortalls"],
     "footwear": ["boots", "boot", "shoes", "shoe", "brogues", "sneakers", "heels", "loafers", "sandals", "slippers", "oxfords", "pumps", "flats", "wellies"],
     "accessory": ["belt", "sash", "gloves", "glove", "scarf", "neckerchief", "bandana", "collar", "ruff", "necklace", "pendant", "brooch", "bag", "tie", "bow", "bracers", "goggles", "sunglasses"]

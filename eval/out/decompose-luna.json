@@ -1,0 +1,1215 @@
+[
+  {
+    "slug": "autumn-scarecrow",
+    "ok": true,
+    "latency_ms": 6066.890958999999,
+    "usage": {
+      "input_tokens": 2413,
+      "output_tokens": 434
+    },
+    "pieces": [
+      {
+        "id": "p0",
+        "slot": "head",
+        "phrase": "Brown floppy patchwork hat",
+        "color": "brown",
+        "query": "brown floppy patchwork hat"
+      },
+      {
+        "id": "p1",
+        "slot": "top",
+        "phrase": "Brown plaid button-up shirt",
+        "color": "brown",
+        "query": "brown plaid button-up shirt"
+      },
+      {
+        "id": "p2",
+        "slot": "bottom",
+        "phrase": "Blue denim patchwork overalls",
+        "color": "blue",
+        "query": "blue denim patchwork overalls"
+      },
+      {
+        "id": "p3",
+        "slot": "accessory",
+        "phrase": "Straw scarecrow cuffs",
+        "color": "tan",
+        "query": "tan straw scarecrow cuffs"
+      },
+      {
+        "id": "p4",
+        "slot": "feet",
+        "phrase": "Brown lace-up work boots",
+        "color": "brown",
+        "query": "brown lace-up work boots"
+      }
+    ]
+  },
+  {
+    "slug": "candy-corn-sorceress",
+    "ok": true,
+    "latency_ms": 7292.921375,
+    "usage": {
+      "input_tokens": 2413,
+      "output_tokens": 552
+    },
+    "pieces": [
+      {
+        "id": "p0",
+        "slot": "head",
+        "phrase": "Orange, yellow, and cream pointed witch hat",
+        "color": "orange",
+        "query": "orange pointed witch hat"
+      },
+      {
+        "id": "p1",
+        "slot": "outer",
+        "phrase": "Black velvet cape",
+        "color": "black",
+        "query": "black velvet cape"
+      },
+      {
+        "id": "p2",
+        "slot": "top",
+        "phrase": "Orange tiered costume dress with cream bodice",
+        "color": "orange",
+        "query": "orange tiered witch dress"
+      },
+      {
+        "id": "p3",
+        "slot": "bottom",
+        "phrase": "Candy-corn striped tights",
+        "color": null,
+        "query": "striped candy corn tights"
+      },
+      {
+        "id": "p4",
+        "slot": "feet",
+        "phrase": "Black lace-up platform boots",
+        "color": "black",
+        "query": "black lace-up platform boots"
+      }
+    ]
+  },
+  {
+    "slug": "celestial-sorcerer",
+    "ok": true,
+    "latency_ms": 6172.562583,
+    "usage": {
+      "input_tokens": 2413,
+      "output_tokens": 433
+    },
+    "pieces": [
+      {
+        "id": "p0",
+        "slot": "head",
+        "phrase": "Pointed celestial wizard hat",
+        "color": "navy",
+        "query": "navy celestial wizard hat"
+      },
+      {
+        "id": "p1",
+        "slot": "outer",
+        "phrase": "Embroidered wizard robe",
+        "color": "navy",
+        "query": "navy embroidered wizard robe"
+      },
+      {
+        "id": "p2",
+        "slot": "top",
+        "phrase": "Long star-front tunic",
+        "color": "navy",
+        "query": "navy star print tunic"
+      },
+      {
+        "id": "p3",
+        "slot": "accessory",
+        "phrase": "Braided cord belt",
+        "color": "silver",
+        "query": "silver braided cord belt"
+      },
+      {
+        "id": "p4",
+        "slot": "accessory",
+        "phrase": "Crescent pendant necklace",
+        "color": "silver",
+        "query": "silver crescent pendant necklace"
+      },
+      {
+        "id": "p5",
+        "slot": "feet",
+        "phrase": "Black lace-up boots",
+        "color": "black",
+        "query": "black lace up boots"
+      }
+    ]
+  },
+  {
+    "slug": "clockwork-aviator",
+    "ok": true,
+    "latency_ms": 6748.036917,
+    "usage": {
+      "input_tokens": 2413,
+      "output_tokens": 514
+    },
+    "pieces": [
+      {
+        "id": "p0",
+        "slot": "head",
+        "phrase": "Brown leather aviator cap",
+        "color": "brown",
+        "query": "brown leather aviator cap"
+      },
+      {
+        "id": "p1",
+        "slot": "accessory",
+        "phrase": "Brass aviator goggles",
+        "color": "brass",
+        "query": "brass aviator goggles brown"
+      },
+      {
+        "id": "p2",
+        "slot": "outer",
+        "phrase": "Brown shearling flight bomber",
+        "color": "brown",
+        "query": "brown shearling flight bomber"
+      },
+      {
+        "id": "p3",
+        "slot": "top",
+        "phrase": "Cream button-up shirt",
+        "color": "cream",
+        "query": "cream solid button up shirt"
+      },
+      {
+        "id": "p4",
+        "slot": "accessory",
+        "phrase": "Brown leather belt",
+        "color": "brown",
+        "query": "brown leather belt brass buckle"
+      },
+      {
+        "id": "p5",
+        "slot": "bottom",
+        "phrase": "Olive cargo trousers",
+        "color": "olive",
+        "query": "olive cargo trousers brown"
+      },
+      {
+        "id": "p6",
+        "slot": "accessory",
+        "phrase": "Brown leather crossbody satchel",
+        "color": "brown",
+        "query": "brown leather crossbody satchel"
+      },
+      {
+        "id": "p7",
+        "slot": "feet",
+        "phrase": "Brown lace-up combat boots",
+        "color": "brown",
+        "query": "brown lace up combat boots"
+      }
+    ]
+  },
+  {
+    "slug": "coral-mermaid",
+    "ok": true,
+    "latency_ms": 8122.681375000001,
+    "usage": {
+      "input_tokens": 2413,
+      "output_tokens": 681
+    },
+    "pieces": [
+      {
+        "id": "p0",
+        "slot": "outer",
+        "phrase": "Coral embellished cropped jacket",
+        "color": "coral",
+        "query": "coral embroidered bolero jacket"
+      },
+      {
+        "id": "p1",
+        "slot": "top",
+        "phrase": "Seafoam draped-sleeve blouse",
+        "color": "seafoam",
+        "query": "seafoam draped sleeve blouse"
+      },
+      {
+        "id": "p2",
+        "slot": "bottom",
+        "phrase": "Teal scale mermaid skirt",
+        "color": "teal",
+        "query": "teal scale mermaid skirt"
+      },
+      {
+        "id": "p3",
+        "slot": "head",
+        "phrase": "Coral shell crown",
+        "color": "coral",
+        "query": "coral shell crown"
+      },
+      {
+        "id": "p4",
+        "slot": "accessory",
+        "phrase": "Gold pendant necklace",
+        "color": "gold",
+        "query": "gold green pendant necklace"
+      }
+    ]
+  },
+  {
+    "slug": "cosmic-cowboy",
+    "ok": true,
+    "latency_ms": 6118.806792,
+    "usage": {
+      "input_tokens": 2413,
+      "output_tokens": 564
+    },
+    "pieces": [
+      {
+        "id": "p0",
+        "slot": "head",
+        "phrase": "Silver western cowboy hat",
+        "color": "silver",
+        "query": "silver western cowboy hat"
+      },
+      {
+        "id": "p1",
+        "slot": "outer",
+        "phrase": "Silver fringed western jacket",
+        "color": "silver",
+        "query": "silver fringed western jacket"
+      },
+      {
+        "id": "p2",
+        "slot": "accessory",
+        "phrase": "Blue printed neck scarf",
+        "color": "blue",
+        "query": "blue star print neck scarf"
+      },
+      {
+        "id": "p3",
+        "slot": "accessory",
+        "phrase": "Silver western belt",
+        "color": "silver",
+        "query": "silver western belt"
+      },
+      {
+        "id": "p4",
+        "slot": "bottom",
+        "phrase": "Silver flared trousers",
+        "color": "silver",
+        "query": "silver flared western pants"
+      },
+      {
+        "id": "p5",
+        "slot": "feet",
+        "phrase": "Silver cowboy boots",
+        "color": "silver",
+        "query": "silver western cowboy boots"
+      }
+    ]
+  },
+  {
+    "slug": "desert-alchemist",
+    "ok": true,
+    "latency_ms": 5528.478166,
+    "usage": {
+      "input_tokens": 2413,
+      "output_tokens": 466
+    },
+    "pieces": [
+      {
+        "id": "p0",
+        "slot": "outer",
+        "phrase": "Sand hooded cloak",
+        "color": "sand",
+        "query": "sand hooded cloak"
+      },
+      {
+        "id": "p1",
+        "slot": "top",
+        "phrase": "Rust wrap tunic",
+        "color": "rust",
+        "query": "rust wrap tunic"
+      },
+      {
+        "id": "p2",
+        "slot": "accessory",
+        "phrase": "Dark leather utility belt",
+        "color": "brown",
+        "query": "brown leather utility belt"
+      },
+      {
+        "id": "p3",
+        "slot": "accessory",
+        "phrase": "Dark leather bracers",
+        "color": "brown",
+        "query": "brown leather arm bracers"
+      },
+      {
+        "id": "p4",
+        "slot": "bottom",
+        "phrase": "Cream harem trousers",
+        "color": "cream",
+        "query": "cream harem trousers"
+      },
+      {
+        "id": "p5",
+        "slot": "feet",
+        "phrase": "Brown lace-up boots",
+        "color": "brown",
+        "query": "brown tall lace up boots"
+      }
+    ]
+  },
+  {
+    "slug": "disco-phantom",
+    "ok": true,
+    "latency_ms": 5561.927291,
+    "usage": {
+      "input_tokens": 2413,
+      "output_tokens": 424
+    },
+    "pieces": [
+      {
+        "id": "p0",
+        "slot": "outer",
+        "phrase": "Silver sequined hooded cape",
+        "color": "silver",
+        "query": "silver sequined hooded cape"
+      },
+      {
+        "id": "p1",
+        "slot": "top",
+        "phrase": "Ivory satin flared jumpsuit",
+        "color": "ivory",
+        "query": "ivory satin flared jumpsuit"
+      },
+      {
+        "id": "p2",
+        "slot": "accessory",
+        "phrase": "Silver jeweled belt",
+        "color": "silver",
+        "query": "silver rhinestone belt"
+      },
+      {
+        "id": "p3",
+        "slot": "accessory",
+        "phrase": "Silver metallic gloves",
+        "color": "silver",
+        "query": "silver metallic gloves"
+      },
+      {
+        "id": "p4",
+        "slot": "feet",
+        "phrase": "Silver platform ankle boots",
+        "color": "silver",
+        "query": "silver platform ankle boots"
+      }
+    ]
+  },
+  {
+    "slug": "enchanted-jester",
+    "ok": true,
+    "latency_ms": 5425.151166,
+    "usage": {
+      "input_tokens": 2413,
+      "output_tokens": 428
+    },
+    "pieces": [
+      {
+        "id": "p0",
+        "slot": "head",
+        "phrase": "Two-tone jester cap with bells",
+        "color": "burgundy",
+        "query": "Burgundy green jester cap"
+      },
+      {
+        "id": "p1",
+        "slot": "accessory",
+        "phrase": "Ivory ruffled collar",
+        "color": "ivory",
+        "query": "Ivory ruffled costume collar"
+      },
+      {
+        "id": "p2",
+        "slot": "top",
+        "phrase": "Burgundy and sage diamond jester tunic",
+        "color": "burgundy",
+        "query": "Burgundy green jester tunic"
+      },
+      {
+        "id": "p3",
+        "slot": "bottom",
+        "phrase": "Burgundy fitted trousers",
+        "color": "burgundy",
+        "query": "Burgundy jester pants"
+      },
+      {
+        "id": "p4",
+        "slot": "feet",
+        "phrase": "Burgundy curled-toe jester boots",
+        "color": "burgundy",
+        "query": "Burgundy curled toe boots"
+      }
+    ]
+  },
+  {
+    "slug": "forest-sprite",
+    "ok": true,
+    "latency_ms": 5436.256292000002,
+    "usage": {
+      "input_tokens": 2413,
+      "output_tokens": 367
+    },
+    "pieces": [
+      {
+        "id": "p0",
+        "slot": "head",
+        "phrase": "Twig and leaf crown",
+        "color": "green",
+        "query": "green leaf twig crown"
+      },
+      {
+        "id": "p1",
+        "slot": "outer",
+        "phrase": "Leaf cape",
+        "color": "olive",
+        "query": "olive green leaf cape"
+      },
+      {
+        "id": "p2",
+        "slot": "top",
+        "phrase": "Leaf-embellished dress",
+        "color": "green",
+        "query": "green leaf fairy dress"
+      },
+      {
+        "id": "p3",
+        "slot": "bottom",
+        "phrase": "Olive leggings",
+        "color": "olive",
+        "query": "olive green leggings"
+      },
+      {
+        "id": "p4",
+        "slot": "feet",
+        "phrase": "Brown lace-up boots",
+        "color": "brown",
+        "query": "brown lace up boots"
+      }
+    ]
+  },
+  {
+    "slug": "garden-beekeeper",
+    "ok": true,
+    "latency_ms": 5618.963917000001,
+    "usage": {
+      "input_tokens": 2413,
+      "output_tokens": 451
+    },
+    "pieces": [
+      {
+        "id": "p0",
+        "slot": "head",
+        "phrase": "Beekeeping hat with mesh veil",
+        "color": "white",
+        "query": "white beekeeper hat mesh veil"
+      },
+      {
+        "id": "p1",
+        "slot": "outer",
+        "phrase": "Beekeeping jacket",
+        "color": "cream",
+        "query": "cream beekeeping jacket pockets"
+      },
+      {
+        "id": "p2",
+        "slot": "accessory",
+        "phrase": "Bee-shaped chest pin",
+        "color": null,
+        "query": "small bee shaped pin"
+      },
+      {
+        "id": "p3",
+        "slot": "accessory",
+        "phrase": "Leather work gloves",
+        "color": "tan",
+        "query": "tan leather work gloves"
+      },
+      {
+        "id": "p4",
+        "slot": "bottom",
+        "phrase": "Cargo work pants",
+        "color": "cream",
+        "query": "cream cargo work pants"
+      },
+      {
+        "id": "p5",
+        "slot": "feet",
+        "phrase": "Lace-up work boots",
+        "color": "brown",
+        "query": "brown lace up work boots"
+      }
+    ]
+  },
+  {
+    "slug": "linen-ghost",
+    "ok": true,
+    "latency_ms": 3922.4361670000017,
+    "usage": {
+      "input_tokens": 2413,
+      "output_tokens": 279
+    },
+    "pieces": [
+      {
+        "id": "p0",
+        "slot": "outer",
+        "phrase": "Off-white ghost sheet",
+        "color": "white",
+        "query": "white flat sheet ghost costume"
+      },
+      {
+        "id": "p1",
+        "slot": "feet",
+        "phrase": "Brown lace-up boots",
+        "color": "brown",
+        "query": "brown lace-up combat boots"
+      }
+    ]
+  },
+  {
+    "slug": "midnight-pirate",
+    "ok": true,
+    "latency_ms": 5229.253165999999,
+    "usage": {
+      "input_tokens": 2413,
+      "output_tokens": 498
+    },
+    "pieces": [
+      {
+        "id": "p0",
+        "slot": "head",
+        "phrase": "Black feathered tricorn hat",
+        "color": "black",
+        "query": "black feathered tricorn hat"
+      },
+      {
+        "id": "p1",
+        "slot": "outer",
+        "phrase": "Navy brocade long coat",
+        "color": "navy",
+        "query": "navy brocade pirate coat"
+      },
+      {
+        "id": "p2",
+        "slot": "top",
+        "phrase": "Ivory ruffled shirt",
+        "color": "ivory",
+        "query": "ivory ruffled pirate shirt"
+      },
+      {
+        "id": "p3",
+        "slot": "accessory",
+        "phrase": "Burgundy waist sash",
+        "color": "burgundy",
+        "query": "burgundy pirate waist sash"
+      },
+      {
+        "id": "p4",
+        "slot": "bottom",
+        "phrase": "Black loose trousers",
+        "color": "black",
+        "query": "black loose pirate trousers"
+      },
+      {
+        "id": "p5",
+        "slot": "feet",
+        "phrase": "Black tall pirate boots",
+        "color": "black",
+        "query": "black tall pirate boots"
+      }
+    ]
+  },
+  {
+    "slug": "moon-moth",
+    "ok": true,
+    "latency_ms": 5828.103041999999,
+    "usage": {
+      "input_tokens": 2413,
+      "output_tokens": 392
+    },
+    "pieces": [
+      {
+        "id": "p0",
+        "slot": "head",
+        "phrase": "Feather antenna headband",
+        "color": "gold",
+        "query": "gold feather antenna headband"
+      },
+      {
+        "id": "p1",
+        "slot": "outer",
+        "phrase": "Green moth-wing cape with pale collar",
+        "color": "green",
+        "query": "green moth wing cape"
+      },
+      {
+        "id": "p2",
+        "slot": "top",
+        "phrase": "Dark fitted full-body suit",
+        "color": "gray",
+        "query": "dark gray fitted bodysuit"
+      }
+    ]
+  },
+  {
+    "slug": "pumpkin-harlequin",
+    "ok": true,
+    "latency_ms": 4712.099750000001,
+    "usage": {
+      "input_tokens": 2413,
+      "output_tokens": 380
+    },
+    "pieces": [
+      {
+        "id": "p0",
+        "slot": "head",
+        "phrase": "Orange pumpkin-shaped hat",
+        "color": "orange",
+        "query": "orange pumpkin costume hat"
+      },
+      {
+        "id": "p1",
+        "slot": "accessory",
+        "phrase": "Orange ruffled clown collar",
+        "color": "orange",
+        "query": "orange ruffled clown collar"
+      },
+      {
+        "id": "p2",
+        "slot": "top",
+        "phrase": "Orange black diamond jumpsuit",
+        "color": "orange",
+        "query": "orange black harlequin jumpsuit"
+      },
+      {
+        "id": "p3",
+        "slot": "feet",
+        "phrase": "Black heeled ankle boots",
+        "color": "black",
+        "query": "black heeled ankle boots"
+      }
+    ]
+  },
+  {
+    "slug": "raven-scholar",
+    "ok": true,
+    "latency_ms": 7232.824540999998,
+    "usage": {
+      "input_tokens": 2413,
+      "output_tokens": 697
+    },
+    "pieces": [
+      {
+        "id": "p0",
+        "slot": "head",
+        "phrase": "Black feather raven mask",
+        "color": "black",
+        "query": "black raven feather mask"
+      },
+      {
+        "id": "p1",
+        "slot": "outer",
+        "phrase": "Black feather shoulder capelet",
+        "color": "black",
+        "query": "black feather shoulder capelet"
+      },
+      {
+        "id": "p2",
+        "slot": "top",
+        "phrase": "Ivory high-neck puff-sleeve blouse",
+        "color": "ivory",
+        "query": "ivory high neck blouse"
+      },
+      {
+        "id": "p3",
+        "slot": "top",
+        "phrase": "Black Victorian buttoned vest",
+        "color": "black",
+        "query": "black Victorian buttoned vest"
+      },
+      {
+        "id": "p4",
+        "slot": "bottom",
+        "phrase": "Black layered gothic skirt",
+        "color": "black",
+        "query": "black layered gothic skirt"
+      },
+      {
+        "id": "p5",
+        "slot": "feet",
+        "phrase": "Black lace-up heeled boots",
+        "color": "black",
+        "query": "black lace up heeled boots"
+      },
+      {
+        "id": "p6",
+        "slot": "accessory",
+        "phrase": "Antique-style jeweled neck brooch",
+        "color": null,
+        "query": "antique jeweled neck brooch"
+      }
+    ]
+  },
+  {
+    "slug": "retro-astronaut",
+    "ok": true,
+    "latency_ms": 4777.080459000001,
+    "usage": {
+      "input_tokens": 2413,
+      "output_tokens": 412
+    },
+    "pieces": [
+      {
+        "id": "p0",
+        "slot": "head",
+        "phrase": "Silver astronaut helmet",
+        "color": "silver",
+        "query": "silver astronaut helmet visor"
+      },
+      {
+        "id": "p1",
+        "slot": "top",
+        "phrase": "Cream padded astronaut coverall",
+        "color": "cream",
+        "query": "cream astronaut coverall orange panels"
+      },
+      {
+        "id": "p2",
+        "slot": "accessory",
+        "phrase": "Beige shoulder harness and belt",
+        "color": "beige",
+        "query": "beige astronaut harness belt"
+      },
+      {
+        "id": "p3",
+        "slot": "accessory",
+        "phrase": "Cream padded gloves",
+        "color": "cream",
+        "query": "cream astronaut gloves padded"
+      },
+      {
+        "id": "p4",
+        "slot": "feet",
+        "phrase": "Silver knee-high boots",
+        "color": "silver",
+        "query": "silver astronaut boots knee high"
+      }
+    ]
+  },
+  {
+    "slug": "rose-garden-queen",
+    "ok": true,
+    "latency_ms": 5175.0947080000005,
+    "usage": {
+      "input_tokens": 2413,
+      "output_tokens": 456
+    },
+    "pieces": [
+      {
+        "id": "p0",
+        "slot": "head",
+        "phrase": "Rose crown",
+        "color": "gold",
+        "query": "gold rose floral crown"
+      },
+      {
+        "id": "p1",
+        "slot": "outer",
+        "phrase": "Sage embroidered capelet",
+        "color": "sage",
+        "query": "sage embroidered velvet capelet"
+      },
+      {
+        "id": "p2",
+        "slot": "top",
+        "phrase": "Burgundy velvet ball gown",
+        "color": "burgundy",
+        "query": "burgundy velvet ball gown"
+      },
+      {
+        "id": "p3",
+        "slot": "accessory",
+        "phrase": "Burgundy embroidered opera gloves",
+        "color": "burgundy",
+        "query": "burgundy embroidered opera gloves"
+      },
+      {
+        "id": "p4",
+        "slot": "feet",
+        "phrase": "Dark brown embroidered ankle boots",
+        "color": "brown",
+        "query": "dark brown embroidered ankle boots"
+      }
+    ]
+  },
+  {
+    "slug": "snow-owl",
+    "ok": true,
+    "latency_ms": 4821.5095,
+    "usage": {
+      "input_tokens": 2413,
+      "output_tokens": 417
+    },
+    "pieces": [
+      {
+        "id": "p0",
+        "slot": "head",
+        "phrase": "Feathered headpiece",
+        "color": "ivory",
+        "query": "ivory feather headpiece"
+      },
+      {
+        "id": "p1",
+        "slot": "outer",
+        "phrase": "Spotted feather cape",
+        "color": "ivory",
+        "query": "ivory feather cape spotted"
+      },
+      {
+        "id": "p2",
+        "slot": "top",
+        "phrase": "V-neck tunic",
+        "color": "ivory",
+        "query": "ivory V-neck tunic"
+      },
+      {
+        "id": "p3",
+        "slot": "accessory",
+        "phrase": "Rope belt",
+        "color": "tan",
+        "query": "tan braided rope belt"
+      },
+      {
+        "id": "p4",
+        "slot": "bottom",
+        "phrase": "Loose trousers",
+        "color": "ivory",
+        "query": "ivory loose harem pants"
+      },
+      {
+        "id": "p5",
+        "slot": "feet",
+        "phrase": "Wrap boots",
+        "color": "brown",
+        "query": "brown suede wrap boots"
+      }
+    ]
+  },
+  {
+    "slug": "starlight-witch",
+    "ok": true,
+    "latency_ms": 4771.628167000003,
+    "usage": {
+      "input_tokens": 2413,
+      "output_tokens": 398
+    },
+    "pieces": [
+      {
+        "id": "p0",
+        "slot": "head",
+        "phrase": "Pointed celestial witch hat",
+        "color": "navy",
+        "query": "navy pointed witch hat stars"
+      },
+      {
+        "id": "p1",
+        "slot": "outer",
+        "phrase": "Starry hooded cape",
+        "color": "navy",
+        "query": "navy star embroidered hooded cape"
+      },
+      {
+        "id": "p2",
+        "slot": "top",
+        "phrase": "Corset-bodice ball gown",
+        "color": "navy",
+        "query": "navy corset bodice ball gown"
+      },
+      {
+        "id": "p3",
+        "slot": "accessory",
+        "phrase": "Crescent moon necklace",
+        "color": "silver",
+        "query": "silver crescent moon necklace"
+      },
+      {
+        "id": "p4",
+        "slot": "feet",
+        "phrase": "Lace-up heeled boots",
+        "color": "black",
+        "query": "black lace up heeled boots"
+      }
+    ]
+  },
+  {
+    "slug": "storm-chaser",
+    "ok": true,
+    "latency_ms": 4564.414958000001,
+    "usage": {
+      "input_tokens": 2413,
+      "output_tokens": 335
+    },
+    "pieces": [
+      {
+        "id": "p0",
+        "slot": "outer",
+        "phrase": "Mustard hooded raincoat",
+        "color": "mustard",
+        "query": "mustard hooded raincoat"
+      },
+      {
+        "id": "p1",
+        "slot": "top",
+        "phrase": "Navy and cream striped sweater",
+        "color": "navy",
+        "query": "navy striped crewneck sweater"
+      },
+      {
+        "id": "p2",
+        "slot": "bottom",
+        "phrase": "Dark navy trousers",
+        "color": "navy",
+        "query": "navy plain trousers"
+      },
+      {
+        "id": "p3",
+        "slot": "feet",
+        "phrase": "Black rubber rain boots",
+        "color": "black",
+        "query": "black rubber rain boots"
+      }
+    ]
+  },
+  {
+    "slug": "velvet-ringmaster",
+    "ok": true,
+    "latency_ms": 5708.731167000005,
+    "usage": {
+      "input_tokens": 2413,
+      "output_tokens": 446
+    },
+    "pieces": [
+      {
+        "id": "p0",
+        "slot": "head",
+        "phrase": "Black top hat",
+        "color": "black",
+        "query": "black satin band top hat"
+      },
+      {
+        "id": "p1",
+        "slot": "outer",
+        "phrase": "Red velvet tailcoat",
+        "color": "red",
+        "query": "red velvet tailcoat"
+      },
+      {
+        "id": "p2",
+        "slot": "top",
+        "phrase": "Ivory ruffled shirt",
+        "color": "ivory",
+        "query": "ivory ruffled dress shirt"
+      },
+      {
+        "id": "p3",
+        "slot": "top",
+        "phrase": "Black brocade waistcoat",
+        "color": "black",
+        "query": "black gold brocade waistcoat"
+      },
+      {
+        "id": "p4",
+        "slot": "accessory",
+        "phrase": "Gold collar brooch",
+        "color": "gold",
+        "query": "gold vintage collar brooch"
+      },
+      {
+        "id": "p5",
+        "slot": "bottom",
+        "phrase": "Black trousers",
+        "color": "black",
+        "query": "black high waisted trousers"
+      },
+      {
+        "id": "p6",
+        "slot": "feet",
+        "phrase": "Black knee-high boots",
+        "color": "black",
+        "query": "black knee high riding boots"
+      }
+    ]
+  },
+  {
+    "slug": "velvet-vampire",
+    "ok": true,
+    "latency_ms": 5888.164999999997,
+    "usage": {
+      "input_tokens": 2413,
+      "output_tokens": 540
+    },
+    "pieces": [
+      {
+        "id": "p0",
+        "slot": "outer",
+        "phrase": "Black velvet cape with burgundy lining",
+        "color": "black",
+        "query": "black velvet costume cape"
+      },
+      {
+        "id": "p1",
+        "slot": "top",
+        "phrase": "White ruffled dress shirt",
+        "color": "white",
+        "query": "white ruffle front shirt"
+      },
+      {
+        "id": "p2",
+        "slot": "top",
+        "phrase": "Black brocade waistcoat",
+        "color": "black",
+        "query": "black brocade waistcoat"
+      },
+      {
+        "id": "p3",
+        "slot": "bottom",
+        "phrase": "Black dress trousers",
+        "color": "black",
+        "query": "black slim dress trousers"
+      },
+      {
+        "id": "p4",
+        "slot": "feet",
+        "phrase": "Black ankle boots",
+        "color": "black",
+        "query": "black leather ankle boots"
+      },
+      {
+        "id": "p5",
+        "slot": "accessory",
+        "phrase": "Silver vest chain",
+        "color": "silver",
+        "query": "silver waistcoat chain"
+      }
+    ]
+  },
+  {
+    "slug": "victorian-detective",
+    "ok": true,
+    "latency_ms": 5265.902582999999,
+    "usage": {
+      "input_tokens": 2413,
+      "output_tokens": 424
+    },
+    "pieces": [
+      {
+        "id": "p0",
+        "slot": "head",
+        "phrase": "Brown tweed deerstalker cap",
+        "color": "brown",
+        "query": "brown tweed deerstalker cap"
+      },
+      {
+        "id": "p1",
+        "slot": "outer",
+        "phrase": "Brown tweed cape coat",
+        "color": "brown",
+        "query": "brown tweed cape coat"
+      },
+      {
+        "id": "p2",
+        "slot": "top",
+        "phrase": "Dark brown button waistcoat",
+        "color": "brown",
+        "query": "dark brown button waistcoat"
+      },
+      {
+        "id": "p3",
+        "slot": "top",
+        "phrase": "White button-up dress shirt",
+        "color": "white",
+        "query": "white solid dress shirt"
+      },
+      {
+        "id": "p4",
+        "slot": "bottom",
+        "phrase": "Brown tweed trousers",
+        "color": "brown",
+        "query": "brown tweed trousers"
+      },
+      {
+        "id": "p5",
+        "slot": "feet",
+        "phrase": "Brown leather brogue shoes",
+        "color": "brown",
+        "query": "brown leather brogue shoes"
+      }
+    ]
+  },
+  {
+    "slug": "woodland-mushroom",
+    "ok": true,
+    "latency_ms": 4502.5013750000035,
+    "usage": {
+      "input_tokens": 2413,
+      "output_tokens": 381
+    },
+    "pieces": [
+      {
+        "id": "p0",
+        "slot": "head",
+        "phrase": "Red spotted mushroom cap hat",
+        "color": "red",
+        "query": "Red mushroom cap hat spotted"
+      },
+      {
+        "id": "p1",
+        "slot": "top",
+        "phrase": "Cream puff-sleeve blouse",
+        "color": "cream",
+        "query": "Cream puff sleeve blouse"
+      },
+      {
+        "id": "p2",
+        "slot": "bottom",
+        "phrase": "Brown corduroy short overalls",
+        "color": "brown",
+        "query": "Brown corduroy short overalls"
+      },
+      {
+        "id": "p3",
+        "slot": "accessory",
+        "phrase": "Olive neckerchief",
+        "color": "olive",
+        "query": "Olive green neckerchief scarf"
+      },
+      {
+        "id": "p4",
+        "slot": "accessory",
+        "phrase": "Cream ribbed tights",
+        "color": "cream",
+        "query": "Cream ribbed knit tights"
+      },
+      {
+        "id": "p5",
+        "slot": "feet",
+        "phrase": "Brown leather ankle boots",
+        "color": "brown",
+        "query": "Brown leather ankle boots"
+      }
+    ]
+  }
+]
