@@ -26,7 +26,7 @@
     "blue": ["blue", "denim", "navy", "cobalt", "royal blue", "sky blue", "light blue", "indigo", "teal"],
     "navy": ["navy", "midnight", "dark blue", "indigo", "blue"],
     "purple": ["purple", "plum", "violet", "lavender", "lilac", "mauve", "eggplant", "magenta"],
-    "pink": ["pink", "blush", "rose", "coral", "salmon", "magenta", "fuchsia", "mauve"]
+    "pink": ["pink", "hot pink", "blush", "rose", "coral", "salmon", "magenta", "fuchsia", "mauve"]
   },
   "garment_classes": {
     "hat": ["hat", "cap", "beret", "tricorn", "deerstalker", "fedora", "beanie", "hood", "headband", "headpiece", "crown", "tiara", "helmet", "antennae", "fascinator"],
