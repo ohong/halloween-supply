@@ -1,4 +1,4 @@
-%% Source for architecture.svg. Render: bunx @mermaid-js/mermaid-cli -i architecture.mmd -o architecture.svg -b transparent
+%% Source for architecture.svg. Render: bunx @mermaid-js/mermaid-cli@11.4.2 -i architecture.mmd -o architecture.svg -b white
 flowchart LR
   shopper(["Shopper's browser<br/>/screenshot page"])
 
@@ -13,8 +13,9 @@ flowchart LR
 
   subgraph aws["AWS us-east-1"]
     cf["CloudFront<br/>HTTPS, no caching"]
-    subgraph ec2["EC2 Graviton (arm64)"]
-      svc["Vision service container<br/>FastAPI + OpenCV 5 cv2.dnn<br/>COOL build"]
+    subgraph ec2["EC2 c8g.xlarge, Graviton4 (arm64)"]
+      cool[("COOL AMI<br/>/opt/cool: OpenCV build<br/>for Graviton4")]
+      svc["Vision service container<br/>FastAPI + OpenCV 5 cv2.dnn"]
     end
     ecr[("ECR<br/>halloween-vision image")]
     ssm[("SSM Parameter Store<br/>VISION_SERVICE_TOKEN")]
@@ -29,14 +30,23 @@ flowchart LR
   cf --> svc
   route -- "queries from OpenCV pieces" --> firecrawl
   firecrawl -- "offers + product photos" --> route
+  cool -. "mounted read-only,<br/>imported as cv2" .-> svc
   ecr -. "image pull at boot" .-> svc
   ssm -. "token at boot (instance role)" .-> svc
   svc -. "JSON log line per request" .-> cw
   shopper -- "approves pieces, pays" --> checkout
   checkout --> stripe
 
+  subgraph legend["Legend"]
+    direction TB
+    l1["OpenCV 5 perception"]
+    l2["COOL"]
+    l3["AWS service"]
+  end
+
   classDef opencv fill:#e8f5e9,stroke:#2e7d32,color:#1b5e20
   classDef awsnode fill:#fff3e0,stroke:#e65100,color:#bf360c
   classDef cool fill:#ede7f6,stroke:#4527a0,color:#311b92
-  class svc cool
-  class cf,ecr,ssm,cw awsnode
+  class svc,l1 opencv
+  class cool,l2 cool
+  class cf,ecr,ssm,cw,l3 awsnode
