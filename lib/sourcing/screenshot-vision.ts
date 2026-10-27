@@ -64,7 +64,8 @@ export async function offerImage(url: string, signal: AbortSignal) {
     if (bytes > 3 * 1024 * 1024) { await reader.cancel(); throw new Error("Photo too large"); }
     chunks.push(value);
   }
-  return sharp(Buffer.concat(chunks), { limitInputPixels: 20_000_000 }).resize({ width: 600, height: 600, fit: "inside", withoutEnlargement: true }).jpeg({ quality: 80 }).toBuffer();
+  // Transparent product PNGs would turn black as JPEG, which reads as a photo background and sends /v1/match to its slow segmenter.
+  return sharp(Buffer.concat(chunks), { limitInputPixels: 20_000_000 }).flatten({ background: "#ffffff" }).resize({ width: 600, height: 600, fit: "inside", withoutEnlargement: true }).jpeg({ quality: 80 }).toBuffer();
 }
 
 /** Discovery is already visible. This short check only refines its match note and selection. */
