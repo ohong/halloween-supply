@@ -44,7 +44,11 @@ The UI consumes NDJSON events directly, without waiting for the full response. L
 
 ## OpenCV vision mode (default)
 
-`SCREENSHOT_VISION=opencv` (the default) replaces both Luna calls with the OpenCV vision service (`plans/contract.md` v1), set by `VISION_SERVICE_URL` and `VISION_SERVICE_TOKEN`. `/v1/analyze` segments the person into pieces with colors, garment phrases, a CLIP embedding and a crop. `/v1/match` scores each candidate's product photo against its piece. If the service is missing or unhealthy, the upload fails with a 503 before streaming. It never falls back to Luna. `SCREENSHOT_VISION=luna` keeps the old path above. `X-Vision-Model` reports `opencv-5:<build>`.
+`SCREENSHOT_VISION=opencv` (the default) splits the work between the OpenCV vision service (`plans/contract.md` v1.1, set by `VISION_SERVICE_URL` and `VISION_SERVICE_TOKEN`) and Luna. `/v1/analyze` segments the person into pieces with colors, garment guesses, a CLIP embedding, a crop and an outline. One Luna call (`labelSegments`) then sees the full screenshot plus every crop and its hints, and decides what each piece is: its name, garment phrase, search query, alternate query and slot, or drops it (skin, hair, duplicates). OpenCV keeps the measurements; Luna's garment phrase replaces OpenCV's top guess, so `/v1/match` and retries use it. `/v1/match` scores each candidate's product photo against its piece. If the service is missing or unhealthy, the upload fails with a 503 before streaming, and a failed Luna label call fails the request; neither falls back to the other. `SCREENSHOT_VISION=luna` keeps the old path above. `X-Vision-Model` reports `opencv-5:<build>+gpt-6-luna`.
+
+The `look` event carries `segmentation` (image size, person outline, service timings) and each piece's outline, so `/screenshot` draws the segmentation over the preview, shows each piece's crop, colors and query, and lists the pipeline timings. Older service builds without outlines render no overlay.
+
+amazon.com (and its subdomains) is an allowed merchant for search and checkout; short links (`amzn.to`, `a.co`) and other Amazon country domains stay blocked.
 
 Each piece runs a small agent loop inside the same 30-second budget. Each retry changes one thing about the query, so the trace shows why the next search differs:
 
@@ -59,7 +63,7 @@ retry query:  color_mismatch -> "<detected color> <phrase>"
 ask shopper:  retries_exhausted, budget_low (<10 s left), no_new_query
 ```
 
-An uncertain best result becomes an `approval` event, and the shopper confirms it before it joins the cart. Every step streams as a `trace` event (`perceive`, `search`, `score`, `decide`, `approve`) and is logged once per request as `screenshot_agent_trace`. The UI shows the trace for each piece.
+An uncertain best result becomes an `approval` event, and the shopper confirms it before it joins the cart. Every step streams as a `trace` event (`perceive`, `label`, `search`, `score`, `decide`, `approve`) and is logged once per request as `screenshot_agent_trace`. The UI shows the trace for each piece.
 
 Verify against a running app with the service configured. This calls the real route, the real service and real search:
 
