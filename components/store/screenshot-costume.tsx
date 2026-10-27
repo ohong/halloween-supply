@@ -23,6 +23,21 @@ interface TraceStep { piece: number | null; step: string; detail: Record<string,
 interface ScoredResult { title: string; score: number; verdict: string; reasons: string[] }
 interface LogLine { kind: string; text: string; ms: number }
 type Phase = "idle" | "running" | "done" | "error";
+type Mode = "image" | "clip";
+
+// Matches the server: a clip travels inline in one request, so it has to stay under Vercel's body cap.
+const MAX_CLIP_BYTES = 4 * 1024 * 1024;
+const CLIP_TYPES = ["video/mp4", "video/webm", "video/quicktime"];
+
+/** Draws the video's current frame to a JPEG the sourcing step can use as its reference photo. */
+function captureFrame(video: HTMLVideoElement) {
+  const scale = Math.min(1, 1024 / Math.max(video.videoWidth, video.videoHeight));
+  const canvas = document.createElement("canvas");
+  canvas.width = Math.round(video.videoWidth * scale);
+  canvas.height = Math.round(video.videoHeight * scale);
+  canvas.getContext("2d")!.drawImage(video, 0, 0, canvas.width, canvas.height);
+  return new Promise<Blob>((resolve, reject) => canvas.toBlob(blob => blob ? resolve(blob) : reject(new Error("Couldn’t capture a frame from this clip.")), "image/jpeg", 0.85));
+}
 
 // Small rotations make the pieces land like a hand-arranged flat-lay.
 const TILT = [-2.5, 1.8, -1.2, 2.4, -1.9, 1.1, -0.8];
@@ -100,6 +115,11 @@ export function ScreenshotCostume() {
   const queue = useRef<LogLine[]>([]);
   const logRef = useRef<HTMLOListElement>(null);
   const fileRef = useRef<HTMLInputElement>(null);
+  const [mode, setMode] = useState<Mode>("image");
+  const [youtube, setYoutube] = useState("");
+  const [clip, setClip] = useState<{ file: File; url: string } | null>(null);
+  const videoRef = useRef<HTMLVideoElement>(null);
+  const clipRef = useRef<HTMLInputElement>(null);
 
   // Coming back from the cart shows the look that is already in it.
   const restored = phase === "idle" && cart.ready && cart.costumeSlug === SCREENSHOT_SLUG && slots.length === 0;
@@ -123,23 +143,19 @@ export function ScreenshotCostume() {
   useEffect(() => { logRef.current?.scrollTo({ top: logRef.current.scrollHeight }); }, [log]);
 
   useEffect(() => () => abort.current?.abort(), []);
+  useEffect(() => () => { if (clip) URL.revokeObjectURL(clip.url); }, [clip]);
 
-  const run = useCallback(async (file: File) => {
-    if (!file.type.startsWith("image/")) { setError("That file isn’t an image. Try a PNG or JPEG screenshot."); return; }
+  const execute = useCallback(async (endpoint: string, timeoutMs: number, build: () => Promise<FormData>) => {
     abort.current?.abort();
     const controller = new AbortController();
     abort.current = controller;
-    setPreview((old) => { if (old) URL.revokeObjectURL(old); return URL.createObjectURL(file); });
     setPhase("running"); setError(null); setCharacter(null); setSummary(""); setSlots([]); setSizes({}); setLog([]); setSelectedPieceId(null); setVision([]); setTraces({}); setSegmentation(null); setActivePiece(null);
     queue.current = [];
 
-    const form = new FormData();
     try {
-      // Keep phone screenshots below the deployed function's upload limit.
-      const photo = await preparePhoto(file);
+      const form = await build();
       if (controller.signal.aborted) return;
-      form.append("photo", photo, "screenshot.jpg");
-      const response = await fetch("/api/screenshot-costume", { method: "POST", body: form, signal: AbortSignal.any([controller.signal, AbortSignal.timeout(35_000)]) });
+      const response = await fetch(endpoint, { method: "POST", body: form, signal: AbortSignal.any([controller.signal, AbortSignal.timeout(timeoutMs)]) });
       if (!response.ok || !response.body) {
         const body = await response.json().catch(() => null) as { error?: string } | null;
         throw new Error(body?.error ?? "The stylist is unavailable right now.");
@@ -197,6 +213,42 @@ export function ScreenshotCostume() {
     }
   }, []);
 
+  const run = useCallback((file: File) => {
+    if (!file.type.startsWith("image/")) { setError("That file isn’t an image. Try a PNG or JPEG screenshot."); return Promise.resolve(); }
+    setPreview((old) => { if (old) URL.revokeObjectURL(old); return URL.createObjectURL(file); });
+    return execute("/api/screenshot-costume", 35_000, async () => {
+      const form = new FormData();
+      // Keep phone screenshots below the deployed function's upload limit.
+      form.append("photo", await preparePhoto(file), "screenshot.jpg");
+      return form;
+    });
+  }, [execute]);
+
+  const chooseClip = useCallback((file: File) => {
+    if (!CLIP_TYPES.includes(file.type)) { setError("Use an MP4, WebM or MOV clip."); return; }
+    if (file.size > MAX_CLIP_BYTES) { setError("That clip is over 4 MB. Trim it to a few seconds of the costume and try again."); return; }
+    setError(null);
+    setClip(old => { if (old) URL.revokeObjectURL(old.url); return { file, url: URL.createObjectURL(file) }; });
+  }, []);
+
+  const runClip = useCallback(() => {
+    const link = youtube.trim();
+    if (!clip && !link) { setError("Paste a YouTube link or choose a clip."); return; }
+    setPreview(old => { if (old) URL.revokeObjectURL(old); return null; });
+    return execute("/api/clip-costume", 140_000, async () => {
+      const form = new FormData();
+      if (clip) {
+        const video = videoRef.current;
+        if (!video || !video.videoWidth) throw new Error("This clip couldn’t be played in your browser. Try an MP4.");
+        const frame = await captureFrame(video);
+        setPreview(URL.createObjectURL(frame));
+        form.append("clip", clip.file, clip.file.name);
+        form.append("frame", frame, "frame.jpg");
+      } else form.append("youtube", link);
+      return form;
+    });
+  }, [clip, youtube, execute]);
+
   useEffect(() => {
     const onPaste = (event: ClipboardEvent) => {
       const file = [...(event.clipboardData?.files ?? [])].find((f) => f.type.startsWith("image/"));
@@ -243,8 +295,38 @@ export function ScreenshotCostume() {
   const allInCart = !replacesScreenshot && found.length > 0 && found.every((item) => inCart(item));
   const missing = visible.filter((slot) => slot.state === "missing").length;
 
+  const clipMode = mode === "clip";
   return <div className="page shot">
     <aside className="shot-input">
+      <div className="shot-modes" role="group" aria-label="Source">
+        <button type="button" aria-pressed={!clipMode} disabled={running} onClick={() => setMode("image")}>Screenshot</button>
+        <button type="button" aria-pressed={clipMode} disabled={running} onClick={() => setMode("clip")}>From a clip</button>
+      </div>
+      {clipMode ? <div className="shot-clip">
+        <label className="shot-clip-field">
+          <span className="meta">YouTube link</span>
+          <input type="url" inputMode="url" placeholder="https://youtube.com/watch?v=…" value={youtube} disabled={running || !!clip}
+            onChange={(event) => setYoutube(event.target.value)} />
+        </label>
+        <p className="shot-clip-or meta">or</p>
+        <div className={`shot-drop has-video ${clip ? "has-image" : ""} ${running ? "is-scanning" : ""}`}>
+          {clip ? <video ref={videoRef} src={clip.url} controls muted playsInline preload="auto"
+            onLoadedMetadata={(event) => { const video = event.currentTarget; if (video.duration > 1) video.currentTime = video.duration / 2; }} />
+            : <span className="shot-drop-hint">
+              <strong>Choose a clip</strong>
+              <span>MP4, WebM or MOV under 4 MB. A few seconds of a film scene or performance works best.</span>
+            </span>}
+          {!clip && <input ref={clipRef} type="file" accept="video/mp4,video/webm,video/quicktime" className="shot-file" disabled={running || !!youtube.trim()}
+            onChange={(event) => { const file = event.target.files?.[0]; if (file) chooseClip(file); event.target.value = ""; }} />}
+        </div>
+        {clip && <p className="meta shot-clip-hint">Pause on the frame that shows the outfit best. We use it to compare products.</p>}
+        {clip && <button type="button" className="btn btn-ghost btn-block" disabled={running} onClick={() => setClip(null)}>Choose a different clip</button>}
+        <button type="button" className="btn btn-block" disabled={running || (!clip && !youtube.trim())} onClick={() => void runClip()}>
+          {running ? "Watching the clip…" : "Find the look"}
+        </button>
+        {/* eslint-disable-next-line @next/next/no-img-element -- a local object URL, not a remote asset */}
+        {preview && <div className="shot-drop has-image"><img src={preview} alt="Reference frame" /></div>}
+      </div> : <>
       <label
         className={`shot-drop ${dragging ? "is-over" : ""} ${preview ? "has-image" : ""} ${running ? "is-scanning" : ""}`}
         onDragOver={(event) => { event.preventDefault(); setDragging(true); }}
@@ -265,6 +347,7 @@ export function ScreenshotCostume() {
         {preview && segmentation && !restored && <SegmentationOverlay segmentation={segmentation} vision={vision} active={activePiece} />}
       </label>
       {preview && <button type="button" className="btn btn-ghost btn-block" disabled={running} onClick={() => fileRef.current?.click()}>Try another screenshot</button>}
+      </>}
       {(log.length > 0 || running) && <ol className="shot-log" ref={logRef} aria-live="polite" aria-label="Sourcing log">
         {log.map((line, i) => <li key={i} className={`is-${line.kind}`}><span>{(line.ms / 1000).toFixed(1)}s</span>{line.text}</li>)}
         {running && <li className="is-cursor" aria-hidden="true"><span /></li>}
@@ -274,9 +357,9 @@ export function ScreenshotCostume() {
     <section className="shot-result" aria-label="Screenshot results">
       <div className="shot-head">
         <div>
-          <p className="meta">Screenshot to costume</p>
-          <h1>{character ?? (restored ? "Your screenshot look" : running ? "Reading the look…" : "Turn any screenshot into a costume.")}</h1>
-          <p className="shot-summary">{summary || (restored ? "These pieces are in your cart. Pick sizes, then check out." : !character && !running ? "We read the outfit, break it into pieces, and find similar items at real shops. Matches appear as we find them, within 30 seconds." : "")}</p>
+          <p className="meta">{clipMode ? "Clip to costume" : "Screenshot to costume"}</p>
+          <h1>{character ?? (restored ? "Your screenshot look" : running ? "Reading the look…" : clipMode ? "Turn any clip into a costume." : "Turn any screenshot into a costume.")}</h1>
+          <p className="shot-summary">{summary || (restored ? "These pieces are in your cart. Pick sizes, then check out." : !character && !running ? clipMode ? "We watch the clip, break the costume into pieces, and find similar items at real shops. Matches appear as we find them." : "We read the outfit, break it into pieces, and find similar items at real shops. Matches appear as we find them, within 30 seconds." : "")}</p>
         </div>
         {found.length > 0 && <div className="shot-total"><span className="meta">{found.length} priced {found.length === 1 ? "piece" : "pieces"}</span><strong>{formatPrice(total)}</strong></div>}
       </div>

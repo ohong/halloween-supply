@@ -164,6 +164,17 @@
 .shot-inspect[href] { text-decoration: none; }
 @media (pointer: coarse) { .shot-size { font-size: 16px; } }
 
+.shot-modes { display: grid; grid-template-columns: 1fr 1fr; border: 1px solid var(--ink); border-radius: 999px; overflow: hidden; }
+.shot-modes button { padding: 9px 12px; font-size: 13px; background: transparent; color: var(--ink); cursor: pointer; }
+.shot-modes button[aria-pressed="true"] { background: var(--ink); color: #fff; }
+.shot-modes button:disabled { cursor: default; opacity: 0.6; }
+.shot-clip { display: grid; gap: 12px; }
+.shot-clip-field { display: grid; gap: 6px; }
+.shot-clip-field input { width: 100%; padding: 10px 12px; border: 1px solid var(--ink); background: transparent; font: inherit; font-size: 14px; color: var(--ink); }
+.shot-clip-field input:disabled { opacity: 0.5; }
+.shot-clip-or { text-align: center; }
+.shot-clip-hint { line-height: 1.5; }
+.shot-drop.has-video video { width: 100%; height: 100%; object-fit: contain; background: #000; }
 .shot-how { margin-top: 8px; font-size: 12px; }
 .shot-how summary { min-height: 44px; display: flex; align-items: center; cursor: pointer; color: var(--mid); }
 .shot-how summary:hover { color: var(--ink); }
