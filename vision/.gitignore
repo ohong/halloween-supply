@@ -1,0 +1,4 @@
+models/
+debug/
+.venv/
+__pycache__/
