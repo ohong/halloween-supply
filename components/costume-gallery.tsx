@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState, type ReactNode } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
@@ -23,7 +23,7 @@ type Creation = {
   pieces: { piece: CustomPiece; state: "looking" | "found" | "missing" }[];
 };
 
-export function CostumeGallery({ pieceCounts }: { pieceCounts: Record<string, number> }) {
+export function CostumeGallery({ pieceCounts, children }: { pieceCounts: Record<string, number>; children?: ReactNode }) {
   const router = useRouter();
   const [query, setQuery] = useState("");
   const [composing, setComposing] = useState(false);
@@ -221,5 +221,6 @@ export function CostumeGallery({ pieceCounts }: { pieceCounts: Record<string, nu
       <Button variant="outline" onClick={() => setSavedOnly(false)}>{normalized ? "Search all looks" : "Explore costumes"}<ArrowRight aria-hidden="true" /></Button>
     </div>}
     </section>
+    {children}
   </main>;
 }

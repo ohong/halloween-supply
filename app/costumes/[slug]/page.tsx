@@ -22,6 +22,7 @@ export async function generateMetadata({ params }: { params: Params }): Promise<
   return {
     title: `${costume.name} — Halloween Supply`,
     description: costume.description,
+    alternates: { canonical: `/costumes/${slug}` },
     openGraph: { title: costume.name, description: costume.description, type: "website", images },
     twitter: { card: "summary_large_image", title: costume.name, description: costume.description, images },
   };
