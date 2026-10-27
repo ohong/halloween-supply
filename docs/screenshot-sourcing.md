@@ -73,6 +73,7 @@ Each run saves its trace to `eval/traces/`. Examples saved there:
 
 - `moon-moth-upper-…22-54`: a color retry ("charcoal satin pantaloons" -> "black satin pantaloons") clears `color_mismatch` and raises the best score from 0.358 to 0.366. That is still a reject, so the piece goes to approval.
 - `moon-moth-upper-…26-52`: the same color retry raises the pantaloons from 0.342 to 0.375, and a color retry on the cape ("beige" -> "sage") is followed by a `no_candidates` retry that reaches 0.363. Both stay rejects and go to approval.
+- `cosmic-cowboy-upper-…30-18` (stock service image): a color retry on the hat ("silver felt cowboy hat") turns a weak pick at 0.593 with `color_mismatch` into a match at 0.658, which the agent accepts.
 - `cosmic-cowboy-upper-…22-12`: a color retry raises the best pantaloons score from 0.269 to 0.364, also still a reject.
 - `moon-moth-…`, `storm-chaser-…`: weak results that go to shopper approval.
 
@@ -80,7 +81,7 @@ Known limits, measured against the service running locally:
 
 - Search, not vision, uses most of the budget. Firecrawl's two-job scrape queue makes a first search take 5–19 s, so a retry that starts after about 15 s is rarely scored in time. Looks with five or more pieces (`candy-corn-sorceress-…`) can reach the deadline before every piece is scored.
 - `/v1/match` took 1–8 s per piece here, and up to 27 s when several requests ran at once.
-- So far, retries have raised scores but have not yet turned a reject into a match. A retry can also return no candidates at all (`moon-moth-upper-…24-35` found nothing).
+- Most retries raise scores without changing the verdict, so those pieces still go to approval. A retry can also return no candidates at all (`moon-moth-upper-…24-35` found nothing).
 
 ## Verification
 
