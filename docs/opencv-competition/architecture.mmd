@@ -26,8 +26,8 @@ flowchart LR
 
   shopper -- "screenshot (multipart, ≤4 MB)" --> route
   route -- "NDJSON events: candidate, piece, trace" --> shopper
-  route -- "POST /v1/analyze, /v1/match<br/>image bytes + Bearer token" --> cf
-  cf --> svc
+  route -- "POST /v1/analyze, /v1/match<br/>base64 JSON + Bearer token" --> cf
+  cf -- "HTTP :8080, CloudFront<br/>prefix list only" --> svc
   route -- "queries from OpenCV pieces" --> firecrawl
   firecrawl -- "offers + product photos" --> route
   cool -. "mounted read-only,<br/>imported as cv2" .-> svc

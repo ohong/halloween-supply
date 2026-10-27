@@ -19,9 +19,9 @@ Show it a costume photo; OpenCV 5 finds each piece at real shops, checks every p
 
 ## Featured paths
 
-**Agentic Vision.** OpenCV measurements decide the agent's next action. For each garment, `/v1/match` returns a verdict and machine-readable reasons (`color_mismatch`, `type_mismatch`, `no_garment`), and one table-driven function, `decideNext`, turns those into a different next step: search again with the measured color first, search with the next garment type, search with an alternate phrasing, or stop and ask the shopper to approve a weak match. Every step is traced and shown to the shopper in a "How we matched this" panel. Evidence: report section 7, the agent loop diagram, a recorded trace with a retry in `eval/traces/` TODO(verify), and the loop results in `eval/out/agent.md` TODO(numbers).
+**Agentic Vision.** OpenCV measurements decide the agent's next action. For each garment, `/v1/match` returns a verdict and machine-readable reasons (`color_mismatch`, `type_mismatch`, `no_garment`), and one table-driven function, `decideNext`, turns those into a different next step: search again with the measured color first, search with the next garment type, search with an alternate phrasing, or stop and ask the shopper to approve a weak match. Every step is traced and shown to the shopper in a "How we matched this" panel. Evidence: report section 7, the agent loop diagram, the `screenshot_agent_trace` log line written by `app/api/screenshot-costume/route.ts`, and the loop results in `eval/out/agent.md` once the agent evaluation runs (TODO(numbers): not run yet).
 
-**Best Use of COOL.** The vision service runs on an EC2 Graviton4 instance from the Cloud Optimized OpenCV for AWS Graviton4 AMI, with COOL's OpenCV mounted into the service container, and every response reports which build served it in an `X-OpenCV-Build` header and on `/healthz`. We benchmarked the same workload with COOL on Graviton, stock `opencv-python-headless==5.0.0.93` on the same instance type, and stock on x86 `c7i.xlarge`, and recorded `cv2.getBuildInformation()` for each run. Evidence: report section 6 and `vision/bench/out/cool.md` TODO(numbers).
+**Best Use of COOL.** The vision service runs on an EC2 Graviton4 instance from the Cloud Optimized OpenCV for AWS Graviton4 AMI, with COOL's OpenCV mounted into the service container, and every response reports which build served it in an `X-OpenCV-Build` header and on `/healthz`. The same service code runs with either build: `vision/Dockerfile` installs stock `opencv-python-headless==5.0.0.93`, and `vision/Dockerfile.cool` drops the pip OpenCV and imports COOL's from `/opt/cool`. A benchmark of COOL on Graviton against stock on the same instance type and stock on x86 `c7i.xlarge` is planned but has not run, so we make no speed claim yet (TODO(numbers)). Evidence: report section 6, `infra/30-instance.sh` and `vision/Dockerfile.cool`.
 
 ## About the project
 
@@ -38,7 +38,7 @@ You upload a screenshot of a costume. An OpenCV 5 service segments the person in
 - **Perception:** a FastAPI service where every image operation runs through OpenCV 5. SegFormer-B2 clothes parsing and the CLIP ViT-B/32 image encoder run in `cv2.dnn` from ONNX files; colors come from k-means in Lab space named against a retail color table; product photos are segmented with the same model or with GrabCut, then scored with CLIP similarity, CIEDE2000 color distance and `compareHist`.
 - **Agent:** the Next.js route on Vercel runs one perceive, search, re-perceive, decide loop per garment inside a 30-second budget, and streams its trace to the browser.
 - **Cloud:** EC2 Graviton4 with COOL, behind CloudFront, image in ECR, token in SSM Parameter Store, logs and a dashboard in CloudWatch, all created by numbered AWS CLI scripts with a teardown script.
-- **Evaluation:** the 25 catalog costumes with hand-checked ground-truth component lists, OpenCV against the previous language-model path, plus the COOL benchmark.
+- **Evaluation:** the 25 catalog costumes with ground-truth component lists we drafted from the catalog and checked against the images, OpenCV against the previous language-model path, plus the COOL benchmark.
 
 ### Challenges we ran into
 
@@ -46,7 +46,7 @@ TODO(Oscar): one or two real challenges from tonight. Candidates from the build 
 
 ### Accomplishments we're proud of
 
-TODO(numbers): one sentence each on the retry recovery rate and the COOL speedup, from `eval/out/agent.md` and `vision/bench/out/cool.md`.
+TODO(numbers): one sentence each on the retry recovery rate and the COOL speedup, from `eval/out/agent.md` and `vision/bench/out/cool.md`, once those runs exist. Until then: the whole perception path, from segmentation to scoring, is OpenCV 5 with no language model in it, and every match decision comes with a number the agent and the shopper can read.
 
 ### What we learned
 
