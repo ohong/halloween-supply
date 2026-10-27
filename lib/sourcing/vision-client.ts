@@ -1,6 +1,6 @@
 import { z } from "zod";
 import { PreviewError } from "@/lib/ai/openai";
-import type { ScreenshotLook } from "./screenshot-vision";
+import type { PieceLabels, ScreenshotLook } from "./screenshot-vision";
 
 // Client for the OpenCV vision service (plans/contract.md v1). It never falls back to luna on its own.
 const REGIONS = ["hat", "upper_clothes", "dress", "skirt", "pants", "belt", "shoes", "bag", "scarf", "sunglasses"] as const;
@@ -8,16 +8,19 @@ const SLOTS = ["head", "top", "outer", "bottom", "feet", "accessory"] as const;
 const SIZE_KINDS = ["apparel", "pants", "shoe", "hat", "one_size"] as const;
 const REASONS = ["color_mismatch", "type_mismatch", "no_garment", "low_quality"] as const;
 
+// v1.1: polygons in the pixels of the analyzed image; absent from older service builds.
+const outline = z.array(z.array(z.array(z.number()).length(2))).optional();
 const color = z.object({ name: z.string(), hex: z.string(), lab: z.array(z.number()).length(3), frac: z.number() });
 const garmentType = z.object({ phrase: z.string(), score: z.number(), size_kind: z.enum(SIZE_KINDS), alternate: z.string(), assembly: z.string().nullable() });
 const piece = z.object({
   id: z.string(), region: z.enum(REGIONS), slot: z.enum(SLOTS), bbox: z.array(z.number()).length(4), area_frac: z.number(),
   colors: z.array(color), pattern: z.enum(["solid", "patterned"]), garment_types: z.array(garmentType),
   query: z.string(), alternate: z.string(), size_kind: z.enum(SIZE_KINDS), assembly: z.string().nullable(),
-  embedding: z.array(z.number()).length(512), crop_b64: z.string(),
+  embedding: z.array(z.number()).length(512), crop_b64: z.string(), outline,
 });
 const analyzeSchema = z.object({
-  person: z.object({ found: z.boolean(), bbox: z.array(z.number()).length(4).nullable(), confidence: z.number() }),
+  image: z.object({ width: z.number(), height: z.number() }).optional(),
+  person: z.object({ found: z.boolean(), bbox: z.array(z.number()).length(4).nullable(), confidence: z.number(), outline }),
   pieces: z.array(piece), title: z.string(),
   timings_ms: z.record(z.string(), z.number()),
 });
@@ -83,27 +86,26 @@ export const match = (p: VisionPiece, candidates: { id: string; image: Buffer }[
     candidates: candidates.map(c => ({ id: c.id, image_b64: c.image.toString("base64") })),
   }, matchSchema, signal);
 
-const NAMES: Record<typeof REGIONS[number], string> = {
-  hat: "Hat", upper_clothes: "Top", dress: "Dress", skirt: "Skirt", pants: "Pants", belt: "Belt", shoes: "Shoes", bag: "Bag", scarf: "Scarf", sunglasses: "Sunglasses",
-};
-const clip = (text: string, max: number) => text.length > max ? text.slice(0, max - 1).trimEnd() + "…" : text;
-const pad = (text: string) => text.length >= 3 ? text : `${text} item`;
-
-/** Maps analyze output onto the shopping list the rest of the pipeline already understands. */
-export function analysisToLook(analysis: VisionAnalysis): ScreenshotLook {
-  const pieces = analysis.pieces.slice(0, 8).map(p => {
-    const phrase = p.garment_types[0]?.phrase;
-    return {
-      name: clip(phrase ? `${p.colors[0]?.name ?? ""} ${phrase}`.trim() : NAMES[p.region], 70),
-      slot: p.slot, query: clip(pad(p.query), 90), alternate: clip(pad(p.alternate), 90),
-      assembly: p.assembly ? clip(p.assembly, 140) : null, sizeKind: p.size_kind,
-    };
+/**
+ * Keeps OpenCV's segments and measurements but takes luna's names and queries, so retries and
+ * /v1/match score against luna's garment phrase. Pieces luna drops (skin, hair, duplicates) go away.
+ */
+export function applyLabels(analysis: VisionAnalysis, labels: PieceLabels) {
+  const byIndex = new Map(labels.pieces.map(l => [l.index, l]));
+  const seen: VisionPiece[] = [];
+  const pieces: ScreenshotLook["pieces"] = [];
+  analysis.pieces.slice(0, 8).forEach((p, i) => {
+    const l = byIndex.get(i);
+    if (!l?.keep) return;
+    const [first, ...rest] = p.garment_types;
+    seen.push({ ...p, slot: l.slot, query: l.query, alternate: l.alternate, assembly: l.assembly, size_kind: l.sizeKind,
+      garment_types: first ? [{ ...first, phrase: l.garment }, ...rest] : [{ phrase: l.garment, score: 1, size_kind: l.sizeKind, alternate: l.alternate, assembly: l.assembly }] });
+    pieces.push({ name: l.name, slot: l.slot, query: l.query, alternate: l.alternate, assembly: l.assembly, sizeKind: l.sizeKind });
   });
-  const summary = clip(pieces.map(p => p.name.toLowerCase()).join(", "), 180);
-  return { character: clip(analysis.title || "Screenshot look", 100), summary, pieces };
+  return { seen, look: { character: labels.character, summary: labels.summary, pieces } satisfies ScreenshotLook };
 }
 
-export type TraceStep = "perceive" | "search" | "score" | "decide" | "approve";
+export type TraceStep = "perceive" | "label" | "search" | "score" | "decide" | "approve";
 export interface TraceEntry { t_ms: number; piece: number | null; step: TraceStep; detail: Record<string, unknown> }
 
 export type Decision =

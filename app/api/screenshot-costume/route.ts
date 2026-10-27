@@ -1,6 +1,6 @@
 import sharp from "sharp";
-import { SCREENSHOT_VISION_MODEL as LUNA, decomposeScreenshot as decompose } from "@/lib/sourcing/screenshot-vision";
-import { analysisToLook, analyze, visionMode, visionModel, type TraceEntry, type VisionPiece } from "@/lib/sourcing/vision-client";
+import { SCREENSHOT_VISION_MODEL as LUNA, decomposeScreenshot as decompose, labelSegments } from "@/lib/sourcing/screenshot-vision";
+import { analyze, applyLabels, visionMode, visionModel, type TraceEntry, type VisionPiece } from "@/lib/sourcing/vision-client";
 import { PreviewError } from "@/lib/ai/openai";
 import { screenshotSourcing, type SourcingLog as Log } from "@/lib/sourcing/screenshot";
 import { toCartItem } from "@/lib/custom-looks/source";
@@ -58,8 +58,9 @@ export async function POST(request: Request) {
     const origin = request.headers.get("origin");
     if (origin && origin !== new URL(request.url).origin) throw new PreviewError(403, "Open the screenshot stylist from this site.");
     mode = visionMode();
-    if (!process.env.FIRECRAWL_API_KEY || (mode === "luna" && !process.env.OPENAI_API_KEY)) throw new PreviewError(503, "The screenshot stylist is not available yet.");
-    model = mode === "luna" ? LUNA : await visionModel();
+    if (!process.env.FIRECRAWL_API_KEY || !process.env.OPENAI_API_KEY) throw new PreviewError(503, "The screenshot stylist is not available yet.");
+    // OpenCV segments the look; luna still names each piece and writes its search query.
+    model = mode === "luna" ? LUNA : `${await visionModel()}+${LUNA}`;
     image = await readPhoto(request);
     reserve(); reserved = true;
   } catch (error) {
@@ -95,6 +96,7 @@ export async function POST(request: Request) {
         log("think", "Reading the visible pieces. Results appear as soon as we find them…");
         let look: Awaited<ReturnType<typeof decompose>>;
         let seen: VisionPiece[] = [];
+        let segmentation: Record<string, unknown> | undefined;
         if (mode === "luna") look = await decompose(image, signal);
         else {
           const analysis = await analyze(image, signal);
@@ -104,13 +106,18 @@ export async function POST(request: Request) {
           })) });
           if (!analysis.person.found || analysis.person.confidence < MIN_PERSON_CONFIDENCE || !analysis.pieces.length)
             throw new PreviewError(422, "We couldn’t find one clear person in this screenshot. Crop it to one person, head to toe, and try again.");
-          seen = analysis.pieces.slice(0, 8);
-          look = analysisToLook(analysis);
+          const segments = analysis.pieces.slice(0, 8);
+          const labels = await labelSegments(image, segments.map(p => ({ region: p.region, crop_b64: p.crop_b64,
+            colors: p.colors.slice(0, 3).map(c => c.name), guesses: p.garment_types.slice(0, 3).map(g => g.phrase) })), signal);
+          ({ seen, look } = applyLabels(analysis, labels));
+          step(null, "label", { model: LUNA, pieces: labels.pieces.map(l => ({ index: l.index, keep: l.keep, name: l.name, garment: l.garment, query: l.query })) });
+          if (!look.pieces.length) throw new PreviewError(422, "We couldn’t find a wearable piece in this screenshot. Crop it to one person, head to toe, and try again.");
+          if (analysis.image) segmentation = { image: analysis.image, person: { outline: analysis.person.outline }, timings_ms: analysis.timings_ms };
         }
         if (signal.aborted) signal.throwIfAborted();
         pieceCount = look.pieces.length;
-        emit({ t: "look", ...look, vision: seen.map(p => ({ crop: `data:image/jpeg;base64,${p.crop_b64}`, colors: p.colors.map(c => ({ name: c.name, hex: c.hex, frac: c.frac })),
-          garmentTypes: p.garment_types.map(g => ({ phrase: g.phrase, score: g.score })) })) });
+        emit({ t: "look", ...look, segmentation, vision: seen.map(p => ({ crop: `data:image/jpeg;base64,${p.crop_b64}`, colors: p.colors.map(c => ({ name: c.name, hex: c.hex, frac: c.frac })),
+          garmentTypes: p.garment_types.map(g => ({ phrase: g.phrase, score: g.score })), region: p.region, pattern: p.pattern, outline: p.outline, query: p.query })) });
         log("look", `Looking for ${look.pieces.map(piece => piece.name.toLowerCase()).join(", ")}`);
         const source = screenshotSourcing(signal, log, image);
         const work = Promise.allSettled(look.pieces.map((piece, i) => source(piece, match => {

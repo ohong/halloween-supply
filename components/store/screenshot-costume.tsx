@@ -8,6 +8,7 @@ import type { CartItem } from "@/lib/types";
 import { preparePhoto } from "@/lib/photo/prepare";
 import { AssemblyPlaceholder, AssemblyStatus } from "./assembly-status";
 import { PieceInspectionPanel } from "./piece-inspection-panel";
+import { PieceDot, PieceVision, PipelineStrip, SegmentationOverlay, type PieceVisionInfo, type Segmentation } from "./segmentation-view";
 import "./screenshot-costume.css";
 
 interface LookPiece { name: string; slot: string; query: string; sizeKind: CartItem["sizeKind"] }
@@ -17,7 +18,7 @@ type Slot =
   | { state: "candidate"; name: string; match: ScreenshotMatch }
   | { state: "approval"; name: string; item: CartItem; why?: string; because: string }
   | { state: "missing"; name: string };
-interface VisionInfo { crop: string; colors: { name: string; hex: string; frac: number }[]; garmentTypes: { phrase: string; score: number }[] }
+type VisionInfo = PieceVisionInfo;
 interface TraceStep { piece: number | null; step: string; detail: Record<string, unknown> }
 interface ScoredResult { title: string; score: number; verdict: string; reasons: string[] }
 interface LogLine { kind: string; text: string; ms: number }
@@ -52,17 +53,19 @@ function traceLine(entry: TraceStep) {
 }
 
 /** Shows the OpenCV evidence behind one piece: the crop, its colors and each step the agent took. */
-function MatchTrace({ vision, trace }: { vision?: VisionInfo; trace: TraceStep[] }) {
+function MatchTrace({ vision, trace, index }: { vision?: VisionInfo; trace: TraceStep[]; index: number }) {
   if (!vision) return null;
   return <details className="shot-how">
-    <summary>How we matched this</summary>
+    <summary>{vision.region && <><PieceDot index={index} />&nbsp;</>}How we matched this</summary>
     <div className="shot-how-body">
-      {/* eslint-disable-next-line @next/next/no-img-element -- a data URL crop from the vision service */}
-      <img src={vision.crop} alt="The piece as OpenCV cropped it" />
-      <ul className="shot-swatches" aria-label="Colors found">
-        {vision.colors.map(c => <li key={c.hex}><span style={{ background: c.hex }} />{c.name} {Math.round(c.frac * 100)}%</li>)}
-      </ul>
-      {vision.garmentTypes[0] && <p className="meta">Looks like: {vision.garmentTypes.slice(0, 3).map(g => `${g.phrase} ${g.score.toFixed(2)}`).join(", ")}</p>}
+      {!vision.region && <>
+        {/* eslint-disable-next-line @next/next/no-img-element -- a data URL crop from the vision service */}
+        <img src={vision.crop} alt="The piece as OpenCV cropped it" />
+        <ul className="shot-swatches" aria-label="Colors found">
+          {vision.colors.map(c => <li key={c.hex}><span style={{ background: c.hex }} />{c.name} {Math.round(c.frac * 100)}%</li>)}
+        </ul>
+        {vision.garmentTypes[0] && <p className="meta">Looks like: {vision.garmentTypes.slice(0, 3).map(g => `${g.phrase} ${g.score.toFixed(2)}`).join(", ")}</p>}
+      </>}
       <ol className="shot-steps">{trace.map((entry, i) => { const line = traceLine(entry); return line && <li key={i}>{line}</li>; })}</ol>
     </div>
   </details>;
@@ -87,6 +90,8 @@ export function ScreenshotCostume() {
   const [sizes, setSizes] = useState<Record<string, string | null>>({});
   const [dragging, setDragging] = useState(false);
   const [vision, setVision] = useState<VisionInfo[]>([]);
+  const [segmentation, setSegmentation] = useState<Segmentation | null>(null);
+  const [activePiece, setActivePiece] = useState<number | null>(null);
   const [traces, setTraces] = useState<Record<number, TraceStep[]>>({});
   const [selectedPieceId, setSelectedPieceId] = useState<string | null>(null);
   const inspectionTrigger = useRef<HTMLButtonElement | null>(null);
@@ -124,7 +129,7 @@ export function ScreenshotCostume() {
     const controller = new AbortController();
     abort.current = controller;
     setPreview((old) => { if (old) URL.revokeObjectURL(old); return URL.createObjectURL(file); });
-    setPhase("running"); setError(null); setCharacter(null); setSummary(""); setSlots([]); setSizes({}); setLog([]); setSelectedPieceId(null); setVision([]); setTraces({});
+    setPhase("running"); setError(null); setCharacter(null); setSummary(""); setSlots([]); setSizes({}); setLog([]); setSelectedPieceId(null); setVision([]); setTraces({}); setSegmentation(null); setActivePiece(null);
     queue.current = [];
 
     const form = new FormData();
@@ -157,6 +162,7 @@ export function ScreenshotCostume() {
             setSummary(String(event.summary ?? ""));
             setSlots((event.pieces as LookPiece[]).map((piece) => ({ state: "looking", name: piece.name })));
             setVision((event.vision as VisionInfo[] | undefined) ?? []);
+            setSegmentation((event.segmentation as Segmentation | undefined) ?? null);
           } else if (event.t === "trace") {
             const entry = event as unknown as TraceStep;
             if (entry.piece !== null) setTraces(current => ({ ...current, [entry.piece!]: [...(current[entry.piece!] ?? []), entry] }));
@@ -255,6 +261,7 @@ export function ScreenshotCostume() {
           <strong>Drop a screenshot</strong>
           <span>or paste it, or click to choose one. A movie still, a TikTok, a celebrity on a red carpet.</span>
         </span>}
+        {preview && segmentation && !restored && <SegmentationOverlay segmentation={segmentation} vision={vision} active={activePiece} />}
       </label>
       {preview && <button type="button" className="btn btn-ghost btn-block" disabled={running} onClick={() => fileRef.current?.click()}>Try another screenshot</button>}
       {(log.length > 0 || running) && <ol className="shot-log" ref={logRef} aria-live="polite" aria-label="Sourcing log">
@@ -275,6 +282,7 @@ export function ScreenshotCostume() {
 
       {error && <p className="notice" role="alert">{error}</p>}
 
+      {segmentation && !restored && <PipelineStrip timings={segmentation.timings_ms} />}
       {(running || visible.length > 0) && <AssemblyStatus discovery found={discovered} total={visible.length} missing={missing} running={running} stopped={phase === "error"} />}
       {running && visible.length === 0 && <div className="shot-preparing" aria-hidden="true">
         <span className="shot-preparing-sheet" />
@@ -284,7 +292,8 @@ export function ScreenshotCostume() {
       </div>}
       {visible.length > 0 ? <div className={`shot-workbench ${selected ? "has-selection" : ""}`}>
         <ul className="shot-lay">
-        {visible.map((slot, i) => <li key={i} className={`shot-slot is-${slot.state} ${slot.state === "found" && selected?.pieceId === slot.item.pieceId ? "is-selected" : ""}`} style={{ "--r": `${TILT[i % TILT.length]}deg` } as CSSProperties}>
+        {visible.map((slot, i) => <li key={i} className={`shot-slot is-${slot.state} ${slot.state === "found" && selected?.pieceId === slot.item.pieceId ? "is-selected" : ""}`} style={{ "--r": `${TILT[i % TILT.length]}deg` } as CSSProperties}
+          onMouseEnter={() => setActivePiece(i)} onMouseLeave={() => setActivePiece(null)} onFocus={() => setActivePiece(i)} onBlur={() => setActivePiece(null)}>
           {slot.state === "found" ? <>
             <button type="button" className="shot-inspect"
               aria-label={`Inspect ${slot.name}`} aria-expanded={selected?.pieceId === slot.item.pieceId}
@@ -334,7 +343,8 @@ export function ScreenshotCostume() {
             <div className="shot-frame"><AssemblyPlaceholder state={slot.state === "looking" && phase === "error" ? "stopped" : slot.state} index={i} /></div>
             <div className="shot-caption"><p className="shot-piece">{slot.name}</p></div>
           </>}
-          {!restored && <MatchTrace vision={vision[i]} trace={traces[i] ?? []} />}
+          {!restored && <PieceVision vision={vision[i]} index={i} />}
+          {!restored && <MatchTrace vision={vision[i]} trace={traces[i] ?? []} index={i} />}
         </li>)}
         </ul>
         {selected && <PieceInspectionPanel id="screenshot-piece-inspection" item={selected}
