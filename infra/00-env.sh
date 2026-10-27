@@ -10,7 +10,9 @@ NAME="halloween-vision"
 TAG_KEY="Project"
 TAG_VAL="$NAME"
 
-INSTANCE_TYPE="${INSTANCE_TYPE:-c8g.xlarge}"
+# Interim box is free-tier; 30-instance.sh golive moves to Graviton4 (COOL needs c8g/m8g/r8g).
+INSTANCE_TYPE="${INSTANCE_TYPE:-t4g.small}"
+GOLIVE_INSTANCE_TYPE="${GOLIVE_INSTANCE_TYPE:-c8g.xlarge}"
 ROLE_NAME="$NAME-ec2"
 PROFILE_NAME="$NAME-ec2"
 SG_NAME="$NAME-origin"

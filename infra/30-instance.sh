@@ -9,6 +9,11 @@ cat <<UD
 #!/bin/bash
 set -euxo pipefail
 export DEBIAN_FRONTEND=noninteractive
+# The models need ~1.4 GB per analyze; give the 2 GB interim box swap so it isn't OOM-killed.
+if [[ \$(awk '/MemTotal/{print \$2}' /proc/meminfo) -lt 4000000 && ! -f /swapfile ]]; then
+  fallocate -l 4G /swapfile && chmod 600 /swapfile && mkswap /swapfile && swapon /swapfile
+  echo '/swapfile none swap sw 0 0' >> /etc/fstab
+fi
 apt-get update -y && apt-get install -y docker.io unzip curl
 systemctl enable --now docker
 if ! command -v aws; then
@@ -52,6 +57,21 @@ UD
 }
 
 ID="$(service_instance)"
+
+# golive: swap the free interim box for Graviton4 + COOL, then deploy the cool image.
+# Needs a paid account plan and the COOL Marketplace subscription; the EIP keeps CloudFront's origin unchanged.
+if [[ "${1:-}" == "golive" ]]; then
+  [[ "$(cool_ami)" == "None" || -z "$(cool_ami)" ]] && { log "COOL AMI not visible: upgrade the account plan and subscribe first (see README)"; exit 1; }
+  INSTANCE_TYPE="$GOLIVE_INSTANCE_TYPE"
+  CUR="$(aws ec2 describe-instances --instance-ids "$ID" --query 'Reservations[0].Instances[0].[InstanceType,Tags[?Key==`Build`].Value|[0]]' --output text 2>/dev/null)"
+  if [[ -n "$ID" && "$ID" != "None" && "$CUR" != "$INSTANCE_TYPE"*cool ]]; then
+    log "terminating interim $ID ($CUR)"
+    aws ec2 terminate-instances --instance-ids "$ID" >/dev/null
+    aws ec2 wait instance-terminated --instance-ids "$ID"; ID=None
+  fi
+  set -- deploy cool
+fi
+
 if [[ "$ID" == "None" || -z "$ID" ]]; then
   AMI="$(cool_ami)"; BUILD=cool
   if [[ "$AMI" == "None" || -z "$AMI" ]]; then

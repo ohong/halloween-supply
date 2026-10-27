@@ -1,9 +1,9 @@
 # Vision service on AWS
 
-The OpenCV vision service runs on one EC2 Graviton4 instance (c8g.xlarge, us-east-2) in Docker, behind a CloudFront distribution that gives it HTTPS. The instance boots from the **Cloud-Optimized OpenCV Library (COOL) Graviton4 AMI**, and the container bind-mounts the host's `/opt/cool` so Session B's `cool` image uses the COOL build of OpenCV. Everything is plain AWS CLI in bash, idempotent, and tagged `Project=halloween-vision`.
+The OpenCV vision service runs on one EC2 Graviton instance (us-east-2) in Docker, behind a CloudFront distribution that gives it HTTPS. It has two stages. Until launch it runs on a free-tier **t4g.small** with stock Ubuntu and the `stock` image, so it costs nothing while the account is on the AWS Free plan. At launch, `./30-instance.sh golive` swaps it for a **c8g.xlarge** booted from the **Cloud-Optimized OpenCV Library (COOL) Graviton4 AMI**, and the container bind-mounts the host's `/opt/cool` so Session B's `cool` image uses the COOL build of OpenCV. Everything is plain AWS CLI in bash, idempotent, and tagged `Project=halloween-vision`.
 
 ```
-Vercel app ──HTTPS──> CloudFront (no cache, 60 s timeout) ──HTTP:8080──> EC2 c8g.xlarge (EIP)
+Vercel app ──HTTPS──> CloudFront (no cache, 60 s timeout) ──HTTP:8080──> EC2 t4g.small → c8g.xlarge (EIP)
                                                                         └ docker: $ECR/halloween-vision:<tag>
                                                                           logs -> CloudWatch /halloween/vision
 ```
@@ -11,7 +11,7 @@ Vercel app ──HTTPS──> CloudFront (no cache, 60 s timeout) ──HTTP:808
 ## Prerequisites
 
 - AWS CLI v2 signed in to the target account (`aws sts get-caller-identity` works), Docker with buildx.
-- A subscription to the COOL Graviton4 AMI in AWS Marketplace (`prodview-fdvbfiewzuehs`). Without it, `30-instance.sh` falls back to stock Ubuntu 24.04 and only the `stock` / `placeholder` tags run.
+- For go-live only: a paid account plan and a subscription to the COOL Graviton4 AMI in AWS Marketplace (`prodview-fdvbfiewzuehs`). The AWS Free plan rejects c8g/c7i instances ("instance type is not eligible for Free Tier") and Marketplace AMIs, so the interim stage and nothing else works until the plan is upgraded.
 - A default VPC in us-east-2 (the account's SCP denies EC2 in other regions).
 
 ## Bring it up
@@ -40,6 +40,15 @@ docker run --rm -v /opt/cool:/opt/cool:ro -e PYTHONPATH=/opt/cool/python_3.12/si
   -e LD_LIBRARY_PATH=/opt/cool/cpp_sdk/lib --entrypoint python3 $ECR_URI:cool \
   -c "import cv2, numpy; print(cv2.__file__, cv2.__version__, numpy.__version__)"
 ```
+
+## Go live (after upgrading the account plan)
+
+1. In the console, upgrade the account from the Free plan to a paid plan (Billing → upgrade plan; one-way).
+2. Subscribe to the COOL Graviton4 AMI: AWS Marketplace → `prodview-fdvbfiewzuehs` → Continue to Subscribe, then accept terms.
+3. Run `./30-instance.sh golive`. It fails fast if the COOL AMI isn't visible yet. Otherwise it terminates the interim t4g.small, launches a c8g.xlarge from the COOL AMI on the same Elastic IP (so the CloudFront origin doesn't change), and deploys `cool`. If the COOL cv2 can't import under numpy 2, the healthz wait fails and prints the container log; run the check above and send the error to Session B.
+4. `curl -s https://<cloudfront-domain>/healthz` should report `"build":"cool","arch":"aarch64"`.
+
+The interim box has 2 GB of RAM, and one analyze peaks at ~1.4 GB, so user-data adds a 4 GB swapfile on hosts with under 4 GB. Analyze takes 13–20 s there against well under that on c8g.
 
 Shell access is SSM only: `aws ssm start-session --target <instance-id>`.
 
@@ -71,13 +80,14 @@ They have no inbound ports, use the same role (SSM, ECR pull, S3 `halloween-visi
 
 | Item | $/hour |
 |---|---|
-| c8g.xlarge service instance | 0.159 |
+| Interim t4g.small service instance | 0 on the Free plan (free-tier hours) |
+| c8g.xlarge service instance (after golive) | 0.159 |
 | COOL software fee (Graviton4, xlarge) | ~0.01–0.02 |
 | Elastic IP (public IPv4) | 0.005 |
 | 30 GB gp3 | 0.003 |
 | CloudFront, CloudWatch, ECR | cents/day at demo traffic |
-| **Service total** | **~0.18** |
-| Bench `up` (2× c8g.xlarge + c7i.xlarge) | ~0.50 while running |
+| **Service total after golive** | **~0.18** |
+| Bench `up` (2× c8g.xlarge + c7i.xlarge; needs the paid plan) | ~0.50 while running |
 
 Stop the service instance to pause compute cost (`aws ec2 stop-instances`); the EIP keeps the CloudFront origin valid.
 
