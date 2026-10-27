@@ -142,7 +142,7 @@ async function verifyPage(editorial: Editorial, snapshot?: CostumeSnapshot) {
   const view = await query.getCostume([snapshot], editorial.slug);
   assert(view, "No local view is available for page comparison");
   const rows = elements(html, "li").filter((element) => hasClass(element, "outfit-piece"));
-  const labels = (html: string) => [...html.matchAll(/<span\b([^>]*)>([^<]*)<\/span>/gi)]
+  const labels = (html: string) => [...html.replace(/<!--[\s\S]*?-->/g, "").matchAll(/<span\b([^>]*)>([^<]*)<\/span>/gi)]
     .map((match) => ({ attributes: attributes(match[1]), inner: match[2] }));
   assert.equal(rows.length, view.pieces.length, "Rendered component count differs from the saved catalog");
   for (const { piece, options } of view.pieces) {
