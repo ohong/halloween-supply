@@ -91,13 +91,16 @@ function readShopify(
   const optionNames = array(value.options).map((option) => record(option) ? text(option.name) ?? "" : text(option) ?? "");
   const sizeIndex = optionNames.findIndex((name) => /\bsize\b/i.test(name));
   const option = (variant: RecordValue, index: number) => text(variant[`option${index + 1}`]) ?? (Array.isArray(variant.options) ? text(variant.options[index]) : null);
-  // Keep the product's selected color/material while changing its size.
-  const anchor = variants.find((variant) => String(variant.id) === url.searchParams.get("variant")) ?? variants[0];
+  const pinnedId = url.searchParams.get("variant");
+  const pinned = variants.find((variant) => String(variant.id) === pinnedId);
+  if (pinnedId !== null && !pinned) return { verified: false, reason: "The selected merchant variant is no longer offered." };
+  // Preserve the recorded pack/length at refresh; only a shopper's size choice may change it.
+  const anchor = pinned ?? variants[0];
   const family = variants.filter((variant) => optionNames.every((_, index) => index === sizeIndex || option(variant, index) === option(anchor, index)));
   const size = (variant: RecordValue) => sizeIndex < 0 ? "one size" : option(variant, sizeIndex);
   const availableSizes = [...new Set(family.filter((variant) => variant.available === true).map(size).filter(isRealSizeLabel))];
   const matching = (selectedSize === undefined
-    ? family
+    ? (pinned ? [pinned] : family)
     : selectedSize === null
       ? [anchor]
       : family.filter((variant) =>
@@ -109,8 +112,7 @@ function readShopify(
   const chosen = (available.length ? available : matching).slice().sort((a, b) => Number(a.price) - Number(b.price))[0];
   const cents = typeof chosen.price === "number" ? chosen.price : null;
   if (!validPrice(cents) || typeof chosen.available !== "boolean") return { verified: false, reason: "The selected variant price or stock is missing." };
-  // Refresh saves one price for this family. Other prices need separate offers;
-  // an explicit requested size still chooses its own live variant and price.
+  // One saved price must advertise only available sizes at that exact price.
   const sizes = [...new Set(family.filter((variant) => variant.available === true && variant.price === cents).map(size).filter(isRealSizeLabel))];
   const variantId = String(chosen.id);
   if (!/^\d+$/.test(variantId)) return { verified: false, reason: "The merchant variant is missing." };
@@ -191,6 +193,8 @@ export async function verifyProduct(
       const declaredCurrency = html.match(/Shopify\.currency\s*=\s*\{\s*["']?active["']?\s*:\s*["']([A-Z]{3})["']/)?.[1] ?? null;
       return readShopify(shopify.product, url, selectedSize, shopify.currency ?? parsed.currency ?? declaredCurrency);
     }
+
+    if (url.searchParams.has("variant")) return { verified: false, reason: "The selected merchant variant could not be verified." };
 
     const offers = exactOffers(html, product.url);
     const availableSizes = [...new Set(offers.filter((offer) => offer.availability === "in_stock").map((offer) => offer.size).filter(isRealSizeLabel))];
