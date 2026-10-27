@@ -90,7 +90,7 @@ The smoke test passes against both images. The linen ghost needs only 2 pieces w
 | Env var | Default | Meaning |
 |---|---|---|
 | `VISION_SERVICE_TOKEN` | required | The bearer token for every route except `/healthz`. The service exits at startup if it is unset. |
-| `VISION_WORKERS` | min(CPUs, 4) | The number of requests that can run at once. Each worker thread holds its own copy of both nets, about 0.5 GB. |
+| `VISION_WORKERS` | min(CPUs, 4) | The number of requests that can run at once. All requests share one copy of each net and take turns on it, so memory does not grow with this number. A single request peaks at about 1.7 GB RSS. |
 | `VISION_MODELS_DIR` | `models/` | Where the ONNX files are. |
 | `SEG_SIZE` | 512 | The segmenter's input side. |
 | `OPENCV_BUILD` | unset | When set to `cool`, the build is reported as COOL. The service also detects COOL from `cv2.getBuildInformation()`. |

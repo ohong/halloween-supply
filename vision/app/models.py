@@ -1,7 +1,8 @@
 """The two cv2.dnn networks (SegFormer clothes parser, CLIP image encoder) and the vocabulary.
 
-Every forward pass goes through cv2.dnn. A cv2.dnn.Net is not thread-safe, so each
-worker thread gets its own copy of each net.
+Every forward pass goes through cv2.dnn. A cv2.dnn.Net is not thread-safe, so the process holds
+one copy of each net behind its own lock. cv2.dnn already spreads one forward pass over every core,
+so extra copies would only multiply memory (about 0.9 GB of weights plus 0.4 GB of buffers each).
 """
 
 import hashlib
@@ -49,27 +50,20 @@ assert VOCAB_EMB.shape == (len(VOCAB), 512), "vocabulary.npy is stale; rerun scr
 VOCAB_BY_REGION = {r: np.array([i for i, v in enumerate(VOCAB) if v["region"] == r]) for r in REGION_LABELS}
 VOCAB_INDEX = {(v["phrase"], v["region"]): i for i, v in enumerate(VOCAB)}
 
-_local = threading.local()
-
-
-def _nets():
-    if not hasattr(_local, "seg"):
-        _local.seg = cv2.dnn.readNet(str(MODELS / SEGMENTER_FILE))
-        _local.clip = cv2.dnn.readNet(str(MODELS / EMBEDDER_FILE))
-    return _local.seg, _local.clip
+SEG_NET, SEG_LOCK = cv2.dnn.readNet(str(MODELS / SEGMENTER_FILE)), threading.Lock()
+CLIP_NET, CLIP_LOCK = cv2.dnn.readNet(str(MODELS / EMBEDDER_FILE)), threading.Lock()
 
 
 def segment(bgr_images: list[np.ndarray]) -> list[tuple[np.ndarray, np.ndarray]]:
-    """Per image: (label map uint8 HxW, confidence of the winning label float32 HxW)."""
-    seg, _ = _nets()
-    blobs = []
+    """Per image: (label map uint8 HxW, confidence of the winning label float32 HxW).
+    One image per forward pass: SegFormer's buffers grow about 300 MB per image in a batch."""
+    out = []
     for bgr in bgr_images:
         rgb = cv2.cvtColor(cv2.resize(bgr, (SEG_SIZE, SEG_SIZE), interpolation=cv2.INTER_LINEAR), cv2.COLOR_BGR2RGB)
-        blobs.append(((rgb.astype(np.float32) / 255.0 - SEG_MEAN) / SEG_STD).transpose(2, 0, 1))
-    seg.setInput(np.stack(blobs).astype(np.float32))
-    logits = seg.forward()  # N x 18 x S/4 x S/4
-    out = []
-    for bgr, lg in zip(bgr_images, logits):
+        blob = ((rgb.astype(np.float32) / 255.0 - SEG_MEAN) / SEG_STD).transpose(2, 0, 1)[None].astype(np.float32)
+        with SEG_LOCK:
+            SEG_NET.setInput(blob)
+            lg = SEG_NET.forward()[0]  # 18 x S/4 x S/4
         h, w = bgr.shape[:2]
         up = cv2.resize(lg.transpose(1, 2, 0), (w, h), interpolation=cv2.INTER_LINEAR)  # HxWx18
         up -= up.max(axis=2, keepdims=True)
@@ -93,9 +87,10 @@ def embed(bgr_crops: list[np.ndarray]) -> np.ndarray:
     """L2-normalized CLIP image embeddings, N x 512."""
     if not bgr_crops:
         return np.zeros((0, 512), np.float32)
-    _, clip = _nets()
-    clip.setInput(np.stack([clip_blob(c) for c in bgr_crops]))
-    e = clip.forward().astype(np.float32)
+    blob = np.stack([clip_blob(c) for c in bgr_crops])
+    with CLIP_LOCK:
+        CLIP_NET.setInput(blob)
+        e = CLIP_NET.forward().astype(np.float32)
     return e / np.linalg.norm(e, axis=1, keepdims=True)
 
 

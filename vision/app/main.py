@@ -25,7 +25,7 @@ if not TOKEN:
     sys.exit("VISION_SERVICE_TOKEN is not set")
 
 CPUS = os.cpu_count() or 1
-# Each worker thread holds its own copy of both nets (~0.5 GB), so cap concurrency.
+# Requests that can run at once. They share one copy of each net (see app/models.py).
 WORKERS = int(os.environ.get("VISION_WORKERS", str(min(CPUS, 4))))
 cv2.setNumThreads(CPUS)
 BUILD = "cool" if os.environ.get("OPENCV_BUILD") == "cool" or "COOL" in cv2.getBuildInformation() else "stock"
