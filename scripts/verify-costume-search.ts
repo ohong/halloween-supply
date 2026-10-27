@@ -185,7 +185,7 @@ async function main() {
   assert.equal(response.status, 200);
   const html = text(await response.text());
   assert(/<input\b[^>]*(?:type="search"|role="searchbox")/i.test(html), "Landing page needs the main search field");
-  assert(html.includes("What do you want to be?"), "Landing search needs its visible prompt");
+  assert(/<h1\b[^>]*id="costume-search-heading"[^>]*>[^<]+<\/h1>/i.test(html), "Landing search needs its visible prompt");
   assert.equal((html.match(/class="tile-picture"/g) ?? []).length, costumes.length, "The empty initial search must show every costume");
   for (const { slug } of costumes) assert(html.includes(`${slug}-female.webp`) || html.includes(encodeURIComponent(`${slug}-female.webp`)), `${slug}: default model image missing`);
   pass(`homepage renders the main search and all ${costumes.length} model tiles`);
