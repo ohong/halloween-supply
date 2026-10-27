@@ -147,6 +147,8 @@ ${line("best F1", best.c, best.m)}
 
 "Proposed" is the highest-precision config within 0.02 F1 of the best, nearest the current constants on ties. ${results.length} configs searched.
 
+Base rate: ${pct(nRel / rows.length)} of scored candidates are labelled relevant, so a scorer that accepts everything already has that precision. Precision near the base rate means the gain comes from accepting more candidates (recall), not from ranking them better.
+
 ## One knob at a time (others at current values)
 
 | TYPE_MISMATCH_EMBEDDING | precision | recall | F1 |
