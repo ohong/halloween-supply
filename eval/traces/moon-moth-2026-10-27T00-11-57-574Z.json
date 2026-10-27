@@ -1,0 +1,358 @@
+{
+  "slug": "moon-moth",
+  "base": "http://localhost:3000",
+  "model": "opencv-5:5.0.0;stock",
+  "elapsedMs": 30517,
+  "done": {
+    "t": "done",
+    "found": 3,
+    "priced": 1,
+    "timedOut": true,
+    "ms": 30001
+  },
+  "pieces": [
+    "beige feather shoulder cape",
+    "chocolate fitted tights",
+    "chocolate thigh-high boots"
+  ],
+  "approvals": [
+    {
+      "i": 1,
+      "because": "budget_low"
+    }
+  ],
+  "retries": [
+    {
+      "piece": 0,
+      "attempt": 0,
+      "action": "retry",
+      "because": "no_candidates",
+      "next": "beige feather cape"
+    }
+  ],
+  "improvedPieces": [],
+  "trace": [
+    {
+      "t_ms": 2557,
+      "piece": null,
+      "step": "perceive",
+      "detail": {
+        "person": {
+          "found": true,
+          "bbox": [
+            369,
+            159,
+            279,
+            817
+          ],
+          "confidence": 0.778
+        },
+        "timings_ms": {
+          "decode": 5,
+          "segment": 2260,
+          "colors": 45,
+          "embed": 213,
+          "classify": 6,
+          "total": 2531
+        },
+        "pieces": [
+          {
+            "id": "p0",
+            "region": "upper_clothes",
+            "slot": "top",
+            "area_frac": 0.0224,
+            "pattern": "patterned",
+            "query": "beige feather shoulder cape",
+            "alternate": "beige feather cape",
+            "colors": [
+              {
+                "name": "beige",
+                "hex": "#d1c5a8",
+                "frac": 0.452
+              },
+              {
+                "name": "olive",
+                "hex": "#858257",
+                "frac": 0.334
+              },
+              {
+                "name": "chocolate",
+                "hex": "#3c3824",
+                "frac": 0.214
+              }
+            ],
+            "garment_types": [
+              {
+                "phrase": "feather shoulder cape",
+                "score": 0.3045
+              },
+              {
+                "phrase": "moth wing cape",
+                "score": 0.271
+              },
+              {
+                "phrase": "hooded cape",
+                "score": 0.2591
+              }
+            ]
+          },
+          {
+            "id": "p1",
+            "region": "pants",
+            "slot": "bottom",
+            "area_frac": 0.0661,
+            "pattern": "solid",
+            "query": "chocolate fitted tights",
+            "alternate": "chocolate tights",
+            "colors": [
+              {
+                "name": "chocolate",
+                "hex": "#3b392d",
+                "frac": 0.779
+              },
+              {
+                "name": "olive",
+                "hex": "#6d6a56",
+                "frac": 0.19
+              },
+              {
+                "name": "white",
+                "hex": "#f0f0ec",
+                "frac": 0.031
+              }
+            ],
+            "garment_types": [
+              {
+                "phrase": "fitted tights",
+                "score": 0.2825
+              },
+              {
+                "phrase": "riding breeches",
+                "score": 0.2644
+              },
+              {
+                "phrase": "high-waisted trousers",
+                "score": 0.2608
+              }
+            ]
+          },
+          {
+            "id": "p2",
+            "region": "shoes",
+            "slot": "feet",
+            "area_frac": 0.0089,
+            "pattern": "solid",
+            "query": "chocolate thigh-high boots",
+            "alternate": "chocolate over-the-knee boots",
+            "colors": [
+              {
+                "name": "chocolate",
+                "hex": "#3d3b30",
+                "frac": 0.859
+              },
+              {
+                "name": "white",
+                "hex": "#f7f7f5",
+                "frac": 0.09
+              },
+              {
+                "name": "gray",
+                "hex": "#807e6f",
+                "frac": 0.051
+              }
+            ],
+            "garment_types": [
+              {
+                "phrase": "thigh-high boots",
+                "score": 0.2836
+              },
+              {
+                "phrase": "knee-high boots",
+                "score": 0.2818
+              },
+              {
+                "phrase": "pointed western boots",
+                "score": 0.2784
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "t_ms": 8411,
+      "piece": 0,
+      "step": "search",
+      "detail": {
+        "attempt": 0,
+        "query": "beige feather shoulder cape",
+        "candidates": 3,
+        "ms": 5853
+      }
+    },
+    {
+      "t_ms": 12421,
+      "piece": 0,
+      "step": "score",
+      "detail": {
+        "attempt": 0,
+        "results": []
+      }
+    },
+    {
+      "t_ms": 12421,
+      "piece": 0,
+      "step": "decide",
+      "detail": {
+        "attempt": 0,
+        "action": "retry",
+        "because": "no_candidates",
+        "next": "beige feather cape"
+      }
+    },
+    {
+      "t_ms": 16568,
+      "piece": 2,
+      "step": "search",
+      "detail": {
+        "attempt": 0,
+        "query": "chocolate thigh-high boots",
+        "candidates": 3,
+        "ms": 14010
+      }
+    },
+    {
+      "t_ms": 16635,
+      "piece": 1,
+      "step": "search",
+      "detail": {
+        "attempt": 0,
+        "query": "chocolate fitted tights",
+        "candidates": 3,
+        "ms": 14077
+      }
+    },
+    {
+      "t_ms": 19613,
+      "piece": 2,
+      "step": "score",
+      "detail": {
+        "attempt": 0,
+        "results": [
+          {
+            "title": "AZALEA WANG HALINA CHOCOLATE THIGH HIGH BOOT",
+            "merchant": "shopakira.com",
+            "score": 0.5888,
+            "verdict": "weak",
+            "reasons": [],
+            "embedding": 0.7926,
+            "delta_e": 12.31,
+            "color": {
+              "name": "chocolate",
+              "hex": "#2a1e18"
+            },
+            "foreground": "segmenter"
+          },
+          {
+            "title": "Women's Thigh High Boots | Over the Knee Lace Up Block Heel",
+            "merchant": "nooriboutique.com",
+            "score": 0.7124,
+            "verdict": "match",
+            "reasons": [],
+            "embedding": 0.8296,
+            "delta_e": 8.23,
+            "color": {
+              "name": "black",
+              "hex": "#24221a"
+            },
+            "foreground": "segmenter"
+          },
+          {
+            "title": "ALYZA OVER THE KNEE BOOTS - Chocolate",
+            "merchant": "journeecollection.com",
+            "score": 0.6388,
+            "verdict": "match",
+            "reasons": [],
+            "embedding": 0.8436,
+            "delta_e": 16.56,
+            "color": {
+              "name": "brown",
+              "hex": "#64463c"
+            },
+            "foreground": "grabcut"
+          }
+        ]
+      }
+    },
+    {
+      "t_ms": 19613,
+      "piece": 2,
+      "step": "decide",
+      "detail": {
+        "attempt": 0,
+        "action": "accept",
+        "because": "match",
+        "best_score": 0.7124
+      }
+    },
+    {
+      "t_ms": 24476,
+      "piece": 1,
+      "step": "score",
+      "detail": {
+        "attempt": 0,
+        "results": [
+          {
+            "title": "Opaque Tights - Chocolate Brown",
+            "merchant": "francesjaye.com",
+            "score": 0.5846,
+            "verdict": "weak",
+            "reasons": [],
+            "embedding": 0.8215,
+            "delta_e": 18.93,
+            "color": {
+              "name": "chocolate",
+              "hex": "#220f0d"
+            },
+            "foreground": "segmenter"
+          },
+          {
+            "title": "Opaque Tights, Chocolate Brown",
+            "merchant": "shopclad.com",
+            "score": 0.556,
+            "verdict": "weak",
+            "reasons": [],
+            "embedding": 0.7982,
+            "delta_e": 17.86,
+            "color": {
+              "name": "chocolate",
+              "hex": "#210f0b"
+            },
+            "foreground": "segmenter"
+          }
+        ]
+      }
+    },
+    {
+      "t_ms": 24476,
+      "piece": 1,
+      "step": "decide",
+      "detail": {
+        "attempt": 0,
+        "action": "approve",
+        "because": "budget_low",
+        "best_score": 0.5846
+      }
+    },
+    {
+      "t_ms": 24476,
+      "piece": 1,
+      "step": "approve",
+      "detail": {
+        "because": "budget_low",
+        "score": 0.5846,
+        "title": "Opaque Tights - Chocolate Brown"
+      }
+    }
+  ]
+}

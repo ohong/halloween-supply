@@ -1,0 +1,596 @@
+{
+  "slug": "cosmic-cowboy-upper",
+  "base": "http://localhost:3000",
+  "model": "opencv-5:5.0.0;stock",
+  "elapsedMs": 30073,
+  "done": {
+    "t": "done",
+    "found": 3,
+    "priced": 2,
+    "timedOut": true,
+    "ms": 30005
+  },
+  "pieces": [
+    "gray felt cowboy hat",
+    "blue knotted neckerchief",
+    "gray cropped embroidered jacket",
+    "gray satin pantaloons"
+  ],
+  "approvals": [],
+  "retries": [
+    {
+      "piece": 0,
+      "attempt": 0,
+      "action": "retry",
+      "because": "no_candidates",
+      "next": "gray western hat"
+    },
+    {
+      "piece": 2,
+      "attempt": 0,
+      "action": "retry",
+      "because": "no_candidates",
+      "next": "gray cropped jacket"
+    },
+    {
+      "piece": 0,
+      "attempt": 1,
+      "action": "retry",
+      "because": "color_mismatch",
+      "next": "silver felt cowboy hat"
+    },
+    {
+      "piece": 3,
+      "attempt": 0,
+      "action": "retry",
+      "because": "color_mismatch",
+      "next": "silver satin pantaloons"
+    }
+  ],
+  "improvedPieces": [
+    3
+  ],
+  "trace": [
+    {
+      "t_ms": 1146,
+      "piece": null,
+      "step": "perceive",
+      "detail": {
+        "person": {
+          "found": true,
+          "bbox": [
+            297,
+            9,
+            437,
+            554
+          ],
+          "confidence": 0.907
+        },
+        "timings_ms": {
+          "decode": 2,
+          "segment": 806,
+          "colors": 44,
+          "embed": 273,
+          "classify": 7,
+          "total": 1133
+        },
+        "pieces": [
+          {
+            "id": "p0",
+            "region": "hat",
+            "slot": "head",
+            "area_frac": 0.0235,
+            "pattern": "patterned",
+            "query": "gray felt cowboy hat",
+            "alternate": "gray western hat",
+            "colors": [
+              {
+                "name": "gray",
+                "hex": "#8d8a89",
+                "frac": 0.425
+              },
+              {
+                "name": "silver",
+                "hex": "#cdcaca",
+                "frac": 0.292
+              },
+              {
+                "name": "charcoal",
+                "hex": "#4f4c4d",
+                "frac": 0.283
+              }
+            ],
+            "garment_types": [
+              {
+                "phrase": "felt cowboy hat",
+                "score": 0.2673
+              },
+              {
+                "phrase": "feathered musketeer hat",
+                "score": 0.2546
+              },
+              {
+                "phrase": "belled jester cap",
+                "score": 0.2527
+              }
+            ]
+          },
+          {
+            "id": "p1",
+            "region": "scarf",
+            "slot": "accessory",
+            "area_frac": 0.013,
+            "pattern": "patterned",
+            "query": "blue knotted neckerchief",
+            "alternate": "blue bandana",
+            "colors": [
+              {
+                "name": "blue",
+                "hex": "#27409f",
+                "frac": 0.436
+              },
+              {
+                "name": "navy",
+                "hex": "#101433",
+                "frac": 0.424
+              },
+              {
+                "name": "lavender",
+                "hex": "#7e91cd",
+                "frac": 0.14
+              }
+            ],
+            "garment_types": [
+              {
+                "phrase": "knotted neckerchief",
+                "score": 0.2857
+              },
+              {
+                "phrase": "silk cravat",
+                "score": 0.2775
+              },
+              {
+                "phrase": "silk kerchief",
+                "score": 0.2766
+              }
+            ]
+          },
+          {
+            "id": "p2",
+            "region": "upper_clothes",
+            "slot": "top",
+            "area_frac": 0.1716,
+            "pattern": "patterned",
+            "query": "gray cropped embroidered jacket",
+            "alternate": "gray cropped jacket",
+            "colors": [
+              {
+                "name": "gray",
+                "hex": "#817d7c",
+                "frac": 0.422
+              },
+              {
+                "name": "silver",
+                "hex": "#d2d0ce",
+                "frac": 0.412
+              },
+              {
+                "name": "navy",
+                "hex": "#2a2842",
+                "frac": 0.166
+              }
+            ],
+            "garment_types": [
+              {
+                "phrase": "cropped embroidered jacket",
+                "score": 0.2785
+              },
+              {
+                "phrase": "flared disco jumpsuit",
+                "score": 0.2774
+              },
+              {
+                "phrase": "diamond harlequin bodysuit",
+                "score": 0.262
+              }
+            ]
+          },
+          {
+            "id": "p3",
+            "region": "pants",
+            "slot": "bottom",
+            "area_frac": 0.0521,
+            "pattern": "patterned",
+            "query": "gray satin pantaloons",
+            "alternate": "gray bloomers",
+            "colors": [
+              {
+                "name": "gray",
+                "hex": "#9e9a9b",
+                "frac": 0.48
+              },
+              {
+                "name": "silver",
+                "hex": "#dbd9da",
+                "frac": 0.321
+              },
+              {
+                "name": "gray",
+                "hex": "#615d5c",
+                "frac": 0.199
+              }
+            ],
+            "garment_types": [
+              {
+                "phrase": "satin pantaloons",
+                "score": 0.282
+              },
+              {
+                "phrase": "flared trousers",
+                "score": 0.2687
+              },
+              {
+                "phrase": "harem pants",
+                "score": 0.2606
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "t_ms": 13153,
+      "piece": 0,
+      "step": "search",
+      "detail": {
+        "attempt": 0,
+        "query": "gray felt cowboy hat",
+        "candidates": 0,
+        "ms": 12006
+      }
+    },
+    {
+      "t_ms": 13153,
+      "piece": 0,
+      "step": "score",
+      "detail": {
+        "attempt": 0,
+        "results": []
+      }
+    },
+    {
+      "t_ms": 13153,
+      "piece": 0,
+      "step": "decide",
+      "detail": {
+        "attempt": 0,
+        "action": "retry",
+        "because": "no_candidates",
+        "next": "gray western hat"
+      }
+    },
+    {
+      "t_ms": 13159,
+      "piece": 1,
+      "step": "search",
+      "detail": {
+        "attempt": 0,
+        "query": "blue knotted neckerchief",
+        "candidates": 2,
+        "ms": 12012
+      }
+    },
+    {
+      "t_ms": 13171,
+      "piece": 2,
+      "step": "search",
+      "detail": {
+        "attempt": 0,
+        "query": "gray cropped embroidered jacket",
+        "candidates": 0,
+        "ms": 12024
+      }
+    },
+    {
+      "t_ms": 13171,
+      "piece": 2,
+      "step": "score",
+      "detail": {
+        "attempt": 0,
+        "results": []
+      }
+    },
+    {
+      "t_ms": 13171,
+      "piece": 2,
+      "step": "decide",
+      "detail": {
+        "attempt": 0,
+        "action": "retry",
+        "because": "no_candidates",
+        "next": "gray cropped jacket"
+      }
+    },
+    {
+      "t_ms": 13488,
+      "piece": 0,
+      "step": "search",
+      "detail": {
+        "attempt": 1,
+        "query": "gray western hat",
+        "candidates": 3,
+        "ms": 335
+      }
+    },
+    {
+      "t_ms": 14305,
+      "piece": 1,
+      "step": "score",
+      "detail": {
+        "attempt": 0,
+        "results": [
+          {
+            "title": "Buckaroo Blue | Silk Wild Rag | 19mm Solid Western Scarf",
+            "merchant": "cowtownwildrags.com",
+            "score": 0.6014,
+            "verdict": "match",
+            "reasons": [],
+            "embedding": 0.7844,
+            "delta_e": 10.65,
+            "color": {
+              "name": "blue",
+              "hex": "#395c75"
+            },
+            "foreground": "grabcut"
+          },
+          {
+            "title": "Royal Blue Paisley Bandana",
+            "merchant": "wexpress.com",
+            "score": 0.5705,
+            "verdict": "weak",
+            "reasons": [],
+            "embedding": 0.7505,
+            "delta_e": 7.84,
+            "color": {
+              "name": "blue",
+              "hex": "#164e8b"
+            },
+            "foreground": "grabcut"
+          }
+        ]
+      }
+    },
+    {
+      "t_ms": 14305,
+      "piece": 1,
+      "step": "decide",
+      "detail": {
+        "attempt": 0,
+        "action": "accept",
+        "because": "match",
+        "best_score": 0.6014
+      }
+    },
+    {
+      "t_ms": 15591,
+      "piece": 0,
+      "step": "score",
+      "detail": {
+        "attempt": 1,
+        "results": [
+          {
+            "title": "TC Hats - 20X Open Crown Hat - Mist Gray",
+            "merchant": "gomezwesternwear.com",
+            "score": 0.521,
+            "verdict": "weak",
+            "reasons": [],
+            "embedding": 0.7396,
+            "delta_e": 10.25,
+            "color": {
+              "name": "silver",
+              "hex": "#b2a09c"
+            },
+            "foreground": "grabcut"
+          },
+          {
+            "title": "Run Away Grey Western Hat",
+            "merchant": "charlie1horsehats.com",
+            "score": 0.3953,
+            "verdict": "reject",
+            "reasons": [
+              "color_mismatch"
+            ],
+            "embedding": 0.7306,
+            "delta_e": 25.13,
+            "color": {
+              "name": "charcoal",
+              "hex": "#50484f"
+            },
+            "foreground": "segmenter"
+          }
+        ]
+      }
+    },
+    {
+      "t_ms": 15591,
+      "piece": 0,
+      "step": "decide",
+      "detail": {
+        "attempt": 1,
+        "action": "retry",
+        "because": "color_mismatch",
+        "next": "silver felt cowboy hat"
+      }
+    },
+    {
+      "t_ms": 17826,
+      "piece": 3,
+      "step": "search",
+      "detail": {
+        "attempt": 0,
+        "query": "gray satin pantaloons",
+        "candidates": 1,
+        "ms": 16679
+      }
+    },
+    {
+      "t_ms": 18183,
+      "piece": 3,
+      "step": "score",
+      "detail": {
+        "attempt": 0,
+        "results": [
+          {
+            "title": "Ladies Tweed Vest - Gray",
+            "merchant": "historicalemporium.com",
+            "score": 0.2693,
+            "verdict": "reject",
+            "reasons": [
+              "color_mismatch"
+            ],
+            "embedding": 0.7182,
+            "delta_e": 39.37,
+            "color": {
+              "name": "charcoal",
+              "hex": "#32342f"
+            },
+            "foreground": "grabcut"
+          }
+        ]
+      }
+    },
+    {
+      "t_ms": 18183,
+      "piece": 3,
+      "step": "decide",
+      "detail": {
+        "attempt": 0,
+        "action": "retry",
+        "because": "color_mismatch",
+        "next": "silver satin pantaloons"
+      }
+    },
+    {
+      "t_ms": 18435,
+      "piece": 2,
+      "step": "search",
+      "detail": {
+        "attempt": 1,
+        "query": "gray cropped jacket",
+        "candidates": 3,
+        "ms": 5264
+      }
+    },
+    {
+      "t_ms": 21155,
+      "piece": 2,
+      "step": "score",
+      "detail": {
+        "attempt": 1,
+        "results": [
+          {
+            "title": "Kinsley Cropped Trench Jacket - Grey",
+            "merchant": "thefrankieshop.com",
+            "score": 0.5281,
+            "verdict": "weak",
+            "reasons": [],
+            "embedding": 0.7932,
+            "delta_e": 20.56,
+            "color": {
+              "name": "charcoal",
+              "hex": "#494549"
+            },
+            "foreground": "segmenter"
+          },
+          {
+            "title": "Tropical Wool Eisenhower Jacket",
+            "merchant": "toddsnyder.com",
+            "score": 0.5941,
+            "verdict": "weak",
+            "reasons": [],
+            "embedding": 0.7505,
+            "delta_e": 19.06,
+            "color": {
+              "name": "charcoal",
+              "hex": "#4b4b4b"
+            },
+            "foreground": "grabcut"
+          },
+          {
+            "title": "Azura Grey Cropped Trench Coat",
+            "merchant": "beginningboutique.com",
+            "score": 0.6763,
+            "verdict": "match",
+            "reasons": [],
+            "embedding": 0.823,
+            "delta_e": 9.77,
+            "color": {
+              "name": "gray",
+              "hex": "#9e958b"
+            },
+            "foreground": "segmenter"
+          }
+        ]
+      }
+    },
+    {
+      "t_ms": 21155,
+      "piece": 2,
+      "step": "decide",
+      "detail": {
+        "attempt": 1,
+        "action": "accept",
+        "because": "match",
+        "best_score": 0.6763
+      }
+    },
+    {
+      "t_ms": 21736,
+      "piece": 3,
+      "step": "search",
+      "detail": {
+        "attempt": 1,
+        "query": "silver satin pantaloons",
+        "candidates": 3,
+        "ms": 3553
+      }
+    },
+    {
+      "t_ms": 26143,
+      "piece": 3,
+      "step": "score",
+      "detail": {
+        "attempt": 1,
+        "results": [
+          {
+            "title": "belly dance harem pants/ black and white stripe/ tribal/fusion/ cabaret/bellydance pantaloons",
+            "merchant": "etsy.com",
+            "score": 0.3639,
+            "verdict": "reject",
+            "reasons": [
+              "color_mismatch"
+            ],
+            "embedding": 0.7816,
+            "delta_e": 45.65,
+            "color": {
+              "name": "black",
+              "hex": "#1c1b1f"
+            },
+            "foreground": "segmenter"
+          }
+        ]
+      }
+    },
+    {
+      "t_ms": 26143,
+      "piece": 3,
+      "step": "decide",
+      "detail": {
+        "attempt": 1,
+        "action": "approve",
+        "because": "budget_low",
+        "best_score": null
+      }
+    }
+  ]
+}

@@ -1,0 +1,361 @@
+{
+  "slug": "coral-mermaid",
+  "base": "http://localhost:3000",
+  "model": "opencv-5:5.0.0;stock",
+  "elapsedMs": 31871,
+  "done": {
+    "t": "done",
+    "found": 3,
+    "priced": 2,
+    "timedOut": true,
+    "ms": 30020
+  },
+  "pieces": [
+    "gray draped silk blouse",
+    "teal sequin mermaid gown",
+    "teal mermaid skirt"
+  ],
+  "approvals": [],
+  "retries": [
+    {
+      "piece": 0,
+      "attempt": 0,
+      "action": "retry",
+      "because": "color_mismatch",
+      "next": "sage draped silk blouse"
+    }
+  ],
+  "improvedPieces": [],
+  "trace": [
+    {
+      "t_ms": 3792,
+      "piece": null,
+      "step": "perceive",
+      "detail": {
+        "person": {
+          "found": true,
+          "bbox": [
+            184,
+            101,
+            654,
+            914
+          ],
+          "confidence": 0.86
+        },
+        "timings_ms": {
+          "decode": 9,
+          "segment": 2899,
+          "colors": 152,
+          "embed": 545,
+          "classify": 17,
+          "total": 3629
+        },
+        "pieces": [
+          {
+            "id": "p0",
+            "region": "upper_clothes",
+            "slot": "top",
+            "area_frac": 0.0889,
+            "pattern": "patterned",
+            "query": "gray draped silk blouse",
+            "alternate": "gray flowy blouse",
+            "colors": [
+              {
+                "name": "gray",
+                "hex": "#677e6c",
+                "frac": 0.411
+              },
+              {
+                "name": "sage",
+                "hex": "#b0bcad",
+                "frac": 0.365
+              },
+              {
+                "name": "coral",
+                "hex": "#af7664",
+                "frac": 0.224
+              }
+            ],
+            "garment_types": [
+              {
+                "phrase": "draped silk blouse",
+                "score": 0.2689
+              },
+              {
+                "phrase": "feather shoulder cape",
+                "score": 0.2654
+              },
+              {
+                "phrase": "brocade vest",
+                "score": 0.2646
+              }
+            ]
+          },
+          {
+            "id": "p1",
+            "region": "dress",
+            "slot": "top",
+            "area_frac": 0.0089,
+            "pattern": "patterned",
+            "query": "teal sequin mermaid gown",
+            "alternate": "teal mermaid dress",
+            "colors": [
+              {
+                "name": "teal",
+                "hex": "#547f74",
+                "frac": 0.444
+              },
+              {
+                "name": "charcoal",
+                "hex": "#2d4d43",
+                "frac": 0.349
+              },
+              {
+                "name": "mint",
+                "hex": "#9cbfb6",
+                "frac": 0.207
+              }
+            ],
+            "garment_types": [
+              {
+                "phrase": "sequin mermaid gown",
+                "score": 0.2914
+              },
+              {
+                "phrase": "leaf green tunic",
+                "score": 0.2617
+              },
+              {
+                "phrase": "opera cloak",
+                "score": 0.2612
+              }
+            ]
+          },
+          {
+            "id": "p2",
+            "region": "skirt",
+            "slot": "bottom",
+            "area_frac": 0.1894,
+            "pattern": "patterned",
+            "query": "teal mermaid skirt",
+            "alternate": "teal fishtail skirt",
+            "colors": [
+              {
+                "name": "teal",
+                "hex": "#5f8b80",
+                "frac": 0.462
+              },
+              {
+                "name": "silver",
+                "hex": "#afb4a6",
+                "frac": 0.308
+              },
+              {
+                "name": "charcoal",
+                "hex": "#314e44",
+                "frac": 0.23
+              }
+            ],
+            "garment_types": [
+              {
+                "phrase": "mermaid skirt",
+                "score": 0.3229
+              },
+              {
+                "phrase": "ruffled tiered skirt",
+                "score": 0.2791
+              },
+              {
+                "phrase": "hoop skirt",
+                "score": 0.2765
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "t_ms": 8403,
+      "piece": 0,
+      "step": "search",
+      "detail": {
+        "attempt": 0,
+        "query": "gray draped silk blouse",
+        "candidates": 3,
+        "ms": 4609
+      }
+    },
+    {
+      "t_ms": 8891,
+      "piece": 2,
+      "step": "search",
+      "detail": {
+        "attempt": 0,
+        "query": "teal mermaid skirt",
+        "candidates": 3,
+        "ms": 5096
+      }
+    },
+    {
+      "t_ms": 9018,
+      "piece": 1,
+      "step": "search",
+      "detail": {
+        "attempt": 0,
+        "query": "teal sequin mermaid gown",
+        "candidates": 3,
+        "ms": 5222
+      }
+    },
+    {
+      "t_ms": 13504,
+      "piece": 0,
+      "step": "score",
+      "detail": {
+        "attempt": 0,
+        "results": [
+          {
+            "title": "Pearl Gray Silk Draped Neck Blouse",
+            "merchant": "mitchellstores.com",
+            "score": 0.4599,
+            "verdict": "weak",
+            "reasons": [
+              "color_mismatch"
+            ],
+            "embedding": 0.7981,
+            "delta_e": 30.66,
+            "color": {
+              "name": "silver",
+              "hex": "#c7babc"
+            },
+            "foreground": "grabcut"
+          }
+        ]
+      }
+    },
+    {
+      "t_ms": 13505,
+      "piece": 0,
+      "step": "decide",
+      "detail": {
+        "attempt": 0,
+        "action": "retry",
+        "because": "color_mismatch",
+        "next": "sage draped silk blouse"
+      }
+    },
+    {
+      "t_ms": 15273,
+      "piece": 2,
+      "step": "score",
+      "detail": {
+        "attempt": 0,
+        "results": [
+          {
+            "title": "Sarina | Teal Satin Maxi Skirt",
+            "merchant": "clubllondon.us",
+            "score": 0.6152,
+            "verdict": "match",
+            "reasons": [],
+            "embedding": 0.7927,
+            "delta_e": 8.83,
+            "color": {
+              "name": "teal",
+              "hex": "#038f88"
+            },
+            "foreground": "segmenter"
+          },
+          {
+            "title": "Teal Mermaid Skirt",
+            "merchant": "acornsandtwigs.com",
+            "score": 0.3651,
+            "verdict": "reject",
+            "reasons": [
+              "color_mismatch"
+            ],
+            "embedding": 0.7429,
+            "delta_e": 31.75,
+            "color": {
+              "name": "white",
+              "hex": "#e6e7e6"
+            },
+            "foreground": "grabcut"
+          }
+        ]
+      }
+    },
+    {
+      "t_ms": 15273,
+      "piece": 2,
+      "step": "decide",
+      "detail": {
+        "attempt": 0,
+        "action": "accept",
+        "because": "match",
+        "best_score": 0.6152
+      }
+    },
+    {
+      "t_ms": 17509,
+      "piece": 1,
+      "step": "score",
+      "detail": {
+        "attempt": 0,
+        "results": [
+          {
+            "title": "Amarra 87317 Size 00 Teal Mermaid Prom Dress Sequin Corset",
+            "merchant": "glassslipperformals.com",
+            "score": 0.3388,
+            "verdict": "reject",
+            "reasons": [
+              "type_mismatch"
+            ],
+            "embedding": 0.6793,
+            "delta_e": 21.91,
+            "color": {
+              "name": "light blue",
+              "hex": "#1da1c8"
+            },
+            "foreground": "segmenter"
+          },
+          {
+            "title": "Jovani Style D5080",
+            "merchant": "lachicchicago.com",
+            "score": 0.6212,
+            "verdict": "match",
+            "reasons": [],
+            "embedding": 0.8127,
+            "delta_e": 13.02,
+            "color": {
+              "name": "teal",
+              "hex": "#36889a"
+            },
+            "foreground": "segmenter"
+          }
+        ]
+      }
+    },
+    {
+      "t_ms": 17510,
+      "piece": 1,
+      "step": "decide",
+      "detail": {
+        "attempt": 0,
+        "action": "accept",
+        "because": "match",
+        "best_score": 0.6212
+      }
+    },
+    {
+      "t_ms": 27987,
+      "piece": 0,
+      "step": "search",
+      "detail": {
+        "attempt": 1,
+        "query": "sage draped silk blouse",
+        "candidates": 3,
+        "ms": 14482
+      }
+    }
+  ]
+}

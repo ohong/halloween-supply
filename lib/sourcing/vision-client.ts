@@ -33,7 +33,7 @@ export type VisionPiece = z.infer<typeof piece>;
 export type VisionAnalysis = z.infer<typeof analyzeSchema>;
 export type MatchResult = z.infer<typeof matchResult>;
 export type MatchReason = typeof REASONS[number];
-type RetryReason = MatchReason | "no_candidates";
+type RetryReason = MatchReason | "no_candidates" | "weak_score";
 
 export function visionMode() {
   const mode = process.env.SCREENSHOT_VISION ?? "opencv";
@@ -112,7 +112,8 @@ export type Decision =
   | { action: "approve"; best: MatchResult | null; because: string };
 
 export const MAX_RETRIES = 2;
-export const MIN_RETRY_BUDGET_MS = 6_000;
+// A retry costs about 10 s of search, merchant reads and scoring; one started later loses the weak pick it replaced.
+export const MIN_RETRY_BUDGET_MS = 10_000;
 
 /**
  * The agent's rule table. Each retry changes exactly one thing about the query, so the trace
@@ -131,7 +132,7 @@ export function decideNext(p: VisionPiece, results: MatchResult[], attempt: numb
   if (count("color_mismatch") >= count("type_mismatch") && count("color_mismatch") > 0)
     options.push(...p.colors.slice(0, 2).map(c => ({ query: `${c.name} ${phrase}`, because: "color_mismatch" as const })));
   if (count("type_mismatch") > 0) options.push(...p.garment_types.slice(1).map(g => ({ query: `${p.colors[0]?.name ?? ""} ${g.phrase}`.trim(), because: "type_mismatch" as const })));
-  options.push({ query: p.alternate, because: "no_candidates" });
+  options.push({ query: p.alternate, because: results.length ? "weak_score" : "no_candidates" });
   const next = options.find(o => o.query && !tried.has(o.query.toLowerCase()));
   return next ? { action: "retry", query: next.query!, because: next.because } : { action: "approve", best, because: "no_new_query" };
 }

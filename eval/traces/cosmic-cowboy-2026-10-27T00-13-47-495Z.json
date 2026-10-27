@@ -1,0 +1,447 @@
+{
+  "slug": "cosmic-cowboy",
+  "base": "http://localhost:3000",
+  "model": "opencv-5:5.0.0;stock",
+  "elapsedMs": 30449,
+  "done": {
+    "t": "done",
+    "found": 3,
+    "priced": 0,
+    "timedOut": true,
+    "ms": 30004
+  },
+  "pieces": [
+    "gray felt cowboy hat",
+    "navy knotted neckerchief",
+    "silver flared disco jumpsuit",
+    "gray satin pantaloons",
+    "gray metallic space boots"
+  ],
+  "approvals": [],
+  "retries": [
+    {
+      "piece": 2,
+      "attempt": 0,
+      "action": "retry",
+      "because": "color_mismatch",
+      "next": "gray flared disco jumpsuit"
+    },
+    {
+      "piece": 0,
+      "attempt": 0,
+      "action": "retry",
+      "because": "no_candidates",
+      "next": "gray western hat"
+    }
+  ],
+  "improvedPieces": [],
+  "trace": [
+    {
+      "t_ms": 5498,
+      "piece": null,
+      "step": "perceive",
+      "detail": {
+        "person": {
+          "found": true,
+          "bbox": [
+            299,
+            10,
+            435,
+            1009
+          ],
+          "confidence": 0.906
+        },
+        "timings_ms": {
+          "decode": 266,
+          "segment": 3719,
+          "colors": 182,
+          "embed": 1234,
+          "classify": 21,
+          "total": 5435
+        },
+        "pieces": [
+          {
+            "id": "p0",
+            "region": "hat",
+            "slot": "head",
+            "area_frac": 0.0131,
+            "pattern": "patterned",
+            "query": "gray felt cowboy hat",
+            "alternate": "gray western hat",
+            "colors": [
+              {
+                "name": "gray",
+                "hex": "#8d8989",
+                "frac": 0.427
+              },
+              {
+                "name": "charcoal",
+                "hex": "#4f4c4d",
+                "frac": 0.293
+              },
+              {
+                "name": "silver",
+                "hex": "#d3cfcf",
+                "frac": 0.28
+              }
+            ],
+            "garment_types": [
+              {
+                "phrase": "felt cowboy hat",
+                "score": 0.2773
+              },
+              {
+                "phrase": "belled jester cap",
+                "score": 0.2647
+              },
+              {
+                "phrase": "starry wizard hat",
+                "score": 0.2568
+              }
+            ]
+          },
+          {
+            "id": "p1",
+            "region": "scarf",
+            "slot": "accessory",
+            "area_frac": 0.0068,
+            "pattern": "patterned",
+            "query": "navy knotted neckerchief",
+            "alternate": "navy bandana",
+            "colors": [
+              {
+                "name": "navy",
+                "hex": "#0e1230",
+                "frac": 0.468
+              },
+              {
+                "name": "blue",
+                "hex": "#253b97",
+                "frac": 0.383
+              },
+              {
+                "name": "lavender",
+                "hex": "#768bcd",
+                "frac": 0.149
+              }
+            ],
+            "garment_types": [
+              {
+                "phrase": "knotted neckerchief",
+                "score": 0.2783
+              },
+              {
+                "phrase": "silk kerchief",
+                "score": 0.2695
+              },
+              {
+                "phrase": "silk cravat",
+                "score": 0.2676
+              }
+            ]
+          },
+          {
+            "id": "p2",
+            "region": "upper_clothes",
+            "slot": "top",
+            "area_frac": 0.0911,
+            "pattern": "patterned",
+            "query": "silver flared disco jumpsuit",
+            "alternate": "silver disco jumpsuit",
+            "colors": [
+              {
+                "name": "silver",
+                "hex": "#cbc9c7",
+                "frac": 0.445
+              },
+              {
+                "name": "gray",
+                "hex": "#787473",
+                "frac": 0.421
+              },
+              {
+                "name": "navy",
+                "hex": "#232549",
+                "frac": 0.134
+              }
+            ],
+            "garment_types": [
+              {
+                "phrase": "flared disco jumpsuit",
+                "score": 0.2932
+              },
+              {
+                "phrase": "cropped embroidered jacket",
+                "score": 0.2723
+              },
+              {
+                "phrase": "diamond harlequin bodysuit",
+                "score": 0.2685
+              }
+            ]
+          },
+          {
+            "id": "p3",
+            "region": "pants",
+            "slot": "bottom",
+            "area_frac": 0.1037,
+            "pattern": "patterned",
+            "query": "gray satin pantaloons",
+            "alternate": "gray bloomers",
+            "colors": [
+              {
+                "name": "gray",
+                "hex": "#989494",
+                "frac": 0.459
+              },
+              {
+                "name": "silver",
+                "hex": "#d5d2d3",
+                "frac": 0.326
+              },
+              {
+                "name": "charcoal",
+                "hex": "#5f5b5a",
+                "frac": 0.215
+              }
+            ],
+            "garment_types": [
+              {
+                "phrase": "satin pantaloons",
+                "score": 0.2876
+              },
+              {
+                "phrase": "flared trousers",
+                "score": 0.2854
+              },
+              {
+                "phrase": "high-waisted trousers",
+                "score": 0.278
+              }
+            ]
+          },
+          {
+            "id": "p4",
+            "region": "shoes",
+            "slot": "feet",
+            "area_frac": 0.0095,
+            "pattern": "patterned",
+            "query": "gray metallic space boots",
+            "alternate": "gray silver boots",
+            "colors": [
+              {
+                "name": "gray",
+                "hex": "#918d8a",
+                "frac": 0.458
+              },
+              {
+                "name": "silver",
+                "hex": "#d5d2d4",
+                "frac": 0.293
+              },
+              {
+                "name": "chocolate",
+                "hex": "#4d4139",
+                "frac": 0.249
+              }
+            ],
+            "garment_types": [
+              {
+                "phrase": "metallic space boots",
+                "score": 0.2738
+              },
+              {
+                "phrase": "pointed western boots",
+                "score": 0.2713
+              },
+              {
+                "phrase": "buckle pilgrim shoes",
+                "score": 0.2505
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "t_ms": 13984,
+      "piece": 2,
+      "step": "search",
+      "detail": {
+        "attempt": 0,
+        "query": "silver flared disco jumpsuit",
+        "candidates": 3,
+        "ms": 8477
+      }
+    },
+    {
+      "t_ms": 14616,
+      "piece": 4,
+      "step": "search",
+      "detail": {
+        "attempt": 0,
+        "query": "gray metallic space boots",
+        "candidates": 3,
+        "ms": 9108
+      }
+    },
+    {
+      "t_ms": 16441,
+      "piece": 1,
+      "step": "search",
+      "detail": {
+        "attempt": 0,
+        "query": "navy knotted neckerchief",
+        "candidates": 3,
+        "ms": 10934
+      }
+    },
+    {
+      "t_ms": 16526,
+      "piece": 2,
+      "step": "score",
+      "detail": {
+        "attempt": 0,
+        "results": [
+          {
+            "title": "Silver Disco Jumpsuit Costume – Women’s 70s Flared Pantsuit with Belt",
+            "merchant": "everything-party.com.au",
+            "score": 0.5114,
+            "verdict": "weak",
+            "reasons": [],
+            "embedding": 0.7482,
+            "delta_e": 22.72,
+            "color": {
+              "name": "gray",
+              "hex": "#817d7a"
+            },
+            "foreground": "grabcut"
+          },
+          {
+            "title": "Holographic Silver Disco Bell-Bottom Unitard, Halter Keyhole, Open Back, Stage Performance Wear, Showgirl Outfit",
+            "merchant": "kikimorafashion.com",
+            "score": 0.355,
+            "verdict": "reject",
+            "reasons": [
+              "type_mismatch"
+            ],
+            "embedding": 0.6141,
+            "delta_e": 6.09,
+            "color": {
+              "name": "white",
+              "hex": "#dde0dd"
+            },
+            "foreground": "segmenter"
+          },
+          {
+            "title": "SILVER 70’s FLARE JUMPSUIT",
+            "merchant": "myshopify.com",
+            "score": 0.2412,
+            "verdict": "reject",
+            "reasons": [
+              "color_mismatch"
+            ],
+            "embedding": 0.7035,
+            "delta_e": 44.28,
+            "color": {
+              "name": "charcoal",
+              "hex": "#425165"
+            },
+            "foreground": "grabcut"
+          }
+        ]
+      }
+    },
+    {
+      "t_ms": 16526,
+      "piece": 2,
+      "step": "decide",
+      "detail": {
+        "attempt": 0,
+        "action": "retry",
+        "because": "color_mismatch",
+        "next": "gray flared disco jumpsuit"
+      }
+    },
+    {
+      "t_ms": 17486,
+      "piece": 4,
+      "step": "score",
+      "detail": {
+        "attempt": 0,
+        "results": [
+          {
+            "title": "Space Cowgirl Metallic Boots",
+            "merchant": "thesaltedhippie.com",
+            "score": 0.5196,
+            "verdict": "weak",
+            "reasons": [],
+            "embedding": 0.7948,
+            "delta_e": 22.02,
+            "color": {
+              "name": "hot pink",
+              "hex": "#9b657e"
+            },
+            "foreground": "segmenter"
+          },
+          {
+            "title": "Metallic Silver Chunky GoGo Boots",
+            "merchant": "ragstock.com",
+            "score": 0.7939,
+            "verdict": "match",
+            "reasons": [],
+            "embedding": 0.8031,
+            "delta_e": 4.89,
+            "color": {
+              "name": "gray",
+              "hex": "#a09b9b"
+            },
+            "foreground": "grabcut"
+          }
+        ]
+      }
+    },
+    {
+      "t_ms": 17486,
+      "piece": 4,
+      "step": "decide",
+      "detail": {
+        "attempt": 0,
+        "action": "accept",
+        "because": "match",
+        "best_score": 0.7939
+      }
+    },
+    {
+      "t_ms": 17837,
+      "piece": 0,
+      "step": "search",
+      "detail": {
+        "attempt": 0,
+        "query": "gray felt cowboy hat",
+        "candidates": 0,
+        "ms": 12335
+      }
+    },
+    {
+      "t_ms": 17837,
+      "piece": 0,
+      "step": "score",
+      "detail": {
+        "attempt": 0,
+        "results": []
+      }
+    },
+    {
+      "t_ms": 17837,
+      "piece": 0,
+      "step": "decide",
+      "detail": {
+        "attempt": 0,
+        "action": "retry",
+        "because": "no_candidates",
+        "next": "gray western hat"
+      }
+    }
+  ]
+}
