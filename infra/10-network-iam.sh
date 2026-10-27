@@ -28,7 +28,7 @@ else log "security group $BENCH_SG_NAME exists: $BSG"; fi
 
 # Bench artifact bucket: bench scripts in, results out.
 if ! aws s3api head-bucket --bucket "$BENCH_BUCKET" 2>/dev/null; then
-  aws s3api create-bucket --bucket "$BENCH_BUCKET" >/dev/null
+  aws s3api create-bucket --bucket "$BENCH_BUCKET" --create-bucket-configuration LocationConstraint="$AWS_REGION" >/dev/null
   aws s3api put-public-access-block --bucket "$BENCH_BUCKET" --public-access-block-configuration \
     BlockPublicAcls=true,IgnorePublicAcls=true,BlockPublicPolicy=true,RestrictPublicBuckets=true
   log "created bucket s3://$BENCH_BUCKET"

@@ -2,7 +2,7 @@
 # Shared names for every infra script. Source it; do not run it.
 set -euo pipefail
 
-export AWS_REGION="${AWS_REGION:-us-east-1}"
+export AWS_REGION="${AWS_REGION:-us-east-2}"
 export AWS_DEFAULT_REGION="$AWS_REGION"
 export AWS_PAGER=""
 

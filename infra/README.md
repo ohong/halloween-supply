@@ -1,6 +1,6 @@
 # Vision service on AWS
 
-The OpenCV vision service runs on one EC2 Graviton4 instance (c8g.xlarge, us-east-1) in Docker, behind a CloudFront distribution that gives it HTTPS. The instance boots from the **Cloud-Optimized OpenCV Library (COOL) Graviton4 AMI**, and the container bind-mounts the host's `/opt/cool` so Session B's `cool` image uses the COOL build of OpenCV. Everything is plain AWS CLI in bash, idempotent, and tagged `Project=halloween-vision`.
+The OpenCV vision service runs on one EC2 Graviton4 instance (c8g.xlarge, us-east-2) in Docker, behind a CloudFront distribution that gives it HTTPS. The instance boots from the **Cloud-Optimized OpenCV Library (COOL) Graviton4 AMI**, and the container bind-mounts the host's `/opt/cool` so Session B's `cool` image uses the COOL build of OpenCV. Everything is plain AWS CLI in bash, idempotent, and tagged `Project=halloween-vision`.
 
 ```
 Vercel app ──HTTPS──> CloudFront (no cache, 60 s timeout) ──HTTP:8080──> EC2 c8g.xlarge (EIP)
@@ -12,7 +12,7 @@ Vercel app ──HTTPS──> CloudFront (no cache, 60 s timeout) ──HTTP:808
 
 - AWS CLI v2 signed in to the target account (`aws sts get-caller-identity` works), Docker with buildx.
 - A subscription to the COOL Graviton4 AMI in AWS Marketplace (`prodview-fdvbfiewzuehs`). Without it, `30-instance.sh` falls back to stock Ubuntu 24.04 and only the `stock` / `placeholder` tags run.
-- A default VPC in us-east-1.
+- A default VPC in us-east-2 (the account's SCP denies EC2 in other regions).
 
 ## Bring it up
 
@@ -67,7 +67,7 @@ Each request logs one JSON line (`route`, `status`, `ms`, `n_pieces`, `build`, t
 
 They have no inbound ports, use the same role (SSM, ECR pull, S3 `halloween-vision-bench-<account>`), and power off and terminate themselves 4 h after boot.
 
-## Cost (us-east-1 on-demand, approximate)
+## Cost (us-east-2 on-demand, approximate)
 
 | Item | $/hour |
 |---|---|
