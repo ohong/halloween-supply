@@ -42,9 +42,11 @@ A `piece` event adds an item to the existing size/inspection/cart flow only when
 
 The UI consumes NDJSON events directly, without waiting for the full response. Logs flush in batches so they do not trail the board. Priced pieces can be inspected or added while other searches continue. Displayed totals include only priced cart items.
 
-## OpenCV vision mode (default)
+## OpenCV vision mode (opt-in supplement)
 
-`SCREENSHOT_VISION=opencv` (the default) splits the work between the OpenCV vision service (`plans/contract.md` v1.1, set by `VISION_SERVICE_URL` and `VISION_SERVICE_TOKEN`) and Luna. `/v1/analyze` segments the person into pieces with colors, garment guesses, a CLIP embedding, a crop and an outline. One Luna call (`labelSegments`) then sees the full screenshot plus every crop and its hints, and decides what each piece is: its name, garment phrase, search query, alternate query and slot, or drops it (skin, hair, duplicates). OpenCV keeps the measurements; Luna's garment phrase replaces OpenCV's top guess, so `/v1/match` and retries use it. `/v1/match` scores each candidate's product photo against its piece. If the service is missing or unhealthy, the upload fails with a 503 before streaming, and a failed Luna label call fails the request; neither falls back to the other. `SCREENSHOT_VISION=luna` keeps the old path above. `X-Vision-Model` reports `opencv-5:<build>+gpt-6-luna`.
+Luna stays the default (`SCREENSHOT_VISION=luna`). `SCREENSHOT_VISION=opencv` adds the OpenCV vision service (`plans/contract.md` v1.1, set by `VISION_SERVICE_URL` and `VISION_SERVICE_TOKEN`) as a supplement to Luna. `/v1/analyze` segments the person into pieces with colors, garment guesses, a CLIP embedding, a crop and an outline. One Luna call (`labelSegments`) then sees the full screenshot plus every crop and its hints, and decides what each piece is: its name, garment phrase, search query, alternate query and slot, or drops it (skin, hair, duplicates). OpenCV keeps the measurements; Luna's garment phrase replaces OpenCV's top guess, so `/v1/match` and retries use it. `/v1/match` scores each candidate's product photo against its piece. `X-Vision-Model` reports `opencv-5:<build>+gpt-6-luna`.
+
+OpenCV never fails a request. If the health check or `/v1/analyze` fails, the request runs the Luna path above. If `/v1/match` fails or would end within 2 s of the deadline, that piece emits `score` with `error: "opencv_unavailable"` and a `decide` of `approve`, and the shopper confirms the first cart-ready find. Each miss logs `screenshot_opencv_miss`. At most two `/v1/match` calls run at once per server instance, because a 2-vCPU service runs them about one at a time and extra calls only make all of them late.
 
 The `look` event carries `segmentation` (image size, person outline, service timings) and each piece's outline, so `/screenshot` draws the segmentation over the preview, shows each piece's crop, colors and query, and lists the pipeline timings. Older service builds without outlines render no overlay.
 
@@ -85,7 +87,14 @@ Known limits, measured against the service running locally:
 
 - Search, not vision, uses most of the budget. Firecrawl's two-job scrape queue makes a first search take 5–19 s, so a retry that starts after about 15 s is rarely scored in time. Looks with five or more pieces (`candy-corn-sorceress-…`) can reach the deadline before every piece is scored.
 - `/v1/match` took 1–8 s per piece here, and up to 27 s when several requests ran at once.
+- Against the AWS service (t4g.small, 2 vCPU, build `5.0.0;stock`, through CloudFront): `/v1/analyze` took 5.0 s (segment 2.9 s, embed 1.4 s). One `/v1/match` took 9.0 s, and four at once took 14–33 s each. With perceive and label done by about 12 s, the first score step started at 18–24 s, so in the four-sample run on 2026-10-27 (`…05-43-49` to `…05-45-08`) only 1 of 12 pieces got a real score; the other pieces went to shopper approval through `opencv_unavailable`. A larger instance is needed for scoring to fit the 30-second budget.
 - Most retries raise scores without changing the verdict, so those pieces still go to approval. A retry can also return no candidates at all (`moon-moth-upper-…24-35` found nothing).
+
+## Live mirror feedback
+
+When the shopper asks the live mirror a visual question, `/api/live-mirror/feedback` also sends the Lucy preview frame (Image 1) to `/v1/analyze`, with a 15-second limit. The client sends the current outfit selection (piece, product and shown color for each bought piece, at most 20, validated with zod). The route adds a "Measured by OpenCV" section to Luna's input: each segmented garment with its region and color fractions, then each selected piece with whether a matching garment was detected and whether its color matches. Luna uses these lines to ground colors and point out a missing or recolored piece, and trusts the image when they disagree. If the service is slow or fails, Luna answers alone and the route logs `mirror_opencv_miss`; a success logs `mirror_opencv` with timings. Frames are not stored.
+
+Measured against the local service: 8.7 s for the whole answer, of which 4.3 s was OpenCV. With the service paused, the route answered in 19.1 s after the 15-second miss.
 
 ## Verification
 

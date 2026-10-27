@@ -1,0 +1,734 @@
+{
+  "slug": "cosmic-cowboy",
+  "base": "http://localhost:3000",
+  "model": "opencv-5:5.0.0;stock+gpt-6-luna",
+  "elapsedMs": 28419,
+  "done": {
+    "t": "done",
+    "found": 5,
+    "priced": 1,
+    "timedOut": false,
+    "ms": 28328
+  },
+  "pieces": [
+    "Silver Star Cowboy Hat",
+    "Navy Star Neckerchief",
+    "Silver Fringed Jacket",
+    "Silver Flared Trousers",
+    "Silver Pointed Western Boots"
+  ],
+  "approvals": [
+    {
+      "i": 4,
+      "because": "opencv_unavailable"
+    },
+    {
+      "i": 0,
+      "because": "opencv_unavailable"
+    },
+    {
+      "i": 3,
+      "because": "opencv_unavailable"
+    }
+  ],
+  "retries": [],
+  "improvedPieces": [],
+  "trace": [
+    {
+      "t_ms": 12274,
+      "piece": null,
+      "step": "perceive",
+      "detail": {
+        "person": {
+          "found": true,
+          "bbox": [
+            299,
+            10,
+            435,
+            1009
+          ],
+          "confidence": 0.906,
+          "outline": [
+            [
+              [
+                517,
+                124
+              ],
+              [
+                369,
+                204
+              ],
+              [
+                302,
+                468
+              ],
+              [
+                323,
+                568
+              ],
+              [
+                347,
+                516
+              ],
+              [
+                388,
+                511
+              ],
+              [
+                410,
+                401
+              ],
+              [
+                443,
+                403
+              ],
+              [
+                412,
+                483
+              ],
+              [
+                398,
+                675
+              ],
+              [
+                315,
+                907
+              ],
+              [
+                366,
+                936
+              ],
+              [
+                331,
+                1018
+              ],
+              [
+                391,
+                1004
+              ],
+              [
+                436,
+                935
+              ],
+              [
+                481,
+                923
+              ],
+              [
+                482,
+                665
+              ],
+              [
+                523,
+                513
+              ],
+              [
+                532,
+                685
+              ],
+              [
+                493,
+                900
+              ],
+              [
+                537,
+                929
+              ],
+              [
+                555,
+                988
+              ],
+              [
+                613,
+                996
+              ],
+              [
+                593,
+                931
+              ],
+              [
+                653,
+                899
+              ],
+              [
+                609,
+                676
+              ],
+              [
+                622,
+                483
+              ],
+              [
+                650,
+                520
+              ],
+              [
+                689,
+                518
+              ],
+              [
+                708,
+                575
+              ],
+              [
+                733,
+                539
+              ],
+              [
+                646,
+                196
+              ]
+            ],
+            [
+              [
+                412,
+                59
+              ],
+              [
+                412,
+                75
+              ],
+              [
+                416,
+                84
+              ],
+              [
+                431,
+                100
+              ],
+              [
+                443,
+                108
+              ],
+              [
+                475,
+                115
+              ],
+              [
+                503,
+                102
+              ],
+              [
+                532,
+                102
+              ],
+              [
+                545,
+                116
+              ],
+              [
+                587,
+                109
+              ],
+              [
+                603,
+                99
+              ],
+              [
+                621,
+                76
+              ],
+              [
+                619,
+                58
+              ],
+              [
+                603,
+                63
+              ],
+              [
+                596,
+                61
+              ],
+              [
+                580,
+                72
+              ],
+              [
+                573,
+                69
+              ],
+              [
+                566,
+                43
+              ],
+              [
+                556,
+                22
+              ],
+              [
+                547,
+                13
+              ],
+              [
+                532,
+                24
+              ],
+              [
+                526,
+                17
+              ],
+              [
+                490,
+                10
+              ],
+              [
+                476,
+                22
+              ],
+              [
+                458,
+                61
+              ],
+              [
+                452,
+                63
+              ],
+              [
+                440,
+                52
+              ],
+              [
+                428,
+                48
+              ],
+              [
+                417,
+                51
+              ]
+            ]
+          ]
+        },
+        "timings_ms": {
+          "decode": 5,
+          "segment": 4298,
+          "colors": 338,
+          "embed": 4600,
+          "classify": 46,
+          "total": 9320
+        },
+        "pieces": [
+          {
+            "id": "p0",
+            "region": "hat",
+            "slot": "head",
+            "area_frac": 0.0131,
+            "pattern": "patterned",
+            "query": "gray felt cowboy hat",
+            "alternate": "gray western hat",
+            "colors": [
+              {
+                "name": "gray",
+                "hex": "#8d8989",
+                "frac": 0.427
+              },
+              {
+                "name": "charcoal",
+                "hex": "#4f4c4d",
+                "frac": 0.293
+              },
+              {
+                "name": "silver",
+                "hex": "#d3cfcf",
+                "frac": 0.28
+              }
+            ],
+            "garment_types": [
+              {
+                "phrase": "felt cowboy hat",
+                "score": 0.2773
+              },
+              {
+                "phrase": "belled jester cap",
+                "score": 0.2647
+              },
+              {
+                "phrase": "starry wizard hat",
+                "score": 0.2568
+              }
+            ]
+          },
+          {
+            "id": "p1",
+            "region": "scarf",
+            "slot": "accessory",
+            "area_frac": 0.0068,
+            "pattern": "patterned",
+            "query": "navy knotted neckerchief",
+            "alternate": "navy bandana",
+            "colors": [
+              {
+                "name": "navy",
+                "hex": "#0e1230",
+                "frac": 0.468
+              },
+              {
+                "name": "blue",
+                "hex": "#253b97",
+                "frac": 0.383
+              },
+              {
+                "name": "lavender",
+                "hex": "#768bcd",
+                "frac": 0.149
+              }
+            ],
+            "garment_types": [
+              {
+                "phrase": "knotted neckerchief",
+                "score": 0.2783
+              },
+              {
+                "phrase": "silk kerchief",
+                "score": 0.2695
+              },
+              {
+                "phrase": "silk cravat",
+                "score": 0.2676
+              }
+            ]
+          },
+          {
+            "id": "p2",
+            "region": "upper_clothes",
+            "slot": "top",
+            "area_frac": 0.0911,
+            "pattern": "patterned",
+            "query": "silver flared disco jumpsuit",
+            "alternate": "silver disco jumpsuit",
+            "colors": [
+              {
+                "name": "silver",
+                "hex": "#cbc9c7",
+                "frac": 0.445
+              },
+              {
+                "name": "gray",
+                "hex": "#787473",
+                "frac": 0.421
+              },
+              {
+                "name": "navy",
+                "hex": "#232549",
+                "frac": 0.134
+              }
+            ],
+            "garment_types": [
+              {
+                "phrase": "flared disco jumpsuit",
+                "score": 0.2932
+              },
+              {
+                "phrase": "cropped embroidered jacket",
+                "score": 0.2723
+              },
+              {
+                "phrase": "diamond harlequin bodysuit",
+                "score": 0.2685
+              }
+            ]
+          },
+          {
+            "id": "p3",
+            "region": "pants",
+            "slot": "bottom",
+            "area_frac": 0.1037,
+            "pattern": "patterned",
+            "query": "gray satin pantaloons",
+            "alternate": "gray bloomers",
+            "colors": [
+              {
+                "name": "gray",
+                "hex": "#989494",
+                "frac": 0.459
+              },
+              {
+                "name": "silver",
+                "hex": "#d5d2d3",
+                "frac": 0.326
+              },
+              {
+                "name": "charcoal",
+                "hex": "#5f5b5a",
+                "frac": 0.215
+              }
+            ],
+            "garment_types": [
+              {
+                "phrase": "satin pantaloons",
+                "score": 0.2876
+              },
+              {
+                "phrase": "flared trousers",
+                "score": 0.2854
+              },
+              {
+                "phrase": "high-waisted trousers",
+                "score": 0.278
+              }
+            ]
+          },
+          {
+            "id": "p4",
+            "region": "shoes",
+            "slot": "feet",
+            "area_frac": 0.0095,
+            "pattern": "patterned",
+            "query": "gray metallic space boots",
+            "alternate": "gray silver boots",
+            "colors": [
+              {
+                "name": "gray",
+                "hex": "#918d8a",
+                "frac": 0.458
+              },
+              {
+                "name": "silver",
+                "hex": "#d5d2d4",
+                "frac": 0.293
+              },
+              {
+                "name": "chocolate",
+                "hex": "#4d4139",
+                "frac": 0.249
+              }
+            ],
+            "garment_types": [
+              {
+                "phrase": "metallic space boots",
+                "score": 0.2738
+              },
+              {
+                "phrase": "pointed western boots",
+                "score": 0.2713
+              },
+              {
+                "phrase": "buckle pilgrim shoes",
+                "score": 0.2505
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "t_ms": 18025,
+      "piece": null,
+      "step": "label",
+      "detail": {
+        "model": "gpt-6-luna",
+        "pieces": [
+          {
+            "index": 0,
+            "keep": true,
+            "name": "Silver Star Cowboy Hat",
+            "garment": "cowboy hat",
+            "query": "silver star cowboy hat"
+          },
+          {
+            "index": 1,
+            "keep": true,
+            "name": "Navy Star Neckerchief",
+            "garment": "neckerchief",
+            "query": "navy star silk neckerchief"
+          },
+          {
+            "index": 2,
+            "keep": true,
+            "name": "Silver Fringed Jacket",
+            "garment": "fringed cropped jacket",
+            "query": "silver embroidered fringe jacket"
+          },
+          {
+            "index": 3,
+            "keep": true,
+            "name": "Silver Flared Trousers",
+            "garment": "flared trousers",
+            "query": "silver embroidered flared trousers"
+          },
+          {
+            "index": 4,
+            "keep": true,
+            "name": "Silver Pointed Western Boots",
+            "garment": "pointed western boots",
+            "query": "silver pointed western boots"
+          }
+        ]
+      }
+    },
+    {
+      "t_ms": 18389,
+      "piece": 0,
+      "step": "search",
+      "detail": {
+        "attempt": 0,
+        "query": "silver star cowboy hat",
+        "candidates": 3,
+        "ms": 364
+      }
+    },
+    {
+      "t_ms": 18437,
+      "piece": 4,
+      "step": "search",
+      "detail": {
+        "attempt": 0,
+        "query": "silver pointed western boots",
+        "candidates": 3,
+        "ms": 411
+      }
+    },
+    {
+      "t_ms": 18762,
+      "piece": 3,
+      "step": "search",
+      "detail": {
+        "attempt": 0,
+        "query": "silver embroidered flared trousers",
+        "candidates": 3,
+        "ms": 736
+      }
+    },
+    {
+      "t_ms": 19174,
+      "piece": 4,
+      "step": "score",
+      "detail": {
+        "attempt": 0,
+        "results": [],
+        "error": "opencv_unavailable"
+      }
+    },
+    {
+      "t_ms": 19174,
+      "piece": 4,
+      "step": "decide",
+      "detail": {
+        "attempt": 0,
+        "action": "approve",
+        "because": "opencv_unavailable",
+        "best_score": null
+      }
+    },
+    {
+      "t_ms": 19237,
+      "piece": 0,
+      "step": "score",
+      "detail": {
+        "attempt": 0,
+        "results": [],
+        "error": "opencv_unavailable"
+      }
+    },
+    {
+      "t_ms": 19238,
+      "piece": 0,
+      "step": "decide",
+      "detail": {
+        "attempt": 0,
+        "action": "approve",
+        "because": "opencv_unavailable",
+        "best_score": null
+      }
+    },
+    {
+      "t_ms": 21354,
+      "piece": 3,
+      "step": "score",
+      "detail": {
+        "attempt": 0,
+        "results": [],
+        "error": "opencv_unavailable"
+      }
+    },
+    {
+      "t_ms": 21354,
+      "piece": 3,
+      "step": "decide",
+      "detail": {
+        "attempt": 0,
+        "action": "approve",
+        "because": "opencv_unavailable",
+        "best_score": null
+      }
+    },
+    {
+      "t_ms": 22494,
+      "piece": 1,
+      "step": "search",
+      "detail": {
+        "attempt": 0,
+        "query": "navy star silk neckerchief",
+        "candidates": 3,
+        "ms": 4468
+      }
+    },
+    {
+      "t_ms": 23436,
+      "piece": 2,
+      "step": "search",
+      "detail": {
+        "attempt": 0,
+        "query": "silver embroidered fringe jacket",
+        "candidates": 3,
+        "ms": 5410
+      }
+    },
+    {
+      "t_ms": 24182,
+      "piece": 1,
+      "step": "score",
+      "detail": {
+        "attempt": 0,
+        "results": [],
+        "error": "opencv_unavailable"
+      }
+    },
+    {
+      "t_ms": 24182,
+      "piece": 1,
+      "step": "decide",
+      "detail": {
+        "attempt": 0,
+        "action": "approve",
+        "because": "opencv_unavailable",
+        "best_score": null
+      }
+    },
+    {
+      "t_ms": 28325,
+      "piece": 2,
+      "step": "score",
+      "detail": {
+        "attempt": 0,
+        "results": [
+          {
+            "title": "Black & Silver Sequin Fringe Jacket",
+            "merchant": "perryjonesofficial.com",
+            "score": 0.6783,
+            "verdict": "match",
+            "reasons": [],
+            "embedding": 0.8865,
+            "delta_e": 22.64,
+            "color": {
+              "name": "gray",
+              "hex": "#7f7e7b"
+            },
+            "foreground": "grabcut"
+          }
+        ]
+      }
+    },
+    {
+      "t_ms": 28326,
+      "piece": 2,
+      "step": "decide",
+      "detail": {
+        "attempt": 0,
+        "action": "accept",
+        "because": "match",
+        "best_score": 0.6783
+      }
+    }
+  ]
+}
