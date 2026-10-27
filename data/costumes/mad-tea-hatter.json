@@ -81,9 +81,9 @@
       "sizeKind": "apparel",
       "matches": [
         {
-          "productId": "p-449c56afc5",
+          "productId": "p-4d5ad424a6",
           "rank": 0,
-          "reason": "White 100% rayon button-front shirt, three-tier front jabot ruffles, tall collar, gathered sleeves and ruffled cuffs. Only L available at $69.95. Closer ruffle volume than the budget shirt; white instead of cream. Trousers in the photo are not included."
+          "reason": "White polyester shirt with a high collar, three front ruffle rows and cuff ruffles. Shirt only; white rather than ivory. Select a listed size. This replaces the sold-out Bard shirt."
         },
         {
           "productId": "p-670c3fec1d",
@@ -177,7 +177,7 @@
       "merchantId": "historicalemporium-com",
       "tagSlugs": [],
       "description": "Black structured wool felt, mid-rise crown, grosgrain band and leather sweatband; unlined. Only M is currently available at $81.95. Shorter crown than the reference; red ribbon is not included.",
-      "checkedAt": "2026-10-25T08:51:41.862679Z",
+      "checkedAt": "2026-10-26T10:01:23.468Z",
       "sourcing": {
         "method": "built-in-web",
         "checkedAt": "2026-10-25T08:51:41.862679Z",
@@ -204,7 +204,7 @@
       "merchantId": "historicalemporium-com",
       "tagSlugs": [],
       "description": "Black 100% wool felt, 7-inch crown, 2-inch curled brim and 2-inch grosgrain band with flat side bow; unlined. Only L and XL currently available. No red ribbon included.",
-      "checkedAt": "2026-10-25T08:51:41.862679Z",
+      "checkedAt": "2026-10-26T10:01:23.417Z",
       "sourcing": {
         "method": "built-in-web",
         "checkedAt": "2026-10-25T08:51:41.862679Z",
@@ -257,7 +257,7 @@
       "merchantId": "costumesandcollectibles-com",
       "tagSlugs": [],
       "description": "Blue cotton velvet long coat with gold brocade trim, period cuffs, front buttons, two side pockets and adjustable rear belt. Body is plain velvet rather than all-over brocade. Coat only. Positive physical inventory for S, L and XL; M has zero inventory and is excluded despite being orderable.",
-      "checkedAt": "2026-10-25T08:47:48Z",
+      "checkedAt": "2026-10-26T10:01:09.080Z",
       "sourcing": {
         "method": "built-in-web",
         "checkedAt": "2026-10-25T08:47:48Z",
@@ -276,7 +276,7 @@
       "sourceImages": [
         "https://cdn.shopify.com/s/files/1/0729/6267/0677/files/dark-rock-Renaissance-Mens-Blue-Brocade-Goth-Steampunk-Victorian-Velvet-Frock-Coat-1.jpg?v=1792735594"
       ],
-      "availability": "unknown",
+      "availability": "in_stock",
       "sizes": [
         "S",
         "M",
@@ -288,7 +288,7 @@
       "merchantId": "darkrock-net",
       "tagSlugs": [],
       "description": "Blue-on-black brocade knee-length frock coat with turned cuffs, mandarin collar, pockets, and silver trim/buttons. Silver differs from the reference gold. Coat only. USD feed accepts all listed sizes but does not expose physical inventory; stock and dispatch timing remain unconfirmed. Store shipping estimator includes United States.",
-      "checkedAt": "2026-10-25T08:47:48Z",
+      "checkedAt": "2026-10-26T10:01:09.050Z",
       "sourcing": {
         "method": "built-in-web",
         "checkedAt": "2026-10-25T08:47:48Z",
@@ -317,38 +317,12 @@
       "merchantId": "fspartystore-com",
       "tagSlugs": [],
       "description": "Blue/gold brocade long pirate frock coat with large cuffs. Gold all-over pattern is stronger than the reference dark blue pattern. Coat only. Only these four size variants are available; Medium, Large, Extra large and 4XL are sold out. Colorado shop offers shipping; no dispatch date is stated.",
-      "checkedAt": "2026-10-25T08:47:48Z",
+      "checkedAt": "2026-10-26T10:01:09.070Z",
       "sourcing": {
         "method": "built-in-web",
         "checkedAt": "2026-10-25T08:47:48Z",
         "url": "https://fspartystore.com/products/brocade-military-pirate-frock-coat-blue-gold.js",
         "notes": "Blue/gold brocade long pirate frock coat with large cuffs. Gold all-over pattern is stronger than the reference dark blue pattern. Coat only. Only these four size variants are available; Medium, Large, Extra large and 4XL are sold out. Colorado shop offers shipping; no dispatch date is stated."
-      }
-    },
-    {
-      "id": "p-449c56afc5",
-      "title": "Bard Ruffled Shirt - White",
-      "url": "https://historicalemporium.com/products/bard-shirt-white?variant=51717516263718",
-      "priceCents": 6995,
-      "currency": "USD",
-      "image": "/products/price-tiers/p-449c56afc5.webp",
-      "merchantImage": "/products/price-tiers/p-449c56afc5.webp",
-      "sourceImages": [
-        "https://cdn.shopify.com/s/files/1/0980/0974/3654/files/003972_01_3133988b-9bdb-4519-a9fa-c3d54881f664.jpg?v=1769539508"
-      ],
-      "availability": "in_stock",
-      "sizes": [
-        "L"
-      ],
-      "merchantId": "historicalemporium-com",
-      "tagSlugs": [],
-      "description": "White 100% rayon button-front shirt, three-tier front jabot ruffles, tall collar, gathered sleeves and ruffled cuffs. Only L available at $69.95. Closer ruffle volume than the budget shirt; white instead of cream. Trousers in the photo are not included.",
-      "checkedAt": "2026-10-25T08:51:41.862679Z",
-      "sourcing": {
-        "method": "built-in-web",
-        "checkedAt": "2026-10-25T08:51:41.862679Z",
-        "url": "https://historicalemporium.com/products/bard-shirt-white.js",
-        "notes": "White 100% rayon button-front shirt, three-tier front jabot ruffles, tall collar, gathered sleeves and ruffled cuffs. Only L available at $69.95. Closer ruffle volume than the budget shirt; white instead of cream. Trousers in the photo are not included."
       }
     },
     {
@@ -374,7 +348,7 @@
       "merchantId": "samsonhistorical-com",
       "tagSlugs": [],
       "description": "White cotton early-1800s reproduction shirt, bone buttons at neck/wrists and ruffled bosom slit. All six named sizes available at $120. Ruffles are narrower and cuffs plainer than the reference; white instead of cream. The black neckcloth shown is a styling accessory, not included.",
-      "checkedAt": "2026-10-25T08:51:41.862679Z",
+      "checkedAt": "2026-10-26T10:01:23.940Z",
       "sourcing": {
         "method": "built-in-web",
         "checkedAt": "2026-10-25T08:51:41.862679Z",
@@ -400,7 +374,7 @@
       "merchantId": "romaretailshop-com",
       "tagSlugs": [],
       "description": "Ivory lace-up ruffled shirt only, made in USA. Only Small/Ivory is available at the $12 sale price. Hat, trousers and boots in its photograph are excluded. The lace-up neckline differs from the reference high collar and dense jabot. Merchant advertises same-day US dispatch before 5 PM Eastern on weekdays; weekends and holidays excluded.",
-      "checkedAt": "2026-10-25T08:51:41.862679Z",
+      "checkedAt": "2026-10-26T10:01:24.035Z",
       "sourcing": {
         "method": "built-in-web",
         "checkedAt": "2026-10-25T08:51:41.862679Z",
@@ -429,7 +403,7 @@
       "merchantId": "fashionpaintboutique-com",
       "tagSlugs": [],
       "description": "Burgundy stretch velvet leggings with elastic waist and semi-cropped length. All four listed sizes available in the live merchant feed. Wine/burgundy rather than plum, shorter than full trousers, and no gold piping. Boots can cover the cropped hem.",
-      "checkedAt": "2026-10-25T08:59:41.481945Z",
+      "checkedAt": "2026-10-26T10:00:54.993Z",
       "sourcing": {
         "method": "built-in-web",
         "checkedAt": "2026-10-25T08:59:41.481945Z",
@@ -455,7 +429,7 @@
       "merchantId": "shopkarismaboutiqueaberdeen-com",
       "tagSlugs": [],
       "description": "Spanx Rich Burgundy velvet leggings. Only XS is available at USD49 in the live feed; S, M, L, XL and 1X are sold out and excluded. Burgundy rather than plum; no gold side trim. Boutique is in Aberdeen, South Dakota.",
-      "checkedAt": "2026-10-25T08:59:41.481945Z",
+      "checkedAt": "2026-10-26T10:00:55.324Z",
       "sourcing": {
         "method": "built-in-web",
         "checkedAt": "2026-10-25T08:59:41.481945Z",
@@ -485,7 +459,7 @@
       "merchantId": "dragonflybrand-com",
       "tagSlugs": [],
       "description": "Select purple velvet. High-waisted fitted velvet leggings; all XS–XL purple variants available at USD81 in the US storefront feed. Purple is brighter than the reference plum. No gold side piping. Use merchant measurements; no size conversion is assumed.",
-      "checkedAt": "2026-10-25T08:59:41.481945Z",
+      "checkedAt": "2026-10-26T10:00:55.513Z",
       "sourcing": {
         "method": "built-in-web",
         "checkedAt": "2026-10-25T08:59:41.481945Z",
@@ -521,7 +495,7 @@
       "merchantId": "americanduchess-com",
       "tagSlugs": [],
       "description": "Black calf-leather Balmoral ankle boots with cotton-twill/pigskin lining, leather soles, adjustable laces, 5-inch shaft and 1-inch heel. Vintage shape; no stars or crescent detail and a lower heel than the reference. Pair of boots. Current feed confirms women’s US 5, 6, 6.5, 7, 7.5, 8, 8.5, 9, 9.5, 10 and 12 at $285; 10.5 and 11 are unavailable. Regular B width. US merchant; dispatch date is not stated.",
-      "checkedAt": "2026-10-25T08:48:40.074055Z",
+      "checkedAt": "2026-10-26T10:00:37.837Z",
       "sourcing": {
         "method": "built-in-web",
         "checkedAt": "2026-10-25T08:48:40.074055Z",
@@ -561,7 +535,7 @@
       "merchantId": "thursdayboots-com",
       "tagSlugs": [],
       "description": "Black full-grain leather lace-up combat boot with glove-leather lining, YKK side zipper, 6-inch shaft, 1.5-inch heel and rubber outsole. No celestial embroidery. Standard-width women’s US 5–12, including all offered half sizes, are available at $190. This option represents Standard width only. Pair of boots; free domestic US ground shipping is offered, but arrival is not verified.",
-      "checkedAt": "2026-10-25T08:48:40.074055Z",
+      "checkedAt": "2026-10-26T10:01:21.952Z",
       "sourcing": {
         "method": "built-in-web",
         "checkedAt": "2026-10-25T08:48:40.074055Z",
@@ -596,12 +570,41 @@
       "merchantId": "rocketdog-com",
       "tagSlugs": [],
       "description": "Black faux-leather combat boots with lace front, inner zipper, microfiber lining and chunky treaded rubber sole. 1.8-inch heel; more casual than the reference decorative heeled boots. Pair of boots only. Feed confirms US women’s 6, 6.5, 7, 7.5, 8, 8.5, 9, 9.5, 10 and 11 available at the current $55.97 sale price; 12 is sold out. US direct store; dispatch timing is not stated.",
-      "checkedAt": "2026-10-25T08:48:40.074055Z",
+      "checkedAt": "2026-10-26T10:00:37.590Z",
       "sourcing": {
         "method": "built-in-web",
         "checkedAt": "2026-10-25T08:48:40.074055Z",
         "url": "https://www.rocketdog.com/products/prima-black-combat-boots.js",
         "notes": "Black faux-leather combat boots with lace front, inner zipper, microfiber lining and chunky treaded rubber sole. 1.8-inch heel; more casual than the reference decorative heeled boots. Pair of boots only. Feed confirms US women’s 6, 6.5, 7, 7.5, 8, 8.5, 9, 9.5, 10 and 11 available at the current $55.97 sale price; 12 is sold out. US direct store; dispatch timing is not stated."
+      }
+    },
+    {
+      "id": "p-4d5ad424a6",
+      "title": "New Colonies White Ruffle Shirt",
+      "url": "https://www.costumesandcollectibles.com/products/new-colonies-white-ruffle-shirt?variant=21374030905403",
+      "priceCents": 6995,
+      "currency": "USD",
+      "image": "/products/price-tiers/p-4d5ad424a6.webp",
+      "merchantImage": "/products/price-tiers/p-4d5ad424a6.webp",
+      "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/1485/9888/products/0009877_0.jpeg?v=1567510722"
+      ],
+      "availability": "in_stock",
+      "sizes": [
+        "Small",
+        "Medium",
+        "Large",
+        "X-Large"
+      ],
+      "merchantId": "costumesandcollectibles-com",
+      "tagSlugs": [],
+      "description": "White rather than ivory. Polyester shirt has a high collar, three front ruffle rows, cuff ruffles, and white/silver buttons. Shirt only. Feed exposes positive inventory for all four listed sizes.",
+      "checkedAt": "2026-10-26T10:01:08.711Z",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-25T08:47:48Z",
+        "url": "https://www.costumesandcollectibles.com/products/new-colonies-white-ruffle-shirt.js",
+        "notes": "White rather than ivory. Polyester shirt has a high collar, three front ruffle rows, cuff ruffles, and white/silver buttons. Shirt only. Feed exposes positive inventory for all four listed sizes."
       }
     }
   ],
@@ -709,6 +712,30 @@
       "url": "https://darkrock.net/",
       "kind": "boutique",
       "neighborhoodId": null
+    },
+    {
+      "id": "medievalcollectibles-com",
+      "name": "Medieval Collectibles",
+      "domain": "medievalcollectibles.com",
+      "url": "https://medievalcollectibles.com/",
+      "kind": "boutique",
+      "neighborhoodId": null
+    },
+    {
+      "id": "piratefashions-com",
+      "name": "Pirate Fashions",
+      "domain": "piratefashions.com",
+      "url": "https://piratefashions.com/",
+      "kind": "boutique",
+      "neighborhoodId": null
+    },
+    {
+      "id": "lostislandtrading-com",
+      "name": "Lost Island Trading",
+      "domain": "lostislandtrading.com",
+      "url": "https://lostislandtrading.com/",
+      "kind": "boutique",
+      "neighborhoodId": null
     }
   ],
   "neighborhoods": [],
@@ -716,7 +743,7 @@
   "provenance": {
     "method": "manual-research",
     "generatedAt": "2026-10-27T00:28:36.827435Z",
-    "notes": "Expansion research uses built-in web search and direct merchant public variant feeds. Reused basics retain their original merchant evidence and check dates. Prices exclude shipping and tax; delivery is unconfirmed. Hat card, decorative ribbon and teacup are DIY or owned additions, not included. See docs/sourcing/expansion-c.json.",
+    "notes": "Expansion research uses built-in web search and direct merchant public variant feeds. Reused basics retain their original merchant evidence and check dates. Prices exclude shipping and tax; delivery is unconfirmed. Hat card, decorative ribbon and teacup are DIY or owned additions, not included. See docs/sourcing/expansion-c.json. Publication carries forward newer shared-product price, stock, size and check timestamps from the live database; original sourcing evidence is retained.",
     "priceTiers": true,
     "heroImageKind": "generated-reference"
   }

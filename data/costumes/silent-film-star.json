@@ -175,7 +175,7 @@
       "merchantId": "historicalemporium-com",
       "tagSlugs": [],
       "description": "Black structured wool felt, mid-rise crown, grosgrain band and leather sweatband; unlined. Only M is currently available at $81.95. Shorter crown than the reference; red ribbon is not included.",
-      "checkedAt": "2026-10-25T08:51:41.862679Z",
+      "checkedAt": "2026-10-26T10:01:23.468Z",
       "sourcing": {
         "method": "built-in-web",
         "checkedAt": "2026-10-25T08:51:41.862679Z",
@@ -202,7 +202,7 @@
       "merchantId": "historicalemporium-com",
       "tagSlugs": [],
       "description": "Black 100% wool felt, 7-inch crown, 2-inch curled brim and 2-inch grosgrain band with flat side bow; unlined. Only L and XL currently available. No red ribbon included.",
-      "checkedAt": "2026-10-25T08:51:41.862679Z",
+      "checkedAt": "2026-10-26T10:01:23.417Z",
       "sourcing": {
         "method": "built-in-web",
         "checkedAt": "2026-10-25T08:51:41.862679Z",
@@ -223,12 +223,12 @@
       ],
       "availability": "in_stock",
       "sizes": [
-        "One size fits most"
+        "one size"
       ],
       "merchantId": "easytot-com",
       "tagSlugs": [],
       "description": "Masquerade black satin-style costume top hat in 100% polyester. Merchant specifies one size fits most and dimensions 14 inches high by 10 inches wide, but does not give head circumference. Its feed confirms availability. A lighter costume hat rather than wool felt; check fit before ordering.",
-      "checkedAt": "2026-10-25T08:51:41.862679Z",
+      "checkedAt": "2026-10-26T10:01:23.272Z",
       "sourcing": {
         "method": "built-in-web",
         "checkedAt": "2026-10-25T08:51:41.862679Z",
@@ -285,7 +285,7 @@
       "merchantId": "historicalemporium-com",
       "tagSlugs": [],
       "description": "Ivory 100% cotton long-sleeve shirt, point collar, gathered yokes and a broad two-row button placket. Fuller period cut and paired buttons differ from the simple image shirt. Current feed confirms S, L, XL, 2X and 3X at $69.95; M and 4X unavailable. Shirt only, trousers in photo are excluded.",
-      "checkedAt": "2026-10-25T08:50:23.962064Z",
+      "checkedAt": "2026-10-26T10:00:45.905Z",
       "sourcing": {
         "method": "built-in-web",
         "checkedAt": "2026-10-25T08:50:23.962064Z",
@@ -312,7 +312,7 @@
       "merchantId": "stevenalan-com",
       "tagSlugs": [],
       "description": "Cream 100% cotton long-sleeve button-down with one chest pocket, made in USA. Shorter untucked-length cut differs from the long image shirt. Only S and XL are currently available at $225; XS, M and L are sold out. Product-only styling items are not included.",
-      "checkedAt": "2026-10-25T08:50:23.962064Z",
+      "checkedAt": "2026-10-26T10:00:46.049Z",
       "sourcing": {
         "method": "built-in-web",
         "checkedAt": "2026-10-25T08:50:23.962064Z",
@@ -343,7 +343,7 @@
       "merchantId": "historicalemporium-com",
       "tagSlugs": [],
       "description": "Black tone-on-tone brocade women’s vest with lapels, covered buttons, two welt pockets and an adjustable buckle back. 100% polyester microfiber front with acetate backing, fully lined. Close in ornate fitted shape, but black rather than charcoal and no decorative chain. Vest only. All XS–2X variants available. Dispatch time unstated.",
-      "checkedAt": "2026-10-25T08:49:51.686928+00:00",
+      "checkedAt": "2026-10-26T10:01:14.112Z",
       "sourcing": {
         "method": "built-in-web",
         "checkedAt": "2026-10-25T08:49:51.686928+00:00",
@@ -374,7 +374,7 @@
       "merchantId": "historicalemporium-com",
       "tagSlugs": [],
       "description": "Gray tweed women’s vest with notched lapels, five buttons, faux pockets and adjustable back belt. 100% polyester with satin acetate back, fully lined. Gray tweed is lighter and less ornate than the reference’s charcoal brocade. Vest only; blouse and skirt are separate. S, M, L, XL, 2X and 3X are available at USD64.95 in the live feed; use the live size selector, as description text stops at 2X. Dispatch time unstated.",
-      "checkedAt": "2026-10-25T08:49:51.686928+00:00",
+      "checkedAt": "2026-10-26T10:01:14.218Z",
       "sourcing": {
         "method": "built-in-web",
         "checkedAt": "2026-10-25T08:49:51.686928+00:00",
@@ -407,7 +407,7 @@
       "merchantId": "darkrock-net",
       "tagSlugs": [],
       "description": "Black Victorian damask brocade vest, 65% cotton/35% polyester, lined in black polyester sateen. Collarless V neck with three metal buttons and adjustable back buckle. Men’s slim cut differs from the reference’s shaped women’s charcoal lapel vest; measure chest before selecting. Vest only. All S–5XL variants are available at USD32.45. Listing says custom made; production/dispatch time is not specified.",
-      "checkedAt": "2026-10-25T08:49:51.686928+00:00",
+      "checkedAt": "2026-10-26T10:01:13.871Z",
       "sourcing": {
         "method": "built-in-web",
         "checkedAt": "2026-10-25T08:49:51.686928+00:00",
@@ -430,8 +430,6 @@
       "sizes": [
         "26",
         "28",
-        "30",
-        "32",
         "36",
         "40",
         "42",
@@ -448,7 +446,7 @@
       "merchantId": "historicalemporium-com",
       "tagSlugs": [],
       "description": "Black 100% cotton canvas work trousers with high waist, button fly, suspender buttons and adjustable back strap. More casual matte fabric than the reference dress trousers. 36-inch inseam may need local hemming. Only the enumerated sizes are currently available; 34 and 38 are excluded. Suspenders sold separately.",
-      "checkedAt": "2026-10-25T08:51:41.862679Z",
+      "checkedAt": "2026-10-26T10:01:24.484Z",
       "sourcing": {
         "method": "built-in-web",
         "checkedAt": "2026-10-25T08:51:41.862679Z",
@@ -490,7 +488,7 @@
       "merchantId": "historicalemporium-com",
       "tagSlugs": [],
       "description": "Black 100% brushed cotton, high waist, button-front fly, suspender buttons and back buckle. Softer dress-style finish than canvas; buttons are black rather than gold. 36-inch inseam; local hemming may be needed. Size 30 is unavailable and excluded. Suspenders pictured are sold separately.",
-      "checkedAt": "2026-10-25T08:51:41.862679Z",
+      "checkedAt": "2026-10-26T10:01:24.812Z",
       "sourcing": {
         "method": "built-in-web",
         "checkedAt": "2026-10-25T08:51:41.862679Z",
@@ -516,7 +514,7 @@
       "merchantId": "historicalemporium-com",
       "tagSlugs": [],
       "description": "Black 100% cotton twill reproduction with broad buttoned fall front, hidden button fly, internal suspender buttons and adjustable back buckle; unlined. Only size 46 available at $86.95. The front button arrangement approximates the reference but uses black buttons, not gold.",
-      "checkedAt": "2026-10-25T08:51:41.862679Z",
+      "checkedAt": "2026-10-26T10:01:24.914Z",
       "sourcing": {
         "method": "built-in-web",
         "checkedAt": "2026-10-25T08:51:41.862679Z",
@@ -658,7 +656,7 @@
   "provenance": {
     "method": "manual-research",
     "generatedAt": "2026-10-27T00:28:28.338770Z",
-    "notes": "2026 catalog expansion B. Defining pieces checked against primary merchant pages/public variant feeds using built-in web discovery. Appropriate base garments reused from earlier reviewed catalog with original product evidence and check dates. Generated hero is styling inspiration; merchant photos show actual purchases. Sizes, stock and price require checkout recheck. No Halloween arrival guarantee.",
+    "notes": "2026 catalog expansion B. Defining pieces checked against primary merchant pages/public variant feeds using built-in web discovery. Appropriate base garments reused from earlier reviewed catalog with original product evidence and check dates. Generated hero is styling inspiration; merchant photos show actual purchases. Sizes, stock and price require checkout recheck. No Halloween arrival guarantee. Publication carries forward newer shared-product price, stock, size and check timestamps from the live database; original sourcing evidence is retained.",
     "priceTiers": true,
     "heroImageKind": "generated-reference"
   }

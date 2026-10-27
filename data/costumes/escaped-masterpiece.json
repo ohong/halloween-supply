@@ -236,7 +236,7 @@
       "merchantId": "thursdayboots-com",
       "tagSlugs": [],
       "description": "Genuine black leather upper, glove leather lining, 1.25 inch stacked leather heel, elastic gores. All Standard US4-13 in half sizes available. Broad sizes; exact variant default is US4, shopper must choose correct size.",
-      "checkedAt": "2026-10-25T07:07:04.071733+00:00",
+      "checkedAt": "2026-10-26T10:01:10.951Z",
       "sourcing": {
         "method": "built-in-web",
         "checkedAt": "2026-10-25T07:07:04.071733+00:00",
@@ -256,24 +256,11 @@
         "https://cdnimg.dreampairs.com/dreampairshoes/product/product/DAB213/BLACK%20PU/1.jpg"
       ],
       "availability": "in_stock",
-      "sizes": [
-        "5",
-        "5.5",
-        "6",
-        "6.5",
-        "7",
-        "7.5",
-        "8",
-        "8.5",
-        "9",
-        "9.5",
-        "10",
-        "11"
-      ],
+      "sizes": [],
       "merchantId": "dreampairs-com",
       "tagSlugs": [],
       "description": "Budget material compromise: imitation synthetic leather rather than genuine leather. Ankle-high Chelsea, 1.25 inch heel, 0.75 inch platform. Merchant JSON-LD lists black USD49.99 InStock; live HTML exact-size inventory counts positive for all 12 listed US sizes. Size8 kid23928 count1806. Hidden generic SOLD OUT text is contradicted by variant inventory and InStock offer; verified source HTML retained /tmp/dreampairs-moon-boots.html.",
-      "checkedAt": "2026-10-25T07:07:04.071733+00:00",
+      "checkedAt": "2026-10-26T10:01:10.994Z",
       "sourcing": {
         "method": "built-in-web",
         "checkedAt": "2026-10-25T07:07:04.071733+00:00",
@@ -309,7 +296,6 @@
         "12 US Women (9 AU/UK)",
         "12.5 US Women (9.5 AU/UK)",
         "13 US Women (10 AU/UK)",
-        "13.5 US Women (10.5 AU/UK)",
         "14 US Women (11 AU/UK)",
         "15 US Women (12 AU/UK)",
         "16 US Women (13 AU/UK)",
@@ -337,7 +323,7 @@
       "merchantId": "blundstone-com",
       "tagSlugs": [],
       "description": "Black premium water-resistant leather classic flat Chelsea boot. Live public feed USD209.95, not stale search result199.95. Available USwomen5-16; two equivalent AU/UK label sets in merchant variants, deduplicate before display. Exact first available variant is USwomen6.",
-      "checkedAt": "2026-10-25T07:07:04.071733+00:00",
+      "checkedAt": "2026-10-26T10:01:11.130Z",
       "sourcing": {
         "method": "built-in-web",
         "checkedAt": "2026-10-25T07:07:04.071733+00:00",
@@ -364,7 +350,7 @@
       "merchantId": "piratefashions-com",
       "tagSlugs": [],
       "description": "White cotton-linen shirt includes detachable lace-edged neck jabot and adjustable lace cuffs. White differs from ivory. Listed sizes have physical stock; S/M 42 is sold out and excluded. Other pictured clothing is excluded. Merchant FAQ states normal 24-hour packing for fully stocked orders; no delivery date promised.",
-      "checkedAt": "2026-10-25T08:47:48Z",
+      "checkedAt": "2026-10-26T10:01:08.756Z",
       "sourcing": {
         "method": "built-in-web",
         "checkedAt": "2026-10-25T08:47:48Z",
@@ -393,7 +379,7 @@
       "merchantId": "costumesandcollectibles-com",
       "tagSlugs": [],
       "description": "White rather than ivory. Polyester shirt has a high collar, three front ruffle rows, cuff ruffles, and white/silver buttons. Shirt only. Feed exposes positive inventory for all four listed sizes.",
-      "checkedAt": "2026-10-25T08:47:48Z",
+      "checkedAt": "2026-10-26T10:01:08.711Z",
       "sourcing": {
         "method": "built-in-web",
         "checkedAt": "2026-10-25T08:47:48Z",
@@ -419,7 +405,7 @@
       "merchantId": "romaretailshop-com",
       "tagSlugs": [],
       "description": "Ivory shirt with ruffles and lace-up neckline; shirt only. Only Small is available at $12; sold-out Medium has a different price. Made in USA. Merchant advertises same-day US dispatch before 5pm EST Monday-Friday, excluding holidays.",
-      "checkedAt": "2026-10-25T08:47:48Z",
+      "checkedAt": "2026-10-26T10:01:09.013Z",
       "sourcing": {
         "method": "built-in-web",
         "checkedAt": "2026-10-25T08:47:48Z",
@@ -595,7 +581,7 @@
   "provenance": {
     "method": "manual-research",
     "generatedAt": "2026-10-27T00:28:53.880632Z",
-    "notes": "2026 catalog expansion. Defining accessories sourced through built-in web search and primary merchant pages/public feeds. Suitable basics reuse reviewed catalog records without changing their checkedAt dates. Generated references show styling, not the exact products. DIY items are raw supplies; assembly extras and owned wardrobe basics are explicit in piece notes.",
+    "notes": "2026 catalog expansion. Defining accessories sourced through built-in web search and primary merchant pages/public feeds. Suitable basics reuse reviewed catalog records without changing their checkedAt dates. Generated references show styling, not the exact products. DIY items are raw supplies; assembly extras and owned wardrobe basics are explicit in piece notes. Publication carries forward newer shared-product price, stock, size and check timestamps from the live database; original sourcing evidence is retained.",
     "priceTiers": true,
     "heroImageKind": "generated-reference"
   }

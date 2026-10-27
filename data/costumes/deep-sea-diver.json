@@ -236,7 +236,7 @@
       "merchantId": "safetyvestsandmore-com",
       "tagSlugs": [],
       "description": "One white long-sleeve Red Kap CT10 coverall in cotton/polyester twill. A plain workwear base with zipper and pockets, without patches, orange panels or padding. Listed sizes exclude sold-out 56. Add the separate burnt-orange fabric panels; helmet, belt, gloves and boots are separate.",
-      "checkedAt": "2026-10-25T08:53:19.398203Z",
+      "checkedAt": "2026-10-26T10:01:15.012Z",
       "sourcing": {
         "method": "built-in-web",
         "checkedAt": "2026-10-25T08:53:19.398203Z",
@@ -264,7 +264,7 @@
       "merchantId": "purecostumes-com",
       "tagSlugs": [],
       "description": "Includes the white jumpsuit with embroidered patches. Product photo shows black straps and zipper accents. It is bright white rather than cream and has no burnt-orange panels or padded knees; add those from the separate fabric component. Helmet, gloves and footwear are separate.",
-      "checkedAt": "2026-10-25T08:53:19.398203Z",
+      "checkedAt": "2026-10-26T10:01:15.411Z",
       "sourcing": {
         "method": "built-in-web",
         "checkedAt": "2026-10-25T08:53:19.398203Z",
@@ -291,7 +291,7 @@
       "merchantId": "abracadabranyc-com",
       "tagSlugs": [],
       "description": "Includes 100% polyester zip-up white jumpsuit with embroidered NASA patches and zipper pockets, plus embroidered baseball cap. The cap is extra and does not replace the helmet. White with black straps, not cream/orange; add separate fabric panels. Merchant offers US shipping; orders after 2pm Eastern miss that day’s cutoff.",
-      "checkedAt": "2026-10-25T08:53:19.398203Z",
+      "checkedAt": "2026-10-26T10:01:15.654Z",
       "sourcing": {
         "method": "built-in-web",
         "checkedAt": "2026-10-25T08:53:19.398203Z",
@@ -319,7 +319,7 @@
       "merchantId": "militaryuniformsupply-com",
       "tagSlugs": [],
       "description": "Khaki washed-cotton belt with double-prong metal buckle and eyelets. More tan than the reference cream, and has no pouches or suspenders. Only the listed Khaki sizes at $17.99 are included.",
-      "checkedAt": "2026-10-25T08:53:19.398203Z",
+      "checkedAt": "2026-10-26T10:01:15.875Z",
       "sourcing": {
         "method": "built-in-web",
         "checkedAt": "2026-10-25T08:53:19.398203Z",
@@ -340,12 +340,12 @@
       ],
       "availability": "in_stock",
       "sizes": [
-        "54 inch"
+        "one size"
       ],
       "merchantId": "armynavyusa-com",
       "tagSlugs": [],
       "description": "Select White – Chrome Buckle. Includes a 54-inch, 1.25-inch-wide cotton web belt with silver-colored buckle and tip; cut to fit. Bright white and much narrower than the reference utility belt; no pouches or suspenders. Merchant states dispatch in 1–3 business days.",
-      "checkedAt": "2026-10-25T08:53:19.398203Z",
+      "checkedAt": "2026-10-26T10:01:15.794Z",
       "sourcing": {
         "method": "built-in-web",
         "checkedAt": "2026-10-25T08:53:19.398203Z",
@@ -366,12 +366,12 @@
       ],
       "availability": "in_stock",
       "sizes": [
-        "Standard width 1.5 inch / Standard length 24–38 inch"
+        "one size"
       ],
       "merchantId": "arcadebelts-com",
       "tagSlugs": [],
       "description": "Khaki / Standard width / Standard length only. Beige stretch webbing and matching plastic buckle approximate the cream waist strap. Merchant selector states 1.5-inch width and 24–38-inch waist range. No silver buckle, pouches or suspenders; this belt is not designed to carry gear.",
-      "checkedAt": "2026-10-25T08:53:19.398203Z",
+      "checkedAt": "2026-10-26T10:01:16.043Z",
       "sourcing": {
         "method": "built-in-web",
         "checkedAt": "2026-10-25T08:53:19.398203Z",
@@ -415,7 +415,7 @@
       "merchantId": "thursdayboots-com",
       "tagSlugs": [],
       "description": "Brown leather cap-toe ankle boot with waxed cotton laces, glove leather lining and studded rubber sole. Shorter than the image and has no upper buckles. Standard-width sizes 6–16 listed here are all available at $199 in current feed. US order processing typically 1–3 business days; delivery timing is separate.",
-      "checkedAt": "2026-10-25T08:50:23.962064Z",
+      "checkedAt": "2026-10-26T10:00:36.737Z",
       "sourcing": {
         "method": "built-in-web",
         "checkedAt": "2026-10-25T08:50:23.962064Z",
@@ -434,7 +434,7 @@
       "sourceImages": [
         "https://www.nunnbush.com/shop/images/w590/85088-215.jpg"
       ],
-      "availability": "in_stock",
+      "availability": "unknown",
       "sizes": [
         "7",
         "7.5",
@@ -453,7 +453,7 @@
       "merchantId": "nunnbush-com",
       "tagSlugs": [],
       "description": "Brown CH style 85088-215, leather/man-made mixed upper and modern lug wedge sole. Live merchant page lists $89.95. Read-only width selection confirmed M (D medium) and every listed size explicitly In Stock; response saved in nunn-medium-width.xml. Shorter and more modern than the image, with no calf buckles. Stated usual dispatch 2–3 business days.",
-      "checkedAt": "2026-10-25T08:50:23.962064Z",
+      "checkedAt": "2026-10-25T08:53:39.887804Z",
       "sourcing": {
         "method": "built-in-web",
         "checkedAt": "2026-10-25T08:50:23.962064Z",
@@ -492,7 +492,7 @@
       "merchantId": "grantstoneshoes-com",
       "tagSlugs": [],
       "description": "Crimson Chromexcel dark reddish-brown leather plain-toe lace-up ankle boot with antique-brass eyelets/hooks and rubber sole. Lower shaft and no calf buckles. D Standard sizes 6–13 listed here are available at $435. Higher price does not make it a closer costume match.",
-      "checkedAt": "2026-10-25T08:50:23.962064Z",
+      "checkedAt": "2026-10-26T10:00:47.482Z",
       "sourcing": {
         "method": "built-in-web",
         "checkedAt": "2026-10-25T08:50:23.962064Z",
@@ -604,7 +604,7 @@
   "provenance": {
     "method": "manual-research",
     "generatedAt": "2026-10-27T00:28:51.012585+00:00",
-    "notes": "Expansion D: new defining accessories researched with built-in web search and official merchant Shopify variant feeds. Existing basics reuse reviewed catalog evidence and retain original check dates. Relative price tiers; shipping, taxes and arrival are unconfirmed. Generated image is styling inspiration; option differences and DIY work are explicit. See docs/sourcing/expansion-d.md.",
+    "notes": "Expansion D: new defining accessories researched with built-in web search and official merchant Shopify variant feeds. Existing basics reuse reviewed catalog evidence and retain original check dates. Relative price tiers; shipping, taxes and arrival are unconfirmed. Generated image is styling inspiration; option differences and DIY work are explicit. See docs/sourcing/expansion-d.md. Publication carries forward newer shared-product price, stock, size and check timestamps from the live database; original sourcing evidence is retained.",
     "priceTiers": true,
     "heroImageKind": "generated-reference"
   }

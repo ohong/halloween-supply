@@ -249,7 +249,7 @@
       "merchantId": "teejaytraders-com",
       "tagSlugs": [],
       "description": "Includes one women's red/black open-front long-tail coat with gold trim. Material compromise: merchant calls it polyester plush velvet, but the selected Red photo visibly shows a sequined red front and black tails. It does not reproduce plain deep-red velvet. Only Red/S costs $56.46; other sizes have different prices. US economy shipping estimate is 5–8 business days, not a delivery guarantee.",
-      "checkedAt": "2026-10-25T08:51:41.862679Z",
+      "checkedAt": "2026-10-26T10:01:23.625Z",
       "sourcing": {
         "method": "built-in-web",
         "checkedAt": "2026-10-25T08:51:41.862679Z",
@@ -275,7 +275,7 @@
       "merchantId": "teejaytraders-com",
       "tagSlugs": [],
       "description": "Includes one fitted women's long-sleeve red velvet-style swallow-tail coat, black lapels/cuffs, gold braided edging and single-button front. Less ornate than the reference; no shirt or vest included. Exact $39.48 applies only to Red/M; other available sizes cost more. Merchant lists the material as \"95% Velvet, 5% Metal\", which does not identify fiber content. US shipping policy estimates 5–8 business days for economy shipping; no delivery guarantee.",
-      "checkedAt": "2026-10-25T08:51:41.862679Z",
+      "checkedAt": "2026-10-26T10:01:23.550Z",
       "sourcing": {
         "method": "built-in-web",
         "checkedAt": "2026-10-25T08:51:41.862679Z",
@@ -296,14 +296,12 @@
       ],
       "availability": "in_stock",
       "sizes": [
-        "X-LARGE",
-        "MED/LGE",
-        "SML/MED"
+        "one size"
       ],
       "merchantId": "thesultryvixen-com",
       "tagSlugs": [],
       "description": "Leg Avenue 87388 three-piece set: red velvet tailcoat with attached red/white harlequin vest, dickey and top hat. Manufacturer confirms gold trim, chains, black cuffs and fringed epaulettes; coat is 93% polyester/7% spandex. The attached vest differs from the reference black/gold waistcoat and cannot be bought separately in this listing. Pants, boots and whip are not included. All three listed MULTICOLOR sizes available at $82.99. Dispatch time is not stated on this merchant product page.",
-      "checkedAt": "2026-10-25T08:51:41.862679Z",
+      "checkedAt": "2026-10-26T10:01:23.821Z",
       "sourcing": {
         "method": "built-in-web",
         "checkedAt": "2026-10-25T08:51:41.862679Z",
@@ -404,11 +402,13 @@
         "https://cdn.shopify.com/s/files/1/0059/9785/4793/files/paume_hand_gloves_mask.jpg?v=1762533394"
       ],
       "availability": "in_stock",
-      "sizes": [],
+      "sizes": [
+        "one size"
+      ],
       "merchantId": "shopheybella-com",
       "tagSlugs": [],
       "description": "100% organic cotton overnight gloves, shown natural cream with elastic wrists. Closest simple color match, but thin and unpadded. This merchant does not state a size label, so check fit before purchase.",
-      "checkedAt": "2026-10-25T08:53:19.398203Z",
+      "checkedAt": "2026-10-26T10:01:16.136Z",
       "sourcing": {
         "method": "built-in-web",
         "checkedAt": "2026-10-25T08:53:19.398203Z",
@@ -429,12 +429,12 @@
       ],
       "availability": "in_stock",
       "sizes": [
-        "One size"
+        "one size"
       ],
       "merchantId": "londontownusa-com",
       "tagSlugs": [],
       "description": "One-size cotton hand-care gloves, shown white with a black LONDONTOWN mark. Thin everyday glove approximation; no padding or silver wrist cuff.",
-      "checkedAt": "2026-10-25T08:53:19.398203Z",
+      "checkedAt": "2026-10-26T10:01:16.319Z",
       "sourcing": {
         "method": "built-in-web",
         "checkedAt": "2026-10-25T08:53:19.398203Z",
@@ -504,7 +504,7 @@
       "merchantId": "thursdayboots-com",
       "tagSlugs": [],
       "description": "Genuine black leather upper, glove leather lining, 1.25 inch stacked leather heel, elastic gores. All Standard US4-13 in half sizes available. Broad sizes; exact variant default is US4, shopper must choose correct size.",
-      "checkedAt": "2026-10-25T07:07:04.071733+00:00",
+      "checkedAt": "2026-10-26T10:01:10.951Z",
       "sourcing": {
         "method": "built-in-web",
         "checkedAt": "2026-10-25T07:07:04.071733+00:00",
@@ -524,24 +524,11 @@
         "https://cdnimg.dreampairs.com/dreampairshoes/product/product/DAB213/BLACK%20PU/1.jpg"
       ],
       "availability": "in_stock",
-      "sizes": [
-        "5",
-        "5.5",
-        "6",
-        "6.5",
-        "7",
-        "7.5",
-        "8",
-        "8.5",
-        "9",
-        "9.5",
-        "10",
-        "11"
-      ],
+      "sizes": [],
       "merchantId": "dreampairs-com",
       "tagSlugs": [],
       "description": "Budget material compromise: imitation synthetic leather rather than genuine leather. Ankle-high Chelsea, 1.25 inch heel, 0.75 inch platform. Merchant JSON-LD lists black USD49.99 InStock; live HTML exact-size inventory counts positive for all 12 listed US sizes. Size8 kid23928 count1806. Hidden generic SOLD OUT text is contradicted by variant inventory and InStock offer; verified source HTML retained /tmp/dreampairs-moon-boots.html.",
-      "checkedAt": "2026-10-25T07:07:04.071733+00:00",
+      "checkedAt": "2026-10-26T10:01:10.994Z",
       "sourcing": {
         "method": "built-in-web",
         "checkedAt": "2026-10-25T07:07:04.071733+00:00",
@@ -577,7 +564,6 @@
         "12 US Women (9 AU/UK)",
         "12.5 US Women (9.5 AU/UK)",
         "13 US Women (10 AU/UK)",
-        "13.5 US Women (10.5 AU/UK)",
         "14 US Women (11 AU/UK)",
         "15 US Women (12 AU/UK)",
         "16 US Women (13 AU/UK)",
@@ -605,7 +591,7 @@
       "merchantId": "blundstone-com",
       "tagSlugs": [],
       "description": "Black premium water-resistant leather classic flat Chelsea boot. Live public feed USD209.95, not stale search result199.95. Available USwomen5-16; two equivalent AU/UK label sets in merchant variants, deduplicate before display. Exact first available variant is USwomen6.",
-      "checkedAt": "2026-10-25T07:07:04.071733+00:00",
+      "checkedAt": "2026-10-26T10:01:11.130Z",
       "sourcing": {
         "method": "built-in-web",
         "checkedAt": "2026-10-25T07:07:04.071733+00:00",
@@ -701,7 +687,7 @@
   "provenance": {
     "method": "manual-research",
     "generatedAt": "2026-10-27T00:28:53.880632Z",
-    "notes": "2026 catalog expansion. Defining accessories sourced through built-in web search and primary merchant pages/public feeds. Suitable basics reuse reviewed catalog records without changing their checkedAt dates. Generated references show styling, not the exact products. DIY items are raw supplies; assembly extras and owned wardrobe basics are explicit in piece notes.",
+    "notes": "2026 catalog expansion. Defining accessories sourced through built-in web search and primary merchant pages/public feeds. Suitable basics reuse reviewed catalog records without changing their checkedAt dates. Generated references show styling, not the exact products. DIY items are raw supplies; assembly extras and owned wardrobe basics are explicit in piece notes. Publication carries forward newer shared-product price, stock, size and check timestamps from the live database; original sourcing evidence is retained.",
     "priceTiers": true,
     "heroImageKind": "generated-reference"
   }

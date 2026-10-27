@@ -334,7 +334,7 @@
       "merchantId": "burgschneider-com",
       "tagSlugs": [],
       "description": "Natural 100% thick breathable cotton tunic with front and back slits. Longer, approximately knee-length silhouette than the reference’s tunic. S through XXXL are available at $59.99. Other garments in the photo are not included.",
-      "checkedAt": "2026-10-25T08:53:39.887804Z",
+      "checkedAt": "2026-10-26T10:01:20.009Z",
       "sourcing": {
         "method": "built-in-web",
         "checkedAt": "2026-10-25T08:53:39.887804Z",
@@ -362,7 +362,7 @@
       "merchantId": "burgschneider-com",
       "tagSlugs": [],
       "description": "Natural 100% coarse cotton tunic with long sleeves, slit round neckline and side slits. Thigh-length plain base layer. Only S, XL and XXXL are currently available at $39.99; M, L and XXL are sold out. Belt, pants, wraps and shoes in the merchant photo are not included.",
-      "checkedAt": "2026-10-25T08:53:39.887804Z",
+      "checkedAt": "2026-10-26T10:01:19.879Z",
       "sourcing": {
         "method": "built-in-web",
         "checkedAt": "2026-10-25T08:53:39.887804Z",
@@ -389,7 +389,7 @@
       "merchantId": "burgschneider-com",
       "tagSlugs": [],
       "description": "Natural heavy wool-blend short tunic: 74% wool, 15% polyester, 7% polyamide and 4% other natural fibers. Warmer, stiffer and more textured than the illustrated light cream layer. Only S and XXXL are available at $69.99; M through XXL are sold out. Brooch, belt and other layers are not included.",
-      "checkedAt": "2026-10-25T08:53:39.887804Z",
+      "checkedAt": "2026-10-26T10:01:20.092Z",
       "sourcing": {
         "method": "built-in-web",
         "checkedAt": "2026-10-25T08:53:39.887804Z",
@@ -418,7 +418,7 @@
       "merchantId": "harvestandmill-com",
       "tagSlugs": [],
       "description": "Undyed natural organic cotton jersey lounge pants, straight leg and elastic waist. All four listed sizes are available at $76. Softer knit texture than the illustration’s woven-looking trousers; no ankle gathers. One pair of pants only.",
-      "checkedAt": "2026-10-25T08:53:39.887804Z",
+      "checkedAt": "2026-10-26T10:01:19.854Z",
       "sourcing": {
         "method": "built-in-web",
         "checkedAt": "2026-10-25T08:53:39.887804Z",
@@ -476,7 +476,7 @@
       "merchantId": "larelaxed-com",
       "tagSlugs": [],
       "description": "White 100% linen pants with drawstring waist, women’s sizing. Selected White XS through XL are available at $138. Wider straight leg than the reference’s tapered, gathered trousers; tuck the hem loosely into boots for a similar outline. Top and footwear not included.",
-      "checkedAt": "2026-10-25T08:53:39.887804Z",
+      "checkedAt": "2026-10-26T10:01:20.197Z",
       "sourcing": {
         "method": "built-in-web",
         "checkedAt": "2026-10-25T08:53:39.887804Z",
@@ -520,7 +520,7 @@
       "merchantId": "thursdayboots-com",
       "tagSlugs": [],
       "description": "Black full-grain leather Chelsea boot, glove leather lining, 1.25-inch heel and 5.5-inch shaft. Plain boot substitutes for dark brown floral heeled reference. Listed sizes are Standard width; other widths are excluded. Merchant offers domestic US shipping.",
-      "checkedAt": "2026-10-25T08:51:06.361508Z",
+      "checkedAt": "2026-10-26T10:01:10.951Z",
       "sourcing": {
         "method": "built-in-web",
         "checkedAt": "2026-10-25T08:51:06.361508Z",
@@ -540,24 +540,11 @@
         "https://cdnimg.dreampairs.com/dreampairshoes/product/product/DAB213/BLACK%20PU/1.jpg"
       ],
       "availability": "in_stock",
-      "sizes": [
-        "5",
-        "5.5",
-        "6",
-        "6.5",
-        "7",
-        "7.5",
-        "8",
-        "8.5",
-        "9",
-        "9.5",
-        "10",
-        "11"
-      ],
+      "sizes": [],
       "merchantId": "dreampairs-com",
       "tagSlugs": [],
       "description": "Budget material compromise: imitation synthetic leather rather than genuine leather. Ankle-high Chelsea, 1.25 inch heel, 0.75 inch platform. Merchant JSON-LD lists black USD49.99 InStock; live HTML exact-size inventory counts positive for all 12 listed US sizes. Size8 kid23928 count1806. Hidden generic SOLD OUT text is contradicted by variant inventory and InStock offer; verified source HTML retained /tmp/dreampairs-moon-boots.html.",
-      "checkedAt": "2026-10-25T07:07:04.071733+00:00",
+      "checkedAt": "2026-10-26T10:01:10.994Z",
       "sourcing": {
         "method": "built-in-web",
         "checkedAt": "2026-10-25T07:07:04.071733+00:00",
@@ -593,7 +580,6 @@
         "12 US Women (9 AU/UK)",
         "12.5 US Women (9.5 AU/UK)",
         "13 US Women (10 AU/UK)",
-        "13.5 US Women (10.5 AU/UK)",
         "14 US Women (11 AU/UK)",
         "15 US Women (12 AU/UK)",
         "16 US Women (13 AU/UK)",
@@ -621,7 +607,7 @@
       "merchantId": "blundstone-com",
       "tagSlugs": [],
       "description": "Black premium water-resistant leather classic flat Chelsea boot. Live public feed USD209.95, not stale search result199.95. Available USwomen5-16; two equivalent AU/UK label sets in merchant variants, deduplicate before display. Exact first available variant is USwomen6.",
-      "checkedAt": "2026-10-25T07:07:04.071733+00:00",
+      "checkedAt": "2026-10-26T10:01:11.130Z",
       "sourcing": {
         "method": "built-in-web",
         "checkedAt": "2026-10-25T07:07:04.071733+00:00",
@@ -717,7 +703,7 @@
   "provenance": {
     "method": "manual-research",
     "generatedAt": "2026-10-27T00:28:28.398Z",
-    "notes": "DIY costume build with reviewed merchant supplies and reused catalog basics. Generated reference shows an assembled interpretation, not a ready-made costume. Scissors, thread, adhesive/fasteners, and any card/elastic noted in piece styling are shopper-supplied. Prices exclude these consumables and shipping; arrival by Halloween is unverified. Reused products retain their original research timestamps.",
+    "notes": "DIY costume build with reviewed merchant supplies and reused catalog basics. Generated reference shows an assembled interpretation, not a ready-made costume. Scissors, thread, adhesive/fasteners, and any card/elastic noted in piece styling are shopper-supplied. Prices exclude these consumables and shipping; arrival by Halloween is unverified. Reused products retain their original research timestamps. Publication carries forward newer shared-product price, stock, size and check timestamps from the live database; original sourcing evidence is retained.",
     "priceTiers": true,
     "heroImageKind": "generated-reference"
   }

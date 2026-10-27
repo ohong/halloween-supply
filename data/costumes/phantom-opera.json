@@ -257,7 +257,7 @@
       "merchantId": "statefairseasons-com",
       "tagSlugs": [],
       "description": "Underwraps #30355. Long black velvet with red satin lining; adult size. Page and live variant feed both list available; cheaper than existing Underwraps variants.",
-      "checkedAt": "2026-10-25T07:10:48.768664Z",
+      "checkedAt": "2026-10-26T10:01:24.511Z",
       "sourcing": {
         "method": "built-in-web",
         "checkedAt": "2026-10-25T07:10:48.768664Z",
@@ -290,7 +290,7 @@
         "costume-cape"
       ],
       "description": "Full-length hooded black velvet cape with embossed red satin lining. Page lists 2 in stock; live variant feed available. Different listing/SKU than the budget #30355 cape.",
-      "checkedAt": "2026-10-25T07:10:48.768664Z",
+      "checkedAt": "2026-10-26T10:01:24.669Z",
       "sourcing": {
         "method": "built-in-web",
         "checkedAt": "2026-10-25T07:10:48.768664Z",
@@ -316,7 +316,7 @@
       "merchantId": "immortellebijouterie-com",
       "tagSlugs": [],
       "description": "Merchant describes silk velvet, full black satin lining, generous armholes and a button neckline. Clear style compromise: black lining rather than oxblood, no hood. Listed available; atelier says designed and shipped within approximately five business days.",
-      "checkedAt": "2026-10-25T07:10:48.768664Z",
+      "checkedAt": "2026-10-26T10:01:24.961Z",
       "sourcing": {
         "method": "built-in-web",
         "checkedAt": "2026-10-25T07:10:48.768664Z",
@@ -402,7 +402,7 @@
       "merchantId": "samsonhistorical-com",
       "tagSlugs": [],
       "description": "Historical reproduction in white cotton, bone button cuffs and neck, ruffled bosom slit, underarm triangle gussets. All six regular sizes currently available in live merchant feed. Less flamboyant cuffs than the generated jabot shirt.",
-      "checkedAt": "2026-10-25T07:10:48.768664Z",
+      "checkedAt": "2026-10-26T10:01:24.901Z",
       "sourcing": {
         "method": "built-in-web",
         "checkedAt": "2026-10-25T07:10:48.768664Z",
@@ -422,17 +422,11 @@
         "https://www.danceshopper.com/images/dancewear/menswear/RS-Atelier-Mens-Walter-Velvet-Vest-Black-b.jpg"
       ],
       "availability": "in_stock",
-      "sizes": [
-        "42",
-        "44",
-        "46",
-        "48",
-        "50"
-      ],
+      "sizes": [],
       "merchantId": "danceshopper-com",
       "tagSlugs": [],
       "description": "Black velvet, V neck, front buttons, tailored silhouette, discreet welt pocket, made in Italy. Live page JSON-LD offers USD169 and InStock. Raw merchant size list marks each 42–50 Quick Ship. These are merchant numeric sizes; use its chart and do not translate them into US chest sizes without measuring. Live browser sizing table: 42 chest 34.5 in, 44 chest 36 in, 46 chest 37.5 in, 48 chest 39 in, 50 chest 41 in.",
-      "checkedAt": "2026-10-25T07:10:48.768664Z",
+      "checkedAt": "2026-10-26T10:01:25.641Z",
       "sourcing": {
         "method": "built-in-web",
         "checkedAt": "2026-10-25T07:10:48.768664Z",
@@ -467,7 +461,7 @@
         "historical"
       ],
       "description": "Black velvet double-breasted vest, black satin back/trim, silver-tone buttons and two inset pockets. The double-breasted shape differs from a plain V-neck waistcoat. Only S, 2X and 3X currently available.",
-      "checkedAt": "2026-10-25T07:10:48.768664Z",
+      "checkedAt": "2026-10-26T10:01:25.607Z",
       "sourcing": {
         "method": "built-in-web",
         "checkedAt": "2026-10-25T07:10:48.768664Z",
@@ -500,7 +494,7 @@
       "merchantId": "darkrock-net",
       "tagSlugs": [],
       "description": "Black Victorian damask brocade, collarless V neck, three metal buttons and adjustable back buckle. Merchant specifies 65% cotton/35% polyester, lined in black polyester sateen. All S–5XL variants available.",
-      "checkedAt": "2026-10-25T07:10:48.768664Z",
+      "checkedAt": "2026-10-26T10:01:13.871Z",
       "sourcing": {
         "method": "built-in-web",
         "checkedAt": "2026-10-25T07:10:48.768664Z",
@@ -521,12 +515,12 @@
       ],
       "availability": "in_stock",
       "sizes": [
-        "S (US men 8–9)"
+        "S"
       ],
       "merchantId": "fearlessapparel-com",
       "tagSlugs": [],
       "description": "Allowed merchant; rechecked against project sourcing blocklist. Funtasma CAP100/B/PU, black PU knee-high boot, 1-inch heel and full inner side zipper. Live merchant BigCommerce markup confirms USD67.95, instock=true, purchasable=true, and in_stock_attributes=[28768]. Its actual option form maps attribute[12633]=28768 to S; other displayed M/L/XL options are excluded from the live in-stock list. S corresponds to US men8–9 per manufacturer Captain-100 sizing. Full-size original merchant product photograph downloaded and available locally. Budget costume construction, not real leather.",
-      "checkedAt": "2026-10-25T07:10:48.768664Z",
+      "checkedAt": "2026-10-25T08:52:20Z",
       "sourcing": {
         "method": "built-in-web",
         "checkedAt": "2026-10-25T07:10:48.768664Z",
@@ -562,7 +556,7 @@
         "zipper"
       ],
       "description": "Distressed black faux leather, 16–17-inch shaft, flat 1.5-inch heel, zipper and decorative lacing/buttons. More steampunk than a clean equestrian boot. All S–XL variants available; these are grouped boot sizes and require merchant chart.",
-      "checkedAt": "2026-10-25T07:10:48.768664Z",
+      "checkedAt": "2026-10-26T10:01:25.746Z",
       "sourcing": {
         "method": "built-in-web",
         "checkedAt": "2026-10-25T07:10:48.768664Z",
@@ -598,7 +592,7 @@
         "black"
       ],
       "description": "100% black leather, low heel, 15-inch back shaft plus 3-inch front rise, square toe and pull loops. This best preserves the riding/cavalry boot brief. Only 7, 8, 9 and 10 available; 11–13 sold out.",
-      "checkedAt": "2026-10-25T07:10:48.768664Z",
+      "checkedAt": "2026-10-26T10:01:25.754Z",
       "sourcing": {
         "method": "built-in-web",
         "checkedAt": "2026-10-25T07:10:48.768664Z",
@@ -767,7 +761,7 @@
   "provenance": {
     "method": "manual-research",
     "generatedAt": "2026-10-27T00:28:28.338770Z",
-    "notes": "2026 catalog expansion B. Defining pieces checked against primary merchant pages/public variant feeds using built-in web discovery. Appropriate base garments reused from earlier reviewed catalog with original product evidence and check dates. Generated hero is styling inspiration; merchant photos show actual purchases. Sizes, stock and price require checkout recheck. No Halloween arrival guarantee.",
+    "notes": "2026 catalog expansion B. Defining pieces checked against primary merchant pages/public variant feeds using built-in web discovery. Appropriate base garments reused from earlier reviewed catalog with original product evidence and check dates. Generated hero is styling inspiration; merchant photos show actual purchases. Sizes, stock and price require checkout recheck. No Halloween arrival guarantee. Publication carries forward newer shared-product price, stock, size and check timestamps from the live database; original sourcing evidence is retained.",
     "priceTiers": true,
     "heroImageKind": "generated-reference"
   }

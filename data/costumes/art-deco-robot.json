@@ -229,7 +229,7 @@
       "merchantId": "historicalemporium-com",
       "tagSlugs": [],
       "description": "Black tone-on-tone brocade women’s vest with lapels, covered buttons, two welt pockets and an adjustable buckle back. 100% polyester microfiber front with acetate backing, fully lined. Close in ornate fitted shape, but black rather than charcoal and no decorative chain. Vest only. All XS–2X variants available. Dispatch time unstated.",
-      "checkedAt": "2026-10-25T08:49:51.686928+00:00",
+      "checkedAt": "2026-10-26T10:01:14.112Z",
       "sourcing": {
         "method": "built-in-web",
         "checkedAt": "2026-10-25T08:49:51.686928+00:00",
@@ -260,7 +260,7 @@
       "merchantId": "historicalemporium-com",
       "tagSlugs": [],
       "description": "Gray tweed women’s vest with notched lapels, five buttons, faux pockets and adjustable back belt. 100% polyester with satin acetate back, fully lined. Gray tweed is lighter and less ornate than the reference’s charcoal brocade. Vest only; blouse and skirt are separate. S, M, L, XL, 2X and 3X are available at USD64.95 in the live feed; use the live size selector, as description text stops at 2X. Dispatch time unstated.",
-      "checkedAt": "2026-10-25T08:49:51.686928+00:00",
+      "checkedAt": "2026-10-26T10:01:14.218Z",
       "sourcing": {
         "method": "built-in-web",
         "checkedAt": "2026-10-25T08:49:51.686928+00:00",
@@ -293,7 +293,7 @@
       "merchantId": "darkrock-net",
       "tagSlugs": [],
       "description": "Black Victorian damask brocade vest, 65% cotton/35% polyester, lined in black polyester sateen. Collarless V neck with three metal buttons and adjustable back buckle. Men’s slim cut differs from the reference’s shaped women’s charcoal lapel vest; measure chest before selecting. Vest only. All S–5XL variants are available at USD32.45. Listing says custom made; production/dispatch time is not specified.",
-      "checkedAt": "2026-10-25T08:49:51.686928+00:00",
+      "checkedAt": "2026-10-26T10:01:13.871Z",
       "sourcing": {
         "method": "built-in-web",
         "checkedAt": "2026-10-25T08:49:51.686928+00:00",
@@ -329,7 +329,7 @@
         "cosmic"
       ],
       "description": "Fluid silver satin wide-leg pants with front pleats, button and zip fly. 100% polyester. S/M/L/XL in stock at $39. Satin sheen rather than high-shine foil; wide leg fits over boots.",
-      "checkedAt": "2026-10-25T07:20:28.729826Z",
+      "checkedAt": "2026-10-26T10:00:50.316Z",
       "sourcing": {
         "method": "built-in-web",
         "checkedAt": "2026-10-25T07:20:28.729826Z",
@@ -356,7 +356,7 @@
       "merchantId": "shop-johnniebrocks-com",
       "tagSlugs": [],
       "description": "Underwraps high-waisted silver metallic stretch bell bottoms with elastic waistband. Correct silver photo visually reviewed against all three gallery colorways. Current feed confirms Silver XS and Silver S/M in stock at $24.99; L/XL is sold out. Replaces pale white-looking Bellissima pants after image QA.",
-      "checkedAt": "2026-10-25T07:20:28.729826Z",
+      "checkedAt": "2026-10-26T10:00:50.509Z",
       "sourcing": {
         "method": "built-in-web",
         "checkedAt": "2026-10-25T07:20:28.729826Z",
@@ -395,7 +395,7 @@
         "flare"
       ],
       "description": "USA-made high-shine silver-black foil-coated denim bell bottoms. Darker than pure silver. Sizes 3/5/7/9/11/13/15 at 30, 32 and 34-inch inseams all confirm available at $120 in current feed.",
-      "checkedAt": "2026-10-25T07:20:28.729826Z",
+      "checkedAt": "2026-10-26T10:00:50.462Z",
       "sourcing": {
         "method": "built-in-web",
         "checkedAt": "2026-10-25T07:20:28.729826Z",
@@ -419,7 +419,7 @@
       "merchantId": "blockbustercostumes-com",
       "tagSlugs": [],
       "description": "One pair of silver metallic full-finger gloves. Product page does not publish a numeric size or exact length. Photo shows a forearm-length cuff rather than the longer opera proportions in the reference. Page structured data explicitly lists InStock at $10.99.",
-      "checkedAt": "2026-10-25T08:49:56Z",
+      "checkedAt": "2026-10-26T10:00:53.294Z",
       "sourcing": {
         "method": "built-in-web",
         "checkedAt": "2026-10-25T08:49:56Z",
@@ -439,11 +439,13 @@
         "https://cdn.shopify.com/s/files/1/0596/4519/8496/files/GLV57_Silver_Satin_Opera_Length_Gloves.jpg?v=1757027597"
       ],
       "availability": "in_stock",
-      "sizes": [],
+      "sizes": [
+        "one size"
+      ],
       "merchantId": "formalwearoutlet-com",
       "tagSlugs": [],
       "description": "Silver stretch satin gloves, 22.44 inches / 57 cm long. The merchant does not publish a numeric hand size. Soft satin sheen rather than a metallic or sequined finish. Gloves only; bridal clothing in the photo is excluded. Product page explicitly says in stock.",
-      "checkedAt": "2026-10-25T08:49:56Z",
+      "checkedAt": "2026-10-26T10:00:53.374Z",
       "sourcing": {
         "method": "built-in-web",
         "checkedAt": "2026-10-25T08:49:56Z",
@@ -464,12 +466,12 @@
       ],
       "availability": "in_stock",
       "sizes": [
-        "Opera-Length"
+        "one size"
       ],
       "merchantId": "saintchic-com",
       "tagSlugs": [],
       "description": "Selected Opera-Length pair is 19.6 inches, $70. Silver synthetic patent leather, unlined, minimal stretch. Merchant fit limits: palm perimeter up to 7.5 inches and upper arm under 11 inches. Mirror finish rather than glitter. Other lengths have different prices and are excluded.",
-      "checkedAt": "2026-10-25T08:49:56Z",
+      "checkedAt": "2026-10-26T10:00:53.400Z",
       "sourcing": {
         "method": "built-in-web",
         "checkedAt": "2026-10-25T08:49:56Z",
@@ -598,7 +600,7 @@
   "provenance": {
     "method": "manual-research",
     "generatedAt": "2026-10-27T00:28:28.338770Z",
-    "notes": "2026 catalog expansion B. Defining pieces checked against primary merchant pages/public variant feeds using built-in web discovery. Appropriate base garments reused from earlier reviewed catalog with original product evidence and check dates. Generated hero is styling inspiration; merchant photos show actual purchases. Sizes, stock and price require checkout recheck. No Halloween arrival guarantee.",
+    "notes": "2026 catalog expansion B. Defining pieces checked against primary merchant pages/public variant feeds using built-in web discovery. Appropriate base garments reused from earlier reviewed catalog with original product evidence and check dates. Generated hero is styling inspiration; merchant photos show actual purchases. Sizes, stock and price require checkout recheck. No Halloween arrival guarantee. Publication carries forward newer shared-product price, stock, size and check timestamps from the live database; original sourcing evidence is retained.",
     "priceTiers": true,
     "heroImageKind": "generated-reference"
   }

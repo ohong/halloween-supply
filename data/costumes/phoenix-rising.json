@@ -91,9 +91,9 @@
           "reason": "Price covers one yard of vintage burnt-orange cotton fabric, 45 inches wide, sold in whole-yard increments. Cut and stitch your own flame cuffs; no finished cuffs or sewing tools are included. Measure required yardage first."
         },
         {
-          "productId": "p-306614983d",
+          "productId": "p-527214ceca",
           "rank": 2,
-          "reason": "One yard of 53-inch-wide 100% cotton fabric, 170 GSM, with a subtle crinkle texture. Reviewed primary page lists two yards in stock. Cut and sew your own wrist flames; no finished cuffs or sewing supplies are included. Measure coverage before ordering. Merchant states dispatch in 2–3 days."
+          "reason": "One yard of 72-inch-wide solid orange acrylic felt. Cut soft flame shapes and stitch them to your own wrist bands. Fabric only; scissors, thread and bands are not included. This replaces sold-out crumple cotton."
         }
       ]
     },
@@ -231,7 +231,7 @@
         "garment-dyed"
       ],
       "description": "Matte cotton base match; heavyweight garment-dyed cotton spandex, long sleeves/full length legs, black XS-XL all available. Retain existing reviewed photo/cutout if preserving product.",
-      "checkedAt": "2026-10-25T07:07:04.071733+00:00",
+      "checkedAt": "2026-10-26T10:01:10.051Z",
       "sourcing": {
         "method": "built-in-web",
         "checkedAt": "2026-10-25T07:07:04.071733+00:00",
@@ -266,7 +266,7 @@
       "merchantId": "speerise-com",
       "tagSlugs": [],
       "description": "Long sleeve full-length fitted black unitard. 85% nylon/15% spandex rather than cotton; front zipper and mock neck. All ten black XS–6XL variants available at USD42.99. Broad low-tier coverage. Merchant does not explicitly call finish matte; avoid claiming finish beyond plain nonmetallic black.",
-      "checkedAt": "2026-10-25T07:07:04.071733+00:00",
+      "checkedAt": "2026-10-26T10:01:10.690Z",
       "sourcing": {
         "method": "built-in-web",
         "checkedAt": "2026-10-25T07:07:04.071733+00:00",
@@ -292,7 +292,7 @@
       "merchantId": "welovecolors-com",
       "tagSlugs": [],
       "description": "Explicit matte, opaque 93% nylon/7% spandex full-body long-sleeve catsuit. Includes fingers and toes; garment can be cut at wrists/ankles without running per merchant. One Size fits XS–XL; Plus Size fits up to4X but black Plus has ColorQty0, so excluded as in-stock. Live merchant embedded variant inventory object: Black, Size One Size, ColorQty3, QtyCompleted5, WebPrice95, Discontinuedfalse, production ship dateMonday10/26. One Size black stock verified, rather than inferring stock from selector. No size-specific permalink provided by merchant; URL fixes black color.",
-      "checkedAt": "2026-10-25T07:07:04.071733+00:00",
+      "checkedAt": "2026-10-25T08:50:58.976351Z",
       "sourcing": {
         "method": "built-in-web",
         "checkedAt": "2026-10-25T07:07:04.071733+00:00",
@@ -312,13 +312,11 @@
         "https://hartsfabric.com/pub/media/catalog/product/cache/b33543002cb9de920cfb940334232543/p/p/pp_burnt_orange.jpg"
       ],
       "availability": "in_stock",
-      "sizes": [
-        "1 yard × 44 inch width"
-      ],
+      "sizes": [],
       "merchantId": "hartsfabric-com",
       "tagSlugs": [],
       "description": "Price is for one yard of 44-inch-wide 100% cotton fabric, not a finished costume panel. Current primary page lists 7.5 yards in stock. This burnt-orange shade is brighter than the reference. Cut and stitch shoulder, arm, side and knee panels; measure required coverage first. Merchant states dispatch in 1–2 business days.",
-      "checkedAt": "2026-10-25T08:53:19.398203Z",
+      "checkedAt": "2026-10-26T10:01:17.924Z",
       "sourcing": {
         "method": "built-in-web",
         "checkedAt": "2026-10-25T08:53:19.398203Z",
@@ -339,43 +337,17 @@
       ],
       "availability": "in_stock",
       "sizes": [
-        "1 yard × 45 inch width"
+        "one size"
       ],
       "merchantId": "luckydeluxefabrics-com",
       "tagSlugs": [],
       "description": "Price covers one yard of vintage burnt-orange cotton fabric, 45 inches wide, sold in whole-yard increments. The photo appears more brick-red than the reference. Cut and stitch panels onto the separate jumpsuit; no pre-cut pieces or padding included. Measure required yardage first.",
-      "checkedAt": "2026-10-25T08:53:19.398203Z",
+      "checkedAt": "2026-10-26T10:01:16.799Z",
       "sourcing": {
         "method": "built-in-web",
         "checkedAt": "2026-10-25T08:53:19.398203Z",
         "url": "https://www.luckydeluxefabrics.com/products/cotton-vintage-burnt-orange.js",
         "notes": "Price covers one yard of vintage burnt-orange cotton fabric, 45 inches wide, sold in whole-yard increments. The photo appears more brick-red than the reference. Cut and stitch panels onto the separate jumpsuit; no pre-cut pieces or padding included. Measure required yardage first."
-      }
-    },
-    {
-      "id": "p-306614983d",
-      "title": "Crumple Cotton – Burnt Orange",
-      "url": "https://stonemountainfabric.com/product/t-46201-17/",
-      "priceCents": 1450,
-      "currency": "USD",
-      "image": "/products/price-tiers/p-306614983d.webp",
-      "merchantImage": "/products/price-tiers/p-306614983d.webp",
-      "sourceImages": [
-        "https://storage.googleapis.com/stmdf-production/2026/05/LRM_20260510_142040.jpg"
-      ],
-      "availability": "in_stock",
-      "sizes": [
-        "1 yard × 53 inch width"
-      ],
-      "merchantId": "stonemountainfabric-com",
-      "tagSlugs": [],
-      "description": "One yard of 53-inch-wide 100% cotton fabric, 170 GSM, with a subtle crinkle texture. Current primary page lists two yards in stock. Burnt-orange material must be cut and sewn as panels; no pre-cut panels, padding or sewing supplies included. Measure coverage before ordering. Merchant states dispatch in 2–3 days.",
-      "checkedAt": "2026-10-25T08:53:19.398203Z",
-      "sourcing": {
-        "method": "built-in-web",
-        "checkedAt": "2026-10-25T08:53:19.398203Z",
-        "url": "https://stonemountainfabric.com/product/t-46201-17/",
-        "notes": "One yard of 53-inch-wide 100% cotton fabric, 170 GSM, with a subtle crinkle texture. Current primary page lists two yards in stock. Burnt-orange material must be cut and sewn as panels; no pre-cut panels, padding or sewing supplies included. Measure coverage before ordering. Merchant states dispatch in 2–3 days."
       }
     },
     {
@@ -414,7 +386,7 @@
       "merchantId": "thursdayboots-com",
       "tagSlugs": [],
       "description": "Genuine black leather upper, glove leather lining, 1.25 inch stacked leather heel, elastic gores. All Standard US4-13 in half sizes available. Broad sizes; exact variant default is US4, shopper must choose correct size.",
-      "checkedAt": "2026-10-25T07:07:04.071733+00:00",
+      "checkedAt": "2026-10-26T10:01:10.951Z",
       "sourcing": {
         "method": "built-in-web",
         "checkedAt": "2026-10-25T07:07:04.071733+00:00",
@@ -434,24 +406,11 @@
         "https://cdnimg.dreampairs.com/dreampairshoes/product/product/DAB213/BLACK%20PU/1.jpg"
       ],
       "availability": "in_stock",
-      "sizes": [
-        "5",
-        "5.5",
-        "6",
-        "6.5",
-        "7",
-        "7.5",
-        "8",
-        "8.5",
-        "9",
-        "9.5",
-        "10",
-        "11"
-      ],
+      "sizes": [],
       "merchantId": "dreampairs-com",
       "tagSlugs": [],
       "description": "Budget material compromise: imitation synthetic leather rather than genuine leather. Ankle-high Chelsea, 1.25 inch heel, 0.75 inch platform. Merchant JSON-LD lists black USD49.99 InStock; live HTML exact-size inventory counts positive for all 12 listed US sizes. Size8 kid23928 count1806. Hidden generic SOLD OUT text is contradicted by variant inventory and InStock offer; verified source HTML retained /tmp/dreampairs-moon-boots.html.",
-      "checkedAt": "2026-10-25T07:07:04.071733+00:00",
+      "checkedAt": "2026-10-26T10:01:10.994Z",
       "sourcing": {
         "method": "built-in-web",
         "checkedAt": "2026-10-25T07:07:04.071733+00:00",
@@ -487,7 +446,6 @@
         "12 US Women (9 AU/UK)",
         "12.5 US Women (9.5 AU/UK)",
         "13 US Women (10 AU/UK)",
-        "13.5 US Women (10.5 AU/UK)",
         "14 US Women (11 AU/UK)",
         "15 US Women (12 AU/UK)",
         "16 US Women (13 AU/UK)",
@@ -515,12 +473,38 @@
       "merchantId": "blundstone-com",
       "tagSlugs": [],
       "description": "Black premium water-resistant leather classic flat Chelsea boot. Live public feed USD209.95, not stale search result199.95. Available USwomen5-16; two equivalent AU/UK label sets in merchant variants, deduplicate before display. Exact first available variant is USwomen6.",
-      "checkedAt": "2026-10-25T07:07:04.071733+00:00",
+      "checkedAt": "2026-10-26T10:01:11.130Z",
       "sourcing": {
         "method": "built-in-web",
         "checkedAt": "2026-10-25T07:07:04.071733+00:00",
         "url": "https://www.blundstone.com/products/black-premium-leather-v-cut-boots-womens-style-510.js",
         "notes": "Black premium water-resistant leather classic flat Chelsea boot. Live public feed USD209.95, not stale search result199.95. Available USwomen5-16; two equivalent AU/UK label sets in merchant variants, deduplicate before display. Exact first available variant is USwomen6."
+      }
+    },
+    {
+      "id": "p-527214ceca",
+      "title": "Orange Acrylic Felt",
+      "url": "https://britexfabrics.com/products/orange-acrylic-felt?variant=47850957275456",
+      "priceCents": 1299,
+      "currency": "USD",
+      "image": "/products/price-tiers/p-527214ceca.webp",
+      "merchantImage": "/products/price-tiers/p-527214ceca.webp",
+      "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/0754/1260/3200/files/IMG_1318_9811e346-0b93-4b9e-9f5f-a39c121fd999.jpg?v=1707514282"
+      ],
+      "availability": "in_stock",
+      "sizes": [
+        "one size"
+      ],
+      "merchantId": "britexfabrics-com",
+      "tagSlugs": [],
+      "description": "Price buys one yard of 72-inch-wide orange 100% acrylic felt, 5-ounce weight. Choose fabric rather than the $3 swatch. Raw fabric only; cut and sew diamonds yourself. Solid orange craft felt differs from velvet. Quantity depends on garment size and pattern coverage.",
+      "checkedAt": "2026-10-26T10:01:11.449Z",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-25T08:50:58.976351Z",
+        "url": "https://britexfabrics.com/products/orange-acrylic-felt.js",
+        "notes": "Price buys one yard of 72-inch-wide orange 100% acrylic felt, 5-ounce weight. Choose fabric rather than the $3 swatch. Raw fabric only; cut and sew diamonds yourself. Solid orange craft felt differs from velvet. Quantity depends on garment size and pattern coverage."
       }
     }
   ],
@@ -610,6 +594,102 @@
       "name": "Stonemountain & Daughter Fabrics",
       "domain": "stonemountainfabric.com",
       "url": "https://stonemountainfabric.com/",
+      "kind": "boutique",
+      "neighborhoodId": null
+    },
+    {
+      "id": "korekawaii-com",
+      "name": "Kore Kawaii",
+      "domain": "korekawaii.com",
+      "url": "https://korekawaii.com/",
+      "kind": "boutique",
+      "neighborhoodId": null
+    },
+    {
+      "id": "abracadabranyc-com",
+      "name": "Abracadabra NYC",
+      "domain": "abracadabranyc.com",
+      "url": "https://abracadabranyc.com/",
+      "kind": "boutique",
+      "neighborhoodId": null
+    },
+    {
+      "id": "natgiso-com",
+      "name": "Natgiso",
+      "domain": "natgiso.com",
+      "url": "https://natgiso.com/",
+      "kind": "boutique",
+      "neighborhoodId": null
+    },
+    {
+      "id": "benziedesign-com",
+      "name": "Benzie Design",
+      "domain": "benziedesign.com",
+      "url": "https://benziedesign.com/",
+      "kind": "boutique",
+      "neighborhoodId": null
+    },
+    {
+      "id": "icefabrics-com",
+      "name": "Ice Fabrics",
+      "domain": "icefabrics.com",
+      "url": "https://icefabrics.com/",
+      "kind": "boutique",
+      "neighborhoodId": null
+    },
+    {
+      "id": "britexfabrics-com",
+      "name": "Britex Fabrics",
+      "domain": "britexfabrics.com",
+      "url": "https://britexfabrics.com/",
+      "kind": "boutique",
+      "neighborhoodId": null
+    },
+    {
+      "id": "fantasycostumes-com",
+      "name": "Fantasy Costumes",
+      "domain": "fantasycostumes.com",
+      "url": "https://fantasycostumes.com/",
+      "kind": "boutique",
+      "neighborhoodId": null
+    },
+    {
+      "id": "etsy-sistersenchanted-on-etsy",
+      "name": "SistersEnchanted on Etsy",
+      "domain": "etsy.com",
+      "url": "https://www.etsy.com/listing/1757466796/custom-colors-clowncore-neck-collar-neck",
+      "kind": "etsy",
+      "neighborhoodId": null
+    },
+    {
+      "id": "etsy-mtcoffinz-on-etsy",
+      "name": "mtcoffinz on Etsy",
+      "domain": "etsy.com",
+      "url": "https://www.etsy.com/listing/1787152269/custom-colors-adult-clown-collar",
+      "kind": "etsy",
+      "neighborhoodId": null
+    },
+    {
+      "id": "pleasershoes-com",
+      "name": "Pleaser Shoes / Funtasma",
+      "domain": "pleasershoes.com",
+      "url": "https://pleasershoes.com/",
+      "kind": "boutique",
+      "neighborhoodId": null
+    },
+    {
+      "id": "strangecvlt-com",
+      "name": "Strange Cvlt",
+      "domain": "strangecvlt.com",
+      "url": "https://strangecvlt.com/",
+      "kind": "boutique",
+      "neighborhoodId": null
+    },
+    {
+      "id": "americanduchess-com",
+      "name": "American Duchess",
+      "domain": "americanduchess.com",
+      "url": "https://americanduchess.com/",
       "kind": "boutique",
       "neighborhoodId": null
     }
@@ -808,7 +888,7 @@
   "provenance": {
     "method": "manual-research",
     "generatedAt": "2026-10-27T00:28:51.012585+00:00",
-    "notes": "Expansion D: new defining accessories researched with built-in web search and official merchant Shopify variant feeds. Existing basics reuse reviewed catalog evidence and retain original check dates. Relative price tiers; shipping, taxes and arrival are unconfirmed. Generated image is styling inspiration; option differences and DIY work are explicit. See docs/sourcing/expansion-d.md.",
+    "notes": "Expansion D: new defining accessories researched with built-in web search and official merchant Shopify variant feeds. Existing basics reuse reviewed catalog evidence and retain original check dates. Relative price tiers; shipping, taxes and arrival are unconfirmed. Generated image is styling inspiration; option differences and DIY work are explicit. See docs/sourcing/expansion-d.md. Publication carries forward newer shared-product price, stock, size and check timestamps from the live database; original sourcing evidence is retained.",
     "priceTiers": true,
     "heroImageKind": "generated-reference"
   }

@@ -269,7 +269,7 @@
       "merchantId": "blockbustercostumes-com",
       "tagSlugs": [],
       "description": "One pair of silver metallic full-finger gloves. Product page does not publish a numeric size or exact length. Photo shows a forearm-length cuff rather than the longer opera proportions in the reference. Page structured data explicitly lists InStock at $10.99.",
-      "checkedAt": "2026-10-25T08:49:56Z",
+      "checkedAt": "2026-10-26T10:00:53.294Z",
       "sourcing": {
         "method": "built-in-web",
         "checkedAt": "2026-10-25T08:49:56Z",
@@ -289,11 +289,13 @@
         "https://cdn.shopify.com/s/files/1/0596/4519/8496/files/GLV57_Silver_Satin_Opera_Length_Gloves.jpg?v=1757027597"
       ],
       "availability": "in_stock",
-      "sizes": [],
+      "sizes": [
+        "one size"
+      ],
       "merchantId": "formalwearoutlet-com",
       "tagSlugs": [],
       "description": "Silver stretch satin gloves, 22.44 inches / 57 cm long. The merchant does not publish a numeric hand size. Soft satin sheen rather than a metallic or sequined finish. Gloves only; bridal clothing in the photo is excluded. Product page explicitly says in stock.",
-      "checkedAt": "2026-10-25T08:49:56Z",
+      "checkedAt": "2026-10-26T10:00:53.374Z",
       "sourcing": {
         "method": "built-in-web",
         "checkedAt": "2026-10-25T08:49:56Z",
@@ -314,12 +316,12 @@
       ],
       "availability": "in_stock",
       "sizes": [
-        "Opera-Length"
+        "one size"
       ],
       "merchantId": "saintchic-com",
       "tagSlugs": [],
       "description": "Selected Opera-Length pair is 19.6 inches, $70. Silver synthetic patent leather, unlined, minimal stretch. Merchant fit limits: palm perimeter up to 7.5 inches and upper arm under 11 inches. Mirror finish rather than glitter. Other lengths have different prices and are excluded.",
-      "checkedAt": "2026-10-25T08:49:56Z",
+      "checkedAt": "2026-10-26T10:00:53.400Z",
       "sourcing": {
         "method": "built-in-web",
         "checkedAt": "2026-10-25T08:49:56Z",
@@ -355,7 +357,7 @@
       "merchantId": "americanduchess-com",
       "tagSlugs": [],
       "description": "Black calf-leather Balmoral ankle boots with cotton-twill/pigskin lining, leather soles, adjustable laces, 5-inch shaft and 1-inch heel. Vintage shape; no stars or crescent detail and a lower heel than the reference. Pair of boots. Current feed confirms women’s US 5, 6, 6.5, 7, 7.5, 8, 8.5, 9, 9.5, 10 and 12 at $285; 10.5 and 11 are unavailable. Regular B width. US merchant; dispatch date is not stated.",
-      "checkedAt": "2026-10-25T08:48:40.074055Z",
+      "checkedAt": "2026-10-26T10:00:37.837Z",
       "sourcing": {
         "method": "built-in-web",
         "checkedAt": "2026-10-25T08:48:40.074055Z",
@@ -395,7 +397,7 @@
       "merchantId": "thursdayboots-com",
       "tagSlugs": [],
       "description": "Black full-grain leather lace-up combat boot with glove-leather lining, YKK side zipper, 6-inch shaft, 1.5-inch heel and rubber outsole. No celestial embroidery. Standard-width women’s US 5–12, including all offered half sizes, are available at $190. This option represents Standard width only. Pair of boots; free domestic US ground shipping is offered, but arrival is not verified.",
-      "checkedAt": "2026-10-25T08:48:40.074055Z",
+      "checkedAt": "2026-10-26T10:01:21.952Z",
       "sourcing": {
         "method": "built-in-web",
         "checkedAt": "2026-10-25T08:48:40.074055Z",
@@ -430,7 +432,7 @@
       "merchantId": "rocketdog-com",
       "tagSlugs": [],
       "description": "Black faux-leather combat boots with lace front, inner zipper, microfiber lining and chunky treaded rubber sole. 1.8-inch heel; more casual than the reference decorative heeled boots. Pair of boots only. Feed confirms US women’s 6, 6.5, 7, 7.5, 8, 8.5, 9, 9.5, 10 and 11 available at the current $55.97 sale price; 12 is sold out. US direct store; dispatch timing is not stated.",
-      "checkedAt": "2026-10-25T08:48:40.074055Z",
+      "checkedAt": "2026-10-26T10:00:37.590Z",
       "sourcing": {
         "method": "built-in-web",
         "checkedAt": "2026-10-25T08:48:40.074055Z",
@@ -502,7 +504,7 @@
   "provenance": {
     "method": "manual-research",
     "generatedAt": "2026-10-27T00:28:36.827435Z",
-    "notes": "Expansion research uses built-in web search and direct merchant public variant feeds. Reused basics retain their original merchant evidence and check dates. Prices exclude shipping and tax; delivery is unconfirmed. Wind-up key is a DIY styling addition made with owned card, foil and a soft belt. It is not included in any purchased product; no working mechanism is promised. See docs/sourcing/expansion-c.json.",
+    "notes": "Expansion research uses built-in web search and direct merchant public variant feeds. Reused basics retain their original merchant evidence and check dates. Prices exclude shipping and tax; delivery is unconfirmed. Wind-up key is a DIY styling addition made with owned card, foil and a soft belt. It is not included in any purchased product; no working mechanism is promised. See docs/sourcing/expansion-c.json. Publication carries forward newer shared-product price, stock, size and check timestamps from the live database; original sourcing evidence is retained.",
     "priceTiers": true,
     "heroImageKind": "generated-reference"
   }

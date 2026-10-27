@@ -258,7 +258,7 @@
       "merchantId": "burgschneider-com",
       "tagSlugs": [],
       "description": "Natural 100% thick breathable cotton tunic with front and back slits. Longer, approximately knee-length silhouette than the reference’s tunic. S through XXXL are available at $59.99. Other garments in the photo are not included.",
-      "checkedAt": "2026-10-25T08:53:39.887804Z",
+      "checkedAt": "2026-10-26T10:01:20.009Z",
       "sourcing": {
         "method": "built-in-web",
         "checkedAt": "2026-10-25T08:53:39.887804Z",
@@ -286,7 +286,7 @@
       "merchantId": "burgschneider-com",
       "tagSlugs": [],
       "description": "Natural 100% coarse cotton tunic with long sleeves, slit round neckline and side slits. Thigh-length plain base layer. Only S, XL and XXXL are currently available at $39.99; M, L and XXL are sold out. Belt, pants, wraps and shoes in the merchant photo are not included.",
-      "checkedAt": "2026-10-25T08:53:39.887804Z",
+      "checkedAt": "2026-10-26T10:01:19.879Z",
       "sourcing": {
         "method": "built-in-web",
         "checkedAt": "2026-10-25T08:53:39.887804Z",
@@ -313,7 +313,7 @@
       "merchantId": "burgschneider-com",
       "tagSlugs": [],
       "description": "Natural heavy wool-blend short tunic: 74% wool, 15% polyester, 7% polyamide and 4% other natural fibers. Warmer, stiffer and more textured than the illustrated light cream layer. Only S and XXXL are available at $69.99; M through XXL are sold out. Brooch, belt and other layers are not included.",
-      "checkedAt": "2026-10-25T08:53:39.887804Z",
+      "checkedAt": "2026-10-26T10:01:20.092Z",
       "sourcing": {
         "method": "built-in-web",
         "checkedAt": "2026-10-25T08:53:39.887804Z",
@@ -333,13 +333,11 @@
         "https://i.etsystatic.com/12209900/r/il/3fb890/5729023430/il_794xN.5729023430_10d3.jpg"
       ],
       "availability": "in_stock",
-      "sizes": [
-        "One size fits all"
-      ],
+      "sizes": [],
       "merchantId": "etsy-cindysbrokenneedle-on-etsy",
       "tagSlugs": [],
       "description": "Cream/off-white cotton ruff and cuffs, adjustable ties, cream overlocked edges. Collar depth 9 inches; cuffs 5 inches. Live listing states 3 left. Made in the USA and ships from Iowa. Gathered full ruffles rather than the reference crisp pleated lace-edged ruff.",
-      "checkedAt": "2026-10-25T08:59:41.481945Z",
+      "checkedAt": "2026-10-26T10:01:01.845Z",
       "sourcing": {
         "method": "built-in-web",
         "checkedAt": "2026-10-25T08:59:41.481945Z",
@@ -358,14 +356,12 @@
       "sourceImages": [
         "https://i.etsystatic.com/5799614/r/il/8deeaf/1488216776/il_794xN.1488216776_stni.jpg"
       ],
-      "availability": "unknown",
-      "sizes": [
-        "One size fits most"
-      ],
+      "availability": "in_stock",
+      "sizes": [],
       "merchantId": "etsy-sistersenchanted-on-etsy",
       "tagSlugs": [],
       "description": "Collar only. White cotton top/bottom layers; pink and purple satin middle layer with teal ribbon. Ribbon ties; longest depth 10 inches. Live listing accepts orders and states 3 left, but explicitly made to order; allow 5–8 days to make before dispatch. White and colored trim differ from the cream reference.",
-      "checkedAt": "2026-10-25T08:59:41.481945Z",
+      "checkedAt": "2026-10-26T10:01:02.079Z",
       "sourcing": {
         "method": "built-in-web",
         "checkedAt": "2026-10-25T08:59:41.481945Z",
@@ -386,12 +382,12 @@
       ],
       "availability": "in_stock",
       "sizes": [
-        "Fits adults"
+        "one size"
       ],
       "merchantId": "stagewearshop-com",
       "tagSlugs": [],
       "description": "Select white. One polyester tulle mesh ruff collar with back fastening; no cuffs. Live white variant available. Large airy puff rather than cream pleated cotton. Merchant states 5–10 business days processing and tracked worldwide shipping; delivery timing is not promised.",
-      "checkedAt": "2026-10-25T08:59:41.481945Z",
+      "checkedAt": "2026-10-26T10:00:54.949Z",
       "sourcing": {
         "method": "built-in-web",
         "checkedAt": "2026-10-25T08:59:41.481945Z",
@@ -516,7 +512,7 @@
       "merchantId": "thursdayboots-com",
       "tagSlugs": [],
       "description": "Genuine black leather upper, glove leather lining, 1.25 inch stacked leather heel, elastic gores. All Standard US4-13 in half sizes available. Broad sizes; exact variant default is US4, shopper must choose correct size.",
-      "checkedAt": "2026-10-25T07:07:04.071733+00:00",
+      "checkedAt": "2026-10-26T10:01:10.951Z",
       "sourcing": {
         "method": "built-in-web",
         "checkedAt": "2026-10-25T07:07:04.071733+00:00",
@@ -536,24 +532,11 @@
         "https://cdnimg.dreampairs.com/dreampairshoes/product/product/DAB213/BLACK%20PU/1.jpg"
       ],
       "availability": "in_stock",
-      "sizes": [
-        "5",
-        "5.5",
-        "6",
-        "6.5",
-        "7",
-        "7.5",
-        "8",
-        "8.5",
-        "9",
-        "9.5",
-        "10",
-        "11"
-      ],
+      "sizes": [],
       "merchantId": "dreampairs-com",
       "tagSlugs": [],
       "description": "Budget material compromise: imitation synthetic leather rather than genuine leather. Ankle-high Chelsea, 1.25 inch heel, 0.75 inch platform. Merchant JSON-LD lists black USD49.99 InStock; live HTML exact-size inventory counts positive for all 12 listed US sizes. Size8 kid23928 count1806. Hidden generic SOLD OUT text is contradicted by variant inventory and InStock offer; verified source HTML retained /tmp/dreampairs-moon-boots.html.",
-      "checkedAt": "2026-10-25T07:07:04.071733+00:00",
+      "checkedAt": "2026-10-26T10:01:10.994Z",
       "sourcing": {
         "method": "built-in-web",
         "checkedAt": "2026-10-25T07:07:04.071733+00:00",
@@ -589,7 +572,6 @@
         "12 US Women (9 AU/UK)",
         "12.5 US Women (9.5 AU/UK)",
         "13 US Women (10 AU/UK)",
-        "13.5 US Women (10.5 AU/UK)",
         "14 US Women (11 AU/UK)",
         "15 US Women (12 AU/UK)",
         "16 US Women (13 AU/UK)",
@@ -617,7 +599,7 @@
       "merchantId": "blundstone-com",
       "tagSlugs": [],
       "description": "Black premium water-resistant leather classic flat Chelsea boot. Live public feed USD209.95, not stale search result199.95. Available USwomen5-16; two equivalent AU/UK label sets in merchant variants, deduplicate before display. Exact first available variant is USwomen6.",
-      "checkedAt": "2026-10-25T07:07:04.071733+00:00",
+      "checkedAt": "2026-10-26T10:01:11.130Z",
       "sourcing": {
         "method": "built-in-web",
         "checkedAt": "2026-10-25T07:07:04.071733+00:00",
@@ -721,7 +703,7 @@
   "provenance": {
     "method": "manual-research",
     "generatedAt": "2026-10-27T00:28:53.880632Z",
-    "notes": "2026 catalog expansion. Defining accessories sourced through built-in web search and primary merchant pages/public feeds. Suitable basics reuse reviewed catalog records without changing their checkedAt dates. Generated references show styling, not the exact products. DIY items are raw supplies; assembly extras and owned wardrobe basics are explicit in piece notes.",
+    "notes": "2026 catalog expansion. Defining accessories sourced through built-in web search and primary merchant pages/public feeds. Suitable basics reuse reviewed catalog records without changing their checkedAt dates. Generated references show styling, not the exact products. DIY items are raw supplies; assembly extras and owned wardrobe basics are explicit in piece notes. Publication carries forward newer shared-product price, stock, size and check timestamps from the live database; original sourcing evidence is retained.",
     "priceTiers": true,
     "heroImageKind": "generated-reference"
   }

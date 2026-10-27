@@ -118,7 +118,7 @@
       "merchantId": "welovecolors-com",
       "tagSlugs": [],
       "description": "Explicit matte, opaque 93% nylon/7% spandex full-body long-sleeve catsuit. Includes fingers and toes; garment can be cut at wrists/ankles without running per merchant. One Size fits XS–XL; Plus Size fits up to4X but black Plus has ColorQty0, so excluded as in-stock. Live merchant embedded variant inventory object: Black, Size One Size, ColorQty3, QtyCompleted5, WebPrice95, Discontinuedfalse, production ship dateMonday10/26. One Size black stock verified, rather than inferring stock from selector. No size-specific permalink provided by merchant; URL fixes black color.",
-      "checkedAt": "2026-10-25T07:07:04.071733+00:00",
+      "checkedAt": "2026-10-25T08:50:58.976351Z",
       "sourcing": {
         "method": "built-in-web",
         "checkedAt": "2026-10-25T07:07:04.071733+00:00",
@@ -155,7 +155,7 @@
         "garment-dyed"
       ],
       "description": "Matte cotton base match; heavyweight garment-dyed cotton spandex, long sleeves/full length legs, black XS-XL all available. Retain existing reviewed photo/cutout if preserving product.",
-      "checkedAt": "2026-10-25T07:07:04.071733+00:00",
+      "checkedAt": "2026-10-26T10:01:10.051Z",
       "sourcing": {
         "method": "built-in-web",
         "checkedAt": "2026-10-25T07:07:04.071733+00:00",
@@ -190,7 +190,7 @@
       "merchantId": "speerise-com",
       "tagSlugs": [],
       "description": "Long sleeve full-length fitted black unitard. 85% nylon/15% spandex rather than cotton; front zipper and mock neck. All ten black XS–6XL variants available at USD42.99. Broad low-tier coverage. Merchant does not explicitly call finish matte; avoid claiming finish beyond plain nonmetallic black.",
-      "checkedAt": "2026-10-25T07:07:04.071733+00:00",
+      "checkedAt": "2026-10-26T10:01:10.690Z",
       "sourcing": {
         "method": "built-in-web",
         "checkedAt": "2026-10-25T07:07:04.071733+00:00",
@@ -300,7 +300,7 @@
       "merchantId": "americanduchess-com",
       "tagSlugs": [],
       "description": "Black calf-leather Balmoral ankle boots with cotton-twill/pigskin lining, leather soles, adjustable laces, 5-inch shaft and 1-inch heel. Vintage shape; no stars or crescent detail and a lower heel than the reference. Pair of boots. Current feed confirms women’s US 5, 6, 6.5, 7, 7.5, 8, 8.5, 9, 9.5, 10 and 12 at $285; 10.5 and 11 are unavailable. Regular B width. US merchant; dispatch date is not stated.",
-      "checkedAt": "2026-10-25T08:48:40.074055Z",
+      "checkedAt": "2026-10-26T10:00:37.837Z",
       "sourcing": {
         "method": "built-in-web",
         "checkedAt": "2026-10-25T08:48:40.074055Z",
@@ -340,7 +340,7 @@
       "merchantId": "thursdayboots-com",
       "tagSlugs": [],
       "description": "Black full-grain leather lace-up combat boot with glove-leather lining, YKK side zipper, 6-inch shaft, 1.5-inch heel and rubber outsole. No celestial embroidery. Standard-width women’s US 5–12, including all offered half sizes, are available at $190. This option represents Standard width only. Pair of boots; free domestic US ground shipping is offered, but arrival is not verified.",
-      "checkedAt": "2026-10-25T08:48:40.074055Z",
+      "checkedAt": "2026-10-26T10:01:21.952Z",
       "sourcing": {
         "method": "built-in-web",
         "checkedAt": "2026-10-25T08:48:40.074055Z",
@@ -375,7 +375,7 @@
       "merchantId": "rocketdog-com",
       "tagSlugs": [],
       "description": "Black faux-leather combat boots with lace front, inner zipper, microfiber lining and chunky treaded rubber sole. 1.8-inch heel; more casual than the reference decorative heeled boots. Pair of boots only. Feed confirms US women’s 6, 6.5, 7, 7.5, 8, 8.5, 9, 9.5, 10 and 11 available at the current $55.97 sale price; 12 is sold out. US direct store; dispatch timing is not stated.",
-      "checkedAt": "2026-10-25T08:48:40.074055Z",
+      "checkedAt": "2026-10-26T10:00:37.590Z",
       "sourcing": {
         "method": "built-in-web",
         "checkedAt": "2026-10-25T08:48:40.074055Z",
@@ -468,7 +468,7 @@
   "provenance": {
     "method": "manual-research",
     "generatedAt": "2026-10-27T00:28:36.827435Z",
-    "notes": "Expansion research uses built-in web search and direct merchant public variant feeds. Reused basics retain their original merchant evidence and check dates. Prices exclude shipping and tax; delivery is unconfirmed. Comic dots require makeup application. Speech bubble uses your own cardboard and fastener; it is not a purchased product. See docs/sourcing/expansion-c.json.",
+    "notes": "Expansion research uses built-in web search and direct merchant public variant feeds. Reused basics retain their original merchant evidence and check dates. Prices exclude shipping and tax; delivery is unconfirmed. Comic dots require makeup application. Speech bubble uses your own cardboard and fastener; it is not a purchased product. See docs/sourcing/expansion-c.json. Publication carries forward newer shared-product price, stock, size and check timestamps from the live database; original sourcing evidence is retained.",
     "priceTiers": true,
     "heroImageKind": "generated-reference"
   }

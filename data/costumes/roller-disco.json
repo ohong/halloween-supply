@@ -364,7 +364,7 @@
   "provenance": {
     "method": "manual-research",
     "generatedAt": "2026-10-27T00:28:36.827435Z",
-    "notes": "Expansion research uses built-in web search and direct merchant public variant feeds. Reused basics retain their original merchant evidence and check dates. Prices exclude shipping and tax; delivery is unconfirmed. Use your own comfortable shoes; skates are not sold with this look. See docs/sourcing/expansion-c.json.",
+    "notes": "Expansion research uses built-in web search and direct merchant public variant feeds. Reused basics retain their original merchant evidence and check dates. Prices exclude shipping and tax; delivery is unconfirmed. Use your own comfortable shoes; skates are not sold with this look. See docs/sourcing/expansion-c.json. Publication carries forward newer shared-product price, stock, size and check timestamps from the live database; original sourcing evidence is retained.",
     "priceTiers": true,
     "heroImageKind": "generated-reference"
   }

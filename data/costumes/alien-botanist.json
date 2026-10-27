@@ -194,7 +194,7 @@
       "merchantId": "safetyvestsandmore-com",
       "tagSlugs": [],
       "description": "One white long-sleeve Red Kap CT10 coverall in cotton/polyester twill. A plain workwear base with zipper and pockets, without patches, orange panels or padding. Listed sizes exclude sold-out 56. Add the separate burnt-orange fabric panels; helmet, belt, gloves and boots are separate.",
-      "checkedAt": "2026-10-25T08:53:19.398203Z",
+      "checkedAt": "2026-10-26T10:01:15.012Z",
       "sourcing": {
         "method": "built-in-web",
         "checkedAt": "2026-10-25T08:53:19.398203Z",
@@ -222,7 +222,7 @@
       "merchantId": "purecostumes-com",
       "tagSlugs": [],
       "description": "Includes the white jumpsuit with embroidered patches. Product photo shows black straps and zipper accents. It is bright white rather than cream and has no burnt-orange panels or padded knees; add those from the separate fabric component. Helmet, gloves and footwear are separate.",
-      "checkedAt": "2026-10-25T08:53:19.398203Z",
+      "checkedAt": "2026-10-26T10:01:15.411Z",
       "sourcing": {
         "method": "built-in-web",
         "checkedAt": "2026-10-25T08:53:19.398203Z",
@@ -249,7 +249,7 @@
       "merchantId": "abracadabranyc-com",
       "tagSlugs": [],
       "description": "Includes 100% polyester zip-up white jumpsuit with embroidered NASA patches and zipper pockets, plus embroidered baseball cap. The cap is extra and does not replace the helmet. White with black straps, not cream/orange; add separate fabric panels. Merchant offers US shipping; orders after 2pm Eastern miss that day’s cutoff.",
-      "checkedAt": "2026-10-25T08:53:19.398203Z",
+      "checkedAt": "2026-10-26T10:01:15.654Z",
       "sourcing": {
         "method": "built-in-web",
         "checkedAt": "2026-10-25T08:53:19.398203Z",
@@ -275,7 +275,7 @@
       "merchantId": "funcredible-net",
       "tagSlugs": [],
       "description": "Budget style compromise: silver glitter ball boppers on coiled silver springs and black plastic headband; not feathered/plumed moth antennae. Includes one headband plus one10g chunkyglitter jar. Merchant photo personally inspected and matches silver antenna, not a wrongcolor. Current primary Shopify variant43326222368921 price1299USD availabletrue. Search-rendered product page had stale11.99 (compare_at_price), collection and live variant feed correctly12.99. One flexible size for adults/children per brand category descriptions.",
-      "checkedAt": "2026-10-25T07:07:04.071733+00:00",
+      "checkedAt": "2026-10-26T10:01:10.487Z",
       "sourcing": {
         "method": "built-in-web",
         "checkedAt": "2026-10-25T07:07:04.071733+00:00",
@@ -353,7 +353,7 @@
       "merchantId": "us-epicarmoury-com",
       "tagSlugs": [],
       "description": "Select Ox Brown / One Size. Full-grain leather pouch includes three 5 ml glass bottles with rubber stoppers. Two stud-fastened belt straps attach the pouch. The closed flap hides more of the bottles than the reference. Page says orders normally ship within two business days and can ship from Denmark or the USA.",
-      "checkedAt": "2026-10-25T08:58:26.994930Z",
+      "checkedAt": "2026-10-26T10:00:52.035Z",
       "sourcing": {
         "method": "built-in-web",
         "checkedAt": "2026-10-25T08:58:26.994930Z",
@@ -373,11 +373,13 @@
         "https://cdn.shopify.com/s/files/1/0671/1859/6291/files/IMG_7975.jpg?v=1730746843"
       ],
       "availability": "in_stock",
-      "sizes": [],
+      "sizes": [
+        "one size"
+      ],
       "merchantId": "mistymeadowsclothingcompany-com",
       "tagSlugs": [],
       "description": "Select Brown. One curved faux-leather holder includes three glass bottles with cork tops. Holder measures 7 by 5 inches; bottles measure 2.5 inches high by 1 inch wide. Holder threads onto a belt. Belt is not included and maximum belt width is not stated.",
-      "checkedAt": "2026-10-25T08:58:26.994930Z",
+      "checkedAt": "2026-10-26T10:00:51.985Z",
       "sourcing": {
         "method": "built-in-web",
         "checkedAt": "2026-10-25T08:58:26.994930Z",
@@ -401,7 +403,7 @@
       "merchantId": "fierceeagleleather-com",
       "tagSlugs": [],
       "description": "Select Black leather and Nickel hardware to match the real merchant photo. This black alternative differs from the reference’s brown leather. Includes a 7-by-9.5-inch leather potion holder, four mini glass bottles with corks, and a 7-by-3.5-inch leather case. Belt is separate. Merchant marks it in stock; dispatch time is not stated on this page.",
-      "checkedAt": "2026-10-25T08:58:26.994930Z",
+      "checkedAt": "2026-10-26T10:00:51.593Z",
       "sourcing": {
         "method": "built-in-web",
         "checkedAt": "2026-10-25T08:58:26.994930Z",
@@ -421,11 +423,13 @@
         "https://cdn.shopify.com/s/files/1/0596/4519/8496/files/GLV57_Silver_Satin_Opera_Length_Gloves.jpg?v=1757027597"
       ],
       "availability": "in_stock",
-      "sizes": [],
+      "sizes": [
+        "one size"
+      ],
       "merchantId": "formalwearoutlet-com",
       "tagSlugs": [],
       "description": "Silver stretch satin gloves, 22.44 inches / 57 cm long. The merchant does not publish a numeric hand size. Soft satin sheen rather than a metallic or sequined finish. Gloves only; bridal clothing in the photo is excluded. Product page explicitly says in stock.",
-      "checkedAt": "2026-10-25T08:49:56Z",
+      "checkedAt": "2026-10-26T10:00:53.374Z",
       "sourcing": {
         "method": "built-in-web",
         "checkedAt": "2026-10-25T08:49:56Z",
@@ -449,7 +453,7 @@
       "merchantId": "blockbustercostumes-com",
       "tagSlugs": [],
       "description": "One pair of silver metallic full-finger gloves. Product page does not publish a numeric size or exact length. Photo shows a forearm-length cuff rather than the longer opera proportions in the reference. Page structured data explicitly lists InStock at $10.99.",
-      "checkedAt": "2026-10-25T08:49:56Z",
+      "checkedAt": "2026-10-26T10:00:53.294Z",
       "sourcing": {
         "method": "built-in-web",
         "checkedAt": "2026-10-25T08:49:56Z",
@@ -470,12 +474,12 @@
       ],
       "availability": "in_stock",
       "sizes": [
-        "Opera-Length"
+        "one size"
       ],
       "merchantId": "saintchic-com",
       "tagSlugs": [],
       "description": "Selected Opera-Length pair is 19.6 inches, $70. Silver synthetic patent leather, unlined, minimal stretch. Merchant fit limits: palm perimeter up to 7.5 inches and upper arm under 11 inches. Mirror finish rather than glitter. Other lengths have different prices and are excluded.",
-      "checkedAt": "2026-10-25T08:49:56Z",
+      "checkedAt": "2026-10-26T10:00:53.400Z",
       "sourcing": {
         "method": "built-in-web",
         "checkedAt": "2026-10-25T08:49:56Z",
@@ -512,7 +516,7 @@
       "merchantId": "boots-by-bohemond-myshopify-com",
       "tagSlugs": [],
       "description": "Brown cowhide mid-calf boots, 12 inches tall from the floor, with leather toggles and a leather sole plus crepe neoprene traction layer. Brown shades may vary. Men’s 10 is unavailable; only the listed available size labels are included.",
-      "checkedAt": "2026-10-25T08:58:26.994930Z",
+      "checkedAt": "2026-10-26T10:00:52.338Z",
       "sourcing": {
         "method": "built-in-web",
         "checkedAt": "2026-10-25T08:58:26.994930Z",
@@ -540,7 +544,7 @@
       "merchantId": "burgschneider-us",
       "tagSlugs": [],
       "description": "Dark Brown half boots with three buckles and a shaft that folds into a cuff. Only merchant sizes 35, 36 and 37 are available at $99.99. Shorter and buckled rather than cross-laced. Sole is included.",
-      "checkedAt": "2026-10-25T08:58:26.994930Z",
+      "checkedAt": "2026-10-26T10:00:52.310Z",
       "sourcing": {
         "method": "built-in-web",
         "checkedAt": "2026-10-25T08:58:26.994930Z",
@@ -577,7 +581,7 @@
       "merchantId": "boots-by-bohemond-myshopify-com",
       "tagSlugs": [],
       "description": "Select Brown. Leather upper, leather midsole, crepe neoprene sole and brass buckle. The curled toe and relatively plain shaft are a distinct eastern medieval interpretation, rather than the illustration’s cross-lacing. Brown Men’s 15 is unavailable.",
-      "checkedAt": "2026-10-25T08:58:26.994930Z",
+      "checkedAt": "2026-10-26T10:00:52.302Z",
       "sourcing": {
         "method": "built-in-web",
         "checkedAt": "2026-10-25T08:58:26.994930Z",
@@ -705,7 +709,7 @@
   "provenance": {
     "method": "manual-research",
     "generatedAt": "2026-10-27T00:28:53.880632Z",
-    "notes": "2026 catalog expansion. Defining accessories sourced through built-in web search and primary merchant pages/public feeds. Suitable basics reuse reviewed catalog records without changing their checkedAt dates. Generated references show styling, not the exact products. DIY items are raw supplies; assembly extras and owned wardrobe basics are explicit in piece notes.",
+    "notes": "2026 catalog expansion. Defining accessories sourced through built-in web search and primary merchant pages/public feeds. Suitable basics reuse reviewed catalog records without changing their checkedAt dates. Generated references show styling, not the exact products. DIY items are raw supplies; assembly extras and owned wardrobe basics are explicit in piece notes. Publication carries forward newer shared-product price, stock, size and check timestamps from the live database; original sourcing evidence is retained.",
     "priceTiers": true,
     "heroImageKind": "generated-reference"
   }

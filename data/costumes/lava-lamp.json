@@ -155,7 +155,7 @@
         "garment-dyed"
       ],
       "description": "Matte cotton base match; heavyweight garment-dyed cotton spandex, long sleeves/full length legs, black XS-XL all available. Retain existing reviewed photo/cutout if preserving product.",
-      "checkedAt": "2026-10-25T07:07:04.071733+00:00",
+      "checkedAt": "2026-10-26T10:01:10.051Z",
       "sourcing": {
         "method": "built-in-web",
         "checkedAt": "2026-10-25T07:07:04.071733+00:00",
@@ -190,7 +190,7 @@
       "merchantId": "speerise-com",
       "tagSlugs": [],
       "description": "Long sleeve full-length fitted black unitard. 85% nylon/15% spandex rather than cotton; front zipper and mock neck. All ten black XS–6XL variants available at USD42.99. Broad low-tier coverage. Merchant does not explicitly call finish matte; avoid claiming finish beyond plain nonmetallic black.",
-      "checkedAt": "2026-10-25T07:07:04.071733+00:00",
+      "checkedAt": "2026-10-26T10:01:10.690Z",
       "sourcing": {
         "method": "built-in-web",
         "checkedAt": "2026-10-25T07:07:04.071733+00:00",
@@ -216,7 +216,7 @@
       "merchantId": "welovecolors-com",
       "tagSlugs": [],
       "description": "Explicit matte, opaque 93% nylon/7% spandex full-body long-sleeve catsuit. Includes fingers and toes; garment can be cut at wrists/ankles without running per merchant. One Size fits XS–XL; Plus Size fits up to4X but black Plus has ColorQty0, so excluded as in-stock. Live merchant embedded variant inventory object: Black, Size One Size, ColorQty3, QtyCompleted5, WebPrice95, Discontinuedfalse, production ship dateMonday10/26. One Size black stock verified, rather than inferring stock from selector. No size-specific permalink provided by merchant; URL fixes black color.",
-      "checkedAt": "2026-10-25T07:07:04.071733+00:00",
+      "checkedAt": "2026-10-25T08:50:58.976351Z",
       "sourcing": {
         "method": "built-in-web",
         "checkedAt": "2026-10-25T07:07:04.071733+00:00",
@@ -242,7 +242,7 @@
       "merchantId": "icefabrics-com",
       "tagSlugs": [],
       "description": "Price buys one 36 x 72 inch yard of bright orange 100% acrylic felt, 1.6 mm thick and 300 gsm. Raw fabric only; cut and sew diamonds yourself. Brighter and thicker than the reference's burnt-orange velvet. Merchant advertises same-day dispatch before 1 PM PT; confirm the applicable business day at checkout.",
-      "checkedAt": "2026-10-25T08:50:58.976351Z",
+      "checkedAt": "2026-10-26T10:01:11.495Z",
       "sourcing": {
         "method": "built-in-web",
         "checkedAt": "2026-10-25T08:50:58.976351Z",
@@ -254,7 +254,7 @@
       "id": "p-14282b42ef",
       "title": "Pumpkin Wool Blend Felt",
       "url": "https://www.benziedesign.com/products/pumpkin-wool-blend-felt?variant=1328706564",
-      "priceCents": 600,
+      "priceCents": 150,
       "currency": "USD",
       "image": "/products/price-tiers/p-14282b42ef.webp",
       "merchantImage": "/products/price-tiers/p-14282b42ef.webp",
@@ -263,12 +263,12 @@
       ],
       "availability": "in_stock",
       "sizes": [
-        "1/2 yard"
+        "9x12"
       ],
       "merchantId": "benziedesign-com",
       "tagSlugs": [],
       "description": "Pumpkin is an orange heathered wool/rayon blend, approximately 1 mm thick. Price buys one 1/2-yard cut, approximately 18 x 36 inches. It is closer to burnt orange than bright acrylic felt. Cut and sew diamonds yourself; quantity depends on garment size and coverage. Multiple half-yard units yield an uncut sheet per merchant. Tools and thread are not included.",
-      "checkedAt": "2026-10-25T08:50:58.976351Z",
+      "checkedAt": "2026-10-26T10:01:11.922Z",
       "sourcing": {
         "method": "built-in-web",
         "checkedAt": "2026-10-25T08:50:58.976351Z",
@@ -288,11 +288,13 @@
         "https://cdn.shopify.com/s/files/1/0754/1260/3200/files/IMG_1318_9811e346-0b93-4b9e-9f5f-a39c121fd999.jpg?v=1707514282"
       ],
       "availability": "in_stock",
-      "sizes": [],
+      "sizes": [
+        "one size"
+      ],
       "merchantId": "britexfabrics-com",
       "tagSlugs": [],
       "description": "Price buys one yard of 72-inch-wide orange 100% acrylic felt, 5-ounce weight. Choose fabric rather than the $3 swatch. Raw fabric only; cut and sew diamonds yourself. Solid orange craft felt differs from velvet. Quantity depends on garment size and pattern coverage.",
-      "checkedAt": "2026-10-25T08:50:58.976351Z",
+      "checkedAt": "2026-10-26T10:01:11.449Z",
       "sourcing": {
         "method": "built-in-web",
         "checkedAt": "2026-10-25T08:50:58.976351Z",
@@ -414,7 +416,7 @@
       "merchantId": "thursdayboots-com",
       "tagSlugs": [],
       "description": "Black full-grain leather Chelsea boot, glove leather lining, 1.25-inch heel and 5.5-inch shaft. Plain boot substitutes for dark brown floral heeled reference. Listed sizes are Standard width; other widths are excluded. Merchant offers domestic US shipping.",
-      "checkedAt": "2026-10-25T08:51:06.361508Z",
+      "checkedAt": "2026-10-26T10:01:10.951Z",
       "sourcing": {
         "method": "built-in-web",
         "checkedAt": "2026-10-25T08:51:06.361508Z",
@@ -434,24 +436,11 @@
         "https://cdnimg.dreampairs.com/dreampairshoes/product/product/DAB213/BLACK%20PU/1.jpg"
       ],
       "availability": "in_stock",
-      "sizes": [
-        "5",
-        "5.5",
-        "6",
-        "6.5",
-        "7",
-        "7.5",
-        "8",
-        "8.5",
-        "9",
-        "9.5",
-        "10",
-        "11"
-      ],
+      "sizes": [],
       "merchantId": "dreampairs-com",
       "tagSlugs": [],
       "description": "Budget material compromise: imitation synthetic leather rather than genuine leather. Ankle-high Chelsea, 1.25 inch heel, 0.75 inch platform. Merchant JSON-LD lists black USD49.99 InStock; live HTML exact-size inventory counts positive for all 12 listed US sizes. Size8 kid23928 count1806. Hidden generic SOLD OUT text is contradicted by variant inventory and InStock offer; verified source HTML retained /tmp/dreampairs-moon-boots.html.",
-      "checkedAt": "2026-10-25T07:07:04.071733+00:00",
+      "checkedAt": "2026-10-26T10:01:10.994Z",
       "sourcing": {
         "method": "built-in-web",
         "checkedAt": "2026-10-25T07:07:04.071733+00:00",
@@ -487,7 +476,6 @@
         "12 US Women (9 AU/UK)",
         "12.5 US Women (9.5 AU/UK)",
         "13 US Women (10 AU/UK)",
-        "13.5 US Women (10.5 AU/UK)",
         "14 US Women (11 AU/UK)",
         "15 US Women (12 AU/UK)",
         "16 US Women (13 AU/UK)",
@@ -515,7 +503,7 @@
       "merchantId": "blundstone-com",
       "tagSlugs": [],
       "description": "Black premium water-resistant leather classic flat Chelsea boot. Live public feed USD209.95, not stale search result199.95. Available USwomen5-16; two equivalent AU/UK label sets in merchant variants, deduplicate before display. Exact first available variant is USwomen6.",
-      "checkedAt": "2026-10-25T07:07:04.071733+00:00",
+      "checkedAt": "2026-10-26T10:01:11.130Z",
       "sourcing": {
         "method": "built-in-web",
         "checkedAt": "2026-10-25T07:07:04.071733+00:00",
@@ -632,7 +620,7 @@
   "provenance": {
     "method": "manual-research",
     "generatedAt": "2026-10-27T00:28:28.398Z",
-    "notes": "DIY costume build with reviewed merchant supplies and reused catalog basics. Generated reference shows an assembled interpretation, not a ready-made costume. Scissors, thread, adhesive/fasteners, and any card/elastic noted in piece styling are shopper-supplied. Prices exclude these consumables and shipping; arrival by Halloween is unverified. Reused products retain their original research timestamps.",
+    "notes": "DIY costume build with reviewed merchant supplies and reused catalog basics. Generated reference shows an assembled interpretation, not a ready-made costume. Scissors, thread, adhesive/fasteners, and any card/elastic noted in piece styling are shopper-supplied. Prices exclude these consumables and shipping; arrival by Halloween is unverified. Reused products retain their original research timestamps. Publication carries forward newer shared-product price, stock, size and check timestamps from the live database; original sourcing evidence is retained.",
     "priceTiers": true,
     "heroImageKind": "generated-reference"
   }

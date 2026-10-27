@@ -227,7 +227,7 @@
       "merchantId": "burgschneider-com",
       "tagSlugs": [],
       "description": "Natural 100% thick breathable cotton tunic with front and back slits. Longer, approximately knee-length silhouette than the reference’s tunic. S through XXXL are available at $59.99. Other garments in the photo are not included.",
-      "checkedAt": "2026-10-25T08:53:39.887804Z",
+      "checkedAt": "2026-10-26T10:01:20.009Z",
       "sourcing": {
         "method": "built-in-web",
         "checkedAt": "2026-10-25T08:53:39.887804Z",
@@ -255,7 +255,7 @@
       "merchantId": "burgschneider-com",
       "tagSlugs": [],
       "description": "Natural 100% coarse cotton tunic with long sleeves, slit round neckline and side slits. Thigh-length plain base layer. Only S, XL and XXXL are currently available at $39.99; M, L and XXL are sold out. Belt, pants, wraps and shoes in the merchant photo are not included.",
-      "checkedAt": "2026-10-25T08:53:39.887804Z",
+      "checkedAt": "2026-10-26T10:01:19.879Z",
       "sourcing": {
         "method": "built-in-web",
         "checkedAt": "2026-10-25T08:53:39.887804Z",
@@ -282,7 +282,7 @@
       "merchantId": "burgschneider-com",
       "tagSlugs": [],
       "description": "Natural heavy wool-blend short tunic: 74% wool, 15% polyester, 7% polyamide and 4% other natural fibers. Warmer, stiffer and more textured than the illustrated light cream layer. Only S and XXXL are available at $69.99; M through XXL are sold out. Brooch, belt and other layers are not included.",
-      "checkedAt": "2026-10-25T08:53:39.887804Z",
+      "checkedAt": "2026-10-26T10:01:20.092Z",
       "sourcing": {
         "method": "built-in-web",
         "checkedAt": "2026-10-25T08:53:39.887804Z",
@@ -311,7 +311,7 @@
       "merchantId": "harvestandmill-com",
       "tagSlugs": [],
       "description": "Undyed natural organic cotton jersey lounge pants, straight leg and elastic waist. All four listed sizes are available at $76. Softer knit texture than the illustration’s woven-looking trousers; no ankle gathers. One pair of pants only.",
-      "checkedAt": "2026-10-25T08:53:39.887804Z",
+      "checkedAt": "2026-10-26T10:01:19.854Z",
       "sourcing": {
         "method": "built-in-web",
         "checkedAt": "2026-10-25T08:53:39.887804Z",
@@ -369,7 +369,7 @@
       "merchantId": "larelaxed-com",
       "tagSlugs": [],
       "description": "White 100% linen pants with drawstring waist, women’s sizing. Selected White XS through XL are available at $138. Wider straight leg than the reference’s tapered, gathered trousers; tuck the hem loosely into boots for a similar outline. Top and footwear not included.",
-      "checkedAt": "2026-10-25T08:53:39.887804Z",
+      "checkedAt": "2026-10-26T10:01:20.197Z",
       "sourcing": {
         "method": "built-in-web",
         "checkedAt": "2026-10-25T08:53:39.887804Z",
@@ -395,7 +395,7 @@
       "merchantId": "augustatwenty-com",
       "tagSlugs": [],
       "description": "Rachel Comey ivory woven cotton belt with brown leather buckle and leather ends. Only XS is available at $43.75; all other sizes are sold out or cost more. A broader belt with a buckle, rather than the reference’s narrow knotted rope and hanging ends.",
-      "checkedAt": "2026-10-25T08:53:39.887804Z",
+      "checkedAt": "2026-10-26T10:01:20.505Z",
       "sourcing": {
         "method": "built-in-web",
         "checkedAt": "2026-10-25T08:53:39.887804Z",
@@ -415,11 +415,13 @@
         "https://cdn.shopify.com/s/files/1/0252/6727/3790/products/ropeb.jpg?v=1573780391"
       ],
       "availability": "in_stock",
-      "sizes": [],
+      "sizes": [
+        "one size"
+      ],
       "merchantId": "garbtheworld-net",
       "tagSlugs": [],
       "description": "One 6-foot length of 1/2-inch three-ply rope, made in the USA. Merchant photo shows an off-white rope. Tie it around the waist; finished tassels are not included. The feed confirms the $15 single variant available. Multiple quantities are supplied as one continuous length unless instructed otherwise.",
-      "checkedAt": "2026-10-25T08:53:39.887804Z",
+      "checkedAt": "2026-10-26T10:01:20.296Z",
       "sourcing": {
         "method": "built-in-web",
         "checkedAt": "2026-10-25T08:53:39.887804Z",
@@ -439,11 +441,13 @@
         "https://cdn.shopify.com/s/files/1/0964/1358/files/TASSELROPEBELT_CREAM.jpg?v=1761690215"
       ],
       "availability": "in_stock",
-      "sizes": [],
+      "sizes": [
+        "one size"
+      ],
       "merchantId": "samelosangeles-com",
       "tagSlugs": [],
       "description": "Cream braided rope cord with adjustable tie closure and oversized tassels at both ends. One adjustable size, currently available at $68. A closer hanging-rope silhouette than the buckled option, but glossier and more decorative than the reference. Merchant states orders normally ship in 1–3 business days, with more processing time during promotions.",
-      "checkedAt": "2026-10-25T08:53:39.887804Z",
+      "checkedAt": "2026-10-26T10:01:20.387Z",
       "sourcing": {
         "method": "built-in-web",
         "checkedAt": "2026-10-25T08:53:39.887804Z",
@@ -539,7 +543,7 @@
   "provenance": {
     "method": "manual-research",
     "generatedAt": "2026-10-27T00:28:28.398Z",
-    "notes": "DIY costume build with reviewed merchant supplies and reused catalog basics. Generated reference shows an assembled interpretation, not a ready-made costume. Scissors, thread, adhesive/fasteners, and any card/elastic noted in piece styling are shopper-supplied. Prices exclude these consumables and shipping; arrival by Halloween is unverified. Reused products retain their original research timestamps.",
+    "notes": "DIY costume build with reviewed merchant supplies and reused catalog basics. Generated reference shows an assembled interpretation, not a ready-made costume. Scissors, thread, adhesive/fasteners, and any card/elastic noted in piece styling are shopper-supplied. Prices exclude these consumables and shipping; arrival by Halloween is unverified. Reused products retain their original research timestamps. Publication carries forward newer shared-product price, stock, size and check timestamps from the live database; original sourcing evidence is retained.",
     "priceTiers": true,
     "heroImageKind": "generated-reference"
   }

@@ -281,7 +281,7 @@
       "merchantId": "historicalemporium-com",
       "tagSlugs": [],
       "description": "Pair of distressed black faux-leather boots with 16–17-inch shaft, inner zipper, decorative lacing/buttons and 1.5-inch heel with lug sole. All S–XL grouped boot sizes currently available; consult merchant sizing chart. The textured steampunk finish is less polished than the reference.",
-      "checkedAt": "2026-10-25T08:51:41.862679Z",
+      "checkedAt": "2026-10-26T10:00:39.405Z",
       "sourcing": {
         "method": "built-in-web",
         "checkedAt": "2026-10-25T08:51:41.862679Z",
@@ -310,7 +310,7 @@
       "merchantId": "historicalemporium-com",
       "tagSlugs": [],
       "description": "Pair of 100% black leather cavalry boots, low heel, square toe, pull loops and 15-inch back shaft with 3-inch front rise. Best smooth riding-boot silhouette of these choices; square toe differs from the reference rounded toe. Only 7, 8, 9 and 10 available; 11–13 excluded.",
-      "checkedAt": "2026-10-25T08:51:41.862679Z",
+      "checkedAt": "2026-10-26T10:00:39.614Z",
       "sourcing": {
         "method": "built-in-web",
         "checkedAt": "2026-10-25T08:51:41.862679Z",
@@ -331,14 +331,12 @@
       ],
       "availability": "in_stock",
       "sizes": [
-        "Men's Shoe M (10 - 11)",
-        "Men's Shoe L (12 - 13)",
-        "Men's Shoe S (8 - 9)"
+        "one size"
       ],
       "merchantId": "halloweenhallway-com",
       "tagSlugs": [],
       "description": "Pair of black theatrical pirate/cavalier boots in heavy foam-backed vinyl, side zipper, 1-inch heel and approximately 16-inch total height. Photo shows a folded cuff, unlike the reference smooth riding boot. Available merchant sizes are Men's Shoe S (8 - 9), M (10 - 11), and L (12 - 13); no XL stock claimed.",
-      "checkedAt": "2026-10-25T08:51:41.862679Z",
+      "checkedAt": "2026-10-26T10:01:24.294Z",
       "sourcing": {
         "method": "built-in-web",
         "checkedAt": "2026-10-25T08:51:41.862679Z",
@@ -402,7 +400,7 @@
   "provenance": {
     "method": "manual-research",
     "generatedAt": "2026-10-27T00:28:28.338770Z",
-    "notes": "2026 catalog expansion B. Defining pieces checked against primary merchant pages/public variant feeds using built-in web discovery. Appropriate base garments reused from earlier reviewed catalog with original product evidence and check dates. Generated hero is styling inspiration; merchant photos show actual purchases. Sizes, stock and price require checkout recheck. No Halloween arrival guarantee.",
+    "notes": "2026 catalog expansion B. Defining pieces checked against primary merchant pages/public variant feeds using built-in web discovery. Appropriate base garments reused from earlier reviewed catalog with original product evidence and check dates. Generated hero is styling inspiration; merchant photos show actual purchases. Sizes, stock and price require checkout recheck. No Halloween arrival guarantee. Publication carries forward newer shared-product price, stock, size and check timestamps from the live database; original sourcing evidence is retained.",
     "priceTiers": true,
     "heroImageKind": "generated-reference"
   }

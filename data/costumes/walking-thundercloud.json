@@ -418,7 +418,7 @@
         "garment-dyed"
       ],
       "description": "Matte cotton base match; heavyweight garment-dyed cotton spandex, long sleeves/full length legs, black XS-XL all available. Retain existing reviewed photo/cutout if preserving product.",
-      "checkedAt": "2026-10-25T07:07:04.071733+00:00",
+      "checkedAt": "2026-10-26T10:01:10.051Z",
       "sourcing": {
         "method": "built-in-web",
         "checkedAt": "2026-10-25T07:07:04.071733+00:00",
@@ -453,7 +453,7 @@
       "merchantId": "speerise-com",
       "tagSlugs": [],
       "description": "Long sleeve full-length fitted black unitard. 85% nylon/15% spandex rather than cotton; front zipper and mock neck. All ten black XS–6XL variants available at USD42.99. Broad low-tier coverage. Merchant does not explicitly call finish matte; avoid claiming finish beyond plain nonmetallic black.",
-      "checkedAt": "2026-10-25T07:07:04.071733+00:00",
+      "checkedAt": "2026-10-26T10:01:10.690Z",
       "sourcing": {
         "method": "built-in-web",
         "checkedAt": "2026-10-25T07:07:04.071733+00:00",
@@ -479,7 +479,7 @@
       "merchantId": "welovecolors-com",
       "tagSlugs": [],
       "description": "Explicit matte, opaque 93% nylon/7% spandex full-body long-sleeve catsuit. Includes fingers and toes; garment can be cut at wrists/ankles without running per merchant. One Size fits XS–XL; Plus Size fits up to4X but black Plus has ColorQty0, so excluded as in-stock. Live merchant embedded variant inventory object: Black, Size One Size, ColorQty3, QtyCompleted5, WebPrice95, Discontinuedfalse, production ship dateMonday10/26. One Size black stock verified, rather than inferring stock from selector. No size-specific permalink provided by merchant; URL fixes black color.",
-      "checkedAt": "2026-10-25T07:07:04.071733+00:00",
+      "checkedAt": "2026-10-25T08:50:58.976351Z",
       "sourcing": {
         "method": "built-in-web",
         "checkedAt": "2026-10-25T07:07:04.071733+00:00",
@@ -499,13 +499,11 @@
         "https://res.cloudinary.com/agnesb-group/image/upload/w_2000,f_jpg,fl_progressive:steep,q_auto/v1757586364/CMC/Products/707BKC51_909_1.jpg"
       ],
       "availability": "in_stock",
-      "sizes": [
-        "UNIQUE"
-      ],
+      "sizes": [],
       "merchantId": "agnesb-com",
       "tagSlugs": [],
       "description": "Silver ARGENT glittery lightning-shaped pin, approximately 3 inches long, one size UNIQUE. One pin only. Glitter texture and larger size differ from the small plain silver reference. Merchant description calls it pewter/enamel; composition specifies 95% Zamak and 5% epoxy resin. Live primary structured data confirms $25 USD and InStock, with US shipping $9 and estimated transit 3–5 days; no delivery promise.",
-      "checkedAt": "2026-10-25T08:50:56.026491Z",
+      "checkedAt": "2026-10-26T10:01:22.715Z",
       "sourcing": {
         "method": "built-in-web",
         "checkedAt": "2026-10-25T08:50:56.026491Z",
@@ -525,11 +523,13 @@
         "https://cdn.shopify.com/s/files/1/0697/5936/9410/files/nichenet-store_2263_65222131__27740.1514192874.1280.1280.jpg?v=1758676649"
       ],
       "availability": "in_stock",
-      "sizes": [],
+      "sizes": [
+        "one size"
+      ],
       "merchantId": "stockpins-com",
       "tagSlugs": [],
       "description": "Silver-finish lightning bolt lapel pin, 3/4 by 1/2 inch, military clutch back, individually polybagged. Smaller than the reference brooch, with the same clear bolt silhouette. One pin only at the single-unit price $8.95, with free polybag rather than the optional paid gift box. Current public feed confirms Silver available.",
-      "checkedAt": "2026-10-25T08:50:56.026491Z",
+      "checkedAt": "2026-10-26T10:01:23.032Z",
       "sourcing": {
         "method": "built-in-web",
         "checkedAt": "2026-10-25T08:50:56.026491Z",
@@ -549,11 +549,13 @@
         "https://cdn.shopify.com/s/files/1/0892/8594/products/Silver_Toned_Lightning_Bolt_Lapel_Pin.jpg?v=1558214443"
       ],
       "availability": "in_stock",
-      "sizes": [],
+      "sizes": [
+        "one size"
+      ],
       "merchantId": "kioladesigns-com",
       "tagSlugs": [],
       "description": "Silver-tone lightning bolt lapel pin, approximately 3/4 by 3/4 inch, supplied in a gift box. One pin only. Smaller and broader than the reference bolt; silver-tone rather than solid silver. Current public product feed confirms the single $19.99 variant available, and merchant page states 2 items left. No production or dispatch lead time is stated on the product page.",
-      "checkedAt": "2026-10-25T08:50:56.026491Z",
+      "checkedAt": "2026-10-26T10:01:22.877Z",
       "sourcing": {
         "method": "built-in-web",
         "checkedAt": "2026-10-25T08:50:56.026491Z",
@@ -678,7 +680,7 @@
   "provenance": {
     "method": "manual-research",
     "generatedAt": "2026-10-27T00:28:28.398Z",
-    "notes": "DIY costume build with reviewed merchant supplies and reused catalog basics. Generated reference shows an assembled interpretation, not a ready-made costume. Scissors, thread, adhesive/fasteners, and any card/elastic noted in piece styling are shopper-supplied. Prices exclude these consumables and shipping; arrival by Halloween is unverified. Reused products retain their original research timestamps.",
+    "notes": "DIY costume build with reviewed merchant supplies and reused catalog basics. Generated reference shows an assembled interpretation, not a ready-made costume. Scissors, thread, adhesive/fasteners, and any card/elastic noted in piece styling are shopper-supplied. Prices exclude these consumables and shipping; arrival by Halloween is unverified. Reused products retain their original research timestamps. Publication carries forward newer shared-product price, stock, size and check timestamps from the live database; original sourcing evidence is retained.",
     "priceTiers": true,
     "heroImageKind": "generated-reference"
   }

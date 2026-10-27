@@ -104,7 +104,7 @@ async function verifyImage(file: string, { transparent }: Asset) {
   assert.equal(sha256(new Uint8Array(await response.arrayBuffer())), sha256(local), "Served bytes differ from the reviewed local image");
 }
 
-function verifyView(snapshot: CostumeSnapshot, view: CostumeView | null) {
+function verifyView(snapshot: CostumeSnapshot, view: CostumeView | null, publication = true) {
   assert(view, "Catalog query returned no purchasable costume");
   assert.equal(view.pieces.length, snapshot.pieces.length, "A component disappeared from the catalog query");
   for (const { piece, options } of view.pieces) {
@@ -113,8 +113,10 @@ function verifyView(snapshot: CostumeSnapshot, view: CostumeView | null) {
     assert.equal(new Set(options.map(({ product }) => product.id)).size, 3, `${piece.id}: product options repeat`);
     assert.equal(new Set(options.map(({ product }) => product.priceCents)).size, 3, `${piece.id}: prices repeat`);
     assert.deepEqual(options.map(({ pick }) => pick.priceTier).sort(), ["$", "$$", "$$$"], `${piece.id}: price tiers are incomplete`);
-    assert.equal(options[0].product.availability, "in_stock", `${piece.id}: default must be in stock`);
-    assert(options.every(({ product }) => product.availability !== "out_of_stock"), `${piece.id}: an alternative is sold out`);
+    if (publication) {
+      assert.equal(options[0].product.availability, "in_stock", `${piece.id}: publication default must be in stock`);
+      assert(options.every(({ product }) => product.availability !== "out_of_stock"), `${piece.id}: publication alternative is sold out`);
+    }
     for (const { product } of options) {
       assert.equal(product.image, product.merchantImage, `${piece.id}/${product.id}: displayed image must be the actual merchant photograph`);
       assert.equal(product.merchantImage, `/products/price-tiers/${product.id}.webp`, `${piece.id}/${product.id}: missing normalized merchant photograph`);
@@ -153,7 +155,8 @@ async function verifyPage(editorial: Editorial, snapshot?: CostumeSnapshot) {
     assert.equal(link.attributes.target, "_blank", `${piece.id}: merchant link must open a separate tab`);
     assert([...link.inner.matchAll(/<img\b([^>]*)>/gi)].some((match) => attributes(match[1]).src === chosen.product.merchantImage), `${piece.id}: default merchant photo is not displayed`);
     assert(labels(row.inner).some((element) => hasClass(element, "outfit-piece-product") && text(element.inner) === chosen.product.title), `${piece.id}: default product title is missing`);
-    assert(labels(row.inner).some((element) => hasClass(element, "outfit-piece-merchant") && text(element.inner) === chosen.merchant.name), `${piece.id}: default merchant name is missing`);
+    const merchantLabel = [chosen.merchant.name, chosen.pick.isLocal ? "Local" : "", chosen.product.availability === "out_of_stock" ? "Sold out" : ""].filter(Boolean).join(" · ");
+    assert(labels(row.inner).some((element) => hasClass(element, "outfit-piece-merchant") && text(element.inner) === merchantLabel), `${piece.id}: default merchant name or stock label is incorrect`);
     assert(elements(row.inner, "a").some((element) => element.attributes.href === chosen.product.url && text(element.inner) === price(chosen.product.priceCents)), `${piece.id}: default merchant price is missing`);
     // Alternatives, per-piece cart actions and pick explanations render after opening this dialog.
     assert(elements(row.inner, "button").some((button) => button.attributes["aria-label"] === `Change ${piece.name}` && button.attributes["aria-haspopup"] === "dialog"), `${piece.id}: no alternative dialog control`);
@@ -163,7 +166,18 @@ async function verifyPage(editorial: Editorial, snapshot?: CostumeSnapshot) {
 
 const optionIdentity = (options: ProductOption[]) => options.map(({ product, merchant, pick }) => ({ product, merchant, pick }));
 
-async function verifySources(health?: Health) {
+/** Routine merchant refreshes may change these four facts without republishing a look. */
+function withStoredFacts(reviewed: CostumeSnapshot, stored: CostumeSnapshot): CostumeSnapshot {
+  const byId = new Map(stored.products.map((product) => [product.id, product]));
+  return { ...reviewed, products: reviewed.products.map((product) => {
+    const facts = byId.get(product.id);
+    assert(facts, `${reviewed.costume.slug}/${product.id}: reviewed product is absent from the database`);
+    const { priceCents, availability, sizes, checkedAt } = facts;
+    return { ...product, priceCents, availability, sizes, checkedAt };
+  }) };
+}
+
+async function verifySources(health?: Health, stored?: CostumeSnapshot[]) {
   const beforeBundleErrors = errors.length;
   const { SNAPSHOTS } = await import("../lib/catalog/fallback");
   await check("bundled coverage", () => assert.deepEqual(SNAPSHOTS.map(({ costume }) => costume.slug).sort(), expectedSlugs, "Bundled catalogs must cover every editorial costume exactly once"));
@@ -194,24 +208,33 @@ async function verifySources(health?: Health) {
   await check("Turso parity", async () => {
     assert(health?.database.ok === true, "Server database health is not confirmed; use --allow-database-down only for explicit snapshot fallback");
     assert(savedDatabaseUrl && savedDatabaseToken, "Local TURSO_DATABASE_URL and TURSO_AUTH_TOKEN are required to verify database parity");
-    const { readSnapshots } = await import("../lib/db/catalog");
-    const stored = await readSnapshots();
+    assert(stored, "Stored database snapshots are required for parity verification");
     assert.deepEqual(stored.map(({ costume }) => costume.slug).sort(), expectedSlugs, "Database must contain every editorial costume exactly once");
     assert.equal((await catalog.readCatalogs()).source, "database", "Configured catalog runtime must use the database");
+    const storedBySlug = new Map(stored.map((snapshot) => [snapshot.costume.slug, snapshot]));
+    const refreshed = [...snapshots.values()].map((snapshot) => withStoredFacts(snapshot, storedBySlug.get(snapshot.costume.slug)!));
     const beforeDatabaseErrors = errors.length;
     for (const snapshot of snapshots.values()) await check(`${snapshot.costume.slug} database parity`, async () => {
       const slug = snapshot.costume.slug;
-      assert.deepEqual(await catalog.getCostume(slug), await query.getCostume([snapshot], slug), "Database runtime differs from the reviewed bundled catalog");
+      const actual = storedBySlug.get(slug)!;
+      assert.deepEqual(actual, withStoredFacts(snapshot, actual), "Immutable database catalog facts differ from the reviewed bundle");
+      const view = await catalog.getCostume(slug);
+      assert.deepEqual(view, await query.getCostume([actual], slug), "Database runtime differs from the stored catalog");
+      verifyView(actual, view, false);
       for (const piece of snapshot.pieces) {
         for (const filters of [{ costumeSlug: slug }, { costumeSlug: slug, localOnly: true }, { costumeSlug: slug, maxPriceCents: 10_000 }]) {
-          assert.deepEqual(optionIdentity(await query.getAlternatives(stored, piece.id, filters)), optionIdentity(await query.getAlternatives([...snapshots.values()], piece.id, filters)), `${piece.id}: database filter results differ`);
+          assert.deepEqual(optionIdentity(await query.getAlternatives(stored, piece.id, filters)), optionIdentity(await query.getAlternatives(refreshed, piece.id, filters)), `${piece.id}: database filter results differ`);
         }
       }
       for (const merchant of snapshot.merchants) {
-        assert.deepEqual(optionIdentity(await query.getMerchantCatalog(stored, merchant.id, slug)), optionIdentity(await query.getMerchantCatalog([...snapshots.values()], merchant.id, slug)), `${merchant.id}: database merchant results differ`);
+        assert.deepEqual(optionIdentity(await query.getMerchantCatalog(stored, merchant.id, slug)), optionIdentity(await query.getMerchantCatalog(refreshed, merchant.id, slug)), `${merchant.id}: database merchant results differ`);
       }
     });
-    if (errors.length === beforeDatabaseErrors) pass(`${stored.length} database catalogs and scoped query results match the reviewed bundles`);
+    if (errors.length === beforeDatabaseErrors) {
+      const products = stored.flatMap((snapshot) => snapshot.products);
+      pass(`${stored.length} database catalogs preserve reviewed immutable facts and match refreshed runtime/query results`);
+      console.log(`INFO stored stock evidence: ${products.filter((product) => product.availability === "in_stock").length} in stock, ${products.filter((product) => product.availability === "out_of_stock").length} sold out, ${products.filter((product) => product.availability === "unknown").length} unknown product records; merchant checkout still rechecks these facts`);
+    }
   });
 }
 
@@ -231,6 +254,19 @@ async function main() {
     addAsset(editorial.image, `${editorial.slug} generated styling reference`);
     addAsset(snapshot.costume.image, `${editorial.slug} catalog reference`);
   });
+  const health = await check("health response", async () => {
+    const response = await get("/api/health");
+    const value = await response.json() as Health;
+    await check("health status", () => assert.equal(response.status, 200, "Complete catalog health must return HTTP 200"));
+    return value;
+  });
+  const stored = health?.catalogSource === "database" ? await check("database snapshots", async () => {
+    assert(process.env.TURSO_DATABASE_URL && process.env.TURSO_AUTH_TOKEN, "Local database credentials are required to verify database-backed pages");
+    const { readSnapshots } = await import("../lib/db/catalog");
+    return readSnapshots();
+  }) : undefined;
+  const pageSnapshots = health?.catalogSource === "database"
+    ? new Map(stored?.map((snapshot) => [snapshot.costume.slug, snapshot])) : snapshots;
   await check("homepage", async () => {
     const response = await get("/");
     assert.equal(response.status, 200);
@@ -240,7 +276,11 @@ async function main() {
     assert(!tiles.some((tile) => /style guide/i.test(tile.attributes["aria-label"] ?? "")), "Homepage still labels a costume as a style guide");
     pass(`${tiles.length} homepage tiles link to purchasable costume pages`);
   });
-  for (const editorial of costumes) await check(`${editorial.slug} page`, () => verifyPage(editorial, snapshots.get(editorial.slug)));
+  for (const editorial of costumes) await check(`${editorial.slug} page`, () => {
+    const snapshot = pageSnapshots.get(editorial.slug);
+    assert(snapshot, "The reported catalog source must contain this costume for page verification");
+    return verifyPage(editorial, snapshot);
+  });
 
   let verifiedImages = 0;
   const pending = [...assets.entries()];
@@ -252,12 +292,6 @@ async function main() {
   }));
   if (verifiedImages === assets.size && assets.size > 0) pass(`${verifiedImages} reviewed images fully decode and match served bytes`);
 
-  const health = await check("health response", async () => {
-    const response = await get("/api/health");
-    const value = await response.json() as Health;
-    await check("health status", () => assert.equal(response.status, 200, "Complete catalog health must return HTTP 200"));
-    return value;
-  });
   if (health) await check("health catalog coverage", () => {
     assert.deepEqual(health.catalogs.map(({ costumeSlug }) => costumeSlug).sort(), expectedSlugs, "Health must cover every editorial costume");
     assert.equal(health.coverage.expectedCostumes, expectedSlugs.length);
@@ -283,7 +317,7 @@ async function main() {
     }
     pass(`${health.catalogs.length} complete health entries match variable component counts and catalog source ${health.catalogSource}`);
   });
-  await check("catalog sources", () => verifySources(health));
+  await check("catalog sources", () => verifySources(health, stored));
   if (errors.length) {
     console.error(`\n${errors.length} full-catalog failure(s) against ${base}:`);
     errors.forEach((error, index) => console.error(`${index + 1}. ${error}`));
