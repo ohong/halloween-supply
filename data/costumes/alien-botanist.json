@@ -1,0 +1,712 @@
+{
+  "costume": {
+    "slug": "alien-botanist",
+    "name": "Alien Botanist",
+    "description": "A cream utility suit, silver antennae and a belt of tiny specimen bottles make a curious visitor from another garden.",
+    "image": "/costumes/alien-botanist.png",
+    "alt": "Cream utility jumpsuit, silver antenna headband, small green specimen bottles at the belt, silver gloves and brown boots.",
+    "status": "live"
+  },
+  "pieces": [
+    {
+      "id": "alien-botanist-retro-astronaut-jumpsuit",
+      "name": "Light flight jumpsuit base",
+      "category": "one-piece",
+      "required": true,
+      "order": 0,
+      "styleNotes": "Use a long-sleeve light utility jumpsuit. Real bases are white rather than cream; astronaut options include space patches. No orange panels are needed for this botanist.",
+      "queries": [
+        "white astronaut jumpsuit adult",
+        "white long sleeve coveralls"
+      ],
+      "sizeKind": "apparel",
+      "matches": [
+        {
+          "productId": "p-cf22d6eba6",
+          "rank": 0,
+          "reason": "White cotton/polyester utility coverall with pockets and zipper. Plain workwear suits the botanical researcher; no orange panels are required. Stocked size list excludes sold-out 56."
+        },
+        {
+          "productId": "p-987fdfb629",
+          "rank": 1,
+          "reason": "White long-sleeve jumpsuit with embroidered space patches, black straps and zipper accents. No orange panels are required. Helmet and footwear are not included."
+        },
+        {
+          "productId": "p-ba6ef8eafc",
+          "rank": 2,
+          "reason": "White polyester zip-front jumpsuit with embroidered NASA patches and zipper pockets. Baseball cap is included as an optional extra. No orange panels or helmet are needed."
+        }
+      ]
+    },
+    {
+      "id": "alien-botanist-alien-antenna-headpiece",
+      "name": "Alien antenna headpiece",
+      "category": "headwear",
+      "required": true,
+      "order": 1,
+      "styleNotes": "Default silver glitter ball antennae. Mid-price silver tinsel option has the same alien silhouette. Premium white faux-fur moth antennae make a soft insectlike alien; they differ from the silver reference.",
+      "queries": [
+        "Alien antenna headpiece"
+      ],
+      "sizeKind": "one_size",
+      "matches": [
+        {
+          "productId": "p-7208c46a92",
+          "rank": 0,
+          "reason": "Silver glitter ball antennae on springs with a black headband. Includes a small chunky-glitter jar. This gives the alien an open face and a playful silhouette. Saved merchant variant confirms $12.99; fit and checkout stock need rechecking."
+        },
+        {
+          "productId": "e-1ffb7f1e73",
+          "rank": 1,
+          "reason": "Silver variant available true at 1519 cents in merchant feed. Plastic base, wired tinsel and glitter balls. Gold variant is sold out and is not selected."
+        },
+        {
+          "productId": "p-65edab9ec7",
+          "rank": 2,
+          "reason": "White faux-fur moth antennae on a thin metal headband, about6in tall, posable wire core. Listing is buyable at USD30, made to order; seller says listed colors are readily available. Select white fur and silver headband. Etsy does not provide a stable per-variant URL here; current selectable color labels need checkout confirmation. Seller says ships within a week or less; no arrival guarantee. New shop with0sales/reviews. Main listing photo directly shows white option. Orderable made-to-order, not confirmed on-hand stock. White option is visibly photographed."
+        }
+      ]
+    },
+    {
+      "id": "alien-botanist-desert-alchemist-potions",
+      "name": "Potion bottles with belt holder",
+      "category": "accessories",
+      "required": true,
+      "order": 2,
+      "styleNotes": "Bottles and their holders are included. Thread each holder onto your own belt; the belt is not included. Use empty bottles with fabric leaves as botanical specimens. No chemicals or real plants are needed.",
+      "queries": [
+        "brown potion holder includes glass bottles belt",
+        "leather belt potion case four bottles"
+      ],
+      "sizeKind": "one_size",
+      "matches": [
+        {
+          "productId": "p-2a4c410020",
+          "rank": 0,
+          "reason": "Select Ox Brown / One Size. Full-grain leather pouch includes three 5 ml glass bottles with rubber stoppers. Two stud-fastened belt straps attach the pouch. The closed flap hides more of the bottles than the reference. Page says orders normally ship within two business days and can ship from Denmark or the USA."
+        },
+        {
+          "productId": "p-b289a543a2",
+          "rank": 1,
+          "reason": "Select Brown. One curved faux-leather holder includes three glass bottles with cork tops. Holder measures 7 by 5 inches; bottles measure 2.5 inches high by 1 inch wide. Holder threads onto a belt. Belt is not included and maximum belt width is not stated."
+        },
+        {
+          "productId": "p-efd87e3ea9",
+          "rank": 2,
+          "reason": "Select Black leather and Nickel hardware to match the real merchant photo. This black alternative differs from the reference’s brown leather. Includes a 7-by-9.5-inch leather potion holder, four mini glass bottles with corks, and a 7-by-3.5-inch leather case. Belt is separate. Merchant marks it in stock; dispatch time is not stated on this page."
+        }
+      ]
+    },
+    {
+      "id": "alien-botanist-disco-phantom-silver-gloves",
+      "name": "Silver gloves",
+      "category": "accessories",
+      "required": true,
+      "order": 3,
+      "styleNotes": "Add fitted silver gloves with full fingers. The generated gloves are long and glittery; these products range from shorter metallic costume gloves to satin and mirror-finish opera gloves.",
+      "queries": [
+        "silver metallic opera gloves"
+      ],
+      "sizeKind": "one_size",
+      "matches": [
+        {
+          "productId": "p-52f0c3d91f",
+          "rank": 0,
+          "reason": "Silver stretch satin gloves, 22.44 inches / 57 cm long. The merchant does not publish a numeric hand size. Soft satin sheen rather than a metallic or sequined finish. Gloves only; bridal clothing in the photo is excluded. Product page explicitly says in stock."
+        },
+        {
+          "productId": "p-151c13bff4",
+          "rank": 1,
+          "reason": "One pair of silver metallic full-finger gloves. Product page does not publish a numeric size or exact length. Photo shows a forearm-length cuff rather than the longer opera proportions in the reference. Page structured data explicitly lists InStock at $10.99."
+        },
+        {
+          "productId": "p-8b2a001d45",
+          "rank": 2,
+          "reason": "Selected Opera-Length pair is 19.6 inches, $70. Silver synthetic patent leather, unlined, minimal stretch. Merchant fit limits: palm perimeter up to 7.5 inches and upper arm under 11 inches. Mirror finish rather than glitter. Other lengths have different prices and are excluded."
+        }
+      ]
+    },
+    {
+      "id": "alien-botanist-desert-alchemist-boots",
+      "name": "Brown leather boots",
+      "category": "footwear",
+      "required": true,
+      "order": 4,
+      "styleNotes": "Brown medieval boots ground the loose trousers. The reference has tall cross-laced shafts; these real leather alternatives use buckles, toggles or a curled toe.",
+      "queries": [
+        "brown medieval leather boots",
+        "brown calf height leather reenactment boots"
+      ],
+      "sizeKind": "shoe",
+      "matches": [
+        {
+          "productId": "p-d691981350",
+          "rank": 0,
+          "reason": "Brown cowhide mid-calf boots, 12 inches tall from the floor, with leather toggles and a leather sole plus crepe neoprene traction layer. Brown shades may vary. Men’s 10 is unavailable; only the listed available size labels are included."
+        },
+        {
+          "productId": "p-3591e88a5b",
+          "rank": 1,
+          "reason": "Dark Brown half boots with three buckles and a shaft that folds into a cuff. Only merchant sizes 35, 36 and 37 are available at $99.99. Shorter and buckled rather than cross-laced. Sole is included."
+        },
+        {
+          "productId": "p-865c630d73",
+          "rank": 2,
+          "reason": "Select Brown. Leather upper, leather midsole, crepe neoprene sole and brass buckle. The curled toe and relatively plain shaft are a distinct eastern medieval interpretation, rather than the illustration’s cross-lacing. Brown Men’s 15 is unavailable."
+        }
+      ]
+    }
+  ],
+  "products": [
+    {
+      "id": "p-cf22d6eba6",
+      "title": "Red Kap® Professional Twill Industrial workwear Action Back Coverall - White - CT10",
+      "url": "https://www.safetyvestsandmore.com/products/red-kap-professional-twill-industrial-workwear-action-back-coverall-white-ct10?variant=43348427210889",
+      "priceCents": 4059,
+      "currency": "USD",
+      "image": "/products/price-tiers/p-cf22d6eba6.webp",
+      "merchantImage": "/products/price-tiers/p-cf22d6eba6.webp",
+      "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/0338/7090/5481/files/red-kap-professional-twill-industrial-workwear-action-back-coverall-white-ct10-1.webp?v=1739224971"
+      ],
+      "availability": "in_stock",
+      "sizes": [
+        "34",
+        "36",
+        "38",
+        "40",
+        "42",
+        "44",
+        "46",
+        "48",
+        "50",
+        "52",
+        "54",
+        "58",
+        "40 (Tall)",
+        "42 (Tall)",
+        "44 (Tall)",
+        "46 (Tall)",
+        "48 (Tall)",
+        "50 (Tall)",
+        "52 (Tall)"
+      ],
+      "merchantId": "safetyvestsandmore-com",
+      "tagSlugs": [],
+      "description": "One white long-sleeve Red Kap CT10 coverall in cotton/polyester twill. A plain workwear base with zipper and pockets, without patches, orange panels or padding. Listed sizes exclude sold-out 56. Add the separate burnt-orange fabric panels; helmet, belt, gloves and boots are separate.",
+      "checkedAt": "2026-10-25T08:53:19.398203Z",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-25T08:53:19.398203Z",
+        "url": "https://www.safetyvestsandmore.com/products/red-kap-professional-twill-industrial-workwear-action-back-coverall-white-ct10.js",
+        "notes": "One white long-sleeve Red Kap CT10 coverall in cotton/polyester twill. A plain workwear base with zipper and pockets, without patches, orange panels or padding. Listed sizes exclude sold-out 56. Add the separate burnt-orange fabric panels; helmet, belt, gloves and boots are separate."
+      }
+    },
+    {
+      "id": "p-987fdfb629",
+      "title": "Aerospace Astronaut Teen/Adult Costume (White)",
+      "url": "https://www.purecostumes.com/products/u29362-aerospace-astronaut-teen-adult-costume-white?variant=47643072495830",
+      "priceCents": 3495,
+      "currency": "USD",
+      "image": "/products/price-tiers/p-987fdfb629.webp",
+      "merchantImage": "/products/price-tiers/p-987fdfb629.webp",
+      "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/0792/4950/6518/files/U29362_full_1.jpg?v=1766858168"
+      ],
+      "availability": "in_stock",
+      "sizes": [
+        "Teen",
+        "Standard",
+        "X-Large"
+      ],
+      "merchantId": "purecostumes-com",
+      "tagSlugs": [],
+      "description": "Includes the white jumpsuit with embroidered patches. Product photo shows black straps and zipper accents. It is bright white rather than cream and has no burnt-orange panels or padded knees; add those from the separate fabric component. Helmet, gloves and footwear are separate.",
+      "checkedAt": "2026-10-25T08:53:19.398203Z",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-25T08:53:19.398203Z",
+        "url": "https://www.purecostumes.com/products/u29362-aerospace-astronaut-teen-adult-costume-white.js",
+        "notes": "Includes the white jumpsuit with embroidered patches. Product photo shows black straps and zipper accents. It is bright white rather than cream and has no burnt-orange panels or padded knees; add those from the separate fabric component. Helmet, gloves and footwear are separate."
+      }
+    },
+    {
+      "id": "p-ba6ef8eafc",
+      "title": "Classic White Astronaut Suit & Cap Adult Costume",
+      "url": "https://abracadabranyc.com/products/white-astronaut-suit-with-cap?variant=32797833625740",
+      "priceCents": 11295,
+      "currency": "USD",
+      "image": "/products/price-tiers/p-ba6ef8eafc.webp",
+      "merchantImage": "/products/price-tiers/p-ba6ef8eafc.webp",
+      "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/1199/8814/files/618105A.jpg?v=1760379194"
+      ],
+      "availability": "in_stock",
+      "sizes": [
+        "Small",
+        "Large"
+      ],
+      "merchantId": "abracadabranyc-com",
+      "tagSlugs": [],
+      "description": "Includes 100% polyester zip-up white jumpsuit with embroidered NASA patches and zipper pockets, plus embroidered baseball cap. The cap is extra and does not replace the helmet. White with black straps, not cream/orange; add separate fabric panels. Merchant offers US shipping; orders after 2pm Eastern miss that day’s cutoff.",
+      "checkedAt": "2026-10-25T08:53:19.398203Z",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-25T08:53:19.398203Z",
+        "url": "https://abracadabranyc.com/products/white-astronaut-suit-with-cap.js",
+        "notes": "Includes 100% polyester zip-up white jumpsuit with embroidered NASA patches and zipper pockets, plus embroidered baseball cap. The cap is extra and does not replace the helmet. White with black straps, not cream/orange; add separate fabric panels. Merchant offers US shipping; orders after 2pm Eastern miss that day’s cutoff."
+      }
+    },
+    {
+      "id": "p-7208c46a92",
+      "title": "Silver Alien Antenna Headband with Chunky Glitter",
+      "url": "https://www.funcredible.net/products/funcredible-alien-headband-with-chunky-glitter-alien-martian-antenna-and-holographic-glitter-halloween-cosplay-space-theme-alien-costume-party-accessories-for-women-girls-adults-kids-silver?variant=43326222368921",
+      "priceCents": 1299,
+      "currency": "USD",
+      "image": "/products/price-tiers/p-7208c46a92.webp",
+      "merchantImage": "/products/price-tiers/p-7208c46a92.webp",
+      "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/0422/3097/2569/files/Alien-Kapak-Gri.jpg?v=1721208938"
+      ],
+      "availability": "in_stock",
+      "sizes": [
+        "one size"
+      ],
+      "merchantId": "funcredible-net",
+      "tagSlugs": [],
+      "description": "Budget style compromise: silver glitter ball boppers on coiled silver springs and black plastic headband; not feathered/plumed moth antennae. Includes one headband plus one10g chunkyglitter jar. Merchant photo personally inspected and matches silver antenna, not a wrongcolor. Current primary Shopify variant43326222368921 price1299USD availabletrue. Search-rendered product page had stale11.99 (compare_at_price), collection and live variant feed correctly12.99. One flexible size for adults/children per brand category descriptions.",
+      "checkedAt": "2026-10-25T07:07:04.071733+00:00",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-25T07:07:04.071733+00:00",
+        "url": "https://www.funcredible.net/products/funcredible-alien-headband-with-chunky-glitter-alien-martian-antenna-and-holographic-glitter-halloween-cosplay-space-theme-alien-costume-party-accessories-for-women-girls-adults-kids-silver.js",
+        "notes": "Budget style compromise: silver glitter ball boppers on coiled silver springs and black plastic headband; not feathered/plumed moth antennae. Includes one headband plus one10g chunkyglitter jar. Merchant photo personally inspected and matches silver antenna, not a wrongcolor. Current primary Shopify variant43326222368921 price1299USD availabletrue. Search-rendered product page had stale11.99 (compare_at_price), collection and live variant feed correctly12.99. One flexible size for adults/children per brand category descriptions."
+      }
+    },
+    {
+      "id": "e-1ffb7f1e73",
+      "title": "Sparkling Alien Antenna Headband — Silver",
+      "url": "https://www.costume-shop.com/products/14107026?variant=45418179395817",
+      "priceCents": 1519,
+      "currency": "USD",
+      "image": "/products/price-tiers/e-1ffb7f1e73.webp",
+      "merchantImage": "/products/price-tiers/e-1ffb7f1e73.webp",
+      "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/0084/9113/9138/products/alien_20antenna_bc08sv_0f07250c-0ae1-43cf-be2f-f24a32e27631.jpg?v=1692935174"
+      ],
+      "availability": "in_stock",
+      "sizes": [
+        "One size"
+      ],
+      "merchantId": "expansion-e-costume-shop-com",
+      "tagSlugs": [],
+      "description": "Silver variant available true at 1519 cents in merchant feed. Plastic base, wired tinsel and glitter balls. Gold variant is sold out and is not selected.",
+      "checkedAt": "2026-10-27T00:28:53.880632Z",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-27T00:28:53.880632Z",
+        "url": "https://www.costume-shop.com/products/14107026?variant=45418179395817",
+        "notes": "Silver variant available true at 1519 cents in merchant feed. Plastic base, wired tinsel and glitter balls. Gold variant is sold out and is not selected."
+      }
+    },
+    {
+      "id": "p-65edab9ec7",
+      "title": "Custom Posable Moth Antennae — White Faux Fur",
+      "url": "https://www.etsy.com/listing/4596956691/choose-your-colour-custom-handmade",
+      "priceCents": 3000,
+      "currency": "USD",
+      "image": "/products/price-tiers/p-65edab9ec7.webp",
+      "merchantImage": "/products/price-tiers/p-65edab9ec7.webp",
+      "sourceImages": [
+        "https://i.etsystatic.com/68005861/r/il/930c53/8690356004/il_794xN.8690356004_nxgr.jpg"
+      ],
+      "availability": "in_stock",
+      "sizes": [
+        "one size"
+      ],
+      "merchantId": "etsy-com",
+      "tagSlugs": [],
+      "description": "White faux-fur moth antennae on a thin metal headband, about6in tall, posable wire core. Listing is buyable at USD30, made to order; seller says listed colors are readily available. Select white fur and silver headband. Etsy does not provide a stable per-variant URL here; current selectable color labels need checkout confirmation. Seller says ships within a week or less; no arrival guarantee. New shop with0sales/reviews. Main listing photo directly shows white option. Orderable made-to-order, not confirmed on-hand stock. White option is visibly photographed. ",
+      "checkedAt": "2026-10-25T07:07:04.071733+00:00",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-25T07:07:04.071733+00:00",
+        "url": "https://www.etsy.com/listing/4596956691/choose-your-colour-custom-handmade",
+        "notes": "White faux-fur moth antennae on a thin metal headband, about6in tall, posable wire core. Listing is buyable at USD30, made to order; seller says listed colors are readily available. Select white fur and silver headband. Etsy does not provide a stable per-variant URL here; current selectable color labels need checkout confirmation. Seller says ships within a week or less; no arrival guarantee. New shop with0sales/reviews. Main listing photo directly shows white option. Orderable made-to-order, not confirmed on-hand stock. White option is visibly photographed. "
+      }
+    },
+    {
+      "id": "p-2a4c410020",
+      "title": "Potion Holder 3 Piece",
+      "url": "https://us.epicarmoury.com/products/1130-potion-holder-3-piece?variant=52157801300334",
+      "priceCents": 3200,
+      "currency": "USD",
+      "image": "/products/price-tiers/p-2a4c410020.webp",
+      "merchantImage": "/products/price-tiers/p-2a4c410020.webp",
+      "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/0910/6876/0430/files/101615_637d1f7c-6854-4a59-8987-0a681f88ee63.webp?v=1792435553"
+      ],
+      "availability": "in_stock",
+      "sizes": [
+        "One Size"
+      ],
+      "merchantId": "us-epicarmoury-com",
+      "tagSlugs": [],
+      "description": "Select Ox Brown / One Size. Full-grain leather pouch includes three 5 ml glass bottles with rubber stoppers. Two stud-fastened belt straps attach the pouch. The closed flap hides more of the bottles than the reference. Page says orders normally ship within two business days and can ship from Denmark or the USA.",
+      "checkedAt": "2026-10-25T08:58:26.994930Z",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-25T08:58:26.994930Z",
+        "url": "https://us.epicarmoury.com/products/1130-potion-holder-3-piece.js",
+        "notes": "Select Ox Brown / One Size. Full-grain leather pouch includes three 5 ml glass bottles with rubber stoppers. Two stud-fastened belt straps attach the pouch. The closed flap hides more of the bottles than the reference. Page says orders normally ship within two business days and can ship from Denmark or the USA."
+      }
+    },
+    {
+      "id": "p-b289a543a2",
+      "title": "CURVED Magic Potion Elixir Holder Includes 3 Functioning Bottles!",
+      "url": "https://mistymeadowsclothingcompany.com/products/curved-magic-potion-elixir-holder-includes-3-functioning-bottles?variant=44045347291331",
+      "priceCents": 1499,
+      "currency": "USD",
+      "image": "/products/price-tiers/p-b289a543a2.webp",
+      "merchantImage": "/products/price-tiers/p-b289a543a2.webp",
+      "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/0671/1859/6291/files/IMG_7975.jpg?v=1730746843"
+      ],
+      "availability": "in_stock",
+      "sizes": [],
+      "merchantId": "mistymeadowsclothingcompany-com",
+      "tagSlugs": [],
+      "description": "Select Brown. One curved faux-leather holder includes three glass bottles with cork tops. Holder measures 7 by 5 inches; bottles measure 2.5 inches high by 1 inch wide. Holder threads onto a belt. Belt is not included and maximum belt width is not stated.",
+      "checkedAt": "2026-10-25T08:58:26.994930Z",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-25T08:58:26.994930Z",
+        "url": "https://mistymeadowsclothingcompany.com/products/curved-magic-potion-elixir-holder-includes-3-functioning-bottles.js",
+        "notes": "Select Brown. One curved faux-leather holder includes three glass bottles with cork tops. Holder measures 7 by 5 inches; bottles measure 2.5 inches high by 1 inch wide. Holder threads onto a belt. Belt is not included and maximum belt width is not stated."
+      }
+    },
+    {
+      "id": "p-efd87e3ea9",
+      "title": "Leather Case and Potion Holder with 4 Bottles",
+      "url": "https://www.fierceeagleleather.com/product-page/leather-belt-case-and-potion-holder-with-4-bottles",
+      "priceCents": 8195,
+      "currency": "USD",
+      "image": "/products/price-tiers/p-efd87e3ea9.webp",
+      "merchantImage": "/products/price-tiers/p-efd87e3ea9.webp",
+      "sourceImages": [
+        "https://static.wixstatic.com/media/49c020_d6b4bc46094b4adc9bd816c0d34ec80b~mv2.jpg"
+      ],
+      "availability": "in_stock",
+      "sizes": [],
+      "merchantId": "fierceeagleleather-com",
+      "tagSlugs": [],
+      "description": "Select Black leather and Nickel hardware to match the real merchant photo. This black alternative differs from the reference’s brown leather. Includes a 7-by-9.5-inch leather potion holder, four mini glass bottles with corks, and a 7-by-3.5-inch leather case. Belt is separate. Merchant marks it in stock; dispatch time is not stated on this page.",
+      "checkedAt": "2026-10-25T08:58:26.994930Z",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-25T08:58:26.994930Z",
+        "url": "https://www.fierceeagleleather.com/product-page/leather-belt-case-and-potion-holder-with-4-bottles",
+        "notes": "Select Black leather and Nickel hardware to match the real merchant photo. This black alternative differs from the reference’s brown leather. Includes a 7-by-9.5-inch leather potion holder, four mini glass bottles with corks, and a 7-by-3.5-inch leather case. Belt is separate. Merchant marks it in stock; dispatch time is not stated on this page."
+      }
+    },
+    {
+      "id": "p-52f0c3d91f",
+      "title": "Opera Length Silver Satin Gloves",
+      "url": "https://formalwearoutlet.com/products/opera-length-gloves-silver?variant=52653601718432",
+      "priceCents": 2299,
+      "currency": "USD",
+      "image": "/products/price-tiers/p-52f0c3d91f.webp",
+      "merchantImage": "/products/price-tiers/p-52f0c3d91f.webp",
+      "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/0596/4519/8496/files/GLV57_Silver_Satin_Opera_Length_Gloves.jpg?v=1757027597"
+      ],
+      "availability": "in_stock",
+      "sizes": [],
+      "merchantId": "formalwearoutlet-com",
+      "tagSlugs": [],
+      "description": "Silver stretch satin gloves, 22.44 inches / 57 cm long. The merchant does not publish a numeric hand size. Soft satin sheen rather than a metallic or sequined finish. Gloves only; bridal clothing in the photo is excluded. Product page explicitly says in stock.",
+      "checkedAt": "2026-10-25T08:49:56Z",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-25T08:49:56Z",
+        "url": "https://formalwearoutlet.com/products/opera-length-gloves-silver.js",
+        "notes": "Silver stretch satin gloves, 22.44 inches / 57 cm long. The merchant does not publish a numeric hand size. Soft satin sheen rather than a metallic or sequined finish. Gloves only; bridal clothing in the photo is excluded. Product page explicitly says in stock."
+      }
+    },
+    {
+      "id": "p-151c13bff4",
+      "title": "Silver Metallic Womens Gloves",
+      "url": "https://blockbustercostumes.com/products/silver-metallic-womens-gloves.html",
+      "priceCents": 1099,
+      "currency": "USD",
+      "image": "/products/price-tiers/p-151c13bff4.webp",
+      "merchantImage": "/products/price-tiers/p-151c13bff4.webp",
+      "sourceImages": [
+        "https://cdn11.bigcommerce.com/s-cdu7h4/images/stencil/1280x1280/products/122800/143236/uw29851-w-1__94034.1542258658.jpg?c=2"
+      ],
+      "availability": "in_stock",
+      "sizes": [],
+      "merchantId": "blockbustercostumes-com",
+      "tagSlugs": [],
+      "description": "One pair of silver metallic full-finger gloves. Product page does not publish a numeric size or exact length. Photo shows a forearm-length cuff rather than the longer opera proportions in the reference. Page structured data explicitly lists InStock at $10.99.",
+      "checkedAt": "2026-10-25T08:49:56Z",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-25T08:49:56Z",
+        "url": "https://blockbustercostumes.com/products/silver-metallic-womens-gloves.html",
+        "notes": "One pair of silver metallic full-finger gloves. Product page does not publish a numeric size or exact length. Photo shows a forearm-length cuff rather than the longer opera proportions in the reference. Page structured data explicitly lists InStock at $10.99."
+      }
+    },
+    {
+      "id": "p-8b2a001d45",
+      "title": "MIRAGE Opera Gloves",
+      "url": "https://saintchic.com/products/mirage-opera-gloves?variant=43032815337537",
+      "priceCents": 7000,
+      "currency": "USD",
+      "image": "/products/price-tiers/p-8b2a001d45.webp",
+      "merchantImage": "/products/price-tiers/p-8b2a001d45.webp",
+      "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/0107/5132/files/MIRAGE-Opera-Gloves-gloves-SAINT-CHIC-Opera-Length-4.png?v=1791401567"
+      ],
+      "availability": "in_stock",
+      "sizes": [
+        "Opera-Length"
+      ],
+      "merchantId": "saintchic-com",
+      "tagSlugs": [],
+      "description": "Selected Opera-Length pair is 19.6 inches, $70. Silver synthetic patent leather, unlined, minimal stretch. Merchant fit limits: palm perimeter up to 7.5 inches and upper arm under 11 inches. Mirror finish rather than glitter. Other lengths have different prices and are excluded.",
+      "checkedAt": "2026-10-25T08:49:56Z",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-25T08:49:56Z",
+        "url": "https://saintchic.com/products/mirage-opera-gloves.js",
+        "notes": "Selected Opera-Length pair is 19.6 inches, $70. Silver synthetic patent leather, unlined, minimal stretch. Merchant fit limits: palm perimeter up to 7.5 inches and upper arm under 11 inches. Mirror finish rather than glitter. Other lengths have different prices and are excluded."
+      }
+    },
+    {
+      "id": "p-d691981350",
+      "title": "Medieval Boots",
+      "url": "https://boots-by-bohemond.myshopify.com/products/medieval-boots?variant=21963225475",
+      "priceCents": 17500,
+      "currency": "USD",
+      "image": "/products/price-tiers/p-d691981350.webp",
+      "merchantImage": "/products/price-tiers/p-d691981350.webp",
+      "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/1093/6274/products/Medieval-Boots-6.jpg?v=1561571690"
+      ],
+      "availability": "in_stock",
+      "sizes": [
+        "Lady's 5",
+        "Lady's 6",
+        "Lady's 7",
+        "Lady's 8",
+        "Lady's 9",
+        "Lady's 10 - Men's 8",
+        "Men's 9",
+        "Men's 11",
+        "Men's 12",
+        "Men's 13",
+        "Men's 14",
+        "Men's 15"
+      ],
+      "merchantId": "boots-by-bohemond-myshopify-com",
+      "tagSlugs": [],
+      "description": "Brown cowhide mid-calf boots, 12 inches tall from the floor, with leather toggles and a leather sole plus crepe neoprene traction layer. Brown shades may vary. Men’s 10 is unavailable; only the listed available size labels are included.",
+      "checkedAt": "2026-10-25T08:58:26.994930Z",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-25T08:58:26.994930Z",
+        "url": "https://boots-by-bohemond.myshopify.com/products/medieval-boots.js",
+        "notes": "Brown cowhide mid-calf boots, 12 inches tall from the floor, with leather toggles and a leather sole plus crepe neoprene traction layer. Brown shades may vary. Men’s 10 is unavailable; only the listed available size labels are included."
+      }
+    },
+    {
+      "id": "p-3591e88a5b",
+      "title": "Medieval Half Boots",
+      "url": "https://burgschneider.us/products/medieval-half-boots?variant=43317086552111",
+      "priceCents": 9999,
+      "currency": "USD",
+      "image": "/products/price-tiers/p-3591e88a5b.webp",
+      "merchantImage": "/products/price-tiers/p-3591e88a5b.webp",
+      "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/0634/1709/0095/files/LAB_Shoes_Half_Boot_01.gVGvtG.jpg?v=1774453187"
+      ],
+      "availability": "in_stock",
+      "sizes": [
+        "35",
+        "36",
+        "37"
+      ],
+      "merchantId": "burgschneider-us",
+      "tagSlugs": [],
+      "description": "Dark Brown half boots with three buckles and a shaft that folds into a cuff. Only merchant sizes 35, 36 and 37 are available at $99.99. Shorter and buckled rather than cross-laced. Sole is included.",
+      "checkedAt": "2026-10-25T08:58:26.994930Z",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-25T08:58:26.994930Z",
+        "url": "https://burgschneider.us/products/medieval-half-boots.js",
+        "notes": "Dark Brown half boots with three buckles and a shaft that folds into a cuff. Only merchant sizes 35, 36 and 37 are available at $99.99. Shorter and buckled rather than cross-laced. Sole is included."
+      }
+    },
+    {
+      "id": "p-865c630d73",
+      "title": "Rus Viking Boots",
+      "url": "https://boots-by-bohemond.myshopify.com/products/rus-boots?variant=12356344545377",
+      "priceCents": 21600,
+      "currency": "USD",
+      "image": "/products/price-tiers/p-865c630d73.webp",
+      "merchantImage": "/products/price-tiers/p-865c630d73.webp",
+      "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/1093/6274/products/RusBootBROWN_1.jpg?v=1638058749"
+      ],
+      "availability": "in_stock",
+      "sizes": [
+        "Lady's 5",
+        "Lady's 6",
+        "Lady's 7",
+        "Lady's 8",
+        "Lady's 9",
+        "Lady's 10 Men's 8",
+        "Men's 9",
+        "Men's 10",
+        "Men's 11",
+        "Men's 12",
+        "Men's 13",
+        "Men's 14"
+      ],
+      "merchantId": "boots-by-bohemond-myshopify-com",
+      "tagSlugs": [],
+      "description": "Select Brown. Leather upper, leather midsole, crepe neoprene sole and brass buckle. The curled toe and relatively plain shaft are a distinct eastern medieval interpretation, rather than the illustration’s cross-lacing. Brown Men’s 15 is unavailable.",
+      "checkedAt": "2026-10-25T08:58:26.994930Z",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-25T08:58:26.994930Z",
+        "url": "https://boots-by-bohemond.myshopify.com/products/rus-boots.js",
+        "notes": "Select Brown. Leather upper, leather midsole, crepe neoprene sole and brass buckle. The curled toe and relatively plain shaft are a distinct eastern medieval interpretation, rather than the illustration’s cross-lacing. Brown Men’s 15 is unavailable."
+      }
+    }
+  ],
+  "merchants": [
+    {
+      "id": "safetyvestsandmore-com",
+      "name": "Safety Vests and More",
+      "domain": "safetyvestsandmore.com",
+      "url": "https://safetyvestsandmore.com/",
+      "kind": "boutique",
+      "neighborhoodId": null
+    },
+    {
+      "id": "funcredible-net",
+      "name": "Funcredible",
+      "domain": "funcredible.net",
+      "url": "https://funcredible.net/",
+      "kind": "boutique",
+      "neighborhoodId": null
+    },
+    {
+      "id": "burgschneider-us",
+      "name": "Burgschneider",
+      "domain": "burgschneider.us",
+      "url": "https://burgschneider.us/",
+      "kind": "boutique",
+      "neighborhoodId": null
+    },
+    {
+      "id": "etsy-com",
+      "name": "Kaijukin Studios Store",
+      "domain": "etsy.com",
+      "url": "https://etsy.com/",
+      "kind": "boutique",
+      "neighborhoodId": null
+    },
+    {
+      "id": "fierceeagleleather-com",
+      "name": "Fierce Eagle Leather Creations",
+      "domain": "fierceeagleleather.com",
+      "url": "https://fierceeagleleather.com/",
+      "kind": "boutique",
+      "neighborhoodId": null
+    },
+    {
+      "id": "blockbustercostumes-com",
+      "name": "BlockBuster Costumes",
+      "domain": "blockbustercostumes.com",
+      "url": "https://blockbustercostumes.com/",
+      "kind": "boutique",
+      "neighborhoodId": null
+    },
+    {
+      "id": "us-epicarmoury-com",
+      "name": "Epic Armoury",
+      "domain": "us.epicarmoury.com",
+      "url": "https://us.epicarmoury.com/",
+      "kind": "boutique",
+      "neighborhoodId": null
+    },
+    {
+      "id": "abracadabranyc-com",
+      "name": "AbracadabraNYC",
+      "domain": "abracadabranyc.com",
+      "url": "https://abracadabranyc.com/",
+      "kind": "boutique",
+      "neighborhoodId": null
+    },
+    {
+      "id": "purecostumes-com",
+      "name": "Pure Costumes",
+      "domain": "purecostumes.com",
+      "url": "https://purecostumes.com/",
+      "kind": "boutique",
+      "neighborhoodId": null
+    },
+    {
+      "id": "boots-by-bohemond-myshopify-com",
+      "name": "Boots By Bohemond",
+      "domain": "boots-by-bohemond.myshopify.com",
+      "url": "https://boots-by-bohemond.myshopify.com/",
+      "kind": "boutique",
+      "neighborhoodId": null
+    },
+    {
+      "id": "mistymeadowsclothingcompany-com",
+      "name": "Misty Meadows Clothing Co.",
+      "domain": "mistymeadowsclothingcompany.com",
+      "url": "https://mistymeadowsclothingcompany.com/",
+      "kind": "boutique",
+      "neighborhoodId": null
+    },
+    {
+      "id": "expansion-e-costume-shop-com",
+      "name": "The Costume Shop",
+      "domain": "costume-shop.com",
+      "url": "https://costume-shop.com",
+      "kind": "boutique",
+      "neighborhoodId": null
+    },
+    {
+      "id": "formalwearoutlet-com",
+      "name": "Formalwear Outlet",
+      "domain": "formalwearoutlet.com",
+      "url": "https://formalwearoutlet.com/",
+      "kind": "boutique",
+      "neighborhoodId": null
+    },
+    {
+      "id": "saintchic-com",
+      "name": "SAINT CHIC",
+      "domain": "saintchic.com",
+      "url": "https://saintchic.com/",
+      "kind": "boutique",
+      "neighborhoodId": null
+    }
+  ],
+  "neighborhoods": [],
+  "tags": [],
+  "provenance": {
+    "method": "manual-research",
+    "generatedAt": "2026-10-27T00:28:53.880632Z",
+    "notes": "2026 catalog expansion. Defining accessories sourced through built-in web search and primary merchant pages/public feeds. Suitable basics reuse reviewed catalog records without changing their checkedAt dates. Generated references show styling, not the exact products. DIY items are raw supplies; assembly extras and owned wardrobe basics are explicit in piece notes.",
+    "priceTiers": true,
+    "heroImageKind": "generated-reference"
+  }
+}

@@ -1,0 +1,265 @@
+{
+  "checkedAt": "2026-10-27T00:28:51.012585+00:00",
+  "editorial": [
+    {
+      "slug": "deep-sea-diver",
+      "name": "Deep Sea Diver",
+      "description": "A gold diving-bell helmet turns cream coveralls and a broad belt into an explorer from a lost underwater expedition.",
+      "image": "/costumes/deep-sea-diver.png",
+      "alt": "Gold vintage diving bell costume helmet, cream coveralls, tan belt and brown lace-up boots",
+      "status": "live",
+      "pieces": [
+        "Gold diving-bell costume helmet",
+        "Light coveralls",
+        "Pale waist belt",
+        "Brown lace-up boots"
+      ],
+      "tip": "Keep the helmet opening clear. This outfit is for a party; none of its pieces are diving equipment."
+    },
+    {
+      "slug": "dragon-rider",
+      "name": "Dragon Rider",
+      "description": "Dark horns and overlapping leather shoulder armor turn a weathered flight jacket into a dragon rider\u2019s gear.",
+      "image": "/costumes/dragon-rider.png",
+      "alt": "Black fantasy horns above brown overlapping shoulder armor, a brown flight jacket, black trousers and brown boots",
+      "status": "live",
+      "pieces": [
+        "Dark dragon-inspired horns",
+        "Brown flight jacket",
+        "Dragon-inspired costume armor",
+        "Black trousers",
+        "Brown lace-up boots"
+      ],
+      "tip": "Wear your own shirt beneath the jacket. Adjustable shoulder armor and dark horns set the dragon-inspired silhouette."
+    },
+    {
+      "slug": "phoenix-rising",
+      "name": "Phoenix Rising",
+      "description": "Fiery red-and-gold wings spread from a charcoal base, with handmade flame cuffs that move as you dance.",
+      "image": "/costumes/phoenix-rising.png",
+      "alt": "Red, orange and yellow phoenix wings over a black fitted unitard, burnt-orange fabric wrist flames and black ankle boots",
+      "status": "live",
+      "pieces": [
+        "Firebird wings",
+        "Black fitted unitard",
+        "Orange fabric for DIY flame cuffs",
+        "Black ankle boots"
+      ],
+      "tip": "Cut flame shapes from the orange fabric and stitch them to removable wrist bands. Keep the wings clear of doorways."
+    },
+    {
+      "slug": "ice-empress",
+      "name": "Ice Empress",
+      "description": "A towering silver crown and ivory layers create an ice ruler, softened by white fur and finished with silver boots.",
+      "image": "/costumes/ice-empress.png",
+      "alt": "Tall silver rhinestone crown, ivory long tunic and trousers, white faux-fur shoulder collar and silver boots",
+      "status": "live",
+      "pieces": [
+        "Silver crystal-look crown",
+        "Ivory long tunic",
+        "Ivory trousers",
+        "Ivory faux-fur shoulder collar",
+        "Silver boots"
+      ],
+      "tip": "Let the crown carry the drama. Use ivory layers you already own and keep long hems clear of your boots."
+    },
+    {
+      "slug": "labyrinth-faun",
+      "name": "Labyrinth Faun",
+      "description": "Curled horns rise above leafy green layers, brown trousers and leather bracers for a guardian of a hidden woodland maze.",
+      "image": "/costumes/labyrinth-faun.png",
+      "alt": "Curled brown ram horns, leafy green tunic, brown utility trousers, brown leather forearm bracers and lace-up boots",
+      "status": "live",
+      "pieces": [
+        "Curled woodland horns",
+        "Leaf-green top or tunic",
+        "Brown utility trousers",
+        "Brown forearm bracers",
+        "Brown lace-up boots"
+      ],
+      "tip": "Blend woodland greens and worn brown leather. Use flat boots so you can walk freely; this look needs no hoof stilts."
+    }
+  ],
+  "newProductEvidence": [
+    {
+      "productId": "p-d-9a8e5dd7cd",
+      "url": "https://chicagocostume.com/products/diving-bell-plush-helmet?variant=43255117218034",
+      "evidenceUrl": "https://chicagocostume.com/products/diving-bell-plush-helmet.js",
+      "priceCents": 2999,
+      "variant": "Default Title",
+      "available": true,
+      "sourceImage": "https://cdn.shopify.com/s/files/1/0610/0208/8690/products/250450__94189.1548696817.jpg?v=1655504997",
+      "notes": "Gold plush diving bell helmet only. Decorative costume accessory; never use for diving or breathing protection."
+    },
+    {
+      "productId": "p-d-bcda5473fc",
+      "url": "https://villagehatshop.com/products/diving-bell-scuba-helmet?variant=45419789484170",
+      "evidenceUrl": "https://villagehatshop.com/products/diving-bell-scuba-helmet.js",
+      "priceCents": 3099,
+      "variant": "GOLD / ONE SIZE FITS MOST",
+      "available": true,
+      "sourceImage": "https://cdn.shopify.com/s/files/1/0074/3732/0263/files/T3pYqaTThIbOjhUHzNcIX2eNA6KO3GEM-35.jpg?v=1766013851",
+      "notes": "Gold soft diving bell helmet only, one size fits most. Decorative accessory, not aquatic safety equipment."
+    },
+    {
+      "productId": "p-d-2047c7b362",
+      "url": "https://prettystickbeauty.com/products/diving-bell-plush-helmet?variant=47074032287966",
+      "evidenceUrl": "https://prettystickbeauty.com/products/diving-bell-plush-helmet.js",
+      "priceCents": 3595,
+      "variant": "Default Title",
+      "available": true,
+      "sourceImage": "https://cdn.shopify.com/s/files/1/0513/0751/1992/files/IMG-5591.heic?v=1752346679",
+      "notes": "Gold plush diving bell helmet only. Decorative accessory, not aquatic safety equipment."
+    },
+    {
+      "productId": "p-d-bea8b9dac2",
+      "url": "https://chicagocostume.com/products/black-beast-horns?variant=49226440573170",
+      "evidenceUrl": "https://chicagocostume.com/products/black-beast-horns.js",
+      "priceCents": 1499,
+      "variant": "Default Title",
+      "available": true,
+      "sourceImage": "https://cdn.shopify.com/s/files/1/0610/0208/8690/files/bbh.jpg?v=1779039315",
+      "notes": "Black beast horns suit a dragon-inspired rider. Horns only, no dragon wings or jacket."
+    },
+    {
+      "productId": "p-d-c89ffad312",
+      "url": "https://chicagocostume.com/products/gargoyle-horns?variant=42394239271154",
+      "evidenceUrl": "https://chicagocostume.com/products/gargoyle-horns.js",
+      "priceCents": 999,
+      "variant": "Default Title",
+      "available": true,
+      "sourceImage": "https://cdn.shopify.com/s/files/1/0610/0208/8690/products/6431_GH.jpg?v=1643393802",
+      "notes": "Resin over-head gargoyle horns. A smaller gray/brown alternative to the black dragon horn silhouette."
+    },
+    {
+      "productId": "p-d-982633dfe1",
+      "url": "https://chicagocostume.com/products/demon-horn-headband?variant=43376590815474",
+      "evidenceUrl": "https://chicagocostume.com/products/demon-horn-headband.js",
+      "priceCents": 4999,
+      "variant": "Default Title",
+      "available": true,
+      "sourceImage": "https://cdn.shopify.com/s/files/1/0610/0208/8690/products/8408358.jpg?v=1657898475",
+      "notes": "Demon horn headband; one size fits most, ages 14+. A more dramatic fantasy horn silhouette."
+    },
+    {
+      "productId": "p-d-a869cd4e7d",
+      "url": "https://chicagocostume.com/products/superlite-ram-horns?variant=43046992347378",
+      "evidenceUrl": "https://chicagocostume.com/products/superlite-ram-horns.js",
+      "priceCents": 2999,
+      "variant": "Default Title",
+      "available": true,
+      "sourceImage": "https://cdn.shopify.com/s/files/1/0610/0208/8690/products/ANIMALS-RAM-HORNS-SUPERLITE__76-8010-Z.jpg?v=1651604982",
+      "notes": "Lightweight curled ram horns make the faun silhouette. Horns only."
+    },
+    {
+      "productId": "p-d-87c89743a1",
+      "url": "https://chicagocostume.com/products/woodland-fairy-horns?variant=43218522931442",
+      "evidenceUrl": "https://chicagocostume.com/products/woodland-fairy-horns.js",
+      "priceCents": 1299,
+      "variant": "Default Title",
+      "available": true,
+      "sourceImage": "https://cdn.shopify.com/s/files/1/0610/0208/8690/products/60678.jpg?v=1654980582",
+      "notes": "Horns attached with elastic string, ages 14+. Smaller woodland horns replace the large curled ram form."
+    },
+    {
+      "productId": "p-d-97df452f6c",
+      "url": "https://chicagocostume.com/products/floral-ram-headpiece-gold?variant=43336276443378",
+      "evidenceUrl": "https://chicagocostume.com/products/floral-ram-headpiece-gold.js",
+      "priceCents": 1499,
+      "variant": "Gold",
+      "available": true,
+      "sourceImage": "https://cdn.shopify.com/s/files/1/0610/0208/8690/products/img_proxy_523ad6d1-b39b-4a21-aa02-2cf375419daa.jpg?v=1638560058",
+      "notes": "Gold floral ram headband, one size fits most adults, ages 15+. Metallic alternative rather than brown horns."
+    },
+    {
+      "productId": "p-d-2e0e5d1f2e",
+      "url": "https://masquerade.com/products/phoenix-costume-wings-ca-010193?variant=29552990732",
+      "evidenceUrl": "https://masquerade.com/products/phoenix-costume-wings-ca-010193.js",
+      "priceCents": 2999,
+      "variant": "Standard Size / Purple",
+      "available": true,
+      "sourceImage": "https://cdn.shopify.com/s/files/1/0885/2670/products/CA-010193.jpeg?v=1525282875",
+      "notes": "58 by 22 inch phoenix wings in pink, orange, yellow, red and black with elastic shoulder straps. Merchant variant label says Purple; photograph and description show the multicolor firebird wings."
+    },
+    {
+      "productId": "p-d-9285048708",
+      "url": "https://masquerade.com/products/adult-red-yellow-costume-wings-ca-008050?variant=6317096515",
+      "evidenceUrl": "https://masquerade.com/products/adult-red-yellow-costume-wings-ca-008050.js",
+      "priceCents": 1999,
+      "variant": "Red / Standard Size",
+      "available": true,
+      "sourceImage": "https://cdn.shopify.com/s/files/1/0885/2670/products/CA-008050.jpeg?v=1525284140",
+      "notes": "Red and yellow wings, approximately 24 by 50 inches; wings only."
+    },
+    {
+      "productId": "p-d-ae987bbc8c",
+      "url": "https://chicagocostume.com/products/angel-cosplay-wings-gold?variant=48931102327026",
+      "evidenceUrl": "https://chicagocostume.com/products/angel-cosplay-wings-gold.js",
+      "priceCents": 3999,
+      "variant": "Gold",
+      "available": true,
+      "sourceImage": "https://cdn.shopify.com/s/files/1/0610/0208/8690/files/GoldWings1.jpg?v=1774810810",
+      "notes": "Gold angel cosplay wings provide a metallic phoenix alternative; different shape and solid gold instead of red-orange feathers."
+    },
+    {
+      "productId": "p-d-51cdc3fe1b",
+      "url": "https://chicagocostume.com/products/rodeo-queen-crown-silver?variant=47948105842930",
+      "evidenceUrl": "https://chicagocostume.com/products/rodeo-queen-crown-silver.js",
+      "priceCents": 9999,
+      "variant": "Default Title",
+      "available": true,
+      "sourceImage": "https://cdn.shopify.com/s/files/1/0610/0208/8690/files/UnbeatablesaleInc_snwd643xx650xx02e479.webp?v=1757717916",
+      "notes": "Tall silver rhinestone rodeo crown creates a crystalline ice crown silhouette; not real ice or crystal."
+    },
+    {
+      "productId": "p-d-511837eb8c",
+      "url": "https://chicagocostume.com/products/rhinestone-tiara-silver-4?variant=47949338837234",
+      "evidenceUrl": "https://chicagocostume.com/products/rhinestone-tiara-silver-4.js",
+      "priceCents": 2199,
+      "variant": "Default Title",
+      "available": true,
+      "sourceImage": "https://cdn.shopify.com/s/files/1/0610/0208/8690/files/2528_a6c897d7-ca74-4792-83fa-e713f6ba10fe.webp?v=1757776122",
+      "notes": "Smaller silver rhinestone tiara; lower silhouette than the tall reference crown."
+    },
+    {
+      "productId": "p-d-6af821c5b5",
+      "url": "https://chicagocostume.com/products/rhinestone-tiara-silver-1?variant=47949351223538",
+      "evidenceUrl": "https://chicagocostume.com/products/rhinestone-tiara-silver-1.js",
+      "priceCents": 3299,
+      "variant": "Default Title",
+      "available": true,
+      "sourceImage": "https://cdn.shopify.com/s/files/1/0610/0208/8690/files/4131-510x510.webp?v=1757776474",
+      "notes": "Silver rhinestone tiara; an ornate lower-profile alternative to the tall reference crown."
+    },
+    {
+      "productId": "p-d-037c131f58",
+      "url": "https://chicagocostume.com/products/dragon-warrior-double-shoulder-pauldrons-costume-accessory?variant=47861425766642",
+      "evidenceUrl": "https://chicagocostume.com/products/dragon-warrior-double-shoulder-pauldrons-costume-accessory.js",
+      "priceCents": 4999,
+      "variant": "Brown",
+      "available": true,
+      "sourceImage": "https://cdn.shopify.com/s/files/1/0610/0208/8690/files/815OWFi3vjL._AC_SX679.jpg?v=1755538907",
+      "notes": "Two faux-leather shoulder pauldrons with adjustable cross-body straps; one size fits most adults, ages 14+. Arm guards are not included."
+    },
+    {
+      "productId": "p-d-7dce22951f",
+      "url": "https://chicagocostume.com/products/single-leather-pauldron-shoulder-armor-costume-accessory?variant=47867385676018",
+      "evidenceUrl": "https://chicagocostume.com/products/single-leather-pauldron-shoulder-armor-costume-accessory.js",
+      "priceCents": 2499,
+      "variant": "Brown",
+      "available": true,
+      "sourceImage": "https://cdn.shopify.com/s/files/1/0610/0208/8690/files/71_ZzznpPDL._AC_SX679.jpg?v=1755812983",
+      "notes": "One brown faux-leather dragon-warrior shoulder pauldron, one size fits most adults, ages 14+. Single-sided alternative, not a pair; arm guard not included."
+    },
+    {
+      "productId": "p-d-fc26edc6bb",
+      "url": "https://chicagocostume.com/products/foam-roman-chest-plate-black?variant=49997201932530",
+      "evidenceUrl": "https://chicagocostume.com/products/foam-roman-chest-plate-black.js",
+      "priceCents": 2999,
+      "variant": "Default Title",
+      "available": true,
+      "sourceImage": "https://cdn.shopify.com/s/files/1/0610/0208/8690/files/adult-foam-roman-chest-plate-costume-accessory.jpg?v=1788022220",
+      "notes": "Lightweight black foam Roman chest plate with bird designs. Covers the torso rather than the shoulders; a different armor silhouette from the brown pauldrons."
+    }
+  ]
+}

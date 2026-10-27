@@ -1,0 +1,728 @@
+{
+  "costume": {
+    "slug": "masquerade-sun-king",
+    "name": "Masquerade Sun King",
+    "description": "A radiant gold sunburst crown rises over cream layers and a theatrical white ruff.",
+    "image": "/costumes/masquerade-sun-king.png",
+    "alt": "Gold sunburst halo crown, ivory tunic, white pleated ruff, black trousers and dark boots.",
+    "status": "live"
+  },
+  "pieces": [
+    {
+      "id": "masquerade-sun-king-gold-sunburst-crown",
+      "name": "Gold sunburst crown",
+      "category": "headwear",
+      "required": true,
+      "order": 0,
+      "styleNotes": "Default is an adult gold-painted zip-tie halo. Budget crown adds imitation pearls and rhinestones; premium handmade crown is shorter at 7 cm high with champagne crystals. These are different crown designs, not identical materials.",
+      "queries": [
+        "Gold sunburst crown"
+      ],
+      "sizeKind": "one_size",
+      "matches": [
+        {
+          "productId": "e-b5e9fc5ddd",
+          "rank": 0,
+          "reason": "Merchant public variant feed confirms Gold is available at this USD price. Painted zip-tie halo, adult/unisex size."
+        },
+        {
+          "productId": "e-cce8046f9e",
+          "rank": 1,
+          "reason": "Merchant public variant feed confirms Gold is available at this USD price. Handmade flexible crown, 7 cm high; gold base with champagne crystals. Other finishes are separate variants; production/arrival timing is unconfirmed."
+        },
+        {
+          "productId": "e-3b2851abbd",
+          "rank": 2,
+          "reason": "Primary product page lists Gold at $29 USD with In stock and Add to cart. Painted spikes, imitation pearls and rhinestones. Generic Unavailable text also exists in the unselected control; verify selected Gold before checkout. US ground shipping estimates 10–12 business days plus processing; no Halloween arrival claim."
+        }
+      ]
+    },
+    {
+      "id": "masquerade-sun-king-snow-owl-tunic",
+      "name": "Cream tunic",
+      "category": "tops",
+      "required": true,
+      "order": 1,
+      "styleNotes": "A plain ivory or natural tunic beneath the white ruff. No feather cape or waist tie is needed. Actual sleeves are narrower than the flowing reference.",
+      "queries": [
+        "natural cotton medieval tunic",
+        "ivory wool tunic"
+      ],
+      "sizeKind": "apparel",
+      "matches": [
+        {
+          "productId": "p-f35c48b860",
+          "rank": 0,
+          "reason": "Natural 100% thick breathable cotton tunic with front and back slits. Longer, approximately knee-length silhouette than the reference’s tunic. S through XXXL are available at $59.99. Other garments in the photo are not included."
+        },
+        {
+          "productId": "p-3799a61906",
+          "rank": 1,
+          "reason": "Natural 100% coarse cotton tunic with long sleeves, slit round neckline and side slits. Thigh-length plain base layer. Only S, XL and XXXL are currently available at $39.99; M, L and XXL are sold out. Belt, pants, wraps and shoes in the merchant photo are not included."
+        },
+        {
+          "productId": "p-54214148a4",
+          "rank": 2,
+          "reason": "Natural heavy wool-blend short tunic: 74% wool, 15% polyester, 7% polyamide and 4% other natural fibers. Warmer, stiffer and more textured than the illustrated light cream layer. Only S and XXXL are available at $69.99; M through XXL are sold out. Brooch, belt and other layers are not included."
+        }
+      ]
+    },
+    {
+      "id": "masquerade-sun-king-enchanted-jester-ruff-collar",
+      "name": "Cream or white ruff collar",
+      "category": "accessories",
+      "required": true,
+      "order": 2,
+      "styleNotes": "A full, separate ruff frames the face. The cream cotton collar is the closest color; other choices are white and change the texture. Only the budget ruff is cream. The middle option is made to order and carries explicit stock uncertainty.",
+      "queries": [
+        "cream cotton jester ruff collar",
+        "white Elizabethan costume ruff"
+      ],
+      "sizeKind": "one_size",
+      "matches": [
+        {
+          "productId": "p-385addbedb",
+          "rank": 0,
+          "reason": "Cream/off-white cotton ruff and cuffs, adjustable ties, cream overlocked edges. Collar depth 9 inches; cuffs 5 inches. Live listing states 3 left. Made in the USA and ships from Iowa. Gathered full ruffles rather than the reference crisp pleated lace-edged ruff."
+        },
+        {
+          "productId": "p-34c9646f2d",
+          "rank": 1,
+          "reason": "Collar only. White cotton top/bottom layers; pink and purple satin middle layer with teal ribbon. Ribbon ties; longest depth 10 inches. Live listing accepts orders and states 3 left, but explicitly made to order; allow 5–8 days to make before dispatch. White and colored trim differ from the cream reference."
+        },
+        {
+          "productId": "p-8950bc281a",
+          "rank": 2,
+          "reason": "Select white. One polyester tulle mesh ruff collar with back fastening; no cuffs. Live white variant available. Large airy puff rather than cream pleated cotton. Merchant states 5–10 business days processing and tracked worldwide shipping; delivery timing is not promised."
+        }
+      ]
+    },
+    {
+      "id": "masquerade-sun-king-midnight-pirate-black-trousers",
+      "name": "Black trousers",
+      "category": "bottoms",
+      "required": true,
+      "order": 3,
+      "styleNotes": "Plain black trousers beneath the ivory tunic. No sash is needed.",
+      "queries": [
+        "black pirate trousers drawstring"
+      ],
+      "sizeKind": "pants",
+      "matches": [
+        {
+          "productId": "p-7a7693db8b",
+          "rank": 0,
+          "reason": "Selected Black 100% cotton wide-leg sailor trousers with drawstring waist; tuck into boots. Trousers only. Positive live stock exists only for Black Small and Medium. Other black sizes are backordered and excluded."
+        },
+        {
+          "productId": "p-035b491978",
+          "rank": 1,
+          "reason": "Selected solid Black cotton trousers with drawstring waist, generous cut, slightly flared legs and deep pockets. Trousers only; sash, shirt, hat, vest and boots excluded. Both listed sizes have positive live inventory. Merchant specifies dry clean only."
+        },
+        {
+          "productId": "p-c1bf560c38",
+          "rank": 2,
+          "reason": "Selected Black cotton velveteen trousers with tie front, tie legs and functional pockets. Softer velvet finish differs from the reference. Made in USA. Trousers only. Black Medium and Large each have positive live stock; other black sizes are backordered and excluded."
+        }
+      ]
+    },
+    {
+      "id": "masquerade-sun-king-moon-boots",
+      "name": "Dark ankle boots",
+      "category": "Footwear",
+      "required": true,
+      "order": 4,
+      "styleNotes": "Black or dark brown leather ankle boots with a low block heel or flat sole, slightly worn in. Vintage or witchy styling like lace-up or Chelsea boots keeps the base look grounded.",
+      "queries": [
+        "vintage black leather ankle boots lace up women's",
+        "secondhand black Chelsea ankle boots leather vintage",
+        "handmade black leather lace-up ankle boots small brand"
+      ],
+      "sizeKind": "shoe",
+      "matches": [
+        {
+          "productId": "p-fa88c71724",
+          "rank": 0,
+          "reason": "Genuine black leather upper, glove leather lining, 1.25 inch stacked leather heel, elastic gores. All Standard US4-13 in half sizes available. Broad sizes; exact variant default is US4, shopper must choose correct size."
+        },
+        {
+          "productId": "p-da7d00ef0d",
+          "rank": 1,
+          "reason": "Budget material compromise: imitation synthetic leather rather than genuine leather. Ankle-high Chelsea, 1.25 inch heel, 0.75 inch platform. Merchant JSON-LD lists black USD49.99 InStock; live HTML exact-size inventory counts positive for all 12 listed US sizes. Size8 kid23928 count1806. Hidden generic SOLD OUT text is contradicted by variant inventory and InStock offer; verified source HTML retained /tmp/dreampairs-moon-boots.html."
+        },
+        {
+          "productId": "p-862b138943",
+          "rank": 2,
+          "reason": "Black premium water-resistant leather classic flat Chelsea boot. Live public feed USD209.95, not stale search result199.95. Available USwomen5-16; two equivalent AU/UK label sets in merchant variants, deduplicate before display. Exact first available variant is USwomen6."
+        }
+      ]
+    }
+  ],
+  "products": [
+    {
+      "id": "e-b5e9fc5ddd",
+      "title": "Gold Sunburst Halo Crown Headband - Gold — Gold",
+      "url": "https://masqueradestore.com/products/gold-sunburst-halo-crown-headwear?variant=46625513799983",
+      "priceCents": 4000,
+      "currency": "USD",
+      "image": "/products/price-tiers/e-b5e9fc5ddd.webp",
+      "merchantImage": "/products/price-tiers/e-b5e9fc5ddd.webp",
+      "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/0738/6159/5439/products/il_1588xn.2014407969_iv76.jpg?v=1692205193"
+      ],
+      "availability": "in_stock",
+      "sizes": [
+        "One size"
+      ],
+      "merchantId": "expansion-e-masqueradestore-com",
+      "tagSlugs": [],
+      "description": "Merchant public variant feed confirms Gold is available at this USD price. Painted zip-tie halo, adult/unisex size.",
+      "checkedAt": "2026-10-27T00:28:53.880632Z",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-27T00:28:53.880632Z",
+        "url": "https://masqueradestore.com/products/gold-sunburst-halo-crown-headwear?variant=46625513799983",
+        "notes": "Merchant public variant feed confirms Gold is available at this USD price. Painted zip-tie halo, adult/unisex size."
+      }
+    },
+    {
+      "id": "e-cce8046f9e",
+      "title": "Golden Halo Sunburst Crown — Gold",
+      "url": "https://hollyhardwick.com/products/golden-halo-sunburst-crown?variant=31727530180661",
+      "priceCents": 20000,
+      "currency": "USD",
+      "image": "/products/price-tiers/e-cce8046f9e.webp",
+      "merchantImage": "/products/price-tiers/e-cce8046f9e.webp",
+      "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/2186/5239/products/6.png?v=1587411174"
+      ],
+      "availability": "in_stock",
+      "sizes": [
+        "One size"
+      ],
+      "merchantId": "expansion-e-hollyhardwick-com",
+      "tagSlugs": [],
+      "description": "Merchant public variant feed confirms Gold is available at this USD price. Handmade flexible crown, 7 cm high; gold base with champagne crystals. Other finishes are separate variants; production/arrival timing is unconfirmed.",
+      "checkedAt": "2026-10-27T00:28:53.880632Z",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-27T00:28:53.880632Z",
+        "url": "https://hollyhardwick.com/products/golden-halo-sunburst-crown?variant=31727530180661",
+        "notes": "Merchant public variant feed confirms Gold is available at this USD price. Handmade flexible crown, 7 cm high; gold base with champagne crystals. Other finishes are separate variants; production/arrival timing is unconfirmed."
+      }
+    },
+    {
+      "id": "e-3b2851abbd",
+      "title": "Floral Pearl Sunburst Mary Halo Crown — Gold",
+      "url": "https://babeyond.com/products/floral-sunburst-mary-halo-crown",
+      "priceCents": 2900,
+      "currency": "USD",
+      "image": "/products/price-tiers/e-3b2851abbd.webp",
+      "merchantImage": "/products/price-tiers/e-3b2851abbd.webp",
+      "sourceImages": [
+        "https://babeyond.com/cdn/shop/products/Floral-Sunburst-Mary-Halo-Crown-Gold-3.jpg?v=1750323367"
+      ],
+      "availability": "in_stock",
+      "sizes": [],
+      "merchantId": "expansion-e-babeyond-com",
+      "tagSlugs": [],
+      "description": "Primary product page lists Gold at $29 USD with In stock and Add to cart. Painted spikes, imitation pearls and rhinestones. Generic Unavailable text also exists in the unselected control; verify selected Gold before checkout. US ground shipping estimates 10–12 business days plus processing; no Halloween arrival claim.",
+      "checkedAt": "2026-10-27T00:28:53.880632Z",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-27T00:28:53.880632Z",
+        "url": "https://babeyond.com/products/floral-sunburst-mary-halo-crown",
+        "notes": "Primary product page lists Gold at $29 USD with In stock and Add to cart. Painted spikes, imitation pearls and rhinestones. Generic Unavailable text also exists in the unselected control; verify selected Gold before checkout. US ground shipping estimates 10–12 business days plus processing; no Halloween arrival claim."
+      }
+    },
+    {
+      "id": "p-f35c48b860",
+      "title": "Under Tunic Gilbert Natural",
+      "url": "https://burgschneider.com/products/under-tunic-gilbert-natural?variant=47604598800731",
+      "priceCents": 5999,
+      "currency": "USD",
+      "image": "/products/price-tiers/p-f35c48b860.webp",
+      "merchantImage": "/products/price-tiers/p-f35c48b860.webp",
+      "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/0779/4189/9611/files/gilbert-natur.7qem9G.jpg?v=1774944494"
+      ],
+      "availability": "in_stock",
+      "sizes": [
+        "S",
+        "M",
+        "L",
+        "XL",
+        "XXL",
+        "XXXL"
+      ],
+      "merchantId": "burgschneider-com",
+      "tagSlugs": [],
+      "description": "Natural 100% thick breathable cotton tunic with front and back slits. Longer, approximately knee-length silhouette than the reference’s tunic. S through XXXL are available at $59.99. Other garments in the photo are not included.",
+      "checkedAt": "2026-10-25T08:53:39.887804Z",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-25T08:53:39.887804Z",
+        "url": "https://burgschneider.com/products/under-tunic-gilbert-natural.js",
+        "notes": "Natural 100% thick breathable cotton tunic with front and back slits. Longer, approximately knee-length silhouette than the reference’s tunic. S through XXXL are available at $59.99. Other garments in the photo are not included."
+      }
+    },
+    {
+      "id": "p-3799a61906",
+      "title": "Medieval Tunic / Under Tunic “Leif“ - Natural",
+      "url": "https://burgschneider.com/products/under-tunic-leif-natural?variant=47604595982683",
+      "priceCents": 3999,
+      "currency": "USD",
+      "image": "/products/price-tiers/p-3799a61906.webp",
+      "merchantImage": "/products/price-tiers/p-3799a61906.webp",
+      "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/0779/4189/9611/files/leif-natur.V4lhRf.jpg?v=1774566137"
+      ],
+      "availability": "in_stock",
+      "sizes": [
+        "S",
+        "XL",
+        "XXXL"
+      ],
+      "merchantId": "burgschneider-com",
+      "tagSlugs": [],
+      "description": "Natural 100% coarse cotton tunic with long sleeves, slit round neckline and side slits. Thigh-length plain base layer. Only S, XL and XXXL are currently available at $39.99; M, L and XXL are sold out. Belt, pants, wraps and shoes in the merchant photo are not included.",
+      "checkedAt": "2026-10-25T08:53:39.887804Z",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-25T08:53:39.887804Z",
+        "url": "https://burgschneider.com/products/under-tunic-leif-natural.js",
+        "notes": "Natural 100% coarse cotton tunic with long sleeves, slit round neckline and side slits. Thigh-length plain base layer. Only S, XL and XXXL are currently available at $39.99; M, L and XXL are sold out. Belt, pants, wraps and shoes in the merchant photo are not included."
+      }
+    },
+    {
+      "id": "p-54214148a4",
+      "title": "Wool Tunic Lodin Natural",
+      "url": "https://burgschneider.com/products/wool-tunic-lodin-natural?variant=50172131311963",
+      "priceCents": 6999,
+      "currency": "USD",
+      "image": "/products/price-tiers/p-54214148a4.webp",
+      "merchantImage": "/products/price-tiers/p-54214148a4.webp",
+      "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/0779/4189/9611/files/tunic-lodin-natural-front.jpg?v=1774545701"
+      ],
+      "availability": "in_stock",
+      "sizes": [
+        "S",
+        "XXXL"
+      ],
+      "merchantId": "burgschneider-com",
+      "tagSlugs": [],
+      "description": "Natural heavy wool-blend short tunic: 74% wool, 15% polyester, 7% polyamide and 4% other natural fibers. Warmer, stiffer and more textured than the illustrated light cream layer. Only S and XXXL are available at $69.99; M through XXL are sold out. Brooch, belt and other layers are not included.",
+      "checkedAt": "2026-10-25T08:53:39.887804Z",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-25T08:53:39.887804Z",
+        "url": "https://burgschneider.com/products/wool-tunic-lodin-natural.js",
+        "notes": "Natural heavy wool-blend short tunic: 74% wool, 15% polyester, 7% polyamide and 4% other natural fibers. Warmer, stiffer and more textured than the illustrated light cream layer. Only S and XXXL are available at $69.99; M through XXL are sold out. Brooch, belt and other layers are not included."
+      }
+    },
+    {
+      "id": "p-385addbedb",
+      "title": "Ivory/Cream Collar/Cuffs Ruff - Costume Clown accessory",
+      "url": "https://www.etsy.com/listing/1671013171/collarcuffs-ivorycream-ruffle-costume",
+      "priceCents": 4800,
+      "currency": "USD",
+      "image": "/products/price-tiers/p-385addbedb.webp",
+      "merchantImage": "/products/price-tiers/p-385addbedb.webp",
+      "sourceImages": [
+        "https://i.etsystatic.com/12209900/r/il/3fb890/5729023430/il_794xN.5729023430_10d3.jpg"
+      ],
+      "availability": "in_stock",
+      "sizes": [
+        "One size fits all"
+      ],
+      "merchantId": "etsy-cindysbrokenneedle-on-etsy",
+      "tagSlugs": [],
+      "description": "Cream/off-white cotton ruff and cuffs, adjustable ties, cream overlocked edges. Collar depth 9 inches; cuffs 5 inches. Live listing states 3 left. Made in the USA and ships from Iowa. Gathered full ruffles rather than the reference crisp pleated lace-edged ruff.",
+      "checkedAt": "2026-10-25T08:59:41.481945Z",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-25T08:59:41.481945Z",
+        "url": "https://www.etsy.com/listing/1671013171/collarcuffs-ivorycream-ruffle-costume",
+        "notes": "Cream/off-white cotton ruff and cuffs, adjustable ties, cream overlocked edges. Collar depth 9 inches; cuffs 5 inches. Live listing states 3 left. Made in the USA and ships from Iowa. Gathered full ruffles rather than the reference crisp pleated lace-edged ruff."
+      }
+    },
+    {
+      "id": "p-34c9646f2d",
+      "title": "White Clown Neck Collar IT cosplay Costume Three layer neck ruff Ribbon tie on ruffle bib shrug stripes jester halloween costume",
+      "url": "https://www.etsy.com/listing/596449734/white-clown-neck-collar-it-cosplay",
+      "priceCents": 5500,
+      "currency": "USD",
+      "image": "/products/price-tiers/p-34c9646f2d.webp",
+      "merchantImage": "/products/price-tiers/p-34c9646f2d.webp",
+      "sourceImages": [
+        "https://i.etsystatic.com/5799614/r/il/8deeaf/1488216776/il_794xN.1488216776_stni.jpg"
+      ],
+      "availability": "unknown",
+      "sizes": [
+        "One size fits most"
+      ],
+      "merchantId": "etsy-sistersenchanted-on-etsy",
+      "tagSlugs": [],
+      "description": "Collar only. White cotton top/bottom layers; pink and purple satin middle layer with teal ribbon. Ribbon ties; longest depth 10 inches. Live listing accepts orders and states 3 left, but explicitly made to order; allow 5–8 days to make before dispatch. White and colored trim differ from the cream reference.",
+      "checkedAt": "2026-10-25T08:59:41.481945Z",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-25T08:59:41.481945Z",
+        "url": "https://www.etsy.com/listing/596449734/white-clown-neck-collar-it-cosplay",
+        "notes": "Collar only. White cotton top/bottom layers; pink and purple satin middle layer with teal ribbon. Ribbon ties; longest depth 10 inches. Live listing accepts orders and states 3 left, but explicitly made to order; allow 5–8 days to make before dispatch. White and colored trim differ from the cream reference."
+      }
+    },
+    {
+      "id": "p-8950bc281a",
+      "title": "Ruff Neck Collar | Tulle Mesh | Victorian & Clown",
+      "url": "https://www.stagewearshop.com/products/ruff-neck-collar-tulle-mesh-victorian-clown?variant=51171457237239",
+      "priceCents": 5999,
+      "currency": "USD",
+      "image": "/products/price-tiers/p-8950bc281a.webp",
+      "merchantImage": "/products/price-tiers/p-8950bc281a.webp",
+      "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/0925/2959/0519/files/S905adade82384b14aa89d1e9a060e55eD.webp?v=1789616369"
+      ],
+      "availability": "in_stock",
+      "sizes": [
+        "Fits adults"
+      ],
+      "merchantId": "stagewearshop-com",
+      "tagSlugs": [],
+      "description": "Select white. One polyester tulle mesh ruff collar with back fastening; no cuffs. Live white variant available. Large airy puff rather than cream pleated cotton. Merchant states 5–10 business days processing and tracked worldwide shipping; delivery timing is not promised.",
+      "checkedAt": "2026-10-25T08:59:41.481945Z",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-25T08:59:41.481945Z",
+        "url": "https://www.stagewearshop.com/products/ruff-neck-collar-tulle-mesh-victorian-clown.js",
+        "notes": "Select white. One polyester tulle mesh ruff collar with back fastening; no cuffs. Live white variant available. Large airy puff rather than cream pleated cotton. Merchant states 5–10 business days processing and tracked worldwide shipping; delivery timing is not promised."
+      }
+    },
+    {
+      "id": "p-7a7693db8b",
+      "title": "Sailor Pants",
+      "url": "https://www.medievalcollectibles.com/product/sailor-pants-2/?attribute_pa_color=black&attribute_pa_size=small",
+      "priceCents": 6000,
+      "currency": "USD",
+      "image": "/products/price-tiers/p-7a7693db8b.webp",
+      "merchantImage": "/products/price-tiers/p-7a7693db8b.webp",
+      "sourceImages": [
+        "https://www.medievalcollectibles.com/wp-content/uploads/2019/03/SS-SPANTS-BLK.jpg"
+      ],
+      "availability": "in_stock",
+      "sizes": [
+        "Small",
+        "Medium"
+      ],
+      "merchantId": "medievalcollectibles-com",
+      "tagSlugs": [],
+      "description": "Selected Black 100% cotton wide-leg sailor trousers with drawstring waist; tuck into boots. Trousers only. Positive live stock exists only for Black Small and Medium. Other black sizes are backordered and excluded.",
+      "checkedAt": "2026-10-25T08:47:48Z",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-25T08:47:48Z",
+        "url": "https://www.medievalcollectibles.com/product/sailor-pants-2/?attribute_pa_color=black&attribute_pa_size=small",
+        "notes": "Selected Black 100% cotton wide-leg sailor trousers with drawstring waist; tuck into boots. Trousers only. Positive live stock exists only for Black Small and Medium. Other black sizes are backordered and excluded."
+      }
+    },
+    {
+      "id": "p-035b491978",
+      "title": "First Mate Pants",
+      "url": "https://www.medievalcollectibles.com/product/first-mate-pants/?attribute_pa_color=black&attribute_pa_size=large-x-large",
+      "priceCents": 3900,
+      "currency": "USD",
+      "image": "/products/price-tiers/p-035b491978.webp",
+      "merchantImage": "/products/price-tiers/p-035b491978.webp",
+      "sourceImages": [
+        "https://www.medievalcollectibles.com/wp-content/uploads/2020/04/100518_2.jpg"
+      ],
+      "availability": "in_stock",
+      "sizes": [
+        "Small/Medium",
+        "Large/X-Large"
+      ],
+      "merchantId": "medievalcollectibles-com",
+      "tagSlugs": [],
+      "description": "Selected solid Black cotton trousers with drawstring waist, generous cut, slightly flared legs and deep pockets. Trousers only; sash, shirt, hat, vest and boots excluded. Both listed sizes have positive live inventory. Merchant specifies dry clean only.",
+      "checkedAt": "2026-10-25T08:47:48Z",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-25T08:47:48Z",
+        "url": "https://www.medievalcollectibles.com/product/first-mate-pants/?attribute_pa_color=black&attribute_pa_size=large-x-large",
+        "notes": "Selected solid Black cotton trousers with drawstring waist, generous cut, slightly flared legs and deep pockets. Trousers only; sash, shirt, hat, vest and boots excluded. Both listed sizes have positive live inventory. Merchant specifies dry clean only."
+      }
+    },
+    {
+      "id": "p-c1bf560c38",
+      "title": "Pirate Captain’s Pants",
+      "url": "https://www.medievalcollectibles.com/product/pirate-captains-pants/?attribute_pa_color=black&attribute_pa_size=medium",
+      "priceCents": 9500,
+      "currency": "USD",
+      "image": "/products/price-tiers/p-c1bf560c38.webp",
+      "merchantImage": "/products/price-tiers/p-c1bf560c38.webp",
+      "sourceImages": [
+        "https://www.medievalcollectibles.com/wp-content/uploads/2019/03/SS-CPANTS-Blk.jpg"
+      ],
+      "availability": "in_stock",
+      "sizes": [
+        "Medium",
+        "Large"
+      ],
+      "merchantId": "medievalcollectibles-com",
+      "tagSlugs": [],
+      "description": "Selected Black cotton velveteen trousers with tie front, tie legs and functional pockets. Softer velvet finish differs from the reference. Made in USA. Trousers only. Black Medium and Large each have positive live stock; other black sizes are backordered and excluded.",
+      "checkedAt": "2026-10-25T08:47:48Z",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-25T08:47:48Z",
+        "url": "https://www.medievalcollectibles.com/product/pirate-captains-pants/?attribute_pa_color=black&attribute_pa_size=medium",
+        "notes": "Selected Black cotton velveteen trousers with tie front, tie legs and functional pockets. Softer velvet finish differs from the reference. Made in USA. Trousers only. Black Medium and Large each have positive live stock; other black sizes are backordered and excluded."
+      }
+    },
+    {
+      "id": "p-fa88c71724",
+      "title": "Duchess | Black",
+      "url": "https://thursdayboots.com/products/womens-duchess-black-chelsea-boot?variant=41611980701786",
+      "priceCents": 16000,
+      "currency": "USD",
+      "image": "/products/price-tiers/p-fa88c71724.webp",
+      "merchantImage": "/products/price-tiers/p-fa88c71724.webp",
+      "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/0419/1525/products/1024x1024-Women-Duchess-Black-Side.jpg?v=1591637693"
+      ],
+      "availability": "in_stock",
+      "sizes": [
+        "4",
+        "4.5",
+        "5",
+        "5.5",
+        "6",
+        "6.5",
+        "7",
+        "7.5",
+        "8",
+        "8.5",
+        "9",
+        "9.5",
+        "10",
+        "10.5",
+        "11",
+        "11.5",
+        "12",
+        "12.5",
+        "13"
+      ],
+      "merchantId": "thursdayboots-com",
+      "tagSlugs": [],
+      "description": "Genuine black leather upper, glove leather lining, 1.25 inch stacked leather heel, elastic gores. All Standard US4-13 in half sizes available. Broad sizes; exact variant default is US4, shopper must choose correct size.",
+      "checkedAt": "2026-10-25T07:07:04.071733+00:00",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-25T07:07:04.071733+00:00",
+        "url": "https://thursdayboots.com/products/womens-duchess-black-chelsea-boot.js",
+        "notes": "Genuine black leather upper, glove leather lining, 1.25 inch stacked leather heel, elastic gores. All Standard US4-13 in half sizes available. Broad sizes; exact variant default is US4, shopper must choose correct size."
+      }
+    },
+    {
+      "id": "p-da7d00ef0d",
+      "title": "Classic Chelsea Ankle Booties — Black PU",
+      "url": "https://www.dreampairs.com/products/dab213?kid=23928",
+      "priceCents": 4999,
+      "currency": "USD",
+      "image": "/products/price-tiers/p-da7d00ef0d.webp",
+      "merchantImage": "/products/price-tiers/p-da7d00ef0d.webp",
+      "sourceImages": [
+        "https://cdnimg.dreampairs.com/dreampairshoes/product/product/DAB213/BLACK%20PU/1.jpg"
+      ],
+      "availability": "in_stock",
+      "sizes": [
+        "5",
+        "5.5",
+        "6",
+        "6.5",
+        "7",
+        "7.5",
+        "8",
+        "8.5",
+        "9",
+        "9.5",
+        "10",
+        "11"
+      ],
+      "merchantId": "dreampairs-com",
+      "tagSlugs": [],
+      "description": "Budget material compromise: imitation synthetic leather rather than genuine leather. Ankle-high Chelsea, 1.25 inch heel, 0.75 inch platform. Merchant JSON-LD lists black USD49.99 InStock; live HTML exact-size inventory counts positive for all 12 listed US sizes. Size8 kid23928 count1806. Hidden generic SOLD OUT text is contradicted by variant inventory and InStock offer; verified source HTML retained /tmp/dreampairs-moon-boots.html.",
+      "checkedAt": "2026-10-25T07:07:04.071733+00:00",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-25T07:07:04.071733+00:00",
+        "url": "https://www.dreampairs.com/products/dab213?color=2038",
+        "notes": "Budget material compromise: imitation synthetic leather rather than genuine leather. Ankle-high Chelsea, 1.25 inch heel, 0.75 inch platform. Merchant JSON-LD lists black USD49.99 InStock; live HTML exact-size inventory counts positive for all 12 listed US sizes. Size8 kid23928 count1806. Hidden generic SOLD OUT text is contradicted by variant inventory and InStock offer; verified source HTML retained /tmp/dreampairs-moon-boots.html."
+      }
+    },
+    {
+      "id": "p-862b138943",
+      "title": "Women's Originals #510",
+      "url": "https://www.blundstone.com/products/black-premium-leather-v-cut-boots-womens-style-510?variant=53192323596595",
+      "priceCents": 20995,
+      "currency": "USD",
+      "image": "/products/price-tiers/p-862b138943.webp",
+      "merchantImage": "/products/price-tiers/p-862b138943.webp",
+      "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/0903/6349/4707/files/product-image_2026-10-12_510_p_usa_hero.jpg?v=1791961602"
+      ],
+      "availability": "in_stock",
+      "sizes": [
+        "6 US Women (3 AU/UK)",
+        "6.5 US Women (3.5 AU/UK)",
+        "7 US Women (4 AU/UK)",
+        "7.5 US Women (4.5 AU/UK)",
+        "8 US Women (5 AU/UK)",
+        "8.5 US Women (5.5 AU/UK)",
+        "9 US Women (6 AU/UK)",
+        "9.5 US Women (6.5 AU/UK)",
+        "10 US Women (7 AU/UK)",
+        "10.5 US Women (7.5 AU/UK)",
+        "11 US Women (8 AU/UK)",
+        "11.5 US Women (8.5 AU/UK)",
+        "12 US Women (9 AU/UK)",
+        "12.5 US Women (9.5 AU/UK)",
+        "13 US Women (10 AU/UK)",
+        "13.5 US Women (10.5 AU/UK)",
+        "14 US Women (11 AU/UK)",
+        "15 US Women (12 AU/UK)",
+        "16 US Women (13 AU/UK)",
+        "5 US Women (2 UK/AU)",
+        "6 US Women (3 UK/AU)",
+        "6.5 US Women (3.5 UK/AU)",
+        "7 US Women (4 UK/AU)",
+        "7.5 US Women (4.5 UK/AU)",
+        "8 US Women (5 UK/AU)",
+        "8.5 US Women (5.5 UK/AU)",
+        "9 US Women (6 UK/AU)",
+        "9.5 US Women (6.5 UK/AU)",
+        "10 US Women (7 UK/AU)",
+        "10.5 US Women (7.5 UK/AU)",
+        "11 US Women (8 UK/AU)",
+        "11.5 US Women (8.5 UK/AU)",
+        "12 US Women (9 UK/AU)",
+        "12.5 US Women (9.5 UK/AU)",
+        "13 US Women (10 UK/AU)",
+        "13.5 US Women (10.5 UK/AU)",
+        "14 US Women (11 UK/AU)",
+        "15 US Women (12 UK/AU)",
+        "16 US Women (13 UK/AU)"
+      ],
+      "merchantId": "blundstone-com",
+      "tagSlugs": [],
+      "description": "Black premium water-resistant leather classic flat Chelsea boot. Live public feed USD209.95, not stale search result199.95. Available USwomen5-16; two equivalent AU/UK label sets in merchant variants, deduplicate before display. Exact first available variant is USwomen6.",
+      "checkedAt": "2026-10-25T07:07:04.071733+00:00",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-25T07:07:04.071733+00:00",
+        "url": "https://www.blundstone.com/products/black-premium-leather-v-cut-boots-womens-style-510.js",
+        "notes": "Black premium water-resistant leather classic flat Chelsea boot. Live public feed USD209.95, not stale search result199.95. Available USwomen5-16; two equivalent AU/UK label sets in merchant variants, deduplicate before display. Exact first available variant is USwomen6."
+      }
+    }
+  ],
+  "merchants": [
+    {
+      "id": "burgschneider-com",
+      "name": "Burgschneider",
+      "domain": "burgschneider.com",
+      "url": "https://burgschneider.com/",
+      "kind": "boutique",
+      "neighborhoodId": null
+    },
+    {
+      "id": "expansion-e-babeyond-com",
+      "name": "BABEYOND",
+      "domain": "babeyond.com",
+      "url": "https://babeyond.com",
+      "kind": "boutique",
+      "neighborhoodId": null
+    },
+    {
+      "id": "etsy-cindysbrokenneedle-on-etsy",
+      "name": "CindysBrokenNeedle on Etsy",
+      "domain": "etsy.com",
+      "url": "https://www.etsy.com/listing/1671013171/collarcuffs-ivorycream-ruffle-costume",
+      "kind": "etsy",
+      "neighborhoodId": null
+    },
+    {
+      "id": "stagewearshop-com",
+      "name": "Stage Wear Shop",
+      "domain": "stagewearshop.com",
+      "url": "https://stagewearshop.com/",
+      "kind": "boutique",
+      "neighborhoodId": null
+    },
+    {
+      "id": "medievalcollectibles-com",
+      "name": "Medieval Collectibles",
+      "domain": "medievalcollectibles.com",
+      "url": "https://medievalcollectibles.com/",
+      "kind": "boutique",
+      "neighborhoodId": null
+    },
+    {
+      "id": "expansion-e-masqueradestore-com",
+      "name": "Masquerade Store",
+      "domain": "masqueradestore.com",
+      "url": "https://masqueradestore.com",
+      "kind": "boutique",
+      "neighborhoodId": null
+    },
+    {
+      "id": "dreampairs-com",
+      "name": "DREAM PAIRS",
+      "domain": "dreampairs.com",
+      "url": "https://dreampairs.com/",
+      "kind": "boutique",
+      "neighborhoodId": null
+    },
+    {
+      "id": "expansion-e-hollyhardwick-com",
+      "name": "Holly Hardwick Crowns",
+      "domain": "hollyhardwick.com",
+      "url": "https://hollyhardwick.com",
+      "kind": "boutique",
+      "neighborhoodId": null
+    },
+    {
+      "id": "blundstone-com",
+      "name": "Blundstone",
+      "domain": "blundstone.com",
+      "url": "https://blundstone.com/",
+      "kind": "boutique",
+      "neighborhoodId": null
+    },
+    {
+      "id": "etsy-sistersenchanted-on-etsy",
+      "name": "SistersEnchanted on Etsy",
+      "domain": "etsy.com",
+      "url": "https://www.etsy.com/listing/1757466796/custom-colors-clowncore-neck-collar-neck",
+      "kind": "etsy",
+      "neighborhoodId": null
+    },
+    {
+      "id": "thursdayboots-com",
+      "name": "Thursday Boot Company",
+      "domain": "thursdayboots.com",
+      "url": "https://thursdayboots.com/",
+      "kind": "boutique",
+      "neighborhoodId": null
+    }
+  ],
+  "neighborhoods": [],
+  "tags": [],
+  "provenance": {
+    "method": "manual-research",
+    "generatedAt": "2026-10-27T00:28:53.880632Z",
+    "notes": "2026 catalog expansion. Defining accessories sourced through built-in web search and primary merchant pages/public feeds. Suitable basics reuse reviewed catalog records without changing their checkedAt dates. Generated references show styling, not the exact products. DIY items are raw supplies; assembly extras and owned wardrobe basics are explicit in piece notes.",
+    "priceTiers": true,
+    "heroImageKind": "generated-reference"
+  }
+}

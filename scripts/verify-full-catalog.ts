@@ -133,36 +133,32 @@ async function verifyPage(editorial: Editorial, snapshot?: CostumeSnapshot) {
   const html = rendered(await response.text());
   assert(!elements(html, "p").some((element) => hasClass(element, "preview-status")), "Page fell back to a Style guide");
   assert(!/No available pick\.|Nothing to buy\./.test(text(html)), "Page contains a shopping dead end");
-  assert(elements(html, "button").some((button) => text(button.inner).startsWith("Add whole costume")), "Missing whole-costume shopping control");
+  assert(elements(html, "button").some((button) => text(button.inner) === "Add costume to cart"), "Missing whole-costume shopping control");
   const modelImage = `/costumes/models/${editorial.slug}-female.webp`;
   assert(html.includes(modelImage) || html.includes(encodeURIComponent(modelImage)), "Default model complete-look reference is missing");
   if (!snapshot) return;
   const view = await query.getCostume([snapshot], editorial.slug);
   assert(view, "No local view is available for page comparison");
-  const rows = elements(html, "li").filter((element) => hasClass(element, "piece"));
+  const rows = elements(html, "li").filter((element) => hasClass(element, "outfit-piece"));
+  const labels = (html: string) => [...html.matchAll(/<span\b([^>]*)>([^<]*)<\/span>/gi)]
+    .map((match) => ({ attributes: attributes(match[1]), inner: match[2] }));
   assert.equal(rows.length, view.pieces.length, "Rendered component count differs from the saved catalog");
   for (const { piece, options } of view.pieces) {
-    const row = rows.find((candidate) => elements(candidate.inner, "h2").some((heading) => text(heading.inner) === piece.name));
+    const row = rows.find((candidate) => labels(candidate.inner).some((label) => hasClass(label, "outfit-piece-name") && text(label.inner) === piece.name));
     assert(row, `${piece.id}: no shopping row`);
     const chosen = options[0];
-    const link = elements(row.inner, "a").find((candidate) => candidate.attributes.href === chosen.product.url);
+    const link = elements(row.inner, "a").find((candidate) => hasClass(candidate, "outfit-piece-trigger") && candidate.attributes.href === chosen.product.url);
     assert(link, `${piece.id}: missing exact default merchant purchase URL`);
-    assert.equal(link.attributes["aria-label"], `${chosen.product.title} at ${chosen.merchant.name}`, `${piece.id}: default merchant/product is incorrect`);
+    assert.equal(link.attributes["aria-label"], `View ${piece.name} at ${chosen.merchant.name} (opens in a new window)`, `${piece.id}: default merchant/product is incorrect`);
     assert.equal(link.attributes.target, "_blank", `${piece.id}: merchant link must open a separate tab`);
     assert([...link.inner.matchAll(/<img\b([^>]*)>/gi)].some((match) => attributes(match[1]).src === chosen.product.merchantImage), `${piece.id}: default merchant photo is not displayed`);
-    assert(elements(row.inner, "p").some((element) => hasClass(element, "piece-title") && text(element.inner) === chosen.product.title), `${piece.id}: default product title is missing`);
-    assert(elements(row.inner, "p").some((element) => hasClass(element, "piece-merchant") && text(element.inner).includes(chosen.merchant.name)), `${piece.id}: default merchant name is missing`);
-    const group = elements(row.inner, "div").find((element) => element.attributes["aria-label"] === `Price points for ${piece.name}`);
-    assert(group, `${piece.id}: no price-point controls`);
-    const buttons = elements(group.inner, "button");
-    const ordered = [...options].sort((a, b) => a.product.priceCents - b.product.priceCents);
-    assert.deepEqual(buttons.map((button) => text(button.inner)), ordered.map((option) => `${option.pick.priceTier} ${price(option.product.priceCents)}`), `${piece.id}: rendered price points differ from the catalog`);
-    assert.equal(buttons.filter((button) => button.attributes["aria-pressed"] === "true").length, 1, `${piece.id}: a single default price point must be selected`);
-    assert(elements(row.inner, "button").some((button) => text(button.inner) === "Add to cart"), `${piece.id}: no cart control`);
-    assert(elements(row.inner, "button").some((button) => button.attributes["aria-label"] === `Change ${piece.name}`), `${piece.id}: no alternative control`);
-    assert(elements(row.inner, "summary").some((summary) => text(summary.inner) === "Why this pick"), `${piece.id}: no pick explanation`);
+    assert(labels(row.inner).some((element) => hasClass(element, "outfit-piece-product") && text(element.inner) === chosen.product.title), `${piece.id}: default product title is missing`);
+    assert(labels(row.inner).some((element) => hasClass(element, "outfit-piece-merchant") && text(element.inner) === chosen.merchant.name), `${piece.id}: default merchant name is missing`);
+    assert(elements(row.inner, "a").some((element) => element.attributes.href === chosen.product.url && text(element.inner) === price(chosen.product.priceCents)), `${piece.id}: default merchant price is missing`);
+    // Alternatives, per-piece cart actions and pick explanations render after opening this dialog.
+    assert(elements(row.inner, "button").some((button) => button.attributes["aria-label"] === `Change ${piece.name}` && button.attributes["aria-haspopup"] === "dialog"), `${piece.id}: no alternative dialog control`);
   }
-  pass(`${editorial.slug}: ${view.pieces.length} shopping rows, three price points each, real default merchant links and photographs`);
+  pass(`${editorial.slug}: ${view.pieces.length} shopping rows, default prices, real merchant links and photographs, alternative dialog controls`);
 }
 
 const optionIdentity = (options: ProductOption[]) => options.map(({ product, merchant, pick }) => ({ product, merchant, pick }));

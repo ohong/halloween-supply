@@ -1,0 +1,724 @@
+{
+  "costume": {
+    "slug": "jellyfish-bloom",
+    "name": "Jellyfish Bloom",
+    "description": "A clear umbrella blooms with sheer fabric tentacles above soft ivory layers. A floating jellyfish you can carry.",
+    "image": "/costumes/jellyfish-bloom.png",
+    "alt": "Clear bubble umbrella with pale pink and pearl fabric tentacles over an ivory tunic and trousers",
+    "status": "live"
+  },
+  "pieces": [
+    {
+      "id": "jellyfish-bloom-1",
+      "name": "Clear umbrella canopy",
+      "category": "DIY supplies",
+      "required": true,
+      "order": 1,
+      "styleNotes": "One adult bubble umbrella; hold it by its handle. Decorations are separate DIY supplies.",
+      "queries": [
+        "Clear umbrella canopy"
+      ],
+      "sizeKind": "one_size",
+      "matches": [
+        {
+          "productId": "p-b9b3c5ba1f",
+          "rank": 0,
+          "reason": "One adult bubble umbrella; hold it by its handle. Decorations are separate DIY supplies. Primary merchant public variant feed reports available true and exact USD price. Clear 52-inch bubble canopy. Unmodified umbrella; craft decorations are separate."
+        },
+        {
+          "productId": "p-622ebb97c6",
+          "rank": 1,
+          "reason": "One adult bubble umbrella; hold it by its handle. Decorations are separate DIY supplies. Primary merchant public variant feed reports available true and exact USD price. Clear canopy with black trim."
+        },
+        {
+          "productId": "p-41918e3639",
+          "rank": 2,
+          "reason": "One adult bubble umbrella; hold it by its handle. Decorations are separate DIY supplies. Primary merchant public variant feed reports available true and exact USD price. Transparent canopy and clear crook handle."
+        }
+      ]
+    },
+    {
+      "id": "jellyfish-bloom-2",
+      "name": "Sheer fabric for DIY tentacles",
+      "category": "DIY supplies",
+      "required": true,
+      "order": 2,
+      "styleNotes": "One yard provides many strips up to 36 inches long. Tie strips to ribs with your own thread; trim above knees. These are unlit fabric tentacles.",
+      "queries": [
+        "Sheer fabric for DIY tentacles"
+      ],
+      "sizeKind": "one_size",
+      "matches": [
+        {
+          "productId": "p-05ea3d6031",
+          "rank": 0,
+          "reason": "One yard provides many strips up to 36 inches long. Tie strips to ribs with your own thread; trim above knees. These are unlit fabric tentacles. Primary merchant public variant feed reports available true and exact USD price. One 36 × 59/60 inch yard; cut strips across width for many short tentacles. Plain sheer pink; not iridescent."
+        },
+        {
+          "productId": "p-1028d82446",
+          "rank": 1,
+          "reason": "One yard provides many strips up to 36 inches long. Tie strips to ribs with your own thread; trim above knees. These are unlit fabric tentacles. Primary merchant public variant feed reports available true and exact USD price. One yard of pearl iridescent fabric. Cut strips to make tentacles; not a completed prop."
+        },
+        {
+          "productId": "p-38d014a1bd",
+          "rank": 2,
+          "reason": "One yard provides many strips up to 36 inches long. Tie strips to ribs with your own thread; trim above knees. These are unlit fabric tentacles. Primary merchant public variant feed reports available true and exact USD price. One 36 × 58 inch yard. Silver fabric differs from pink/pearl alternatives; reflective, not illuminated."
+        }
+      ]
+    },
+    {
+      "id": "jellyfish-bloom-3",
+      "name": "Ivory tunic",
+      "category": "tops",
+      "required": true,
+      "order": 3,
+      "styleNotes": "A simple pale base beneath the floating canopy.",
+      "queries": [
+        "Ivory tunic"
+      ],
+      "sizeKind": "apparel",
+      "matches": [
+        {
+          "productId": "p-f35c48b860",
+          "rank": 0,
+          "reason": "A simple pale base beneath the floating canopy. Natural 100% thick breathable cotton tunic with front and back slits. Longer, approximately knee-length silhouette than the reference’s tunic. S through XXXL are available at $59.99. Other garments in the photo are not included."
+        },
+        {
+          "productId": "p-3799a61906",
+          "rank": 1,
+          "reason": "A simple pale base beneath the floating canopy. Natural 100% coarse cotton tunic with long sleeves, slit round neckline and side slits. Thigh-length plain base layer. Only S, XL and XXXL are currently available at $39.99; M, L and XXL are sold out. Belt, pants, wraps and shoes in the merchant photo are not included."
+        },
+        {
+          "productId": "p-54214148a4",
+          "rank": 2,
+          "reason": "A simple pale base beneath the floating canopy. Natural heavy wool-blend short tunic: 74% wool, 15% polyester, 7% polyamide and 4% other natural fibers. Warmer, stiffer and more textured than the illustrated light cream layer. Only S and XXXL are available at $69.99; M through XXL are sold out. Brooch, belt and other layers are not included."
+        }
+      ]
+    },
+    {
+      "id": "jellyfish-bloom-4",
+      "name": "Ivory trousers",
+      "category": "bottoms",
+      "required": true,
+      "order": 4,
+      "styleNotes": "Loose pale trousers; use a pair you own if preferred.",
+      "queries": [
+        "Ivory trousers"
+      ],
+      "sizeKind": "pants",
+      "matches": [
+        {
+          "productId": "p-38e9601da6",
+          "rank": 0,
+          "reason": "Loose pale trousers; use a pair you own if preferred. Undyed natural organic cotton jersey lounge pants, straight leg and elastic waist. All four listed sizes are available at $76. Softer knit texture than the illustration’s woven-looking trousers; no ankle gathers. One pair of pants only."
+        },
+        {
+          "productId": "p-6c68216fba",
+          "rank": 1,
+          "reason": "Loose pale trousers; use a pair you own if preferred. White 100% European flax linen, relaxed fit and elastic waist in women’s sizing. Current product JSON-LD confirms only XS, L and XL in stock at $42; S and M are sold out. White is brighter than ivory. Straight legs lack the reference’s gathered cuffs; the blue shirt shown is not included."
+        },
+        {
+          "productId": "p-fae8356f54",
+          "rank": 2,
+          "reason": "Loose pale trousers; use a pair you own if preferred. White 100% linen pants with drawstring waist, women’s sizing. Selected White XS through XL are available at $138. Wider straight leg than the reference’s tapered, gathered trousers; tuck the hem loosely into boots for a similar outline. Top and footwear not included."
+        }
+      ]
+    },
+    {
+      "id": "jellyfish-bloom-5",
+      "name": "Dark ankle boots",
+      "category": "Footwear",
+      "required": true,
+      "order": 5,
+      "styleNotes": "Practical footwear for walking while carrying the canopy.",
+      "queries": [
+        "Dark ankle boots"
+      ],
+      "sizeKind": "shoe",
+      "matches": [
+        {
+          "productId": "p-fa88c71724",
+          "rank": 0,
+          "reason": "Practical footwear for walking while carrying the canopy. Genuine black leather upper, glove leather lining, 1.25 inch stacked leather heel, elastic gores. All Standard US4-13 in half sizes available. Broad sizes; exact variant default is US4, shopper must choose correct size."
+        },
+        {
+          "productId": "p-da7d00ef0d",
+          "rank": 1,
+          "reason": "Practical footwear for walking while carrying the canopy. Budget material compromise: imitation synthetic leather rather than genuine leather. Ankle-high Chelsea, 1.25 inch heel, 0.75 inch platform. Merchant JSON-LD lists black USD49.99 InStock; live HTML exact-size inventory counts positive for all 12 listed US sizes. Size8 kid23928 count1806. Hidden generic SOLD OUT text is contradicted by variant inventory and InStock offer; verified source HTML retained /tmp/dreampairs-moon-boots.html."
+        },
+        {
+          "productId": "p-862b138943",
+          "rank": 2,
+          "reason": "Practical footwear for walking while carrying the canopy. Black premium water-resistant leather classic flat Chelsea boot. Live public feed USD209.95, not stale search result199.95. Available USwomen5-16; two equivalent AU/UK label sets in merchant variants, deduplicate before display. Exact first available variant is USwomen6."
+        }
+      ]
+    }
+  ],
+  "products": [
+    {
+      "id": "p-b9b3c5ba1f",
+      "title": "Auto Open Traditional Bubble — White trim",
+      "url": "https://shedrain.com/products/auto-open-traditional-bubble?variant=47570410569949",
+      "priceCents": 2500,
+      "currency": "USD",
+      "image": "/products/price-tiers/p-b9b3c5ba1f.webp",
+      "merchantImage": "/products/price-tiers/p-b9b3c5ba1f.webp",
+      "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/1643/6397/files/4015_White_Underside.jpg?v=1773339709"
+      ],
+      "availability": "in_stock",
+      "sizes": [
+        "One size"
+      ],
+      "merchantId": "shedrain-com",
+      "tagSlugs": [],
+      "description": "Your wedding day deserves every detail done right. This clear auto open bubble stick brings a timeless silhouette back to the spotlight, reimagined as the ultimate bridal umbrella for modern celebrations. The generous 52-inch arc offers plenty of cov",
+      "checkedAt": "2026-10-27T00:28:28.398Z",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-27T00:28:28.398Z",
+        "url": "https://shedrain.com/products/auto-open-traditional-bubble?variant=47570410569949",
+        "notes": "Primary merchant public variant feed reports available true and exact USD price. Clear 52-inch bubble canopy. Unmodified umbrella; craft decorations are separate."
+      }
+    },
+    {
+      "id": "p-622ebb97c6",
+      "title": "Auto Open 52-inch Fashion Bubble — Clear / Black Trim",
+      "url": "https://shedrain.com/products/bubble-auto-open-umbrella?variant=46768146383069",
+      "priceCents": 2800,
+      "currency": "USD",
+      "image": "/products/price-tiers/p-622ebb97c6.webp",
+      "merchantImage": "/products/price-tiers/p-622ebb97c6.webp",
+      "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/1643/6397/files/4015_ClearBlack_Underside_copy_e21231b4-9796-4056-986e-cc36a5520289.jpg?v=1765211388"
+      ],
+      "availability": "in_stock",
+      "sizes": [
+        "One size"
+      ],
+      "merchantId": "shedrain-com",
+      "tagSlugs": [],
+      "description": "Combining the retro style of a bubble umbrella with the timeless look of a crook-handled stick, this is one accessory that's guaranteed to make a fashion statement of its own. The transparent dome-shaped canopy features a vivid print design, while th",
+      "checkedAt": "2026-10-27T00:28:28.398Z",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-27T00:28:28.398Z",
+        "url": "https://shedrain.com/products/bubble-auto-open-umbrella?variant=46768146383069",
+        "notes": "Primary merchant public variant feed reports available true and exact USD price. Clear canopy with black trim."
+      }
+    },
+    {
+      "id": "p-41918e3639",
+      "title": "Auto Open 52-inch Clear Bubble Umbrella",
+      "url": "https://shedrain.com/products/auto-open-bubble-umbrella?variant=43580293284061",
+      "priceCents": 3000,
+      "currency": "USD",
+      "image": "/products/price-tiers/p-41918e3639.webp",
+      "merchantImage": "/products/price-tiers/p-41918e3639.webp",
+      "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/1643/6397/products/4195_ClearSilver_Underside.jpg?v=1669834015"
+      ],
+      "availability": "in_stock",
+      "sizes": [
+        "One size"
+      ],
+      "merchantId": "shedrain-com",
+      "tagSlugs": [],
+      "description": "The big, bold style that first hit the scene in the ‘70s is alive and well in this clear bubble umbrella. Embodying the look that’s been a perennial favorite for half a century, this auto-open, crook-handled stick umbrella boasts retro fashion and pr",
+      "checkedAt": "2026-10-27T00:28:28.398Z",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-27T00:28:28.398Z",
+        "url": "https://shedrain.com/products/auto-open-bubble-umbrella?variant=43580293284061",
+        "notes": "Primary merchant public variant feed reports available true and exact USD price. Transparent canopy and clear crook handle."
+      }
+    },
+    {
+      "id": "p-05ea3d6031",
+      "title": "Crystal Organza — Pink, 1 yard",
+      "url": "https://fabricwholesaledirect.com/products/crystal-organza-59-60-inch-fabric?variant=39460333355123",
+      "priceCents": 299,
+      "currency": "USD",
+      "image": "/products/price-tiers/p-05ea3d6031.webp",
+      "merchantImage": "/products/price-tiers/p-05ea3d6031.webp",
+      "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/0558/3725/files/Pink_A1_3a447e21-2eba-4d80-b60e-a058efbe2fd2.jpg?v=1770134554"
+      ],
+      "availability": "in_stock",
+      "sizes": [
+        "Pink / Yard"
+      ],
+      "merchantId": "fabricwholesaledirect-com",
+      "tagSlugs": [],
+      "description": "Crystal Organza (59/60 Inch) is a sheer, lightweight, and shiny fabric. Sourced from a lustrous 55% nylon and 45% polyester fiber blend, this fabric is woven in a plain, open weave style with thin yarns, giving this material lightweight and transluce",
+      "checkedAt": "2026-10-27T00:28:28.398Z",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-27T00:28:28.398Z",
+        "url": "https://fabricwholesaledirect.com/products/crystal-organza-59-60-inch-fabric?variant=39460333355123",
+        "notes": "Primary merchant public variant feed reports available true and exact USD price. One 36 × 59/60 inch yard; cut strips across width for many short tentacles. Plain sheer pink; not iridescent."
+      }
+    },
+    {
+      "id": "p-1028d82446",
+      "title": "Iridescent Pearl Organza — Pearl, 1 yard",
+      "url": "https://fabricwholesaledirect.com/products/iridescent-pearl-organza-fabric?variant=40668982575219",
+      "priceCents": 449,
+      "currency": "USD",
+      "image": "/products/price-tiers/p-1028d82446.webp",
+      "merchantImage": "/products/price-tiers/p-1028d82446.webp",
+      "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/0558/3725/products/SV578486IridescentMetallicOrganza-PearlA2.png?v=1698175021"
+      ],
+      "availability": "in_stock",
+      "sizes": [
+        "Pearl / Yard"
+      ],
+      "merchantId": "fabricwholesaledirect-com",
+      "tagSlugs": [],
+      "description": "Iridescent Pearl Organza fabric is a smooth, sheer, and shiny fabric, that displays a metallic, multi-colored pattern. Woven loosely from 100% nylon fibers, Iridescent Pearl Organza is a plain-woven fabric that is known for having microscopic holes a",
+      "checkedAt": "2026-10-27T00:28:28.398Z",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-27T00:28:28.398Z",
+        "url": "https://fabricwholesaledirect.com/products/iridescent-pearl-organza-fabric?variant=40668982575219",
+        "notes": "Primary merchant public variant feed reports available true and exact USD price. One yard of pearl iridescent fabric. Cut strips to make tentacles; not a completed prop."
+      }
+    },
+    {
+      "id": "p-38d014a1bd",
+      "title": "Silver Crystal Reflective Sheer Chiffon — 1 yard",
+      "url": "https://icefabrics.com/products/silver-crystal-reflective-liquid-sheer-chiffon-fabric?variant=47015893041374",
+      "priceCents": 999,
+      "currency": "USD",
+      "image": "/products/price-tiers/p-38d014a1bd.webp",
+      "merchantImage": "/products/price-tiers/p-38d014a1bd.webp",
+      "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/0037/6802/5152/files/SilverCrystalReflectiveLiquidChiffonFabric1_f072c032-65f7-4bb9-934f-90f2eb69b57a.webp?v=1767872294"
+      ],
+      "availability": "in_stock",
+      "sizes": [
+        "By The Yard (36” length) 58” Wide"
+      ],
+      "merchantId": "icefabrics-com",
+      "tagSlugs": [],
+      "description": "Looking for a sheer fabric that flows like water and shines like crystal? Our Silver Crystal Reflective Liquid Sheer Chiffon Fabric is the perfect choice. This sheer chiffon fabric is lightweight, soft, and shimmery—great for adding elegance to any p",
+      "checkedAt": "2026-10-27T00:28:28.398Z",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-27T00:28:28.398Z",
+        "url": "https://icefabrics.com/products/silver-crystal-reflective-liquid-sheer-chiffon-fabric?variant=47015893041374",
+        "notes": "Primary merchant public variant feed reports available true and exact USD price. One 36 × 58 inch yard. Silver fabric differs from pink/pearl alternatives; reflective, not illuminated."
+      }
+    },
+    {
+      "id": "p-f35c48b860",
+      "title": "Under Tunic Gilbert Natural",
+      "url": "https://burgschneider.com/products/under-tunic-gilbert-natural?variant=47604598800731",
+      "priceCents": 5999,
+      "currency": "USD",
+      "image": "/products/price-tiers/p-f35c48b860.webp",
+      "merchantImage": "/products/price-tiers/p-f35c48b860.webp",
+      "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/0779/4189/9611/files/gilbert-natur.7qem9G.jpg?v=1774944494"
+      ],
+      "availability": "in_stock",
+      "sizes": [
+        "S",
+        "M",
+        "L",
+        "XL",
+        "XXL",
+        "XXXL"
+      ],
+      "merchantId": "burgschneider-com",
+      "tagSlugs": [],
+      "description": "Natural 100% thick breathable cotton tunic with front and back slits. Longer, approximately knee-length silhouette than the reference’s tunic. S through XXXL are available at $59.99. Other garments in the photo are not included.",
+      "checkedAt": "2026-10-25T08:53:39.887804Z",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-25T08:53:39.887804Z",
+        "url": "https://burgschneider.com/products/under-tunic-gilbert-natural.js",
+        "notes": "Natural 100% thick breathable cotton tunic with front and back slits. Longer, approximately knee-length silhouette than the reference’s tunic. S through XXXL are available at $59.99. Other garments in the photo are not included."
+      }
+    },
+    {
+      "id": "p-3799a61906",
+      "title": "Medieval Tunic / Under Tunic “Leif“ - Natural",
+      "url": "https://burgschneider.com/products/under-tunic-leif-natural?variant=47604595982683",
+      "priceCents": 3999,
+      "currency": "USD",
+      "image": "/products/price-tiers/p-3799a61906.webp",
+      "merchantImage": "/products/price-tiers/p-3799a61906.webp",
+      "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/0779/4189/9611/files/leif-natur.V4lhRf.jpg?v=1774566137"
+      ],
+      "availability": "in_stock",
+      "sizes": [
+        "S",
+        "XL",
+        "XXXL"
+      ],
+      "merchantId": "burgschneider-com",
+      "tagSlugs": [],
+      "description": "Natural 100% coarse cotton tunic with long sleeves, slit round neckline and side slits. Thigh-length plain base layer. Only S, XL and XXXL are currently available at $39.99; M, L and XXL are sold out. Belt, pants, wraps and shoes in the merchant photo are not included.",
+      "checkedAt": "2026-10-25T08:53:39.887804Z",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-25T08:53:39.887804Z",
+        "url": "https://burgschneider.com/products/under-tunic-leif-natural.js",
+        "notes": "Natural 100% coarse cotton tunic with long sleeves, slit round neckline and side slits. Thigh-length plain base layer. Only S, XL and XXXL are currently available at $39.99; M, L and XXL are sold out. Belt, pants, wraps and shoes in the merchant photo are not included."
+      }
+    },
+    {
+      "id": "p-54214148a4",
+      "title": "Wool Tunic Lodin Natural",
+      "url": "https://burgschneider.com/products/wool-tunic-lodin-natural?variant=50172131311963",
+      "priceCents": 6999,
+      "currency": "USD",
+      "image": "/products/price-tiers/p-54214148a4.webp",
+      "merchantImage": "/products/price-tiers/p-54214148a4.webp",
+      "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/0779/4189/9611/files/tunic-lodin-natural-front.jpg?v=1774545701"
+      ],
+      "availability": "in_stock",
+      "sizes": [
+        "S",
+        "XXXL"
+      ],
+      "merchantId": "burgschneider-com",
+      "tagSlugs": [],
+      "description": "Natural heavy wool-blend short tunic: 74% wool, 15% polyester, 7% polyamide and 4% other natural fibers. Warmer, stiffer and more textured than the illustrated light cream layer. Only S and XXXL are available at $69.99; M through XXL are sold out. Brooch, belt and other layers are not included.",
+      "checkedAt": "2026-10-25T08:53:39.887804Z",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-25T08:53:39.887804Z",
+        "url": "https://burgschneider.com/products/wool-tunic-lodin-natural.js",
+        "notes": "Natural heavy wool-blend short tunic: 74% wool, 15% polyester, 7% polyamide and 4% other natural fibers. Warmer, stiffer and more textured than the illustrated light cream layer. Only S and XXXL are available at $69.99; M through XXL are sold out. Brooch, belt and other layers are not included."
+      }
+    },
+    {
+      "id": "p-38e9601da6",
+      "title": "Men's Organic Straight Leg Lounge Pants in Natural",
+      "url": "https://harvestandmill.com/products/mens-organic-straight-leg-lounge-pants-in-natural?variant=42275062218826",
+      "priceCents": 7600,
+      "currency": "USD",
+      "image": "/products/price-tiers/p-38e9601da6.webp",
+      "merchantImage": "/products/price-tiers/p-38e9601da6.webp",
+      "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/0550/6478/9066/files/Harvest_and_Mill_organic_cotton_mens_organic_lounge_pants_dye_free_11.jpg?v=1752509147"
+      ],
+      "availability": "in_stock",
+      "sizes": [
+        "small",
+        "medium",
+        "large",
+        "x-large"
+      ],
+      "merchantId": "harvestandmill-com",
+      "tagSlugs": [],
+      "description": "Undyed natural organic cotton jersey lounge pants, straight leg and elastic waist. All four listed sizes are available at $76. Softer knit texture than the illustration’s woven-looking trousers; no ankle gathers. One pair of pants only.",
+      "checkedAt": "2026-10-25T08:53:39.887804Z",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-25T08:53:39.887804Z",
+        "url": "https://harvestandmill.com/products/mens-organic-straight-leg-lounge-pants-in-natural.js",
+        "notes": "Undyed natural organic cotton jersey lounge pants, straight leg and elastic waist. All four listed sizes are available at $76. Softer knit texture than the illustration’s woven-looking trousers; no ankle gathers. One pair of pants only."
+      }
+    },
+    {
+      "id": "p-6c68216fba",
+      "title": "100% European Linen Pants",
+      "url": "https://www.quince.com/women/linen-pants?color=white&size=l",
+      "priceCents": 4200,
+      "currency": "USD",
+      "image": "/products/price-tiers/p-6c68216fba.webp",
+      "merchantImage": "/products/price-tiers/p-6c68216fba.webp",
+      "sourceImages": [
+        "https://images.quince.com/1b9zqjjnnVBViU98thA2Wp/a90f82d4f75eb98ca2ee11692ab56d19/Nicole_Chavez_Editorial_01-224_245_EDITED.jpg?fm=webP&q=90&w=1600"
+      ],
+      "availability": "in_stock",
+      "sizes": [
+        "XS",
+        "L",
+        "XL"
+      ],
+      "merchantId": "quince-com",
+      "tagSlugs": [],
+      "description": "White 100% European flax linen, relaxed fit and elastic waist in women’s sizing. Current product JSON-LD confirms only XS, L and XL in stock at $42; S and M are sold out. White is brighter than ivory. Straight legs lack the reference’s gathered cuffs; the blue shirt shown is not included.",
+      "checkedAt": "2026-10-25T08:53:39.887804Z",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-25T08:53:39.887804Z",
+        "url": "https://www.quince.com/women/linen-pants?color=white",
+        "notes": "White 100% European flax linen, relaxed fit and elastic waist in women’s sizing. Current product JSON-LD confirms only XS, L and XL in stock at $42; S and M are sold out. White is brighter than ivory. Straight legs lack the reference’s gathered cuffs; the blue shirt shown is not included."
+      }
+    },
+    {
+      "id": "p-fae8356f54",
+      "title": "Linen Drawstring Pant",
+      "url": "https://larelaxed.com/products/linen-drawstring-pant?variant=46699949916389",
+      "priceCents": 13800,
+      "currency": "USD",
+      "image": "/products/price-tiers/p-fae8356f54.webp",
+      "merchantImage": "/products/price-tiers/p-fae8356f54.webp",
+      "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/0771/8275/files/White_linen_drawstring_lead.jpg?v=1776369060"
+      ],
+      "availability": "in_stock",
+      "sizes": [
+        "XS",
+        "S",
+        "M",
+        "L",
+        "XL"
+      ],
+      "merchantId": "larelaxed-com",
+      "tagSlugs": [],
+      "description": "White 100% linen pants with drawstring waist, women’s sizing. Selected White XS through XL are available at $138. Wider straight leg than the reference’s tapered, gathered trousers; tuck the hem loosely into boots for a similar outline. Top and footwear not included.",
+      "checkedAt": "2026-10-25T08:53:39.887804Z",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-25T08:53:39.887804Z",
+        "url": "https://larelaxed.com/products/linen-drawstring-pant.js",
+        "notes": "White 100% linen pants with drawstring waist, women’s sizing. Selected White XS through XL are available at $138. Wider straight leg than the reference’s tapered, gathered trousers; tuck the hem loosely into boots for a similar outline. Top and footwear not included."
+      }
+    },
+    {
+      "id": "p-fa88c71724",
+      "title": "Duchess | Black",
+      "url": "https://thursdayboots.com/products/womens-duchess-black-chelsea-boot?variant=41611980701786",
+      "priceCents": 16000,
+      "currency": "USD",
+      "image": "/products/price-tiers/p-fa88c71724.webp",
+      "merchantImage": "/products/price-tiers/p-fa88c71724.webp",
+      "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/0419/1525/products/1024x1024-Women-Duchess-Black-Side.jpg?v=1591637693"
+      ],
+      "availability": "in_stock",
+      "sizes": [
+        "4",
+        "4.5",
+        "5",
+        "5.5",
+        "6",
+        "6.5",
+        "7",
+        "7.5",
+        "8",
+        "8.5",
+        "9",
+        "9.5",
+        "10",
+        "10.5",
+        "11",
+        "11.5",
+        "12",
+        "12.5",
+        "13"
+      ],
+      "merchantId": "thursdayboots-com",
+      "tagSlugs": [],
+      "description": "Black full-grain leather Chelsea boot, glove leather lining, 1.25-inch heel and 5.5-inch shaft. Plain boot substitutes for dark brown floral heeled reference. Listed sizes are Standard width; other widths are excluded. Merchant offers domestic US shipping.",
+      "checkedAt": "2026-10-25T08:51:06.361508Z",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-25T08:51:06.361508Z",
+        "url": "https://thursdayboots.com/products/womens-duchess-black-chelsea-boot.js",
+        "notes": "Black full-grain leather Chelsea boot, glove leather lining, 1.25-inch heel and 5.5-inch shaft. Plain boot substitutes for dark brown floral heeled reference. Listed sizes are Standard width; other widths are excluded. Merchant offers domestic US shipping."
+      }
+    },
+    {
+      "id": "p-da7d00ef0d",
+      "title": "Classic Chelsea Ankle Booties — Black PU",
+      "url": "https://www.dreampairs.com/products/dab213?kid=23928",
+      "priceCents": 4999,
+      "currency": "USD",
+      "image": "/products/price-tiers/p-da7d00ef0d.webp",
+      "merchantImage": "/products/price-tiers/p-da7d00ef0d.webp",
+      "sourceImages": [
+        "https://cdnimg.dreampairs.com/dreampairshoes/product/product/DAB213/BLACK%20PU/1.jpg"
+      ],
+      "availability": "in_stock",
+      "sizes": [
+        "5",
+        "5.5",
+        "6",
+        "6.5",
+        "7",
+        "7.5",
+        "8",
+        "8.5",
+        "9",
+        "9.5",
+        "10",
+        "11"
+      ],
+      "merchantId": "dreampairs-com",
+      "tagSlugs": [],
+      "description": "Budget material compromise: imitation synthetic leather rather than genuine leather. Ankle-high Chelsea, 1.25 inch heel, 0.75 inch platform. Merchant JSON-LD lists black USD49.99 InStock; live HTML exact-size inventory counts positive for all 12 listed US sizes. Size8 kid23928 count1806. Hidden generic SOLD OUT text is contradicted by variant inventory and InStock offer; verified source HTML retained /tmp/dreampairs-moon-boots.html.",
+      "checkedAt": "2026-10-25T07:07:04.071733+00:00",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-25T07:07:04.071733+00:00",
+        "url": "https://www.dreampairs.com/products/dab213?color=2038",
+        "notes": "Budget material compromise: imitation synthetic leather rather than genuine leather. Ankle-high Chelsea, 1.25 inch heel, 0.75 inch platform. Merchant JSON-LD lists black USD49.99 InStock; live HTML exact-size inventory counts positive for all 12 listed US sizes. Size8 kid23928 count1806. Hidden generic SOLD OUT text is contradicted by variant inventory and InStock offer; verified source HTML retained /tmp/dreampairs-moon-boots.html."
+      }
+    },
+    {
+      "id": "p-862b138943",
+      "title": "Women's Originals #510",
+      "url": "https://www.blundstone.com/products/black-premium-leather-v-cut-boots-womens-style-510?variant=53192323596595",
+      "priceCents": 20995,
+      "currency": "USD",
+      "image": "/products/price-tiers/p-862b138943.webp",
+      "merchantImage": "/products/price-tiers/p-862b138943.webp",
+      "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/0903/6349/4707/files/product-image_2026-10-12_510_p_usa_hero.jpg?v=1791961602"
+      ],
+      "availability": "in_stock",
+      "sizes": [
+        "6 US Women (3 AU/UK)",
+        "6.5 US Women (3.5 AU/UK)",
+        "7 US Women (4 AU/UK)",
+        "7.5 US Women (4.5 AU/UK)",
+        "8 US Women (5 AU/UK)",
+        "8.5 US Women (5.5 AU/UK)",
+        "9 US Women (6 AU/UK)",
+        "9.5 US Women (6.5 AU/UK)",
+        "10 US Women (7 AU/UK)",
+        "10.5 US Women (7.5 AU/UK)",
+        "11 US Women (8 AU/UK)",
+        "11.5 US Women (8.5 AU/UK)",
+        "12 US Women (9 AU/UK)",
+        "12.5 US Women (9.5 AU/UK)",
+        "13 US Women (10 AU/UK)",
+        "13.5 US Women (10.5 AU/UK)",
+        "14 US Women (11 AU/UK)",
+        "15 US Women (12 AU/UK)",
+        "16 US Women (13 AU/UK)",
+        "5 US Women (2 UK/AU)",
+        "6 US Women (3 UK/AU)",
+        "6.5 US Women (3.5 UK/AU)",
+        "7 US Women (4 UK/AU)",
+        "7.5 US Women (4.5 UK/AU)",
+        "8 US Women (5 UK/AU)",
+        "8.5 US Women (5.5 UK/AU)",
+        "9 US Women (6 UK/AU)",
+        "9.5 US Women (6.5 UK/AU)",
+        "10 US Women (7 UK/AU)",
+        "10.5 US Women (7.5 UK/AU)",
+        "11 US Women (8 UK/AU)",
+        "11.5 US Women (8.5 UK/AU)",
+        "12 US Women (9 UK/AU)",
+        "12.5 US Women (9.5 UK/AU)",
+        "13 US Women (10 UK/AU)",
+        "13.5 US Women (10.5 UK/AU)",
+        "14 US Women (11 UK/AU)",
+        "15 US Women (12 UK/AU)",
+        "16 US Women (13 UK/AU)"
+      ],
+      "merchantId": "blundstone-com",
+      "tagSlugs": [],
+      "description": "Black premium water-resistant leather classic flat Chelsea boot. Live public feed USD209.95, not stale search result199.95. Available USwomen5-16; two equivalent AU/UK label sets in merchant variants, deduplicate before display. Exact first available variant is USwomen6.",
+      "checkedAt": "2026-10-25T07:07:04.071733+00:00",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-25T07:07:04.071733+00:00",
+        "url": "https://www.blundstone.com/products/black-premium-leather-v-cut-boots-womens-style-510.js",
+        "notes": "Black premium water-resistant leather classic flat Chelsea boot. Live public feed USD209.95, not stale search result199.95. Available USwomen5-16; two equivalent AU/UK label sets in merchant variants, deduplicate before display. Exact first available variant is USwomen6."
+      }
+    }
+  ],
+  "merchants": [
+    {
+      "id": "shedrain-com",
+      "name": "ShedRain",
+      "domain": "shedrain.com",
+      "url": "https://shedrain.com",
+      "kind": "dtc",
+      "neighborhoodId": null
+    },
+    {
+      "id": "fabricwholesaledirect-com",
+      "name": "Fabric Wholesale Direct",
+      "domain": "fabricwholesaledirect.com",
+      "url": "https://fabricwholesaledirect.com",
+      "kind": "dtc",
+      "neighborhoodId": null
+    },
+    {
+      "id": "icefabrics-com",
+      "name": "Ice Fabrics",
+      "domain": "icefabrics.com",
+      "url": "https://icefabrics.com/",
+      "kind": "boutique",
+      "neighborhoodId": null
+    },
+    {
+      "id": "burgschneider-com",
+      "name": "Burgschneider",
+      "domain": "burgschneider.com",
+      "url": "https://burgschneider.com/",
+      "kind": "boutique",
+      "neighborhoodId": null
+    },
+    {
+      "id": "harvestandmill-com",
+      "name": "Harvest & Mill",
+      "domain": "harvestandmill.com",
+      "url": "https://harvestandmill.com/",
+      "kind": "boutique",
+      "neighborhoodId": null
+    },
+    {
+      "id": "quince-com",
+      "name": "Quince",
+      "domain": "quince.com",
+      "url": "https://quince.com/",
+      "kind": "boutique",
+      "neighborhoodId": null
+    },
+    {
+      "id": "larelaxed-com",
+      "name": "LA Relaxed",
+      "domain": "larelaxed.com",
+      "url": "https://larelaxed.com/",
+      "kind": "boutique",
+      "neighborhoodId": null
+    },
+    {
+      "id": "thursdayboots-com",
+      "name": "Thursday Boot Company",
+      "domain": "thursdayboots.com",
+      "url": "https://thursdayboots.com/",
+      "kind": "boutique",
+      "neighborhoodId": null
+    },
+    {
+      "id": "dreampairs-com",
+      "name": "DREAM PAIRS",
+      "domain": "dreampairs.com",
+      "url": "https://dreampairs.com/",
+      "kind": "boutique",
+      "neighborhoodId": null
+    },
+    {
+      "id": "blundstone-com",
+      "name": "Blundstone",
+      "domain": "blundstone.com",
+      "url": "https://blundstone.com/",
+      "kind": "boutique",
+      "neighborhoodId": null
+    }
+  ],
+  "neighborhoods": [],
+  "tags": [],
+  "provenance": {
+    "method": "manual-research",
+    "generatedAt": "2026-10-27T00:28:28.398Z",
+    "notes": "DIY costume build with reviewed merchant supplies and reused catalog basics. Generated reference shows an assembled interpretation, not a ready-made costume. Scissors, thread, adhesive/fasteners, and any card/elastic noted in piece styling are shopper-supplied. Prices exclude these consumables and shipping; arrival by Halloween is unverified. Reused products retain their original research timestamps.",
+    "priceTiers": true,
+    "heroImageKind": "generated-reference"
+  }
+}

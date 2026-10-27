@@ -1,0 +1,719 @@
+{
+  "costume": {
+    "slug": "labyrinth-faun",
+    "name": "Labyrinth Faun",
+    "description": "Curled horns rise above leafy green layers, brown trousers and leather bracers for a guardian of a hidden woodland maze.",
+    "image": "/costumes/labyrinth-faun.png",
+    "alt": "Curled brown ram horns, leafy green tunic, brown utility trousers, brown leather forearm bracers and lace-up boots",
+    "status": "live"
+  },
+  "pieces": [
+    {
+      "id": "labyrinth-faun-curled-woodland-horns",
+      "name": "Curled woodland horns",
+      "category": "headwear",
+      "required": true,
+      "order": 0,
+      "styleNotes": "Brown ram horns are the closest match. The smaller woodland horns and gold floral ram headband change the horn size or finish.",
+      "queries": [
+        "Curled woodland horns"
+      ],
+      "sizeKind": "one_size",
+      "matches": [
+        {
+          "productId": "p-d-a869cd4e7d",
+          "rank": 0,
+          "reason": "Lightweight curled ram horns make the faun silhouette. Horns only."
+        },
+        {
+          "productId": "p-d-87c89743a1",
+          "rank": 1,
+          "reason": "Horns attached with elastic string, ages 14+. Smaller woodland horns replace the large curled ram form."
+        },
+        {
+          "productId": "p-d-97df452f6c",
+          "rank": 2,
+          "reason": "Gold floral ram headband, one size fits most adults, ages 15+. Metallic alternative rather than brown horns."
+        }
+      ]
+    },
+    {
+      "id": "labyrinth-faun-leaf-green-top-or-tunic",
+      "name": "Leaf-green top or tunic",
+      "category": "tops",
+      "required": true,
+      "order": 1,
+      "styleNotes": "Leaf-shaped green garments create the woodland torso. Options include a halter top, short dress and fuller fairy costume; wear with the separate brown trousers. Any bundled accessories are extras.",
+      "queries": [
+        "green forest fairy halter tunic",
+        "green leaf pixie dress"
+      ],
+      "sizeKind": "apparel",
+      "matches": [
+        {
+          "productId": "p-a4693ccb64",
+          "rank": 0,
+          "reason": "Green cotton/spandex fitted mini dress with overlapping pointed leaf-style layers and web-like vein seams. Merchant feed confirms Green XS/S/M/L/XL/XXL/3XL at $58. Includes dress only. US shipping policy lists 3–7 business days processing plus 8–15 business days standard transit; custom production can take longer."
+        },
+        {
+          "productId": "p-2a4e429bcf",
+          "rank": 1,
+          "reason": "Primary merchant page lists USD $38.99, selectable S/M/L and an active Buy control. Green 100% rayon satin halter tunic with embroidery, back elastic and tie, adjustable shoulder straps and uneven pointed hem, 22–28 inches depending on size. This is a simple green tunic approximation: no sewn leaf panels, layered organza or vine belt. Includes top only; wear over the separate brown trousers."
+        },
+        {
+          "productId": "p-279c4b8fdc",
+          "rank": 2,
+          "reason": "Green corseted leaf-motif dress top with asymmetrical pointed hem, spandex base, chiffon sleeves, mesh panels and coated fabric. Includes dress top, two detachable chiffon sleeves, choker, two shoulder chains and decorative front flower. Merchant feed confirms S/M/L/XL at $275. Page offers worldwide shipping and estimates 10–20 business days; processing time is not separately confirmed."
+        }
+      ]
+    },
+    {
+      "id": "labyrinth-faun-brown-utility-trousers",
+      "name": "Brown utility trousers",
+      "category": "bottoms",
+      "required": true,
+      "order": 2,
+      "styleNotes": "Brown cargo trousers create the woodland base beneath the leafy top. Pockets and fabric shades differ; separate belts are not included.",
+      "queries": [
+        "brown utility cargo pants mens"
+      ],
+      "sizeKind": "pants",
+      "matches": [
+        {
+          "productId": "p-58c3835681",
+          "rank": 0,
+          "reason": "Vintage Brown, 97% cotton/3% spandex cargo trousers with waist adjusters and visible modern pocket branding. S–2XL available at $74.99; 3XL sold out. Live page variant stock templates show S=2, M=4, L=2, XL=5, 2XL=4. The page’s backorder paragraph is hidden, not active for these variants. US orders ship from the USA; no belt included."
+        },
+        {
+          "productId": "p-9795db4936",
+          "rank": 1,
+          "reason": "Work Brown cotton/polyester twill BDU cargo trousers with reinforced knees/seat, adjustable waist tabs, button fly and drawstring leg openings. S–XL cost $45.99; 2XL and 3XL cost more and are excluded. Merchant product feed and structured offers confirm stock. No belt included."
+        },
+        {
+          "productId": "p-773a8bcca3",
+          "rank": 2,
+          "reason": "Brown non-stretch 100% cotton military-inspired cargo pants, extra lower-leg pocket, concealed snap and zip fly. Waist labels 28–38 in stock at $195; 40 sold out. Merchant says processing within 24–48 hours; no belt included."
+        }
+      ]
+    },
+    {
+      "id": "labyrinth-faun-brown-forearm-bracers",
+      "name": "Brown forearm bracers",
+      "category": "accessories",
+      "required": true,
+      "order": 3,
+      "styleNotes": "Brown forearm bracers give the woodland faun a layered leather detail. Closures, length and shaped armor panels differ between options.",
+      "queries": [
+        "brown leather bracers pair lace up",
+        "brown ranger leather forearm bracers"
+      ],
+      "sizeKind": "apparel",
+      "matches": [
+        {
+          "productId": "p-9015a38ad9",
+          "rank": 0,
+          "reason": "Brown leather bracers with rear metal clasps and a knife compartment. S/M and L/XL are available at $79.99. This is a structured armor shape, rather than soft leather wraps; no knife is promised or required."
+        },
+        {
+          "productId": "p-b51da633ea",
+          "rank": 1,
+          "reason": "One pair of brown genuine leather bracers, 7.25 inches long, with edge rivets and adjustable nylon laces. Live page and structured product data show a $21.21 sale price and InStock."
+        },
+        {
+          "productId": "p-8f75c481a4",
+          "rank": 2,
+          "reason": "Brown leather ranger bracers. Standard is the merchant’s only size label and is available at $99.99."
+        }
+      ]
+    },
+    {
+      "id": "labyrinth-faun-brown-lace-up-boots",
+      "name": "Brown lace-up boots",
+      "category": "footwear",
+      "required": true,
+      "order": 4,
+      "styleNotes": "Brown lace-up ankle boots complete the outfit. Shaft height, sole shape and brown shades differ between the three options.",
+      "queries": [
+        "mens dark brown lace up leather boots"
+      ],
+      "sizeKind": "shoe",
+      "matches": [
+        {
+          "productId": "p-ba0acbf53c",
+          "rank": 0,
+          "reason": "Brown leather cap-toe ankle boot with waxed cotton laces, glove leather lining and studded rubber sole. US order processing typically 1–3 business days; delivery timing is separate."
+        },
+        {
+          "productId": "p-3b0a976509",
+          "rank": 1,
+          "reason": "Brown CH style 85088-215, leather/man-made mixed upper and modern lug wedge sole. Reviewed merchant page lists $89.95. Stated usual dispatch 2–3 business days."
+        },
+        {
+          "productId": "p-10ebd36f10",
+          "rank": 2,
+          "reason": "Crimson Chromexcel dark reddish-brown leather plain-toe lace-up ankle boot with antique-brass eyelets/hooks and rubber sole. Lower shaft and no calf buckles. D Standard sizes 6–13 listed here are available at $435. Higher price does not make it a closer costume match."
+        }
+      ]
+    }
+  ],
+  "products": [
+    {
+      "id": "p-d-a869cd4e7d",
+      "title": "Superlite Ram Horns",
+      "url": "https://chicagocostume.com/products/superlite-ram-horns?variant=43046992347378",
+      "priceCents": 2999,
+      "currency": "USD",
+      "image": "/products/price-tiers/p-d-a869cd4e7d.webp",
+      "merchantImage": "/products/price-tiers/p-d-a869cd4e7d.webp",
+      "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/0610/0208/8690/products/ANIMALS-RAM-HORNS-SUPERLITE__76-8010-Z.jpg?v=1651604982"
+      ],
+      "availability": "in_stock",
+      "sizes": [],
+      "merchantId": "chicagocostume-com",
+      "tagSlugs": [],
+      "description": "Live your ram fantasy with them super lightweight ram horns!",
+      "checkedAt": "2026-10-27T00:28:51.012585+00:00",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-27T00:28:51.012585+00:00",
+        "url": "https://chicagocostume.com/products/superlite-ram-horns.js",
+        "notes": "Built-in web discovery; primary merchant Shopify feed confirms selected variant available and its USD price. Lightweight curled ram horns make the faun silhouette. Horns only."
+      }
+    },
+    {
+      "id": "p-d-87c89743a1",
+      "title": "Woodland Fairy Horns",
+      "url": "https://chicagocostume.com/products/woodland-fairy-horns?variant=43218522931442",
+      "priceCents": 1299,
+      "currency": "USD",
+      "image": "/products/price-tiers/p-d-87c89743a1.webp",
+      "merchantImage": "/products/price-tiers/p-d-87c89743a1.webp",
+      "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/0610/0208/8690/products/60678.jpg?v=1654980582"
+      ],
+      "availability": "in_stock",
+      "sizes": [],
+      "merchantId": "chicagocostume-com",
+      "tagSlugs": [],
+      "description": "Woodland Fairy Horns Includes: Horns with elastic string. for ages 14+",
+      "checkedAt": "2026-10-27T00:28:51.012585+00:00",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-27T00:28:51.012585+00:00",
+        "url": "https://chicagocostume.com/products/woodland-fairy-horns.js",
+        "notes": "Built-in web discovery; primary merchant Shopify feed confirms selected variant available and its USD price. Horns attached with elastic string, ages 14+. Smaller woodland horns replace the large curled ram form."
+      }
+    },
+    {
+      "id": "p-d-97df452f6c",
+      "title": "Ram Headpiece — Gold",
+      "url": "https://chicagocostume.com/products/floral-ram-headpiece-gold?variant=43336276443378",
+      "priceCents": 1499,
+      "currency": "USD",
+      "image": "/products/price-tiers/p-d-97df452f6c.webp",
+      "merchantImage": "/products/price-tiers/p-d-97df452f6c.webp",
+      "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/0610/0208/8690/products/img_proxy_523ad6d1-b39b-4a21-aa02-2cf375419daa.jpg?v=1638560058"
+      ],
+      "availability": "in_stock",
+      "sizes": [],
+      "merchantId": "chicagocostume-com",
+      "tagSlugs": [],
+      "description": "Create your own unique Halloween costume around this beautiful Floral Ram Headpiece in Gold! Includes: 1 Head Band One Size Fits Most Adults Ages 15+",
+      "checkedAt": "2026-10-27T00:28:51.012585+00:00",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-27T00:28:51.012585+00:00",
+        "url": "https://chicagocostume.com/products/floral-ram-headpiece-gold.js",
+        "notes": "Built-in web discovery; primary merchant Shopify feed confirms selected variant available and its USD price. Gold floral ram headband, one size fits most adults, ages 15+. Metallic alternative rather than brown horns."
+      }
+    },
+    {
+      "id": "p-a4693ccb64",
+      "title": "Fairy Pixie Leaf Dress Forest festival outfit Alternative fashion",
+      "url": "https://maravinee.com/products/fairy-pixie-leaf-dress-forest-festival-outfit-alternative-fashion-mav260302916-1?variant=52788084015404",
+      "priceCents": 5800,
+      "currency": "USD",
+      "image": "/products/price-tiers/p-a4693ccb64.webp",
+      "merchantImage": "/products/price-tiers/p-a4693ccb64.webp",
+      "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/0965/3665/8220/files/12ihv0u-490hhgr-mmeq95co.jpg?v=1774423319"
+      ],
+      "availability": "in_stock",
+      "sizes": [
+        "XS",
+        "S",
+        "M",
+        "L",
+        "XL",
+        "XXL",
+        "3XL"
+      ],
+      "merchantId": "maravinee-com",
+      "tagSlugs": [],
+      "description": "Green cotton/spandex fitted mini dress with overlapping pointed leaf-style layers and web-like vein seams. Merchant feed confirms Green XS/S/M/L/XL/XXL/3XL at $58. The leaves are fewer, darker and smoother than the reference’s organza tunic. Includes dress only. US shipping policy lists 3–7 business days processing plus 8–15 business days standard transit; custom production can take longer.",
+      "checkedAt": "2026-10-25T08:48:06.731813+00:00",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-25T08:48:06.731813+00:00",
+        "url": "https://maravinee.com/products/fairy-pixie-leaf-dress-forest-festival-outfit-alternative-fashion-mav260302916-1.js",
+        "notes": "Green cotton/spandex fitted mini dress with overlapping pointed leaf-style layers and web-like vein seams. Merchant feed confirms Green XS/S/M/L/XL/XXL/3XL at $58. The leaves are fewer, darker and smoother than the reference’s organza tunic. Includes dress only. US shipping policy lists 3–7 business days processing plus 8–15 business days standard transit; custom production can take longer."
+      }
+    },
+    {
+      "id": "p-2a4e429bcf",
+      "title": "Green Forest Fairy Halter Top",
+      "url": "https://www.thelittlebazaar.com/item/9563.html",
+      "priceCents": 3899,
+      "currency": "USD",
+      "image": "/products/price-tiers/p-2a4e429bcf.webp",
+      "merchantImage": "/products/price-tiers/p-2a4e429bcf.webp",
+      "sourceImages": [
+        "https://www.thelittlebazaar.com/m/Tunic-Shirt/9563-green-forest-fairy-halter-top.jpg"
+      ],
+      "availability": "in_stock",
+      "sizes": [
+        "S",
+        "M",
+        "L"
+      ],
+      "merchantId": "thelittlebazaar-com",
+      "tagSlugs": [],
+      "description": "Primary merchant page lists USD $38.99, selectable S/M/L and an active Buy control. Green 100% rayon satin halter tunic with embroidery, back elastic and tie, adjustable shoulder straps and uneven pointed hem, 22–28 inches depending on size. This is a simple green tunic approximation: no sewn leaf panels, layered organza or vine belt. Includes top only; wear over the separately sourced leggings.",
+      "checkedAt": "2026-10-25T08:48:06.731813+00:00",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-25T08:48:06.731813+00:00",
+        "url": "https://www.thelittlebazaar.com/item/9563.html",
+        "notes": "Primary merchant page lists USD $38.99, selectable S/M/L and an active Buy control. Green 100% rayon satin halter tunic with embroidery, back elastic and tie, adjustable shoulder straps and uneven pointed hem, 22–28 inches depending on size. This is a simple green tunic approximation: no sewn leaf panels, layered organza or vine belt. Includes top only; wear over the separately sourced leggings."
+      }
+    },
+    {
+      "id": "p-279c4b8fdc",
+      "title": "Forest Fairy Elf Costume – Women’s Fantasy Leaf Dress with Sleeves & Accessories",
+      "url": "https://www.historicalcostumeshop.com/products/forest-fairy-elf-costume-womens-fantasy-leaf-dress-sleeves-accessories?variant=67846764232924",
+      "priceCents": 27500,
+      "currency": "USD",
+      "image": "/products/price-tiers/p-279c4b8fdc.webp",
+      "merchantImage": "/products/price-tiers/p-279c4b8fdc.webp",
+      "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/0863/1871/1004/files/Sae1a83cdd4224c6a88b03eab870b5e8fn.webp?v=1792559484"
+      ],
+      "availability": "in_stock",
+      "sizes": [
+        "M",
+        "L",
+        "XL",
+        "S"
+      ],
+      "merchantId": "historicalcostumeshop-com",
+      "tagSlugs": [],
+      "description": "Green corseted leaf-motif dress top with asymmetrical pointed hem, spandex base, chiffon sleeves, mesh panels and coated fabric. Includes dress top, two detachable chiffon sleeves, choker, two shoulder chains and decorative front flower. This is a brighter, more revealing fantasy design with dramatic side sleeves, rather than the reference’s layered moss organza tunic. Merchant feed confirms S/M/L/XL at $275. Page offers worldwide shipping and estimates 10–20 business days; processing time is not separately confirmed.",
+      "checkedAt": "2026-10-25T08:48:06.731813+00:00",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-25T08:48:06.731813+00:00",
+        "url": "https://www.historicalcostumeshop.com/products/forest-fairy-elf-costume-womens-fantasy-leaf-dress-sleeves-accessories.js",
+        "notes": "Green corseted leaf-motif dress top with asymmetrical pointed hem, spandex base, chiffon sleeves, mesh panels and coated fabric. Includes dress top, two detachable chiffon sleeves, choker, two shoulder chains and decorative front flower. This is a brighter, more revealing fantasy design with dramatic side sleeves, rather than the reference’s layered moss organza tunic. Merchant feed confirms S/M/L/XL at $275. Page offers worldwide shipping and estimates 10–20 business days; processing time is not separately confirmed."
+      }
+    },
+    {
+      "id": "p-58c3835681",
+      "title": "WCC - CFL CARGO PANTS - VINTAGE BROWN",
+      "url": "https://westcoastchoppers.com/products/wcc-cfl-cargo-pants-vintage-brown?variant=50981724160327",
+      "priceCents": 7499,
+      "currency": "USD",
+      "image": "/products/price-tiers/p-58c3835681.webp",
+      "merchantImage": "/products/price-tiers/p-58c3835681.webp",
+      "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/0773/1540/8199/files/WCCBR144BNL-1.jpg?v=1738318375"
+      ],
+      "availability": "in_stock",
+      "sizes": [
+        "S",
+        "M",
+        "L",
+        "XL",
+        "2XL"
+      ],
+      "merchantId": "westcoastchoppers-com",
+      "tagSlugs": [],
+      "description": "Vintage Brown, 97% cotton/3% spandex cargo trousers with waist adjusters and visible modern pocket branding. S–2XL available at $74.99; 3XL sold out. Live page variant stock templates show S=2, M=4, L=2, XL=5, 2XL=4. The page’s backorder paragraph is hidden, not active for these variants. US orders ship from the USA; no belt included.",
+      "checkedAt": "2026-10-25T08:50:23.962064Z",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-25T08:50:23.962064Z",
+        "url": "https://westcoastchoppers.com/products/wcc-cfl-cargo-pants-vintage-brown.js",
+        "notes": "Vintage Brown, 97% cotton/3% spandex cargo trousers with waist adjusters and visible modern pocket branding. S–2XL available at $74.99; 3XL sold out. Live page variant stock templates show S=2, M=4, L=2, XL=5, 2XL=4. The page’s backorder paragraph is hidden, not active for these variants. US orders ship from the USA; no belt included."
+      }
+    },
+    {
+      "id": "p-9795db4936",
+      "title": "Rothco Work Brown Tactical BDU Cargo Pants 11140",
+      "url": "https://www.armynavyusa.com/products/rothco-work-brown-tactical-bdu-cargo-pants-11140?variant=49614571536539",
+      "priceCents": 4599,
+      "currency": "USD",
+      "image": "/products/price-tiers/p-9795db4936.webp",
+      "merchantImage": "/products/price-tiers/p-9795db4936.webp",
+      "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/0782/8973/1739/files/anu-gallery-04a8d315b754331a-a361a055afb3ca3e.jpg?v=1791590608"
+      ],
+      "availability": "in_stock",
+      "sizes": [
+        "S",
+        "M",
+        "L",
+        "XL"
+      ],
+      "merchantId": "armynavyusa-com",
+      "tagSlugs": [],
+      "description": "Work Brown cotton/polyester twill BDU cargo trousers with reinforced knees/seat, adjustable waist tabs, button fly and drawstring leg openings. Warmer golden brown than the image. S–XL cost $45.99; 2XL and 3XL cost more and are excluded. Merchant product feed and structured offers confirm stock. No belt or thigh strap included.",
+      "checkedAt": "2026-10-25T08:50:23.962064Z",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-25T08:50:23.962064Z",
+        "url": "https://www.armynavyusa.com/products/rothco-work-brown-tactical-bdu-cargo-pants-11140.js",
+        "notes": "Work Brown cotton/polyester twill BDU cargo trousers with reinforced knees/seat, adjustable waist tabs, button fly and drawstring leg openings. Warmer golden brown than the image. S–XL cost $45.99; 2XL and 3XL cost more and are excluded. Merchant product feed and structured offers confirm stock. No belt or thigh strap included."
+      }
+    },
+    {
+      "id": "p-773a8bcca3",
+      "title": "Pablo Utility Cargo Pants - Brown",
+      "url": "https://feature.com/products/feature-pablo-utility-cargo-pants-brown?variant=41076352581703",
+      "priceCents": 19500,
+      "currency": "USD",
+      "image": "/products/price-tiers/p-773a8bcca3.webp",
+      "merchantImage": "/products/price-tiers/p-773a8bcca3.webp",
+      "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/0408/9909/files/untitled---07-23-24---Feature--DV-44-REVISIONS_3f9cafba-04e3-407a-9f95-e232d86fea22.jpg?v=1788239934"
+      ],
+      "availability": "in_stock",
+      "sizes": [
+        "28",
+        "30",
+        "32",
+        "34",
+        "36",
+        "38"
+      ],
+      "merchantId": "feature-com",
+      "tagSlugs": [],
+      "description": "Brown non-stretch 100% cotton military-inspired cargo pants, extra lower-leg pocket, concealed snap and zip fly. Straight hems differ from the image’s elastic cuffs; tuck into boots. Waist labels 28–38 in stock at $195; 40 sold out. Merchant says processing within 24–48 hours; no belt or thigh strap included.",
+      "checkedAt": "2026-10-25T08:50:23.962064Z",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-25T08:50:23.962064Z",
+        "url": "https://feature.com/products/feature-pablo-utility-cargo-pants-brown.js",
+        "notes": "Brown non-stretch 100% cotton military-inspired cargo pants, extra lower-leg pocket, concealed snap and zip fly. Straight hems differ from the image’s elastic cuffs; tuck into boots. Waist labels 28–38 in stock at $195; 40 sold out. Merchant says processing within 24–48 hours; no belt or thigh strap included."
+      }
+    },
+    {
+      "id": "p-9015a38ad9",
+      "title": "Dungeons & Dragons Rogue Leather Bracers Brown",
+      "url": "https://burgschneider.us/products/dungeons-dragons-rogue-leather-bracers-brown?variant=43290512031791",
+      "priceCents": 7999,
+      "currency": "USD",
+      "image": "/products/price-tiers/p-9015a38ad9.webp",
+      "merchantImage": "/products/price-tiers/p-9015a38ad9.webp",
+      "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/0634/1709/0095/files/dungeons-and-dragons-rogue-bracers-brown-flat.jpg?v=1774453936"
+      ],
+      "availability": "in_stock",
+      "sizes": [
+        "S/M",
+        "L/XL"
+      ],
+      "merchantId": "burgschneider-us",
+      "tagSlugs": [],
+      "description": "Brown leather bracers with rear metal clasps and a knife compartment. S/M and L/XL are available at $79.99. This is a structured armor shape, rather than soft leather wraps; no knife is promised or required.",
+      "checkedAt": "2026-10-25T08:58:26.994930Z",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-25T08:58:26.994930Z",
+        "url": "https://burgschneider.us/products/dungeons-dragons-rogue-leather-bracers-brown.js",
+        "notes": "Brown leather bracers with rear metal clasps and a knife compartment. S/M and L/XL are available at $79.99. This is a structured armor shape, rather than soft leather wraps; no knife is promised or required."
+      }
+    },
+    {
+      "id": "p-b51da633ea",
+      "title": "HAND MADE BROWN REAL Leather Armor Pointed Top Fantasy Medieval Halloween CUFF",
+      "url": "https://edgeimport.com/hand-made-brown-real-leather-armor-pointed-top-fantasy-medieval-halloween-cuff/",
+      "priceCents": 2121,
+      "currency": "USD",
+      "image": "/products/price-tiers/p-b51da633ea.webp",
+      "merchantImage": "/products/price-tiers/p-b51da633ea.webp",
+      "sourceImages": [
+        "https://cdn11.bigcommerce.com/s-sd2rb2jpmz/images/stencil/1280x1280/products/4258/5571/SLC-702_1_1000px__62054.1495572834.jpg?c=2"
+      ],
+      "availability": "in_stock",
+      "sizes": [
+        "One Size Fits Adult Sizes"
+      ],
+      "merchantId": "edgeimport-com",
+      "tagSlugs": [],
+      "description": "One pair of brown genuine leather bracers, 7.25 inches long, with edge rivets and adjustable nylon laces. Shorter than the reference’s long wraps. Live page and structured product data show a $21.21 sale price and InStock.",
+      "checkedAt": "2026-10-25T08:58:26.994930Z",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-25T08:58:26.994930Z",
+        "url": "https://edgeimport.com/hand-made-brown-real-leather-armor-pointed-top-fantasy-medieval-halloween-cuff/",
+        "notes": "One pair of brown genuine leather bracers, 7.25 inches long, with edge rivets and adjustable nylon laces. Shorter than the reference’s long wraps. Live page and structured product data show a $21.21 sale price and InStock."
+      }
+    },
+    {
+      "id": "p-8f75c481a4",
+      "title": "Dungeons & Dragons Ranger Bracers Brown",
+      "url": "https://burgschneider.us/products/dungeons-dragons-ranger-bracers-brown?variant=43520887849007",
+      "priceCents": 9999,
+      "currency": "USD",
+      "image": "/products/price-tiers/p-8f75c481a4.webp",
+      "merchantImage": "/products/price-tiers/p-8f75c481a4.webp",
+      "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/0634/1709/0095/files/dungeons-and-dragons-ranger-bracers-brown-1.jpg?v=1774460375"
+      ],
+      "availability": "in_stock",
+      "sizes": [
+        "Standard"
+      ],
+      "merchantId": "burgschneider-us",
+      "tagSlugs": [],
+      "description": "Brown leather ranger bracers. Standard is the merchant’s only size label and is available at $99.99. Detailed shaped leather differs from the simpler wrapped forearms in the reference.",
+      "checkedAt": "2026-10-25T08:58:26.994930Z",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-25T08:58:26.994930Z",
+        "url": "https://burgschneider.us/products/dungeons-dragons-ranger-bracers-brown.js",
+        "notes": "Brown leather ranger bracers. Standard is the merchant’s only size label and is available at $99.99. Detailed shaped leather differs from the simpler wrapped forearms in the reference."
+      }
+    },
+    {
+      "id": "p-ba0acbf53c",
+      "title": "Captain | Brown — Standard",
+      "url": "https://thursdayboots.com/products/mens-brown-captain?variant=7609600581",
+      "priceCents": 19900,
+      "currency": "USD",
+      "image": "/products/price-tiers/p-ba0acbf53c.webp",
+      "merchantImage": "/products/price-tiers/p-ba0acbf53c.webp",
+      "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/0419/1525/files/1024x1024-Men-Captain-Brown-081226-3.4-d17ac2.jpg?v=1790357464"
+      ],
+      "availability": "in_stock",
+      "sizes": [
+        "6",
+        "6.5",
+        "7",
+        "7.5",
+        "8",
+        "8.5",
+        "9",
+        "9.5",
+        "10",
+        "10.5",
+        "11",
+        "11.5",
+        "12",
+        "12.5",
+        "13",
+        "13.5",
+        "14",
+        "15",
+        "16"
+      ],
+      "merchantId": "thursdayboots-com",
+      "tagSlugs": [],
+      "description": "Brown leather cap-toe ankle boot with waxed cotton laces, glove leather lining and studded rubber sole. Shorter than the image and has no upper buckles. Standard-width sizes 6–16 listed here are all available at $199 in current feed. US order processing typically 1–3 business days; delivery timing is separate.",
+      "checkedAt": "2026-10-25T08:50:23.962064Z",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-25T08:50:23.962064Z",
+        "url": "https://thursdayboots.com/products/mens-brown-captain.js",
+        "notes": "Brown leather cap-toe ankle boot with waxed cotton laces, glove leather lining and studded rubber sole. Shorter than the image and has no upper buckles. Standard-width sizes 6–16 listed here are all available at $199 in current feed. US order processing typically 1–3 business days; delivery timing is separate."
+      }
+    },
+    {
+      "id": "p-3b0a976509",
+      "title": "Karnak Plain Toe Boot — Brown CH / M (D - medium)",
+      "url": "https://www.nunnbush.com/shop/style/85088-215.html",
+      "priceCents": 8995,
+      "currency": "USD",
+      "image": "/products/price-tiers/p-3b0a976509.webp",
+      "merchantImage": "/products/price-tiers/p-3b0a976509.webp",
+      "sourceImages": [
+        "https://www.nunnbush.com/shop/images/w590/85088-215.jpg"
+      ],
+      "availability": "in_stock",
+      "sizes": [
+        "7",
+        "7.5",
+        "8",
+        "8.5",
+        "9",
+        "9.5",
+        "10",
+        "10.5",
+        "11",
+        "11.5",
+        "12",
+        "13",
+        "14"
+      ],
+      "merchantId": "nunnbush-com",
+      "tagSlugs": [],
+      "description": "Brown CH style 85088-215, leather/man-made mixed upper and modern lug wedge sole. Live merchant page lists $89.95. Read-only width selection confirmed M (D medium) and every listed size explicitly In Stock; response saved in nunn-medium-width.xml. Shorter and more modern than the image, with no calf buckles. Stated usual dispatch 2–3 business days.",
+      "checkedAt": "2026-10-25T08:50:23.962064Z",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-25T08:50:23.962064Z",
+        "url": "https://www.nunnbush.com/shop/style/85088-215.html",
+        "notes": "Brown CH style 85088-215, leather/man-made mixed upper and modern lug wedge sole. Live merchant page lists $89.95. Read-only width selection confirmed M (D medium) and every listed size explicitly In Stock; response saved in nunn-medium-width.xml. Shorter and more modern than the image, with no calf buckles. Stated usual dispatch 2–3 business days."
+      }
+    },
+    {
+      "id": "p-10ebd36f10",
+      "title": "Diesel Boot Crimson Chromexcel — D (Standard)",
+      "url": "https://grantstoneshoes.com/products/diesel-boot-crimson-chromexcel?variant=12617336160320",
+      "priceCents": 43500,
+      "currency": "USD",
+      "image": "/products/price-tiers/p-10ebd36f10.webp",
+      "merchantImage": "/products/price-tiers/p-10ebd36f10.webp",
+      "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/1163/3390/files/06SIDE-Edit_14628844-8b5f-4b32-b91c-69db10615674.jpg?v=1783615369"
+      ],
+      "availability": "in_stock",
+      "sizes": [
+        "6",
+        "6.5",
+        "7",
+        "7.5",
+        "8",
+        "8.5",
+        "9",
+        "9.5",
+        "10",
+        "10.5",
+        "11",
+        "11.5",
+        "12",
+        "13"
+      ],
+      "merchantId": "grantstoneshoes-com",
+      "tagSlugs": [],
+      "description": "Crimson Chromexcel dark reddish-brown leather plain-toe lace-up ankle boot with antique-brass eyelets/hooks and rubber sole. Lower shaft and no calf buckles. D Standard sizes 6–13 listed here are available at $435. Higher price does not make it a closer costume match.",
+      "checkedAt": "2026-10-25T08:50:23.962064Z",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-25T08:50:23.962064Z",
+        "url": "https://grantstoneshoes.com/products/diesel-boot-crimson-chromexcel.js",
+        "notes": "Crimson Chromexcel dark reddish-brown leather plain-toe lace-up ankle boot with antique-brass eyelets/hooks and rubber sole. Lower shaft and no calf buckles. D Standard sizes 6–13 listed here are available at $435. Higher price does not make it a closer costume match."
+      }
+    }
+  ],
+  "merchants": [
+    {
+      "id": "chicagocostume-com",
+      "name": "Chicago Costume Company",
+      "domain": "chicagocostume.com",
+      "url": "https://chicagocostume.com/",
+      "kind": "boutique",
+      "neighborhoodId": null
+    },
+    {
+      "id": "thelittlebazaar-com",
+      "name": "The Little Bazaar",
+      "domain": "thelittlebazaar.com",
+      "url": "https://thelittlebazaar.com/",
+      "kind": "boutique",
+      "neighborhoodId": null
+    },
+    {
+      "id": "maravinee-com",
+      "name": "Maravinee",
+      "domain": "maravinee.com",
+      "url": "https://maravinee.com/",
+      "kind": "boutique",
+      "neighborhoodId": null
+    },
+    {
+      "id": "historicalcostumeshop-com",
+      "name": "Historical Costume Shop",
+      "domain": "historicalcostumeshop.com",
+      "url": "https://historicalcostumeshop.com/",
+      "kind": "boutique",
+      "neighborhoodId": null
+    },
+    {
+      "id": "armynavyusa-com",
+      "name": "Army Navy USA",
+      "domain": "armynavyusa.com",
+      "url": "https://armynavyusa.com/",
+      "kind": "boutique",
+      "neighborhoodId": null
+    },
+    {
+      "id": "westcoastchoppers-com",
+      "name": "West Coast Choppers",
+      "domain": "westcoastchoppers.com",
+      "url": "https://westcoastchoppers.com/",
+      "kind": "boutique",
+      "neighborhoodId": null
+    },
+    {
+      "id": "feature-com",
+      "name": "FEATURE",
+      "domain": "feature.com",
+      "url": "https://feature.com/",
+      "kind": "boutique",
+      "neighborhoodId": null
+    },
+    {
+      "id": "nunnbush-com",
+      "name": "Nunn Bush",
+      "domain": "nunnbush.com",
+      "url": "https://nunnbush.com/",
+      "kind": "boutique",
+      "neighborhoodId": null
+    },
+    {
+      "id": "thursdayboots-com",
+      "name": "Thursday Boot Company",
+      "domain": "thursdayboots.com",
+      "url": "https://thursdayboots.com/",
+      "kind": "boutique",
+      "neighborhoodId": null
+    },
+    {
+      "id": "grantstoneshoes-com",
+      "name": "Grant Stone",
+      "domain": "grantstoneshoes.com",
+      "url": "https://grantstoneshoes.com/",
+      "kind": "boutique",
+      "neighborhoodId": null
+    },
+    {
+      "id": "burgschneider-us",
+      "name": "Burgschneider",
+      "domain": "burgschneider.us",
+      "url": "https://burgschneider.us/",
+      "kind": "boutique",
+      "neighborhoodId": null
+    },
+    {
+      "id": "edgeimport-com",
+      "name": "Edge Import",
+      "domain": "edgeimport.com",
+      "url": "https://edgeimport.com/",
+      "kind": "boutique",
+      "neighborhoodId": null
+    }
+  ],
+  "neighborhoods": [],
+  "tags": [],
+  "provenance": {
+    "method": "manual-research",
+    "generatedAt": "2026-10-27T00:28:51.012585+00:00",
+    "notes": "Expansion D: new defining accessories researched with built-in web search and official merchant Shopify variant feeds. Existing basics reuse reviewed catalog evidence and retain original check dates. Relative price tiers; shipping, taxes and arrival are unconfirmed. Generated image is styling inspiration; option differences and DIY work are explicit. See docs/sourcing/expansion-d.md.",
+    "priceTiers": true,
+    "heroImageKind": "generated-reference"
+  }
+}

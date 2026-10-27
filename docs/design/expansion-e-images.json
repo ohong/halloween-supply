@@ -1,0 +1,98 @@
+{
+  "generatedAt": "2026-10-27T00:34:43.619Z",
+  "tool": "built-in image_gen",
+  "transparentBackground": true,
+  "encoding": "Model assets 960px maximum edge, WebP quality 86 alphaQuality 100; original hero PNG",
+  "images": [
+    {
+      "slug": "escaped-masterpiece",
+      "model": "hero",
+      "prompt": "Use case: product-mockup. Photoreal premium Halloween costume catalog image. Walking escaped oil-portrait costume: oversized lightweight ornate rectangular antique gold frame held around shoulders, ivory ruffled blouse, burgundy velvet ankle-length skirt, black ankle boots. Frame surrounds open head and upper torso like a living portrait, no painted canvas. Entire cohesive outfit front facing on an invisible mannequin, centered square canvas with all headwear and shoes visible and 8% clear margins. Tactile believable textiles, soft even studio light. Actually transparent alpha background. No human, no skin, no visible mannequin, no floor, no lettering, no watermark.",
+      "file": "/costumes/escaped-masterpiece.png"
+    },
+    {
+      "slug": "escaped-masterpiece",
+      "model": "female",
+      "file": "/costumes/models/escaped-masterpiece-female.webp",
+      "prompt": "Use case: identity-preserve. Image 1 is identity reference: preserve exact adult person's face, skin, hair and body. Replace their entire cowboy outfit with: Walking escaped oil-portrait costume: oversized lightweight ornate rectangular antique gold frame held around shoulders, ivory ruffled blouse, burgundy velvet ankle-length skirt, black ankle boots. Frame surrounds open head and upper torso like a living portrait, no painted canvas. Premium photorealistic studio fashion catalog photograph. Single centered full-body adult front facing, calm expression, relaxed hands. Entire crown to shoe soles visible, 8% margin. Real textiles and soft studio daylight. Actually transparent alpha background. No floor, backdrop, shadow, text, watermark, collage. Preserve full colors."
+    },
+    {
+      "slug": "escaped-masterpiece",
+      "model": "male",
+      "file": "/costumes/models/escaped-masterpiece-male.webp",
+      "prompt": "Use case: identity-preserve. Image 1 is identity reference: preserve exact adult person's face, skin, hair and body. Replace their entire cowboy outfit with: Walking escaped oil-portrait costume: oversized lightweight ornate rectangular antique gold frame held around shoulders, ivory ruffled blouse, burgundy velvet ankle-length skirt, black ankle boots. Frame surrounds open head and upper torso like a living portrait, no painted canvas. Premium photorealistic studio fashion catalog photograph. Single centered full-body adult front facing, calm expression, relaxed hands. Entire crown to shoe soles visible, 8% margin. Real textiles and soft studio daylight. Actually transparent alpha background. No floor, backdrop, shadow, text, watermark, collage. Preserve full colors."
+    },
+    {
+      "slug": "fortune-teller",
+      "model": "hero",
+      "file": "/costumes/fortune-teller.png",
+      "prompt": "Use case: product-mockup. Photoreal premium Halloween costume catalog image. Fortune Teller costume: ivory billowy long-sleeve blouse, flowing midnight blue ankle-length skirt, navy and gold coin-trim hip scarf tied at waist, gold hoop earrings and dark ankle boots. Rich fabric, respectful theatrical fantasy styling. Entire cohesive outfit front facing on invisible mannequin, centered square canvas with all headwear and shoes visible and 8% clear margins. Tactile believable textiles, soft even studio light. Actually transparent alpha background. No human, skin, mannequin, floor, lettering or watermark."
+    },
+    {
+      "slug": "fortune-teller",
+      "model": "female",
+      "file": "/costumes/models/fortune-teller-female.webp",
+      "prompt": "Use case: identity-preserve. Image 1 is identity reference: preserve exact adult person's face, skin, hair and body. Replace their entire cowboy outfit with: Fortune Teller costume: ivory billowy long-sleeve blouse, flowing midnight blue ankle-length skirt, navy and gold coin-trim hip scarf tied at waist, gold hoop earrings and dark ankle boots. Rich fabric, respectful theatrical fantasy styling. Premium photorealistic studio fashion catalog photograph. Single centered full-body adult front facing, calm expression, relaxed hands. Entire head to shoe soles visible, 8% margin. Real textiles and soft studio daylight. Actually transparent alpha background. No floor, backdrop, shadow, text, watermark or collage. Preserve full colors."
+    },
+    {
+      "slug": "fortune-teller",
+      "model": "male",
+      "file": "/costumes/models/fortune-teller-male.webp",
+      "prompt": "Use case: identity-preserve. Image 1 is identity reference: preserve exact adult person's face, skin, hair and body. Replace their entire cowboy outfit with: Fortune Teller costume: ivory billowy long-sleeve blouse, flowing midnight blue ankle-length skirt, navy and gold coin-trim hip scarf tied at waist, gold hoop earrings and dark ankle boots. Rich fabric, respectful theatrical fantasy styling. Premium photorealistic studio fashion catalog photograph. Single centered full-body adult front facing, calm expression, relaxed hands. Entire head to shoe soles visible, 8% margin. Real textiles and soft studio daylight. Actually transparent alpha background. No floor, backdrop, shadow, text, watermark or collage. Preserve full colors."
+    },
+    {
+      "slug": "alien-botanist",
+      "model": "hero",
+      "file": "/costumes/alien-botanist.png",
+      "prompt": "Use case: product-mockup. Photoreal premium Halloween costume catalog image. Alien Botanist costume: slim silver antenna headband, cream utility jumpsuit with rolled cuffs, shiny silver gloves, brown lace-up boots, small leafy green fabric specimen secured to a belt pouch. Retro space gardener, soft practical utilitarian look. Entire cohesive outfit front facing on invisible mannequin, centered square canvas with all headwear and shoes visible and 8% clear margins. Tactile believable textiles, soft even studio light. Actually transparent alpha background. No human, skin, mannequin, floor, lettering or watermark."
+    },
+    {
+      "slug": "alien-botanist",
+      "model": "female",
+      "file": "/costumes/models/alien-botanist-female.webp",
+      "prompt": "Use case: identity-preserve. Image 1 is identity reference: preserve exact adult person's face, skin, hair and body. Replace their entire cowboy outfit with: Alien Botanist costume: slim silver antenna headband, cream utility jumpsuit with rolled cuffs, shiny silver gloves, brown lace-up boots, small leafy green fabric specimen secured to a belt pouch. Retro space gardener, soft practical utilitarian look. Premium photorealistic studio fashion catalog photograph. Single centered full-body adult front facing, calm expression, relaxed hands. Entire head to shoe soles visible, 8% margin. Real textiles and soft studio daylight. Actually transparent alpha background. No floor, backdrop, shadow, text, watermark or collage. Preserve full colors."
+    },
+    {
+      "slug": "alien-botanist",
+      "model": "male",
+      "file": "/costumes/models/alien-botanist-male.webp",
+      "prompt": "Use case: identity-preserve. Image 1 is identity reference: preserve exact adult person's face, skin, hair and body. Replace their entire cowboy outfit with: Alien Botanist costume: slim silver antenna headband, cream utility jumpsuit with rolled cuffs, shiny silver gloves, brown lace-up boots, small leafy green fabric specimen secured to a belt pouch. Retro space gardener, soft practical utilitarian look. Premium photorealistic studio fashion catalog photograph. Single centered full-body adult front facing, calm expression, relaxed hands. Entire head to shoe soles visible, 8% margin. Real textiles and soft studio daylight. Actually transparent alpha background. No floor, backdrop, shadow, text, watermark or collage. Preserve full colors."
+    },
+    {
+      "slug": "haunted-bellhop",
+      "model": "hero",
+      "file": "/costumes/haunted-bellhop.png",
+      "prompt": "Use case: product-mockup. Photoreal premium Halloween costume catalog image. Haunted Bellhop costume: burgundy pillbox bellhop hat, fitted deep red jacket with gold horizontal braid and brass buttons, straight black trousers, white gloves, black ankle boots. Ghostly vintage hotel uniform with subtle weathered edges. Entire cohesive outfit front facing on invisible mannequin, centered square canvas with all headwear and shoes visible and 8% clear margins. Tactile believable textiles, soft even studio light. Actually transparent alpha background. No human, skin, mannequin, floor, lettering or watermark."
+    },
+    {
+      "slug": "haunted-bellhop",
+      "model": "female",
+      "file": "/costumes/models/haunted-bellhop-female.webp",
+      "prompt": "Use case: identity-preserve. Image 1 is identity reference: preserve exact adult person's face, skin, hair and body. Replace their entire cowboy outfit with: Haunted Bellhop costume: burgundy pillbox bellhop hat, fitted deep red jacket with gold horizontal braid and brass buttons, straight black trousers, white gloves, black ankle boots. Ghostly vintage hotel uniform with subtle weathered edges. Premium photorealistic studio fashion catalog photograph. Single centered full-body adult front facing, calm expression, relaxed hands. Entire head to shoe soles visible, 8% margin. Real textiles and soft studio daylight. Actually transparent alpha background. No floor, backdrop, shadow, text, watermark or collage. Preserve full colors."
+    },
+    {
+      "slug": "haunted-bellhop",
+      "model": "male",
+      "file": "/costumes/models/haunted-bellhop-male.webp",
+      "prompt": "Use case: identity-preserve. Image 1 is identity reference: preserve exact adult person's face, skin, hair and body. Replace their entire cowboy outfit with: Haunted Bellhop costume: burgundy pillbox bellhop hat, fitted deep red jacket with gold horizontal braid and brass buttons, straight black trousers, white gloves, black ankle boots. Ghostly vintage hotel uniform with subtle weathered edges. Premium photorealistic studio fashion catalog photograph. Single centered full-body adult front facing, calm expression, relaxed hands. Entire head to shoe soles visible, 8% margin. Real textiles and soft studio daylight. Actually transparent alpha background. No floor, backdrop, shadow, text, watermark or collage. Preserve full colors."
+    },
+    {
+      "slug": "masquerade-sun-king",
+      "model": "hero",
+      "file": "/costumes/masquerade-sun-king.png",
+      "prompt": "Use case: product-mockup. Photoreal premium Halloween costume catalog image. Masquerade Sun King costume: lightweight gold sunburst halo crown, flowing ivory/cream tunic, white pleated ruff collar, straight black tailored trousers and black ankle boots. Baroque theatrical elegance; crown is the defining piece. No coat or eye mask. Entire cohesive outfit front facing on invisible mannequin, centered square canvas with all headwear and shoes visible and 8% clear margins. Tactile believable textiles, soft even studio light. Actually transparent alpha background. No human, skin, mannequin, floor, lettering or watermark."
+    },
+    {
+      "slug": "masquerade-sun-king",
+      "model": "female",
+      "file": "/costumes/models/masquerade-sun-king-female.webp",
+      "prompt": "Use case: identity-preserve. Image 1 is identity reference: preserve exact adult person's face, skin, hair and body. Replace their entire cowboy outfit with: Masquerade Sun King costume: lightweight gold sunburst halo crown, flowing ivory/cream tunic, white pleated ruff collar, straight black tailored trousers and black ankle boots. Baroque theatrical elegance; crown is the defining piece. No coat or eye mask. Premium photorealistic studio fashion catalog photograph. Single centered full-body adult front facing, calm expression, relaxed hands. Entire head to shoe soles visible, 8% margin. Real textiles and soft studio daylight. Actually transparent alpha background. No floor, backdrop, shadow, text, watermark or collage. Preserve full colors."
+    },
+    {
+      "slug": "masquerade-sun-king",
+      "model": "male",
+      "file": "/costumes/models/masquerade-sun-king-male.webp",
+      "prompt": "Use case: identity-preserve. Image 1 is identity reference: preserve exact adult person's face, skin, hair and body. Replace their entire cowboy outfit with: Masquerade Sun King costume: lightweight gold sunburst halo crown, flowing ivory/cream tunic, white pleated ruff collar, straight black tailored trousers and black ankle boots. Baroque theatrical elegance; crown is the defining piece. No coat or eye mask. Premium photorealistic studio fashion catalog photograph. Single centered full-body adult front facing, calm expression, relaxed hands. Entire head to shoe soles visible, 8% margin. Real textiles and soft studio daylight. Actually transparent alpha background. No floor, backdrop, shadow, text, watermark or collage. Preserve full colors."
+    }
+  ]
+}

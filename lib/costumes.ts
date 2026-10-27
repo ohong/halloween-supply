@@ -252,4 +252,386 @@ export const costumes = [
     pieces: ["An ivory, orange, and golden yellow pointed hat", "A matching three-tone tiered dress", "A short black velvet cape", "Striped stockings", "Black lace-up boots"],
     tip: "Repeat the hat colors in wide fabric bands on a plain dress. A short black cape frames the bright tiers without hiding them.",
   },
+  {
+    "slug": "jellyfish-bloom",
+    "name": "Jellyfish Bloom",
+    "description": "A clear umbrella blooms with sheer fabric tentacles above soft ivory layers. A floating jellyfish you can carry.",
+    "alt": "Clear bubble umbrella with pale pink and pearl fabric tentacles over an ivory tunic and trousers",
+    "pieces": [
+      "A clear handheld bubble umbrella",
+      "Sheer fabric cut into short tentacles",
+      "An ivory tunic",
+      "Ivory trousers",
+      "Comfortable dark ankle boots"
+    ],
+    "tip": "Cut one yard into strips and tie them to the umbrella ribs. Keep strips above your knees. Bring your own scissors and thread.",
+    "status": "live",
+    "image": "/costumes/jellyfish-bloom.png"
+  },
+  {
+    "slug": "venus-flytrap",
+    "name": "Venus Flytrap",
+    "description": "Green felt leaves and an orange mouth with soft white teeth turn a black base into a hungry houseplant. DIY assembly required.",
+    "alt": "Green felt carnivorous plant collar with an orange mouth and white felt teeth over a black unitard",
+    "pieces": [
+      "Green felt for a leafy collar and open jaw",
+      "Orange felt for the mouth lining",
+      "White felt for soft teeth",
+      "A black unitard",
+      "Dark ankle boots"
+    ],
+    "tip": "Cut two broad leaves and stitch them into an open collar. Add orange lining and white teeth. Supply your own thread and fasteners.",
+    "status": "live",
+    "image": "/costumes/venus-flytrap.png"
+  },
+  {
+    "slug": "stained-glass-angel",
+    "name": "Stained Glass Angel",
+    "description": "A rainbow mosaic cape spreads like cathedral wings over ivory layers. Make the short cape from printed cotton.",
+    "alt": "Wing-shaped rainbow stained-glass print cotton cape over an ivory tunic and loose trousers",
+    "pieces": [
+      "Stained-glass print cotton for a short wing cape",
+      "An ivory tunic",
+      "Ivory trousers",
+      "A cream rope tie"
+    ],
+    "tip": "Round the corners of one yard into a short cape. Hem it and add your own wrist loops. The cotton is opaque; no frame is needed.",
+    "status": "live",
+    "image": "/costumes/stained-glass-angel.png"
+  },
+  {
+    "slug": "lava-lamp",
+    "name": "Lava Lamp",
+    "description": "Orange felt lava blobs float on a black base between a silver cone cap and wide silver hip band. A playful DIY build.",
+    "alt": "Black fitted outfit with orange felt lava blobs, a small silver cone cap, and a broad silver hip band",
+    "pieces": [
+      "A black unitard",
+      "Orange felt for lava blobs",
+      "Silver fabric for a cone cap and hip band",
+      "Dark ankle boots"
+    ],
+    "tip": "Stitch orange felt blobs onto black clothing. Wrap silver fabric over your own card cone and hip band. Supply card, thread, and fasteners.",
+    "status": "live",
+    "image": "/costumes/lava-lamp.png"
+  },
+  {
+    "slug": "walking-thundercloud",
+    "name": "Walking Thundercloud",
+    "description": "A handheld cloud umbrella trails silver fabric rain above a black base, finished with a lightning pin. DIY assembly required.",
+    "alt": "White cloud tufts on a clear handheld umbrella with silver rain strips over a black unitard and silver lightning pin",
+    "pieces": [
+      "A clear handheld bubble umbrella",
+      "White polyester stuffing for cloud tufts",
+      "Silver fabric for rain strips",
+      "A black unitard",
+      "A silver lightning pin"
+    ],
+    "tip": "Tie fiberfill tufts onto the umbrella ribs with your own thread. Add short silver strips. Twelve ounces makes scattered tufts; larger bags add fullness.",
+    "status": "live",
+    "image": "/costumes/walking-thundercloud.png"
+  },
+  {
+    "slug": "art-deco-robot",
+    "name": "Art Deco Robot",
+    "description": "An angular silver machine face, charcoal waistcoat, silver trousers and metallic gloves create a silent mechanical performer.",
+    "image": "/costumes/art-deco-robot.png",
+    "alt": "Silver geometric robot mask, charcoal waistcoat over a black shirt, silver trousers, silver gloves and black shoes.",
+    "status": "live",
+    "pieces": [
+      "Sculptural robot mask or helmet",
+      "Charcoal waistcoat",
+      "Silver trousers",
+      "Silver gloves"
+    ],
+    "tip": "Wear your own black shirt and comfortable black shoes. Practice a few slow, precise turns to bring the machine to life."
+  },
+  {
+    "slug": "haunted-prom-queen",
+    "name": "Haunted Prom Queen",
+    "description": "A burgundy velvet gown, rose crown and white Prom Queen sash turn formalwear into a ghost story.",
+    "image": "/costumes/haunted-prom-queen.png",
+    "alt": "Burgundy velvet floor-length gown, brass rose crown, white Prom Queen sash and dark ankle boots.",
+    "status": "live",
+    "pieces": [
+      "Burgundy velvet gown",
+      "Prom Queen sash",
+      "Brass-colored rose crown",
+      "Dark ankle boots"
+    ],
+    "tip": "Use a gown you already own if you can. Add smudged eye makeup and a faded corsage for the haunted effect."
+  },
+  {
+    "slug": "headless-horseman",
+    "name": "Headless Horseman",
+    "description": "Raised shoulders and a black cloak hide the head inside a theatrical illusion, with dark trousers and riding-style boots.",
+    "image": "/costumes/headless-horseman.png",
+    "alt": "Headless illusion costume with a black cape, raised empty collar, white lace ascot, black trousers and tall dark boots.",
+    "status": "live",
+    "pieces": [
+      "Headless illusion coat, cape and supports",
+      "Black pirate trousers",
+      "Tall black boots"
+    ],
+    "tip": "Fit the shoulder supports before dressing. Check the mesh sightline in good light, and keep the cape clear of your feet."
+  },
+  {
+    "slug": "phantom-opera",
+    "name": "Phantom of the Opera",
+    "description": "A white half mask and sweeping black cape frame a ruffled shirt and dark waistcoat for a dramatic entrance.",
+    "image": "/costumes/phantom-opera.png",
+    "alt": "White half-face phantom mask, black cape with burgundy lining, white ruffled shirt, black waistcoat, own black trousers and tall black boots.",
+    "status": "live",
+    "pieces": [
+      "White phantom half mask",
+      "Black velvet cape",
+      "White ruffled shirt",
+      "Black waistcoat — wear with your own black trousers",
+      "Black tall boots"
+    ],
+    "tip": "Keep the mask on one side of the face. Wear your own black trousers, and let the pale shirt show at the collar."
+  },
+  {
+    "slug": "silent-film-star",
+    "name": "Silent Film Star",
+    "description": "A black top hat, ivory shirt and charcoal waistcoat pair with pale stage makeup for a walking silent movie.",
+    "image": "/costumes/silent-film-star.png",
+    "alt": "Black top hat, ivory collared shirt, charcoal waistcoat, high-waisted black trousers and pale stage makeup, with own black shoes.",
+    "status": "live",
+    "pieces": [
+      "Black top hat",
+      "Cream collared shirt",
+      "Charcoal waistcoat",
+      "Black high-waisted trousers",
+      "White stage makeup"
+    ],
+    "tip": "Bring your own black shoes and a handwritten dialogue card. White gloves and a bow tie are optional finishes; the makeup row supplies white cream only."
+  },
+  {
+    "slug": "roller-disco",
+    "name": "Roller Disco",
+    "description": "A vertical rainbow-striped romper, bright knee socks, and a pink sweatband bring the roller-rink party.",
+    "image": "/costumes/roller-disco.png",
+    "alt": "Rainbow-striped short romper with rainbow knee socks, hot pink sweatband and wristbands, and white sneakers.",
+    "status": "live",
+    "pieces": [
+      "Rainbow striped romper",
+      "Rainbow knee socks or legwear",
+      "Retro headband or sweatband set"
+    ],
+    "tip": "Wear your own comfortable sneakers. Skates are optional and are not included. The rompers are made to order, so check timing before buying."
+  },
+  {
+    "slug": "pop-art-comic",
+    "name": "Pop Art Comic",
+    "description": "A black jumpsuit becomes a living comic panel with painted dots, bold outlines, and a homemade speech bubble.",
+    "image": "/costumes/pop-art-comic.png",
+    "alt": "Black jumpsuit and ankle boots with primary-color comic face dots and a handmade speech-bubble badge.",
+    "status": "live",
+    "pieces": [
+      "Black jumpsuit base",
+      "Face and body paint palette",
+      "Black lace-up boots"
+    ],
+    "tip": "Paint dots and bold outlines with face paint. Make a speech bubble from your own card and pin it to the outfit. The badge is DIY, not included."
+  },
+  {
+    "slug": "mad-tea-hatter",
+    "name": "Mad Tea Hatter",
+    "description": "A tall tagged hat, midnight brocade coat, ivory ruffles, and plum trousers make a gloriously mismatched tea-party host.",
+    "image": "/costumes/mad-tea-hatter.png",
+    "alt": "Black top hat with a 10/6 card, midnight-blue brocade long coat, ivory ruffled shirt, plum trousers, and black boots.",
+    "status": "live",
+    "pieces": [
+      "Tall hat with a DIY 10/6 card",
+      "Midnight blue long coat",
+      "Cream or white ruffled shirt",
+      "Fitted plum or burgundy velvet trousers",
+      "Black lace-up boots"
+    ],
+    "tip": "Tuck a handwritten 10/6 card into your hat band. Carry a cup you already own. The card, ribbon, and cup are styling additions, not included."
+  },
+  {
+    "slug": "queen-of-hearts",
+    "name": "Queen of Hearts",
+    "description": "A dramatic red-and-black card gown and sculpted red wig turn every doorway into a royal entrance.",
+    "image": "/costumes/queen-of-hearts.png",
+    "alt": "Queen of Hearts in a red and black heart-motif gown, a red heart-shaped wig, small crown, and black boots.",
+    "status": "live",
+    "pieces": [
+      "Queen of Hearts dress or gown set",
+      "Red Queen wig",
+      "Black lace-up boots"
+    ],
+    "tip": "Let the gown and wig make the statement. Crown contents vary by dress option. Compare the merchant photos and costume size chart before choosing."
+  },
+  {
+    "slug": "candy-automaton",
+    "name": "Candy Automaton",
+    "description": "Candy-shop stripes, red velvet, silver gloves, and a homemade wind-up key turn you into a clockwork confection.",
+    "image": "/costumes/candy-automaton.png",
+    "alt": "Red velvet short romper with black and white striped hips, silver gloves, black boots, and a homemade silver wind-up key on the back.",
+    "status": "live",
+    "pieces": [
+      "Striped velvet toy romper",
+      "Silver gloves",
+      "Black lace-up boots"
+    ],
+    "tip": "Cut a large wind-up key from your own light cardboard and cover it with kitchen foil. Attach it to a soft belt. The key is DIY, not included."
+  },
+  {
+    "slug": "deep-sea-diver",
+    "name": "Deep Sea Diver",
+    "description": "A gold diving-bell helmet turns cream coveralls and a broad belt into an explorer from a lost underwater expedition.",
+    "image": "/costumes/deep-sea-diver.png",
+    "alt": "Gold vintage diving bell costume helmet, cream coveralls, tan belt and brown lace-up boots",
+    "status": "live",
+    "pieces": [
+      "Gold diving-bell costume helmet",
+      "Light coveralls",
+      "Pale waist belt",
+      "Brown lace-up boots"
+    ],
+    "tip": "Keep the helmet opening clear. This outfit is for a party; none of its pieces are diving equipment."
+  },
+  {
+    "slug": "dragon-rider",
+    "name": "Dragon Rider",
+    "description": "Dark horns and overlapping leather shoulder armor turn a weathered flight jacket into a dragon rider’s gear.",
+    "image": "/costumes/dragon-rider.png",
+    "alt": "Black fantasy horns above brown overlapping shoulder armor, a brown flight jacket, black trousers and brown boots",
+    "status": "live",
+    "pieces": [
+      "Dark dragon-inspired horns",
+      "Brown flight jacket",
+      "Dragon-inspired costume armor",
+      "Black trousers",
+      "Brown lace-up boots"
+    ],
+    "tip": "Wear your own shirt beneath the jacket. Adjustable shoulder armor and dark horns set the dragon-inspired silhouette."
+  },
+  {
+    "slug": "phoenix-rising",
+    "name": "Phoenix Rising",
+    "description": "Fiery red-and-gold wings spread from a charcoal base, with handmade flame cuffs that move as you dance.",
+    "image": "/costumes/phoenix-rising.png",
+    "alt": "Red, orange and yellow phoenix wings over a black fitted unitard, burnt-orange fabric wrist flames and black ankle boots",
+    "status": "live",
+    "pieces": [
+      "Firebird wings",
+      "Black fitted unitard",
+      "Orange fabric for DIY flame cuffs",
+      "Black ankle boots"
+    ],
+    "tip": "Cut flame shapes from the orange fabric and stitch them to removable wrist bands. Keep the wings clear of doorways."
+  },
+  {
+    "slug": "ice-empress",
+    "name": "Ice Empress",
+    "description": "A towering silver crown and ivory layers create an ice ruler, softened by white fur and finished with silver boots.",
+    "image": "/costumes/ice-empress.png",
+    "alt": "Tall silver rhinestone crown, ivory long tunic and trousers, white faux-fur shoulder collar and silver boots",
+    "status": "live",
+    "pieces": [
+      "Silver crystal-look crown",
+      "Ivory long tunic",
+      "Ivory trousers",
+      "Ivory faux-fur shoulder collar",
+      "Silver boots"
+    ],
+    "tip": "Let the crown carry the drama. Use ivory layers you already own and keep long hems clear of your boots."
+  },
+  {
+    "slug": "labyrinth-faun",
+    "name": "Labyrinth Faun",
+    "description": "Curled horns rise above leafy green layers, brown trousers and leather bracers for a guardian of a hidden woodland maze.",
+    "image": "/costumes/labyrinth-faun.png",
+    "alt": "Curled brown ram horns, leafy green tunic, brown utility trousers, brown leather forearm bracers and lace-up boots",
+    "status": "live",
+    "pieces": [
+      "Curled woodland horns",
+      "Leaf-green top or tunic",
+      "Brown utility trousers",
+      "Brown forearm bracers",
+      "Brown lace-up boots"
+    ],
+    "tip": "Blend woodland greens and worn brown leather. Use flat boots so you can walk freely; this look needs no hoof stilts."
+  },
+  {
+    "slug": "escaped-masterpiece",
+    "status": "live",
+    "name": "Escaped Masterpiece",
+    "description": "A walking gallery portrait: a gilt frame surrounds an ivory blouse and flowing burgundy skirt.",
+    "image": "/costumes/escaped-masterpiece.png",
+    "alt": "An ornate gold portrait frame around an ivory ruffled blouse and burgundy maxi skirt, with dark boots.",
+    "pieces": [
+      "DIY portrait frame foam",
+      "Ivory billowy shirt",
+      "Burgundy maxi skirt",
+      "Dark ankle boots"
+    ],
+    "tip": "Cut the frame from lightweight foam. Glue the corners, paint it gold, and add ribbon shoulder loops. Paint, glue and ribbon are extra supplies."
+  },
+  {
+    "slug": "fortune-teller",
+    "status": "live",
+    "name": "Fortune Teller",
+    "description": "An ivory blouse and flowing black skirt, finished with blue and gold coins for a theatrical midnight oracle.",
+    "image": "/costumes/fortune-teller.png",
+    "alt": "Ivory billowy blouse, long black skirt, blue coin hip scarf and black boots.",
+    "pieces": [
+      "Ivory billowy shirt",
+      "Long black skirt",
+      "Gold coin styling accessory",
+      "Dark ankle boots"
+    ],
+    "tip": "Tie the blue scarf over a skirt you own. Add a handwritten prediction card as a conversation starter."
+  },
+  {
+    "slug": "alien-botanist",
+    "status": "live",
+    "name": "Alien Botanist",
+    "description": "A cream utility suit, silver antennae and a belt of tiny specimen bottles make a curious visitor from another garden.",
+    "image": "/costumes/alien-botanist.png",
+    "alt": "Cream utility jumpsuit, silver antenna headband, small green specimen bottles at the belt, silver gloves and brown boots.",
+    "pieces": [
+      "Light flight jumpsuit base",
+      "Alien antenna headpiece",
+      "Potion bottles with belt holder",
+      "Silver gloves",
+      "Brown leather boots"
+    ],
+    "tip": "Put tiny fabric leaves in empty specimen bottles. Label them with invented planet names; no live plants or chemicals are needed."
+  },
+  {
+    "slug": "haunted-bellhop",
+    "status": "live",
+    "name": "Haunted Bellhop",
+    "description": "A red and gold hotel uniform with a pillbox cap, white gloves and a room that does not exist.",
+    "image": "/costumes/haunted-bellhop.png",
+    "alt": "Red bellhop pillbox cap and gold-trimmed red jacket, black trousers, white gloves and black boots.",
+    "pieces": [
+      "DIY bellhop pillbox hat foam",
+      "Red tailcoat with gold trim",
+      "Black trousers",
+      "Light full-finger gloves",
+      "Dark ankle boots"
+    ],
+    "tip": "Build a small pillbox cap from foam and cover it in red fabric. Pin on a paper badge for Room 13."
+  },
+  {
+    "slug": "masquerade-sun-king",
+    "status": "live",
+    "name": "Masquerade Sun King",
+    "description": "A radiant gold sunburst crown rises over cream layers and a theatrical white ruff.",
+    "image": "/costumes/masquerade-sun-king.png",
+    "alt": "Gold sunburst halo crown, ivory tunic, white pleated ruff, black trousers and dark boots.",
+    "pieces": [
+      "Gold sunburst crown",
+      "Cream tunic",
+      "Cream or white ruff collar",
+      "Black trousers",
+      "Dark ankle boots"
+    ],
+    "tip": "Keep the layers pale and let the crown catch the light. A paper invitation to your solar court completes the character."
+  },
 ] as const;

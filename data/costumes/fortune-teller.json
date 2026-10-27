@@ -1,0 +1,609 @@
+{
+  "costume": {
+    "slug": "fortune-teller",
+    "name": "Fortune Teller",
+    "description": "An ivory blouse and flowing black skirt, finished with blue and gold coins for a theatrical midnight oracle.",
+    "image": "/costumes/fortune-teller.png",
+    "alt": "Ivory billowy blouse, long black skirt, blue coin hip scarf and black boots.",
+    "status": "live"
+  },
+  "pieces": [
+    {
+      "id": "fortune-teller-midnight-pirate-ruffled-shirt",
+      "name": "Ivory billowy shirt",
+      "category": "tops",
+      "required": true,
+      "order": 0,
+      "styleNotes": "Loose light shirt with a ruffled front and cuffs. White options approximate the reference ivory shade.",
+      "queries": [
+        "ivory ruffled pirate shirt billowy sleeves"
+      ],
+      "sizeKind": "apparel",
+      "matches": [
+        {
+          "productId": "p-4d5ad424a6",
+          "rank": 0,
+          "reason": "White rather than ivory. Polyester shirt has a high collar, three front ruffle rows, cuff ruffles, and white/silver buttons. Shirt only. Feed exposes positive inventory for all four listed sizes."
+        },
+        {
+          "productId": "p-d37d64fa7f",
+          "rank": 1,
+          "reason": "Ivory shirt with ruffles and lace-up neckline; shirt only. Only Small is available at $12; sold-out Medium has a different price. Made in USA. Merchant advertises same-day US dispatch before 5pm EST Monday-Friday, excluding holidays."
+        },
+        {
+          "productId": "p-368be886f2",
+          "rank": 2,
+          "reason": "White cotton-linen shirt includes detachable lace-edged neck jabot and adjustable lace cuffs. White differs from ivory. Listed sizes have physical stock; S/M 42 is sold out and excluded. Other pictured clothing is excluded. Merchant FAQ states normal 24-hour packing for fully stocked orders; no delivery date promised."
+        }
+      ]
+    },
+    {
+      "id": "fortune-teller-raven-scholar-black-skirt",
+      "name": "Long black skirt",
+      "category": "bottoms",
+      "required": true,
+      "order": 1,
+      "styleNotes": "A flowing dark skirt beneath the ivory blouse. Real choices are black rather than the reference midnight navy. No waistcoat is needed.",
+      "queries": [
+        "black Victorian maxi skirt layered ruffles"
+      ],
+      "sizeKind": "apparel",
+      "matches": [
+        {
+          "productId": "p-a45f18ae26",
+          "rank": 0,
+          "reason": "One deep black lace maxi skirt with cascading ruffled tiers, embroidered detail, irregular hem and elastic drawstring waist. Closer layered texture than the plain walking skirt, but sheer lace replaces the reference’s opaque cloth. Only merchant size F is sold and available; body measurements and lining coverage are not stated. Other styled garments/accessories are excluded. USD currency confirmed in merchant page data. Dispatch time unstated."
+        },
+        {
+          "productId": "p-d618ba035e",
+          "rank": 1,
+          "reason": "Black 100% cotton full-length walking skirt with adjustable button waistband. Plain, slim silhouette replaces the reference’s layered ruffles and embroidery. Skirt only; no hoop is required or included. Only XS and 3X are currently available; all other sizes sold out. Merchant gives approximate lengths of 41 inches in S and 43 inches in 2X, but those sizes are not offered here. Dispatch time unstated."
+        },
+        {
+          "productId": "p-90ba76fee6",
+          "rank": 2,
+          "reason": "Black unlined 100% cotton twill skirt, about 40 inches long, with elastic waist and back ruffles creating a bustle. Ruffles run mainly at the back; it lacks the reference’s front embroidery and angled layered overskirt. Skirt only; shown hoop underskirt is sold separately and is optional. S, M, L, XL and 2X are available; XS and 3X are sold out. Dispatch time unstated."
+        }
+      ]
+    },
+    {
+      "id": "fortune-teller-gold-coin-styling-accessory",
+      "name": "Gold coin styling accessory",
+      "category": "accessories",
+      "required": true,
+      "order": 2,
+      "styleNotes": "Default is a blue/gold hip scarf. Budget choice is a headband and earrings set instead, worn at the head; premium choice is a royal-blue velvet hip scarf. Neither hip scarf includes earrings. These are theatrical styling accessories, not a cultural costume.",
+      "queries": [
+        "Gold coin styling accessory"
+      ],
+      "sizeKind": "one_size",
+      "matches": [
+        {
+          "productId": "e-aa9e96ab7d",
+          "rank": 0,
+          "reason": "Public merchant variant feed confirms price and stock. Blue wrap with gold-colored coins; merchant states one size fits most."
+        },
+        {
+          "productId": "e-bf56d9c5b7",
+          "rank": 1,
+          "reason": "Public merchant variant feed confirms price and stock. Headband and earrings set; no hip scarf included. Wear at the head rather than the waist."
+        },
+        {
+          "productId": "e-f353260179",
+          "rank": 2,
+          "reason": "Merchant page embeds Royal Blue variant 45950013046996, price 1799 cents, available true, and this exact photograph. Velvet hip scarf; base skirt and blouse not included."
+        }
+      ]
+    },
+    {
+      "id": "fortune-teller-moon-boots",
+      "name": "Dark ankle boots",
+      "category": "Footwear",
+      "required": true,
+      "order": 3,
+      "styleNotes": "Black or dark brown leather ankle boots with a low block heel or flat sole, slightly worn in. Vintage or witchy styling like lace-up or Chelsea boots keeps the base look grounded.",
+      "queries": [
+        "vintage black leather ankle boots lace up women's",
+        "secondhand black Chelsea ankle boots leather vintage",
+        "handmade black leather lace-up ankle boots small brand"
+      ],
+      "sizeKind": "shoe",
+      "matches": [
+        {
+          "productId": "p-fa88c71724",
+          "rank": 0,
+          "reason": "Genuine black leather upper, glove leather lining, 1.25 inch stacked leather heel, elastic gores. All Standard US4-13 in half sizes available. Broad sizes; exact variant default is US4, shopper must choose correct size."
+        },
+        {
+          "productId": "p-da7d00ef0d",
+          "rank": 1,
+          "reason": "Budget material compromise: imitation synthetic leather rather than genuine leather. Ankle-high Chelsea, 1.25 inch heel, 0.75 inch platform. Merchant JSON-LD lists black USD49.99 InStock; live HTML exact-size inventory counts positive for all 12 listed US sizes. Size8 kid23928 count1806. Hidden generic SOLD OUT text is contradicted by variant inventory and InStock offer; verified source HTML retained /tmp/dreampairs-moon-boots.html."
+        },
+        {
+          "productId": "p-862b138943",
+          "rank": 2,
+          "reason": "Black premium water-resistant leather classic flat Chelsea boot. Live public feed USD209.95, not stale search result199.95. Available USwomen5-16; two equivalent AU/UK label sets in merchant variants, deduplicate before display. Exact first available variant is USwomen6."
+        }
+      ]
+    }
+  ],
+  "products": [
+    {
+      "id": "p-4d5ad424a6",
+      "title": "New Colonies White Ruffle Shirt",
+      "url": "https://www.costumesandcollectibles.com/products/new-colonies-white-ruffle-shirt?variant=21374030905403",
+      "priceCents": 6995,
+      "currency": "USD",
+      "image": "/products/price-tiers/p-4d5ad424a6.webp",
+      "merchantImage": "/products/price-tiers/p-4d5ad424a6.webp",
+      "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/1485/9888/products/0009877_0.jpeg?v=1567510722"
+      ],
+      "availability": "in_stock",
+      "sizes": [
+        "Small",
+        "Medium",
+        "Large",
+        "X-Large"
+      ],
+      "merchantId": "costumesandcollectibles-com",
+      "tagSlugs": [],
+      "description": "White rather than ivory. Polyester shirt has a high collar, three front ruffle rows, cuff ruffles, and white/silver buttons. Shirt only. Feed exposes positive inventory for all four listed sizes.",
+      "checkedAt": "2026-10-25T08:47:48Z",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-25T08:47:48Z",
+        "url": "https://www.costumesandcollectibles.com/products/new-colonies-white-ruffle-shirt.js",
+        "notes": "White rather than ivory. Polyester shirt has a high collar, three front ruffle rows, cuff ruffles, and white/silver buttons. Shirt only. Feed exposes positive inventory for all four listed sizes."
+      }
+    },
+    {
+      "id": "p-d37d64fa7f",
+      "title": "Pirate Shirt for Men Costume",
+      "url": "https://www.romaretailshop.com/products/pirate-shirt-for-men-costume?variant=33765644206218",
+      "priceCents": 1200,
+      "currency": "USD",
+      "image": "/products/price-tiers/p-d37d64fa7f.webp",
+      "merchantImage": "/products/price-tiers/p-d37d64fa7f.webp",
+      "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/0378/4186/2794/products/4651.jpg?v=1588888929"
+      ],
+      "availability": "in_stock",
+      "sizes": [
+        "Small"
+      ],
+      "merchantId": "romaretailshop-com",
+      "tagSlugs": [],
+      "description": "Ivory shirt with ruffles and lace-up neckline; shirt only. Only Small is available at $12; sold-out Medium has a different price. Made in USA. Merchant advertises same-day US dispatch before 5pm EST Monday-Friday, excluding holidays.",
+      "checkedAt": "2026-10-25T08:47:48Z",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-25T08:47:48Z",
+        "url": "https://www.romaretailshop.com/products/pirate-shirt-for-men-costume.js",
+        "notes": "Ivory shirt with ruffles and lace-up neckline; shirt only. Only Small is available at $12; sold-out Medium has a different price. Made in USA. Merchant advertises same-day US dispatch before 5pm EST Monday-Friday, excluding holidays."
+      }
+    },
+    {
+      "id": "p-368be886f2",
+      "title": "Fancy Court Pirate Shirt",
+      "url": "https://piratefashions.com/products/fancy-court-pirate-shirt?variant=9215160909884",
+      "priceCents": 9000,
+      "currency": "USD",
+      "image": "/products/price-tiers/p-368be886f2.webp",
+      "merchantImage": "/products/price-tiers/p-368be886f2.webp",
+      "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/0358/8265/products/court_shirt1.jpg?v=1571274870"
+      ],
+      "availability": "in_stock",
+      "sizes": [
+        "L/XL 48 R",
+        "XXL 54"
+      ],
+      "merchantId": "piratefashions-com",
+      "tagSlugs": [],
+      "description": "White cotton-linen shirt includes detachable lace-edged neck jabot and adjustable lace cuffs. White differs from ivory. Listed sizes have physical stock; S/M 42 is sold out and excluded. Other pictured clothing is excluded. Merchant FAQ states normal 24-hour packing for fully stocked orders; no delivery date promised.",
+      "checkedAt": "2026-10-25T08:47:48Z",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-25T08:47:48Z",
+        "url": "https://piratefashions.com/products/fancy-court-pirate-shirt.js",
+        "notes": "White cotton-linen shirt includes detachable lace-edged neck jabot and adjustable lace cuffs. White differs from ivory. Listed sizes have physical stock; S/M 42 is sold out and excluded. Other pictured clothing is excluded. Merchant FAQ states normal 24-hour packing for fully stocked orders; no delivery date promised."
+      }
+    },
+    {
+      "id": "p-a45f18ae26",
+      "title": "Vintage Gothic Lace Layered Maxi Skirt KW432",
+      "url": "https://www.darkinlove.com/products/vintage-gothic-lace-layered-maxi-skirt-kw432?variant=56851148931232",
+      "priceCents": 8317,
+      "currency": "USD",
+      "image": "/products/price-tiers/p-a45f18ae26.webp",
+      "merchantImage": "/products/price-tiers/p-a45f18ae26.webp",
+      "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/0051/7088/8794/files/KW432.jpg?v=1774244294"
+      ],
+      "availability": "in_stock",
+      "sizes": [
+        "F"
+      ],
+      "merchantId": "darkinlove-com",
+      "tagSlugs": [],
+      "description": "One deep black lace maxi skirt with cascading ruffled tiers, embroidered detail, irregular hem and elastic drawstring waist. Closer layered texture than the plain walking skirt, but sheer lace replaces the reference’s opaque cloth. Only merchant size F is sold and available; body measurements and lining coverage are not stated. Other styled garments/accessories are excluded. USD currency confirmed in merchant page data. Dispatch time unstated.",
+      "checkedAt": "2026-10-25T08:49:51.686928+00:00",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-25T08:49:51.686928+00:00",
+        "url": "https://www.darkinlove.com/products/vintage-gothic-lace-layered-maxi-skirt-kw432.js",
+        "notes": "One deep black lace maxi skirt with cascading ruffled tiers, embroidered detail, irregular hem and elastic drawstring waist. Closer layered texture than the plain walking skirt, but sheer lace replaces the reference’s opaque cloth. Only merchant size F is sold and available; body measurements and lining coverage are not stated. Other styled garments/accessories are excluded. USD currency confirmed in merchant page data. Dispatch time unstated."
+      }
+    },
+    {
+      "id": "p-d618ba035e",
+      "title": "Cotton Twill Walking Skirt - Black",
+      "url": "https://historicalemporium.com/products/cotton-twill-walking-skirt-black?variant=51717579079974",
+      "priceCents": 8195,
+      "currency": "USD",
+      "image": "/products/price-tiers/p-d618ba035e.webp",
+      "merchantImage": "/products/price-tiers/p-d618ba035e.webp",
+      "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/0980/0974/3654/files/001836_01_a3fa85f6-bbdb-4372-851b-63a614e18335.jpg?v=1769539250"
+      ],
+      "availability": "in_stock",
+      "sizes": [
+        "XS",
+        "3X"
+      ],
+      "merchantId": "historicalemporium-com",
+      "tagSlugs": [],
+      "description": "Black 100% cotton full-length walking skirt with adjustable button waistband. Plain, slim silhouette replaces the reference’s layered ruffles and embroidery. Skirt only; no hoop is required or included. Only XS and 3X are currently available; all other sizes sold out. Merchant gives approximate lengths of 41 inches in S and 43 inches in 2X, but those sizes are not offered here. Dispatch time unstated.",
+      "checkedAt": "2026-10-25T08:49:51.686928+00:00",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-25T08:49:51.686928+00:00",
+        "url": "https://historicalemporium.com/products/cotton-twill-walking-skirt-black.js",
+        "notes": "Black 100% cotton full-length walking skirt with adjustable button waistband. Plain, slim silhouette replaces the reference’s layered ruffles and embroidery. Skirt only; no hoop is required or included. Only XS and 3X are currently available; all other sizes sold out. Merchant gives approximate lengths of 41 inches in S and 43 inches in 2X, but those sizes are not offered here. Dispatch time unstated."
+      }
+    },
+    {
+      "id": "p-90ba76fee6",
+      "title": "Twill Bustle Skirt - Black",
+      "url": "https://historicalemporium.com/products/twill-bustle-skirt-black?variant=51717849088294",
+      "priceCents": 10295,
+      "currency": "USD",
+      "image": "/products/price-tiers/p-90ba76fee6.webp",
+      "merchantImage": "/products/price-tiers/p-90ba76fee6.webp",
+      "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/0980/0974/3654/files/002598_01_b5e088ed-11b5-4698-954f-08af8bae96e3.jpg?v=1769539358"
+      ],
+      "availability": "in_stock",
+      "sizes": [
+        "S",
+        "M",
+        "L",
+        "XL",
+        "2X"
+      ],
+      "merchantId": "historicalemporium-com",
+      "tagSlugs": [],
+      "description": "Black unlined 100% cotton twill skirt, about 40 inches long, with elastic waist and back ruffles creating a bustle. Ruffles run mainly at the back; it lacks the reference’s front embroidery and angled layered overskirt. Skirt only; shown hoop underskirt is sold separately and is optional. S, M, L, XL and 2X are available; XS and 3X are sold out. Dispatch time unstated.",
+      "checkedAt": "2026-10-25T08:49:51.686928+00:00",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-25T08:49:51.686928+00:00",
+        "url": "https://historicalemporium.com/products/twill-bustle-skirt-black.js",
+        "notes": "Black unlined 100% cotton twill skirt, about 40 inches long, with elastic waist and back ruffles creating a bustle. Ruffles run mainly at the back; it lacks the reference’s front embroidery and angled layered overskirt. Skirt only; shown hoop underskirt is sold separately and is optional. S, M, L, XL and 2X are available; XS and 3X are sold out. Dispatch time unstated."
+      }
+    },
+    {
+      "id": "e-bf56d9c5b7",
+      "title": "Fortune Teller Headband and Earrings Set",
+      "url": "https://caufields.com/products/gypsy-headband-and-earrings-set?variant=71272647164157",
+      "priceCents": 1299,
+      "currency": "USD",
+      "image": "/products/price-tiers/e-bf56d9c5b7.webp",
+      "merchantImage": "/products/price-tiers/e-bf56d9c5b7.webp",
+      "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/0524/6392/7479/files/31565.jpg?v=1788987005"
+      ],
+      "availability": "in_stock",
+      "sizes": [
+        "One size fits most"
+      ],
+      "merchantId": "expansion-e-caufields-com",
+      "tagSlugs": [],
+      "description": "Public merchant variant feed confirms price and stock. Headband and earrings set; no hip scarf included. Wear at the head rather than the waist.",
+      "checkedAt": "2026-10-27T00:28:53.880632Z",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-27T00:28:53.880632Z",
+        "url": "https://caufields.com/products/gypsy-headband-and-earrings-set?variant=71272647164157",
+        "notes": "Public merchant variant feed confirms price and stock. Headband and earrings set; no hip scarf included. Wear at the head rather than the waist."
+      }
+    },
+    {
+      "id": "e-aa9e96ab7d",
+      "title": "Fortune Teller Coin Hip Scarf - Blue & Gold",
+      "url": "https://caufields.com/products/fortune-teller-coin-hip-scarf-blue-gold?variant=44514146877693",
+      "priceCents": 1599,
+      "currency": "USD",
+      "image": "/products/price-tiers/e-aa9e96ab7d.webp",
+      "merchantImage": "/products/price-tiers/e-aa9e96ab7d.webp",
+      "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/0524/6392/7479/files/Screenshot2024-02-13160159.png?v=1707858162"
+      ],
+      "availability": "in_stock",
+      "sizes": [
+        "One size fits most"
+      ],
+      "merchantId": "expansion-e-caufields-com",
+      "tagSlugs": [],
+      "description": "Public merchant variant feed confirms price and stock. Blue wrap with gold-colored coins; merchant states one size fits most.",
+      "checkedAt": "2026-10-27T00:28:53.880632Z",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-27T00:28:53.880632Z",
+        "url": "https://caufields.com/products/fortune-teller-coin-hip-scarf-blue-gold?variant=44514146877693",
+        "notes": "Public merchant variant feed confirms price and stock. Blue wrap with gold-colored coins; merchant states one size fits most."
+      }
+    },
+    {
+      "id": "e-f353260179",
+      "title": "Belly Dance Velvet Hip Scarf With Gold Coins — Royal Blue",
+      "url": "https://missbellydance.com/products/belly-dance-velvet-hip-scarf-with-gold-coins?variant=45950013046996",
+      "priceCents": 1799,
+      "currency": "USD",
+      "image": "/products/price-tiers/e-f353260179.webp",
+      "merchantImage": "/products/price-tiers/e-f353260179.webp",
+      "sourceImages": [
+        "https://missbellydance.com/cdn/shop/files/OV_royal.jpg?v=1735590360"
+      ],
+      "availability": "in_stock",
+      "sizes": [],
+      "merchantId": "expansion-e-missbellydance-com",
+      "tagSlugs": [],
+      "description": "Merchant page embeds Royal Blue variant 45950013046996, price 1799 cents, available true, and this exact photograph. Velvet hip scarf; base skirt and blouse not included.",
+      "checkedAt": "2026-10-27T00:28:53.880632Z",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-27T00:28:53.880632Z",
+        "url": "https://missbellydance.com/products/belly-dance-velvet-hip-scarf-with-gold-coins?variant=45950013046996",
+        "notes": "Merchant page embeds Royal Blue variant 45950013046996, price 1799 cents, available true, and this exact photograph. Velvet hip scarf; base skirt and blouse not included."
+      }
+    },
+    {
+      "id": "p-fa88c71724",
+      "title": "Duchess | Black",
+      "url": "https://thursdayboots.com/products/womens-duchess-black-chelsea-boot?variant=41611980701786",
+      "priceCents": 16000,
+      "currency": "USD",
+      "image": "/products/price-tiers/p-fa88c71724.webp",
+      "merchantImage": "/products/price-tiers/p-fa88c71724.webp",
+      "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/0419/1525/products/1024x1024-Women-Duchess-Black-Side.jpg?v=1591637693"
+      ],
+      "availability": "in_stock",
+      "sizes": [
+        "4",
+        "4.5",
+        "5",
+        "5.5",
+        "6",
+        "6.5",
+        "7",
+        "7.5",
+        "8",
+        "8.5",
+        "9",
+        "9.5",
+        "10",
+        "10.5",
+        "11",
+        "11.5",
+        "12",
+        "12.5",
+        "13"
+      ],
+      "merchantId": "thursdayboots-com",
+      "tagSlugs": [],
+      "description": "Genuine black leather upper, glove leather lining, 1.25 inch stacked leather heel, elastic gores. All Standard US4-13 in half sizes available. Broad sizes; exact variant default is US4, shopper must choose correct size.",
+      "checkedAt": "2026-10-25T07:07:04.071733+00:00",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-25T07:07:04.071733+00:00",
+        "url": "https://thursdayboots.com/products/womens-duchess-black-chelsea-boot.js",
+        "notes": "Genuine black leather upper, glove leather lining, 1.25 inch stacked leather heel, elastic gores. All Standard US4-13 in half sizes available. Broad sizes; exact variant default is US4, shopper must choose correct size."
+      }
+    },
+    {
+      "id": "p-da7d00ef0d",
+      "title": "Classic Chelsea Ankle Booties — Black PU",
+      "url": "https://www.dreampairs.com/products/dab213?kid=23928",
+      "priceCents": 4999,
+      "currency": "USD",
+      "image": "/products/price-tiers/p-da7d00ef0d.webp",
+      "merchantImage": "/products/price-tiers/p-da7d00ef0d.webp",
+      "sourceImages": [
+        "https://cdnimg.dreampairs.com/dreampairshoes/product/product/DAB213/BLACK%20PU/1.jpg"
+      ],
+      "availability": "in_stock",
+      "sizes": [
+        "5",
+        "5.5",
+        "6",
+        "6.5",
+        "7",
+        "7.5",
+        "8",
+        "8.5",
+        "9",
+        "9.5",
+        "10",
+        "11"
+      ],
+      "merchantId": "dreampairs-com",
+      "tagSlugs": [],
+      "description": "Budget material compromise: imitation synthetic leather rather than genuine leather. Ankle-high Chelsea, 1.25 inch heel, 0.75 inch platform. Merchant JSON-LD lists black USD49.99 InStock; live HTML exact-size inventory counts positive for all 12 listed US sizes. Size8 kid23928 count1806. Hidden generic SOLD OUT text is contradicted by variant inventory and InStock offer; verified source HTML retained /tmp/dreampairs-moon-boots.html.",
+      "checkedAt": "2026-10-25T07:07:04.071733+00:00",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-25T07:07:04.071733+00:00",
+        "url": "https://www.dreampairs.com/products/dab213?color=2038",
+        "notes": "Budget material compromise: imitation synthetic leather rather than genuine leather. Ankle-high Chelsea, 1.25 inch heel, 0.75 inch platform. Merchant JSON-LD lists black USD49.99 InStock; live HTML exact-size inventory counts positive for all 12 listed US sizes. Size8 kid23928 count1806. Hidden generic SOLD OUT text is contradicted by variant inventory and InStock offer; verified source HTML retained /tmp/dreampairs-moon-boots.html."
+      }
+    },
+    {
+      "id": "p-862b138943",
+      "title": "Women's Originals #510",
+      "url": "https://www.blundstone.com/products/black-premium-leather-v-cut-boots-womens-style-510?variant=53192323596595",
+      "priceCents": 20995,
+      "currency": "USD",
+      "image": "/products/price-tiers/p-862b138943.webp",
+      "merchantImage": "/products/price-tiers/p-862b138943.webp",
+      "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/0903/6349/4707/files/product-image_2026-10-12_510_p_usa_hero.jpg?v=1791961602"
+      ],
+      "availability": "in_stock",
+      "sizes": [
+        "6 US Women (3 AU/UK)",
+        "6.5 US Women (3.5 AU/UK)",
+        "7 US Women (4 AU/UK)",
+        "7.5 US Women (4.5 AU/UK)",
+        "8 US Women (5 AU/UK)",
+        "8.5 US Women (5.5 AU/UK)",
+        "9 US Women (6 AU/UK)",
+        "9.5 US Women (6.5 AU/UK)",
+        "10 US Women (7 AU/UK)",
+        "10.5 US Women (7.5 AU/UK)",
+        "11 US Women (8 AU/UK)",
+        "11.5 US Women (8.5 AU/UK)",
+        "12 US Women (9 AU/UK)",
+        "12.5 US Women (9.5 AU/UK)",
+        "13 US Women (10 AU/UK)",
+        "13.5 US Women (10.5 AU/UK)",
+        "14 US Women (11 AU/UK)",
+        "15 US Women (12 AU/UK)",
+        "16 US Women (13 AU/UK)",
+        "5 US Women (2 UK/AU)",
+        "6 US Women (3 UK/AU)",
+        "6.5 US Women (3.5 UK/AU)",
+        "7 US Women (4 UK/AU)",
+        "7.5 US Women (4.5 UK/AU)",
+        "8 US Women (5 UK/AU)",
+        "8.5 US Women (5.5 UK/AU)",
+        "9 US Women (6 UK/AU)",
+        "9.5 US Women (6.5 UK/AU)",
+        "10 US Women (7 UK/AU)",
+        "10.5 US Women (7.5 UK/AU)",
+        "11 US Women (8 UK/AU)",
+        "11.5 US Women (8.5 UK/AU)",
+        "12 US Women (9 UK/AU)",
+        "12.5 US Women (9.5 UK/AU)",
+        "13 US Women (10 UK/AU)",
+        "13.5 US Women (10.5 UK/AU)",
+        "14 US Women (11 UK/AU)",
+        "15 US Women (12 UK/AU)",
+        "16 US Women (13 UK/AU)"
+      ],
+      "merchantId": "blundstone-com",
+      "tagSlugs": [],
+      "description": "Black premium water-resistant leather classic flat Chelsea boot. Live public feed USD209.95, not stale search result199.95. Available USwomen5-16; two equivalent AU/UK label sets in merchant variants, deduplicate before display. Exact first available variant is USwomen6.",
+      "checkedAt": "2026-10-25T07:07:04.071733+00:00",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-25T07:07:04.071733+00:00",
+        "url": "https://www.blundstone.com/products/black-premium-leather-v-cut-boots-womens-style-510.js",
+        "notes": "Black premium water-resistant leather classic flat Chelsea boot. Live public feed USD209.95, not stale search result199.95. Available USwomen5-16; two equivalent AU/UK label sets in merchant variants, deduplicate before display. Exact first available variant is USwomen6."
+      }
+    }
+  ],
+  "merchants": [
+    {
+      "id": "romaretailshop-com",
+      "name": "Roma Retail Shop",
+      "domain": "romaretailshop.com",
+      "url": "https://romaretailshop.com/",
+      "kind": "boutique",
+      "neighborhoodId": null
+    },
+    {
+      "id": "piratefashions-com",
+      "name": "Pirate Fashions",
+      "domain": "piratefashions.com",
+      "url": "https://piratefashions.com/",
+      "kind": "boutique",
+      "neighborhoodId": null
+    },
+    {
+      "id": "historicalemporium-com",
+      "name": "Historical Emporium",
+      "domain": "historicalemporium.com",
+      "url": "https://historicalemporium.com/",
+      "kind": "boutique",
+      "neighborhoodId": null
+    },
+    {
+      "id": "darkinlove-com",
+      "name": "Dark In Love",
+      "domain": "darkinlove.com",
+      "url": "https://darkinlove.com/",
+      "kind": "boutique",
+      "neighborhoodId": null
+    },
+    {
+      "id": "expansion-e-missbellydance-com",
+      "name": "MissBellyDance",
+      "domain": "missbellydance.com",
+      "url": "https://missbellydance.com",
+      "kind": "boutique",
+      "neighborhoodId": null
+    },
+    {
+      "id": "dreampairs-com",
+      "name": "DREAM PAIRS",
+      "domain": "dreampairs.com",
+      "url": "https://dreampairs.com/",
+      "kind": "boutique",
+      "neighborhoodId": null
+    },
+    {
+      "id": "blundstone-com",
+      "name": "Blundstone",
+      "domain": "blundstone.com",
+      "url": "https://blundstone.com/",
+      "kind": "boutique",
+      "neighborhoodId": null
+    },
+    {
+      "id": "costumesandcollectibles-com",
+      "name": "Costumes & Collectibles",
+      "domain": "costumesandcollectibles.com",
+      "url": "https://costumesandcollectibles.com/",
+      "kind": "boutique",
+      "neighborhoodId": null
+    },
+    {
+      "id": "expansion-e-caufields-com",
+      "name": "Caufield’s Novelty",
+      "domain": "caufields.com",
+      "url": "https://caufields.com",
+      "kind": "boutique",
+      "neighborhoodId": null
+    },
+    {
+      "id": "thursdayboots-com",
+      "name": "Thursday Boot Company",
+      "domain": "thursdayboots.com",
+      "url": "https://thursdayboots.com/",
+      "kind": "boutique",
+      "neighborhoodId": null
+    }
+  ],
+  "neighborhoods": [],
+  "tags": [],
+  "provenance": {
+    "method": "manual-research",
+    "generatedAt": "2026-10-27T00:28:53.880632Z",
+    "notes": "2026 catalog expansion. Defining accessories sourced through built-in web search and primary merchant pages/public feeds. Suitable basics reuse reviewed catalog records without changing their checkedAt dates. Generated references show styling, not the exact products. DIY items are raw supplies; assembly extras and owned wardrobe basics are explicit in piece notes.",
+    "priceTiers": true,
+    "heroImageKind": "generated-reference"
+  }
+}

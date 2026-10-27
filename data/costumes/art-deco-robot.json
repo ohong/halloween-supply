@@ -1,0 +1,605 @@
+{
+  "costume": {
+    "slug": "art-deco-robot",
+    "name": "Art Deco Robot",
+    "description": "An angular silver machine face, charcoal waistcoat, silver trousers and metallic gloves create a silent mechanical performer.",
+    "image": "/costumes/art-deco-robot.png",
+    "alt": "Silver geometric robot mask, charcoal waistcoat over a black shirt, silver trousers, silver gloves and black shoes.",
+    "status": "live"
+  },
+  "pieces": [
+    {
+      "id": "art-deco-robot-robot-mask",
+      "name": "Sculptural robot mask or helmet",
+      "category": "accessories",
+      "required": true,
+      "order": 0,
+      "styleNotes": "Default is silver mechanical face; alternatives repeat the same sculpt in copper and gold. Check eye openings and fit before wearing.",
+      "queries": [
+        "Sculptural robot mask or helmet costume"
+      ],
+      "sizeKind": "one_size",
+      "matches": [
+        {
+          "productId": "exp-b-0d14d3785c84",
+          "rank": 0,
+          "reason": "Silver molded steampunk robot face with raised mechanical details. Matches the angular machine face; it is a lightweight costume mask, not metal armor. Public merchant variant feed confirms this exact USD price and available variant on the research date."
+        },
+        {
+          "productId": "exp-b-c9e7c356f8ab",
+          "rank": 1,
+          "reason": "Copper Alchemist face mask with sculpted mechanical details. Same shape in a copper metallic finish rather than silver. Public merchant variant feed confirms this exact USD price and available variant on the research date."
+        },
+        {
+          "productId": "exp-b-33d0f585ef6e",
+          "rank": 2,
+          "reason": "Gold Alchemist face mask with sculpted mechanical details. Same shape in a warm gold metallic finish rather than silver. Public merchant variant feed confirms this exact USD price and available variant on the research date."
+        }
+      ]
+    },
+    {
+      "id": "art-deco-robot-raven-scholar-waistcoat",
+      "name": "Charcoal waistcoat",
+      "category": "tops",
+      "required": true,
+      "order": 1,
+      "styleNotes": "Charcoal waistcoat over your own black shirt. No silver armor panel is included; the machine face and metallic limbs carry the design.",
+      "queries": [
+        "charcoal women waistcoat Victorian brocade vest"
+      ],
+      "sizeKind": "apparel",
+      "matches": [
+        {
+          "productId": "p-dbf9a6582b",
+          "rank": 0,
+          "reason": "Gray tweed women’s vest with notched lapels, five buttons, faux pockets and adjustable back belt. 100% polyester with satin acetate back, fully lined. Gray tweed is lighter and less ornate than the reference’s charcoal brocade. Vest only; blouse and skirt are separate. S, M, L, XL, 2X and 3X are available at USD64.95 in the live feed; use the live size selector, as description text stops at 2X. Dispatch time unstated."
+        },
+        {
+          "productId": "p-43dbc8c569",
+          "rank": 1,
+          "reason": "Black Victorian damask brocade vest, 65% cotton/35% polyester, lined in black polyester sateen. Collarless V neck with three metal buttons and adjustable back buckle. Men’s slim cut differs from the reference’s shaped women’s charcoal lapel vest; measure chest before selecting. Vest only. All S–5XL variants are available at USD32.45. Listing says custom made; production/dispatch time is not specified."
+        },
+        {
+          "productId": "p-9309900a8e",
+          "rank": 2,
+          "reason": "Black tone-on-tone brocade women’s vest with lapels, covered buttons, two welt pockets and an adjustable buckle back. 100% polyester microfiber front with acetate backing, fully lined. Close in ornate fitted shape, but black rather than charcoal and no decorative chain. Vest only. All XS–2X variants available. Dispatch time unstated."
+        }
+      ]
+    },
+    {
+      "id": "art-deco-robot-silver-trousers",
+      "name": "Silver trousers",
+      "category": "Bottoms",
+      "required": true,
+      "order": 2,
+      "styleNotes": "Shiny silver metallic trousers with a slight flare or bootcut that sits well over pointed boots. Look for foil-coated denim, lamé or disco-era fabric.",
+      "queries": [
+        "vintage silver metallic bootcut pants",
+        "handmade silver lamé flare trousers Etsy",
+        "silver foil coated western bootcut jeans"
+      ],
+      "sizeKind": "pants",
+      "matches": [
+        {
+          "productId": "p-001ca783f4",
+          "rank": 0,
+          "reason": "USA-made high-shine silver-black foil-coated denim bell bottoms. Darker than pure silver. Sizes 3/5/7/9/11/13/15 at 30, 32 and 34-inch inseams all confirm available at $120 in current feed."
+        },
+        {
+          "productId": "p-9bbb0166a7",
+          "rank": 1,
+          "reason": "Underwraps high-waisted silver metallic stretch bell bottoms with elastic waistband. Correct silver photo visually reviewed against all three gallery colorways. Current feed confirms Silver XS and Silver S/M in stock at $24.99; L/XL is sold out. Replaces pale white-looking Bellissima pants after image QA."
+        },
+        {
+          "productId": "p-ba3ef9a46e",
+          "rank": 2,
+          "reason": "Fluid silver satin wide-leg pants with front pleats, button and zip fly. 100% polyester. S/M/L/XL in stock at $39. Satin sheen rather than high-shine foil; wide leg fits over boots."
+        }
+      ]
+    },
+    {
+      "id": "art-deco-robot-disco-phantom-silver-gloves",
+      "name": "Silver gloves",
+      "category": "accessories",
+      "required": true,
+      "order": 3,
+      "styleNotes": "Add fitted silver gloves with full fingers. The generated gloves are long and glittery; these products range from shorter metallic costume gloves to satin and mirror-finish opera gloves.",
+      "queries": [
+        "silver metallic opera gloves"
+      ],
+      "sizeKind": "one_size",
+      "matches": [
+        {
+          "productId": "p-52f0c3d91f",
+          "rank": 0,
+          "reason": "Silver stretch satin gloves, 22.44 inches / 57 cm long. The merchant does not publish a numeric hand size. Soft satin sheen rather than a metallic or sequined finish. Gloves only; bridal clothing in the photo is excluded. Product page explicitly says in stock."
+        },
+        {
+          "productId": "p-151c13bff4",
+          "rank": 1,
+          "reason": "One pair of silver metallic full-finger gloves. Product page does not publish a numeric size or exact length. Photo shows a forearm-length cuff rather than the longer opera proportions in the reference. Page structured data explicitly lists InStock at $10.99."
+        },
+        {
+          "productId": "p-8b2a001d45",
+          "rank": 2,
+          "reason": "Selected Opera-Length pair is 19.6 inches, $70. Silver synthetic patent leather, unlined, minimal stretch. Merchant fit limits: palm perimeter up to 7.5 inches and upper arm under 11 inches. Mirror finish rather than glitter. Other lengths have different prices and are excluded."
+        }
+      ]
+    }
+  ],
+  "products": [
+    {
+      "id": "exp-b-0d14d3785c84",
+      "title": "The Alchemist Mask (Silver) — Standard",
+      "url": "https://www.purecostumes.com/products/m39340s-the-alchemist-mask-silver?variant=47646226383062",
+      "priceCents": 1395,
+      "currency": "USD",
+      "image": "/products/price-tiers/exp-b-0d14d3785c84.webp",
+      "merchantImage": "/products/price-tiers/exp-b-0d14d3785c84.webp",
+      "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/0792/4950/6518/files/M39340S_full_1.jpg?v=1766883011"
+      ],
+      "availability": "in_stock",
+      "sizes": [
+        "Standard"
+      ],
+      "merchantId": "exp-b-purecostumes-com",
+      "tagSlugs": [],
+      "description": "Silver molded steampunk robot face with raised mechanical details. Matches the angular machine face; it is a lightweight costume mask, not metal armor. Public merchant variant feed confirms this exact USD price and available variant on the research date.",
+      "checkedAt": "2026-10-27T00:28:28.338770Z",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-27T00:28:28.338770Z",
+        "url": "https://www.purecostumes.com/products/m39340s-the-alchemist-mask-silver",
+        "notes": "Silver molded steampunk robot face with raised mechanical details. Matches the angular machine face; it is a lightweight costume mask, not metal armor. Public merchant variant feed confirms this exact USD price and available variant on the research date."
+      }
+    },
+    {
+      "id": "exp-b-c9e7c356f8ab",
+      "title": "The Alchemist Mask (Copper) — Standard",
+      "url": "https://www.purecostumes.com/products/m39340c-the-alchemist-mask-copper?variant=47646226251990",
+      "priceCents": 2095,
+      "currency": "USD",
+      "image": "/products/price-tiers/exp-b-c9e7c356f8ab.webp",
+      "merchantImage": "/products/price-tiers/exp-b-c9e7c356f8ab.webp",
+      "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/0792/4950/6518/files/M39340C_full_1.jpg?v=1766883007"
+      ],
+      "availability": "in_stock",
+      "sizes": [
+        "Standard"
+      ],
+      "merchantId": "exp-b-purecostumes-com",
+      "tagSlugs": [],
+      "description": "Copper Alchemist face mask with sculpted mechanical details. Same shape in a copper metallic finish rather than silver. Public merchant variant feed confirms this exact USD price and available variant on the research date.",
+      "checkedAt": "2026-10-27T00:28:28.338770Z",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-27T00:28:28.338770Z",
+        "url": "https://www.purecostumes.com/products/m39340c-the-alchemist-mask-copper",
+        "notes": "Copper Alchemist face mask with sculpted mechanical details. Same shape in a copper metallic finish rather than silver. Public merchant variant feed confirms this exact USD price and available variant on the research date."
+      }
+    },
+    {
+      "id": "exp-b-33d0f585ef6e",
+      "title": "The Alchemist Mask (Gold) — Standard",
+      "url": "https://www.purecostumes.com/products/m39340g-the-alchemist-mask-gold?variant=47646226350294",
+      "priceCents": 2895,
+      "currency": "USD",
+      "image": "/products/price-tiers/exp-b-33d0f585ef6e.webp",
+      "merchantImage": "/products/price-tiers/exp-b-33d0f585ef6e.webp",
+      "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/0792/4950/6518/files/M39340G_full_1.jpg?v=1766883010"
+      ],
+      "availability": "in_stock",
+      "sizes": [
+        "Standard"
+      ],
+      "merchantId": "exp-b-purecostumes-com",
+      "tagSlugs": [],
+      "description": "Gold Alchemist face mask with sculpted mechanical details. Same shape in a warm gold metallic finish rather than silver. Public merchant variant feed confirms this exact USD price and available variant on the research date.",
+      "checkedAt": "2026-10-27T00:28:28.338770Z",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-27T00:28:28.338770Z",
+        "url": "https://www.purecostumes.com/products/m39340g-the-alchemist-mask-gold",
+        "notes": "Gold Alchemist face mask with sculpted mechanical details. Same shape in a warm gold metallic finish rather than silver. Public merchant variant feed confirms this exact USD price and available variant on the research date."
+      }
+    },
+    {
+      "id": "p-9309900a8e",
+      "title": "Ladies Weathersby Vest - Black",
+      "url": "https://historicalemporium.com/products/weathersby-ladies-vest-black?variant=52047634333990",
+      "priceCents": 7495,
+      "currency": "USD",
+      "image": "/products/price-tiers/p-9309900a8e.webp",
+      "merchantImage": "/products/price-tiers/p-9309900a8e.webp",
+      "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/0980/0974/3654/files/001692_01_09198bde-301d-4992-a74a-d1131c2998f6.jpg?v=1769539239"
+      ],
+      "availability": "in_stock",
+      "sizes": [
+        "XS",
+        "S",
+        "M",
+        "L",
+        "XL",
+        "2X"
+      ],
+      "merchantId": "historicalemporium-com",
+      "tagSlugs": [],
+      "description": "Black tone-on-tone brocade women’s vest with lapels, covered buttons, two welt pockets and an adjustable buckle back. 100% polyester microfiber front with acetate backing, fully lined. Close in ornate fitted shape, but black rather than charcoal and no decorative chain. Vest only. All XS–2X variants available. Dispatch time unstated.",
+      "checkedAt": "2026-10-25T08:49:51.686928+00:00",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-25T08:49:51.686928+00:00",
+        "url": "https://historicalemporium.com/products/weathersby-ladies-vest-black.js",
+        "notes": "Black tone-on-tone brocade women’s vest with lapels, covered buttons, two welt pockets and an adjustable buckle back. 100% polyester microfiber front with acetate backing, fully lined. Close in ornate fitted shape, but black rather than charcoal and no decorative chain. Vest only. All XS–2X variants available. Dispatch time unstated."
+      }
+    },
+    {
+      "id": "p-dbf9a6582b",
+      "title": "Ladies Tweed Vest - Gray",
+      "url": "https://historicalemporium.com/products/ladies-tweed-vest-gray?variant=51717681578278",
+      "priceCents": 6495,
+      "currency": "USD",
+      "image": "/products/price-tiers/p-dbf9a6582b.webp",
+      "merchantImage": "/products/price-tiers/p-dbf9a6582b.webp",
+      "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/0980/0974/3654/files/008849_01_ec09afad-1654-42ef-87db-4e326db99949.jpg?v=1769619184"
+      ],
+      "availability": "in_stock",
+      "sizes": [
+        "S",
+        "M",
+        "L",
+        "XL",
+        "2X",
+        "3X"
+      ],
+      "merchantId": "historicalemporium-com",
+      "tagSlugs": [],
+      "description": "Gray tweed women’s vest with notched lapels, five buttons, faux pockets and adjustable back belt. 100% polyester with satin acetate back, fully lined. Gray tweed is lighter and less ornate than the reference’s charcoal brocade. Vest only; blouse and skirt are separate. S, M, L, XL, 2X and 3X are available at USD64.95 in the live feed; use the live size selector, as description text stops at 2X. Dispatch time unstated.",
+      "checkedAt": "2026-10-25T08:49:51.686928+00:00",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-25T08:49:51.686928+00:00",
+        "url": "https://historicalemporium.com/products/ladies-tweed-vest-gray.js",
+        "notes": "Gray tweed women’s vest with notched lapels, five buttons, faux pockets and adjustable back belt. 100% polyester with satin acetate back, fully lined. Gray tweed is lighter and less ornate than the reference’s charcoal brocade. Vest only; blouse and skirt are separate. S, M, L, XL, 2X and 3X are available at USD64.95 in the live feed; use the live size selector, as description text stops at 2X. Dispatch time unstated."
+      }
+    },
+    {
+      "id": "p-43dbc8c569",
+      "title": "Men's Waistcoat Vest Black Brocade Gothic Steampunk VTG /USA",
+      "url": "https://www.darkrock.net/products/mens-waistcoat-vest-black-brocade-gothic-steampunk-vtg-usa?variant=46475594137685",
+      "priceCents": 3245,
+      "currency": "USD",
+      "image": "/products/price-tiers/p-43dbc8c569.webp",
+      "merchantImage": "/products/price-tiers/p-43dbc8c569.webp",
+      "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/0729/6267/0677/files/Document-37-page0001.jpg?v=1792737878"
+      ],
+      "availability": "in_stock",
+      "sizes": [
+        "S",
+        "M",
+        "L",
+        "XL",
+        "2XL",
+        "3XL",
+        "4XL",
+        "5XL"
+      ],
+      "merchantId": "darkrock-net",
+      "tagSlugs": [],
+      "description": "Black Victorian damask brocade vest, 65% cotton/35% polyester, lined in black polyester sateen. Collarless V neck with three metal buttons and adjustable back buckle. Men’s slim cut differs from the reference’s shaped women’s charcoal lapel vest; measure chest before selecting. Vest only. All S–5XL variants are available at USD32.45. Listing says custom made; production/dispatch time is not specified.",
+      "checkedAt": "2026-10-25T08:49:51.686928+00:00",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-25T08:49:51.686928+00:00",
+        "url": "https://www.darkrock.net/products/mens-waistcoat-vest-black-brocade-gothic-steampunk-vtg-usa.js",
+        "notes": "Black Victorian damask brocade vest, 65% cotton/35% polyester, lined in black polyester sateen. Collarless V neck with three metal buttons and adjustable back buckle. Men’s slim cut differs from the reference’s shaped women’s charcoal lapel vest; measure chest before selecting. Vest only. All S–5XL variants are available at USD32.45. Listing says custom made; production/dispatch time is not specified."
+      }
+    },
+    {
+      "id": "p-ba3ef9a46e",
+      "title": "Metallic Muse Satin Trouser in Silver",
+      "url": "https://thelocalgroup.shop/products/metallic-muse-satin-trouser-in-silver?variant=47754806853856",
+      "priceCents": 3900,
+      "currency": "USD",
+      "image": "/products/price-tiers/p-ba3ef9a46e.webp",
+      "cutout": "/products/p-ba3ef9a46e-cutout.png",
+      "merchantImage": "/products/price-tiers/p-ba3ef9a46e.webp",
+      "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/0757/5483/2096/files/Screenshot_2025-10-11_at_10.55.58_PM.png?v=1780688888"
+      ],
+      "availability": "in_stock",
+      "sizes": [
+        "S",
+        "M",
+        "L",
+        "XL"
+      ],
+      "merchantId": "thelocalgroup-shop",
+      "tagSlugs": [
+        "satin",
+        "silver",
+        "wide-leg",
+        "disco",
+        "cosmic"
+      ],
+      "description": "Fluid silver satin wide-leg pants with front pleats, button and zip fly. 100% polyester. S/M/L/XL in stock at $39. Satin sheen rather than high-shine foil; wide leg fits over boots.",
+      "checkedAt": "2026-10-25T07:20:28.729826Z",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-25T07:20:28.729826Z",
+        "url": "https://thelocalgroup.shop/products/metallic-muse-satin-trouser-in-silver.js",
+        "notes": "Fluid silver satin wide-leg pants with front pleats, button and zip fly. 100% polyester. S/M/L/XL in stock at $39. Satin sheen rather than high-shine foil; wide leg fits over boots."
+      }
+    },
+    {
+      "id": "p-9bbb0166a7",
+      "title": "Women’s 70’s Metallic Bell Bottoms — Silver",
+      "url": "https://shop.johnniebrocks.com/products/womens-70s-metallic-bell-bottoms?variant=42188986220683",
+      "priceCents": 2499,
+      "currency": "USD",
+      "image": "/products/price-tiers/p-9bbb0166a7.webp",
+      "merchantImage": "/products/price-tiers/p-9bbb0166a7.webp",
+      "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/0598/0035/4955/files/vn8435juw4qrczxwtgjv.jpg?v=1712947664"
+      ],
+      "availability": "in_stock",
+      "sizes": [
+        "- XS",
+        "- S/M"
+      ],
+      "merchantId": "shop-johnniebrocks-com",
+      "tagSlugs": [],
+      "description": "Underwraps high-waisted silver metallic stretch bell bottoms with elastic waistband. Correct silver photo visually reviewed against all three gallery colorways. Current feed confirms Silver XS and Silver S/M in stock at $24.99; L/XL is sold out. Replaces pale white-looking Bellissima pants after image QA.",
+      "checkedAt": "2026-10-25T07:20:28.729826Z",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-25T07:20:28.729826Z",
+        "url": "https://shop.johnniebrocks.com/products/womens-70s-metallic-bell-bottoms.js",
+        "notes": "Underwraps high-waisted silver metallic stretch bell bottoms with elastic waistband. Correct silver photo visually reviewed against all three gallery colorways. Current feed confirms Silver XS and Silver S/M in stock at $24.99; L/XL is sold out. Replaces pale white-looking Bellissima pants after image QA."
+      }
+    },
+    {
+      "id": "p-001ca783f4",
+      "title": "Metallic Bell Bottom Jean in Black Denim",
+      "url": "https://pretty-attitude.com/products/metallic-bell-bottom-jean-in-black-denim?variant=42453163933731",
+      "priceCents": 12000,
+      "currency": "USD",
+      "image": "/products/price-tiers/p-001ca783f4.webp",
+      "cutout": "/products/p-001ca783f4-cutout.png",
+      "merchantImage": "/products/price-tiers/p-001ca783f4.webp",
+      "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/0940/5210/files/metallic-bell-bottoms-liv.jpg?v=1756259622"
+      ],
+      "availability": "in_stock",
+      "sizes": [
+        "3",
+        "5",
+        "7",
+        "9",
+        "11",
+        "13",
+        "15"
+      ],
+      "merchantId": "pretty-attitude-com",
+      "tagSlugs": [
+        "foil-denim",
+        "bell-bottom",
+        "made-in-usa",
+        "metallic",
+        "flare"
+      ],
+      "description": "USA-made high-shine silver-black foil-coated denim bell bottoms. Darker than pure silver. Sizes 3/5/7/9/11/13/15 at 30, 32 and 34-inch inseams all confirm available at $120 in current feed.",
+      "checkedAt": "2026-10-25T07:20:28.729826Z",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-25T07:20:28.729826Z",
+        "url": "https://pretty-attitude.com/products/metallic-bell-bottom-jean-in-black-denim.js",
+        "notes": "USA-made high-shine silver-black foil-coated denim bell bottoms. Darker than pure silver. Sizes 3/5/7/9/11/13/15 at 30, 32 and 34-inch inseams all confirm available at $120 in current feed."
+      }
+    },
+    {
+      "id": "p-151c13bff4",
+      "title": "Silver Metallic Womens Gloves",
+      "url": "https://blockbustercostumes.com/products/silver-metallic-womens-gloves.html",
+      "priceCents": 1099,
+      "currency": "USD",
+      "image": "/products/price-tiers/p-151c13bff4.webp",
+      "merchantImage": "/products/price-tiers/p-151c13bff4.webp",
+      "sourceImages": [
+        "https://cdn11.bigcommerce.com/s-cdu7h4/images/stencil/1280x1280/products/122800/143236/uw29851-w-1__94034.1542258658.jpg?c=2"
+      ],
+      "availability": "in_stock",
+      "sizes": [],
+      "merchantId": "blockbustercostumes-com",
+      "tagSlugs": [],
+      "description": "One pair of silver metallic full-finger gloves. Product page does not publish a numeric size or exact length. Photo shows a forearm-length cuff rather than the longer opera proportions in the reference. Page structured data explicitly lists InStock at $10.99.",
+      "checkedAt": "2026-10-25T08:49:56Z",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-25T08:49:56Z",
+        "url": "https://blockbustercostumes.com/products/silver-metallic-womens-gloves.html",
+        "notes": "One pair of silver metallic full-finger gloves. Product page does not publish a numeric size or exact length. Photo shows a forearm-length cuff rather than the longer opera proportions in the reference. Page structured data explicitly lists InStock at $10.99."
+      }
+    },
+    {
+      "id": "p-52f0c3d91f",
+      "title": "Opera Length Silver Satin Gloves",
+      "url": "https://formalwearoutlet.com/products/opera-length-gloves-silver?variant=52653601718432",
+      "priceCents": 2299,
+      "currency": "USD",
+      "image": "/products/price-tiers/p-52f0c3d91f.webp",
+      "merchantImage": "/products/price-tiers/p-52f0c3d91f.webp",
+      "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/0596/4519/8496/files/GLV57_Silver_Satin_Opera_Length_Gloves.jpg?v=1757027597"
+      ],
+      "availability": "in_stock",
+      "sizes": [],
+      "merchantId": "formalwearoutlet-com",
+      "tagSlugs": [],
+      "description": "Silver stretch satin gloves, 22.44 inches / 57 cm long. The merchant does not publish a numeric hand size. Soft satin sheen rather than a metallic or sequined finish. Gloves only; bridal clothing in the photo is excluded. Product page explicitly says in stock.",
+      "checkedAt": "2026-10-25T08:49:56Z",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-25T08:49:56Z",
+        "url": "https://formalwearoutlet.com/products/opera-length-gloves-silver.js",
+        "notes": "Silver stretch satin gloves, 22.44 inches / 57 cm long. The merchant does not publish a numeric hand size. Soft satin sheen rather than a metallic or sequined finish. Gloves only; bridal clothing in the photo is excluded. Product page explicitly says in stock."
+      }
+    },
+    {
+      "id": "p-8b2a001d45",
+      "title": "MIRAGE Opera Gloves",
+      "url": "https://saintchic.com/products/mirage-opera-gloves?variant=43032815337537",
+      "priceCents": 7000,
+      "currency": "USD",
+      "image": "/products/price-tiers/p-8b2a001d45.webp",
+      "merchantImage": "/products/price-tiers/p-8b2a001d45.webp",
+      "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/0107/5132/files/MIRAGE-Opera-Gloves-gloves-SAINT-CHIC-Opera-Length-4.png?v=1791401567"
+      ],
+      "availability": "in_stock",
+      "sizes": [
+        "Opera-Length"
+      ],
+      "merchantId": "saintchic-com",
+      "tagSlugs": [],
+      "description": "Selected Opera-Length pair is 19.6 inches, $70. Silver synthetic patent leather, unlined, minimal stretch. Merchant fit limits: palm perimeter up to 7.5 inches and upper arm under 11 inches. Mirror finish rather than glitter. Other lengths have different prices and are excluded.",
+      "checkedAt": "2026-10-25T08:49:56Z",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-25T08:49:56Z",
+        "url": "https://saintchic.com/products/mirage-opera-gloves.js",
+        "notes": "Selected Opera-Length pair is 19.6 inches, $70. Silver synthetic patent leather, unlined, minimal stretch. Merchant fit limits: palm perimeter up to 7.5 inches and upper arm under 11 inches. Mirror finish rather than glitter. Other lengths have different prices and are excluded."
+      }
+    }
+  ],
+  "merchants": [
+    {
+      "id": "exp-b-purecostumes-com",
+      "name": "Pure Costumes",
+      "domain": "purecostumes.com",
+      "url": "https://purecostumes.com",
+      "kind": "boutique",
+      "neighborhoodId": null
+    },
+    {
+      "id": "historicalemporium-com",
+      "name": "Historical Emporium",
+      "domain": "historicalemporium.com",
+      "url": "https://historicalemporium.com/",
+      "kind": "boutique",
+      "neighborhoodId": null
+    },
+    {
+      "id": "darkrock-net",
+      "name": "DarkRock",
+      "domain": "darkrock.net",
+      "url": "https://darkrock.net/",
+      "kind": "boutique",
+      "neighborhoodId": null
+    },
+    {
+      "id": "pretty-attitude-com",
+      "name": "Pretty Attitude",
+      "domain": "pretty-attitude.com",
+      "url": "https://pretty-attitude.com",
+      "kind": "dtc",
+      "neighborhoodId": null
+    },
+    {
+      "id": "thelocalgroup-shop",
+      "name": "The Local Group Apparel",
+      "domain": "thelocalgroup.shop",
+      "url": "https://thelocalgroup.shop",
+      "kind": "boutique",
+      "neighborhoodId": null
+    },
+    {
+      "id": "shop-johnniebrocks-com",
+      "name": "Johnnie Brock’s",
+      "domain": "shop.johnniebrocks.com",
+      "url": "https://shop.johnniebrocks.com/",
+      "kind": "boutique",
+      "neighborhoodId": null
+    },
+    {
+      "id": "blockbustercostumes-com",
+      "name": "BlockBuster Costumes",
+      "domain": "blockbustercostumes.com",
+      "url": "https://blockbustercostumes.com/",
+      "kind": "boutique",
+      "neighborhoodId": null
+    },
+    {
+      "id": "formalwearoutlet-com",
+      "name": "Formalwear Outlet",
+      "domain": "formalwearoutlet.com",
+      "url": "https://formalwearoutlet.com/",
+      "kind": "boutique",
+      "neighborhoodId": null
+    },
+    {
+      "id": "saintchic-com",
+      "name": "SAINT CHIC",
+      "domain": "saintchic.com",
+      "url": "https://saintchic.com/",
+      "kind": "boutique",
+      "neighborhoodId": null
+    }
+  ],
+  "neighborhoods": [],
+  "tags": [
+    {
+      "slug": "silver",
+      "label": "Silver"
+    },
+    {
+      "slug": "metallic",
+      "label": "Metallic"
+    },
+    {
+      "slug": "foil-denim",
+      "label": "Foil Denim"
+    },
+    {
+      "slug": "bell-bottom",
+      "label": "Bell Bottom"
+    },
+    {
+      "slug": "made-in-usa",
+      "label": "Made In Usa"
+    },
+    {
+      "slug": "flare",
+      "label": "Flare"
+    },
+    {
+      "slug": "satin",
+      "label": "Satin"
+    },
+    {
+      "slug": "wide-leg",
+      "label": "Wide Leg"
+    },
+    {
+      "slug": "disco",
+      "label": "Disco"
+    },
+    {
+      "slug": "cosmic",
+      "label": "Cosmic"
+    }
+  ],
+  "provenance": {
+    "method": "manual-research",
+    "generatedAt": "2026-10-27T00:28:28.338770Z",
+    "notes": "2026 catalog expansion B. Defining pieces checked against primary merchant pages/public variant feeds using built-in web discovery. Appropriate base garments reused from earlier reviewed catalog with original product evidence and check dates. Generated hero is styling inspiration; merchant photos show actual purchases. Sizes, stock and price require checkout recheck. No Halloween arrival guarantee.",
+    "priceTiers": true,
+    "heroImageKind": "generated-reference"
+  }
+}

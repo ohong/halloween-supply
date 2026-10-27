@@ -1,0 +1,672 @@
+{
+  "costume": {
+    "slug": "dragon-rider",
+    "name": "Dragon Rider",
+    "description": "Dark horns and overlapping leather shoulder armor turn a weathered flight jacket into a dragon rider’s gear.",
+    "image": "/costumes/dragon-rider.png",
+    "alt": "Black fantasy horns above brown overlapping shoulder armor, a brown flight jacket, black trousers and brown boots",
+    "status": "live"
+  },
+  "pieces": [
+    {
+      "id": "dragon-rider-dark-dragon-inspired-horns",
+      "name": "Dark dragon-inspired horns",
+      "category": "headwear",
+      "required": true,
+      "order": 0,
+      "styleNotes": "Dark fantasy horns add a dragon motif to a human rider. Shapes differ between beast, gargoyle and demon alternatives.",
+      "queries": [
+        "Dark dragon-inspired horns"
+      ],
+      "sizeKind": "one_size",
+      "matches": [
+        {
+          "productId": "p-d-bea8b9dac2",
+          "rank": 0,
+          "reason": "Black beast horns suit a dragon-inspired rider. Horns only, no dragon wings or jacket."
+        },
+        {
+          "productId": "p-d-c89ffad312",
+          "rank": 1,
+          "reason": "Resin over-head gargoyle horns. A smaller gray/brown alternative to the black dragon horn silhouette."
+        },
+        {
+          "productId": "p-d-982633dfe1",
+          "rank": 2,
+          "reason": "Demon horn headband; one size fits most, ages 14+. A more dramatic fantasy horn silhouette."
+        }
+      ]
+    },
+    {
+      "id": "dragon-rider-brown-flight-jacket",
+      "name": "Brown flight jacket",
+      "category": "outerwear",
+      "required": true,
+      "order": 1,
+      "styleNotes": "Brown flight jacket with a cream or golden shearling collar beneath the separate armor. Brown shades, cuff trim and pocket shapes differ. The made-to-order Blacktop Gear jacket requires about 2–3 weeks of production before shipping.",
+      "queries": [
+        "brown shearling B3 aviator flight jacket"
+      ],
+      "sizeKind": "apparel",
+      "matches": [
+        {
+          "productId": "p-e40879fa1e",
+          "rank": 0,
+          "reason": "Tobacco-brown faux leather and beige faux shearling lining/collar; asymmetric front zip and silver hardware. No exposed cream hem/cuff trim like the image. Live US page inventory confirms 12 M and 11 L, neither preorder. Other sizes are sold out. Sale price $85.40; jacket only."
+        },
+        {
+          "productId": "p-4bcde5cbe8",
+          "rank": 1,
+          "reason": "Brown leather B3-style bomber with cream shearling collar, cuffs and hem, throat strap and an attached waist belt. Darker than caramel. Made to order: stated production about 2–3 weeks before shipping; free USA delivery. $180 applies to standard S–5XL; custom sizing costs extra. Purchasable, but ready stock is not verified."
+        },
+        {
+          "productId": "p-b7869f2049",
+          "rank": 2,
+          "reason": "Heavyweight brown sheepskin with golden shearling, leather-welted seams and buckled collar/waist straps. Made in USA. Brn / Golden sizes 34–46 are $1,690; size 32 is sold out, 48+ cost more. Selected-page inventory shows one unit per included size with deny-oversell policy. Jacket only."
+        }
+      ]
+    },
+    {
+      "id": "dragon-rider-dragon-inspired-costume-armor",
+      "name": "Dragon-inspired costume armor",
+      "category": "accessories",
+      "required": true,
+      "order": 2,
+      "styleNotes": "The default brown double pauldrons create overlapping dragon armor. The cheaper brown single pauldron covers one shoulder; the black foam chest plate covers the torso instead.",
+      "queries": [
+        "Dragon-inspired costume armor"
+      ],
+      "sizeKind": "one_size",
+      "matches": [
+        {
+          "productId": "p-d-037c131f58",
+          "rank": 0,
+          "reason": "Two faux-leather shoulder pauldrons with adjustable cross-body straps; one size fits most adults, ages 14+. Arm guards are not included."
+        },
+        {
+          "productId": "p-d-7dce22951f",
+          "rank": 1,
+          "reason": "One brown faux-leather dragon-warrior shoulder pauldron, one size fits most adults, ages 14+. Single-sided alternative, not a pair; arm guard not included."
+        },
+        {
+          "productId": "p-d-fc26edc6bb",
+          "rank": 2,
+          "reason": "Lightweight black foam Roman chest plate with bird designs. Covers the torso rather than the shoulders; a different armor silhouette from the brown pauldrons."
+        }
+      ]
+    },
+    {
+      "id": "dragon-rider-black-trousers",
+      "name": "Black trousers",
+      "category": "bottoms",
+      "required": true,
+      "order": 3,
+      "styleNotes": "Black full-length trousers form the rider base. Some options have a pirate cut; tuck loose hems securely into boots.",
+      "queries": [
+        "black pirate trousers drawstring"
+      ],
+      "sizeKind": "pants",
+      "matches": [
+        {
+          "productId": "p-7a7693db8b",
+          "rank": 0,
+          "reason": "Selected Black 100% cotton wide-leg sailor trousers with drawstring waist; tuck into boots. Trousers only. Positive live stock exists only for Black Small and Medium. Other black sizes are backordered and excluded."
+        },
+        {
+          "productId": "p-035b491978",
+          "rank": 1,
+          "reason": "Selected solid Black cotton trousers with drawstring waist, generous cut, slightly flared legs and deep pockets. Trousers only; sash, shirt, hat, vest and boots excluded. Both listed sizes have positive live inventory. Merchant specifies dry clean only."
+        },
+        {
+          "productId": "p-c1bf560c38",
+          "rank": 2,
+          "reason": "Selected Black cotton velveteen trousers with tie front, tie legs and functional pockets. Made in USA. Trousers only. Black Medium and Large each have positive live stock; other black sizes are backordered and excluded."
+        }
+      ]
+    },
+    {
+      "id": "dragon-rider-brown-lace-up-boots",
+      "name": "Brown lace-up boots",
+      "category": "footwear",
+      "required": true,
+      "order": 4,
+      "styleNotes": "Brown lace-up ankle boots complete the outfit. Shaft height, sole shape and brown shades differ between the three options.",
+      "queries": [
+        "mens dark brown lace up leather boots"
+      ],
+      "sizeKind": "shoe",
+      "matches": [
+        {
+          "productId": "p-ba0acbf53c",
+          "rank": 0,
+          "reason": "Brown leather cap-toe ankle boot with waxed cotton laces, glove leather lining and studded rubber sole. US order processing typically 1–3 business days; delivery timing is separate."
+        },
+        {
+          "productId": "p-3b0a976509",
+          "rank": 1,
+          "reason": "Brown CH style 85088-215, leather/man-made mixed upper and modern lug wedge sole. Reviewed merchant page lists $89.95. Stated usual dispatch 2–3 business days."
+        },
+        {
+          "productId": "p-10ebd36f10",
+          "rank": 2,
+          "reason": "Crimson Chromexcel dark reddish-brown leather plain-toe lace-up ankle boot with antique-brass eyelets/hooks and rubber sole. Lower shaft and no calf buckles. D Standard sizes 6–13 listed here are available at $435. Higher price does not make it a closer costume match."
+        }
+      ]
+    }
+  ],
+  "products": [
+    {
+      "id": "p-d-bea8b9dac2",
+      "title": "Black Beast Horns",
+      "url": "https://chicagocostume.com/products/black-beast-horns?variant=49226440573170",
+      "priceCents": 1499,
+      "currency": "USD",
+      "image": "/products/price-tiers/p-d-bea8b9dac2.webp",
+      "merchantImage": "/products/price-tiers/p-d-bea8b9dac2.webp",
+      "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/0610/0208/8690/files/bbh.jpg?v=1779039315"
+      ],
+      "availability": "in_stock",
+      "sizes": [],
+      "merchantId": "chicagocostume-com",
+      "tagSlugs": [],
+      "description": "Unleash your wild side with these striking Black Beast Horns. Perfect for Halloween costumes, cosplay, theatrical productions, or fantasy-themed events, these horns add instant drama and character to any outfit. Crafted with attention to detail, they feature a sleek black finish that commands attention. Whether you're channeling a demon, devil, dragon, or mythical creature, these horns deliver the fierce look you're after. Comfortable to wear and easy to secure, they're an essential accessory for anyone looking to make a bold statement.",
+      "checkedAt": "2026-10-27T00:28:51.012585+00:00",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-27T00:28:51.012585+00:00",
+        "url": "https://chicagocostume.com/products/black-beast-horns.js",
+        "notes": "Built-in web discovery; primary merchant Shopify feed confirms selected variant available and its USD price. Black beast horns suit a dragon-inspired rider. Horns only, no dragon wings or jacket."
+      }
+    },
+    {
+      "id": "p-d-c89ffad312",
+      "title": "Gargoyle Horns",
+      "url": "https://chicagocostume.com/products/gargoyle-horns?variant=42394239271154",
+      "priceCents": 999,
+      "currency": "USD",
+      "image": "/products/price-tiers/p-d-c89ffad312.webp",
+      "merchantImage": "/products/price-tiers/p-d-c89ffad312.webp",
+      "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/0610/0208/8690/products/6431_GH.jpg?v=1643393802"
+      ],
+      "availability": "in_stock",
+      "sizes": [],
+      "merchantId": "chicagocostume-com",
+      "tagSlugs": [],
+      "description": "Over the head Gargoyle Horns made of resin.",
+      "checkedAt": "2026-10-27T00:28:51.012585+00:00",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-27T00:28:51.012585+00:00",
+        "url": "https://chicagocostume.com/products/gargoyle-horns.js",
+        "notes": "Built-in web discovery; primary merchant Shopify feed confirms selected variant available and its USD price. Resin over-head gargoyle horns. A smaller gray/brown alternative to the black dragon horn silhouette."
+      }
+    },
+    {
+      "id": "p-d-982633dfe1",
+      "title": "Demon Horn Headband",
+      "url": "https://chicagocostume.com/products/demon-horn-headband?variant=43376590815474",
+      "priceCents": 4999,
+      "currency": "USD",
+      "image": "/products/price-tiers/p-d-982633dfe1.webp",
+      "merchantImage": "/products/price-tiers/p-d-982633dfe1.webp",
+      "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/0610/0208/8690/products/8408358.jpg?v=1657898475"
+      ],
+      "availability": "in_stock",
+      "sizes": [],
+      "merchantId": "chicagocostume-com",
+      "tagSlugs": [],
+      "description": "Demon Horn Headband One size fits most. For ages 14+",
+      "checkedAt": "2026-10-27T00:28:51.012585+00:00",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-27T00:28:51.012585+00:00",
+        "url": "https://chicagocostume.com/products/demon-horn-headband.js",
+        "notes": "Built-in web discovery; primary merchant Shopify feed confirms selected variant available and its USD price. Demon horn headband; one size fits most, ages 14+. A more dramatic fantasy horn silhouette."
+      }
+    },
+    {
+      "id": "p-e40879fa1e",
+      "title": "Faux Shearling Lined Flight Jacket - Brown",
+      "url": "https://rontomson.com/products/7838-faux-shearling-double-zipper-jacket-brown-1?variant=39530414178389",
+      "priceCents": 8540,
+      "currency": "USD",
+      "image": "/products/price-tiers/p-e40879fa1e.webp",
+      "merchantImage": "/products/price-tiers/p-e40879fa1e.webp",
+      "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/1898/3725/files/ankara-faux-shearling-flight-jacket-brown-front.jpg?v=1777690719"
+      ],
+      "availability": "in_stock",
+      "sizes": [
+        "M (38 US)",
+        "L (40 US)"
+      ],
+      "merchantId": "rontomson-com",
+      "tagSlugs": [],
+      "description": "Tobacco-brown faux leather and beige faux shearling lining/collar; asymmetric front zip and silver hardware. No exposed cream hem/cuff trim like the image. Live US page inventory confirms 12 M and 11 L, neither preorder. Other sizes are sold out. Sale price $85.40; jacket only.",
+      "checkedAt": "2026-10-25T08:50:23.962064Z",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-25T08:50:23.962064Z",
+        "url": "https://rontomson.com/products/7838-faux-shearling-double-zipper-jacket-brown-1.js",
+        "notes": "Tobacco-brown faux leather and beige faux shearling lining/collar; asymmetric front zip and silver hardware. No exposed cream hem/cuff trim like the image. Live US page inventory confirms 12 M and 11 L, neither preorder. Other sizes are sold out. Sale price $85.40; jacket only."
+      }
+    },
+    {
+      "id": "p-4bcde5cbe8",
+      "title": "Men's Brown B3 RAF Flight Bomber Aviator Real Sheepskin Shearling Leather Jacket",
+      "url": "https://www.blacktopgear.com/products/mens-brown-b3-raf-flight-bomber-aviator-real-sheepskin-shearling-leather-jacket?variant=47084048908544",
+      "priceCents": 18000,
+      "currency": "USD",
+      "image": "/products/price-tiers/p-4bcde5cbe8.webp",
+      "merchantImage": "/products/price-tiers/p-4bcde5cbe8.webp",
+      "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/0783/7388/0064/files/Jones-Mens-Brown-B-3-Bomber-Leather-Jacket-2.webp?v=1759936671"
+      ],
+      "availability": "unknown",
+      "sizes": [
+        "S",
+        "M",
+        "L",
+        "XL",
+        "2XL",
+        "3XL",
+        "4XL",
+        "5XL"
+      ],
+      "merchantId": "blacktopgear-com",
+      "tagSlugs": [],
+      "description": "Brown leather B3-style bomber with cream shearling collar, cuffs and hem, throat strap and an attached waist belt. Darker than caramel. Made to order: stated production about 2–3 weeks before shipping; free USA delivery. $180 applies to standard S–5XL; custom sizing costs extra. Purchasable, but ready stock is not verified.",
+      "checkedAt": "2026-10-25T08:50:23.962064Z",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-25T08:50:23.962064Z",
+        "url": "https://www.blacktopgear.com/products/mens-brown-b3-raf-flight-bomber-aviator-real-sheepskin-shearling-leather-jacket.js",
+        "notes": "Brown leather B3-style bomber with cream shearling collar, cuffs and hem, throat strap and an attached waist belt. Darker than caramel. Made to order: stated production about 2–3 weeks before shipping; free USA delivery. $180 applies to standard S–5XL; custom sizing costs extra. Purchasable, but ready stock is not verified."
+      }
+    },
+    {
+      "id": "p-b7869f2049",
+      "title": "257S — Classic B-3 Sheepskin Bomber Jacket — Brn / Golden",
+      "url": "https://www.schottnyc.com/products/257s-classic-b-3-sheepskin-leather-bomber-jacket?variant=49851198079262",
+      "priceCents": 169000,
+      "currency": "USD",
+      "image": "/products/price-tiers/p-b7869f2049.webp",
+      "merchantImage": "/products/price-tiers/p-b7869f2049.webp",
+      "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/0905/5872/6430/files/257S_BRG_FRT.jpg?v=1778004456"
+      ],
+      "availability": "in_stock",
+      "sizes": [
+        "34",
+        "36",
+        "38",
+        "40",
+        "42",
+        "44",
+        "46"
+      ],
+      "merchantId": "schottnyc-com",
+      "tagSlugs": [],
+      "description": "Heavyweight brown sheepskin with golden shearling, leather-welted seams and buckled collar/waist straps. Golden fleece is warmer than the image’s cream. Made in USA. Brn / Golden sizes 34–46 are $1,690; size 32 is sold out, 48+ cost more. Selected-page inventory shows one unit per included size with deny-oversell policy. Jacket only.",
+      "checkedAt": "2026-10-25T08:50:23.962064Z",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-25T08:50:23.962064Z",
+        "url": "https://www.schottnyc.com/products/257s-classic-b-3-sheepskin-leather-bomber-jacket.js",
+        "notes": "Heavyweight brown sheepskin with golden shearling, leather-welted seams and buckled collar/waist straps. Golden fleece is warmer than the image’s cream. Made in USA. Brn / Golden sizes 34–46 are $1,690; size 32 is sold out, 48+ cost more. Selected-page inventory shows one unit per included size with deny-oversell policy. Jacket only."
+      }
+    },
+    {
+      "id": "p-d-037c131f58",
+      "title": "Dragon Warrior Double Shoulder Pauldrons - Costume Accessory — Brown",
+      "url": "https://chicagocostume.com/products/dragon-warrior-double-shoulder-pauldrons-costume-accessory?variant=47861425766642",
+      "priceCents": 4999,
+      "currency": "USD",
+      "image": "/products/price-tiers/p-d-037c131f58.webp",
+      "merchantImage": "/products/price-tiers/p-d-037c131f58.webp",
+      "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/0610/0208/8690/files/815OWFi3vjL._AC_SX679.jpg?v=1755538907"
+      ],
+      "availability": "in_stock",
+      "sizes": [],
+      "merchantId": "chicagocostume-com",
+      "tagSlugs": [],
+      "description": "Elevate your warrior look with the Dragon Warrior Double Shoulder Pauldrons. These bold, intricately designed shoulder pieces add authentic armor style and commanding presence to any costume. Perfect for battles or heroic adventures, they enhance your outfit with a fierce, powerful edge. One size fits most adults! Includes: (2) Faux leather shoulder pauldron armor pieces with adjustable cross-body straps (Arm guards not included) For Ages 14+",
+      "checkedAt": "2026-10-27T00:28:51.012585+00:00",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-27T00:28:51.012585+00:00",
+        "url": "https://chicagocostume.com/products/dragon-warrior-double-shoulder-pauldrons-costume-accessory.js",
+        "notes": "Built-in web discovery; primary merchant Shopify feed confirms selected variant available and its USD price. Two faux-leather shoulder pauldrons with adjustable cross-body straps; one size fits most adults, ages 14+. Arm guards are not included."
+      }
+    },
+    {
+      "id": "p-d-7dce22951f",
+      "title": "Single Dragon Warrior Faux Leather Pauldron Shoulder Armor - Costume Accessory — Brown",
+      "url": "https://chicagocostume.com/products/single-leather-pauldron-shoulder-armor-costume-accessory?variant=47867385676018",
+      "priceCents": 2499,
+      "currency": "USD",
+      "image": "/products/price-tiers/p-d-7dce22951f.webp",
+      "merchantImage": "/products/price-tiers/p-d-7dce22951f.webp",
+      "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/0610/0208/8690/files/71_ZzznpPDL._AC_SX679.jpg?v=1755812983"
+      ],
+      "availability": "in_stock",
+      "sizes": [],
+      "merchantId": "chicagocostume-com",
+      "tagSlugs": [],
+      "description": "Elevate your warrior costume with this Single Dragon Warrior Faux Leather Pauldron. Crafted for comfort and style, it adds a fierce, authentic touch to your outfit, making you stand out in any battle or cosplay event. One size fits most adults! Includes: (1) Faux leather shoulder pauldron armor (Arm guard not included) For Ages 14+",
+      "checkedAt": "2026-10-27T00:28:51.012585+00:00",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-27T00:28:51.012585+00:00",
+        "url": "https://chicagocostume.com/products/single-leather-pauldron-shoulder-armor-costume-accessory.js",
+        "notes": "Built-in web discovery; primary merchant Shopify feed confirms selected variant available and its USD price. One brown faux-leather dragon-warrior shoulder pauldron, one size fits most adults, ages 14+. Single-sided alternative, not a pair; arm guard not included."
+      }
+    },
+    {
+      "id": "p-d-fc26edc6bb",
+      "title": "Foam Roman Chest Plate- Black",
+      "url": "https://chicagocostume.com/products/foam-roman-chest-plate-black?variant=49997201932530",
+      "priceCents": 2999,
+      "currency": "USD",
+      "image": "/products/price-tiers/p-d-fc26edc6bb.webp",
+      "merchantImage": "/products/price-tiers/p-d-fc26edc6bb.webp",
+      "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/0610/0208/8690/files/adult-foam-roman-chest-plate-costume-accessory.jpg?v=1788022220"
+      ],
+      "availability": "in_stock",
+      "sizes": [],
+      "merchantId": "chicagocostume-com",
+      "tagSlugs": [],
+      "description": "Strike an imposing figure with this foam Roman chest plate—lightweight armor that won't slow you down! Featuring intricate bird designs and striking detailing, it's the perfect finishing touch for any gladiator, warrior, or history-loving cosplayer. Comfortable enough to wear all day at conventions, parties, or Halloween adventures. Who says authenticity can't be fun?",
+      "checkedAt": "2026-10-27T00:28:51.012585+00:00",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-27T00:28:51.012585+00:00",
+        "url": "https://chicagocostume.com/products/foam-roman-chest-plate-black.js",
+        "notes": "Built-in web discovery; primary merchant Shopify feed confirms selected variant available and its USD price. Lightweight black foam Roman chest plate with bird designs. Covers the torso rather than the shoulders; a different armor silhouette from the brown pauldrons."
+      }
+    },
+    {
+      "id": "p-7a7693db8b",
+      "title": "Sailor Pants",
+      "url": "https://www.medievalcollectibles.com/product/sailor-pants-2/?attribute_pa_color=black&attribute_pa_size=small",
+      "priceCents": 6000,
+      "currency": "USD",
+      "image": "/products/price-tiers/p-7a7693db8b.webp",
+      "merchantImage": "/products/price-tiers/p-7a7693db8b.webp",
+      "sourceImages": [
+        "https://www.medievalcollectibles.com/wp-content/uploads/2019/03/SS-SPANTS-BLK.jpg"
+      ],
+      "availability": "in_stock",
+      "sizes": [
+        "Small",
+        "Medium"
+      ],
+      "merchantId": "medievalcollectibles-com",
+      "tagSlugs": [],
+      "description": "Selected Black 100% cotton wide-leg sailor trousers with drawstring waist; tuck into boots. Trousers only. Positive live stock exists only for Black Small and Medium. Other black sizes are backordered and excluded.",
+      "checkedAt": "2026-10-25T08:47:48Z",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-25T08:47:48Z",
+        "url": "https://www.medievalcollectibles.com/product/sailor-pants-2/?attribute_pa_color=black&attribute_pa_size=small",
+        "notes": "Selected Black 100% cotton wide-leg sailor trousers with drawstring waist; tuck into boots. Trousers only. Positive live stock exists only for Black Small and Medium. Other black sizes are backordered and excluded."
+      }
+    },
+    {
+      "id": "p-035b491978",
+      "title": "First Mate Pants",
+      "url": "https://www.medievalcollectibles.com/product/first-mate-pants/?attribute_pa_color=black&attribute_pa_size=large-x-large",
+      "priceCents": 3900,
+      "currency": "USD",
+      "image": "/products/price-tiers/p-035b491978.webp",
+      "merchantImage": "/products/price-tiers/p-035b491978.webp",
+      "sourceImages": [
+        "https://www.medievalcollectibles.com/wp-content/uploads/2020/04/100518_2.jpg"
+      ],
+      "availability": "in_stock",
+      "sizes": [
+        "Small/Medium",
+        "Large/X-Large"
+      ],
+      "merchantId": "medievalcollectibles-com",
+      "tagSlugs": [],
+      "description": "Selected solid Black cotton trousers with drawstring waist, generous cut, slightly flared legs and deep pockets. Trousers only; sash, shirt, hat, vest and boots excluded. Both listed sizes have positive live inventory. Merchant specifies dry clean only.",
+      "checkedAt": "2026-10-25T08:47:48Z",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-25T08:47:48Z",
+        "url": "https://www.medievalcollectibles.com/product/first-mate-pants/?attribute_pa_color=black&attribute_pa_size=large-x-large",
+        "notes": "Selected solid Black cotton trousers with drawstring waist, generous cut, slightly flared legs and deep pockets. Trousers only; sash, shirt, hat, vest and boots excluded. Both listed sizes have positive live inventory. Merchant specifies dry clean only."
+      }
+    },
+    {
+      "id": "p-c1bf560c38",
+      "title": "Pirate Captain’s Pants",
+      "url": "https://www.medievalcollectibles.com/product/pirate-captains-pants/?attribute_pa_color=black&attribute_pa_size=medium",
+      "priceCents": 9500,
+      "currency": "USD",
+      "image": "/products/price-tiers/p-c1bf560c38.webp",
+      "merchantImage": "/products/price-tiers/p-c1bf560c38.webp",
+      "sourceImages": [
+        "https://www.medievalcollectibles.com/wp-content/uploads/2019/03/SS-CPANTS-Blk.jpg"
+      ],
+      "availability": "in_stock",
+      "sizes": [
+        "Medium",
+        "Large"
+      ],
+      "merchantId": "medievalcollectibles-com",
+      "tagSlugs": [],
+      "description": "Selected Black cotton velveteen trousers with tie front, tie legs and functional pockets. Softer velvet finish differs from the reference. Made in USA. Trousers only. Black Medium and Large each have positive live stock; other black sizes are backordered and excluded.",
+      "checkedAt": "2026-10-25T08:47:48Z",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-25T08:47:48Z",
+        "url": "https://www.medievalcollectibles.com/product/pirate-captains-pants/?attribute_pa_color=black&attribute_pa_size=medium",
+        "notes": "Selected Black cotton velveteen trousers with tie front, tie legs and functional pockets. Softer velvet finish differs from the reference. Made in USA. Trousers only. Black Medium and Large each have positive live stock; other black sizes are backordered and excluded."
+      }
+    },
+    {
+      "id": "p-ba0acbf53c",
+      "title": "Captain | Brown — Standard",
+      "url": "https://thursdayboots.com/products/mens-brown-captain?variant=7609600581",
+      "priceCents": 19900,
+      "currency": "USD",
+      "image": "/products/price-tiers/p-ba0acbf53c.webp",
+      "merchantImage": "/products/price-tiers/p-ba0acbf53c.webp",
+      "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/0419/1525/files/1024x1024-Men-Captain-Brown-081226-3.4-d17ac2.jpg?v=1790357464"
+      ],
+      "availability": "in_stock",
+      "sizes": [
+        "6",
+        "6.5",
+        "7",
+        "7.5",
+        "8",
+        "8.5",
+        "9",
+        "9.5",
+        "10",
+        "10.5",
+        "11",
+        "11.5",
+        "12",
+        "12.5",
+        "13",
+        "13.5",
+        "14",
+        "15",
+        "16"
+      ],
+      "merchantId": "thursdayboots-com",
+      "tagSlugs": [],
+      "description": "Brown leather cap-toe ankle boot with waxed cotton laces, glove leather lining and studded rubber sole. Shorter than the image and has no upper buckles. Standard-width sizes 6–16 listed here are all available at $199 in current feed. US order processing typically 1–3 business days; delivery timing is separate.",
+      "checkedAt": "2026-10-25T08:50:23.962064Z",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-25T08:50:23.962064Z",
+        "url": "https://thursdayboots.com/products/mens-brown-captain.js",
+        "notes": "Brown leather cap-toe ankle boot with waxed cotton laces, glove leather lining and studded rubber sole. Shorter than the image and has no upper buckles. Standard-width sizes 6–16 listed here are all available at $199 in current feed. US order processing typically 1–3 business days; delivery timing is separate."
+      }
+    },
+    {
+      "id": "p-3b0a976509",
+      "title": "Karnak Plain Toe Boot — Brown CH / M (D - medium)",
+      "url": "https://www.nunnbush.com/shop/style/85088-215.html",
+      "priceCents": 8995,
+      "currency": "USD",
+      "image": "/products/price-tiers/p-3b0a976509.webp",
+      "merchantImage": "/products/price-tiers/p-3b0a976509.webp",
+      "sourceImages": [
+        "https://www.nunnbush.com/shop/images/w590/85088-215.jpg"
+      ],
+      "availability": "in_stock",
+      "sizes": [
+        "7",
+        "7.5",
+        "8",
+        "8.5",
+        "9",
+        "9.5",
+        "10",
+        "10.5",
+        "11",
+        "11.5",
+        "12",
+        "13",
+        "14"
+      ],
+      "merchantId": "nunnbush-com",
+      "tagSlugs": [],
+      "description": "Brown CH style 85088-215, leather/man-made mixed upper and modern lug wedge sole. Live merchant page lists $89.95. Read-only width selection confirmed M (D medium) and every listed size explicitly In Stock; response saved in nunn-medium-width.xml. Shorter and more modern than the image, with no calf buckles. Stated usual dispatch 2–3 business days.",
+      "checkedAt": "2026-10-25T08:50:23.962064Z",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-25T08:50:23.962064Z",
+        "url": "https://www.nunnbush.com/shop/style/85088-215.html",
+        "notes": "Brown CH style 85088-215, leather/man-made mixed upper and modern lug wedge sole. Live merchant page lists $89.95. Read-only width selection confirmed M (D medium) and every listed size explicitly In Stock; response saved in nunn-medium-width.xml. Shorter and more modern than the image, with no calf buckles. Stated usual dispatch 2–3 business days."
+      }
+    },
+    {
+      "id": "p-10ebd36f10",
+      "title": "Diesel Boot Crimson Chromexcel — D (Standard)",
+      "url": "https://grantstoneshoes.com/products/diesel-boot-crimson-chromexcel?variant=12617336160320",
+      "priceCents": 43500,
+      "currency": "USD",
+      "image": "/products/price-tiers/p-10ebd36f10.webp",
+      "merchantImage": "/products/price-tiers/p-10ebd36f10.webp",
+      "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/1163/3390/files/06SIDE-Edit_14628844-8b5f-4b32-b91c-69db10615674.jpg?v=1783615369"
+      ],
+      "availability": "in_stock",
+      "sizes": [
+        "6",
+        "6.5",
+        "7",
+        "7.5",
+        "8",
+        "8.5",
+        "9",
+        "9.5",
+        "10",
+        "10.5",
+        "11",
+        "11.5",
+        "12",
+        "13"
+      ],
+      "merchantId": "grantstoneshoes-com",
+      "tagSlugs": [],
+      "description": "Crimson Chromexcel dark reddish-brown leather plain-toe lace-up ankle boot with antique-brass eyelets/hooks and rubber sole. Lower shaft and no calf buckles. D Standard sizes 6–13 listed here are available at $435. Higher price does not make it a closer costume match.",
+      "checkedAt": "2026-10-25T08:50:23.962064Z",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-25T08:50:23.962064Z",
+        "url": "https://grantstoneshoes.com/products/diesel-boot-crimson-chromexcel.js",
+        "notes": "Crimson Chromexcel dark reddish-brown leather plain-toe lace-up ankle boot with antique-brass eyelets/hooks and rubber sole. Lower shaft and no calf buckles. D Standard sizes 6–13 listed here are available at $435. Higher price does not make it a closer costume match."
+      }
+    }
+  ],
+  "merchants": [
+    {
+      "id": "chicagocostume-com",
+      "name": "Chicago Costume Company",
+      "domain": "chicagocostume.com",
+      "url": "https://chicagocostume.com/",
+      "kind": "boutique",
+      "neighborhoodId": null
+    },
+    {
+      "id": "medievalcollectibles-com",
+      "name": "Medieval Collectibles",
+      "domain": "medievalcollectibles.com",
+      "url": "https://medievalcollectibles.com/",
+      "kind": "boutique",
+      "neighborhoodId": null
+    },
+    {
+      "id": "rontomson-com",
+      "name": "Ron Tomson",
+      "domain": "rontomson.com",
+      "url": "https://rontomson.com/",
+      "kind": "boutique",
+      "neighborhoodId": null
+    },
+    {
+      "id": "blacktopgear-com",
+      "name": "Blacktop Gear",
+      "domain": "blacktopgear.com",
+      "url": "https://blacktopgear.com/",
+      "kind": "boutique",
+      "neighborhoodId": null
+    },
+    {
+      "id": "schottnyc-com",
+      "name": "Schott N.Y.C.",
+      "domain": "schottnyc.com",
+      "url": "https://schottnyc.com/",
+      "kind": "boutique",
+      "neighborhoodId": null
+    },
+    {
+      "id": "nunnbush-com",
+      "name": "Nunn Bush",
+      "domain": "nunnbush.com",
+      "url": "https://nunnbush.com/",
+      "kind": "boutique",
+      "neighborhoodId": null
+    },
+    {
+      "id": "thursdayboots-com",
+      "name": "Thursday Boot Company",
+      "domain": "thursdayboots.com",
+      "url": "https://thursdayboots.com/",
+      "kind": "boutique",
+      "neighborhoodId": null
+    },
+    {
+      "id": "grantstoneshoes-com",
+      "name": "Grant Stone",
+      "domain": "grantstoneshoes.com",
+      "url": "https://grantstoneshoes.com/",
+      "kind": "boutique",
+      "neighborhoodId": null
+    }
+  ],
+  "neighborhoods": [],
+  "tags": [],
+  "provenance": {
+    "method": "manual-research",
+    "generatedAt": "2026-10-27T00:28:51.012585+00:00",
+    "notes": "Expansion D: new defining accessories researched with built-in web search and official merchant Shopify variant feeds. Existing basics reuse reviewed catalog evidence and retain original check dates. Relative price tiers; shipping, taxes and arrival are unconfirmed. Generated image is styling inspiration; option differences and DIY work are explicit. See docs/sourcing/expansion-d.md.",
+    "priceTiers": true,
+    "heroImageKind": "generated-reference"
+  }
+}
