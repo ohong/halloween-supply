@@ -63,6 +63,18 @@ docker run --rm -p 8080:8080 -v /opt/cool:/opt/cool:ro -e PYTHONPATH=/opt/cool/p
 
 If the mount is missing, the COOL image fails at startup with `ModuleNotFoundError: No module named 'cv2'`. That failure is intentional, because it stops the service from falling back to a stock build without anyone noticing. Check `/healthz`: on the COOL host it must report `"build": "cool"`, and every response must carry the header `X-OpenCV-Build: 5.0.0;cool`. One risk is still unverified: if the COOL cv2 was compiled against numpy 1.x, it will not import next to the numpy 2.x in `uv.lock`.
 
+## Push to ECR
+
+The images go to `401921623247.dkr.ecr.us-east-2.amazonaws.com/halloween-vision` with the tags `stock` and `cool`. The repo is in us-east-2, because the account's SCP denies us-east-1. Log in, then tag and push each image:
+
+```bash
+aws ecr get-login-password --region us-east-2 | docker login --username AWS --password-stdin 401921623247.dkr.ecr.us-east-2.amazonaws.com
+```
+
+```bash
+docker tag halloween-vision:cool 401921623247.dkr.ecr.us-east-2.amazonaws.com/halloween-vision:cool && docker push 401921623247.dkr.ecr.us-east-2.amazonaws.com/halloween-vision:cool
+```
+
 ## Smoke test
 
 `scripts/smoke.py` is an end-to-end check against a running service, with no mocks. It checks healthz, a 401 on a bad token, and a 400 on a garbage image. Then, for cosmic-cowboy, linen-ghost, and midnight-pirate, it analyzes the worn photo and checks each piece against the contract. Last, it runs `/v1/match` for each costume and checks that the costume's own product shot outscores another costume's shot. It writes an overlay for each costume to `debug/<costume>.png`, a folder git ignores.
