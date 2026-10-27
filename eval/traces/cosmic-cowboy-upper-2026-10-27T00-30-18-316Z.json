@@ -1,0 +1,592 @@
+{
+  "slug": "cosmic-cowboy-upper",
+  "base": "http://localhost:3000",
+  "model": "opencv-5:5.0.0;stock",
+  "elapsedMs": 25165,
+  "done": {
+    "t": "done",
+    "found": 2,
+    "priced": 2,
+    "timedOut": false,
+    "ms": 25144
+  },
+  "pieces": [
+    "gray felt cowboy hat",
+    "blue knotted neckerchief",
+    "gray cropped embroidered jacket",
+    "gray satin pantaloons"
+  ],
+  "approvals": [],
+  "retries": [
+    {
+      "piece": 0,
+      "attempt": 0,
+      "action": "retry",
+      "because": "color_mismatch",
+      "next": "silver felt cowboy hat"
+    },
+    {
+      "piece": 2,
+      "attempt": 0,
+      "action": "retry",
+      "because": "no_candidates",
+      "next": "gray cropped jacket"
+    },
+    {
+      "piece": 3,
+      "attempt": 0,
+      "action": "retry",
+      "because": "color_mismatch",
+      "next": "silver satin pantaloons"
+    }
+  ],
+  "improvedPieces": [
+    0
+  ],
+  "trace": [
+    {
+      "t_ms": 504,
+      "piece": null,
+      "step": "perceive",
+      "detail": {
+        "person": {
+          "found": true,
+          "bbox": [
+            223,
+            7,
+            328,
+            416
+          ],
+          "confidence": 0.911
+        },
+        "timings_ms": {
+          "decode": 1,
+          "segment": 287,
+          "colors": 16,
+          "embed": 184,
+          "classify": 3,
+          "total": 492
+        },
+        "pieces": [
+          {
+            "id": "p0",
+            "region": "hat",
+            "slot": "head",
+            "area_frac": 0.0221,
+            "pattern": "patterned",
+            "query": "gray felt cowboy hat",
+            "alternate": "gray western hat",
+            "colors": [
+              {
+                "name": "gray",
+                "hex": "#8a8685",
+                "frac": 0.405
+              },
+              {
+                "name": "silver",
+                "hex": "#c7c3c3",
+                "frac": 0.306
+              },
+              {
+                "name": "charcoal",
+                "hex": "#4f4c4b",
+                "frac": 0.289
+              }
+            ],
+            "garment_types": [
+              {
+                "phrase": "felt cowboy hat",
+                "score": 0.2655
+              },
+              {
+                "phrase": "belled jester cap",
+                "score": 0.2565
+              },
+              {
+                "phrase": "feathered musketeer hat",
+                "score": 0.2552
+              }
+            ]
+          },
+          {
+            "id": "p1",
+            "region": "scarf",
+            "slot": "accessory",
+            "area_frac": 0.0124,
+            "pattern": "patterned",
+            "query": "blue knotted neckerchief",
+            "alternate": "blue bandana",
+            "colors": [
+              {
+                "name": "blue",
+                "hex": "#27439e",
+                "frac": 0.451
+              },
+              {
+                "name": "navy",
+                "hex": "#0f1538",
+                "frac": 0.408
+              },
+              {
+                "name": "light blue",
+                "hex": "#7d94cd",
+                "frac": 0.142
+              }
+            ],
+            "garment_types": [
+              {
+                "phrase": "knotted neckerchief",
+                "score": 0.2696
+              },
+              {
+                "phrase": "silk kerchief",
+                "score": 0.2684
+              },
+              {
+                "phrase": "silk cravat",
+                "score": 0.2678
+              }
+            ]
+          },
+          {
+            "id": "p2",
+            "region": "upper_clothes",
+            "slot": "top",
+            "area_frac": 0.1707,
+            "pattern": "patterned",
+            "query": "gray cropped embroidered jacket",
+            "alternate": "gray cropped jacket",
+            "colors": [
+              {
+                "name": "gray",
+                "hex": "#7c7877",
+                "frac": 0.452
+              },
+              {
+                "name": "silver",
+                "hex": "#cecbcb",
+                "frac": 0.418
+              },
+              {
+                "name": "navy",
+                "hex": "#232546",
+                "frac": 0.13
+              }
+            ],
+            "garment_types": [
+              {
+                "phrase": "cropped embroidered jacket",
+                "score": 0.2757
+              },
+              {
+                "phrase": "flared disco jumpsuit",
+                "score": 0.2691
+              },
+              {
+                "phrase": "fringe suede jacket",
+                "score": 0.2626
+              }
+            ]
+          },
+          {
+            "id": "p3",
+            "region": "pants",
+            "slot": "bottom",
+            "area_frac": 0.0537,
+            "pattern": "patterned",
+            "query": "gray satin pantaloons",
+            "alternate": "gray bloomers",
+            "colors": [
+              {
+                "name": "gray",
+                "hex": "#999696",
+                "frac": 0.482
+              },
+              {
+                "name": "silver",
+                "hex": "#d7d4d5",
+                "frac": 0.341
+              },
+              {
+                "name": "charcoal",
+                "hex": "#5c5757",
+                "frac": 0.177
+              }
+            ],
+            "garment_types": [
+              {
+                "phrase": "satin pantaloons",
+                "score": 0.2827
+              },
+              {
+                "phrase": "flared trousers",
+                "score": 0.269
+              },
+              {
+                "phrase": "harem pants",
+                "score": 0.2611
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "t_ms": 8914,
+      "piece": 0,
+      "step": "search",
+      "detail": {
+        "attempt": 0,
+        "query": "gray felt cowboy hat",
+        "candidates": 3,
+        "ms": 8409
+      }
+    },
+    {
+      "t_ms": 11974,
+      "piece": 0,
+      "step": "score",
+      "detail": {
+        "attempt": 0,
+        "results": [
+          {
+            "title": "Serratelli 2X Star Granite Grey Cattleman Crease Felt Western Cowboy Hat",
+            "merchant": "paintedcowgirlwesternstore.com",
+            "score": 0.2781,
+            "verdict": "reject",
+            "reasons": [
+              "type_mismatch"
+            ],
+            "embedding": 0.5856,
+            "delta_e": 10.38,
+            "color": {
+              "name": "gray",
+              "hex": "#818b9e"
+            },
+            "foreground": "segmenter"
+          },
+          {
+            "title": "Rodeo King 60X Charcoal 4 1/2\" Felt Hat",
+            "merchant": "shopcrazyhouse.com",
+            "score": 0.5933,
+            "verdict": "weak",
+            "reasons": [
+              "color_mismatch"
+            ],
+            "embedding": 0.7896,
+            "delta_e": 30.34,
+            "color": {
+              "name": "black",
+              "hex": "#353232"
+            },
+            "foreground": "grabcut"
+          },
+          {
+            "title": "Eddy Bros.® Wild Flush",
+            "merchant": "baileyhats.com",
+            "score": 0.4314,
+            "verdict": "weak",
+            "reasons": [
+              "color_mismatch"
+            ],
+            "embedding": 0.7849,
+            "delta_e": 31.69,
+            "color": {
+              "name": "black",
+              "hex": "#2d302d"
+            },
+            "foreground": "grabcut"
+          }
+        ]
+      }
+    },
+    {
+      "t_ms": 11974,
+      "piece": 0,
+      "step": "decide",
+      "detail": {
+        "attempt": 0,
+        "action": "retry",
+        "because": "color_mismatch",
+        "next": "silver felt cowboy hat"
+      }
+    },
+    {
+      "t_ms": 12512,
+      "piece": 1,
+      "step": "search",
+      "detail": {
+        "attempt": 0,
+        "query": "blue knotted neckerchief",
+        "candidates": 2,
+        "ms": 12007
+      }
+    },
+    {
+      "t_ms": 12520,
+      "piece": 2,
+      "step": "search",
+      "detail": {
+        "attempt": 0,
+        "query": "gray cropped embroidered jacket",
+        "candidates": 0,
+        "ms": 12015
+      }
+    },
+    {
+      "t_ms": 12520,
+      "piece": 2,
+      "step": "score",
+      "detail": {
+        "attempt": 0,
+        "results": []
+      }
+    },
+    {
+      "t_ms": 12520,
+      "piece": 2,
+      "step": "decide",
+      "detail": {
+        "attempt": 0,
+        "action": "retry",
+        "because": "no_candidates",
+        "next": "gray cropped jacket"
+      }
+    },
+    {
+      "t_ms": 12531,
+      "piece": 3,
+      "step": "search",
+      "detail": {
+        "attempt": 0,
+        "query": "gray satin pantaloons",
+        "candidates": 1,
+        "ms": 12026
+      }
+    },
+    {
+      "t_ms": 13140,
+      "piece": 3,
+      "step": "score",
+      "detail": {
+        "attempt": 0,
+        "results": [
+          {
+            "title": "Ladies Tweed Vest - Gray",
+            "merchant": "historicalemporium.com",
+            "score": 0.3041,
+            "verdict": "reject",
+            "reasons": [
+              "color_mismatch"
+            ],
+            "embedding": 0.73,
+            "delta_e": 37.18,
+            "color": {
+              "name": "charcoal",
+              "hex": "#32342f"
+            },
+            "foreground": "grabcut"
+          }
+        ]
+      }
+    },
+    {
+      "t_ms": 13141,
+      "piece": 3,
+      "step": "decide",
+      "detail": {
+        "attempt": 0,
+        "action": "retry",
+        "because": "color_mismatch",
+        "next": "silver satin pantaloons"
+      }
+    },
+    {
+      "t_ms": 13353,
+      "piece": 1,
+      "step": "score",
+      "detail": {
+        "attempt": 0,
+        "results": [
+          {
+            "title": "Buckaroo Blue | Silk Wild Rag | 19mm Solid Western Scarf",
+            "merchant": "cowtownwildrags.com",
+            "score": 0.5544,
+            "verdict": "weak",
+            "reasons": [],
+            "embedding": 0.7506,
+            "delta_e": 10.05,
+            "color": {
+              "name": "blue",
+              "hex": "#395c75"
+            },
+            "foreground": "grabcut"
+          },
+          {
+            "title": "Royal Blue Paisley Bandana",
+            "merchant": "wexpress.com",
+            "score": 0.6009,
+            "verdict": "match",
+            "reasons": [],
+            "embedding": 0.7557,
+            "delta_e": 6.82,
+            "color": {
+              "name": "blue",
+              "hex": "#164e8b"
+            },
+            "foreground": "grabcut"
+          }
+        ]
+      }
+    },
+    {
+      "t_ms": 13353,
+      "piece": 1,
+      "step": "decide",
+      "detail": {
+        "attempt": 0,
+        "action": "accept",
+        "because": "match",
+        "best_score": 0.6009
+      }
+    },
+    {
+      "t_ms": 21401,
+      "piece": 0,
+      "step": "search",
+      "detail": {
+        "attempt": 1,
+        "query": "silver felt cowboy hat",
+        "candidates": 3,
+        "ms": 9427
+      }
+    },
+    {
+      "t_ms": 23678,
+      "piece": 0,
+      "step": "score",
+      "detail": {
+        "attempt": 1,
+        "results": [
+          {
+            "title": "Rodeo King | 7X Silverbelly Felt Cowboy Hat",
+            "merchant": "outpostboots.com",
+            "score": 0.5475,
+            "verdict": "weak",
+            "reasons": [],
+            "embedding": 0.7997,
+            "delta_e": 19.37,
+            "color": {
+              "name": "silver",
+              "hex": "#c6c7cb"
+            },
+            "foreground": "segmenter"
+          },
+          {
+            "title": "20X Silverbelly Marlboro Wool Felt Cowboy Hat",
+            "merchant": "rodeodurango.com",
+            "score": 0.4323,
+            "verdict": "weak",
+            "reasons": [
+              "color_mismatch"
+            ],
+            "embedding": 0.7561,
+            "delta_e": 25.55,
+            "color": {
+              "name": "cream",
+              "hex": "#e4dcc7"
+            },
+            "foreground": "segmenter"
+          },
+          {
+            "title": "Stetson Lariat 5X Silverbelly Felt Cowboy Hat",
+            "merchant": "tereswestern.com",
+            "score": 0.6581,
+            "verdict": "match",
+            "reasons": [],
+            "embedding": 0.7906,
+            "delta_e": 4.99,
+            "color": {
+              "name": "gray",
+              "hex": "#8f867c"
+            },
+            "foreground": "grabcut"
+          }
+        ]
+      }
+    },
+    {
+      "t_ms": 23678,
+      "piece": 0,
+      "step": "decide",
+      "detail": {
+        "attempt": 1,
+        "action": "accept",
+        "because": "match",
+        "best_score": 0.6581
+      }
+    },
+    {
+      "t_ms": 24523,
+      "piece": 2,
+      "step": "search",
+      "detail": {
+        "attempt": 1,
+        "query": "gray cropped jacket",
+        "candidates": 0,
+        "ms": 12002
+      }
+    },
+    {
+      "t_ms": 24523,
+      "piece": 2,
+      "step": "score",
+      "detail": {
+        "attempt": 1,
+        "results": []
+      }
+    },
+    {
+      "t_ms": 24523,
+      "piece": 2,
+      "step": "decide",
+      "detail": {
+        "attempt": 1,
+        "action": "approve",
+        "because": "budget_low",
+        "best_score": null
+      }
+    },
+    {
+      "t_ms": 25144,
+      "piece": 3,
+      "step": "search",
+      "detail": {
+        "attempt": 1,
+        "query": "silver satin pantaloons",
+        "candidates": 0,
+        "ms": 12003
+      }
+    },
+    {
+      "t_ms": 25144,
+      "piece": 3,
+      "step": "score",
+      "detail": {
+        "attempt": 1,
+        "results": []
+      }
+    },
+    {
+      "t_ms": 25144,
+      "piece": 3,
+      "step": "decide",
+      "detail": {
+        "attempt": 1,
+        "action": "approve",
+        "because": "budget_low",
+        "best_score": null
+      }
+    }
+  ]
+}

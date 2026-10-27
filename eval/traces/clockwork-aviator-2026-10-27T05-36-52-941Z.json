@@ -1,0 +1,428 @@
+{
+  "slug": "clockwork-aviator",
+  "base": "http://localhost:3000",
+  "model": "opencv-5:5.0.0;stock+gpt-6-luna",
+  "elapsedMs": 21774,
+  "done": {
+    "t": "done",
+    "found": 3,
+    "priced": 1,
+    "timedOut": false,
+    "ms": 21152
+  },
+  "pieces": [
+    "Brown shearling flight jacket",
+    "Brown cargo trousers",
+    "Dark brown lace-up boots"
+  ],
+  "approvals": [
+    {
+      "i": 0,
+      "because": "opencv_unavailable"
+    },
+    {
+      "i": 2,
+      "because": "opencv_unavailable"
+    }
+  ],
+  "retries": [],
+  "improvedPieces": [],
+  "trace": [
+    {
+      "t_ms": 3833,
+      "piece": null,
+      "step": "perceive",
+      "detail": {
+        "person": {
+          "found": true,
+          "bbox": [
+            318,
+            137,
+            387,
+            873
+          ],
+          "confidence": 0.943,
+          "outline": [
+            [
+              [
+                579,
+                140
+              ],
+              [
+                468,
+                150
+              ],
+              [
+                370,
+                243
+              ],
+              [
+                337,
+                356
+              ],
+              [
+                319,
+                523
+              ],
+              [
+                380,
+                527
+              ],
+              [
+                393,
+                469
+              ],
+              [
+                417,
+                497
+              ],
+              [
+                394,
+                641
+              ],
+              [
+                416,
+                903
+              ],
+              [
+                366,
+                999
+              ],
+              [
+                427,
+                1001
+              ],
+              [
+                472,
+                964
+              ],
+              [
+                469,
+                810
+              ],
+              [
+                515,
+                584
+              ],
+              [
+                562,
+                810
+              ],
+              [
+                555,
+                971
+              ],
+              [
+                594,
+                1008
+              ],
+              [
+                660,
+                999
+              ],
+              [
+                612,
+                908
+              ],
+              [
+                639,
+                611
+              ],
+              [
+                612,
+                507
+              ],
+              [
+                587,
+                499
+              ],
+              [
+                629,
+                468
+              ],
+              [
+                640,
+                525
+              ],
+              [
+                696,
+                532
+              ],
+              [
+                701,
+                446
+              ],
+              [
+                654,
+                242
+              ]
+            ]
+          ]
+        },
+        "timings_ms": {
+          "decode": 5,
+          "segment": 2635,
+          "colors": 95,
+          "embed": 763,
+          "classify": 9,
+          "total": 3514
+        },
+        "pieces": [
+          {
+            "id": "p0",
+            "region": "upper_clothes",
+            "slot": "top",
+            "area_frac": 0.099,
+            "pattern": "patterned",
+            "query": "chocolate shearling flight jacket",
+            "alternate": "chocolate leather jacket",
+            "colors": [
+              {
+                "name": "chocolate",
+                "hex": "#3e2417",
+                "frac": 0.388
+              },
+              {
+                "name": "brown",
+                "hex": "#725342",
+                "frac": 0.312
+              },
+              {
+                "name": "beige",
+                "hex": "#d5bda1",
+                "frac": 0.299
+              }
+            ],
+            "garment_types": [
+              {
+                "phrase": "shearling flight jacket",
+                "score": 0.3101
+              },
+              {
+                "phrase": "belted trench coat",
+                "score": 0.2687
+              },
+              {
+                "phrase": "leather biker jacket",
+                "score": 0.2629
+              }
+            ]
+          },
+          {
+            "id": "p1",
+            "region": "pants",
+            "slot": "bottom",
+            "area_frac": 0.0623,
+            "pattern": "patterned",
+            "query": "brown cargo pants",
+            "alternate": "brown combat pants",
+            "colors": [
+              {
+                "name": "brown",
+                "hex": "#5d4732",
+                "frac": 0.627
+              },
+              {
+                "name": "chocolate",
+                "hex": "#3a2718",
+                "frac": 0.364
+              },
+              {
+                "name": "cream",
+                "hex": "#dbcdbf",
+                "frac": 0.009
+              }
+            ],
+            "garment_types": [
+              {
+                "phrase": "cargo pants",
+                "score": 0.3017
+              },
+              {
+                "phrase": "corduroy overalls",
+                "score": 0.2961
+              },
+              {
+                "phrase": "utility trousers",
+                "score": 0.2877
+              }
+            ]
+          },
+          {
+            "id": "p2",
+            "region": "shoes",
+            "slot": "feet",
+            "area_frac": 0.0239,
+            "pattern": "patterned",
+            "query": "chocolate knee-high boots",
+            "alternate": "chocolate tall boots",
+            "colors": [
+              {
+                "name": "chocolate",
+                "hex": "#321f17",
+                "frac": 0.532
+              },
+              {
+                "name": "chocolate",
+                "hex": "#543f35",
+                "frac": 0.419
+              },
+              {
+                "name": "tan",
+                "hex": "#b29f92",
+                "frac": 0.049
+              }
+            ],
+            "garment_types": [
+              {
+                "phrase": "knee-high boots",
+                "score": 0.2589
+              },
+              {
+                "phrase": "tall riding boots",
+                "score": 0.257
+              },
+              {
+                "phrase": "pointed western boots",
+                "score": 0.2567
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "t_ms": 6786,
+      "piece": null,
+      "step": "label",
+      "detail": {
+        "model": "gpt-6-luna",
+        "pieces": [
+          {
+            "index": 0,
+            "keep": true,
+            "name": "Brown shearling flight jacket",
+            "garment": "shearling flight jacket",
+            "query": "brown shearling flight jacket"
+          },
+          {
+            "index": 1,
+            "keep": true,
+            "name": "Brown cargo trousers",
+            "garment": "cargo trousers",
+            "query": "brown utility cargo trousers"
+          },
+          {
+            "index": 2,
+            "keep": true,
+            "name": "Dark brown lace-up boots",
+            "garment": "lace-up boots",
+            "query": "dark brown lace up boots"
+          }
+        ]
+      }
+    },
+    {
+      "t_ms": 10681,
+      "piece": 1,
+      "step": "search",
+      "detail": {
+        "attempt": 0,
+        "query": "brown utility cargo trousers",
+        "candidates": 3,
+        "ms": 3892
+      }
+    },
+    {
+      "t_ms": 11027,
+      "piece": 0,
+      "step": "search",
+      "detail": {
+        "attempt": 0,
+        "query": "brown shearling flight jacket",
+        "candidates": 3,
+        "ms": 4239
+      }
+    },
+    {
+      "t_ms": 12520,
+      "piece": 2,
+      "step": "search",
+      "detail": {
+        "attempt": 0,
+        "query": "dark brown lace up boots",
+        "candidates": 3,
+        "ms": 5731
+      }
+    },
+    {
+      "t_ms": 15394,
+      "piece": 1,
+      "step": "score",
+      "detail": {
+        "attempt": 0,
+        "results": [
+          {
+            "title": "TAC UTILITY CARGO PANT - FONDENTE BROWN COTTON CORDUROY",
+            "merchant": "18east.co",
+            "score": 0.8503,
+            "verdict": "match",
+            "reasons": [],
+            "embedding": 0.9201,
+            "delta_e": 6.47,
+            "color": {
+              "name": "chocolate",
+              "hex": "#4f392f"
+            },
+            "foreground": "grabcut"
+          },
+          {
+            "title": "Utility Cargo Pants - Brown",
+            "merchant": "reasonclothing.com",
+            "score": 0.7453,
+            "verdict": "match",
+            "reasons": [],
+            "embedding": 0.8928,
+            "delta_e": 12.46,
+            "color": {
+              "name": "chocolate",
+              "hex": "#4e3637"
+            },
+            "foreground": "segmenter"
+          }
+        ]
+      }
+    },
+    {
+      "t_ms": 15395,
+      "piece": 1,
+      "step": "decide",
+      "detail": {
+        "attempt": 0,
+        "action": "accept",
+        "because": "match",
+        "best_score": 0.8503
+      }
+    },
+    {
+      "t_ms": 19966,
+      "piece": 0,
+      "step": "score",
+      "detail": {
+        "attempt": 0,
+        "results": [],
+        "error": "opencv_unavailable"
+      }
+    },
+    {
+      "t_ms": 21151,
+      "piece": 2,
+      "step": "score",
+      "detail": {
+        "attempt": 0,
+        "results": [],
+        "error": "opencv_unavailable"
+      }
+    }
+  ]
+}

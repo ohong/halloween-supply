@@ -8,6 +8,7 @@ import type { CartItem } from "@/lib/types";
 import { preparePhoto } from "@/lib/photo/prepare";
 import { AssemblyPlaceholder, AssemblyStatus } from "./assembly-status";
 import { PieceInspectionPanel } from "./piece-inspection-panel";
+import { PieceDot, PieceVision, PipelineStrip, SegmentationOverlay, type PieceVisionInfo, type Segmentation } from "./segmentation-view";
 import "./screenshot-costume.css";
 
 interface LookPiece { name: string; slot: string; query: string; sizeKind: CartItem["sizeKind"] }
@@ -15,7 +16,11 @@ type Slot =
   | { state: "looking"; name: string }
   | { state: "found"; name: string; item: CartItem; why?: string }
   | { state: "candidate"; name: string; match: ScreenshotMatch }
+  | { state: "approval"; name: string; item: CartItem; why?: string; because: string }
   | { state: "missing"; name: string };
+type VisionInfo = PieceVisionInfo;
+interface TraceStep { piece: number | null; step: string; detail: Record<string, unknown> }
+interface ScoredResult { title: string; score: number; verdict: string; reasons: string[] }
 interface LogLine { kind: string; text: string; ms: number }
 type Phase = "idle" | "running" | "done" | "error";
 
@@ -27,6 +32,44 @@ function MatchImage({ src, title, merchant }: { src: string | null; title: strin
   if (!src || failed === src) return <span className="shot-discovery-photo"><span>{src ? "Photo unavailable" : "Similar item found"}</span><strong>{merchant}</strong><span>View at shop ↗</span></span>;
   // eslint-disable-next-line @next/next/no-img-element -- merchant photos can use any public CDN
   return <img src={src} alt={title} referrerPolicy="no-referrer" onError={() => setFailed(src)} />;
+}
+
+const BECAUSE: Record<string, string> = {
+  retries_exhausted: "No confident match after two retries.",
+  budget_low: "The search ran out of time before a confident match.",
+  no_new_query: "No other search left to try.",
+  opencv_unavailable: "Photo scoring was unavailable.",
+};
+const words = (text: unknown) => String(text).replaceAll("_", " ");
+
+function traceLine(entry: TraceStep) {
+  const d = entry.detail;
+  if (entry.step === "search") return `Searched “${d.query}”: ${d.candidates} ${d.candidates === 1 ? "result" : "results"}`;
+  if (entry.step === "score") {
+    const results = (d.results as ScoredResult[]).toSorted((a, b) => b.score - a.score).slice(0, 3);
+    return results.length ? `Scored: ${results.map(r => `${r.score.toFixed(2)} ${r.verdict}${r.reasons.length ? ` (${r.reasons.map(words).join(", ")})` : ""}`).join(" · ")}` : "No product photos to score";
+  }
+  if (entry.step === "decide") return d.action === "retry" ? `Retry for ${words(d.because)}: “${d.next}”` : d.action === "accept" ? "Accepted the best match" : "Asked for your OK";
+  return null;
+}
+
+/** Shows the OpenCV evidence behind one piece: the crop, its colors and each step the agent took. */
+function MatchTrace({ vision, trace, index }: { vision?: VisionInfo; trace: TraceStep[]; index: number }) {
+  if (!vision) return null;
+  return <details className="shot-how">
+    <summary>{vision.region && <><PieceDot index={index} />&nbsp;</>}How we matched this</summary>
+    <div className="shot-how-body">
+      {!vision.region && <>
+        {/* eslint-disable-next-line @next/next/no-img-element -- a data URL crop from the vision service */}
+        <img src={vision.crop} alt="The piece as OpenCV cropped it" />
+        <ul className="shot-swatches" aria-label="Colors found">
+          {vision.colors.map(c => <li key={c.hex}><span style={{ background: c.hex }} />{c.name} {Math.round(c.frac * 100)}%</li>)}
+        </ul>
+        {vision.garmentTypes[0] && <p className="meta">Looks like: {vision.garmentTypes.slice(0, 3).map(g => `${g.phrase} ${g.score.toFixed(2)}`).join(", ")}</p>}
+      </>}
+      <ol className="shot-steps">{trace.map((entry, i) => { const line = traceLine(entry); return line && <li key={i}>{line}</li>; })}</ol>
+    </div>
+  </details>;
 }
 
 function matchPrice(match: ScreenshotMatch) {
@@ -47,6 +90,10 @@ export function ScreenshotCostume() {
   const [error, setError] = useState<string | null>(null);
   const [sizes, setSizes] = useState<Record<string, string | null>>({});
   const [dragging, setDragging] = useState(false);
+  const [vision, setVision] = useState<VisionInfo[]>([]);
+  const [segmentation, setSegmentation] = useState<Segmentation | null>(null);
+  const [activePiece, setActivePiece] = useState<number | null>(null);
+  const [traces, setTraces] = useState<Record<number, TraceStep[]>>({});
   const [selectedPieceId, setSelectedPieceId] = useState<string | null>(null);
   const inspectionTrigger = useRef<HTMLButtonElement | null>(null);
   const abort = useRef<AbortController | null>(null);
@@ -58,7 +105,8 @@ export function ScreenshotCostume() {
   const restored = phase === "idle" && cart.ready && cart.costumeSlug === SCREENSHOT_SLUG && slots.length === 0;
   const visible: Slot[] = restored ? cart.items.map((item) => ({ state: "found", name: item.pieceName, item })) : slots;
   const found = visible.flatMap((slot) => slot.state === "found" ? [slot.item] : []);
-  const discovered = visible.filter(slot => slot.state === "found" || slot.state === "candidate").length;
+  const discovered = visible.filter(slot => slot.state === "found" || slot.state === "candidate" || slot.state === "approval").length;
+  const pending = visible.filter(slot => slot.state === "approval").length;
   const selected = found.find((item) => item.pieceId === selectedPieceId) ?? null;
   const total = found.reduce((sum, item) => sum + item.priceCents, 0);
   const inCart = (item: CartItem) => cart.costumeSlug === SCREENSHOT_SLUG && cart.items.some((line) => line.pieceId === item.pieceId && line.productId === item.productId);
@@ -82,7 +130,7 @@ export function ScreenshotCostume() {
     const controller = new AbortController();
     abort.current = controller;
     setPreview((old) => { if (old) URL.revokeObjectURL(old); return URL.createObjectURL(file); });
-    setPhase("running"); setError(null); setCharacter(null); setSummary(""); setSlots([]); setSizes({}); setLog([]); setSelectedPieceId(null);
+    setPhase("running"); setError(null); setCharacter(null); setSummary(""); setSlots([]); setSizes({}); setLog([]); setSelectedPieceId(null); setVision([]); setTraces({}); setSegmentation(null); setActivePiece(null);
     queue.current = [];
 
     const form = new FormData();
@@ -114,9 +162,17 @@ export function ScreenshotCostume() {
             setCharacter(String(event.character));
             setSummary(String(event.summary ?? ""));
             setSlots((event.pieces as LookPiece[]).map((piece) => ({ state: "looking", name: piece.name })));
+            setVision((event.vision as VisionInfo[] | undefined) ?? []);
+            setSegmentation((event.segmentation as Segmentation | undefined) ?? null);
+          } else if (event.t === "trace") {
+            const entry = event as unknown as TraceStep;
+            if (entry.piece !== null) setTraces(current => ({ ...current, [entry.piece!]: [...(current[entry.piece!] ?? []), entry] }));
+          } else if (event.t === "approval") {
+            const item = event.item as CartItem;
+            setSlots(current => current.map((slot, i) => i === event.i ? { state: "approval", name: slot.name, item, why: typeof event.why === "string" ? event.why : undefined, because: String(event.because) } : slot));
           } else if (event.t === "candidate") {
             const match = event.match as ScreenshotMatch;
-            setSlots(current => current.map((slot, i) => i === event.i && slot.state !== "found" ? { state: "candidate", name: slot.name, match } : slot));
+            setSlots(current => current.map((slot, i) => i === event.i && slot.state !== "found" && slot.state !== "approval" ? { state: "candidate", name: slot.name, match } : slot));
           } else if (event.t === "piece") {
             const item = event.item as CartItem;
             setSlots((current) => current.map((slot, i) => i === event.i ? { state: "found", name: slot.name, item, why: typeof event.why === "string" ? event.why : undefined } : slot));
@@ -165,6 +221,12 @@ export function ScreenshotCostume() {
     cart.setOpen(true);
   }
 
+  // Uncertain matches stay out of the cart until the shopper decides.
+  function decide(index: number, use: boolean) {
+    setSlots(current => current.map((slot, i) => i !== index || slot.state !== "approval" ? slot
+      : use ? { state: "found", name: slot.name, item: slot.item, why: slot.why } : { state: "missing", name: slot.name }));
+  }
+
   function closeInspection() {
     setSelectedPieceId(null);
     inspectionTrigger.current?.focus();
@@ -200,6 +262,7 @@ export function ScreenshotCostume() {
           <strong>Drop a screenshot</strong>
           <span>or paste it, or click to choose one. A movie still, a TikTok, a celebrity on a red carpet.</span>
         </span>}
+        {preview && segmentation && !restored && <SegmentationOverlay segmentation={segmentation} vision={vision} active={activePiece} />}
       </label>
       {preview && <button type="button" className="btn btn-ghost btn-block" disabled={running} onClick={() => fileRef.current?.click()}>Try another screenshot</button>}
       {(log.length > 0 || running) && <ol className="shot-log" ref={logRef} aria-live="polite" aria-label="Sourcing log">
@@ -220,6 +283,7 @@ export function ScreenshotCostume() {
 
       {error && <p className="notice" role="alert">{error}</p>}
 
+      {segmentation && !restored && <PipelineStrip timings={segmentation.timings_ms} />}
       {(running || visible.length > 0) && <AssemblyStatus discovery found={discovered} total={visible.length} missing={missing} running={running} stopped={phase === "error"} />}
       {running && visible.length === 0 && <div className="shot-preparing" aria-hidden="true">
         <span className="shot-preparing-sheet" />
@@ -229,7 +293,8 @@ export function ScreenshotCostume() {
       </div>}
       {visible.length > 0 ? <div className={`shot-workbench ${selected ? "has-selection" : ""}`}>
         <ul className="shot-lay">
-        {visible.map((slot, i) => <li key={i} className={`shot-slot is-${slot.state} ${slot.state === "found" && selected?.pieceId === slot.item.pieceId ? "is-selected" : ""}`} style={{ "--r": `${TILT[i % TILT.length]}deg` } as CSSProperties}>
+        {visible.map((slot, i) => <li key={i} className={`shot-slot is-${slot.state} ${slot.state === "found" && selected?.pieceId === slot.item.pieceId ? "is-selected" : ""}`} style={{ "--r": `${TILT[i % TILT.length]}deg` } as CSSProperties}
+          onMouseEnter={() => setActivePiece(i)} onMouseLeave={() => setActivePiece(null)} onFocus={() => setActivePiece(i)} onBlur={() => setActivePiece(null)}>
           {slot.state === "found" ? <>
             <button type="button" className="shot-inspect"
               aria-label={`Inspect ${slot.name}`} aria-expanded={selected?.pieceId === slot.item.pieceId}
@@ -264,10 +329,23 @@ export function ScreenshotCostume() {
               <span className="meta">{slot.match.merchant} · {matchPrice(slot.match)}</span>
               <span className="meta shot-match">{slot.match.note}</span>
               <span className="shot-inspect-hint">{slot.match.availability === "out_of_stock" ? "Listed out of stock · check shop ↗" : slot.match.kind === "browse" ? "Browse matches at shop ↗" : "View at shop ↗"}</span></span>
-          </a> : <>
+          </a> : slot.state === "approval" ? <div className="shot-approval">
+            <a className="shot-inspect" href={slot.item.productUrl} target="_blank" rel="noopener noreferrer">
+              <span className="shot-frame"><MatchImage src={slot.item.image} title={slot.item.title} merchant={slot.item.merchantName} /></span>
+              <span className="shot-caption"><span className="shot-piece">{slot.name}</span><span className="shot-title">{slot.item.title}</span>
+                <span className="meta">{slot.item.merchantName} · {formatPrice(slot.item.priceCents)}</span></span>
+            </a>
+            <p className="shot-approval-note">{BECAUSE[slot.because] ?? "This match is uncertain."} Use it?</p>
+            <div className="shot-approval-actions">
+              <button type="button" className="btn" onClick={() => decide(i, true)}>Use this anyway</button>
+              <button type="button" className="btn btn-ghost" onClick={() => decide(i, false)}>Skip piece</button>
+            </div>
+          </div> : <>
             <div className="shot-frame"><AssemblyPlaceholder state={slot.state === "looking" && phase === "error" ? "stopped" : slot.state} index={i} /></div>
             <div className="shot-caption"><p className="shot-piece">{slot.name}</p></div>
           </>}
+          {!restored && <PieceVision vision={vision[i]} index={i} />}
+          {!restored && <MatchTrace vision={vision[i]} trace={traces[i] ?? []} index={i} />}
         </li>)}
         </ul>
         {selected && <PieceInspectionPanel id="screenshot-piece-inspection" item={selected}
@@ -276,7 +354,7 @@ export function ScreenshotCostume() {
       </div> : !running && <div className="shot-empty" aria-hidden="true">{TILT.slice(0, 6).map((r, i) => <span key={i} style={{ "--r": `${r}deg` } as CSSProperties} />)}</div>}
 
       {discovered > 0 && <div className="shot-foot">
-        <p className="meta">{replacesScreenshot ? "This replaces the previous screenshot look in your cart. " : ""}{discovered > found.length ? "Open shop links for items without confirmed prices. " : ""}{missing > 0 ? `${missing} ${missing === 1 ? "piece needs" : "pieces need"} another search. ` : ""}Prices and stock can change. Checkout checks cart items again.</p>
+        <p className="meta">{replacesScreenshot ? "This replaces the previous screenshot look in your cart. " : ""}{discovered > found.length ? "Open shop links for items without confirmed prices. " : ""}{pending > 0 ? `${pending} ${pending === 1 ? "piece needs" : "pieces need"} your OK. ` : ""}{missing > 0 ? `${missing} ${missing === 1 ? "piece needs" : "pieces need"} another search. ` : ""}Prices and stock can change. Checkout checks cart items again.</p>
         {found.length > 0 && <button type="button" className="btn" disabled={!cart.ready} onClick={allInCart ? () => cart.setOpen(true) : addLook}>
           {allInCart ? "View cart" : `Add ${found.length < visible.length ? "priced pieces" : "the look"} to cart · ${formatPrice(total)}`}
         </button>}

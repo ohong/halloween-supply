@@ -1,0 +1,528 @@
+{
+  "slug": "clockwork-aviator",
+  "base": "http://localhost:3000",
+  "model": "opencv-5:5.0.0;stock+gpt-6-luna",
+  "elapsedMs": 24607,
+  "done": {
+    "t": "done",
+    "found": 3,
+    "priced": 2,
+    "timedOut": false,
+    "ms": 24526
+  },
+  "pieces": [
+    "Brown shearling flight jacket",
+    "Olive brown cargo pants",
+    "Dark brown lace-up boots"
+  ],
+  "approvals": [
+    {
+      "i": 1,
+      "because": "budget_low"
+    }
+  ],
+  "retries": [],
+  "improvedPieces": [],
+  "trace": [
+    {
+      "t_ms": 1397,
+      "piece": null,
+      "step": "perceive",
+      "detail": {
+        "person": {
+          "found": true,
+          "bbox": [
+            318,
+            137,
+            387,
+            873
+          ],
+          "confidence": 0.943,
+          "outline": [
+            [
+              [
+                579,
+                140
+              ],
+              [
+                468,
+                150
+              ],
+              [
+                370,
+                243
+              ],
+              [
+                337,
+                356
+              ],
+              [
+                319,
+                523
+              ],
+              [
+                380,
+                527
+              ],
+              [
+                393,
+                469
+              ],
+              [
+                417,
+                497
+              ],
+              [
+                394,
+                641
+              ],
+              [
+                416,
+                903
+              ],
+              [
+                366,
+                999
+              ],
+              [
+                427,
+                1001
+              ],
+              [
+                472,
+                964
+              ],
+              [
+                469,
+                810
+              ],
+              [
+                515,
+                584
+              ],
+              [
+                562,
+                810
+              ],
+              [
+                555,
+                971
+              ],
+              [
+                594,
+                1008
+              ],
+              [
+                660,
+                999
+              ],
+              [
+                612,
+                908
+              ],
+              [
+                639,
+                611
+              ],
+              [
+                612,
+                507
+              ],
+              [
+                587,
+                499
+              ],
+              [
+                629,
+                468
+              ],
+              [
+                640,
+                525
+              ],
+              [
+                696,
+                532
+              ],
+              [
+                701,
+                446
+              ],
+              [
+                654,
+                242
+              ]
+            ]
+          ]
+        },
+        "timings_ms": {
+          "decode": 12,
+          "segment": 1027,
+          "colors": 42,
+          "embed": 262,
+          "classify": 7,
+          "total": 1354
+        },
+        "pieces": [
+          {
+            "id": "p0",
+            "region": "upper_clothes",
+            "slot": "top",
+            "area_frac": 0.099,
+            "pattern": "patterned",
+            "query": "chocolate shearling flight jacket",
+            "alternate": "chocolate leather jacket",
+            "colors": [
+              {
+                "name": "chocolate",
+                "hex": "#3e2417",
+                "frac": 0.388
+              },
+              {
+                "name": "brown",
+                "hex": "#725342",
+                "frac": 0.312
+              },
+              {
+                "name": "beige",
+                "hex": "#d5bda1",
+                "frac": 0.299
+              }
+            ],
+            "garment_types": [
+              {
+                "phrase": "shearling flight jacket",
+                "score": 0.3101
+              },
+              {
+                "phrase": "belted trench coat",
+                "score": 0.2687
+              },
+              {
+                "phrase": "leather biker jacket",
+                "score": 0.2629
+              }
+            ]
+          },
+          {
+            "id": "p1",
+            "region": "pants",
+            "slot": "bottom",
+            "area_frac": 0.0623,
+            "pattern": "patterned",
+            "query": "brown cargo pants",
+            "alternate": "brown combat pants",
+            "colors": [
+              {
+                "name": "brown",
+                "hex": "#5d4732",
+                "frac": 0.627
+              },
+              {
+                "name": "chocolate",
+                "hex": "#3a2718",
+                "frac": 0.364
+              },
+              {
+                "name": "cream",
+                "hex": "#dbcdbf",
+                "frac": 0.009
+              }
+            ],
+            "garment_types": [
+              {
+                "phrase": "cargo pants",
+                "score": 0.3017
+              },
+              {
+                "phrase": "corduroy overalls",
+                "score": 0.2961
+              },
+              {
+                "phrase": "utility trousers",
+                "score": 0.2877
+              }
+            ]
+          },
+          {
+            "id": "p2",
+            "region": "shoes",
+            "slot": "feet",
+            "area_frac": 0.0239,
+            "pattern": "patterned",
+            "query": "chocolate knee-high boots",
+            "alternate": "chocolate tall boots",
+            "colors": [
+              {
+                "name": "chocolate",
+                "hex": "#321f17",
+                "frac": 0.532
+              },
+              {
+                "name": "chocolate",
+                "hex": "#543f35",
+                "frac": 0.419
+              },
+              {
+                "name": "tan",
+                "hex": "#b29f92",
+                "frac": 0.049
+              }
+            ],
+            "garment_types": [
+              {
+                "phrase": "knee-high boots",
+                "score": 0.2589
+              },
+              {
+                "phrase": "tall riding boots",
+                "score": 0.257
+              },
+              {
+                "phrase": "pointed western boots",
+                "score": 0.2567
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "t_ms": 4303,
+      "piece": null,
+      "step": "label",
+      "detail": {
+        "model": "gpt-6-luna",
+        "pieces": [
+          {
+            "index": 0,
+            "keep": true,
+            "name": "Brown shearling flight jacket",
+            "garment": "shearling flight jacket",
+            "query": "brown shearling flight jacket"
+          },
+          {
+            "index": 1,
+            "keep": true,
+            "name": "Olive brown cargo pants",
+            "garment": "cargo pants",
+            "query": "olive brown cargo pants"
+          },
+          {
+            "index": 2,
+            "keep": true,
+            "name": "Dark brown lace-up boots",
+            "garment": "lace-up combat boots",
+            "query": "dark brown lace-up combat boots"
+          }
+        ]
+      }
+    },
+    {
+      "t_ms": 8522,
+      "piece": 2,
+      "step": "search",
+      "detail": {
+        "attempt": 0,
+        "query": "dark brown lace-up combat boots",
+        "candidates": 3,
+        "ms": 4218
+      }
+    },
+    {
+      "t_ms": 11442,
+      "piece": 2,
+      "step": "score",
+      "detail": {
+        "attempt": 0,
+        "results": [
+          {
+            "title": "Men's Dark Brown Plain-Toe Leather Combat Boots — Huntington",
+            "merchant": "rebelsmarket.com",
+            "score": 0.8842,
+            "verdict": "match",
+            "reasons": [],
+            "embedding": 0.8762,
+            "delta_e": 5.05,
+            "color": {
+              "name": "chocolate",
+              "hex": "#3b2c24"
+            },
+            "foreground": "segmenter"
+          },
+          {
+            "title": "Suede Brown Lace up Boots | Blend of Elegance and Toughness",
+            "merchant": "unclehector.com",
+            "score": 0.8916,
+            "verdict": "match",
+            "reasons": [],
+            "embedding": 0.9008,
+            "delta_e": 9.66,
+            "color": {
+              "name": "chocolate",
+              "hex": "#553727"
+            },
+            "foreground": "grabcut"
+          }
+        ]
+      }
+    },
+    {
+      "t_ms": 11443,
+      "piece": 2,
+      "step": "decide",
+      "detail": {
+        "attempt": 0,
+        "action": "accept",
+        "because": "match",
+        "best_score": 0.8916
+      }
+    },
+    {
+      "t_ms": 11911,
+      "piece": 0,
+      "step": "search",
+      "detail": {
+        "attempt": 0,
+        "query": "brown shearling flight jacket",
+        "candidates": 3,
+        "ms": 7608
+      }
+    },
+    {
+      "t_ms": 14030,
+      "piece": 0,
+      "step": "score",
+      "detail": {
+        "attempt": 0,
+        "results": [
+          {
+            "title": "Brown Shearling Leather Flight Aviator Jacket",
+            "merchant": "corvusstore.com",
+            "score": 0.7387,
+            "verdict": "match",
+            "reasons": [],
+            "embedding": 0.8619,
+            "delta_e": 12.62,
+            "color": {
+              "name": "burgundy",
+              "hex": "#6b3e38"
+            },
+            "foreground": "grabcut"
+          },
+          {
+            "title": "Brown Leather Shearling Flight Jacket",
+            "merchant": "paradisefoundnyc.com",
+            "score": 0.7562,
+            "verdict": "match",
+            "reasons": [],
+            "embedding": 0.8969,
+            "delta_e": 12.05,
+            "color": {
+              "name": "chocolate",
+              "hex": "#34302d"
+            },
+            "foreground": "grabcut"
+          },
+          {
+            "title": "Brown Sheepskin B-3 Bomber Shearling Flight Jacket",
+            "merchant": "rfxleather.com",
+            "score": 0.7698,
+            "verdict": "match",
+            "reasons": [],
+            "embedding": 0.9266,
+            "delta_e": 10.96,
+            "color": {
+              "name": "black",
+              "hex": "#2e2927"
+            },
+            "foreground": "grabcut"
+          }
+        ]
+      }
+    },
+    {
+      "t_ms": 14030,
+      "piece": 0,
+      "step": "decide",
+      "detail": {
+        "attempt": 0,
+        "action": "accept",
+        "because": "match",
+        "best_score": 0.7698
+      }
+    },
+    {
+      "t_ms": 22335,
+      "piece": 1,
+      "step": "search",
+      "detail": {
+        "attempt": 0,
+        "query": "olive brown cargo pants",
+        "candidates": 3,
+        "ms": 18032
+      }
+    },
+    {
+      "t_ms": 24525,
+      "piece": 1,
+      "step": "score",
+      "detail": {
+        "attempt": 0,
+        "results": [
+          {
+            "title": "Womens Green Leggings - High Waisted - Buttery Soft - Olive Green",
+            "merchant": "mommeandmore.com",
+            "score": 0.4514,
+            "verdict": "weak",
+            "reasons": [],
+            "embedding": 0.7205,
+            "delta_e": 15.54,
+            "color": {
+              "name": "olive",
+              "hex": "#444832"
+            },
+            "foreground": "segmenter"
+          },
+          {
+            "title": "Ultimate Active Leggings - Olive",
+            "merchant": "blakelyclothing.com",
+            "score": 0.3654,
+            "verdict": "reject",
+            "reasons": [
+              "color_mismatch"
+            ],
+            "embedding": 0.7211,
+            "delta_e": 28.75,
+            "color": {
+              "name": "gray",
+              "hex": "#93907b"
+            },
+            "foreground": "grabcut"
+          }
+        ]
+      }
+    },
+    {
+      "t_ms": 24525,
+      "piece": 1,
+      "step": "decide",
+      "detail": {
+        "attempt": 0,
+        "action": "approve",
+        "because": "budget_low",
+        "best_score": 0.4514
+      }
+    },
+    {
+      "t_ms": 24525,
+      "piece": 1,
+      "step": "approve",
+      "detail": {
+        "because": "budget_low",
+        "score": 0.4514,
+        "title": "Womens Green Leggings - High Waisted - Buttery Soft - Olive Green"
+      }
+    }
+  ]
+}

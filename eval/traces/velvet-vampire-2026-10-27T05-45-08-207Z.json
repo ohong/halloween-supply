@@ -1,0 +1,527 @@
+{
+  "slug": "velvet-vampire",
+  "base": "http://localhost:3000",
+  "model": "opencv-5:5.0.0;stock+gpt-6-luna",
+  "elapsedMs": 26057,
+  "done": {
+    "t": "done",
+    "found": 3,
+    "priced": 0,
+    "timedOut": false,
+    "ms": 26006
+  },
+  "pieces": [
+    "Black velvet cape and waistcoat",
+    "Black tailored trousers",
+    "Black leather ankle boots"
+  ],
+  "approvals": [
+    {
+      "i": 0,
+      "because": "opencv_unavailable"
+    },
+    {
+      "i": 1,
+      "because": "opencv_unavailable"
+    },
+    {
+      "i": 2,
+      "because": "opencv_unavailable"
+    }
+  ],
+  "retries": [
+    {
+      "piece": 0,
+      "attempt": 0,
+      "action": "retry",
+      "because": "no_candidates",
+      "next": "black velvet cloak with vest"
+    }
+  ],
+  "improvedPieces": [],
+  "trace": [
+    {
+      "t_ms": 4936,
+      "piece": null,
+      "step": "perceive",
+      "detail": {
+        "person": {
+          "found": true,
+          "bbox": [
+            27,
+            7,
+            970,
+            954
+          ],
+          "confidence": 0.725,
+          "outline": [
+            [
+              [
+                433,
+                20
+              ],
+              [
+                414,
+                43
+              ],
+              [
+                443,
+                69
+              ],
+              [
+                362,
+                126
+              ],
+              [
+                183,
+                684
+              ],
+              [
+                141,
+                765
+              ],
+              [
+                34,
+                840
+              ],
+              [
+                34,
+                867
+              ],
+              [
+                131,
+                910
+              ],
+              [
+                197,
+                889
+              ],
+              [
+                283,
+                902
+              ],
+              [
+                339,
+                887
+              ],
+              [
+                347,
+                860
+              ],
+              [
+                454,
+                845
+              ],
+              [
+                416,
+                906
+              ],
+              [
+                435,
+                912
+              ],
+              [
+                532,
+                849
+              ],
+              [
+                537,
+                909
+              ],
+              [
+                594,
+                960
+              ],
+              [
+                619,
+                955
+              ],
+              [
+                583,
+                868
+              ],
+              [
+                595,
+                849
+              ],
+              [
+                722,
+                897
+              ],
+              [
+                782,
+                884
+              ],
+              [
+                856,
+                907
+              ],
+              [
+                952,
+                885
+              ],
+              [
+                996,
+                843
+              ],
+              [
+                941,
+                817
+              ],
+              [
+                879,
+                740
+              ],
+              [
+                654,
+                115
+              ],
+              [
+                575,
+                69
+              ],
+              [
+                612,
+                36
+              ],
+              [
+                560,
+                12
+              ]
+            ]
+          ]
+        },
+        "timings_ms": {
+          "decode": 5,
+          "segment": 2728,
+          "colors": 135,
+          "embed": 1540,
+          "classify": 23,
+          "total": 4440
+        },
+        "pieces": [
+          {
+            "id": "p0",
+            "region": "upper_clothes",
+            "slot": "top",
+            "area_frac": 0.1948,
+            "pattern": "solid",
+            "query": "plain black velvet cape",
+            "alternate": "black short cape",
+            "colors": [
+              {
+                "name": "black",
+                "hex": "#100e0e",
+                "frac": 0.809
+              },
+              {
+                "name": "burgundy",
+                "hex": "#581e25",
+                "frac": 0.114
+              },
+              {
+                "name": "silver",
+                "hex": "#c7bfb8",
+                "frac": 0.078
+              }
+            ],
+            "garment_types": [
+              {
+                "phrase": "velvet cape",
+                "score": 0.3326
+              },
+              {
+                "phrase": "velvet waistcoat",
+                "score": 0.3108
+              },
+              {
+                "phrase": "satin corset top",
+                "score": 0.2962
+              }
+            ]
+          },
+          {
+            "id": "p1",
+            "region": "pants",
+            "slot": "bottom",
+            "area_frac": 0.0586,
+            "pattern": "solid",
+            "query": "black velvet trousers",
+            "alternate": "black fitted trousers",
+            "colors": [
+              {
+                "name": "black",
+                "hex": "#1b1918",
+                "frac": 0.958
+              },
+              {
+                "name": "chocolate",
+                "hex": "#2c0a0d",
+                "frac": 0.042
+              }
+            ],
+            "garment_types": [
+              {
+                "phrase": "velvet trousers",
+                "score": 0.2979
+              },
+              {
+                "phrase": "pirate breeches",
+                "score": 0.2841
+              },
+              {
+                "phrase": "flared trousers",
+                "score": 0.2807
+              }
+            ]
+          },
+          {
+            "id": "p2",
+            "region": "dress",
+            "slot": "outer",
+            "area_frac": 0.1229,
+            "pattern": "solid",
+            "query": "burgundy long velvet cape",
+            "alternate": "burgundy long cape",
+            "colors": [
+              {
+                "name": "burgundy",
+                "hex": "#3c0c13",
+                "frac": 0.414
+              },
+              {
+                "name": "black",
+                "hex": "#190405",
+                "frac": 0.378
+              },
+              {
+                "name": "burgundy",
+                "hex": "#71232e",
+                "frac": 0.208
+              }
+            ],
+            "garment_types": [
+              {
+                "phrase": "long velvet cape",
+                "score": 0.3201
+              },
+              {
+                "phrase": "velvet ball gown",
+                "score": 0.3043
+              },
+              {
+                "phrase": "long velvet gown",
+                "score": 0.303
+              }
+            ]
+          },
+          {
+            "id": "p3",
+            "region": "shoes",
+            "slot": "feet",
+            "area_frac": 0.0097,
+            "pattern": "solid",
+            "query": "black patent dress shoes",
+            "alternate": "black dress shoes",
+            "colors": [
+              {
+                "name": "black",
+                "hex": "#141211",
+                "frac": 0.799
+              },
+              {
+                "name": "charcoal",
+                "hex": "#3c3b3b",
+                "frac": 0.141
+              },
+              {
+                "name": "gray",
+                "hex": "#9e9b9c",
+                "frac": 0.06
+              }
+            ],
+            "garment_types": [
+              {
+                "phrase": "patent dress shoes",
+                "score": 0.2667
+              },
+              {
+                "phrase": "platform ankle boots",
+                "score": 0.2634
+              },
+              {
+                "phrase": "leather ankle boots",
+                "score": 0.2597
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "t_ms": 9377,
+      "piece": null,
+      "step": "label",
+      "detail": {
+        "model": "gpt-6-luna",
+        "pieces": [
+          {
+            "index": 0,
+            "keep": true,
+            "name": "Black velvet cape and waistcoat",
+            "garment": "velvet cape with waistcoat",
+            "query": "black velvet cape waistcoat burgundy lining"
+          },
+          {
+            "index": 1,
+            "keep": true,
+            "name": "Black tailored trousers",
+            "garment": "tailored trousers",
+            "query": "black tailored trousers straight leg"
+          },
+          {
+            "index": 2,
+            "keep": false,
+            "name": "Burgundy cape lining",
+            "garment": "cape lining",
+            "query": "burgundy velvet cape lining"
+          },
+          {
+            "index": 3,
+            "keep": true,
+            "name": "Black leather ankle boots",
+            "garment": "leather ankle boots",
+            "query": "black leather ankle boots dress"
+          }
+        ]
+      }
+    },
+    {
+      "t_ms": 14131,
+      "piece": 0,
+      "step": "search",
+      "detail": {
+        "attempt": 0,
+        "query": "black velvet cape waistcoat burgundy lining",
+        "candidates": 2,
+        "ms": 4753
+      }
+    },
+    {
+      "t_ms": 18138,
+      "piece": 0,
+      "step": "score",
+      "detail": {
+        "attempt": 0,
+        "results": []
+      }
+    },
+    {
+      "t_ms": 18138,
+      "piece": 0,
+      "step": "decide",
+      "detail": {
+        "attempt": 0,
+        "action": "retry",
+        "because": "no_candidates",
+        "next": "black velvet cloak with vest"
+      }
+    },
+    {
+      "t_ms": 23280,
+      "piece": 0,
+      "step": "search",
+      "detail": {
+        "attempt": 1,
+        "query": "black velvet cloak with vest",
+        "candidates": 3,
+        "ms": 5142
+      }
+    },
+    {
+      "t_ms": 24098,
+      "piece": 2,
+      "step": "search",
+      "detail": {
+        "attempt": 0,
+        "query": "black leather ankle boots dress",
+        "candidates": 3,
+        "ms": 14719
+      }
+    },
+    {
+      "t_ms": 24745,
+      "piece": 1,
+      "step": "search",
+      "detail": {
+        "attempt": 0,
+        "query": "black tailored trousers straight leg",
+        "candidates": 3,
+        "ms": 15367
+      }
+    },
+    {
+      "t_ms": 24908,
+      "piece": 0,
+      "step": "score",
+      "detail": {
+        "attempt": 1,
+        "results": [],
+        "error": "opencv_unavailable"
+      }
+    },
+    {
+      "t_ms": 24908,
+      "piece": 0,
+      "step": "decide",
+      "detail": {
+        "attempt": 1,
+        "action": "approve",
+        "because": "opencv_unavailable",
+        "best_score": null
+      }
+    },
+    {
+      "t_ms": 25951,
+      "piece": 1,
+      "step": "score",
+      "detail": {
+        "attempt": 0,
+        "results": [],
+        "error": "opencv_unavailable"
+      }
+    },
+    {
+      "t_ms": 25951,
+      "piece": 1,
+      "step": "decide",
+      "detail": {
+        "attempt": 0,
+        "action": "approve",
+        "because": "opencv_unavailable",
+        "best_score": null
+      }
+    },
+    {
+      "t_ms": 26006,
+      "piece": 2,
+      "step": "score",
+      "detail": {
+        "attempt": 0,
+        "results": [],
+        "error": "opencv_unavailable"
+      }
+    },
+    {
+      "t_ms": 26006,
+      "piece": 2,
+      "step": "decide",
+      "detail": {
+        "attempt": 0,
+        "action": "approve",
+        "because": "opencv_unavailable",
+        "best_score": null
+      }
+    }
+  ]
+}
