@@ -33,6 +33,14 @@ curl -s https://<cloudfront-domain>/healthz
 
 `deploy` writes the tag to SSM and runs `/usr/local/bin/vision-run` on the instance through SSM Run Command, which pulls the image, restarts the `vision` container, and waits for `/healthz`. A `cool*` tag adds `-v /opt/cool:/opt/cool:ro -e OPENCV_BUILD=cool -e PYTHONPATH=/opt/cool/python_3.12/site-packages -e LD_LIBRARY_PATH=/opt/cool/cpp_sdk/lib`.
 
+Before the first `cool` deploy, check on the instance (through SSM) that the COOL cv2 imports against the image's numpy 2.x, because a cv2 built against numpy 1.x fails to import under numpy 2:
+
+```bash
+docker run --rm -v /opt/cool:/opt/cool:ro -e PYTHONPATH=/opt/cool/python_3.12/site-packages \
+  -e LD_LIBRARY_PATH=/opt/cool/cpp_sdk/lib --entrypoint python3 $ECR_URI:cool \
+  -c "import cv2, numpy; print(cv2.__file__, cv2.__version__, numpy.__version__)"
+```
+
 Shell access is SSM only: `aws ssm start-session --target <instance-id>`.
 
 ## Token and Vercel
