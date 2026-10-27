@@ -66,7 +66,8 @@ def overlay(img_path: Path, res: dict, out: Path):
     for p in res["pieces"]:
         col = tuple(int(c) for c in rng.integers(40, 230, 3))
         x, y, w, h = p["bbox"]
-        cv2.rectangle(img, (x, y), (x + w, y + h), col, 3)
+        cv2.rectangle(img, (x, y), (x + w, y + h), col, 1)
+        cv2.polylines(img, [np.asarray(poly, np.int32) for poly in p["outline"]], True, col, 3)
         cv2.putText(img, p["id"], (x + 4, y + 22), cv2.FONT_HERSHEY_SIMPLEX, 0.7, col, 2)
         yy += 34
         cv2.putText(panel, f"{p['id']} {p['region']}/{p['slot']} {p['pattern']}", (10, yy),
@@ -112,7 +113,11 @@ def main():
         overlay(p, r, DEBUG / f"{costume}.png")
         check(r["person"]["found"] and r["person"]["confidence"] >= 0.5, f"person {r['person']}")
         check(len(r["pieces"]) >= MIN_PIECES.get(costume, 3), f"{len(r['pieces'])} pieces: {[x['query'] for x in r['pieces']]}")
+        W, H = r["image"]["width"], r["image"]["height"]
         for x in r["pieces"]:
+            pts = np.asarray([pt for poly in x["outline"] for pt in poly]).reshape(-1, 2)
+            check(len(pts) >= 3 and pts[:, 0].min() >= 0 and pts[:, 0].max() < W and pts[:, 1].min() >= 0
+                  and pts[:, 1].max() < H, f"{x['id']} outline: {len(x['outline'])} polys, {len(pts)} points")
             e = np.asarray(x["embedding"])
             check(x["slot"] in SLOTS and len(x["garment_types"]) == 3 and e.shape == (512,)
                   and abs(np.linalg.norm(e) - 1) < 1e-3 and x["colors"], f"{x['id']} shape ok ({x['region']})")

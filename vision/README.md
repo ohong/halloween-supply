@@ -1,6 +1,6 @@
 # halloween.supply vision service
 
-A Python service that runs OpenCV 5 and implements `plans/contract.md` v1. `POST /v1/analyze` splits one costume photo into garment pieces, and for each piece returns its colors, its pattern, its three best garment phrases, a search query, and a 512-d embedding. `POST /v1/match` scores product photos against one of those pieces. `GET /healthz` reports the OpenCV version, which build is running (`stock` or `cool`), the CPU architecture, and fingerprints of the models.
+A Python service that runs OpenCV 5 and implements `plans/contract.md` v1.1. `POST /v1/analyze` splits one costume photo into garment pieces, and for each piece returns its mask outline as polygons (for drawing the segmentation), its colors, its pattern, its three best garment phrases, a search query, and a 512-d embedding. `POST /v1/match` scores product photos against one of those pieces. `GET /healthz` reports the OpenCV version, which build is running (`stock` or `cool`), the CPU architecture, and fingerprints of the models.
 
 All inference runs on the `cv2.dnn` default engine. The runtime dependencies are fastapi, uvicorn, numpy, and `opencv-python-headless==5.0.0.93`. There is no torch, onnxruntime, or transformers at runtime.
 

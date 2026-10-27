@@ -22,6 +22,23 @@ def _bbox(mask: np.ndarray) -> list[int]:
     return [int(x), int(y), int(w), int(h)]
 
 
+def outline(mask: np.ndarray, max_polys: int = 6) -> list[list[list[int]]]:
+    """The mask as a few simplified polygons in image pixels, largest first, for drawing an overlay."""
+    contours, _ = cv2.findContours(mask, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
+    contours = sorted(contours, key=cv2.contourArea, reverse=True)
+    if not contours:
+        return []
+    big = cv2.contourArea(contours[0])
+    polys = []
+    for c in contours[:max_polys]:
+        if cv2.contourArea(c) < 0.02 * big:
+            break
+        c = cv2.approxPolyDP(c, 0.004 * cv2.arcLength(c, True), True)
+        if len(c) >= 3:
+            polys.append(c.reshape(-1, 2).astype(int).tolist())
+    return polys
+
+
 def _clean(mask: np.ndarray) -> np.ndarray:
     """Drop specks: keep connected components at least 10% the size of the largest."""
     n, lab, stats, _ = cv2.connectedComponentsWithStats(mask, connectivity=8)
@@ -54,7 +71,7 @@ def measure_colors(bgr: np.ndarray, mask: np.ndarray) -> tuple[list[dict], str]:
 def person(labels: np.ndarray, prob: np.ndarray) -> dict:
     fg = (labels > 0).astype(np.uint8) * 255
     if np.count_nonzero(fg) < 0.01 * fg.size:
-        return {"found": False, "bbox": [0, 0, 0, 0], "confidence": 0.0}
+        return {"found": False, "bbox": [0, 0, 0, 0], "confidence": 0.0, "outline": []}
     # Join a person's pieces (arms split from the torso by a bag strap) before finding the largest blob.
     joined = cv2.dilate(fg, np.ones((15, 15), np.uint8))
     n, lab, stats, _ = cv2.connectedComponentsWithStats(joined, connectivity=8)
@@ -62,7 +79,8 @@ def person(labels: np.ndarray, prob: np.ndarray) -> dict:
     main = (lab == big) & (fg > 0)
     share = np.count_nonzero(main) / np.count_nonzero(fg)
     conf = float(prob[main].mean()) * share
-    return {"found": True, "bbox": _bbox(main.astype(np.uint8)), "confidence": round(conf, 3)}
+    main = main.astype(np.uint8) * 255
+    return {"found": True, "bbox": _bbox(main), "confidence": round(conf, 3), "outline": outline(main)}
 
 
 def title(pieces: list[dict]) -> str:
@@ -122,7 +140,7 @@ def analyze(bgr: np.ndarray, max_pieces: int = 8) -> dict:
         plain = "plain " if f["pattern"] == "solid" and top["slot"] == "top" else ""
         pieces.append({
             "region": f["region"], "slot": top["slot"], "bbox": _bbox(f["mask"]),
-            "area_frac": round(f["area_frac"], 4), "colors": f["colors"], "pattern": f["pattern"],
+            "outline": outline(f["mask"]), "area_frac": round(f["area_frac"], 4), "colors": f["colors"], "pattern": f["pattern"],
             "garment_types": types, "query": f"{plain}{color} {top['phrase']}",
             "alternate": f"{color} {top['alternate']}", "size_kind": top["size_kind"],
             "assembly": top["assembly"], "embedding": [round(float(x), 6) for x in e],
@@ -133,5 +151,6 @@ def analyze(bgr: np.ndarray, max_pieces: int = 8) -> dict:
     for i, p in enumerate(pieces):
         p["id"] = f"p{i}"
     t["classify"] = time.perf_counter() - t0
-    return {"person": who, "pieces": [{"id": p.pop("id"), **p} for p in pieces], "title": title(pieces),
+    h, w = bgr.shape[:2]
+    return {"image": {"width": int(w), "height": int(h)}, "person": who, "pieces": [{"id": p.pop("id"), **p} for p in pieces], "title": title(pieces),
             "timings": t, "labels": labels}
