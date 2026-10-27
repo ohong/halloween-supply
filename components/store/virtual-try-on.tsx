@@ -30,6 +30,7 @@ export function VirtualTryOn({ costumeSlug, selection = [], ownedPieceIds = [], 
   const [photoUrl, setPhotoUrl] = useState("");
   const [preparing, setPreparing] = useState(false);
   const [busy, setBusy] = useState(false);
+  const [done, setDone] = useState(false);
   const [error, setError] = useState("");
   const [result, setResult] = useState<{ image: string; key: string; render3d: RenderOffer | null } | null>(null);
   const [peek, setPeek] = useState(false);
@@ -140,12 +141,15 @@ export function VirtualTryOn({ costumeSlug, selection = [], ownedPieceIds = [], 
       if (response.status === 413) throw new Error("This upload is too large. Choose a smaller photo.");
       if (response.status === 504) throw new Error("The preview took too long. Please try again.");
       if (!response.ok || !data || typeof data !== "object" || !("image" in data) || typeof data.image !== "string" || !data.image.startsWith("data:image/jpeg;base64,")) throw new Error("The preview could not be created. Please try again.");
+      // Let the bar visibly finish before the result replaces the photo.
+      setDone(true);
+      await new Promise((resolve) => setTimeout(resolve, 300));
       if (!requestController.signal.aborted) {
         const offer = "render3d" in data ? data.render3d as RenderOffer | null : null;
         setResult({ image: data.image, key: outfitKey, render3d: offer });
       }
     } catch (caught) { if (!requestController.signal.aborted) setError(caught instanceof Error ? caught.message : "The preview could not be created. Please try again."); }
-    finally { if (controller.current === requestController) setBusy(false); }
+    finally { if (controller.current === requestController) { setBusy(false); setDone(false); } }
   }
 
   const showResult = current && !peek;
@@ -165,7 +169,7 @@ export function VirtualTryOn({ costumeSlug, selection = [], ownedPieceIds = [], 
         onPointerDown={() => current && setPeek(true)} onPointerUp={() => setPeek(false)} onPointerLeave={() => setPeek(false)} onPointerCancel={() => setPeek(false)}
         onContextMenu={(event) => current && event.preventDefault()}>
         <img src={showResult ? current.image : photoUrl} alt={showResult ? `You in ${costume.name}, AI preview` : "Your photo"} draggable={false} />
-        {busy && <span className="try-on-progress" role="status" aria-label="Creating your preview"><span /></span>}
+        {busy && <span className={`try-on-progress${done ? " is-done" : ""}`} role="status" aria-label="Creating your preview"><span /></span>}
         {current && <span className={`try-on-badge${peek ? " is-on" : ""}`} aria-hidden="true">{peek ? "Before" : "After"}</span>}
         <button type="button" className="try-on-close" onClick={reset} aria-label="Remove photo"><Icon d={CLOSE} size={18} /></button>
       </figure>
