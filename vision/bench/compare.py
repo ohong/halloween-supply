@@ -35,6 +35,9 @@ def table(title, rows, d=2):
 
 
 md = [f"# COOL vs stock OpenCV\n\nBaseline for speedup: `{base}`. Speedup above 1.00x means faster than baseline.\n"]
+# out/STATUS.md (hand-written) explains which hosts are missing and why; it survives regeneration.
+if (out / "STATUS.md").exists():
+    md.append((out / "STATUS.md").read_text())
 env_rows = ["cv2_version", "machine", "cpu_model", "num_threads", "os_cpu_count", "numpy"]
 L = ["## Environment\n", "| key | " + " | ".join(labels) + " |", "|---|" + "---|" * len(labels)]
 for k in env_rows:
