@@ -1,0 +1,188 @@
+{
+  "label": "stock-mac-arm64",
+  "args": {
+    "label": "stock-mac-arm64",
+    "instance_usd_per_hour": 0.0,
+    "warmup": 1,
+    "runs": 3,
+    "out": "vision/bench/out",
+    "images": "eval/fixtures/editorial",
+    "candidates": "eval/fixtures/candidates",
+    "threads": null,
+    "onnx": null,
+    "workload_runs": 3,
+    "quick": false
+  },
+  "env": {
+    "cv2_version": "5.0.0",
+    "cv2_file": "/Users/ohong/.cache/uv/archive-v0/JM4ApoBEErcLYzeE/lib/python3.13/site-packages/cv2/__init__.py",
+    "num_threads": 15,
+    "num_cpus_cv2": 15,
+    "os_cpu_count": 15,
+    "machine": "arm64",
+    "platform": "macOS-27.2-arm64-arm-64bit-Mach-O",
+    "python": "3.13.7 (main, Sep  2 2025, 14:05:52) [Clang 20.1.4 ]",
+    "numpy": "2.5.4",
+    "cpu_model": "Apple M5 Pro",
+    "timestamp_utc": "2026-10-27T00:04:52+00:00"
+  },
+  "candidates_kind": "synthetic",
+  "image_files": [
+    "autumn-scarecrow.jpg",
+    "candy-corn-sorceress.jpg",
+    "celestial-sorcerer.jpg",
+    "clockwork-aviator.jpg",
+    "coral-mermaid.jpg",
+    "cosmic-cowboy.jpg",
+    "desert-alchemist.jpg",
+    "disco-phantom.jpg",
+    "enchanted-jester.jpg",
+    "forest-sprite.jpg",
+    "garden-beekeeper.jpg",
+    "linen-ghost.jpg",
+    "midnight-pirate.jpg",
+    "moon-moth.jpg",
+    "pumpkin-harlequin.jpg",
+    "raven-scholar.jpg",
+    "retro-astronaut.jpg",
+    "rose-garden-queen.jpg",
+    "snow-owl.jpg",
+    "starlight-witch.jpg",
+    "storm-chaser.jpg",
+    "velvet-ringmaster.jpg",
+    "velvet-vampire.jpg",
+    "victorian-detective.jpg",
+    "woodland-mushroom.jpg"
+  ],
+  "build_info": "\nGeneral configuration for OpenCV 5.0.0 =====================================\n  Version control:               5.0.0\n\n  Platform:\n    Timestamp:                   2026-07-01T09:06:35Z\n    Host:                        Darwin 22.6.0 arm64\n    CMake:                       3.31.4\n    CMake generator:             Unix Makefiles\n    CMake build tool:            /usr/bin/make\n    Configuration:               Release\n    Algorithm Hint:              ALGO_HINT_ACCURATE\n\n  CPU/HW features:\n    Baseline:                    NEON FP16 NEON_DOTPROD NEON_FP16\n      requested:                 DETECT\n    Dispatched code generation:  NEON_BF16\n      requested:                 NEON_FP16 NEON_BF16 NEON_DOTPROD\n      NEON_BF16 (0 files):       + NEON_BF16\n\n  C/C++:\n    Built as dynamic libs?:      NO\n    C++ standard:                17\n    C++ Compiler:                /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  (ver 15.0.0.15000100)\n    C++ flags (Release):         -fsigned-char -W -Wall -Wreturn-type -Wnon-virtual-dtor -Waddress -Wsequence-point -Wformat -Wformat-security -Wmissing-declarations -Wmissing-prototypes -Wstrict-prototypes -Wundef -Winit-self -Wpointer-arith -Wshadow -Wsign-promo -Wuninitialized -Wno-delete-non-virtual-dtor -Wno-unnamed-type-template-args -Wno-comment -fdiagnostics-show-option -Qunused-arguments -Wno-semicolon-before-method-body -ffunction-sections -fdata-sections  -fvisibility=hidden -fvisibility-inlines-hidden -O3 -DNDEBUG  -DNDEBUG\n    C++ flags (Debug):           -fsigned-char -W -Wall -Wreturn-type -Wnon-virtual-dtor -Waddress -Wsequence-point -Wformat -Wformat-security -Wmissing-declarations -Wmissing-prototypes -Wstrict-prototypes -Wundef -Winit-self -Wpointer-arith -Wshadow -Wsign-promo -Wuninitialized -Wno-delete-non-virtual-dtor -Wno-unnamed-type-template-args -Wno-comment -fdiagnostics-show-option -Qunused-arguments -Wno-semicolon-before-method-body -ffunction-sections -fdata-sections  -fvisibility=hidden -fvisibility-inlines-hidden -g  -O0 -DDEBUG -D_DEBUG\n    C Compiler:                  /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc\n    C flags (Release):           -fsigned-char -W -Wall -Wreturn-type -Wnon-virtual-dtor -Waddress -Wsequence-point -Wformat -Wformat-security -Wmissing-declarations -Wmissing-prototypes -Wstrict-prototypes -Wundef -Winit-self -Wpointer-arith -Wshadow -Wsign-promo -Wuninitialized -Wno-delete-non-virtual-dtor -Wno-unnamed-type-template-args -Wno-comment -fdiagnostics-show-option -Qunused-arguments -Wno-semicolon-before-method-body -ffunction-sections -fdata-sections  -fvisibility=hidden -fvisibility-inlines-hidden -O3 -DNDEBUG  -DNDEBUG\n    C flags (Debug):             -fsigned-char -W -Wall -Wreturn-type -Wnon-virtual-dtor -Waddress -Wsequence-point -Wformat -Wformat-security -Wmissing-declarations -Wmissing-prototypes -Wstrict-prototypes -Wundef -Winit-self -Wpointer-arith -Wshadow -Wsign-promo -Wuninitialized -Wno-delete-non-virtual-dtor -Wno-unnamed-type-template-args -Wno-comment -fdiagnostics-show-option -Qunused-arguments -Wno-semicolon-before-method-body -ffunction-sections -fdata-sections  -fvisibility=hidden -fvisibility-inlines-hidden -g  -O0 -DDEBUG -D_DEBUG\n    Linker flags (Release):      -Wl,-dead_strip  \n    Linker flags (Debug):        -Wl,-dead_strip  \n    ccache:                      NO\n    Precompiled headers:         NO\n    Extra dependencies:          -framework OpenCL -framework Cocoa avif OpenEXR::OpenEXR -framework AppKit -framework Accelerate\n    3rdparty dependencies:       ittnotify libprotobuf libjpeg-turbo libwebp libpng libtiff libopenjp2 zlib tegra_hal kleidicv_hal kleidicv kleidicv_thread\n\n  OpenCV modules:\n    To be built:                 calib core dnn features flann geometry highgui imgcodecs imgproc objdetect photo ptcloud python3 stereo stitching video videoio\n    Disabled:                    java world\n    Disabled by dependency:      -\n    Unavailable:                 ts\n    Applications:                -\n    Documentation:               NO\n    Non-free algorithms:         NO\n\n  GUI:                           COCOA\n    Cocoa:                       YES\n    VTK support:                 NO\n    Built-in Unicode font:       YES\n\n  Media I/O: \n    ZLib:                        build (ver 1.3.2)\n    JPEG:                        build-libjpeg-turbo (ver 3.1.2-70)\n      SIMD Support Request:      YES\n      SIMD Support:              YES\n    WEBP:                        build (ver decoder: 0x0210, encoder: 0x0210, demux: 0x0107)\n    AVIF:                        avif (ver 1.3.0)\n    PNG:                         build (ver 1.6.57)\n      SIMD Support Request:      YES\n      SIMD Support:              YES (Arm NEON)\n      Metadata Support:          EXIF XMP ICC cICP\n    TIFF:                        build (ver 42 - 4.7.1)\n    JPEG 2000:                   build (ver 2.5.3)\n    OpenEXR:                     OpenEXR::OpenEXR (ver 3.3.4)\n    GIF:                         YES\n    HDR:                         YES\n    SUNRASTER:                   YES\n    PXM:                         YES\n    PFM:                         YES\n\n  Video I/O:\n    FFMPEG:                      YES\n      avcodec:                   YES (61.19.101)\n      avformat:                  YES (61.7.100)\n      avutil:                    YES (59.39.100)\n      swscale:                   YES (8.3.100)\n      avdevice:                  YES (61.3.100)\n    GStreamer:                   NO\n    AVFoundation:                YES\n    Orbbec:                      NO\n\n  Parallel framework:            GCD\n\n  Trace:                         YES (with Intel ITT(3.25.4))\n\n  Other third-party libraries:\n    Lapack:                      YES (Apple -framework Accelerate)\n    DNN MLAS:                    YES (SGEMM-only, vendored)\n      ASM kernels:               YES (ARM64: NEON SGEMM, NEON SGEMV)\n    Eigen:                       NO\n    Custom HAL:                  YES (carotene (ver 0.0.1) KleidiCV (ver 26.03))\n    Protobuf:                    build (3.19.1)\n    Flatbuffers:                 builtin/3rdparty (25.9.23)\n\n  OpenCL:                        YES (no extra features)\n    Include path:                NO\n    Link libraries:              -framework OpenCL\n\n  ONNX Runtime:                  NO\n\n  Python 3:\n    Interpreter:                 /Users/xperience/.pyenv/versions/3.9.21/bin/python3.9 (ver 3.9.21)\n    Libraries:                   /Users/xperience/.pyenv/versions/3.9.21/lib/libpython3.9.dylib (ver 3.9.21)\n    Limited API:                 YES (ver 0x03060000)\n    numpy:                       /Users/xperience/.pyenv/versions/3.9.21/lib/python3.9/site-packages/numpy/_core/include (ver 2.0.2)\n    install path:                python/cv2/python-3\n\n  Python (for build):            /Users/xperience/.pyenv/versions/3.9.21/bin/python3.9\n\n  Java:                          \n    ant:                         NO\n    Java:                        YES (ver 17.0.15)\n    JNI:                         /opt/homebrew/Cellar/openjdk@17/17.0.15/libexec/openjdk.jdk/Contents/Home/include /opt/homebrew/Cellar/openjdk@17/17.0.15/libexec/openjdk.jdk/Contents/Home/include/darwin /opt/homebrew/Cellar/openjdk@17/17.0.15/libexec/openjdk.jdk/Contents/Home/include\n    Java wrappers:               NO\n    Java tests:                  NO\n\n  Install to:                    /Users/xperience/GHA-OpenCV-Python/_work/opencv-python/opencv-python/_skbuild/macosx-13.0-arm64-3.9/cmake-install\n-----------------------------------------------------------------\n\n",
+  "build_flag_lines": [
+    "CPU/HW features:",
+    "Baseline:                    NEON FP16 NEON_DOTPROD NEON_FP16",
+    "Dispatched code generation:  NEON_BF16",
+    "3rdparty dependencies:       ittnotify libprotobuf libjpeg-turbo libwebp libpng libtiff libopenjp2 zlib tegra_hal kleidicv_hal kleidicv kleidicv_thread",
+    "Parallel framework:            GCD",
+    "Lapack:                      YES (Apple -framework Accelerate)",
+    "Eigen:                       NO",
+    "Custom HAL:                  YES (carotene (ver 0.0.1) KleidiCV (ver 26.03))"
+  ],
+  "micro": {
+    "resize_area_512": {
+      "p50_ms": 4.197125002974644,
+      "p95_ms": 4.224687490204815,
+      "mean_ms": 3.981221995976133,
+      "ops_s": 251.17916082316222,
+      "n": 3
+    },
+    "resize_linear_2048": {
+      "p50_ms": 0.791208993177861,
+      "p95_ms": 0.8197452872991562,
+      "mean_ms": 0.7889999930436412,
+      "ops_s": 1267.4271341149276,
+      "n": 3
+    },
+    "cvtColor_BGR2Lab_f32": {
+      "p50_ms": 0.7447919924743474,
+      "p95_ms": 0.8016045059775934,
+      "mean_ms": 0.7523060000191132,
+      "ops_s": 1329.2463438741602,
+      "n": 3
+    },
+    "cvtColor_BGR2HSV": {
+      "p50_ms": 0.21520799782592803,
+      "p95_ms": 0.6437952033593319,
+      "mean_ms": 0.37391633183384937,
+      "ops_s": 2674.395084845752,
+      "n": 3
+    },
+    "GaussianBlur_5x5": {
+      "p50_ms": 0.5867919971933588,
+      "p95_ms": 0.6456672970671207,
+      "mean_ms": 0.5270003312034532,
+      "ops_s": 1897.532014290027,
+      "n": 3
+    },
+    "kmeans_k3_20000px": {
+      "p50_ms": 1.1978749971603975,
+      "p95_ms": 1.2338002925389446,
+      "mean_ms": 1.1630973313003778,
+      "ops_s": 859.7732735591181,
+      "n": 3
+    },
+    "grabCut_5iter_512": {
+      "p50_ms": 324.22974999644794,
+      "p95_ms": 337.81599970097886,
+      "mean_ms": 329.0552359976573,
+      "ops_s": 3.0390034577876146,
+      "n": 3
+    },
+    "Canny_100_200": {
+      "p50_ms": 1.2902500020572916,
+      "p95_ms": 1.3390371968853287,
+      "mean_ms": 1.1234859994146973,
+      "ops_s": 890.0867483181546,
+      "n": 3
+    },
+    "calcHist_HS_30x32+compareHist": {
+      "p50_ms": 3.4621250088093802,
+      "p95_ms": 3.4903625011793338,
+      "mean_ms": 3.416708335862495,
+      "ops_s": 292.6793573521591,
+      "n": 3
+    },
+    "imdecode_jpeg": {
+      "p50_ms": 2.9393750010058284,
+      "p95_ms": 3.1530125037534162,
+      "mean_ms": 2.997527670231648,
+      "ops_s": 333.6082632133702,
+      "n": 3
+    },
+    "imencode_jpeg_q90": {
+      "p50_ms": 3.1513330031884834,
+      "p95_ms": 3.307295795821119,
+      "mean_ms": 3.152763999726934,
+      "ops_s": 317.18200286688494,
+      "n": 3
+    },
+    "dnn_forward_clip_vit_b32_vision": {
+      "p50_ms": 33.789665991207585,
+      "p95_ms": 34.3107659908128,
+      "mean_ms": 33.268540995777585,
+      "ops_s": 30.058426671819458,
+      "n": 3,
+      "input_size": 224,
+      "load_s": 0.7081907920073718
+    },
+    "dnn_forward_segformer_b2_clothes": {
+      "p50_ms": 1780.5312080017757,
+      "p95_ms": 1803.8984704995528,
+      "mean_ms": 1551.705111002472,
+      "ops_s": 0.6444523465892013,
+      "n": 3,
+      "input_size": 512,
+      "load_s": 0.5987352499942062
+    }
+  },
+  "workload": {
+    "cv_pipeline": {
+      "n_images": 25,
+      "cands_per_image": 6,
+      "runs": 3,
+      "analyze_ms_p50": 62.3740830051247,
+      "analyze_ms_p95": 132.663054401928,
+      "match_ms_p50": 4318.952041998273,
+      "match_ms_p95": 18428.017287389936,
+      "analyze_images_per_s": 10.498791075837982,
+      "full_wall_s_p50": 168.92935195898463,
+      "full_wall_s_p95": 176.7228246336963,
+      "cpu_util": 0.051334489392435276
+    },
+    "service": {
+      "skipped": "BENCH_SERVICE != 1"
+    }
+  },
+  "cost": {
+    "analyze_usd_per_1000": null,
+    "analyze_match_usd_per_1000": null
+  },
+  "total_bench_s": 668.6503238677979
+}
