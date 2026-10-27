@@ -94,7 +94,7 @@ Known limits, measured against the service running locally:
 
 When the shopper asks the live mirror a visual question, `/api/live-mirror/feedback` also sends the Lucy preview frame (Image 1) to `/v1/analyze`, with a 15-second limit. The client sends the current outfit selection (piece, product and shown color for each bought piece, at most 20, validated with zod). The route adds a "Measured by OpenCV" section to Luna's input: each segmented garment with its region and color fractions, then each selected piece with whether a matching garment was detected and whether its color matches. Luna uses these lines to ground colors and point out a missing or recolored piece, and trusts the image when they disagree. If the service is slow or fails, Luna answers alone and the route logs `mirror_opencv_miss`; a success logs `mirror_opencv` with timings. Frames are not stored.
 
-Measured against the local service: 8.7 s for the whole answer, of which 4.3 s was OpenCV. With the service paused, the route answered in 19.1 s after the 15-second miss.
+Measured with a real cosmic-cowboy frame: 9.4 s for the whole answer against the AWS service, of which 4.7 s was OpenCV (8.7 s and 4.3 s against the local service). With the service paused, the route answered in 19.1 s after the 15-second miss.
 
 ## Verification
 
