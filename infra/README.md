@@ -48,7 +48,7 @@ docker run --rm -v /opt/cool:/opt/cool:ro -e PYTHONPATH=/opt/cool/python_3.12/si
 3. Run `./30-instance.sh golive`. It fails fast if the COOL AMI isn't visible yet. Otherwise it terminates the interim t4g.small, launches a c8g.xlarge from the COOL AMI on the same Elastic IP (so the CloudFront origin doesn't change), and deploys `cool`. If the COOL cv2 can't import under numpy 2, the healthz wait fails and prints the container log; run the check above and send the error to Session B.
 4. `curl -s https://<cloudfront-domain>/healthz` should report `"build":"cool","arch":"aarch64"`.
 
-The interim box has 2 GB of RAM, and one analyze peaks at ~1.4 GB, so user-data adds a 4 GB swapfile on hosts with under 4 GB. Analyze takes 13–20 s there against well under that on c8g.
+The interim box has 2 GB of RAM, and the service peaks at ~1.3 GB on analyze and ~1.6 GB on a 12-candidate match, so user-data adds a 4 GB swapfile on hosts with under 4 GB. Analyze takes about 10 s there.
 
 Shell access is SSM only: `aws ssm start-session --target <instance-id>`.
 
