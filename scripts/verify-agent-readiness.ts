@@ -34,6 +34,7 @@ const negotiated = [
   ["*/*", "text/html"],
   ["text/markdown; charset=utf-8", "text/markdown"],
   ["TEXT/MARKDOWN", "text/markdown"],
+  ["text/markdown,text/x-component;q=0", "text/markdown"],
 ];
 for (const [accept, contentType] of negotiated) {
   const { response, body } = await get("/", accept);

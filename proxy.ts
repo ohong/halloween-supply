@@ -5,9 +5,10 @@ import { negotiateDocument } from "./lib/agent/negotiate";
 export function proxy(request: NextRequest) {
   const html = NextResponse.next();
   html.headers.set("Vary", "Accept");
+  const accept = request.headers.get("accept");
   // React navigation and writes retain the framework's own representation.
-  if (!["GET", "HEAD"].includes(request.method) || request.headers.get("rsc") === "1" || request.headers.get("accept")?.includes("text/x-component")) return html;
-  const representation = negotiateDocument(request.headers.get("accept"));
+  if (!["GET", "HEAD"].includes(request.method) || request.headers.get("rsc") === "1" || accept?.trim().toLowerCase() === "text/x-component") return html;
+  const representation = negotiateDocument(accept);
   if (representation === "html") return html;
   const result = representation === "markdown" ? documentMarkdown(request.nextUrl.pathname) : {
     status: 406,
