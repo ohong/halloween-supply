@@ -1,0 +1,995 @@
+[
+  {
+    "slug": "autumn-scarecrow",
+    "ok": true,
+    "latency_ms": 7046.2354589999995,
+    "person_found": true,
+    "server_ms": 6692,
+    "pieces": [
+      {
+        "id": "p0",
+        "slot": "head",
+        "phrase": "straw scarecrow hat",
+        "color": "rust",
+        "query": "rust straw scarecrow hat",
+        "crop": "crops/autumn-scarecrow-p0.jpg"
+      },
+      {
+        "id": "p1",
+        "slot": "top",
+        "phrase": "beekeeper jacket",
+        "color": "brown",
+        "query": "brown beekeeper jacket",
+        "crop": "crops/autumn-scarecrow-p1.jpg"
+      },
+      {
+        "id": "p2",
+        "slot": "accessory",
+        "phrase": "pirate head bandana",
+        "color": "tan",
+        "query": "tan pirate head bandana",
+        "crop": "crops/autumn-scarecrow-p2.jpg"
+      },
+      {
+        "id": "p3",
+        "slot": "accessory",
+        "phrase": "burlap sack",
+        "color": "tan",
+        "query": "tan burlap sack",
+        "crop": "crops/autumn-scarecrow-p3.jpg"
+      },
+      {
+        "id": "p4",
+        "slot": "bottom",
+        "phrase": "corduroy overalls",
+        "color": "charcoal",
+        "query": "charcoal corduroy overalls",
+        "crop": "crops/autumn-scarecrow-p4.jpg"
+      },
+      {
+        "id": "p5",
+        "slot": "feet",
+        "phrase": "fur trim boots",
+        "color": "brown",
+        "query": "brown fur trim boots",
+        "crop": "crops/autumn-scarecrow-p5.jpg"
+      }
+    ]
+  },
+  {
+    "slug": "candy-corn-sorceress",
+    "ok": true,
+    "latency_ms": 2624.0157919999992,
+    "person_found": true,
+    "server_ms": 2561,
+    "pieces": [
+      {
+        "id": "p0",
+        "slot": "head",
+        "phrase": "straw scarecrow hat",
+        "color": "rust",
+        "query": "rust straw scarecrow hat",
+        "crop": "crops/candy-corn-sorceress-p0.jpg"
+      },
+      {
+        "id": "p1",
+        "slot": "top",
+        "phrase": "velvet cape",
+        "color": "black",
+        "query": "plain black velvet cape",
+        "crop": "crops/candy-corn-sorceress-p1.jpg"
+      },
+      {
+        "id": "p2",
+        "slot": "top",
+        "phrase": "candy corn dress",
+        "color": "orange",
+        "query": "orange candy corn dress",
+        "crop": "crops/candy-corn-sorceress-p2.jpg"
+      },
+      {
+        "id": "p3",
+        "slot": "bottom",
+        "phrase": "striped stockings",
+        "color": "orange",
+        "query": "orange striped stockings",
+        "crop": "crops/candy-corn-sorceress-p3.jpg"
+      },
+      {
+        "id": "p4",
+        "slot": "feet",
+        "phrase": "knee-high boots",
+        "color": "black",
+        "query": "black knee-high boots",
+        "crop": "crops/candy-corn-sorceress-p4.jpg"
+      }
+    ]
+  },
+  {
+    "slug": "celestial-sorcerer",
+    "ok": true,
+    "latency_ms": 4114.014917,
+    "person_found": true,
+    "server_ms": 4085,
+    "pieces": [
+      {
+        "id": "p0",
+        "slot": "head",
+        "phrase": "starry wizard hat",
+        "color": "navy",
+        "query": "navy starry wizard hat",
+        "crop": "crops/celestial-sorcerer-p0.jpg"
+      },
+      {
+        "id": "p1",
+        "slot": "top",
+        "phrase": "hooded wizard robe",
+        "color": "navy",
+        "query": "plain navy hooded wizard robe",
+        "crop": "crops/celestial-sorcerer-p1.jpg"
+      },
+      {
+        "id": "p2",
+        "slot": "top",
+        "phrase": "velvet cape",
+        "color": "navy",
+        "query": "navy velvet cape",
+        "crop": "crops/celestial-sorcerer-p2.jpg"
+      },
+      {
+        "id": "p3",
+        "slot": "feet",
+        "phrase": "witch buckle boots",
+        "color": "black",
+        "query": "black witch buckle boots",
+        "crop": "crops/celestial-sorcerer-p3.jpg"
+      }
+    ]
+  },
+  {
+    "slug": "clockwork-aviator",
+    "ok": true,
+    "latency_ms": 1649.4555419999997,
+    "person_found": true,
+    "server_ms": 1627,
+    "pieces": [
+      {
+        "id": "p0",
+        "slot": "top",
+        "phrase": "shearling flight jacket",
+        "color": "chocolate",
+        "query": "chocolate shearling flight jacket",
+        "crop": "crops/clockwork-aviator-p0.jpg"
+      },
+      {
+        "id": "p1",
+        "slot": "bottom",
+        "phrase": "cargo pants",
+        "color": "brown",
+        "query": "brown cargo pants",
+        "crop": "crops/clockwork-aviator-p1.jpg"
+      },
+      {
+        "id": "p2",
+        "slot": "feet",
+        "phrase": "pointed western boots",
+        "color": "chocolate",
+        "query": "chocolate pointed western boots",
+        "crop": "crops/clockwork-aviator-p2.jpg"
+      }
+    ]
+  },
+  {
+    "slug": "coral-mermaid",
+    "ok": true,
+    "latency_ms": 2856.145999999999,
+    "person_found": true,
+    "server_ms": 2803,
+    "pieces": [
+      {
+        "id": "p0",
+        "slot": "top",
+        "phrase": "feather shoulder cape",
+        "color": "gray",
+        "query": "gray feather shoulder cape",
+        "crop": "crops/coral-mermaid-p0.jpg"
+      },
+      {
+        "id": "p1",
+        "slot": "top",
+        "phrase": "sequin mermaid gown",
+        "color": "teal",
+        "query": "teal sequin mermaid gown",
+        "crop": "crops/coral-mermaid-p1.jpg"
+      },
+      {
+        "id": "p2",
+        "slot": "bottom",
+        "phrase": "mermaid skirt",
+        "color": "teal",
+        "query": "teal mermaid skirt",
+        "crop": "crops/coral-mermaid-p2.jpg"
+      }
+    ]
+  },
+  {
+    "slug": "cosmic-cowboy",
+    "ok": true,
+    "latency_ms": 3062.338791000002,
+    "person_found": true,
+    "server_ms": 2939,
+    "pieces": [
+      {
+        "id": "p0",
+        "slot": "head",
+        "phrase": "felt cowboy hat",
+        "color": "gray",
+        "query": "gray felt cowboy hat",
+        "crop": "crops/cosmic-cowboy-p0.jpg"
+      },
+      {
+        "id": "p1",
+        "slot": "accessory",
+        "phrase": "knotted neckerchief",
+        "color": "navy",
+        "query": "navy knotted neckerchief",
+        "crop": "crops/cosmic-cowboy-p1.jpg"
+      },
+      {
+        "id": "p2",
+        "slot": "top",
+        "phrase": "flared disco jumpsuit",
+        "color": "silver",
+        "query": "silver flared disco jumpsuit",
+        "crop": "crops/cosmic-cowboy-p2.jpg"
+      },
+      {
+        "id": "p3",
+        "slot": "bottom",
+        "phrase": "satin pantaloons",
+        "color": "gray",
+        "query": "gray satin pantaloons",
+        "crop": "crops/cosmic-cowboy-p3.jpg"
+      },
+      {
+        "id": "p4",
+        "slot": "feet",
+        "phrase": "pointed western boots",
+        "color": "gray",
+        "query": "gray pointed western boots",
+        "crop": "crops/cosmic-cowboy-p4.jpg"
+      }
+    ]
+  },
+  {
+    "slug": "desert-alchemist",
+    "ok": true,
+    "latency_ms": 4693.541959000002,
+    "person_found": true,
+    "server_ms": 4652,
+    "pieces": [
+      {
+        "id": "p0",
+        "slot": "accessory",
+        "phrase": "wide leather belt",
+        "color": "chocolate",
+        "query": "chocolate wide leather belt",
+        "crop": "crops/desert-alchemist-p0.jpg"
+      },
+      {
+        "id": "p1",
+        "slot": "accessory",
+        "phrase": "hooded knit cowl",
+        "color": "chocolate",
+        "query": "chocolate hooded knit cowl",
+        "crop": "crops/desert-alchemist-p1.jpg"
+      },
+      {
+        "id": "p2",
+        "slot": "outer",
+        "phrase": "hooded cloak",
+        "color": "rust",
+        "query": "rust hooded cloak",
+        "crop": "crops/desert-alchemist-p2.jpg"
+      },
+      {
+        "id": "p3",
+        "slot": "top",
+        "phrase": "hooded cape",
+        "color": "tan",
+        "query": "tan hooded cape",
+        "crop": "crops/desert-alchemist-p3.jpg"
+      },
+      {
+        "id": "p4",
+        "slot": "feet",
+        "phrase": "pointed western boots",
+        "color": "brown",
+        "query": "brown pointed western boots",
+        "crop": "crops/desert-alchemist-p4.jpg"
+      }
+    ]
+  },
+  {
+    "slug": "disco-phantom",
+    "ok": true,
+    "latency_ms": 6563.9855830000015,
+    "person_found": true,
+    "server_ms": 6290,
+    "pieces": [
+      {
+        "id": "p0",
+        "slot": "top",
+        "phrase": "feather shoulder cape",
+        "color": "gray",
+        "query": "gray feather shoulder cape",
+        "crop": "crops/disco-phantom-p0.jpg"
+      },
+      {
+        "id": "p1",
+        "slot": "top",
+        "phrase": "satin cocktail dress",
+        "color": "silver",
+        "query": "plain silver satin cocktail dress",
+        "crop": "crops/disco-phantom-p1.jpg"
+      },
+      {
+        "id": "p2",
+        "slot": "feet",
+        "phrase": "metallic space boots",
+        "color": "gray",
+        "query": "gray metallic space boots",
+        "crop": "crops/disco-phantom-p2.jpg"
+      }
+    ]
+  },
+  {
+    "slug": "enchanted-jester",
+    "ok": true,
+    "latency_ms": 8972.901707999998,
+    "person_found": true,
+    "server_ms": 8729,
+    "pieces": [
+      {
+        "id": "p0",
+        "slot": "head",
+        "phrase": "belled jester cap",
+        "color": "olive",
+        "query": "olive belled jester cap",
+        "crop": "crops/enchanted-jester-p0.jpg"
+      },
+      {
+        "id": "p1",
+        "slot": "top",
+        "phrase": "theatrical tunic",
+        "color": "chocolate",
+        "query": "chocolate theatrical tunic",
+        "crop": "crops/enchanted-jester-p1.jpg"
+      },
+      {
+        "id": "p2",
+        "slot": "accessory",
+        "phrase": "carpet bag",
+        "color": "cream",
+        "query": "cream carpet bag",
+        "crop": "crops/enchanted-jester-p2.jpg"
+      },
+      {
+        "id": "p3",
+        "slot": "bottom",
+        "phrase": "velvet trousers",
+        "color": "burgundy",
+        "query": "burgundy velvet trousers",
+        "crop": "crops/enchanted-jester-p3.jpg"
+      },
+      {
+        "id": "p4",
+        "slot": "feet",
+        "phrase": "buckled pirate boots",
+        "color": "chocolate",
+        "query": "chocolate buckled pirate boots",
+        "crop": "crops/enchanted-jester-p4.jpg"
+      }
+    ]
+  },
+  {
+    "slug": "forest-sprite",
+    "ok": true,
+    "latency_ms": 5867.790083999993,
+    "person_found": true,
+    "server_ms": 5721,
+    "pieces": [
+      {
+        "id": "p0",
+        "slot": "top",
+        "phrase": "feather shoulder cape",
+        "color": "olive",
+        "query": "olive feather shoulder cape",
+        "crop": "crops/forest-sprite-p0.jpg"
+      },
+      {
+        "id": "p1",
+        "slot": "top",
+        "phrase": "leaf green tunic",
+        "color": "olive",
+        "query": "plain olive leaf green tunic",
+        "crop": "crops/forest-sprite-p1.jpg"
+      },
+      {
+        "id": "p2",
+        "slot": "accessory",
+        "phrase": "peter pan collar",
+        "color": "olive",
+        "query": "olive peter pan collar",
+        "crop": "crops/forest-sprite-p2.jpg"
+      },
+      {
+        "id": "p3",
+        "slot": "feet",
+        "phrase": "witch buckle boots",
+        "color": "chocolate",
+        "query": "chocolate witch buckle boots",
+        "crop": "crops/forest-sprite-p3.jpg"
+      }
+    ]
+  },
+  {
+    "slug": "garden-beekeeper",
+    "ok": true,
+    "latency_ms": 2894.0043330000044,
+    "person_found": true,
+    "server_ms": 2864,
+    "pieces": [
+      {
+        "id": "p0",
+        "slot": "head",
+        "phrase": "leather flight cap",
+        "color": "chocolate",
+        "query": "chocolate leather flight cap",
+        "crop": "crops/garden-beekeeper-p0.jpg"
+      },
+      {
+        "id": "p1",
+        "slot": "top",
+        "phrase": "beekeeper jacket",
+        "color": "cream",
+        "query": "plain cream beekeeper jacket",
+        "crop": "crops/garden-beekeeper-p1.jpg"
+      },
+      {
+        "id": "p2",
+        "slot": "bottom",
+        "phrase": "cargo pants",
+        "color": "cream",
+        "query": "cream cargo pants",
+        "crop": "crops/garden-beekeeper-p2.jpg"
+      },
+      {
+        "id": "p3",
+        "slot": "feet",
+        "phrase": "lace-up work boots",
+        "color": "brown",
+        "query": "brown lace-up work boots",
+        "crop": "crops/garden-beekeeper-p3.jpg"
+      }
+    ]
+  },
+  {
+    "slug": "linen-ghost",
+    "ok": true,
+    "latency_ms": 1788.8897080000024,
+    "person_found": true,
+    "server_ms": 1773,
+    "pieces": [
+      {
+        "id": "p0",
+        "slot": "top",
+        "phrase": "white bedsheet ghost",
+        "color": "ivory",
+        "query": "plain ivory white bedsheet ghost",
+        "crop": "crops/linen-ghost-p0.jpg"
+      },
+      {
+        "id": "p1",
+        "slot": "feet",
+        "phrase": "pointed western boots",
+        "color": "chocolate",
+        "query": "chocolate pointed western boots",
+        "crop": "crops/linen-ghost-p1.jpg"
+      }
+    ]
+  },
+  {
+    "slug": "midnight-pirate",
+    "ok": true,
+    "latency_ms": 1968.6202080000003,
+    "person_found": true,
+    "server_ms": 1955,
+    "pieces": [
+      {
+        "id": "p0",
+        "slot": "head",
+        "phrase": "tricorn pirate hat",
+        "color": "black",
+        "query": "black tricorn pirate hat",
+        "crop": "crops/midnight-pirate-p0.jpg"
+      },
+      {
+        "id": "p1",
+        "slot": "top",
+        "phrase": "long pirate coat",
+        "color": "black",
+        "query": "black long pirate coat",
+        "crop": "crops/midnight-pirate-p1.jpg"
+      },
+      {
+        "id": "p2",
+        "slot": "bottom",
+        "phrase": "pirate breeches",
+        "color": "black",
+        "query": "black pirate breeches",
+        "crop": "crops/midnight-pirate-p2.jpg"
+      },
+      {
+        "id": "p3",
+        "slot": "accessory",
+        "phrase": "pirate head bandana",
+        "color": "burgundy",
+        "query": "burgundy pirate head bandana",
+        "crop": "crops/midnight-pirate-p3.jpg"
+      },
+      {
+        "id": "p4",
+        "slot": "feet",
+        "phrase": "buckled pirate boots",
+        "color": "black",
+        "query": "black buckled pirate boots",
+        "crop": "crops/midnight-pirate-p4.jpg"
+      }
+    ]
+  },
+  {
+    "slug": "moon-moth",
+    "ok": true,
+    "latency_ms": 1522.421291999999,
+    "person_found": true,
+    "server_ms": 1506,
+    "pieces": [
+      {
+        "id": "p0",
+        "slot": "top",
+        "phrase": "feather shoulder cape",
+        "color": "beige",
+        "query": "beige feather shoulder cape",
+        "crop": "crops/moon-moth-p0.jpg"
+      },
+      {
+        "id": "p1",
+        "slot": "bottom",
+        "phrase": "fitted tights",
+        "color": "chocolate",
+        "query": "chocolate fitted tights",
+        "crop": "crops/moon-moth-p1.jpg"
+      },
+      {
+        "id": "p2",
+        "slot": "feet",
+        "phrase": "thigh-high boots",
+        "color": "chocolate",
+        "query": "chocolate thigh-high boots",
+        "crop": "crops/moon-moth-p2.jpg"
+      }
+    ]
+  },
+  {
+    "slug": "pumpkin-harlequin",
+    "ok": true,
+    "latency_ms": 1602.1884170000048,
+    "person_found": true,
+    "server_ms": 1588,
+    "pieces": [
+      {
+        "id": "p0",
+        "slot": "top",
+        "phrase": "diamond harlequin bodysuit",
+        "color": "rust",
+        "query": "rust diamond harlequin bodysuit",
+        "crop": "crops/pumpkin-harlequin-p0.jpg"
+      },
+      {
+        "id": "p1",
+        "slot": "bottom",
+        "phrase": "flared trousers",
+        "color": "black",
+        "query": "black flared trousers",
+        "crop": "crops/pumpkin-harlequin-p1.jpg"
+      },
+      {
+        "id": "p2",
+        "slot": "feet",
+        "phrase": "knee-high boots",
+        "color": "black",
+        "query": "black knee-high boots",
+        "crop": "crops/pumpkin-harlequin-p2.jpg"
+      }
+    ]
+  },
+  {
+    "slug": "raven-scholar",
+    "ok": true,
+    "latency_ms": 2233.9164170000004,
+    "person_found": true,
+    "server_ms": 2209,
+    "pieces": [
+      {
+        "id": "p0",
+        "slot": "top",
+        "phrase": "feather shoulder cape",
+        "color": "black",
+        "query": "plain black feather shoulder cape",
+        "crop": "crops/raven-scholar-p0.jpg"
+      },
+      {
+        "id": "p1",
+        "slot": "bottom",
+        "phrase": "ruffled tiered skirt",
+        "color": "black",
+        "query": "black ruffled tiered skirt",
+        "crop": "crops/raven-scholar-p1.jpg"
+      },
+      {
+        "id": "p2",
+        "slot": "feet",
+        "phrase": "platform ankle boots",
+        "color": "black",
+        "query": "black platform ankle boots",
+        "crop": "crops/raven-scholar-p2.jpg"
+      }
+    ]
+  },
+  {
+    "slug": "retro-astronaut",
+    "ok": true,
+    "latency_ms": 2119.209582999996,
+    "person_found": true,
+    "server_ms": 2072,
+    "pieces": [
+      {
+        "id": "p0",
+        "slot": "head",
+        "phrase": "rounded astronaut helmet",
+        "color": "black",
+        "query": "black rounded astronaut helmet",
+        "crop": "crops/retro-astronaut-p0.jpg"
+      },
+      {
+        "id": "p1",
+        "slot": "top",
+        "phrase": "flight jumpsuit",
+        "color": "beige",
+        "query": "beige flight jumpsuit",
+        "crop": "crops/retro-astronaut-p1.jpg"
+      },
+      {
+        "id": "p2",
+        "slot": "accessory",
+        "phrase": "buckled belt",
+        "color": "beige",
+        "query": "beige buckled belt",
+        "crop": "crops/retro-astronaut-p2.jpg"
+      },
+      {
+        "id": "p3",
+        "slot": "bottom",
+        "phrase": "cargo pants",
+        "color": "beige",
+        "query": "beige cargo pants",
+        "crop": "crops/retro-astronaut-p3.jpg"
+      },
+      {
+        "id": "p4",
+        "slot": "feet",
+        "phrase": "metallic space boots",
+        "color": "charcoal",
+        "query": "charcoal metallic space boots",
+        "crop": "crops/retro-astronaut-p4.jpg"
+      }
+    ]
+  },
+  {
+    "slug": "rose-garden-queen",
+    "ok": true,
+    "latency_ms": 3183.355708999996,
+    "person_found": true,
+    "server_ms": 3156,
+    "pieces": [
+      {
+        "id": "p0",
+        "slot": "top",
+        "phrase": "velvet cape",
+        "color": "charcoal",
+        "query": "charcoal velvet cape",
+        "crop": "crops/rose-garden-queen-p0.jpg"
+      },
+      {
+        "id": "p1",
+        "slot": "top",
+        "phrase": "medieval princess gown",
+        "color": "chocolate",
+        "query": "plain chocolate medieval princess gown",
+        "crop": "crops/rose-garden-queen-p1.jpg"
+      },
+      {
+        "id": "p2",
+        "slot": "feet",
+        "phrase": "pointed western boots",
+        "color": "chocolate",
+        "query": "chocolate pointed western boots",
+        "crop": "crops/rose-garden-queen-p2.jpg"
+      }
+    ]
+  },
+  {
+    "slug": "snow-owl",
+    "ok": true,
+    "latency_ms": 3869.6955409999937,
+    "person_found": true,
+    "server_ms": 3804,
+    "pieces": [
+      {
+        "id": "p0",
+        "slot": "top",
+        "phrase": "feather shoulder cape",
+        "color": "cream",
+        "query": "plain cream feather shoulder cape",
+        "crop": "crops/snow-owl-p0.jpg"
+      },
+      {
+        "id": "p1",
+        "slot": "bottom",
+        "phrase": "linen pants",
+        "color": "silver",
+        "query": "silver linen pants",
+        "crop": "crops/snow-owl-p1.jpg"
+      },
+      {
+        "id": "p2",
+        "slot": "feet",
+        "phrase": "pointed western boots",
+        "color": "brown",
+        "query": "brown pointed western boots",
+        "crop": "crops/snow-owl-p2.jpg"
+      }
+    ]
+  },
+  {
+    "slug": "starlight-witch",
+    "ok": true,
+    "latency_ms": 2303.8480420000124,
+    "person_found": true,
+    "server_ms": 2280,
+    "pieces": [
+      {
+        "id": "p0",
+        "slot": "head",
+        "phrase": "starry wizard hat",
+        "color": "black",
+        "query": "black starry wizard hat",
+        "crop": "crops/starlight-witch-p0.jpg"
+      },
+      {
+        "id": "p1",
+        "slot": "top",
+        "phrase": "velvet cape",
+        "color": "black",
+        "query": "plain black velvet cape",
+        "crop": "crops/starlight-witch-p1.jpg"
+      },
+      {
+        "id": "p2",
+        "slot": "top",
+        "phrase": "velvet ball gown",
+        "color": "navy",
+        "query": "plain navy velvet ball gown",
+        "crop": "crops/starlight-witch-p2.jpg"
+      },
+      {
+        "id": "p3",
+        "slot": "feet",
+        "phrase": "witch buckle boots",
+        "color": "black",
+        "query": "black witch buckle boots",
+        "crop": "crops/starlight-witch-p3.jpg"
+      }
+    ]
+  },
+  {
+    "slug": "storm-chaser",
+    "ok": true,
+    "latency_ms": 1928.2143329999963,
+    "person_found": true,
+    "server_ms": 1915,
+    "pieces": [
+      {
+        "id": "p0",
+        "slot": "top",
+        "phrase": "hooded utility jacket",
+        "color": "gold",
+        "query": "plain gold hooded utility jacket",
+        "crop": "crops/storm-chaser-p0.jpg"
+      },
+      {
+        "id": "p1",
+        "slot": "bottom",
+        "phrase": "utility trousers",
+        "color": "navy",
+        "query": "navy utility trousers",
+        "crop": "crops/storm-chaser-p1.jpg"
+      },
+      {
+        "id": "p2",
+        "slot": "feet",
+        "phrase": "wellington boots",
+        "color": "black",
+        "query": "black wellington boots",
+        "crop": "crops/storm-chaser-p2.jpg"
+      }
+    ]
+  },
+  {
+    "slug": "velvet-ringmaster",
+    "ok": true,
+    "latency_ms": 1888.7865420000016,
+    "person_found": true,
+    "server_ms": 1861,
+    "pieces": [
+      {
+        "id": "p0",
+        "slot": "top",
+        "phrase": "gold trim tailcoat",
+        "color": "burgundy",
+        "query": "burgundy gold trim tailcoat",
+        "crop": "crops/velvet-ringmaster-p0.jpg"
+      },
+      {
+        "id": "p1",
+        "slot": "bottom",
+        "phrase": "pirate breeches",
+        "color": "black",
+        "query": "black pirate breeches",
+        "crop": "crops/velvet-ringmaster-p1.jpg"
+      },
+      {
+        "id": "p2",
+        "slot": "feet",
+        "phrase": "tall riding boots",
+        "color": "black",
+        "query": "black tall riding boots",
+        "crop": "crops/velvet-ringmaster-p2.jpg"
+      }
+    ]
+  },
+  {
+    "slug": "velvet-vampire",
+    "ok": true,
+    "latency_ms": 1385.1798750000016,
+    "person_found": true,
+    "server_ms": 1366,
+    "pieces": [
+      {
+        "id": "p0",
+        "slot": "top",
+        "phrase": "velvet cape",
+        "color": "black",
+        "query": "plain black velvet cape",
+        "crop": "crops/velvet-vampire-p0.jpg"
+      },
+      {
+        "id": "p1",
+        "slot": "bottom",
+        "phrase": "velvet trousers",
+        "color": "black",
+        "query": "black velvet trousers",
+        "crop": "crops/velvet-vampire-p1.jpg"
+      },
+      {
+        "id": "p2",
+        "slot": "outer",
+        "phrase": "long velvet cape",
+        "color": "burgundy",
+        "query": "burgundy long velvet cape",
+        "crop": "crops/velvet-vampire-p2.jpg"
+      },
+      {
+        "id": "p3",
+        "slot": "feet",
+        "phrase": "platform ankle boots",
+        "color": "black",
+        "query": "black platform ankle boots",
+        "crop": "crops/velvet-vampire-p3.jpg"
+      }
+    ]
+  },
+  {
+    "slug": "victorian-detective",
+    "ok": true,
+    "latency_ms": 1082.869834000012,
+    "person_found": true,
+    "server_ms": 1075,
+    "pieces": [
+      {
+        "id": "p0",
+        "slot": "head",
+        "phrase": "deerstalker cap",
+        "color": "brown",
+        "query": "brown deerstalker cap",
+        "crop": "crops/victorian-detective-p0.jpg"
+      },
+      {
+        "id": "p1",
+        "slot": "top",
+        "phrase": "inverness cape coat",
+        "color": "brown",
+        "query": "brown inverness cape coat",
+        "crop": "crops/victorian-detective-p1.jpg"
+      },
+      {
+        "id": "p2",
+        "slot": "bottom",
+        "phrase": "pirate breeches",
+        "color": "brown",
+        "query": "brown pirate breeches",
+        "crop": "crops/victorian-detective-p2.jpg"
+      },
+      {
+        "id": "p3",
+        "slot": "feet",
+        "phrase": "buckle pilgrim shoes",
+        "color": "chocolate",
+        "query": "chocolate buckle pilgrim shoes",
+        "crop": "crops/victorian-detective-p3.jpg"
+      }
+    ]
+  },
+  {
+    "slug": "woodland-mushroom",
+    "ok": true,
+    "latency_ms": 3203.6782079999975,
+    "person_found": true,
+    "server_ms": 3179,
+    "pieces": [
+      {
+        "id": "p0",
+        "slot": "head",
+        "phrase": "spotted mushroom hat",
+        "color": "rust",
+        "query": "rust spotted mushroom hat",
+        "crop": "crops/woodland-mushroom-p0.jpg"
+      },
+      {
+        "id": "p1",
+        "slot": "top",
+        "phrase": "hooded cape",
+        "color": "cream",
+        "query": "plain cream hooded cape",
+        "crop": "crops/woodland-mushroom-p1.jpg"
+      },
+      {
+        "id": "p2",
+        "slot": "bottom",
+        "phrase": "corduroy overalls",
+        "color": "brown",
+        "query": "brown corduroy overalls",
+        "crop": "crops/woodland-mushroom-p2.jpg"
+      },
+      {
+        "id": "p3",
+        "slot": "feet",
+        "phrase": "platform ankle boots",
+        "color": "brown",
+        "query": "brown platform ankle boots",
+        "crop": "crops/woodland-mushroom-p3.jpg"
+      }
+    ]
+  }
+]
