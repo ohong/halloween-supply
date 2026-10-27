@@ -25,7 +25,7 @@ export interface AgentHooks {
 const EXCLUDED = [...BLOCKED_DOMAINS, ...NOISE_DOMAINS, "alibaba.com", "dhgate.com", "made-in-china.com",
   "alamy.com", "dreamstime.com", "gettyimages.com", "shutterstock.com", "depositphotos.com", "istockphoto.com"];
 // Search exclusions reduce noise; the full merchant policy still applies after discovery.
-const SEARCH_EXCLUDED = ["amazon.com", "ebay.com", "pinterest.com"];
+const SEARCH_EXCLUDED = ["ebay.com", "pinterest.com"];
 const SHOPIFY = /\/products\/[^/]+\/?$/i;
 const PRODUCT = /\/(listing\/\d+|products?\/|item\/|itm\/|p\/|dp\/|s\/[^/]+\/\d+|shop\/[^/]+\/[^/]+)|[?&](variant|pid|skuId|productId|ID)=|\/-\/A-\d+|\/[\w-]+-p\d+|\.html?$|\/[a-z0-9-]{20,}\/?$/i;
 const LISTING = /\/(market|search|c|category|categories|collections|tag|blogs?|articles?|news)(\/|\?|$)/i;
