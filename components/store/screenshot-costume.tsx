@@ -38,6 +38,7 @@ const BECAUSE: Record<string, string> = {
   retries_exhausted: "No confident match after two retries.",
   budget_low: "The search ran out of time before a confident match.",
   no_new_query: "No other search left to try.",
+  opencv_unavailable: "Photo scoring was unavailable.",
 };
 const words = (text: unknown) => String(text).replaceAll("_", " ");
 

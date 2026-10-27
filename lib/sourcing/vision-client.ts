@@ -2,7 +2,7 @@ import { z } from "zod";
 import { PreviewError } from "@/lib/ai/openai";
 import type { PieceLabels, ScreenshotLook } from "./screenshot-vision";
 
-// Client for the OpenCV vision service (plans/contract.md v1). It never falls back to luna on its own.
+// Client for the OpenCV vision service (plans/contract.md v1.1). Callers treat it as a supplement to luna and fall back when it fails.
 const REGIONS = ["hat", "upper_clothes", "dress", "skirt", "pants", "belt", "shoes", "bag", "scarf", "sunglasses"] as const;
 const SLOTS = ["head", "top", "outer", "bottom", "feet", "accessory"] as const;
 const SIZE_KINDS = ["apparel", "pants", "shoe", "hat", "one_size"] as const;
@@ -39,7 +39,7 @@ export type MatchReason = typeof REASONS[number];
 type RetryReason = MatchReason | "no_candidates" | "weak_score";
 
 export function visionMode() {
-  const mode = process.env.SCREENSHOT_VISION ?? "opencv";
+  const mode = process.env.SCREENSHOT_VISION ?? "luna";
   if (mode !== "opencv" && mode !== "luna") throw new PreviewError(503, `SCREENSHOT_VISION must be opencv or luna, not ${mode}.`);
   return mode;
 }
@@ -80,7 +80,19 @@ async function call<T>(path: string, body: object, schema: z.ZodType<T>, signal:
 export const analyze = (image: Buffer, signal: AbortSignal) =>
   call("/v1/analyze", { image_b64: image.toString("base64"), max_pieces: 8 }, analyzeSchema, signal);
 
-export const match = (p: VisionPiece, candidates: { id: string; image: Buffer }[], signal: AbortSignal) =>
+// A 2-vCPU service runs matches about one at a time, so more in flight only makes every one of them late.
+const MATCH_CONCURRENCY = 2;
+let matching = 0;
+const waiting: (() => void)[] = [];
+
+export async function match(p: VisionPiece, candidates: { id: string; image: Buffer }[], signal: AbortSignal) {
+  while (matching >= MATCH_CONCURRENCY) await new Promise<void>(resolve => waiting.push(resolve));
+  matching++;
+  try { signal.throwIfAborted(); return await scoreCandidates(p, candidates, signal); }
+  finally { matching--; waiting.shift()?.(); }
+}
+
+const scoreCandidates = (p: VisionPiece, candidates: { id: string; image: Buffer }[], signal: AbortSignal) =>
   call("/v1/match", {
     piece: { region: p.region, colors: p.colors, embedding: p.embedding, garment_phrase: p.garment_types[0]?.phrase ?? p.query },
     candidates: candidates.map(c => ({ id: c.id, image_b64: c.image.toString("base64") })),

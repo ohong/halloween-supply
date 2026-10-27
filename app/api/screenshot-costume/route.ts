@@ -59,8 +59,12 @@ export async function POST(request: Request) {
     if (origin && origin !== new URL(request.url).origin) throw new PreviewError(403, "Open the screenshot stylist from this site.");
     mode = visionMode();
     if (!process.env.FIRECRAWL_API_KEY || !process.env.OPENAI_API_KEY) throw new PreviewError(503, "The screenshot stylist is not available yet.");
-    // OpenCV segments the look; luna still names each piece and writes its search query.
-    model = mode === "luna" ? LUNA : `${await visionModel()}+${LUNA}`;
+    // Luna reads the look; OpenCV, when healthy, adds segments, colors and photo scores.
+    model = LUNA;
+    if (mode === "opencv") await visionModel().then(build => { model = `${build}+${LUNA}`; }, error => {
+      console.warn(JSON.stringify({ event: "screenshot_opencv_miss", step: "health", error: String(error) }));
+      mode = "luna";
+    });
     image = await readPhoto(request);
     reserve(); reserved = true;
   } catch (error) {
@@ -94,26 +98,31 @@ export async function POST(request: Request) {
       };
       try {
         log("think", "Reading the visible pieces. Results appear as soon as we find them…");
-        let look: Awaited<ReturnType<typeof decompose>>;
+        let look: Awaited<ReturnType<typeof decompose>> | undefined;
         let seen: VisionPiece[] = [];
         let segmentation: Record<string, unknown> | undefined;
-        if (mode === "luna") look = await decompose(image, signal);
-        else {
+        if (mode === "opencv") try {
           const analysis = await analyze(image, signal);
           step(null, "perceive", { person: analysis.person, timings_ms: analysis.timings_ms, pieces: analysis.pieces.map(p => ({
             id: p.id, region: p.region, slot: p.slot, area_frac: p.area_frac, pattern: p.pattern, query: p.query, alternate: p.alternate,
             colors: p.colors.map(c => ({ name: c.name, hex: c.hex, frac: c.frac })), garment_types: p.garment_types.map(g => ({ phrase: g.phrase, score: g.score })),
           })) });
           if (!analysis.person.found || analysis.person.confidence < MIN_PERSON_CONFIDENCE || !analysis.pieces.length)
-            throw new PreviewError(422, "We couldn’t find one clear person in this screenshot. Crop it to one person, head to toe, and try again.");
+            throw new Error("OpenCV found no clear person");
           const segments = analysis.pieces.slice(0, 8);
           const labels = await labelSegments(image, segments.map(p => ({ region: p.region, crop_b64: p.crop_b64,
             colors: p.colors.slice(0, 3).map(c => c.name), guesses: p.garment_types.slice(0, 3).map(g => g.phrase) })), signal);
           ({ seen, look } = applyLabels(analysis, labels));
           step(null, "label", { model: LUNA, pieces: labels.pieces.map(l => ({ index: l.index, keep: l.keep, name: l.name, garment: l.garment, query: l.query })) });
-          if (!look.pieces.length) throw new PreviewError(422, "We couldn’t find a wearable piece in this screenshot. Crop it to one person, head to toe, and try again.");
+          if (!look.pieces.length) throw new Error("No labeled OpenCV segment");
           if (analysis.image) segmentation = { image: analysis.image, person: { outline: analysis.person.outline }, timings_ms: analysis.timings_ms };
+        } catch (error) {
+          signal.throwIfAborted();
+          // OpenCV only adds measurement, so a miss leaves the read to luna alone.
+          console.warn(JSON.stringify({ event: "screenshot_opencv_miss", step: "analyze", error: String(error) }));
+          look = undefined; seen = []; segmentation = undefined;
         }
+        look ??= await decompose(image, signal);
         if (signal.aborted) signal.throwIfAborted();
         pieceCount = look.pieces.length;
         emit({ t: "look", ...look, segmentation, vision: seen.map(p => ({ crop: `data:image/jpeg;base64,${p.crop_b64}`, colors: p.colors.map(c => ({ name: c.name, hex: c.hex, frac: c.frac })),

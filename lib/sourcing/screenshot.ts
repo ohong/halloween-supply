@@ -294,7 +294,19 @@ export function screenshotSourcing(signal: AbortSignal, log: SourcingLog, refere
       const photos = (await Promise.all(details.map(async (d, i) => {
         try { return { id: String(i), image: await offerImage(d.match.image!, signal) }; } catch { return null; }
       }))).filter(photo => photo !== null);
-      const results = photos.length ? (await matchCandidates(seen, photos, AbortSignal.any([signal, AbortSignal.timeout(8_000)]))).results : [];
+      let results: MatchResult[] = [];
+      try {
+        if (photos.length) results = (await matchCandidates(seen, photos, AbortSignal.any([signal, AbortSignal.timeout(Math.max(1_000, hooks.deadline - performance.now() - 2_000))]))).results;
+      } catch (error) {
+        signal.throwIfAborted();
+        // Scoring is a supplement: without it (or once it would end within 2 s of the deadline), the shopper confirms the first cart-ready find.
+        console.warn(JSON.stringify({ event: "screenshot_opencv_miss", step: "match", error: String(error) }));
+        hooks.trace(index, "score", { attempt, results: [], error: "opencv_unavailable" });
+        hooks.trace(index, "decide", { attempt, action: "approve", because: "opencv_unavailable", best_score: null });
+        const ready = details.find(d => d.cartReady && d.match.image && d.match.priceCents);
+        if (ready) hooks.onApproval(offerFor(ready, "OpenCV scoring was unavailable. Check the photo before adding it."), "opencv_unavailable");
+        return;
+      }
       hooks.trace(index, "score", { attempt, results: results.map(r => ({
         title: details[Number(r.id)].match.title, merchant: details[Number(r.id)].match.merchant, score: r.score, verdict: r.verdict,
         reasons: r.reasons, embedding: r.embedding_similarity, delta_e: r.color_delta_e, color: r.candidate_color, foreground: r.foreground,
