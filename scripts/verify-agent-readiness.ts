@@ -59,7 +59,9 @@ check(rsc.status === 200, "framework navigation bypasses public document negotia
 const icon = await get("/icon.svg", "text/markdown");
 check(icon.response.status === 200 && icon.response.headers.get("content-type")?.includes("image/svg+xml"), "static asset bypasses document negotiation");
 const api = await get("/api/health", "text/markdown");
-check(api.response.status === 200 && api.response.headers.get("content-type")?.includes("application/json"), "API preserves its JSON response");
+const apiBaseline = await get("/api/health", "application/json");
+check(api.response.status === apiBaseline.response.status && api.response.headers.get("content-type")?.includes("application/json"), "API preserves its JSON response and original health status");
+const apiHealth = JSON.parse(api.body);
 
 const browser = await chromium.launch();
 try {
@@ -76,6 +78,7 @@ try {
       canonical: document.querySelector('link[rel="canonical"]')?.getAttribute("href"),
       image: document.querySelector('meta[property="og:image"]')?.getAttribute("content"),
       type: document.querySelector('meta[property="og:type"]')?.getAttribute("content"),
+      siteTypes: [...document.querySelectorAll('meta[name="is-agentic-site-type"]')].map((node) => node.getAttribute("content")),
       schemas,
       guideCount: document.querySelectorAll(".costume-guide-list > li").length,
       guideText: document.querySelector(".costume-guide-directory")?.textContent,
@@ -83,6 +86,7 @@ try {
     };
   });
   check(identity.title.includes("Halloween Supply") && /costume ideas/i.test(identity.title), "title names brand and core product");
+  check(identity.siteTypes.length === 1 && identity.siteTypes[0] === "store", "audit site type declares commerce exactly once");
   check(identity.lang === "en" && Boolean(identity.h1) && new URL(identity.canonical ?? base).href === "https://halloween.supply/" && identity.type === "website" && Boolean(identity.image), "homepage identity metadata is complete");
   const graphs = identity.schemas.flatMap((schema) => schema["@graph"] ?? [schema]);
   const organization = graphs.find((schema) => schema["@type"] === "Organization");
@@ -138,7 +142,7 @@ try {
   await shopper.waitForURL("**/privacy");
   await shopper.getByRole("heading", { name: "Privacy at Halloween Supply", exact: true }).waitFor();
   check(await shopper.getByRole("heading", { name: "Privacy at Halloween Supply", exact: true }).isVisible(), "hydrated footer navigation opens the trust page");
-  const result = { base: base.href, verifiedAt: new Date().toISOString(), checks: checks.length, publicPages: checked, meaningfulCharacters, htmlCharacters: wildcard.body.length, contentRatio: ratio, result: "passed", details: checks };
+  const result = { base: base.href, verifiedAt: new Date().toISOString(), checks: checks.length, publicPages: checked, meaningfulCharacters, htmlCharacters: wildcard.body.length, contentRatio: ratio, apiHealth: { httpStatus: api.response.status, status: apiHealth.status, coverage: apiHealth.coverage }, result: "passed", details: checks };
   if (process.env.AGENT_VERIFICATION_OUTPUT) await writeFile(process.env.AGENT_VERIFICATION_OUTPUT, JSON.stringify(result, null, 2) + "\n");
   console.log(JSON.stringify({ ...result, details: undefined }, null, 2));
 } finally { await browser.close(); }

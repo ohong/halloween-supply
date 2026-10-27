@@ -19,6 +19,7 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://halloween.supply"),
   title: site.title,
   description: site.description,
+  other: { "is-agentic-site-type": "store" },
   openGraph: { title: site.title, description: site.description, siteName: site.name, type: "website" },
 };
 

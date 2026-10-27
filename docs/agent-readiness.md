@@ -28,3 +28,9 @@ Sitemap dates describe the editorial guides and information pages, rather than c
 - Audit reports are snapshots. Check scanned_at before interpreting a score as a post-deployment scan.
 
 Protocols: https://acceptmarkdown.com/start ; https://llmstxt.org/ ; https://www.sitemaps.org/protocol.html ; https://schema.org/Organization .
+
+## Deployment evidence
+
+The 2026-10-27 18:47 UTC rescan reported 100/100, up from the earlier 63/100 snapshot. All six essential audit checks passed. A score does not mean every finding is resolved: brand discoverability and Organization address remain findings. The scanner inferred Docs & content after reading the guide directory. The site declares `is-agentic-site-type=store` so the default report view reflects its commerce purpose. The official docs say this declaration selects the view without changing the score: https://is-agentic.com/docs#declare-site-type .
+
+Production HTTP/browser verification passed 105 checks across 55 pages before the explicit site-type declaration; local verification adds that declaration check, for 106. Recorded JSON lives in docs/verification/. The health API retains its original JSON and status under Markdown requests. It separately reported HTTP 503 and 46/50 complete looks on both the previous deployment (328def0) and this release (b946c80). The four incomplete looks are Jellyfish Bloom, Venus Flytrap, Walking Thundercloud, and Silent Film Star. This change does not alter catalog data or turn a degraded health response into a success.
