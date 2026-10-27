@@ -2,7 +2,8 @@
 
 /** Exact registrable domains; subdomains are matched too. */
 export const BLOCKED_DOMAINS: readonly string[] = [
-  "amazon.com", "amzn.to", "a.co",
+  // amazon.com itself is allowed (Oscar, 2026-10-26); short links and foreign stores stay blocked.
+  "amzn.to", "a.co",
   "spirithalloween.com", "spiritchristmas.com",
   "partycity.com", "halloweencity.com",
   "walmart.com", "walmart.ca", "target.com",
@@ -41,6 +42,7 @@ function matchesDomain(host: string, domain: string): boolean {
 export function isBlockedDomain(url: string): boolean {
   const host = hostnameOf(url);
   if (!host) return true;
+  if (matchesDomain(host, "amazon.com")) return false;
   if (BLOCKED_BRAND_RE.test(host)) return true;
   return BLOCKED_DOMAINS.some((d) => matchesDomain(host, d));
 }

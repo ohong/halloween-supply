@@ -6,6 +6,7 @@
 import assert from "node:assert/strict";
 import { z } from "zod";
 import { costumes } from "../lib/costumes";
+import { localSearch } from "../lib/costume-search";
 import { isBlockedDomain, isNoiseDomain } from "../lib/sourcing/blocklist";
 
 const base = new URL(process.argv.find((argument) => /^https?:\/\//.test(argument)) ?? "http://localhost:3402").origin;
@@ -184,10 +185,17 @@ async function main() {
   assert.equal(response.status, 200);
   const html = text(await response.text());
   assert(/<input\b[^>]*(?:type="search"|role="searchbox")/i.test(html), "Landing page needs the main search field");
-  assert(html.includes("What do you want to be?"), "Landing search needs its visible prompt");
+  assert(/<h1\b[^>]*id="costume-search-heading"[^>]*>[^<]+<\/h1>/i.test(html), "Landing search needs its visible prompt");
   assert.equal((html.match(/class="tile-picture"/g) ?? []).length, costumes.length, "The empty initial search must show every costume");
   for (const { slug } of costumes) assert(html.includes(`${slug}-female.webp`) || html.includes(encodeURIComponent(`${slug}-female.webp`)), `${slug}: default model image missing`);
   pass(`homepage renders the main search and all ${costumes.length} model tiles`);
+
+  for (const costume of costumes) {
+    const result = localSearch(costume.name);
+    assert(result.matches.some(({ slug, relevance }) => slug === costume.slug && relevance === "strong"), `${costume.name}: exact name must immediately find its reviewed costume`);
+    assert.equal(result.matches[0]?.slug, costume.slug, `${costume.name}: exact name must rank first`);
+  }
+  pass(`all ${costumes.length} exact costume names resolve immediately before semantic refinement`);
 
   await rejects("/api/costume-search", json({ query: true }), 400);
   await rejects("/api/costume-search", { method: "POST", headers: { "Content-Type": "text/plain" }, body: "Velvet Vampire" }, 415);

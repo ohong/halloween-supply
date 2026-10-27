@@ -1,0 +1,663 @@
+{
+  "costume": {
+    "slug": "silent-film-star",
+    "name": "Silent Film Star",
+    "description": "A black top hat, ivory shirt and charcoal waistcoat pair with pale stage makeup for a walking silent movie.",
+    "image": "/costumes/silent-film-star.png",
+    "alt": "Black top hat, ivory collared shirt, charcoal waistcoat, high-waisted black trousers and pale stage makeup, with own black shoes.",
+    "status": "live"
+  },
+  "pieces": [
+    {
+      "id": "silent-film-star-velvet-ringmaster-top-hat",
+      "name": "Black top hat",
+      "category": "headwear",
+      "required": true,
+      "order": 0,
+      "styleNotes": "Use a tall black crown and curved brim. The reference red hat band is a small optional ribbon addition; these hats have black bands.",
+      "queries": [
+        "black satin top hat adult",
+        "black wool Victorian top hat"
+      ],
+      "sizeKind": "hat",
+      "matches": [
+        {
+          "productId": "p-a5306831a3",
+          "rank": 0,
+          "reason": "Black structured wool felt, mid-rise crown, grosgrain band and leather sweatband; unlined. Only M is currently available at $81.95. Shorter crown than the reference; red ribbon is not included."
+        },
+        {
+          "productId": "p-54e2a4cf48",
+          "rank": 1,
+          "reason": "Masquerade black satin-style costume top hat in 100% polyester. Merchant specifies one size fits most and dimensions 14 inches high by 10 inches wide, but does not give head circumference. Its feed confirms availability. A lighter costume hat rather than wool felt; check fit before ordering."
+        },
+        {
+          "productId": "p-005fe33405",
+          "rank": 2,
+          "reason": "Black 100% wool felt, 7-inch crown, 2-inch curled brim and 2-inch grosgrain band with flat side bow; unlined. Only L and XL currently available. No red ribbon included."
+        }
+      ]
+    },
+    {
+      "id": "silent-film-star-clockwork-aviator-cream-shirt",
+      "name": "Cream collared shirt",
+      "category": "tops",
+      "required": true,
+      "order": 1,
+      "styleNotes": "A light cream or ivory shirt under the open flight jacket. A simple point collar and visible button front preserve the look.",
+      "queries": [
+        "mens cream ivory collared cotton shirt"
+      ],
+      "sizeKind": "apparel",
+      "matches": [
+        {
+          "productId": "p-205b09ce3c",
+          "rank": 0,
+          "reason": "Ivory 100% cotton long-sleeve shirt, point collar, gathered yokes and a broad two-row button placket. Fuller period cut and paired buttons differ from the simple image shirt. Current feed confirms S, L, XL, 2X and 3X at $69.95; M and 4X unavailable. Shirt only, trousers in photo are excluded."
+        },
+        {
+          "productId": "p-4a2bda5a9b",
+          "rank": 1,
+          "reason": "Cream/off-white 100% cotton shirt with point collar and full button front. Short sleeves differ from the image, but sit under the jacket. Merchant variant endpoint /remote/v1/product-attributes/2106 confirms S (attribute 4755) and M (4758) in stock at $18.95; larger available sizes cost $19.95 and are excluded. Shirt only."
+        },
+        {
+          "productId": "p-80bbc22276",
+          "rank": 2,
+          "reason": "Cream 100% cotton long-sleeve button-down with one chest pocket, made in USA. Shorter untucked-length cut differs from the long image shirt. Only S and XL are currently available at $225; XS, M and L are sold out. Product-only styling items are not included."
+        }
+      ]
+    },
+    {
+      "id": "silent-film-star-raven-scholar-waistcoat",
+      "name": "Charcoal waistcoat",
+      "category": "tops",
+      "required": true,
+      "order": 2,
+      "styleNotes": "A fitted dark button-front waistcoat over the blouse. Gray tweed and black brocade approximate charcoal; the blouse is bought separately.",
+      "queries": [
+        "charcoal women waistcoat Victorian brocade vest"
+      ],
+      "sizeKind": "apparel",
+      "matches": [
+        {
+          "productId": "p-dbf9a6582b",
+          "rank": 0,
+          "reason": "Gray tweed women’s vest with notched lapels, five buttons, faux pockets and adjustable back belt. 100% polyester with satin acetate back, fully lined. Gray tweed is lighter and less ornate than the reference’s charcoal brocade. Vest only; blouse and skirt are separate. S, M, L, XL, 2X and 3X are available at USD64.95 in the live feed; use the live size selector, as description text stops at 2X. Dispatch time unstated."
+        },
+        {
+          "productId": "p-43dbc8c569",
+          "rank": 1,
+          "reason": "Black Victorian damask brocade vest, 65% cotton/35% polyester, lined in black polyester sateen. Collarless V neck with three metal buttons and adjustable back buckle. Men’s slim cut differs from the reference’s shaped women’s charcoal lapel vest; measure chest before selecting. Vest only. All S–5XL variants are available at USD32.45. Listing says custom made; production/dispatch time is not specified."
+        },
+        {
+          "productId": "p-9309900a8e",
+          "rank": 2,
+          "reason": "Black tone-on-tone brocade women’s vest with lapels, covered buttons, two welt pockets and an adjustable buckle back. 100% polyester microfiber front with acetate backing, fully lined. Close in ornate fitted shape, but black rather than charcoal and no decorative chain. Vest only. All XS–2X variants available. Dispatch time unstated."
+        }
+      ]
+    },
+    {
+      "id": "silent-film-star-velvet-ringmaster-high-waist-trousers",
+      "name": "Black high-waisted trousers",
+      "category": "bottoms",
+      "required": true,
+      "order": 3,
+      "styleNotes": "Use a high waist and straight black trouser leg that can tuck into tall boots. The reference double rows of gold buttons are decorative and not present on every option. The highest-price trousers are currently available only in size 46. Use the merchant natural-waist measurement guidance rather than converting modern jeans sizes.",
+      "queries": [
+        "black Victorian high waist trousers",
+        "black fall front trousers"
+      ],
+      "sizeKind": "pants",
+      "matches": [
+        {
+          "productId": "p-20f318e7bd",
+          "rank": 0,
+          "reason": "Black 100% brushed cotton, high waist, button-front fly, suspender buttons and back buckle. Softer dress-style finish than canvas; buttons are black rather than gold. 36-inch inseam; local hemming may be needed. Size 30 is unavailable and excluded. Suspenders pictured are sold separately."
+        },
+        {
+          "productId": "p-ec3e09029c",
+          "rank": 1,
+          "reason": "Black 100% cotton canvas work trousers with high waist, button fly, suspender buttons and adjustable back strap. More casual matte fabric than the reference dress trousers. 36-inch inseam may need local hemming. Only the enumerated sizes are currently available; 34 and 38 are excluded. Suspenders sold separately."
+        },
+        {
+          "productId": "p-3b1499c169",
+          "rank": 2,
+          "reason": "Black 100% cotton twill reproduction with broad buttoned fall front, hidden button fly, internal suspender buttons and adjustable back buckle; unlined. Only size 46 available at $86.95. The front button arrangement approximates the reference but uses black buttons, not gold."
+        }
+      ]
+    },
+    {
+      "id": "silent-film-star-white-stage-makeup",
+      "name": "White stage makeup",
+      "category": "makeup",
+      "required": true,
+      "order": 4,
+      "styleNotes": "Three in-stock jar volumes of the same Ben Nye formula, not three different colors. Smallest available 1.75 oz is sufficient for one event. Makeup base only; powder/applicator and black detailing are not included. White gloves and a bow tie in the styling reference are optional owned accessories, not included in this catalog.",
+      "queries": [
+        "White stage makeup costume"
+      ],
+      "sizeKind": "one_size",
+      "matches": [
+        {
+          "productId": "exp-b-a557291982f8",
+          "rank": 0,
+          "reason": "Ben Nye white stage cream, 1.75 oz jar; base makeup only. Setting powder, applicators and black details are separate supplies. Follow manufacturer use/removal directions. Public merchant variant feed confirms this exact USD price and available variant on the research date."
+        },
+        {
+          "productId": "exp-b-9dd26e08251d",
+          "rank": 1,
+          "reason": "Ben Nye white stage cream, 3 oz jar of the same formula; more product rather than a different effect. Base only, no applicator or setting powder. Public merchant variant feed confirms this exact USD price and available variant on the research date."
+        },
+        {
+          "productId": "exp-b-68a3dcfb87da",
+          "rank": 2,
+          "reason": "Ben Nye white stage cream, large 8 oz jar of the same formula. Excess for one event; shared theatrical supply option, no extra tools. Public merchant variant feed confirms this exact USD price and available variant on the research date."
+        }
+      ]
+    }
+  ],
+  "products": [
+    {
+      "id": "p-a5306831a3",
+      "title": "Regency Top Hat - Black Wool",
+      "url": "https://historicalemporium.com/products/regency-top-hat-black-wool?variant=51717783126310",
+      "priceCents": 8195,
+      "currency": "USD",
+      "image": "/products/price-tiers/p-a5306831a3.webp",
+      "merchantImage": "/products/price-tiers/p-a5306831a3.webp",
+      "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/0980/0974/3654/files/007628_01_5f6fc9cc-e846-4e55-87f4-af33e987da9f.jpg?v=1769541911"
+      ],
+      "availability": "in_stock",
+      "sizes": [
+        "M"
+      ],
+      "merchantId": "historicalemporium-com",
+      "tagSlugs": [],
+      "description": "Black structured wool felt, mid-rise crown, grosgrain band and leather sweatband; unlined. Only M is currently available at $81.95. Shorter crown than the reference; red ribbon is not included.",
+      "checkedAt": "2026-10-26T10:01:23.468Z",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-25T08:51:41.862679Z",
+        "url": "https://historicalemporium.com/products/regency-top-hat-black-wool.js",
+        "notes": "Black structured wool felt, mid-rise crown, grosgrain band and leather sweatband; unlined. Only M is currently available at $81.95. Shorter crown than the reference; red ribbon is not included."
+      }
+    },
+    {
+      "id": "p-005fe33405",
+      "title": "Victorian Top Hat - Black",
+      "url": "https://historicalemporium.com/products/victorian-top-hat-black?variant=51717865341222",
+      "priceCents": 11795,
+      "currency": "USD",
+      "image": "/products/price-tiers/p-005fe33405.webp",
+      "merchantImage": "/products/price-tiers/p-005fe33405.webp",
+      "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/0980/0974/3654/files/007625_01_1d609ce7-abed-4a59-a866-79866ed514d6.jpg?v=1769541909"
+      ],
+      "availability": "in_stock",
+      "sizes": [
+        "L",
+        "XL"
+      ],
+      "merchantId": "historicalemporium-com",
+      "tagSlugs": [],
+      "description": "Black 100% wool felt, 7-inch crown, 2-inch curled brim and 2-inch grosgrain band with flat side bow; unlined. Only L and XL currently available. No red ribbon included.",
+      "checkedAt": "2026-10-26T10:01:23.417Z",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-25T08:51:41.862679Z",
+        "url": "https://historicalemporium.com/products/victorian-top-hat-black.js",
+        "notes": "Black 100% wool felt, 7-inch crown, 2-inch curled brim and 2-inch grosgrain band with flat side bow; unlined. Only L and XL currently available. No red ribbon included."
+      }
+    },
+    {
+      "id": "p-54e2a4cf48",
+      "title": "Deluxe Black Satin Top Hat",
+      "url": "https://easytot.com/products/deluxe-black-satin-top-hat?variant=44217941721162",
+      "priceCents": 1099,
+      "currency": "USD",
+      "image": "/products/price-tiers/p-54e2a4cf48.webp",
+      "merchantImage": "/products/price-tiers/p-54e2a4cf48.webp",
+      "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/0556/0519/8922/files/top_hat.png?v=1789507827"
+      ],
+      "availability": "in_stock",
+      "sizes": [
+        "one size"
+      ],
+      "merchantId": "easytot-com",
+      "tagSlugs": [],
+      "description": "Masquerade black satin-style costume top hat in 100% polyester. Merchant specifies one size fits most and dimensions 14 inches high by 10 inches wide, but does not give head circumference. Its feed confirms availability. A lighter costume hat rather than wool felt; check fit before ordering.",
+      "checkedAt": "2026-10-26T10:01:23.272Z",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-25T08:51:41.862679Z",
+        "url": "https://easytot.com/products/deluxe-black-satin-top-hat.js",
+        "notes": "Masquerade black satin-style costume top hat in 100% polyester. Merchant specifies one size fits most and dimensions 14 inches high by 10 inches wide, but does not give head circumference. Its feed confirms availability. A lighter costume hat rather than wool felt; check fit before ordering."
+      }
+    },
+    {
+      "id": "p-4a2bda5a9b",
+      "title": "Biagio 100% Cotton Men's Short Sleeve Solid CREAM Color Dress Shirt",
+      "url": "https://www.krisarclothing.com/products/biagio-100-cotton-mens-short-sleeve-solid-cream-color-dress-shirt.html",
+      "priceCents": 1895,
+      "currency": "USD",
+      "image": "/products/price-tiers/p-4a2bda5a9b.webp",
+      "merchantImage": "/products/price-tiers/p-4a2bda5a9b.webp",
+      "sourceImages": [
+        "https://cdn11.bigcommerce.com/s-2iveh3ifm0/products/2106/images/12330/apis0s3xd__89399.1592329524.500.750.jpg?c=2"
+      ],
+      "availability": "in_stock",
+      "sizes": [
+        "Small (Neck Size: 14.5)",
+        "Medium (Neck Size: 15.5)"
+      ],
+      "merchantId": "krisarclothing-com",
+      "tagSlugs": [],
+      "description": "Cream/off-white 100% cotton shirt with point collar and full button front. Short sleeves differ from the image, but sit under the jacket. Merchant variant endpoint /remote/v1/product-attributes/2106 confirms S (attribute 4755) and M (4758) in stock at $18.95; larger available sizes cost $19.95 and are excluded. Shirt only.",
+      "checkedAt": "2026-10-25T08:50:23.962064Z",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-25T08:50:23.962064Z",
+        "url": "https://www.krisarclothing.com/products/biagio-100-cotton-mens-short-sleeve-solid-cream-color-dress-shirt.html",
+        "notes": "Cream/off-white 100% cotton shirt with point collar and full button front. Short sleeves differ from the image, but sit under the jacket. Merchant variant endpoint /remote/v1/product-attributes/2106 confirms S (attribute 4755) and M (4758) in stock at $18.95; larger available sizes cost $19.95 and are excluded. Shirt only."
+      }
+    },
+    {
+      "id": "p-205b09ce3c",
+      "title": "Reeves Shirt - Ivory",
+      "url": "https://historicalemporium.com/products/reeves-shirt-ivory?variant=52048304177446",
+      "priceCents": 6995,
+      "currency": "USD",
+      "image": "/products/price-tiers/p-205b09ce3c.webp",
+      "merchantImage": "/products/price-tiers/p-205b09ce3c.webp",
+      "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/0980/0974/3654/files/006021_01_daa87ed5-2134-4a22-a461-fc42e37012da.jpg?v=1769539749"
+      ],
+      "availability": "in_stock",
+      "sizes": [
+        "S",
+        "L",
+        "XL",
+        "2X",
+        "3X"
+      ],
+      "merchantId": "historicalemporium-com",
+      "tagSlugs": [],
+      "description": "Ivory 100% cotton long-sleeve shirt, point collar, gathered yokes and a broad two-row button placket. Fuller period cut and paired buttons differ from the simple image shirt. Current feed confirms S, L, XL, 2X and 3X at $69.95; M and 4X unavailable. Shirt only, trousers in photo are excluded.",
+      "checkedAt": "2026-10-26T10:00:45.905Z",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-25T08:50:23.962064Z",
+        "url": "https://historicalemporium.com/products/reeves-shirt-ivory.js",
+        "notes": "Ivory 100% cotton long-sleeve shirt, point collar, gathered yokes and a broad two-row button placket. Fuller period cut and paired buttons differ from the simple image shirt. Current feed confirms S, L, XL, 2X and 3X at $69.95; M and 4X unavailable. Shirt only, trousers in photo are excluded."
+      }
+    },
+    {
+      "id": "p-80bbc22276",
+      "title": "The Single Needle Shirt, Cream",
+      "url": "https://stevenalan.com/products/the-single-needle-shirt-cream?variant=44441816400060",
+      "priceCents": 22500,
+      "currency": "USD",
+      "image": "/products/price-tiers/p-80bbc22276.webp",
+      "merchantImage": "/products/price-tiers/p-80bbc22276.webp",
+      "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/0132/2975/2377/files/stretched2-10.jpg?v=1739566390"
+      ],
+      "availability": "in_stock",
+      "sizes": [
+        "S",
+        "XL"
+      ],
+      "merchantId": "stevenalan-com",
+      "tagSlugs": [],
+      "description": "Cream 100% cotton long-sleeve button-down with one chest pocket, made in USA. Shorter untucked-length cut differs from the long image shirt. Only S and XL are currently available at $225; XS, M and L are sold out. Product-only styling items are not included.",
+      "checkedAt": "2026-10-26T10:00:46.049Z",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-25T08:50:23.962064Z",
+        "url": "https://stevenalan.com/products/the-single-needle-shirt-cream.js",
+        "notes": "Cream 100% cotton long-sleeve button-down with one chest pocket, made in USA. Shorter untucked-length cut differs from the long image shirt. Only S and XL are currently available at $225; XS, M and L are sold out. Product-only styling items are not included."
+      }
+    },
+    {
+      "id": "p-9309900a8e",
+      "title": "Ladies Weathersby Vest - Black",
+      "url": "https://historicalemporium.com/products/weathersby-ladies-vest-black?variant=52047634333990",
+      "priceCents": 7495,
+      "currency": "USD",
+      "image": "/products/price-tiers/p-9309900a8e.webp",
+      "merchantImage": "/products/price-tiers/p-9309900a8e.webp",
+      "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/0980/0974/3654/files/001692_01_09198bde-301d-4992-a74a-d1131c2998f6.jpg?v=1769539239"
+      ],
+      "availability": "in_stock",
+      "sizes": [
+        "XS",
+        "S",
+        "M",
+        "L",
+        "XL",
+        "2X"
+      ],
+      "merchantId": "historicalemporium-com",
+      "tagSlugs": [],
+      "description": "Black tone-on-tone brocade women’s vest with lapels, covered buttons, two welt pockets and an adjustable buckle back. 100% polyester microfiber front with acetate backing, fully lined. Close in ornate fitted shape, but black rather than charcoal and no decorative chain. Vest only. All XS–2X variants available. Dispatch time unstated.",
+      "checkedAt": "2026-10-26T10:01:14.112Z",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-25T08:49:51.686928+00:00",
+        "url": "https://historicalemporium.com/products/weathersby-ladies-vest-black.js",
+        "notes": "Black tone-on-tone brocade women’s vest with lapels, covered buttons, two welt pockets and an adjustable buckle back. 100% polyester microfiber front with acetate backing, fully lined. Close in ornate fitted shape, but black rather than charcoal and no decorative chain. Vest only. All XS–2X variants available. Dispatch time unstated."
+      }
+    },
+    {
+      "id": "p-dbf9a6582b",
+      "title": "Ladies Tweed Vest - Gray",
+      "url": "https://historicalemporium.com/products/ladies-tweed-vest-gray?variant=51717681578278",
+      "priceCents": 6495,
+      "currency": "USD",
+      "image": "/products/price-tiers/p-dbf9a6582b.webp",
+      "merchantImage": "/products/price-tiers/p-dbf9a6582b.webp",
+      "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/0980/0974/3654/files/008849_01_ec09afad-1654-42ef-87db-4e326db99949.jpg?v=1769619184"
+      ],
+      "availability": "in_stock",
+      "sizes": [
+        "S",
+        "M",
+        "L",
+        "XL",
+        "2X",
+        "3X"
+      ],
+      "merchantId": "historicalemporium-com",
+      "tagSlugs": [],
+      "description": "Gray tweed women’s vest with notched lapels, five buttons, faux pockets and adjustable back belt. 100% polyester with satin acetate back, fully lined. Gray tweed is lighter and less ornate than the reference’s charcoal brocade. Vest only; blouse and skirt are separate. S, M, L, XL, 2X and 3X are available at USD64.95 in the live feed; use the live size selector, as description text stops at 2X. Dispatch time unstated.",
+      "checkedAt": "2026-10-26T10:01:14.218Z",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-25T08:49:51.686928+00:00",
+        "url": "https://historicalemporium.com/products/ladies-tweed-vest-gray.js",
+        "notes": "Gray tweed women’s vest with notched lapels, five buttons, faux pockets and adjustable back belt. 100% polyester with satin acetate back, fully lined. Gray tweed is lighter and less ornate than the reference’s charcoal brocade. Vest only; blouse and skirt are separate. S, M, L, XL, 2X and 3X are available at USD64.95 in the live feed; use the live size selector, as description text stops at 2X. Dispatch time unstated."
+      }
+    },
+    {
+      "id": "p-43dbc8c569",
+      "title": "Men's Waistcoat Vest Black Brocade Gothic Steampunk VTG /USA",
+      "url": "https://www.darkrock.net/products/mens-waistcoat-vest-black-brocade-gothic-steampunk-vtg-usa?variant=46475594137685",
+      "priceCents": 3245,
+      "currency": "USD",
+      "image": "/products/price-tiers/p-43dbc8c569.webp",
+      "merchantImage": "/products/price-tiers/p-43dbc8c569.webp",
+      "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/0729/6267/0677/files/Document-37-page0001.jpg?v=1792737878"
+      ],
+      "availability": "in_stock",
+      "sizes": [
+        "S",
+        "M",
+        "L",
+        "XL",
+        "2XL",
+        "3XL",
+        "4XL",
+        "5XL"
+      ],
+      "merchantId": "darkrock-net",
+      "tagSlugs": [],
+      "description": "Black Victorian damask brocade vest, 65% cotton/35% polyester, lined in black polyester sateen. Collarless V neck with three metal buttons and adjustable back buckle. Men’s slim cut differs from the reference’s shaped women’s charcoal lapel vest; measure chest before selecting. Vest only. All S–5XL variants are available at USD32.45. Listing says custom made; production/dispatch time is not specified.",
+      "checkedAt": "2026-10-26T10:01:13.871Z",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-25T08:49:51.686928+00:00",
+        "url": "https://www.darkrock.net/products/mens-waistcoat-vest-black-brocade-gothic-steampunk-vtg-usa.js",
+        "notes": "Black Victorian damask brocade vest, 65% cotton/35% polyester, lined in black polyester sateen. Collarless V neck with three metal buttons and adjustable back buckle. Men’s slim cut differs from the reference’s shaped women’s charcoal lapel vest; measure chest before selecting. Vest only. All S–5XL variants are available at USD32.45. Listing says custom made; production/dispatch time is not specified."
+      }
+    },
+    {
+      "id": "p-ec3e09029c",
+      "title": "Classic Canvas Trousers - Black",
+      "url": "https://historicalemporium.com/products/classic-canvas-trousers-black?variant=51717553750310",
+      "priceCents": 5995,
+      "currency": "USD",
+      "image": "/products/price-tiers/p-ec3e09029c.webp",
+      "merchantImage": "/products/price-tiers/p-ec3e09029c.webp",
+      "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/0980/0974/3654/files/003861_01_f93e74ca-2712-4f08-9e99-1ba20fc11789.jpg?v=1769539492"
+      ],
+      "availability": "in_stock",
+      "sizes": [
+        "26",
+        "28",
+        "36",
+        "40",
+        "42",
+        "44",
+        "46",
+        "48",
+        "50",
+        "52",
+        "54",
+        "56",
+        "58",
+        "60"
+      ],
+      "merchantId": "historicalemporium-com",
+      "tagSlugs": [],
+      "description": "Black 100% cotton canvas work trousers with high waist, button fly, suspender buttons and adjustable back strap. More casual matte fabric than the reference dress trousers. 36-inch inseam may need local hemming. Only the enumerated sizes are currently available; 34 and 38 are excluded. Suspenders sold separately.",
+      "checkedAt": "2026-10-26T10:01:24.484Z",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-25T08:51:41.862679Z",
+        "url": "https://historicalemporium.com/products/classic-canvas-trousers-black.js",
+        "notes": "Black 100% cotton canvas work trousers with high waist, button fly, suspender buttons and adjustable back strap. More casual matte fabric than the reference dress trousers. 36-inch inseam may need local hemming. Only the enumerated sizes are currently available; 34 and 38 are excluded. Suspenders sold separately."
+      }
+    },
+    {
+      "id": "p-20f318e7bd",
+      "title": "Livingston Brushed Cotton Trousers - Black",
+      "url": "https://historicalemporium.com/products/livingston-brushed-cotton-trousers-black?variant=51717696684326",
+      "priceCents": 7595,
+      "currency": "USD",
+      "image": "/products/price-tiers/p-20f318e7bd.webp",
+      "merchantImage": "/products/price-tiers/p-20f318e7bd.webp",
+      "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/0980/0974/3654/files/002981_01_c0bf3e68-33aa-4ec5-a823-9a54dd425571.jpg?v=1769539399"
+      ],
+      "availability": "in_stock",
+      "sizes": [
+        "26",
+        "28",
+        "32",
+        "34",
+        "36",
+        "38",
+        "40",
+        "42",
+        "44",
+        "46",
+        "48",
+        "50",
+        "52",
+        "54",
+        "56",
+        "58",
+        "60"
+      ],
+      "merchantId": "historicalemporium-com",
+      "tagSlugs": [],
+      "description": "Black 100% brushed cotton, high waist, button-front fly, suspender buttons and back buckle. Softer dress-style finish than canvas; buttons are black rather than gold. 36-inch inseam; local hemming may be needed. Size 30 is unavailable and excluded. Suspenders pictured are sold separately.",
+      "checkedAt": "2026-10-26T10:01:24.812Z",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-25T08:51:41.862679Z",
+        "url": "https://historicalemporium.com/products/livingston-brushed-cotton-trousers-black.js",
+        "notes": "Black 100% brushed cotton, high waist, button-front fly, suspender buttons and back buckle. Softer dress-style finish than canvas; buttons are black rather than gold. 36-inch inseam; local hemming may be needed. Size 30 is unavailable and excluded. Suspenders pictured are sold separately."
+      }
+    },
+    {
+      "id": "p-3b1499c169",
+      "title": "Regency Fall Front Twill Trousers - Black",
+      "url": "https://historicalemporium.com/products/regency-fall-front-twill-trousers-black?variant=51717782307110",
+      "priceCents": 8695,
+      "currency": "USD",
+      "image": "/products/price-tiers/p-3b1499c169.webp",
+      "merchantImage": "/products/price-tiers/p-3b1499c169.webp",
+      "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/0980/0974/3654/files/007807_01_ad66c2ab-3cc1-4dcf-be8f-7f5cb892d66d.jpg?v=1769541963"
+      ],
+      "availability": "in_stock",
+      "sizes": [
+        "46"
+      ],
+      "merchantId": "historicalemporium-com",
+      "tagSlugs": [],
+      "description": "Black 100% cotton twill reproduction with broad buttoned fall front, hidden button fly, internal suspender buttons and adjustable back buckle; unlined. Only size 46 available at $86.95. The front button arrangement approximates the reference but uses black buttons, not gold.",
+      "checkedAt": "2026-10-26T10:01:24.914Z",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-25T08:51:41.862679Z",
+        "url": "https://historicalemporium.com/products/regency-fall-front-twill-trousers-black.js",
+        "notes": "Black 100% cotton twill reproduction with broad buttoned fall front, hidden button fly, internal suspender buttons and adjustable back buckle; unlined. Only size 46 available at $86.95. The front button arrangement approximates the reference but uses black buttons, not gold."
+      }
+    },
+    {
+      "id": "exp-b-a557291982f8",
+      "title": "Ben Nye Clown White Makeup — 1.75oz (CW-2)",
+      "url": "https://camerareadycosmetics.com/products/ben-nye-clown-white-makeup?variant=22326378887",
+      "priceCents": 1000,
+      "currency": "USD",
+      "image": "/products/price-tiers/exp-b-a557291982f8.webp",
+      "merchantImage": "/products/price-tiers/exp-b-a557291982f8.webp",
+      "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/1073/6222/products/8610_zoom_1433977502.jpg?v=1689635079"
+      ],
+      "availability": "in_stock",
+      "sizes": [
+        "1.75oz (CW-2)"
+      ],
+      "merchantId": "exp-b-camerareadycosmetics-com",
+      "tagSlugs": [],
+      "description": "Ben Nye white stage cream, 1.75 oz jar; base makeup only. Setting powder, applicators and black details are separate supplies. Follow manufacturer use/removal directions. Public merchant variant feed confirms this exact USD price and available variant on the research date.",
+      "checkedAt": "2026-10-27T00:28:28.338770Z",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-27T00:28:28.338770Z",
+        "url": "https://camerareadycosmetics.com/products/ben-nye-clown-white-makeup",
+        "notes": "Ben Nye white stage cream, 1.75 oz jar; base makeup only. Setting powder, applicators and black details are separate supplies. Follow manufacturer use/removal directions. Public merchant variant feed confirms this exact USD price and available variant on the research date."
+      }
+    },
+    {
+      "id": "exp-b-9dd26e08251d",
+      "title": "Ben Nye Clown White Makeup — 3.0oz (CW-3)",
+      "url": "https://camerareadycosmetics.com/products/ben-nye-clown-white-makeup?variant=22326379015",
+      "priceCents": 1200,
+      "currency": "USD",
+      "image": "/products/price-tiers/exp-b-9dd26e08251d.webp",
+      "merchantImage": "/products/price-tiers/exp-b-9dd26e08251d.webp",
+      "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/1073/6222/products/6129_zoom_1433979317.jpg?v=1689635087"
+      ],
+      "availability": "in_stock",
+      "sizes": [
+        "3.0oz (CW-3)"
+      ],
+      "merchantId": "exp-b-camerareadycosmetics-com",
+      "tagSlugs": [],
+      "description": "Ben Nye white stage cream, 3 oz jar of the same formula; more product rather than a different effect. Base only, no applicator or setting powder. Public merchant variant feed confirms this exact USD price and available variant on the research date.",
+      "checkedAt": "2026-10-27T00:28:28.338770Z",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-27T00:28:28.338770Z",
+        "url": "https://camerareadycosmetics.com/products/ben-nye-clown-white-makeup",
+        "notes": "Ben Nye white stage cream, 3 oz jar of the same formula; more product rather than a different effect. Base only, no applicator or setting powder. Public merchant variant feed confirms this exact USD price and available variant on the research date."
+      }
+    },
+    {
+      "id": "exp-b-68a3dcfb87da",
+      "title": "Ben Nye Clown White Makeup — 8.0oz (CW-4)",
+      "url": "https://camerareadycosmetics.com/products/ben-nye-clown-white-makeup?variant=22326379079",
+      "priceCents": 2400,
+      "currency": "USD",
+      "image": "/products/price-tiers/exp-b-68a3dcfb87da.webp",
+      "merchantImage": "/products/price-tiers/exp-b-68a3dcfb87da.webp",
+      "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/1073/6222/products/ben-nye-CW-4-Clown-White-3168.jpg?v=1689635091"
+      ],
+      "availability": "in_stock",
+      "sizes": [
+        "8.0oz (CW-4)"
+      ],
+      "merchantId": "exp-b-camerareadycosmetics-com",
+      "tagSlugs": [],
+      "description": "Ben Nye white stage cream, large 8 oz jar of the same formula. Excess for one event; shared theatrical supply option, no extra tools. Public merchant variant feed confirms this exact USD price and available variant on the research date.",
+      "checkedAt": "2026-10-27T00:28:28.338770Z",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-27T00:28:28.338770Z",
+        "url": "https://camerareadycosmetics.com/products/ben-nye-clown-white-makeup",
+        "notes": "Ben Nye white stage cream, large 8 oz jar of the same formula. Excess for one event; shared theatrical supply option, no extra tools. Public merchant variant feed confirms this exact USD price and available variant on the research date."
+      }
+    }
+  ],
+  "merchants": [
+    {
+      "id": "easytot-com",
+      "name": "EasyTot",
+      "domain": "easytot.com",
+      "url": "https://easytot.com/",
+      "kind": "boutique",
+      "neighborhoodId": null
+    },
+    {
+      "id": "historicalemporium-com",
+      "name": "Historical Emporium",
+      "domain": "historicalemporium.com",
+      "url": "https://historicalemporium.com/",
+      "kind": "boutique",
+      "neighborhoodId": null
+    },
+    {
+      "id": "krisarclothing-com",
+      "name": "Krisar Clothing",
+      "domain": "krisarclothing.com",
+      "url": "https://krisarclothing.com/",
+      "kind": "boutique",
+      "neighborhoodId": null
+    },
+    {
+      "id": "stevenalan-com",
+      "name": "Steven Alan",
+      "domain": "stevenalan.com",
+      "url": "https://stevenalan.com/",
+      "kind": "boutique",
+      "neighborhoodId": null
+    },
+    {
+      "id": "darkrock-net",
+      "name": "DarkRock",
+      "domain": "darkrock.net",
+      "url": "https://darkrock.net/",
+      "kind": "boutique",
+      "neighborhoodId": null
+    },
+    {
+      "id": "exp-b-camerareadycosmetics-com",
+      "name": "Camera Ready Cosmetics",
+      "domain": "camerareadycosmetics.com",
+      "url": "https://camerareadycosmetics.com",
+      "kind": "boutique",
+      "neighborhoodId": null
+    }
+  ],
+  "neighborhoods": [],
+  "tags": [],
+  "provenance": {
+    "method": "manual-research",
+    "generatedAt": "2026-10-27T00:28:28.338770Z",
+    "notes": "2026 catalog expansion B. Defining pieces checked against primary merchant pages/public variant feeds using built-in web discovery. Appropriate base garments reused from earlier reviewed catalog with original product evidence and check dates. Generated hero is styling inspiration; merchant photos show actual purchases. Sizes, stock and price require checkout recheck. No Halloween arrival guarantee. Publication carries forward newer shared-product price, stock, size and check timestamps from the live database; original sourcing evidence is retained.",
+    "priceTiers": true,
+    "heroImageKind": "generated-reference"
+  }
+}

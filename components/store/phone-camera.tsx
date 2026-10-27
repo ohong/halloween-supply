@@ -68,7 +68,9 @@ export function PhoneCameraProvider({ children }: { children: React.ReactNode })
       const remote = new MediaStream();
       peer.ontrack = event => { remote.addTrack(event.track); setStream(remote); };
       peer.onconnectionstatechange = () => {
-        if (peer.connectionState === "failed" || peer.connectionState === "closed") fail("Your phone disconnected. Connect it again to continue.");
+        if (peer.connectionState !== "failed" && peer.connectionState !== "closed") return;
+        // No heartbeat yet means the phone never reached this computer, which is a network problem, not a dropped phone.
+        fail(session.heartbeat ? "Your phone disconnected. Connect it again to continue." : pair.relayAvailable ? "Your phone could not reach this computer. Try again, or switch the phone to Wi-Fi." : "Your phone could not reach this computer. Put both devices on the same Wi-Fi network and try again.");
       };
       peer.ondatachannel = event => {
         const channel = event.channel; channel.binaryType = "arraybuffer"; session.channel = channel;

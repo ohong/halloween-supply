@@ -11,8 +11,11 @@
 .try-on-stage.is-busy::after { content: ""; position: absolute; left: 0; right: 0; height: 30%; top: -30%; background: linear-gradient(to bottom, transparent, rgba(255,255,255,.55), transparent); animation: try-on-scan 2s ease-in-out infinite; }
 @keyframes try-on-scan { to { top: 100%; } }
 .try-on-progress { position: absolute; left: 12px; right: 12px; bottom: 12px; height: 4px; border-radius: 2px; background: rgba(255,255,255,.6); overflow: hidden; z-index: 1; }
-.try-on-progress span { display: block; height: 100%; width: 95%; background: var(--ink); transform-origin: left; animation: try-on-fill 75s cubic-bezier(.1,.6,.3,1) forwards; }
-@keyframes try-on-fill { from { transform: scaleX(.03); } to { transform: scaleX(1); } }
+/* Previews take ~10-12s: reach ~85% by 12s, then crawl toward 95% so slow runs still look alive. */
+.try-on-progress span { display: block; height: 100%; background: var(--ink); transform-origin: left; animation: try-on-fill 40s linear forwards; }
+.try-on-progress.is-done span { animation: try-on-fill 40s linear forwards, try-on-done .3s ease-out forwards; }
+@keyframes try-on-fill { 0% { transform: scaleX(.03); animation-timing-function: cubic-bezier(.3,.5,.5,1); } 30% { transform: scaleX(.85); animation-timing-function: cubic-bezier(.2,.6,.4,1); } 100% { transform: scaleX(.95); } }
+@keyframes try-on-done { to { transform: scaleX(1); } }
 .try-on-badge { position: absolute; left: 12px; top: 12px; padding: 4px 10px; border-radius: 11px; background: var(--ink); color: #fff; font-size: 11px; }
 .try-on-badge.is-on { background: #fff; color: var(--ink); }
 .try-on-close { position: absolute; right: 10px; top: 10px; z-index: 2; display: grid; place-items: center; width: 40px; height: 40px; border: 0; border-radius: 50%; background: rgba(255,255,255,.9); color: var(--ink); }

@@ -1,6 +1,6 @@
 # Budget stylist
 
-All 25 costumes have complete shopping catalogs with four to seven purchasable components. Every piece has three distinct
+All 50 costumes have complete shopping catalogs with three to seven purchasable components. Every piece has three distinct
 merchant price points, labeled $, $$, and $$$ relative to that piece. A higher
 price is not a quality claim. Rank still records the editorial default independently
 of price.

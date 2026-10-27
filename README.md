@@ -1,13 +1,13 @@
 # Halloween Supply
 
 A curated costume store built from individual pieces at independent merchants.
-All 25 costumes have saved shopping catalogs with three distinct price points
+All 50 costumes have saved shopping catalogs with three distinct price points
 for each purchasable component: $, $$, and $$$. Components are separate garments,
 confirmed bundles, or clearly described DIY supplies. Every look supports merchant
 links, swaps, budget styling, cart selections, and the generated inspiration image.
 The homepage shows each look on the same male or female model. Its model toggle
-switches all 25 previews and each costume page's first carousel image. The browser
-remembers the choice across navigation and refreshes. The 50 transparent images and their generation prompts
+switches all 50 previews and each costume page's first carousel image. The browser
+remembers the choice across navigation and refreshes. The 100 transparent images and their generation prompts
 are saved in `public/costumes/models/` and `docs/design/model-gallery-image-prompts.json`.
 
 ## Search and custom looks
@@ -46,9 +46,13 @@ atomic and reuses the same queries for live data and the bundled fallback.
 checkout. Checkout always rechecks the merchant's current price, stock, and size.
 Customers approve price changes before continuing.
 
-The full 25-costume catalog was researched with built-in web search and direct
+The full 50-costume catalog was researched with built-in web search and direct
 merchant evidence, with no Firecrawl used for this research pass. Research records
-and exact merchant photographs are in `docs/sourcing/price-tiers/`.
+for the original 25 looks are in `docs/sourcing/price-tiers/`. The 25 new looks
+have evidence in `docs/sourcing/expansion-{a,b,c,d,e}.{json,md}`. They reuse
+appropriate reviewed basics and add newly checked defining pieces. DIY looks
+state assembly steps and extra supplies; made-to-order options do not promise
+arrival by Halloween.
 
 The budget stylist at `/api/outfits` uses OpenAI Decisions (`gpt-6-luna`) to compare
 complete affordable outfits. It receives the costume reference, merchant photos,
@@ -74,7 +78,8 @@ bun --env-file=.env.local scripts/source/index.ts cosmic-cowboy --skip-images
 
 Original editorial images are in `public/costumes/`. Their prompts are recorded
 in `docs/design/costume-image-prompts.json`. Prompts for the twenty additional costumes
-are recorded in `docs/design/new-costume-image-prompts.json`. Product images come
+are recorded in `docs/design/new-costume-image-prompts.json`. The next 25 looks
+have prompts in `docs/design/expansion-{a,b,c,d,e}-images.json`. Product images come
 from the checked merchant listings.
 
 ## Checks

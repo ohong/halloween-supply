@@ -1,0 +1,285 @@
+{
+  "slug": "velvet-vampire",
+  "base": "http://localhost:3000",
+  "model": "opencv-5:5.0.0;stock",
+  "elapsedMs": 25579,
+  "done": {
+    "t": "done",
+    "found": 4,
+    "priced": 1,
+    "timedOut": false,
+    "ms": 24730
+  },
+  "pieces": [
+    "black velvet cape",
+    "black velvet trousers",
+    "burgundy long velvet cape",
+    "black patent dress shoes"
+  ],
+  "approvals": [],
+  "retries": [],
+  "improvedPieces": [],
+  "trace": [
+    {
+      "t_ms": 6363,
+      "piece": null,
+      "step": "perceive",
+      "detail": {
+        "person": {
+          "found": true,
+          "bbox": [
+            27,
+            7,
+            970,
+            954
+          ],
+          "confidence": 0.725
+        },
+        "timings_ms": {
+          "decode": 432,
+          "segment": 3303,
+          "colors": 242,
+          "embed": 2061,
+          "classify": 39,
+          "total": 6119
+        },
+        "pieces": [
+          {
+            "id": "p0",
+            "region": "upper_clothes",
+            "slot": "top",
+            "area_frac": 0.1948,
+            "pattern": "solid",
+            "query": "plain black velvet cape",
+            "alternate": "black short cape",
+            "colors": [
+              {
+                "name": "black",
+                "hex": "#100e0e",
+                "frac": 0.809
+              },
+              {
+                "name": "burgundy",
+                "hex": "#581e25",
+                "frac": 0.114
+              },
+              {
+                "name": "silver",
+                "hex": "#c7bfb8",
+                "frac": 0.078
+              }
+            ],
+            "garment_types": [
+              {
+                "phrase": "velvet cape",
+                "score": 0.3326
+              },
+              {
+                "phrase": "velvet waistcoat",
+                "score": 0.3108
+              },
+              {
+                "phrase": "satin corset top",
+                "score": 0.2962
+              }
+            ]
+          },
+          {
+            "id": "p1",
+            "region": "pants",
+            "slot": "bottom",
+            "area_frac": 0.0586,
+            "pattern": "solid",
+            "query": "black velvet trousers",
+            "alternate": "black fitted trousers",
+            "colors": [
+              {
+                "name": "black",
+                "hex": "#1b1918",
+                "frac": 0.958
+              },
+              {
+                "name": "chocolate",
+                "hex": "#2c0a0d",
+                "frac": 0.042
+              }
+            ],
+            "garment_types": [
+              {
+                "phrase": "velvet trousers",
+                "score": 0.2979
+              },
+              {
+                "phrase": "pirate breeches",
+                "score": 0.2841
+              },
+              {
+                "phrase": "flared trousers",
+                "score": 0.2807
+              }
+            ]
+          },
+          {
+            "id": "p2",
+            "region": "dress",
+            "slot": "outer",
+            "area_frac": 0.1229,
+            "pattern": "solid",
+            "query": "burgundy long velvet cape",
+            "alternate": "burgundy long cape",
+            "colors": [
+              {
+                "name": "burgundy",
+                "hex": "#3c0c13",
+                "frac": 0.414
+              },
+              {
+                "name": "black",
+                "hex": "#190405",
+                "frac": 0.378
+              },
+              {
+                "name": "burgundy",
+                "hex": "#71232e",
+                "frac": 0.208
+              }
+            ],
+            "garment_types": [
+              {
+                "phrase": "long velvet cape",
+                "score": 0.3201
+              },
+              {
+                "phrase": "velvet ball gown",
+                "score": 0.3043
+              },
+              {
+                "phrase": "long velvet gown",
+                "score": 0.303
+              }
+            ]
+          },
+          {
+            "id": "p3",
+            "region": "shoes",
+            "slot": "feet",
+            "area_frac": 0.0097,
+            "pattern": "solid",
+            "query": "black patent dress shoes",
+            "alternate": "black dress shoes",
+            "colors": [
+              {
+                "name": "black",
+                "hex": "#141211",
+                "frac": 0.799
+              },
+              {
+                "name": "charcoal",
+                "hex": "#3c3b3b",
+                "frac": 0.141
+              },
+              {
+                "name": "gray",
+                "hex": "#9e9b9c",
+                "frac": 0.06
+              }
+            ],
+            "garment_types": [
+              {
+                "phrase": "patent dress shoes",
+                "score": 0.2667
+              },
+              {
+                "phrase": "platform ankle boots",
+                "score": 0.2634
+              },
+              {
+                "phrase": "leather ankle boots",
+                "score": 0.2597
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "t_ms": 11282,
+      "piece": 3,
+      "step": "search",
+      "detail": {
+        "attempt": 0,
+        "query": "black patent dress shoes",
+        "candidates": 3,
+        "ms": 4916
+      }
+    },
+    {
+      "t_ms": 11674,
+      "piece": 1,
+      "step": "search",
+      "detail": {
+        "attempt": 0,
+        "query": "black velvet trousers",
+        "candidates": 3,
+        "ms": 5308
+      }
+    },
+    {
+      "t_ms": 11879,
+      "piece": 0,
+      "step": "search",
+      "detail": {
+        "attempt": 0,
+        "query": "plain black velvet cape",
+        "candidates": 3,
+        "ms": 5514
+      }
+    },
+    {
+      "t_ms": 12124,
+      "piece": 2,
+      "step": "search",
+      "detail": {
+        "attempt": 0,
+        "query": "burgundy long velvet cape",
+        "candidates": 3,
+        "ms": 5758
+      }
+    },
+    {
+      "t_ms": 24326,
+      "piece": 0,
+      "step": "score",
+      "detail": {
+        "attempt": 0,
+        "results": [
+          {
+            "title": "Black Velour Cape",
+            "merchant": "fraylichschooluniforms.com",
+            "score": 0.668,
+            "verdict": "match",
+            "reasons": [],
+            "embedding": 0.8049,
+            "delta_e": 4.34,
+            "color": {
+              "name": "black",
+              "hex": "#16191c"
+            },
+            "foreground": "grabcut"
+          }
+        ]
+      }
+    },
+    {
+      "t_ms": 24331,
+      "piece": 0,
+      "step": "decide",
+      "detail": {
+        "attempt": 0,
+        "action": "accept",
+        "because": "match",
+        "best_score": 0.668
+      }
+    }
+  ]
+}

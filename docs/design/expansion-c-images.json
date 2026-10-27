@@ -1,0 +1,102 @@
+{
+  "generatedAt": "2026-10-27T00:35:52.841Z",
+  "tool": "built-in image_gen",
+  "transparentBackground": true,
+  "encoding": "Outfit original PNG; models maximum 960px WebP quality 86 alpha quality 100",
+  "notes": "Generated style references. Roller rainbow orientation and sweatband shade are illustrative variations. Face paint and homemade props require assembly as described in catalog.",
+  "images": [
+    {
+      "slug": "roller-disco",
+      "model": "outfit",
+      "file": "/costumes/roller-disco.png",
+      "prompt": "Premium photorealistic transparent invisible mannequin outfit: horizontal rainbow striped short-sleeve romper, rainbow knee socks, white sneakers, red terrycloth sweatband and wristbands. No skates; front facing full silhouette."
+    },
+    {
+      "slug": "roller-disco",
+      "model": "male",
+      "file": "/costumes/models/roller-disco-male.webp",
+      "prompt": "Use case: identity-preserve. Reference image is the adult male model identity. Preserve exactly this person's face, skin tone, hair and build, replace all cowboy clothing completely. New outfit: Roller Disco: horizontal vivid rainbow-striped short-sleeve romper, rainbow-striped knee socks, white athletic low-top sneakers, a red terrycloth head sweatband and matching wristbands. No roller skates. Premium photorealistic full-length fashion photograph, entire head and shoes visible with generous clear margins, front-facing relaxed standing pose, natural skin texture, soft studio daylight, one centered fully clothed adult on genuinely transparent alpha background. No floor, text, watermark or collage."
+    },
+    {
+      "slug": "roller-disco",
+      "model": "female",
+      "file": "/costumes/models/roller-disco-female.webp",
+      "prompt": "Use case: identity-preserve. Reference image is the adult female model identity. Preserve exactly this person's face, skin tone, hair and build, replace all cowboy clothing completely. New outfit: Roller Disco: horizontal vivid rainbow-striped short-sleeve romper, rainbow-striped knee socks, white athletic low-top sneakers, a red terrycloth head sweatband and matching wristbands. No roller skates. Premium photorealistic full-length fashion photograph, entire head and shoes visible with generous clear margins, front-facing relaxed standing pose, natural skin texture, soft studio daylight, one centered fully clothed adult on genuinely transparent alpha background. No floor, text, watermark or collage."
+    },
+    {
+      "slug": "pop-art-comic",
+      "model": "outfit",
+      "file": "/costumes/pop-art-comic.png",
+      "prompt": "Use case: product-mockup. Premium photorealistic Halloween costume catalog cutout. One cohesive complete adult outfit on an INVISIBLE MANNEQUIN. Pop Art Comic: simple opaque BLACK long-sleeve fitted jumpsuit and black ankle boots, bold primary red yellow blue comic-book halftone dots and thick graphic black outlines as face makeup, a small handmade white speech-bubble chest pin with thick black edge and no lettering. All skin is naturally human with playful paint dots; costume fully clothed. For this invisible mannequin image no human face or skin: place a small display of red, yellow and blue face-paint pots neatly beside the black boot to indicate makeup, no lettering. Entire silhouette headwear through shoes centered with generous clear margins, genuine transparent alpha background, tactile fabrics, soft studio light. No person, visible mannequin, floor, shadow, lettering, watermark or collage.",
+      "correctionPrompt": "Use case: precise-object-edit. This image is the edit target. Correct ONLY the outfit fabric: remove every colored panel, every halftone dot, every starburst and every graphic from all clothing, replacing them with completely SOLID MATTE BLACK FABRIC, plain black long-sleeve jumpsuit from shoulders to ankles. Keep the small white speech bubble pinned to chest as the single visible decoration. Keep small face paint pots beside boot. Keep invisible mannequin with no human. Retain entire silhouette and shoes within frame, same studio lighting, genuinely transparent alpha background. The full jumpsuit must be plain and solid black, zero printed pattern. No floor, text, collage or watermark."
+    },
+    {
+      "slug": "pop-art-comic",
+      "model": "male",
+      "file": "/costumes/models/pop-art-comic-male.webp",
+      "prompt": "Use case: identity-preserve. Reference image is the adult male identity. Preserve exactly this person's face, skin tone, hair, build and calm expression. Replace all cowboy clothing. New costume: Pop Art Comic: simple opaque BLACK long-sleeve fitted jumpsuit and black ankle boots, bold primary red yellow blue comic-book halftone dots and thick graphic black outlines as face makeup, a small handmade white speech-bubble chest pin with thick black edge and no lettering. All skin is naturally human with playful paint dots; costume fully clothed. Premium photorealistic full-length studio fashion photograph, entire head and shoes visible with generous clear margins, front-facing relaxed standing pose, natural skin, soft even light, one fully clothed adult centered on genuinely transparent alpha background. No floor, text, collage or watermark.",
+      "correctionPrompt": "Use case: precise-object-edit. This image is the edit target. Correct ONLY the outfit fabric: remove every colored panel, every halftone dot, every starburst and every graphic from all clothing, replacing them with completely SOLID MATTE BLACK FABRIC, plain black long-sleeve jumpsuit from shoulders to ankles. Keep the small white speech bubble pinned to chest as the single visible decoration. Preserve exact adult face, identity, pose and boots. Put a few bold red, yellow and blue dots on FACE ONLY as makeup. Retain entire silhouette and shoes within frame, same studio lighting, genuinely transparent alpha background. The full jumpsuit must be plain and solid black, zero printed pattern. No floor, text, collage or watermark."
+    },
+    {
+      "slug": "pop-art-comic",
+      "model": "female",
+      "file": "/costumes/models/pop-art-comic-female.webp",
+      "prompt": "Use case: identity-preserve. Reference image is the adult female identity. Preserve exactly this person's face, skin tone, hair, build and calm expression. Replace all cowboy clothing. New costume: Pop Art Comic: simple opaque BLACK long-sleeve fitted jumpsuit and black ankle boots, bold primary red yellow blue comic-book halftone dots and thick graphic black outlines as face makeup, a small handmade white speech-bubble chest pin with thick black edge and no lettering. All skin is naturally human with playful paint dots; costume fully clothed. Premium photorealistic full-length studio fashion photograph, entire head and shoes visible with generous clear margins, front-facing relaxed standing pose, natural skin, soft even light, one fully clothed adult centered on genuinely transparent alpha background. No floor, text, collage or watermark.",
+      "correctionPrompt": "Use case: precise-object-edit. This image is the edit target. Correct ONLY the outfit fabric: remove every colored panel, every halftone dot, every starburst and every graphic from all clothing, replacing them with completely SOLID MATTE BLACK FABRIC, plain black long-sleeve jumpsuit from shoulders to ankles. Keep the small white speech bubble pinned to chest as the single visible decoration. Preserve exact adult face, identity, pose and boots. Put a few bold red, yellow and blue dots on FACE ONLY as makeup. Retain entire silhouette and shoes within frame, same studio lighting, genuinely transparent alpha background. The full jumpsuit must be plain and solid black, zero printed pattern. No floor, text, collage or watermark."
+    },
+    {
+      "slug": "mad-tea-hatter",
+      "model": "outfit",
+      "file": "/costumes/mad-tea-hatter.png",
+      "prompt": "Use case: product-mockup. Premium photorealistic Halloween costume catalog cutout. One cohesive complete adult outfit on an INVISIBLE MANNEQUIN: Mad Tea Hatter: BLACK tall top hat with a small tucked cream card, midnight BLUE brocade long coat, ivory ruffled high-collar shirt, fitted PLUM trousers, black ankle boots. Eccentric tailored tea-party silhouette, richly tactile fabric, no cup, no weapons. Entire silhouette headwear through shoes centered with generous clear margins, genuine transparent alpha background, tactile fabrics, soft studio light. No person, face, skin, visible mannequin, floor, shadow, lettering, watermark or collage."
+    },
+    {
+      "slug": "mad-tea-hatter",
+      "model": "male",
+      "file": "/costumes/models/mad-tea-hatter-male.webp",
+      "prompt": "Use case: identity-preserve. Reference image is the adult male identity. Preserve exactly this person's face, skin tone, hair, build and calm expression. Replace all cowboy clothing. New costume: Mad Tea Hatter: BLACK tall top hat with a small tucked cream card, midnight BLUE brocade long coat, ivory ruffled high-collar shirt, fitted PLUM trousers, black ankle boots. Eccentric tailored tea-party silhouette, richly tactile fabric, no cup, no weapons. Premium photorealistic full-length studio fashion photograph, entire hat and shoes visible with generous clear margins, front-facing relaxed standing pose, natural skin, soft even light, one fully clothed adult centered on genuinely transparent alpha background. No floor, text, collage or watermark."
+    },
+    {
+      "slug": "mad-tea-hatter",
+      "model": "female",
+      "file": "/costumes/models/mad-tea-hatter-female.webp",
+      "prompt": "Use case: identity-preserve. Reference image is the adult female identity. Preserve exactly this person's face, skin tone, hair, build and calm expression. Replace all cowboy clothing. New costume: Mad Tea Hatter: BLACK tall top hat with a small tucked cream card, midnight BLUE brocade long coat, ivory ruffled high-collar shirt, fitted PLUM trousers, black ankle boots. Eccentric tailored tea-party silhouette, richly tactile fabric, no cup, no weapons. Premium photorealistic full-length studio fashion photograph, entire hat and shoes visible with generous clear margins, front-facing relaxed standing pose, natural skin, soft even light, one fully clothed adult centered on genuinely transparent alpha background. No floor, text, collage or watermark."
+    },
+    {
+      "slug": "queen-of-hearts",
+      "model": "outfit",
+      "file": "/costumes/queen-of-hearts.png",
+      "prompt": "Use case: product-mockup. Premium photorealistic Halloween costume catalog cutout. One cohesive complete adult outfit on an INVISIBLE MANNEQUIN: Queen of Hearts: theatrical red and black heart-patterned full-length gown with red satin heart appliques, a LARGE RED HEART-SHAPED WIG, black ankle boots visible beneath hem. Ornate but wearable queen silhouette. No playing cards in hands, no scepter, no crown. Wig floats naturally over empty neckline without a face or skull. Entire silhouette headwear through shoes centered with generous clear margins, genuine transparent alpha background, tactile fabrics, soft studio light. No person, face, skin, visible mannequin, floor, shadow, lettering, watermark or collage."
+    },
+    {
+      "slug": "queen-of-hearts",
+      "model": "male",
+      "file": "/costumes/models/queen-of-hearts-male.webp",
+      "prompt": "Use case: identity-preserve. Reference image is the adult male identity. Preserve exactly this person's face, skin tone, build and calm expression, replace hair with specified wig. Replace all cowboy clothing. New costume: Queen of Hearts: theatrical red and black heart-patterned full-length gown with red satin heart appliques, a LARGE RED HEART-SHAPED WIG, black ankle boots visible beneath hem. Ornate but wearable queen silhouette. No playing cards in hands, no scepter, no crown. Premium photorealistic full-length studio fashion photograph, entire head and shoes visible with generous clear margins, front-facing relaxed standing pose, natural skin, soft even light, one fully clothed adult centered on genuinely transparent alpha background. No floor, text, collage or watermark."
+    },
+    {
+      "slug": "queen-of-hearts",
+      "model": "female",
+      "file": "/costumes/models/queen-of-hearts-female.webp",
+      "prompt": "Use case: identity-preserve. Reference image is the adult female identity. Preserve exactly this person's face, skin tone, build and calm expression, replace hair with specified wig. Replace all cowboy clothing. New costume: Queen of Hearts: theatrical red and black heart-patterned full-length gown with red satin heart appliques, a LARGE RED HEART-SHAPED WIG, black ankle boots visible beneath hem. Ornate but wearable queen silhouette. No playing cards in hands, no scepter, no crown. Premium photorealistic full-length studio fashion photograph, entire head and shoes visible with generous clear margins, front-facing relaxed standing pose, natural skin, soft even light, one fully clothed adult centered on genuinely transparent alpha background. No floor, text, collage or watermark."
+    },
+    {
+      "slug": "candy-automaton",
+      "model": "outfit",
+      "file": "/costumes/candy-automaton.png",
+      "prompt": "Use case: product-mockup. Premium photorealistic Halloween costume catalog cutout. One cohesive complete adult outfit on an INVISIBLE MANNEQUIN: Candy Automaton: a short theatrical romper with RED velvet bodice and flared flip sleeves, BLACK AND WHITE VERTICAL STRIPES on the hips and shorts, opaque black tights, SILVER elbow gloves, BLACK ankle boots, a small homemade SILVER CARDBOARD WIND-UP KEY attached to the back, key ends visible at sides of waist. Wearable toy clockwork doll look, no elaborate mechanical metal armor. Entire silhouette headwear through shoes centered with generous clear margins, genuine transparent alpha background, tactile fabrics, soft studio light. No person, face, skin, visible mannequin, floor, shadow, lettering, watermark or collage."
+    },
+    {
+      "slug": "candy-automaton",
+      "model": "female",
+      "file": "/costumes/models/candy-automaton-female.webp",
+      "prompt": "Use case: identity-preserve. Reference image is the adult female identity. Preserve exactly this person's face, skin tone, hair, build and calm expression. Replace all cowboy clothing. New costume: Candy Automaton: a short theatrical romper with RED velvet bodice and flared flip sleeves, BLACK AND WHITE VERTICAL STRIPES on the hips and shorts, opaque black tights, SILVER elbow gloves, BLACK ankle boots, a small homemade SILVER CARDBOARD WIND-UP KEY attached to the back, key ends visible at sides of waist. Wearable toy clockwork doll look, no elaborate mechanical metal armor. Premium photorealistic full-length studio fashion photograph, entire head and shoes visible with generous clear margins, front-facing relaxed standing pose, natural skin, soft even light, one fully clothed adult centered on genuinely transparent alpha background. No floor, text, collage or watermark."
+    },
+    {
+      "slug": "candy-automaton",
+      "model": "male",
+      "file": "/costumes/models/candy-automaton-male.webp",
+      "prompt": "Use case: identity-preserve. Reference image is the adult male identity. Preserve exactly this person's face, skin tone, hair, build and calm expression. Replace all cowboy clothing. New costume: Candy Automaton: a short theatrical romper with RED velvet bodice and flared flip sleeves, BLACK AND WHITE VERTICAL STRIPES on the hips and shorts, opaque black tights, SILVER elbow gloves, BLACK ankle boots, a small homemade SILVER CARDBOARD WIND-UP KEY attached to the back, key ends visible at sides of waist. Wearable toy clockwork doll look, no elaborate mechanical metal armor. Premium photorealistic full-length studio fashion photograph, entire head and shoes visible with generous clear margins, front-facing relaxed standing pose, natural skin, soft even light, one fully clothed adult centered on genuinely transparent alpha background. No floor, text, collage or watermark."
+    }
+  ]
+}

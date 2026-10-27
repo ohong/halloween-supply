@@ -1,11 +1,12 @@
 # Catalog sourcing and publication
 
-All 25 costumes have complete catalogs. Every purchasable component has three
+All 50 costumes have complete catalogs. Every purchasable component has three
 relative price options. Components include garments, confirmed bundles, and
 explicit DIY supplies. The full catalog research uses built-in web search and
 primary merchant pages or public variant feeds. No Firecrawl was used for that
 research. Evidence, selected sizes, lead times, and style compromises are under
-`docs/sourcing/price-tiers/`.
+`docs/sourcing/price-tiers/` for the original 25 looks and
+`docs/sourcing/expansion-{a,b,c,d,e}.{json,md}` for the 25 additions.
 
 ```sh
 bun scripts/source/import-price-tier-research.ts /path/to/reviewed-research

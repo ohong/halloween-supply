@@ -1,0 +1,895 @@
+{
+  "costume": {
+    "slug": "phoenix-rising",
+    "name": "Phoenix Rising",
+    "description": "Fiery red-and-gold wings spread from a charcoal base, with handmade flame cuffs that move as you dance.",
+    "image": "/costumes/phoenix-rising.png",
+    "alt": "Red, orange and yellow phoenix wings over a black fitted unitard, burnt-orange fabric wrist flames and black ankle boots",
+    "status": "live"
+  },
+  "pieces": [
+    {
+      "id": "phoenix-rising-firebird-wings",
+      "name": "Firebird wings",
+      "category": "accessories",
+      "required": true,
+      "order": 0,
+      "styleNotes": "The default is a red-and-yellow feather wing. Multicolor phoenix feathers and metallic gold angel wings are different firebird interpretations, not exact matches.",
+      "queries": [
+        "Firebird wings"
+      ],
+      "sizeKind": "one_size",
+      "matches": [
+        {
+          "productId": "p-d-9285048708",
+          "rank": 0,
+          "reason": "Red and yellow wings, approximately 24 by 50 inches; wings only."
+        },
+        {
+          "productId": "p-d-2e0e5d1f2e",
+          "rank": 1,
+          "reason": "58 by 22 inch phoenix wings in pink, orange, yellow, red and black with elastic shoulder straps. Merchant variant label says Purple; photograph and description show the multicolor firebird wings."
+        },
+        {
+          "productId": "p-d-ae987bbc8c",
+          "rank": 2,
+          "reason": "Gold angel cosplay wings provide a metallic phoenix alternative; different shape and solid gold instead of red-orange feathers."
+        }
+      ]
+    },
+    {
+      "id": "phoenix-rising-black-fitted-unitard",
+      "name": "Black fitted unitard",
+      "category": "Clothing",
+      "required": true,
+      "order": 1,
+      "styleNotes": "A close-fitting black or charcoal unitard forms a quiet base beneath the bright firebird wings. Fabric and coverage differ between options.",
+      "queries": [
+        "black long sleeve unitard cotton spandex dancewear small brand",
+        "vintage black stretch jumpsuit fitted long sleeve secondhand",
+        "charcoal fitted bodysuit jumpsuit matte jersey handmade"
+      ],
+      "sizeKind": "apparel",
+      "matches": [
+        {
+          "productId": "p-33ba42bb05",
+          "rank": 0,
+          "reason": "Matte cotton base match; heavyweight garment-dyed cotton spandex, long sleeves/full length legs, black XS-XL all available."
+        },
+        {
+          "productId": "p-b2b40f4575",
+          "rank": 1,
+          "reason": "Long sleeve full-length fitted black unitard. 85% nylon/15% spandex rather than cotton; front zipper and mock neck. All ten black XS–6XL variants available at USD42.99. Merchant does not explicitly call finish matte; avoid claiming finish beyond plain nonmetallic black."
+        },
+        {
+          "productId": "p-efd5b81469",
+          "rank": 2,
+          "reason": "Explicit matte, opaque 93% nylon/7% spandex full-body long-sleeve catsuit. Includes fingers and toes; garment can be cut at wrists/ankles without running per merchant. One Size fits XS–XL; Plus Size fits up to4X but black Plus has ColorQty0, so excluded as in-stock. One Size black stock verified, rather than inferring stock from selector."
+        }
+      ]
+    },
+    {
+      "id": "phoenix-rising-orange-fabric-for-diy-flame-cuffs",
+      "name": "Orange fabric for DIY flame cuffs",
+      "category": "accessories",
+      "required": true,
+      "order": 2,
+      "styleNotes": "These are burnt-orange fabric supplies, not finished cuffs. Cut flame shapes and stitch to your own wrist bands. Scissors, thread and bands are not included.",
+      "queries": [
+        "burnt orange cotton fabric by the yard"
+      ],
+      "sizeKind": "one_size",
+      "matches": [
+        {
+          "productId": "p-337bac49dd",
+          "rank": 0,
+          "reason": "Price is for one yard of 44-inch-wide 100% cotton fabric, not a finished costume panel. Reviewed primary page lists 7.5 yards in stock. Cut and sew wrist-flame shapes; measure the amount needed first. Merchant states dispatch in 1–2 business days."
+        },
+        {
+          "productId": "p-cd964a6995",
+          "rank": 1,
+          "reason": "Price covers one yard of vintage burnt-orange cotton fabric, 45 inches wide, sold in whole-yard increments. Cut and stitch your own flame cuffs; no finished cuffs or sewing tools are included. Measure required yardage first."
+        },
+        {
+          "productId": "p-527214ceca",
+          "rank": 2,
+          "reason": "One yard of 72-inch-wide solid orange acrylic felt. Cut soft flame shapes and stitch them to your own wrist bands. Fabric only; scissors, thread and bands are not included. This replaces sold-out crumple cotton."
+        }
+      ]
+    },
+    {
+      "id": "phoenix-rising-black-ankle-boots",
+      "name": "Black ankle boots",
+      "category": "Footwear",
+      "required": true,
+      "order": 3,
+      "styleNotes": "Black or dark brown leather ankle boots with a low block heel or flat sole, slightly worn in. Vintage or witchy styling like lace-up or Chelsea boots keeps the base look grounded.",
+      "queries": [
+        "vintage black leather ankle boots lace up women's",
+        "secondhand black Chelsea ankle boots leather vintage",
+        "handmade black leather lace-up ankle boots small brand"
+      ],
+      "sizeKind": "shoe",
+      "matches": [
+        {
+          "productId": "p-fa88c71724",
+          "rank": 0,
+          "reason": "Genuine black leather upper, glove leather lining, 1.25 inch stacked leather heel, elastic gores. All Standard US4-13 in half sizes available. Broad sizes; exact variant default is US4, shopper must choose correct size."
+        },
+        {
+          "productId": "p-da7d00ef0d",
+          "rank": 1,
+          "reason": "Budget material compromise: imitation synthetic leather rather than genuine leather. Ankle-high Chelsea, 1.25 inch heel, 0.75 inch platform. Merchant JSON-LD lists black USD49.99 InStock; live HTML exact-size inventory counts positive for all 12 listed US sizes. Size8 kid23928 count1806."
+        },
+        {
+          "productId": "p-862b138943",
+          "rank": 2,
+          "reason": "Black premium water-resistant leather classic flat Chelsea boot. Reviewed public feed USD209.95, not stale search result199.95. Available USwomen5-16; two equivalent AU/UK label sets in merchant variants, deduplicate before display. Exact first available variant is USwomen6."
+        }
+      ]
+    }
+  ],
+  "products": [
+    {
+      "id": "p-d-9285048708",
+      "title": "Adult Red & Yellow Costume Wings — Red / Standard Size",
+      "url": "https://masquerade.com/products/adult-red-yellow-costume-wings-ca-008050?variant=6317096515",
+      "priceCents": 1999,
+      "currency": "USD",
+      "image": "/products/price-tiers/p-d-9285048708.webp",
+      "merchantImage": "/products/price-tiers/p-d-9285048708.webp",
+      "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/0885/2670/products/CA-008050.jpeg?v=1525284140"
+      ],
+      "availability": "in_stock",
+      "sizes": [],
+      "merchantId": "masquerade-com",
+      "tagSlugs": [],
+      "description": "Adult red and yellow wings. Measures roughly 24\" x 50\" SKU: CA-008050",
+      "checkedAt": "2026-10-27T00:28:51.012585+00:00",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-27T00:28:51.012585+00:00",
+        "url": "https://masquerade.com/products/adult-red-yellow-costume-wings-ca-008050.js",
+        "notes": "Built-in web discovery; primary merchant Shopify feed confirms selected variant available and its USD price. Red and yellow wings, approximately 24 by 50 inches; wings only."
+      }
+    },
+    {
+      "id": "p-d-2e0e5d1f2e",
+      "title": "Phoenix Costume Wings — Standard Size / Purple",
+      "url": "https://masquerade.com/products/phoenix-costume-wings-ca-010193?variant=29552990732",
+      "priceCents": 2999,
+      "currency": "USD",
+      "image": "/products/price-tiers/p-d-2e0e5d1f2e.webp",
+      "merchantImage": "/products/price-tiers/p-d-2e0e5d1f2e.webp",
+      "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/0885/2670/products/CA-010193.jpeg?v=1525282875"
+      ],
+      "availability": "in_stock",
+      "sizes": [],
+      "merchantId": "masquerade-com",
+      "tagSlugs": [],
+      "description": "Phoenix costume wings. Measures roughly: 22\" high x 58\" wide Shades of pink, orange, yellow, red and black Hand-made no two are exactly alike Costume not included. This is just for the wings only Built-in elastic shoulder straps SKU: CA-010193",
+      "checkedAt": "2026-10-27T00:28:51.012585+00:00",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-27T00:28:51.012585+00:00",
+        "url": "https://masquerade.com/products/phoenix-costume-wings-ca-010193.js",
+        "notes": "Built-in web discovery; primary merchant Shopify feed confirms selected variant available and its USD price. 58 by 22 inch phoenix wings in pink, orange, yellow, red and black with elastic shoulder straps. Merchant variant label says Purple; photograph and description show the multicolor firebird wings."
+      }
+    },
+    {
+      "id": "p-d-ae987bbc8c",
+      "title": "Angel Cosplay Wings — Gold",
+      "url": "https://chicagocostume.com/products/angel-cosplay-wings-gold?variant=48931102327026",
+      "priceCents": 3999,
+      "currency": "USD",
+      "image": "/products/price-tiers/p-d-ae987bbc8c.webp",
+      "merchantImage": "/products/price-tiers/p-d-ae987bbc8c.webp",
+      "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/0610/0208/8690/files/GoldWings1.jpg?v=1774810810"
+      ],
+      "availability": "in_stock",
+      "sizes": [],
+      "merchantId": "chicagocostume-com",
+      "tagSlugs": [],
+      "description": "Stunning gold angel wings perfect for cosplay, conventions, and costume events. Lightweight design with adjustable straps for comfortable wear. Detailed feather construction creates an authentic heavenly look. Ideal for angels, celestial characters, and fantasy costumes.",
+      "checkedAt": "2026-10-27T00:28:51.012585+00:00",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-27T00:28:51.012585+00:00",
+        "url": "https://chicagocostume.com/products/angel-cosplay-wings-gold.js",
+        "notes": "Built-in web discovery; primary merchant Shopify feed confirms selected variant available and its USD price. Gold angel cosplay wings provide a metallic phoenix alternative; different shape and solid gold instead of red-orange feathers."
+      }
+    },
+    {
+      "id": "p-33ba42bb05",
+      "title": "83028GD - Garment Dye Long Sleeve Unitard",
+      "url": "https://losangelesapparel.net/products/83028gd-garment-dye-long-sleeve-unitard?variant=37888203161779",
+      "priceCents": 7000,
+      "currency": "USD",
+      "image": "/products/price-tiers/p-33ba42bb05.webp",
+      "cutout": "/products/p-33ba42bb05-cutout.png",
+      "merchantImage": "/products/price-tiers/p-33ba42bb05.webp",
+      "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/2152/0639/products/black1_1_4984a0ae-5411-4aea-a78b-eb4b02ab8afa.jpg?v=1721953708"
+      ],
+      "availability": "in_stock",
+      "sizes": [
+        "XS",
+        "S",
+        "M",
+        "L",
+        "XL"
+      ],
+      "merchantId": "losangelesapparel-net",
+      "tagSlugs": [
+        "cotton",
+        "unitard",
+        "black",
+        "long-sleeve",
+        "garment-dyed"
+      ],
+      "description": "Matte cotton base match; heavyweight garment-dyed cotton spandex, long sleeves/full length legs, black XS-XL all available. Retain existing reviewed photo/cutout if preserving product.",
+      "checkedAt": "2026-10-26T10:01:10.051Z",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-25T07:07:04.071733+00:00",
+        "url": "https://losangelesapparel.net/products/83028gd-garment-dye-long-sleeve-unitard.js",
+        "notes": "Matte cotton base match; heavyweight garment-dyed cotton spandex, long sleeves/full length legs, black XS-XL all available. Retain existing reviewed photo/cutout if preserving product."
+      }
+    },
+    {
+      "id": "p-b2b40f4575",
+      "title": "Zip Front Spandex Long Sleeve Turtleneck Unitard — Black",
+      "url": "https://www.speerise.com/products/speerise-ladies-spandex-long-sleeve-turtleneck-unitard?variant=39728194715781",
+      "priceCents": 4299,
+      "currency": "USD",
+      "image": "/products/price-tiers/p-b2b40f4575.webp",
+      "merchantImage": "/products/price-tiers/p-b2b40f4575.webp",
+      "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/0365/8003/2645/products/speerise-zip-front-spandex-long-sleeve-turtleneck-unitard-black.jpg?v=1760671730"
+      ],
+      "availability": "in_stock",
+      "sizes": [
+        "XS",
+        "S",
+        "M",
+        "L",
+        "XL",
+        "2XL",
+        "3XL",
+        "4XL",
+        "5XL",
+        "6XL"
+      ],
+      "merchantId": "speerise-com",
+      "tagSlugs": [],
+      "description": "Long sleeve full-length fitted black unitard. 85% nylon/15% spandex rather than cotton; front zipper and mock neck. All ten black XS–6XL variants available at USD42.99. Broad low-tier coverage. Merchant does not explicitly call finish matte; avoid claiming finish beyond plain nonmetallic black.",
+      "checkedAt": "2026-10-26T10:01:10.690Z",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-25T07:07:04.071733+00:00",
+        "url": "https://www.speerise.com/products/speerise-ladies-spandex-long-sleeve-turtleneck-unitard.js",
+        "notes": "Long sleeve full-length fitted black unitard. 85% nylon/15% spandex rather than cotton; front zipper and mock neck. All ten black XS–6XL variants available at USD42.99. Broad low-tier coverage. Merchant does not explicitly call finish matte; avoid claiming finish beyond plain nonmetallic black."
+      }
+    },
+    {
+      "id": "p-efd5b81469",
+      "title": "Second Skin Catsuit Style5010 — Black",
+      "url": "https://www.welovecolors.com/shop/womens/sale/second-skin-catsuit/black",
+      "priceCents": 9500,
+      "currency": "USD",
+      "image": "/products/price-tiers/p-efd5b81469.webp",
+      "merchantImage": "/products/price-tiers/p-efd5b81469.webp",
+      "sourceImages": [
+        "https://www.welovecolors.com/images/product/full/5010-w-black-second-skin-catsuit.jpg"
+      ],
+      "availability": "in_stock",
+      "sizes": [
+        "One Size"
+      ],
+      "merchantId": "welovecolors-com",
+      "tagSlugs": [],
+      "description": "Explicit matte, opaque 93% nylon/7% spandex full-body long-sleeve catsuit. Includes fingers and toes; garment can be cut at wrists/ankles without running per merchant. One Size fits XS–XL; Plus Size fits up to4X but black Plus has ColorQty0, so excluded as in-stock. Live merchant embedded variant inventory object: Black, Size One Size, ColorQty3, QtyCompleted5, WebPrice95, Discontinuedfalse, production ship dateMonday10/26. One Size black stock verified, rather than inferring stock from selector. No size-specific permalink provided by merchant; URL fixes black color.",
+      "checkedAt": "2026-10-25T08:50:58.976351Z",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-25T07:07:04.071733+00:00",
+        "url": "https://www.welovecolors.com/shop/womens/sale/second-skin-catsuit/black",
+        "notes": "Explicit matte, opaque 93% nylon/7% spandex full-body long-sleeve catsuit. Includes fingers and toes; garment can be cut at wrists/ankles without running per merchant. One Size fits XS–XL; Plus Size fits up to4X but black Plus has ColorQty0, so excluded as in-stock. Live merchant embedded variant inventory object: Black, Size One Size, ColorQty3, QtyCompleted5, WebPrice95, Discontinuedfalse, production ship dateMonday10/26. One Size black stock verified, rather than inferring stock from selector. No size-specific permalink provided by merchant; URL fixes black color."
+      }
+    },
+    {
+      "id": "p-337bac49dd",
+      "title": "Painter's Palette Burnt Orange",
+      "url": "https://hartsfabric.com/painter-s-palette-burnt-orange-109555",
+      "priceCents": 899,
+      "currency": "USD",
+      "image": "/products/price-tiers/p-337bac49dd.webp",
+      "merchantImage": "/products/price-tiers/p-337bac49dd.webp",
+      "sourceImages": [
+        "https://hartsfabric.com/pub/media/catalog/product/cache/b33543002cb9de920cfb940334232543/p/p/pp_burnt_orange.jpg"
+      ],
+      "availability": "in_stock",
+      "sizes": [],
+      "merchantId": "hartsfabric-com",
+      "tagSlugs": [],
+      "description": "Price is for one yard of 44-inch-wide 100% cotton fabric, not a finished costume panel. Current primary page lists 7.5 yards in stock. This burnt-orange shade is brighter than the reference. Cut and stitch shoulder, arm, side and knee panels; measure required coverage first. Merchant states dispatch in 1–2 business days.",
+      "checkedAt": "2026-10-26T10:01:17.924Z",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-25T08:53:19.398203Z",
+        "url": "https://hartsfabric.com/painter-s-palette-burnt-orange-109555",
+        "notes": "Price is for one yard of 44-inch-wide 100% cotton fabric, not a finished costume panel. Current primary page lists 7.5 yards in stock. This burnt-orange shade is brighter than the reference. Cut and stitch shoulder, arm, side and knee panels; measure required coverage first. Merchant states dispatch in 1–2 business days."
+      }
+    },
+    {
+      "id": "p-cd964a6995",
+      "title": "Cotton Vintage - Burnt Orange",
+      "url": "https://www.luckydeluxefabrics.com/products/cotton-vintage-burnt-orange?variant=48952841240746",
+      "priceCents": 500,
+      "currency": "USD",
+      "image": "/products/price-tiers/p-cd964a6995.webp",
+      "merchantImage": "/products/price-tiers/p-cd964a6995.webp",
+      "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/0590/3636/9066/files/IMG_5982_a5356ebe-c36a-47a8-8587-7fab21231e72.jpg?v=1785285490"
+      ],
+      "availability": "in_stock",
+      "sizes": [
+        "one size"
+      ],
+      "merchantId": "luckydeluxefabrics-com",
+      "tagSlugs": [],
+      "description": "Price covers one yard of vintage burnt-orange cotton fabric, 45 inches wide, sold in whole-yard increments. The photo appears more brick-red than the reference. Cut and stitch panels onto the separate jumpsuit; no pre-cut pieces or padding included. Measure required yardage first.",
+      "checkedAt": "2026-10-26T10:01:16.799Z",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-25T08:53:19.398203Z",
+        "url": "https://www.luckydeluxefabrics.com/products/cotton-vintage-burnt-orange.js",
+        "notes": "Price covers one yard of vintage burnt-orange cotton fabric, 45 inches wide, sold in whole-yard increments. The photo appears more brick-red than the reference. Cut and stitch panels onto the separate jumpsuit; no pre-cut pieces or padding included. Measure required yardage first."
+      }
+    },
+    {
+      "id": "p-fa88c71724",
+      "title": "Duchess | Black",
+      "url": "https://thursdayboots.com/products/womens-duchess-black-chelsea-boot?variant=41611980701786",
+      "priceCents": 16000,
+      "currency": "USD",
+      "image": "/products/price-tiers/p-fa88c71724.webp",
+      "merchantImage": "/products/price-tiers/p-fa88c71724.webp",
+      "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/0419/1525/products/1024x1024-Women-Duchess-Black-Side.jpg?v=1591637693"
+      ],
+      "availability": "in_stock",
+      "sizes": [
+        "4",
+        "4.5",
+        "5",
+        "5.5",
+        "6",
+        "6.5",
+        "7",
+        "7.5",
+        "8",
+        "8.5",
+        "9",
+        "9.5",
+        "10",
+        "10.5",
+        "11",
+        "11.5",
+        "12",
+        "12.5",
+        "13"
+      ],
+      "merchantId": "thursdayboots-com",
+      "tagSlugs": [],
+      "description": "Genuine black leather upper, glove leather lining, 1.25 inch stacked leather heel, elastic gores. All Standard US4-13 in half sizes available. Broad sizes; exact variant default is US4, shopper must choose correct size.",
+      "checkedAt": "2026-10-26T10:01:10.951Z",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-25T07:07:04.071733+00:00",
+        "url": "https://thursdayboots.com/products/womens-duchess-black-chelsea-boot.js",
+        "notes": "Genuine black leather upper, glove leather lining, 1.25 inch stacked leather heel, elastic gores. All Standard US4-13 in half sizes available. Broad sizes; exact variant default is US4, shopper must choose correct size."
+      }
+    },
+    {
+      "id": "p-da7d00ef0d",
+      "title": "Classic Chelsea Ankle Booties — Black PU",
+      "url": "https://www.dreampairs.com/products/dab213?kid=23928",
+      "priceCents": 4999,
+      "currency": "USD",
+      "image": "/products/price-tiers/p-da7d00ef0d.webp",
+      "merchantImage": "/products/price-tiers/p-da7d00ef0d.webp",
+      "sourceImages": [
+        "https://cdnimg.dreampairs.com/dreampairshoes/product/product/DAB213/BLACK%20PU/1.jpg"
+      ],
+      "availability": "in_stock",
+      "sizes": [],
+      "merchantId": "dreampairs-com",
+      "tagSlugs": [],
+      "description": "Budget material compromise: imitation synthetic leather rather than genuine leather. Ankle-high Chelsea, 1.25 inch heel, 0.75 inch platform. Merchant JSON-LD lists black USD49.99 InStock; live HTML exact-size inventory counts positive for all 12 listed US sizes. Size8 kid23928 count1806. Hidden generic SOLD OUT text is contradicted by variant inventory and InStock offer; verified source HTML retained /tmp/dreampairs-moon-boots.html.",
+      "checkedAt": "2026-10-26T10:01:10.994Z",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-25T07:07:04.071733+00:00",
+        "url": "https://www.dreampairs.com/products/dab213?color=2038",
+        "notes": "Budget material compromise: imitation synthetic leather rather than genuine leather. Ankle-high Chelsea, 1.25 inch heel, 0.75 inch platform. Merchant JSON-LD lists black USD49.99 InStock; live HTML exact-size inventory counts positive for all 12 listed US sizes. Size8 kid23928 count1806. Hidden generic SOLD OUT text is contradicted by variant inventory and InStock offer; verified source HTML retained /tmp/dreampairs-moon-boots.html."
+      }
+    },
+    {
+      "id": "p-862b138943",
+      "title": "Women's Originals #510",
+      "url": "https://www.blundstone.com/products/black-premium-leather-v-cut-boots-womens-style-510?variant=53192323596595",
+      "priceCents": 20995,
+      "currency": "USD",
+      "image": "/products/price-tiers/p-862b138943.webp",
+      "merchantImage": "/products/price-tiers/p-862b138943.webp",
+      "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/0903/6349/4707/files/product-image_2026-10-12_510_p_usa_hero.jpg?v=1791961602"
+      ],
+      "availability": "in_stock",
+      "sizes": [
+        "6 US Women (3 AU/UK)",
+        "6.5 US Women (3.5 AU/UK)",
+        "7 US Women (4 AU/UK)",
+        "7.5 US Women (4.5 AU/UK)",
+        "8 US Women (5 AU/UK)",
+        "8.5 US Women (5.5 AU/UK)",
+        "9 US Women (6 AU/UK)",
+        "9.5 US Women (6.5 AU/UK)",
+        "10 US Women (7 AU/UK)",
+        "10.5 US Women (7.5 AU/UK)",
+        "11 US Women (8 AU/UK)",
+        "11.5 US Women (8.5 AU/UK)",
+        "12 US Women (9 AU/UK)",
+        "12.5 US Women (9.5 AU/UK)",
+        "13 US Women (10 AU/UK)",
+        "14 US Women (11 AU/UK)",
+        "15 US Women (12 AU/UK)",
+        "16 US Women (13 AU/UK)",
+        "5 US Women (2 UK/AU)",
+        "6 US Women (3 UK/AU)",
+        "6.5 US Women (3.5 UK/AU)",
+        "7 US Women (4 UK/AU)",
+        "7.5 US Women (4.5 UK/AU)",
+        "8 US Women (5 UK/AU)",
+        "8.5 US Women (5.5 UK/AU)",
+        "9 US Women (6 UK/AU)",
+        "9.5 US Women (6.5 UK/AU)",
+        "10 US Women (7 UK/AU)",
+        "10.5 US Women (7.5 UK/AU)",
+        "11 US Women (8 UK/AU)",
+        "11.5 US Women (8.5 UK/AU)",
+        "12 US Women (9 UK/AU)",
+        "12.5 US Women (9.5 UK/AU)",
+        "13 US Women (10 UK/AU)",
+        "13.5 US Women (10.5 UK/AU)",
+        "14 US Women (11 UK/AU)",
+        "15 US Women (12 UK/AU)",
+        "16 US Women (13 UK/AU)"
+      ],
+      "merchantId": "blundstone-com",
+      "tagSlugs": [],
+      "description": "Black premium water-resistant leather classic flat Chelsea boot. Live public feed USD209.95, not stale search result199.95. Available USwomen5-16; two equivalent AU/UK label sets in merchant variants, deduplicate before display. Exact first available variant is USwomen6.",
+      "checkedAt": "2026-10-26T10:01:11.130Z",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-25T07:07:04.071733+00:00",
+        "url": "https://www.blundstone.com/products/black-premium-leather-v-cut-boots-womens-style-510.js",
+        "notes": "Black premium water-resistant leather classic flat Chelsea boot. Live public feed USD209.95, not stale search result199.95. Available USwomen5-16; two equivalent AU/UK label sets in merchant variants, deduplicate before display. Exact first available variant is USwomen6."
+      }
+    },
+    {
+      "id": "p-527214ceca",
+      "title": "Orange Acrylic Felt",
+      "url": "https://britexfabrics.com/products/orange-acrylic-felt?variant=47850957275456",
+      "priceCents": 1299,
+      "currency": "USD",
+      "image": "/products/price-tiers/p-527214ceca.webp",
+      "merchantImage": "/products/price-tiers/p-527214ceca.webp",
+      "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/0754/1260/3200/files/IMG_1318_9811e346-0b93-4b9e-9f5f-a39c121fd999.jpg?v=1707514282"
+      ],
+      "availability": "in_stock",
+      "sizes": [
+        "one size"
+      ],
+      "merchantId": "britexfabrics-com",
+      "tagSlugs": [],
+      "description": "Price buys one yard of 72-inch-wide orange 100% acrylic felt, 5-ounce weight. Choose fabric rather than the $3 swatch. Raw fabric only; cut and sew diamonds yourself. Solid orange craft felt differs from velvet. Quantity depends on garment size and pattern coverage.",
+      "checkedAt": "2026-10-26T10:01:11.449Z",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-25T08:50:58.976351Z",
+        "url": "https://britexfabrics.com/products/orange-acrylic-felt.js",
+        "notes": "Price buys one yard of 72-inch-wide orange 100% acrylic felt, 5-ounce weight. Choose fabric rather than the $3 swatch. Raw fabric only; cut and sew diamonds yourself. Solid orange craft felt differs from velvet. Quantity depends on garment size and pattern coverage."
+      }
+    }
+  ],
+  "merchants": [
+    {
+      "id": "masquerade-com",
+      "name": "Masquerade",
+      "domain": "masquerade.com",
+      "url": "https://masquerade.com",
+      "kind": "boutique",
+      "neighborhoodId": null
+    },
+    {
+      "id": "chicagocostume-com",
+      "name": "Chicago Costume Company",
+      "domain": "chicagocostume.com",
+      "url": "https://chicagocostume.com/",
+      "kind": "boutique",
+      "neighborhoodId": null
+    },
+    {
+      "id": "losangelesapparel-net",
+      "name": "Los Angeles Apparel",
+      "domain": "losangelesapparel.net",
+      "url": "https://losangelesapparel.net",
+      "kind": "dtc",
+      "neighborhoodId": null
+    },
+    {
+      "id": "speerise-com",
+      "name": "Speerise",
+      "domain": "speerise.com",
+      "url": "https://speerise.com/",
+      "kind": "boutique",
+      "neighborhoodId": null
+    },
+    {
+      "id": "welovecolors-com",
+      "name": "We Love Colors",
+      "domain": "welovecolors.com",
+      "url": "https://welovecolors.com/",
+      "kind": "boutique",
+      "neighborhoodId": null
+    },
+    {
+      "id": "dreampairs-com",
+      "name": "DREAM PAIRS",
+      "domain": "dreampairs.com",
+      "url": "https://dreampairs.com/",
+      "kind": "boutique",
+      "neighborhoodId": null
+    },
+    {
+      "id": "thursdayboots-com",
+      "name": "Thursday Boot Company",
+      "domain": "thursdayboots.com",
+      "url": "https://thursdayboots.com/",
+      "kind": "boutique",
+      "neighborhoodId": null
+    },
+    {
+      "id": "blundstone-com",
+      "name": "Blundstone",
+      "domain": "blundstone.com",
+      "url": "https://blundstone.com/",
+      "kind": "boutique",
+      "neighborhoodId": null
+    },
+    {
+      "id": "luckydeluxefabrics-com",
+      "name": "Lucky DeLuxe Fabrics",
+      "domain": "luckydeluxefabrics.com",
+      "url": "https://luckydeluxefabrics.com/",
+      "kind": "boutique",
+      "neighborhoodId": null
+    },
+    {
+      "id": "hartsfabric-com",
+      "name": "Harts Fabric",
+      "domain": "hartsfabric.com",
+      "url": "https://hartsfabric.com/",
+      "kind": "boutique",
+      "neighborhoodId": null
+    },
+    {
+      "id": "stonemountainfabric-com",
+      "name": "Stonemountain & Daughter Fabrics",
+      "domain": "stonemountainfabric.com",
+      "url": "https://stonemountainfabric.com/",
+      "kind": "boutique",
+      "neighborhoodId": null
+    },
+    {
+      "id": "korekawaii-com",
+      "name": "Kore Kawaii",
+      "domain": "korekawaii.com",
+      "url": "https://korekawaii.com/",
+      "kind": "boutique",
+      "neighborhoodId": null
+    },
+    {
+      "id": "abracadabranyc-com",
+      "name": "Abracadabra NYC",
+      "domain": "abracadabranyc.com",
+      "url": "https://abracadabranyc.com/",
+      "kind": "boutique",
+      "neighborhoodId": null
+    },
+    {
+      "id": "natgiso-com",
+      "name": "Natgiso",
+      "domain": "natgiso.com",
+      "url": "https://natgiso.com/",
+      "kind": "boutique",
+      "neighborhoodId": null
+    },
+    {
+      "id": "benziedesign-com",
+      "name": "Benzie Design",
+      "domain": "benziedesign.com",
+      "url": "https://benziedesign.com/",
+      "kind": "boutique",
+      "neighborhoodId": null
+    },
+    {
+      "id": "icefabrics-com",
+      "name": "Ice Fabrics",
+      "domain": "icefabrics.com",
+      "url": "https://icefabrics.com/",
+      "kind": "boutique",
+      "neighborhoodId": null
+    },
+    {
+      "id": "britexfabrics-com",
+      "name": "Britex Fabrics",
+      "domain": "britexfabrics.com",
+      "url": "https://britexfabrics.com/",
+      "kind": "boutique",
+      "neighborhoodId": null
+    },
+    {
+      "id": "fantasycostumes-com",
+      "name": "Fantasy Costumes",
+      "domain": "fantasycostumes.com",
+      "url": "https://fantasycostumes.com/",
+      "kind": "boutique",
+      "neighborhoodId": null
+    },
+    {
+      "id": "etsy-sistersenchanted-on-etsy",
+      "name": "SistersEnchanted on Etsy",
+      "domain": "etsy.com",
+      "url": "https://www.etsy.com/listing/1757466796/custom-colors-clowncore-neck-collar-neck",
+      "kind": "etsy",
+      "neighborhoodId": null
+    },
+    {
+      "id": "etsy-mtcoffinz-on-etsy",
+      "name": "mtcoffinz on Etsy",
+      "domain": "etsy.com",
+      "url": "https://www.etsy.com/listing/1787152269/custom-colors-adult-clown-collar",
+      "kind": "etsy",
+      "neighborhoodId": null
+    },
+    {
+      "id": "pleasershoes-com",
+      "name": "Pleaser Shoes / Funtasma",
+      "domain": "pleasershoes.com",
+      "url": "https://pleasershoes.com/",
+      "kind": "boutique",
+      "neighborhoodId": null
+    },
+    {
+      "id": "strangecvlt-com",
+      "name": "Strange Cvlt",
+      "domain": "strangecvlt.com",
+      "url": "https://strangecvlt.com/",
+      "kind": "boutique",
+      "neighborhoodId": null
+    },
+    {
+      "id": "americanduchess-com",
+      "name": "American Duchess",
+      "domain": "americanduchess.com",
+      "url": "https://americanduchess.com/",
+      "kind": "boutique",
+      "neighborhoodId": null
+    }
+  ],
+  "neighborhoods": [],
+  "tags": [
+    {
+      "slug": "chiffon",
+      "label": "Chiffon"
+    },
+    {
+      "slug": "luna-moth",
+      "label": "Luna Moth"
+    },
+    {
+      "slug": "handmade",
+      "label": "Handmade"
+    },
+    {
+      "slug": "wing-cape",
+      "label": "Wing Cape"
+    },
+    {
+      "slug": "one-size",
+      "label": "One Size"
+    },
+    {
+      "slug": "cecropia-moth",
+      "label": "Cecropia Moth"
+    },
+    {
+      "slug": "synthetic",
+      "label": "Synthetic"
+    },
+    {
+      "slug": "emperor-moth",
+      "label": "Emperor Moth"
+    },
+    {
+      "slug": "cotton",
+      "label": "Cotton"
+    },
+    {
+      "slug": "unitard",
+      "label": "Unitard"
+    },
+    {
+      "slug": "black",
+      "label": "Black"
+    },
+    {
+      "slug": "long-sleeve",
+      "label": "Long Sleeve"
+    },
+    {
+      "slug": "garment-dyed",
+      "label": "Garment Dyed"
+    },
+    {
+      "slug": "velvet",
+      "label": "Velvet"
+    },
+    {
+      "slug": "charcoal",
+      "label": "Charcoal"
+    },
+    {
+      "slug": "catsuit",
+      "label": "Catsuit"
+    },
+    {
+      "slug": "fitted",
+      "label": "Fitted"
+    },
+    {
+      "slug": "recycled",
+      "label": "Recycled"
+    },
+    {
+      "slug": "activewear",
+      "label": "Activewear"
+    },
+    {
+      "slug": "final-sale",
+      "label": "Final Sale"
+    },
+    {
+      "slug": "faux-fur",
+      "label": "Faux Fur"
+    },
+    {
+      "slug": "beige",
+      "label": "Beige"
+    },
+    {
+      "slug": "ivory",
+      "label": "Ivory"
+    },
+    {
+      "slug": "ribbon",
+      "label": "Ribbon"
+    },
+    {
+      "slug": "collar",
+      "label": "Collar"
+    },
+    {
+      "slug": "boho",
+      "label": "Boho"
+    },
+    {
+      "slug": "layering",
+      "label": "Layering"
+    },
+    {
+      "slug": "ribbon-tie",
+      "label": "Ribbon Tie"
+    },
+    {
+      "slug": "neck-wrap",
+      "label": "Neck Wrap"
+    },
+    {
+      "slug": "leather",
+      "label": "Leather"
+    },
+    {
+      "slug": "mass-market",
+      "label": "Mass Market"
+    },
+    {
+      "slug": "antenna",
+      "label": "Antenna"
+    },
+    {
+      "slug": "headband",
+      "label": "Headband"
+    },
+    {
+      "slug": "bopper",
+      "label": "Bopper"
+    },
+    {
+      "slug": "western",
+      "label": "Western"
+    },
+    {
+      "slug": "pull-on",
+      "label": "Pull On"
+    },
+    {
+      "slug": "creeper",
+      "label": "Creeper"
+    },
+    {
+      "slug": "lace-up",
+      "label": "Lace Up"
+    },
+    {
+      "slug": "brogue",
+      "label": "Brogue"
+    },
+    {
+      "slug": "platform",
+      "label": "Platform"
+    },
+    {
+      "slug": "vegan-leather",
+      "label": "Vegan Leather"
+    },
+    {
+      "slug": "lace",
+      "label": "Lace"
+    },
+    {
+      "slug": "corset",
+      "label": "Corset"
+    },
+    {
+      "slug": "knee-high",
+      "label": "Knee High"
+    },
+    {
+      "slug": "feather",
+      "label": "Feather"
+    },
+    {
+      "slug": "insect",
+      "label": "Insect"
+    },
+    {
+      "slug": "silver",
+      "label": "Silver"
+    }
+  ],
+  "provenance": {
+    "method": "manual-research",
+    "generatedAt": "2026-10-27T00:28:51.012585+00:00",
+    "notes": "Expansion D: new defining accessories researched with built-in web search and official merchant Shopify variant feeds. Existing basics reuse reviewed catalog evidence and retain original check dates. Relative price tiers; shipping, taxes and arrival are unconfirmed. Generated image is styling inspiration; option differences and DIY work are explicit. See docs/sourcing/expansion-d.md. Publication carries forward newer shared-product price, stock, size and check timestamps from the live database; original sourcing evidence is retained.",
+    "priceTiers": true,
+    "heroImageKind": "generated-reference"
+  }
+}

@@ -1,0 +1,475 @@
+{
+  "costume": {
+    "slug": "pop-art-comic",
+    "name": "Pop Art Comic",
+    "description": "A black jumpsuit becomes a living comic panel with painted dots, bold outlines, and a homemade speech bubble.",
+    "image": "/costumes/pop-art-comic.png",
+    "alt": "Black jumpsuit and ankle boots with primary-color comic face dots and a handmade speech-bubble badge.",
+    "status": "live"
+  },
+  "pieces": [
+    {
+      "id": "pop-art-comic-black-base",
+      "name": "Black jumpsuit base",
+      "category": "Clothing",
+      "required": true,
+      "order": 0,
+      "styleNotes": "Keep the clothing simple; the comic effect comes from applied face paint and your own speech-bubble badge. A simple, close-fitting long-sleeve unitard or jumpsuit in black or deep charcoal, matte stretch cotton or jersey. It acts as a quiet base so the pale wings stand out.",
+      "queries": [
+        "black long sleeve unitard cotton spandex dancewear small brand",
+        "vintage black stretch jumpsuit fitted long sleeve secondhand",
+        "charcoal fitted bodysuit jumpsuit matte jersey handmade"
+      ],
+      "sizeKind": "apparel",
+      "matches": [
+        {
+          "productId": "p-33ba42bb05",
+          "rank": 0,
+          "reason": "Matte cotton base match; heavyweight garment-dyed cotton spandex, long sleeves/full length legs, black XS-XL all available. Retain existing reviewed photo/cutout if preserving product."
+        },
+        {
+          "productId": "p-b2b40f4575",
+          "rank": 1,
+          "reason": "Long sleeve full-length fitted black unitard. 85% nylon/15% spandex rather than cotton; front zipper and mock neck. All ten black XS–6XL variants available at USD42.99. Broad low-tier coverage. Merchant does not explicitly call finish matte; avoid claiming finish beyond plain nonmetallic black."
+        },
+        {
+          "productId": "p-efd5b81469",
+          "rank": 2,
+          "reason": "Explicit matte, opaque 93% nylon/7% spandex full-body long-sleeve catsuit. Includes fingers and toes; garment can be cut at wrists/ankles without running per merchant. One Size fits XS–XL; Plus Size fits up to4X but black Plus has ColorQty0, so excluded as in-stock. Live merchant embedded variant inventory object: Black, Size One Size, ColorQty3, QtyCompleted5, WebPrice95, Discontinuedfalse, production ship dateMonday10/26. One Size black stock verified, rather than inferring stock from selector. No size-specific permalink provided by merchant; URL fixes black color."
+        }
+      ]
+    },
+    {
+      "id": "pop-art-comic-face-paint",
+      "name": "Face and body paint palette",
+      "category": "makeup",
+      "required": true,
+      "order": 1,
+      "styleNotes": "Use face paint for dotted shading and black comic contours. These are palettes, not finished makeup looks. Follow each product label; application tools and DIY speech-bubble materials are not included.",
+      "queries": [
+        "Face and body paint palette"
+      ],
+      "sizeKind": "one_size",
+      "matches": [
+        {
+          "productId": "p-exp-c-910037cb849f",
+          "rank": 0,
+          "reason": "Aquacolor is a glycerin-based compact make-up, especially color-intensive, with the ingredients of superior-quality skin cream preparations. Aquacolor is universally applicable, primarily as a make-up for face and body painting. Application is effortless, with an only slightly moistened make-up sponge or brush. After drying, it can be gently buffed with a soft towel or with the hand - but is not powdered. Setting Spray is recommended if the make-up will be subjected to extreme conditions. Aquacolor is extensively smudge-proof and can be easily removed with soap and water. Aquacolor is available in an extensive variety of colors, which include skin and vivid shades Selected 6 Colors - A palette. Water-activated face/body paint; brushes are not included in the stated contents. Confirm the pictured colors before purchase."
+        },
+        {
+          "productId": "p-exp-c-7c97f015aca5",
+          "rank": 1,
+          "reason": "Introducing the Studio Color - Carnival Studio, the ultimate makeup palette for endless creativity. With 8 refillable colors, this versatile studio is perfect for on-the-go touch-ups or bold looks. Unleash your inner artist with the Carnival Studio. The Carnival Creme Palette contains a spectrum of vivid creme colors for creating beautiful and creative works of all kinds. Each shade is vibrant and intensely pigmented to give you total control in achieving your makeup design. The colors easily blend together to create new shades or exquisite contours. With all aspects of the color wheel in one convenient palette, artists and students of all skill levels are able to explore their full creative potential. This palette is ideal for theatrical, fashion, drag, Halloween enthusiasts, students, and cosplay makeup artists. Expect 20-50 application Eight vivid creme colors. This is makeup, not a printed garment. Brushes and setting products are not included in the stated contents."
+        },
+        {
+          "productId": "p-exp-c-a4f285ce81e9",
+          "rank": 2,
+          "reason": "Highly pigmented, water activated professional face and body makeup enriched with vitamins and skin soothin ingredients. Remove with Mehron's Makeup Remover. Shades of red, yellow and orange are not recommended for use around the eyes nor blue or green around the lips. Water-activated professional face/body makeup. Follow merchant application guidance: red/yellow/orange are not recommended around eyes; blue/green are not recommended around lips."
+        }
+      ]
+    },
+    {
+      "id": "pop-art-comic-black-boots",
+      "name": "Black lace-up boots",
+      "category": "footwear",
+      "required": true,
+      "order": 2,
+      "styleNotes": "Black ankle boots with visible lacing finish the outfit. These pairs have no crescent or star embroidery; heels and soles differ from the reference.",
+      "queries": [
+        "black lace up ankle boots women",
+        "black Victorian lace up boots"
+      ],
+      "sizeKind": "shoe",
+      "matches": [
+        {
+          "productId": "p-982c5731f8",
+          "rank": 0,
+          "reason": "Black full-grain leather lace-up combat boot with glove-leather lining, YKK side zipper, 6-inch shaft, 1.5-inch heel and rubber outsole. No celestial embroidery. Standard-width women’s US 5–12, including all offered half sizes, are available at $190. This option represents Standard width only. Pair of boots; free domestic US ground shipping is offered, but arrival is not verified."
+        },
+        {
+          "productId": "p-ed0b6d3416",
+          "rank": 1,
+          "reason": "Black faux-leather combat boots with lace front, inner zipper, microfiber lining and chunky treaded rubber sole. 1.8-inch heel; more casual than the reference decorative heeled boots. Pair of boots only. Feed confirms US women’s 6, 6.5, 7, 7.5, 8, 8.5, 9, 9.5, 10 and 11 available at the current $55.97 sale price; 12 is sold out. US direct store; dispatch timing is not stated."
+        },
+        {
+          "productId": "p-9ceb60b1a5",
+          "rank": 2,
+          "reason": "Black calf-leather Balmoral ankle boots with cotton-twill/pigskin lining, leather soles, adjustable laces, 5-inch shaft and 1-inch heel. Vintage shape; no stars or crescent detail and a lower heel than the reference. Pair of boots. Current feed confirms women’s US 5, 6, 6.5, 7, 7.5, 8, 8.5, 9, 9.5, 10 and 12 at $285; 10.5 and 11 are unavailable. Regular B width. US merchant; dispatch date is not stated."
+        }
+      ]
+    }
+  ],
+  "products": [
+    {
+      "id": "p-efd5b81469",
+      "title": "Second Skin Catsuit Style5010 — Black",
+      "url": "https://www.welovecolors.com/shop/womens/sale/second-skin-catsuit/black",
+      "priceCents": 9500,
+      "currency": "USD",
+      "image": "/products/price-tiers/p-efd5b81469.webp",
+      "merchantImage": "/products/price-tiers/p-efd5b81469.webp",
+      "sourceImages": [
+        "https://www.welovecolors.com/images/product/full/5010-w-black-second-skin-catsuit.jpg"
+      ],
+      "availability": "in_stock",
+      "sizes": [
+        "One Size"
+      ],
+      "merchantId": "welovecolors-com",
+      "tagSlugs": [],
+      "description": "Explicit matte, opaque 93% nylon/7% spandex full-body long-sleeve catsuit. Includes fingers and toes; garment can be cut at wrists/ankles without running per merchant. One Size fits XS–XL; Plus Size fits up to4X but black Plus has ColorQty0, so excluded as in-stock. Live merchant embedded variant inventory object: Black, Size One Size, ColorQty3, QtyCompleted5, WebPrice95, Discontinuedfalse, production ship dateMonday10/26. One Size black stock verified, rather than inferring stock from selector. No size-specific permalink provided by merchant; URL fixes black color.",
+      "checkedAt": "2026-10-25T08:50:58.976351Z",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-25T07:07:04.071733+00:00",
+        "url": "https://www.welovecolors.com/shop/womens/sale/second-skin-catsuit/black",
+        "notes": "Explicit matte, opaque 93% nylon/7% spandex full-body long-sleeve catsuit. Includes fingers and toes; garment can be cut at wrists/ankles without running per merchant. One Size fits XS–XL; Plus Size fits up to4X but black Plus has ColorQty0, so excluded as in-stock. Live merchant embedded variant inventory object: Black, Size One Size, ColorQty3, QtyCompleted5, WebPrice95, Discontinuedfalse, production ship dateMonday10/26. One Size black stock verified, rather than inferring stock from selector. No size-specific permalink provided by merchant; URL fixes black color."
+      }
+    },
+    {
+      "id": "p-33ba42bb05",
+      "title": "83028GD - Garment Dye Long Sleeve Unitard",
+      "url": "https://losangelesapparel.net/products/83028gd-garment-dye-long-sleeve-unitard?variant=37888203161779",
+      "priceCents": 7000,
+      "currency": "USD",
+      "image": "/products/price-tiers/p-33ba42bb05.webp",
+      "cutout": "/products/p-33ba42bb05-cutout.png",
+      "merchantImage": "/products/price-tiers/p-33ba42bb05.webp",
+      "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/2152/0639/products/black1_1_4984a0ae-5411-4aea-a78b-eb4b02ab8afa.jpg?v=1721953708"
+      ],
+      "availability": "in_stock",
+      "sizes": [
+        "XS",
+        "S",
+        "M",
+        "L",
+        "XL"
+      ],
+      "merchantId": "losangelesapparel-net",
+      "tagSlugs": [
+        "cotton",
+        "unitard",
+        "black",
+        "long-sleeve",
+        "garment-dyed"
+      ],
+      "description": "Matte cotton base match; heavyweight garment-dyed cotton spandex, long sleeves/full length legs, black XS-XL all available. Retain existing reviewed photo/cutout if preserving product.",
+      "checkedAt": "2026-10-26T10:01:10.051Z",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-25T07:07:04.071733+00:00",
+        "url": "https://losangelesapparel.net/products/83028gd-garment-dye-long-sleeve-unitard.js",
+        "notes": "Matte cotton base match; heavyweight garment-dyed cotton spandex, long sleeves/full length legs, black XS-XL all available. Retain existing reviewed photo/cutout if preserving product."
+      }
+    },
+    {
+      "id": "p-b2b40f4575",
+      "title": "Zip Front Spandex Long Sleeve Turtleneck Unitard — Black",
+      "url": "https://www.speerise.com/products/speerise-ladies-spandex-long-sleeve-turtleneck-unitard?variant=39728194715781",
+      "priceCents": 4299,
+      "currency": "USD",
+      "image": "/products/price-tiers/p-b2b40f4575.webp",
+      "merchantImage": "/products/price-tiers/p-b2b40f4575.webp",
+      "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/0365/8003/2645/products/speerise-zip-front-spandex-long-sleeve-turtleneck-unitard-black.jpg?v=1760671730"
+      ],
+      "availability": "in_stock",
+      "sizes": [
+        "XS",
+        "S",
+        "M",
+        "L",
+        "XL",
+        "2XL",
+        "3XL",
+        "4XL",
+        "5XL",
+        "6XL"
+      ],
+      "merchantId": "speerise-com",
+      "tagSlugs": [],
+      "description": "Long sleeve full-length fitted black unitard. 85% nylon/15% spandex rather than cotton; front zipper and mock neck. All ten black XS–6XL variants available at USD42.99. Broad low-tier coverage. Merchant does not explicitly call finish matte; avoid claiming finish beyond plain nonmetallic black.",
+      "checkedAt": "2026-10-26T10:01:10.690Z",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-25T07:07:04.071733+00:00",
+        "url": "https://www.speerise.com/products/speerise-ladies-spandex-long-sleeve-turtleneck-unitard.js",
+        "notes": "Long sleeve full-length fitted black unitard. 85% nylon/15% spandex rather than cotton; front zipper and mock neck. All ten black XS–6XL variants available at USD42.99. Broad low-tier coverage. Merchant does not explicitly call finish matte; avoid claiming finish beyond plain nonmetallic black."
+      }
+    },
+    {
+      "id": "p-exp-c-910037cb849f",
+      "title": "Kryolan Aquacolor Palette",
+      "url": "https://chicagocostume.com/products/kryolan-aquacolor-palette-12?variant=67842938700018",
+      "priceCents": 4499,
+      "currency": "USD",
+      "image": "/products/price-tiers/p-exp-c-910037cb849f.webp",
+      "merchantImage": "/products/price-tiers/p-exp-c-910037cb849f.webp",
+      "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/0610/0208/8690/files/01107_00_prod_A_960.jpg?v=1792870810"
+      ],
+      "availability": "in_stock",
+      "sizes": [
+        "6 Colors - A"
+      ],
+      "merchantId": "chicagocostume-com",
+      "tagSlugs": [],
+      "description": "Aquacolor is a glycerin-based compact make-up, especially color-intensive, with the ingredients of superior-quality skin cream preparations. Aquacolor is universally applicable, primarily as a make-up for face and body painting. Application is effortless, with an only slightly moistened make-up sponge or brush. After drying, it can be gently buffed with a soft towel or with the hand - but is not powdered. Setting Spray is recommended if the make-up will be subjected to extreme conditions. Aquacolor is extensively smudge-proof and can be easily removed with soap and water. Aquacolor is available in an extensive variety of colors, which include skin and vivid shades Selected 6 Colors - A palette. Water-activated face/body paint; brushes are not included in the stated contents. Confirm the pictured colors before purchase.",
+      "checkedAt": "2026-10-27T00:28:36.827435Z",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-27T00:28:36.827435Z",
+        "url": "https://chicagocostume.com/products.json",
+        "notes": "Merchant public JSON feed confirms selected variant available at the listed USD price. Selected 6 Colors - A palette. Water-activated face/body paint; brushes are not included in the stated contents. Confirm the pictured colors before purchase. Delivery is unconfirmed."
+      }
+    },
+    {
+      "id": "p-exp-c-7c97f015aca5",
+      "title": "Ben Nye Studio Color - Carnival Creme Palette",
+      "url": "https://chicagocostume.com/products/ben-nye-studio-color-carnival?variant=48619506008306",
+      "priceCents": 5800,
+      "currency": "USD",
+      "image": "/products/price-tiers/p-exp-c-7c97f015aca5.webp",
+      "merchantImage": "/products/price-tiers/p-exp-c-7c97f015aca5.webp",
+      "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/0610/0208/8690/files/STP-20-Carnival-Palette-4308.jpg?v=1767047462"
+      ],
+      "availability": "in_stock",
+      "sizes": [],
+      "merchantId": "chicagocostume-com",
+      "tagSlugs": [],
+      "description": "Introducing the Studio Color - Carnival Studio, the ultimate makeup palette for endless creativity. With 8 refillable colors, this versatile studio is perfect for on-the-go touch-ups or bold looks. Unleash your inner artist with the Carnival Studio. The Carnival Creme Palette contains a spectrum of vivid creme colors for creating beautiful and creative works of all kinds. Each shade is vibrant and intensely pigmented to give you total control in achieving your makeup design. The colors easily blend together to create new shades or exquisite contours. With all aspects of the color wheel in one convenient palette, artists and students of all skill levels are able to explore their full creative potential. This palette is ideal for theatrical, fashion, drag, Halloween enthusiasts, students, and cosplay makeup artists. Expect 20-50 application Eight vivid creme colors. This is makeup, not a printed garment. Brushes and setting products are not included in the stated contents.",
+      "checkedAt": "2026-10-27T00:28:36.827435Z",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-27T00:28:36.827435Z",
+        "url": "https://chicagocostume.com/products.json",
+        "notes": "Merchant public JSON feed confirms selected variant available at the listed USD price. Eight vivid creme colors. This is makeup, not a printed garment. Brushes and setting products are not included in the stated contents. Delivery is unconfirmed."
+      }
+    },
+    {
+      "id": "p-exp-c-a4f285ce81e9",
+      "title": "Mehron Paradise Makeup AQ Palette 12 Color",
+      "url": "https://chicagocostume.com/products/mehron-paradise-makeup-aq-palette-12-color?variant=47792261759218",
+      "priceCents": 12999,
+      "currency": "USD",
+      "image": "/products/price-tiers/p-exp-c-a4f285ce81e9.webp",
+      "merchantImage": "/products/price-tiers/p-exp-c-a4f285ce81e9.webp",
+      "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/0610/0208/8690/files/6a25016b-0dfa-44e9-8f3e-335f788ea57e_1.6f5eab11de6ca26f60f0c8b69ef75789.jpg?v=1753478267"
+      ],
+      "availability": "in_stock",
+      "sizes": [],
+      "merchantId": "chicagocostume-com",
+      "tagSlugs": [],
+      "description": "Highly pigmented, water activated professional face and body makeup enriched with vitamins and skin soothin ingredients. Remove with Mehron's Makeup Remover. Shades of red, yellow and orange are not recommended for use around the eyes nor blue or green around the lips. Water-activated professional face/body makeup. Follow merchant application guidance: red/yellow/orange are not recommended around eyes; blue/green are not recommended around lips.",
+      "checkedAt": "2026-10-27T00:28:36.827435Z",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-27T00:28:36.827435Z",
+        "url": "https://chicagocostume.com/products.json",
+        "notes": "Merchant public JSON feed confirms selected variant available at the listed USD price. Water-activated professional face/body makeup. Follow merchant application guidance: red/yellow/orange are not recommended around eyes; blue/green are not recommended around lips. Delivery is unconfirmed."
+      }
+    },
+    {
+      "id": "p-9ceb60b1a5",
+      "title": "Rainey Vintage Lace-Up Boots (Black)",
+      "url": "https://www.americanduchess.com/products/rainey-womens-vintage-lace-up-boots-black?variant=42358320824470",
+      "priceCents": 28500,
+      "currency": "USD",
+      "image": "/products/price-tiers/p-9ceb60b1a5.webp",
+      "merchantImage": "/products/price-tiers/p-9ceb60b1a5.webp",
+      "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/0450/5721/2566/products/rainey-vintage-boots-dandy-wellington-black-of.jpg?v=1671580774"
+      ],
+      "availability": "in_stock",
+      "sizes": [
+        "5",
+        "6",
+        "6.5",
+        "7",
+        "7.5",
+        "8",
+        "8.5",
+        "9",
+        "9.5",
+        "10",
+        "12"
+      ],
+      "merchantId": "americanduchess-com",
+      "tagSlugs": [],
+      "description": "Black calf-leather Balmoral ankle boots with cotton-twill/pigskin lining, leather soles, adjustable laces, 5-inch shaft and 1-inch heel. Vintage shape; no stars or crescent detail and a lower heel than the reference. Pair of boots. Current feed confirms women’s US 5, 6, 6.5, 7, 7.5, 8, 8.5, 9, 9.5, 10 and 12 at $285; 10.5 and 11 are unavailable. Regular B width. US merchant; dispatch date is not stated.",
+      "checkedAt": "2026-10-26T10:00:37.837Z",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-25T08:48:40.074055Z",
+        "url": "https://www.americanduchess.com/products/rainey-womens-vintage-lace-up-boots-black.js",
+        "notes": "Black calf-leather Balmoral ankle boots with cotton-twill/pigskin lining, leather soles, adjustable laces, 5-inch shaft and 1-inch heel. Vintage shape; no stars or crescent detail and a lower heel than the reference. Pair of boots. Current feed confirms women’s US 5, 6, 6.5, 7, 7.5, 8, 8.5, 9, 9.5, 10 and 12 at $285; 10.5 and 11 are unavailable. Regular B width. US merchant; dispatch date is not stated."
+      }
+    },
+    {
+      "id": "p-982c5731f8",
+      "title": "Combat | Black",
+      "url": "https://thursdayboots.com/products/womens-combat-boot-black?variant=32904484126810",
+      "priceCents": 19000,
+      "currency": "USD",
+      "image": "/products/price-tiers/p-982c5731f8.webp",
+      "merchantImage": "/products/price-tiers/p-982c5731f8.webp",
+      "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/0419/1525/products/1024x1024-Women-Combat-Black-081721-Side.jpg?v=1683319134"
+      ],
+      "availability": "in_stock",
+      "sizes": [
+        "5",
+        "5.5",
+        "6",
+        "6.5",
+        "7",
+        "7.5",
+        "8",
+        "8.5",
+        "9",
+        "9.5",
+        "10",
+        "10.5",
+        "11",
+        "11.5",
+        "12"
+      ],
+      "merchantId": "thursdayboots-com",
+      "tagSlugs": [],
+      "description": "Black full-grain leather lace-up combat boot with glove-leather lining, YKK side zipper, 6-inch shaft, 1.5-inch heel and rubber outsole. No celestial embroidery. Standard-width women’s US 5–12, including all offered half sizes, are available at $190. This option represents Standard width only. Pair of boots; free domestic US ground shipping is offered, but arrival is not verified.",
+      "checkedAt": "2026-10-26T10:01:21.952Z",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-25T08:48:40.074055Z",
+        "url": "https://thursdayboots.com/products/womens-combat-boot-black.js",
+        "notes": "Black full-grain leather lace-up combat boot with glove-leather lining, YKK side zipper, 6-inch shaft, 1.5-inch heel and rubber outsole. No celestial embroidery. Standard-width women’s US 5–12, including all offered half sizes, are available at $190. This option represents Standard width only. Pair of boots; free domestic US ground shipping is offered, but arrival is not verified."
+      }
+    },
+    {
+      "id": "p-ed0b6d3416",
+      "title": "Prima Black Combat Boots",
+      "url": "https://www.rocketdog.com/products/prima-black-combat-boots?variant=45600624508998",
+      "priceCents": 5597,
+      "currency": "USD",
+      "image": "/products/price-tiers/p-ed0b6d3416.webp",
+      "merchantImage": "/products/price-tiers/p-ed0b6d3416.webp",
+      "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/1903/5555/files/prima_grinnel_pu_black_002.jpg?v=1784302923"
+      ],
+      "availability": "in_stock",
+      "sizes": [
+        "6",
+        "6.5",
+        "7",
+        "7.5",
+        "8",
+        "8.5",
+        "9",
+        "9.5",
+        "10",
+        "11"
+      ],
+      "merchantId": "rocketdog-com",
+      "tagSlugs": [],
+      "description": "Black faux-leather combat boots with lace front, inner zipper, microfiber lining and chunky treaded rubber sole. 1.8-inch heel; more casual than the reference decorative heeled boots. Pair of boots only. Feed confirms US women’s 6, 6.5, 7, 7.5, 8, 8.5, 9, 9.5, 10 and 11 available at the current $55.97 sale price; 12 is sold out. US direct store; dispatch timing is not stated.",
+      "checkedAt": "2026-10-26T10:00:37.590Z",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-25T08:48:40.074055Z",
+        "url": "https://www.rocketdog.com/products/prima-black-combat-boots.js",
+        "notes": "Black faux-leather combat boots with lace front, inner zipper, microfiber lining and chunky treaded rubber sole. 1.8-inch heel; more casual than the reference decorative heeled boots. Pair of boots only. Feed confirms US women’s 6, 6.5, 7, 7.5, 8, 8.5, 9, 9.5, 10 and 11 available at the current $55.97 sale price; 12 is sold out. US direct store; dispatch timing is not stated."
+      }
+    }
+  ],
+  "merchants": [
+    {
+      "id": "chicagocostume-com",
+      "name": "Chicago Costume Company",
+      "domain": "chicagocostume.com",
+      "url": "https://chicagocostume.com/",
+      "kind": "boutique",
+      "neighborhoodId": null
+    },
+    {
+      "id": "americanduchess-com",
+      "name": "American Duchess",
+      "domain": "americanduchess.com",
+      "url": "https://americanduchess.com/",
+      "kind": "boutique",
+      "neighborhoodId": null
+    },
+    {
+      "id": "welovecolors-com",
+      "name": "We Love Colors",
+      "domain": "welovecolors.com",
+      "url": "https://welovecolors.com/",
+      "kind": "boutique",
+      "neighborhoodId": null
+    },
+    {
+      "id": "speerise-com",
+      "name": "Speerise",
+      "domain": "speerise.com",
+      "url": "https://speerise.com/",
+      "kind": "boutique",
+      "neighborhoodId": null
+    },
+    {
+      "id": "losangelesapparel-net",
+      "name": "Los Angeles Apparel",
+      "domain": "losangelesapparel.net",
+      "url": "https://losangelesapparel.net/",
+      "kind": "boutique",
+      "neighborhoodId": null
+    },
+    {
+      "id": "thursdayboots-com",
+      "name": "Thursday Boot Company",
+      "domain": "thursdayboots.com",
+      "url": "https://thursdayboots.com/",
+      "kind": "boutique",
+      "neighborhoodId": null
+    },
+    {
+      "id": "rocketdog-com",
+      "name": "Rocket Dog",
+      "domain": "rocketdog.com",
+      "url": "https://rocketdog.com/",
+      "kind": "boutique",
+      "neighborhoodId": null
+    }
+  ],
+  "neighborhoods": [],
+  "tags": [
+    {
+      "slug": "black",
+      "label": "Black"
+    },
+    {
+      "slug": "unitard",
+      "label": "Unitard"
+    },
+    {
+      "slug": "cotton",
+      "label": "Cotton"
+    },
+    {
+      "slug": "long-sleeve",
+      "label": "Long Sleeve"
+    },
+    {
+      "slug": "garment-dyed",
+      "label": "Garment Dyed"
+    }
+  ],
+  "provenance": {
+    "method": "manual-research",
+    "generatedAt": "2026-10-27T00:28:36.827435Z",
+    "notes": "Expansion research uses built-in web search and direct merchant public variant feeds. Reused basics retain their original merchant evidence and check dates. Prices exclude shipping and tax; delivery is unconfirmed. Comic dots require makeup application. Speech bubble uses your own cardboard and fastener; it is not a purchased product. See docs/sourcing/expansion-c.json. Publication carries forward newer shared-product price, stock, size and check timestamps from the live database; original sourcing evidence is retained.",
+    "priceTiers": true,
+    "heroImageKind": "generated-reference"
+  }
+}

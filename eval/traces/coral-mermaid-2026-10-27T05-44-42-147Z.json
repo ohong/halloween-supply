@@ -1,0 +1,379 @@
+{
+  "slug": "coral-mermaid",
+  "base": "http://localhost:3000",
+  "model": "opencv-5:5.0.0;stock+gpt-6-luna",
+  "elapsedMs": 24100,
+  "done": {
+    "t": "done",
+    "found": 1,
+    "priced": 0,
+    "timedOut": false,
+    "ms": 24025
+  },
+  "pieces": [
+    "Sage layered blouse and jacket",
+    "Teal scale mermaid skirt"
+  ],
+  "approvals": [],
+  "retries": [],
+  "improvedPieces": [],
+  "trace": [
+    {
+      "t_ms": 9656,
+      "piece": null,
+      "step": "perceive",
+      "detail": {
+        "person": {
+          "found": true,
+          "bbox": [
+            184,
+            101,
+            654,
+            914
+          ],
+          "confidence": 0.86,
+          "outline": [
+            [
+              [
+                589,
+                114
+              ],
+              [
+                460,
+                107
+              ],
+              [
+                386,
+                148
+              ],
+              [
+                313,
+                452
+              ],
+              [
+                363,
+                586
+              ],
+              [
+                394,
+                459
+              ],
+              [
+                380,
+                404
+              ],
+              [
+                416,
+                386
+              ],
+              [
+                464,
+                621
+              ],
+              [
+                314,
+                787
+              ],
+              [
+                311,
+                819
+              ],
+              [
+                253,
+                843
+              ],
+              [
+                250,
+                884
+              ],
+              [
+                187,
+                914
+              ],
+              [
+                212,
+                964
+              ],
+              [
+                339,
+                1004
+              ],
+              [
+                596,
+                1013
+              ],
+              [
+                729,
+                999
+              ],
+              [
+                836,
+                947
+              ],
+              [
+                837,
+                899
+              ],
+              [
+                767,
+                860
+              ],
+              [
+                621,
+                572
+              ],
+              [
+                608,
+                387
+              ],
+              [
+                641,
+                404
+              ],
+              [
+                649,
+                497
+              ],
+              [
+                683,
+                529
+              ],
+              [
+                719,
+                441
+              ],
+              [
+                638,
+                151
+              ]
+            ]
+          ]
+        },
+        "timings_ms": {
+          "decode": 6,
+          "segment": 2651,
+          "colors": 129,
+          "embed": 6556,
+          "classify": 23,
+          "total": 9371
+        },
+        "pieces": [
+          {
+            "id": "p0",
+            "region": "upper_clothes",
+            "slot": "top",
+            "area_frac": 0.0889,
+            "pattern": "patterned",
+            "query": "gray draped silk blouse",
+            "alternate": "gray flowy blouse",
+            "colors": [
+              {
+                "name": "gray",
+                "hex": "#677e6c",
+                "frac": 0.411
+              },
+              {
+                "name": "sage",
+                "hex": "#b0bcad",
+                "frac": 0.365
+              },
+              {
+                "name": "coral",
+                "hex": "#af7664",
+                "frac": 0.224
+              }
+            ],
+            "garment_types": [
+              {
+                "phrase": "draped silk blouse",
+                "score": 0.2689
+              },
+              {
+                "phrase": "feather shoulder cape",
+                "score": 0.2654
+              },
+              {
+                "phrase": "brocade vest",
+                "score": 0.2646
+              }
+            ]
+          },
+          {
+            "id": "p1",
+            "region": "dress",
+            "slot": "top",
+            "area_frac": 0.0089,
+            "pattern": "patterned",
+            "query": "teal sequin mermaid gown",
+            "alternate": "teal mermaid dress",
+            "colors": [
+              {
+                "name": "teal",
+                "hex": "#547f74",
+                "frac": 0.444
+              },
+              {
+                "name": "charcoal",
+                "hex": "#2d4d43",
+                "frac": 0.349
+              },
+              {
+                "name": "mint",
+                "hex": "#9cbfb6",
+                "frac": 0.207
+              }
+            ],
+            "garment_types": [
+              {
+                "phrase": "sequin mermaid gown",
+                "score": 0.2914
+              },
+              {
+                "phrase": "leaf green tunic",
+                "score": 0.2617
+              },
+              {
+                "phrase": "opera cloak",
+                "score": 0.2612
+              }
+            ]
+          },
+          {
+            "id": "p2",
+            "region": "skirt",
+            "slot": "bottom",
+            "area_frac": 0.1894,
+            "pattern": "patterned",
+            "query": "teal mermaid skirt",
+            "alternate": "teal fishtail skirt",
+            "colors": [
+              {
+                "name": "teal",
+                "hex": "#5f8b80",
+                "frac": 0.462
+              },
+              {
+                "name": "silver",
+                "hex": "#afb4a6",
+                "frac": 0.308
+              },
+              {
+                "name": "charcoal",
+                "hex": "#314e44",
+                "frac": 0.23
+              }
+            ],
+            "garment_types": [
+              {
+                "phrase": "mermaid skirt",
+                "score": 0.3229
+              },
+              {
+                "phrase": "ruffled tiered skirt",
+                "score": 0.2791
+              },
+              {
+                "phrase": "hoop skirt",
+                "score": 0.2765
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "t_ms": 16219,
+      "piece": null,
+      "step": "label",
+      "detail": {
+        "model": "gpt-6-luna",
+        "pieces": [
+          {
+            "index": 0,
+            "keep": true,
+            "name": "Sage layered blouse and jacket",
+            "garment": "draped blouse with embroidered cropped jacket",
+            "query": "sage draped blouse embroidered jacket"
+          },
+          {
+            "index": 1,
+            "keep": false,
+            "name": "Teal scale fabric duplicate",
+            "garment": "scale-pattern fabric",
+            "query": "teal scale mermaid skirt"
+          },
+          {
+            "index": 2,
+            "keep": true,
+            "name": "Teal scale mermaid skirt",
+            "garment": "scale-pattern mermaid skirt",
+            "query": "teal scale mermaid skirt"
+          }
+        ]
+      }
+    },
+    {
+      "t_ms": 20019,
+      "piece": 1,
+      "step": "search",
+      "detail": {
+        "attempt": 0,
+        "query": "teal scale mermaid skirt",
+        "candidates": 3,
+        "ms": 3800
+      }
+    },
+    {
+      "t_ms": 20562,
+      "piece": 0,
+      "step": "search",
+      "detail": {
+        "attempt": 0,
+        "query": "sage draped blouse embroidered jacket",
+        "candidates": 3,
+        "ms": 4343
+      }
+    },
+    {
+      "t_ms": 21636,
+      "piece": 0,
+      "step": "score",
+      "detail": {
+        "attempt": 0,
+        "results": [],
+        "error": "opencv_unavailable"
+      }
+    },
+    {
+      "t_ms": 21636,
+      "piece": 0,
+      "step": "decide",
+      "detail": {
+        "attempt": 0,
+        "action": "approve",
+        "because": "opencv_unavailable",
+        "best_score": null
+      }
+    },
+    {
+      "t_ms": 24025,
+      "piece": 1,
+      "step": "score",
+      "detail": {
+        "attempt": 0,
+        "results": []
+      }
+    },
+    {
+      "t_ms": 24025,
+      "piece": 1,
+      "step": "decide",
+      "detail": {
+        "attempt": 0,
+        "action": "approve",
+        "because": "budget_low",
+        "best_score": null
+      }
+    }
+  ]
+}

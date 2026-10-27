@@ -1,0 +1,511 @@
+{
+  "costume": {
+    "slug": "candy-automaton",
+    "name": "Candy Automaton",
+    "description": "Candy-shop stripes, red velvet, silver gloves, and a homemade wind-up key turn you into a clockwork confection.",
+    "image": "/costumes/candy-automaton.png",
+    "alt": "Red velvet short romper with black and white striped hips, silver gloves, black boots, and a homemade silver wind-up key on the back.",
+    "status": "live"
+  },
+  "pieces": [
+    {
+      "id": "candy-automaton-striped-romper",
+      "name": "Striped velvet toy romper",
+      "category": "one-piece",
+      "required": true,
+      "order": 0,
+      "styleNotes": "The default uses red velvet and black/white stripe panels. Alternatives change sleeve, mesh, tail and leg-cut details. Wind-up key must be made separately from your own card and foil.",
+      "queries": [
+        "Striped velvet toy romper"
+      ],
+      "sizeKind": "apparel",
+      "matches": [
+        {
+          "productId": "p-exp-c-e5a7ca2603e4",
+          "rank": 0,
+          "reason": "This bodysuit is made from our Red Stretch Velvet, and Black and White Striped Spandex. The contrasting waistband, neckline trim, side panels, and hip ruffles are smooth black spandex. This hot little number is a real stunner, with a cheeky Siren leg cut, V neck, and four way stretch fit. This item is made to order. Ships out within 5 days of purchase. Red stretch velvet and black/white striped spandex. Black trim and hip ruffles. Cheeky Siren leg cut; this is not a red/white striped full-body suit. Made to order; merchant says ships within five days of purchase. Delivery before Halloween is unconfirmed. No wind-up key included."
+        },
+        {
+          "productId": "p-exp-c-f2a15ce86482",
+          "rank": 1,
+          "reason": "This delightful romper is made of our red stretch velvet, with a keyhole neckline, flip sleeves, and your choice of leg cut. It features nude mesh in the keyhole, and at the center waistband. Choose from Almond, Camel, or Cocoa mesh. Black back zipper This item is made to order. Ships out within 5 days of purchase. Red velvet and circus stripes with nude mesh keyhole and waistband. Only the selected Almond Mesh / Siren Cut variant is priced here. Made to order; merchant says ships within five days of purchase. Delivery before Halloween is unconfirmed. No wind-up key included."
+        },
+        {
+          "productId": "p-exp-c-7decb56ddc8d",
+          "rank": 2,
+          "reason": "This romper features serious big top style! Black velvet for the bodice and flip sleeves, nude mesh at the waistband, and vertical black and white stripes on the hips and the tuxedo tails. Tails are lined in white, and the suit has a black zipper in back. This item is made to order. Ships out within 5 days of purchase. Black velvet with black/white striped hips and short tux tails. Selected Almond mesh/Siren cut version. Black rather than red bodice. Made to order; merchant says ships within five days of purchase. Delivery before Halloween is unconfirmed. No wind-up key included."
+        }
+      ]
+    },
+    {
+      "id": "candy-automaton-silver-gloves",
+      "name": "Silver gloves",
+      "category": "accessories",
+      "required": true,
+      "order": 1,
+      "styleNotes": "Add fitted silver gloves with full fingers. The generated gloves are long and glittery; these products range from shorter metallic costume gloves to satin and mirror-finish opera gloves.",
+      "queries": [
+        "silver metallic opera gloves"
+      ],
+      "sizeKind": "one_size",
+      "matches": [
+        {
+          "productId": "p-52f0c3d91f",
+          "rank": 0,
+          "reason": "Silver stretch satin gloves, 22.44 inches / 57 cm long. The merchant does not publish a numeric hand size. Soft satin sheen rather than a metallic or sequined finish. Gloves only; bridal clothing in the photo is excluded. Product page explicitly says in stock."
+        },
+        {
+          "productId": "p-151c13bff4",
+          "rank": 1,
+          "reason": "One pair of silver metallic full-finger gloves. Product page does not publish a numeric size or exact length. Photo shows a forearm-length cuff rather than the longer opera proportions in the reference. Page structured data explicitly lists InStock at $10.99."
+        },
+        {
+          "productId": "p-8b2a001d45",
+          "rank": 2,
+          "reason": "Selected Opera-Length pair is 19.6 inches, $70. Silver synthetic patent leather, unlined, minimal stretch. Merchant fit limits: palm perimeter up to 7.5 inches and upper arm under 11 inches. Mirror finish rather than glitter. Other lengths have different prices and are excluded."
+        }
+      ]
+    },
+    {
+      "id": "candy-automaton-boots",
+      "name": "Black lace-up boots",
+      "category": "footwear",
+      "required": true,
+      "order": 2,
+      "styleNotes": "Black ankle boots with visible lacing finish the outfit. These pairs have no crescent or star embroidery; heels and soles differ from the reference.",
+      "queries": [
+        "black lace up ankle boots women",
+        "black Victorian lace up boots"
+      ],
+      "sizeKind": "shoe",
+      "matches": [
+        {
+          "productId": "p-982c5731f8",
+          "rank": 0,
+          "reason": "Black full-grain leather lace-up combat boot with glove-leather lining, YKK side zipper, 6-inch shaft, 1.5-inch heel and rubber outsole. No celestial embroidery. Standard-width women’s US 5–12, including all offered half sizes, are available at $190. This option represents Standard width only. Pair of boots; free domestic US ground shipping is offered, but arrival is not verified."
+        },
+        {
+          "productId": "p-ed0b6d3416",
+          "rank": 1,
+          "reason": "Black faux-leather combat boots with lace front, inner zipper, microfiber lining and chunky treaded rubber sole. 1.8-inch heel; more casual than the reference decorative heeled boots. Pair of boots only. Feed confirms US women’s 6, 6.5, 7, 7.5, 8, 8.5, 9, 9.5, 10 and 11 available at the current $55.97 sale price; 12 is sold out. US direct store; dispatch timing is not stated."
+        },
+        {
+          "productId": "p-9ceb60b1a5",
+          "rank": 2,
+          "reason": "Black calf-leather Balmoral ankle boots with cotton-twill/pigskin lining, leather soles, adjustable laces, 5-inch shaft and 1-inch heel. Vintage shape; no stars or crescent detail and a lower heel than the reference. Pair of boots. Current feed confirms women’s US 5, 6, 6.5, 7, 7.5, 8, 8.5, 9, 9.5, 10 and 12 at $285; 10.5 and 11 are unavailable. Regular B width. US merchant; dispatch date is not stated."
+        }
+      ]
+    }
+  ],
+  "products": [
+    {
+      "id": "p-exp-c-e5a7ca2603e4",
+      "title": "Circus Stripes and Red Velvet Flip Sleeve Paneled Romper",
+      "url": "https://coquetryclothing.com/products/circus-stripes-and-red-velvet-flip-sleeve-paneled-romper?variant=42484084768855",
+      "priceCents": 10889,
+      "currency": "USD",
+      "image": "/products/price-tiers/p-exp-c-e5a7ca2603e4.webp",
+      "merchantImage": "/products/price-tiers/p-exp-c-e5a7ca2603e4.webp",
+      "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/1140/4312/files/DSC_6069.jpg?v=1768771703"
+      ],
+      "availability": "in_stock",
+      "sizes": [
+        "XXS",
+        "XS",
+        "S",
+        "M",
+        "L",
+        "XL",
+        "2XL",
+        "3XL"
+      ],
+      "merchantId": "coquetryclothing-com",
+      "tagSlugs": [],
+      "description": "This bodysuit is made from our Red Stretch Velvet, and Black and White Striped Spandex. The contrasting waistband, neckline trim, side panels, and hip ruffles are smooth black spandex. This hot little number is a real stunner, with a cheeky Siren leg cut, V neck, and four way stretch fit. This item is made to order. Ships out within 5 days of purchase. Red stretch velvet and black/white striped spandex. Black trim and hip ruffles. Cheeky Siren leg cut; this is not a red/white striped full-body suit. Made to order; merchant says ships within five days of purchase. Delivery before Halloween is unconfirmed. No wind-up key included.",
+      "checkedAt": "2026-10-27T00:28:36.827435Z",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-27T00:28:36.827435Z",
+        "url": "https://coquetryclothing.com/collections/rompers/products.json?limit=250",
+        "notes": "Merchant public JSON feed confirms selected variant available at the listed USD price. Red stretch velvet and black/white striped spandex. Black trim and hip ruffles. Cheeky Siren leg cut; this is not a red/white striped full-body suit. Made to order; merchant says ships within five days of purchase. Delivery before Halloween is unconfirmed. No wind-up key included. Delivery is unconfirmed."
+      }
+    },
+    {
+      "id": "p-exp-c-f2a15ce86482",
+      "title": "Red Velvet and Cirque Stripes Keyhole Romper with Nude Mesh",
+      "url": "https://coquetryclothing.com/products/red-velvet-and-cirque-stripes-keyhole-romper-with-nude-mesh?variant=42037467873367",
+      "priceCents": 10285,
+      "currency": "USD",
+      "image": "/products/price-tiers/p-exp-c-f2a15ce86482.webp",
+      "merchantImage": "/products/price-tiers/p-exp-c-f2a15ce86482.webp",
+      "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/1140/4312/files/red-velvet-and-cirque-stripes-keyhole-romper-with-nude-mesh-6964743.jpg?v=1764257115"
+      ],
+      "availability": "in_stock",
+      "sizes": [
+        "XXS / Almond Mesh / Siren Cut Leg (Cheeky as Shown)",
+        "XXS / Camel Mesh / Siren Cut Leg (Cheeky as Shown)",
+        "XXS / Cocoa Mesh / Siren Cut Leg (Cheeky as Shown)",
+        "XS / Almond Mesh / Siren Cut Leg (Cheeky as Shown)",
+        "XS / Camel Mesh / Siren Cut Leg (Cheeky as Shown)",
+        "XS / Cocoa Mesh / Siren Cut Leg (Cheeky as Shown)",
+        "S / Almond Mesh / Siren Cut Leg (Cheeky as Shown)",
+        "S / Camel Mesh / Siren Cut Leg (Cheeky as Shown)",
+        "S / Cocoa Mesh / Siren Cut Leg (Cheeky as Shown)",
+        "M / Almond Mesh / Siren Cut Leg (Cheeky as Shown)",
+        "M / Camel Mesh / Siren Cut Leg (Cheeky as Shown)",
+        "M / Cocoa Mesh / Siren Cut Leg (Cheeky as Shown)",
+        "L / Almond Mesh / Siren Cut Leg (Cheeky as Shown)",
+        "L / Camel Mesh / Siren Cut Leg (Cheeky as Shown)",
+        "L / Cocoa Mesh / Siren Cut Leg (Cheeky as Shown)",
+        "XL / Almond Mesh / Siren Cut Leg (Cheeky as Shown)",
+        "XL / Camel Mesh / Siren Cut Leg (Cheeky as Shown)",
+        "XL / Cocoa Mesh / Siren Cut Leg (Cheeky as Shown)",
+        "2XL / Almond Mesh / Siren Cut Leg (Cheeky as Shown)",
+        "2XL / Camel Mesh / Siren Cut Leg (Cheeky as Shown)",
+        "2XL / Cocoa Mesh / Siren Cut Leg (Cheeky as Shown)",
+        "3XL / Almond Mesh / Siren Cut Leg (Cheeky as Shown)",
+        "3XL / Camel Mesh / Siren Cut Leg (Cheeky as Shown)",
+        "3XL / Cocoa Mesh / Siren Cut Leg (Cheeky as Shown)"
+      ],
+      "merchantId": "coquetryclothing-com",
+      "tagSlugs": [],
+      "description": "This delightful romper is made of our red stretch velvet, with a keyhole neckline, flip sleeves, and your choice of leg cut. It features nude mesh in the keyhole, and at the center waistband. Choose from Almond, Camel, or Cocoa mesh. Black back zipper This item is made to order. Ships out within 5 days of purchase. Red velvet and circus stripes with nude mesh keyhole and waistband. Only the selected Almond Mesh / Siren Cut variant is priced here. Made to order; merchant says ships within five days of purchase. Delivery before Halloween is unconfirmed. No wind-up key included.",
+      "checkedAt": "2026-10-27T00:28:36.827435Z",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-27T00:28:36.827435Z",
+        "url": "https://coquetryclothing.com/collections/rompers/products.json?limit=250",
+        "notes": "Merchant public JSON feed confirms selected variant available at the listed USD price. Red velvet and circus stripes with nude mesh keyhole and waistband. Only the selected Almond Mesh / Siren Cut variant is priced here. Made to order; merchant says ships within five days of purchase. Delivery before Halloween is unconfirmed. No wind-up key included. Delivery is unconfirmed."
+      }
+    },
+    {
+      "id": "p-exp-c-7decb56ddc8d",
+      "title": "Black Velvet and Stripes Romper with Keyhole Neckline and Mini Tux Back Tails",
+      "url": "https://coquetryclothing.com/products/black-velvet-and-stripes-romper-with-keyhole-neckline-and-mini-tux-back-tails?variant=42057813917783",
+      "priceCents": 15125,
+      "currency": "USD",
+      "image": "/products/price-tiers/p-exp-c-7decb56ddc8d.webp",
+      "merchantImage": "/products/price-tiers/p-exp-c-7decb56ddc8d.webp",
+      "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/1140/4312/files/black-velvet-and-stripes-romper-with-keyhole-neckline-and-mini-tux-back-tails-8500599.jpg?v=1764257059"
+      ],
+      "availability": "in_stock",
+      "sizes": [
+        "XXS / Siren Cut Leg (Cheeky) / Almond",
+        "XXS / Boy Cut Leg (shown) / Almond",
+        "XS / Siren Cut Leg (Cheeky) / Almond",
+        "XS / Boy Cut Leg (shown) / Almond",
+        "S / Siren Cut Leg (Cheeky) / Almond",
+        "S / Boy Cut Leg (shown) / Almond",
+        "M / Siren Cut Leg (Cheeky) / Almond",
+        "M / Boy Cut Leg (shown) / Almond",
+        "L / Siren Cut Leg (Cheeky) / Almond",
+        "L / Boy Cut Leg (shown) / Almond",
+        "XL / Siren Cut Leg (Cheeky) / Almond",
+        "XL / Boy Cut Leg (shown) / Almond",
+        "2XL / Siren Cut Leg (Cheeky) / Almond",
+        "2XL / Boy Cut Leg (shown) / Almond",
+        "3XL / Siren Cut Leg (Cheeky) / Almond",
+        "3XL / Boy Cut Leg (shown) / Almond",
+        "XXS / Siren Cut Leg (Cheeky) / Camel",
+        "XXS / Siren Cut Leg (Cheeky) / Cocoa",
+        "XXS / Boy Cut Leg (shown) / Camel",
+        "XXS / Boy Cut Leg (shown) / Cocoa",
+        "XS / Siren Cut Leg (Cheeky) / Camel",
+        "XS / Siren Cut Leg (Cheeky) / Cocoa",
+        "XS / Boy Cut Leg (shown) / Camel",
+        "XS / Boy Cut Leg (shown) / Cocoa",
+        "S / Siren Cut Leg (Cheeky) / Camel",
+        "S / Siren Cut Leg (Cheeky) / Cocoa",
+        "S / Boy Cut Leg (shown) / Camel",
+        "S / Boy Cut Leg (shown) / Cocoa",
+        "M / Siren Cut Leg (Cheeky) / Camel",
+        "M / Siren Cut Leg (Cheeky) / Cocoa",
+        "M / Boy Cut Leg (shown) / Camel",
+        "M / Boy Cut Leg (shown) / Cocoa",
+        "L / Siren Cut Leg (Cheeky) / Camel",
+        "L / Siren Cut Leg (Cheeky) / Cocoa",
+        "L / Boy Cut Leg (shown) / Camel",
+        "L / Boy Cut Leg (shown) / Cocoa",
+        "XL / Siren Cut Leg (Cheeky) / Camel",
+        "XL / Siren Cut Leg (Cheeky) / Cocoa",
+        "XL / Boy Cut Leg (shown) / Camel",
+        "XL / Boy Cut Leg (shown) / Cocoa",
+        "2XL / Siren Cut Leg (Cheeky) / Camel",
+        "2XL / Siren Cut Leg (Cheeky) / Cocoa",
+        "2XL / Boy Cut Leg (shown) / Camel",
+        "2XL / Boy Cut Leg (shown) / Cocoa",
+        "3XL / Siren Cut Leg (Cheeky) / Camel",
+        "3XL / Siren Cut Leg (Cheeky) / Cocoa",
+        "3XL / Boy Cut Leg (shown) / Camel",
+        "3XL / Boy Cut Leg (shown) / Cocoa"
+      ],
+      "merchantId": "coquetryclothing-com",
+      "tagSlugs": [],
+      "description": "This romper features serious big top style! Black velvet for the bodice and flip sleeves, nude mesh at the waistband, and vertical black and white stripes on the hips and the tuxedo tails. Tails are lined in white, and the suit has a black zipper in back. This item is made to order. Ships out within 5 days of purchase. Black velvet with black/white striped hips and short tux tails. Selected Almond mesh/Siren cut version. Black rather than red bodice. Made to order; merchant says ships within five days of purchase. Delivery before Halloween is unconfirmed. No wind-up key included.",
+      "checkedAt": "2026-10-27T00:28:36.827435Z",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-27T00:28:36.827435Z",
+        "url": "https://coquetryclothing.com/collections/rompers/products.json?limit=250",
+        "notes": "Merchant public JSON feed confirms selected variant available at the listed USD price. Black velvet with black/white striped hips and short tux tails. Selected Almond mesh/Siren cut version. Black rather than red bodice. Made to order; merchant says ships within five days of purchase. Delivery before Halloween is unconfirmed. No wind-up key included. Delivery is unconfirmed."
+      }
+    },
+    {
+      "id": "p-151c13bff4",
+      "title": "Silver Metallic Womens Gloves",
+      "url": "https://blockbustercostumes.com/products/silver-metallic-womens-gloves.html",
+      "priceCents": 1099,
+      "currency": "USD",
+      "image": "/products/price-tiers/p-151c13bff4.webp",
+      "merchantImage": "/products/price-tiers/p-151c13bff4.webp",
+      "sourceImages": [
+        "https://cdn11.bigcommerce.com/s-cdu7h4/images/stencil/1280x1280/products/122800/143236/uw29851-w-1__94034.1542258658.jpg?c=2"
+      ],
+      "availability": "in_stock",
+      "sizes": [],
+      "merchantId": "blockbustercostumes-com",
+      "tagSlugs": [],
+      "description": "One pair of silver metallic full-finger gloves. Product page does not publish a numeric size or exact length. Photo shows a forearm-length cuff rather than the longer opera proportions in the reference. Page structured data explicitly lists InStock at $10.99.",
+      "checkedAt": "2026-10-26T10:00:53.294Z",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-25T08:49:56Z",
+        "url": "https://blockbustercostumes.com/products/silver-metallic-womens-gloves.html",
+        "notes": "One pair of silver metallic full-finger gloves. Product page does not publish a numeric size or exact length. Photo shows a forearm-length cuff rather than the longer opera proportions in the reference. Page structured data explicitly lists InStock at $10.99."
+      }
+    },
+    {
+      "id": "p-52f0c3d91f",
+      "title": "Opera Length Silver Satin Gloves",
+      "url": "https://formalwearoutlet.com/products/opera-length-gloves-silver?variant=52653601718432",
+      "priceCents": 2299,
+      "currency": "USD",
+      "image": "/products/price-tiers/p-52f0c3d91f.webp",
+      "merchantImage": "/products/price-tiers/p-52f0c3d91f.webp",
+      "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/0596/4519/8496/files/GLV57_Silver_Satin_Opera_Length_Gloves.jpg?v=1757027597"
+      ],
+      "availability": "in_stock",
+      "sizes": [
+        "one size"
+      ],
+      "merchantId": "formalwearoutlet-com",
+      "tagSlugs": [],
+      "description": "Silver stretch satin gloves, 22.44 inches / 57 cm long. The merchant does not publish a numeric hand size. Soft satin sheen rather than a metallic or sequined finish. Gloves only; bridal clothing in the photo is excluded. Product page explicitly says in stock.",
+      "checkedAt": "2026-10-26T10:00:53.374Z",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-25T08:49:56Z",
+        "url": "https://formalwearoutlet.com/products/opera-length-gloves-silver.js",
+        "notes": "Silver stretch satin gloves, 22.44 inches / 57 cm long. The merchant does not publish a numeric hand size. Soft satin sheen rather than a metallic or sequined finish. Gloves only; bridal clothing in the photo is excluded. Product page explicitly says in stock."
+      }
+    },
+    {
+      "id": "p-8b2a001d45",
+      "title": "MIRAGE Opera Gloves",
+      "url": "https://saintchic.com/products/mirage-opera-gloves?variant=43032815337537",
+      "priceCents": 7000,
+      "currency": "USD",
+      "image": "/products/price-tiers/p-8b2a001d45.webp",
+      "merchantImage": "/products/price-tiers/p-8b2a001d45.webp",
+      "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/0107/5132/files/MIRAGE-Opera-Gloves-gloves-SAINT-CHIC-Opera-Length-4.png?v=1791401567"
+      ],
+      "availability": "in_stock",
+      "sizes": [
+        "one size"
+      ],
+      "merchantId": "saintchic-com",
+      "tagSlugs": [],
+      "description": "Selected Opera-Length pair is 19.6 inches, $70. Silver synthetic patent leather, unlined, minimal stretch. Merchant fit limits: palm perimeter up to 7.5 inches and upper arm under 11 inches. Mirror finish rather than glitter. Other lengths have different prices and are excluded.",
+      "checkedAt": "2026-10-26T10:00:53.400Z",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-25T08:49:56Z",
+        "url": "https://saintchic.com/products/mirage-opera-gloves.js",
+        "notes": "Selected Opera-Length pair is 19.6 inches, $70. Silver synthetic patent leather, unlined, minimal stretch. Merchant fit limits: palm perimeter up to 7.5 inches and upper arm under 11 inches. Mirror finish rather than glitter. Other lengths have different prices and are excluded."
+      }
+    },
+    {
+      "id": "p-9ceb60b1a5",
+      "title": "Rainey Vintage Lace-Up Boots (Black)",
+      "url": "https://www.americanduchess.com/products/rainey-womens-vintage-lace-up-boots-black?variant=42358320824470",
+      "priceCents": 28500,
+      "currency": "USD",
+      "image": "/products/price-tiers/p-9ceb60b1a5.webp",
+      "merchantImage": "/products/price-tiers/p-9ceb60b1a5.webp",
+      "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/0450/5721/2566/products/rainey-vintage-boots-dandy-wellington-black-of.jpg?v=1671580774"
+      ],
+      "availability": "in_stock",
+      "sizes": [
+        "5",
+        "6",
+        "6.5",
+        "7",
+        "7.5",
+        "8",
+        "8.5",
+        "9",
+        "9.5",
+        "10",
+        "12"
+      ],
+      "merchantId": "americanduchess-com",
+      "tagSlugs": [],
+      "description": "Black calf-leather Balmoral ankle boots with cotton-twill/pigskin lining, leather soles, adjustable laces, 5-inch shaft and 1-inch heel. Vintage shape; no stars or crescent detail and a lower heel than the reference. Pair of boots. Current feed confirms women’s US 5, 6, 6.5, 7, 7.5, 8, 8.5, 9, 9.5, 10 and 12 at $285; 10.5 and 11 are unavailable. Regular B width. US merchant; dispatch date is not stated.",
+      "checkedAt": "2026-10-26T10:00:37.837Z",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-25T08:48:40.074055Z",
+        "url": "https://www.americanduchess.com/products/rainey-womens-vintage-lace-up-boots-black.js",
+        "notes": "Black calf-leather Balmoral ankle boots with cotton-twill/pigskin lining, leather soles, adjustable laces, 5-inch shaft and 1-inch heel. Vintage shape; no stars or crescent detail and a lower heel than the reference. Pair of boots. Current feed confirms women’s US 5, 6, 6.5, 7, 7.5, 8, 8.5, 9, 9.5, 10 and 12 at $285; 10.5 and 11 are unavailable. Regular B width. US merchant; dispatch date is not stated."
+      }
+    },
+    {
+      "id": "p-982c5731f8",
+      "title": "Combat | Black",
+      "url": "https://thursdayboots.com/products/womens-combat-boot-black?variant=32904484126810",
+      "priceCents": 19000,
+      "currency": "USD",
+      "image": "/products/price-tiers/p-982c5731f8.webp",
+      "merchantImage": "/products/price-tiers/p-982c5731f8.webp",
+      "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/0419/1525/products/1024x1024-Women-Combat-Black-081721-Side.jpg?v=1683319134"
+      ],
+      "availability": "in_stock",
+      "sizes": [
+        "5",
+        "5.5",
+        "6",
+        "6.5",
+        "7",
+        "7.5",
+        "8",
+        "8.5",
+        "9",
+        "9.5",
+        "10",
+        "10.5",
+        "11",
+        "11.5",
+        "12"
+      ],
+      "merchantId": "thursdayboots-com",
+      "tagSlugs": [],
+      "description": "Black full-grain leather lace-up combat boot with glove-leather lining, YKK side zipper, 6-inch shaft, 1.5-inch heel and rubber outsole. No celestial embroidery. Standard-width women’s US 5–12, including all offered half sizes, are available at $190. This option represents Standard width only. Pair of boots; free domestic US ground shipping is offered, but arrival is not verified.",
+      "checkedAt": "2026-10-26T10:01:21.952Z",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-25T08:48:40.074055Z",
+        "url": "https://thursdayboots.com/products/womens-combat-boot-black.js",
+        "notes": "Black full-grain leather lace-up combat boot with glove-leather lining, YKK side zipper, 6-inch shaft, 1.5-inch heel and rubber outsole. No celestial embroidery. Standard-width women’s US 5–12, including all offered half sizes, are available at $190. This option represents Standard width only. Pair of boots; free domestic US ground shipping is offered, but arrival is not verified."
+      }
+    },
+    {
+      "id": "p-ed0b6d3416",
+      "title": "Prima Black Combat Boots",
+      "url": "https://www.rocketdog.com/products/prima-black-combat-boots?variant=45600624508998",
+      "priceCents": 5597,
+      "currency": "USD",
+      "image": "/products/price-tiers/p-ed0b6d3416.webp",
+      "merchantImage": "/products/price-tiers/p-ed0b6d3416.webp",
+      "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/1903/5555/files/prima_grinnel_pu_black_002.jpg?v=1784302923"
+      ],
+      "availability": "in_stock",
+      "sizes": [
+        "6",
+        "6.5",
+        "7",
+        "7.5",
+        "8",
+        "8.5",
+        "9",
+        "9.5",
+        "10",
+        "11"
+      ],
+      "merchantId": "rocketdog-com",
+      "tagSlugs": [],
+      "description": "Black faux-leather combat boots with lace front, inner zipper, microfiber lining and chunky treaded rubber sole. 1.8-inch heel; more casual than the reference decorative heeled boots. Pair of boots only. Feed confirms US women’s 6, 6.5, 7, 7.5, 8, 8.5, 9, 9.5, 10 and 11 available at the current $55.97 sale price; 12 is sold out. US direct store; dispatch timing is not stated.",
+      "checkedAt": "2026-10-26T10:00:37.590Z",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-25T08:48:40.074055Z",
+        "url": "https://www.rocketdog.com/products/prima-black-combat-boots.js",
+        "notes": "Black faux-leather combat boots with lace front, inner zipper, microfiber lining and chunky treaded rubber sole. 1.8-inch heel; more casual than the reference decorative heeled boots. Pair of boots only. Feed confirms US women’s 6, 6.5, 7, 7.5, 8, 8.5, 9, 9.5, 10 and 11 available at the current $55.97 sale price; 12 is sold out. US direct store; dispatch timing is not stated."
+      }
+    }
+  ],
+  "merchants": [
+    {
+      "id": "blockbustercostumes-com",
+      "name": "BlockBuster Costumes",
+      "domain": "blockbustercostumes.com",
+      "url": "https://blockbustercostumes.com/",
+      "kind": "boutique",
+      "neighborhoodId": null
+    },
+    {
+      "id": "americanduchess-com",
+      "name": "American Duchess",
+      "domain": "americanduchess.com",
+      "url": "https://americanduchess.com/",
+      "kind": "boutique",
+      "neighborhoodId": null
+    },
+    {
+      "id": "coquetryclothing-com",
+      "name": "Coquetry Clothing",
+      "domain": "coquetryclothing.com",
+      "url": "https://coquetryclothing.com/",
+      "kind": "boutique",
+      "neighborhoodId": null
+    },
+    {
+      "id": "thursdayboots-com",
+      "name": "Thursday Boot Company",
+      "domain": "thursdayboots.com",
+      "url": "https://thursdayboots.com/",
+      "kind": "boutique",
+      "neighborhoodId": null
+    },
+    {
+      "id": "saintchic-com",
+      "name": "SAINT CHIC",
+      "domain": "saintchic.com",
+      "url": "https://saintchic.com/",
+      "kind": "boutique",
+      "neighborhoodId": null
+    },
+    {
+      "id": "formalwearoutlet-com",
+      "name": "Formalwear Outlet",
+      "domain": "formalwearoutlet.com",
+      "url": "https://formalwearoutlet.com/",
+      "kind": "boutique",
+      "neighborhoodId": null
+    },
+    {
+      "id": "rocketdog-com",
+      "name": "Rocket Dog",
+      "domain": "rocketdog.com",
+      "url": "https://rocketdog.com/",
+      "kind": "boutique",
+      "neighborhoodId": null
+    }
+  ],
+  "neighborhoods": [],
+  "tags": [],
+  "provenance": {
+    "method": "manual-research",
+    "generatedAt": "2026-10-27T00:28:36.827435Z",
+    "notes": "Expansion research uses built-in web search and direct merchant public variant feeds. Reused basics retain their original merchant evidence and check dates. Prices exclude shipping and tax; delivery is unconfirmed. Wind-up key is a DIY styling addition made with owned card, foil and a soft belt. It is not included in any purchased product; no working mechanism is promised. See docs/sourcing/expansion-c.json. Publication carries forward newer shared-product price, stock, size and check timestamps from the live database; original sourcing evidence is retained.",
+    "priceTiers": true,
+    "heroImageKind": "generated-reference"
+  }
+}

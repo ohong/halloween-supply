@@ -1,0 +1,371 @@
+{
+  "costume": {
+    "slug": "roller-disco",
+    "name": "Roller Disco",
+    "description": "A vertical rainbow-striped romper, bright knee socks, and a pink sweatband bring the roller-rink party.",
+    "image": "/costumes/roller-disco.png",
+    "alt": "Rainbow-striped short romper with rainbow knee socks, hot pink sweatband and wristbands, and white sneakers.",
+    "status": "live"
+  },
+  "pieces": [
+    {
+      "id": "roller-disco-rainbow-romper",
+      "name": "Rainbow striped romper",
+      "category": "one-piece",
+      "required": true,
+      "order": 0,
+      "styleNotes": "Vertical rainbow stripes define the look. Alternatives add long fringed sleeves or a back ruffle. All are made to order.",
+      "queries": [
+        "Rainbow striped romper"
+      ],
+      "sizeKind": "apparel",
+      "matches": [
+        {
+          "productId": "p-exp-c-f82e1b54a274",
+          "rank": 0,
+          "reason": "This bodysuit is made of lycra spandex in gorgeous vertical striped rainbow print. Cap sleeves, scoop neck, and boy cut legs. Four way stretch for a figure forming fit. This bodysuit is unlined. This item is made to order. Ships out within 5 days of purchase. Adult made-to-order romper; merchant says dispatch within five days of purchase. This does not establish delivery before Halloween. Unlined; shoes and accessories are excluded."
+        },
+        {
+          "productId": "p-exp-c-5270c62a3195",
+          "rank": 1,
+          "reason": "This bodysuit is made of lycra spandex in beautiful vertical stripe rainbow print. Long sleeves, scoop neckline, and boy cut legs. 6\" red chainette fringe on the sleeves! Four way stretch for a figure forming fit. This bodysuit is unlined. This item is made to order. Ships out within 5 days of purchase. Adult made-to-order romper; merchant says dispatch within five days of purchase. This does not establish delivery before Halloween. Unlined; shoes and accessories are excluded."
+        },
+        {
+          "productId": "p-exp-c-98ccf5f6e6a8",
+          "rank": 2,
+          "reason": "This bodysuit is made of a vertical stripe rainbow spandex. Self-lined flip sleeves and boy cut legs. This fabric is so bright and bold! An adorable ruffle is built into the back! Yay ruffle rumps! Four way stretch for a figure forming fit. This bodysuit is unlined. This item is made to order. Ships out within 5 days of purchase. Adult made-to-order romper; merchant says dispatch within five days of purchase. This does not establish delivery before Halloween. Unlined; shoes and accessories are excluded."
+        }
+      ]
+    },
+    {
+      "id": "roller-disco-rainbow-legwear",
+      "name": "Rainbow knee socks or legwear",
+      "category": "hosiery",
+      "required": true,
+      "order": 1,
+      "styleNotes": "Choose solid rainbow socks, crochet knee highs, or tattered full-length leggings. The lowest-price option is open crochet.",
+      "queries": [
+        "Rainbow knee socks or legwear"
+      ],
+      "sizeKind": "one_size",
+      "matches": [
+        {
+          "productId": "p-exp-c-69f5c5c7ea4b",
+          "rank": 0,
+          "reason": "Rainbow Knee Socks - Adult Includes (1) Pair One Size Fits Most Polyester For Ages 14+ One pair of adult rainbow knee socks; one size fits most. Closest striped sock silhouette."
+        },
+        {
+          "productId": "p-exp-c-6c11943c5e63",
+          "rank": 1,
+          "reason": "Rainbow crochet knee-high legwear; open crochet texture differs from solid socks. Merchant gives no numeric sizing."
+        },
+        {
+          "productId": "p-exp-c-1c11e7454563",
+          "rank": 2,
+          "reason": "Rainbow tattered leggings rather than socks. Worn over opaque legwear if more coverage is wanted. Merchant gives no numeric sizing."
+        }
+      ]
+    },
+    {
+      "id": "roller-disco-headband",
+      "name": "Retro headband or sweatband set",
+      "category": "headwear",
+      "required": true,
+      "order": 2,
+      "styleNotes": "Pink and rainbow sweatband sets include wristbands. The pom-pom alternative is a headband only.",
+      "queries": [
+        "Retro headband or sweatband set"
+      ],
+      "sizeKind": "one_size",
+      "matches": [
+        {
+          "productId": "p-exp-c-7283ecc0cc80",
+          "rank": 0,
+          "reason": "Get ready to sweat like it's the 80's with this hot pink sweatband set. Perfect for workouts or just looking totally rad, these sweatbands will add a fun pop of color to your outfit. Stay stylish and sweat-proof with this set! Includes: Headband (2)Wristband Hot pink headband and two wristbands included."
+        },
+        {
+          "productId": "p-exp-c-110204c6a7cb",
+          "rank": 1,
+          "reason": "Rainbow Headband and Sweatbands For Ages 14+ Rainbow headband and sweatbands; for ages 14 and older."
+        },
+        {
+          "productId": "p-exp-c-8cc5f549c6e0",
+          "rank": 2,
+          "reason": "Rainbow Pom Pom Headband - Adult For Ages 14+ Adult rainbow pom-pom headband only; wristbands are not included. More playful than the athletic reference."
+        }
+      ]
+    }
+  ],
+  "products": [
+    {
+      "id": "p-exp-c-f82e1b54a274",
+      "title": "Rainbow Striped Romper",
+      "url": "https://coquetryclothing.com/products/rainbow-striped-romper?variant=43949709197399",
+      "priceCents": 7259,
+      "currency": "USD",
+      "image": "/products/price-tiers/p-exp-c-f82e1b54a274.webp",
+      "merchantImage": "/products/price-tiers/p-exp-c-f82e1b54a274.webp",
+      "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/1140/4312/files/rainbow-striped-romper-8707355.jpg?v=1781549842"
+      ],
+      "availability": "in_stock",
+      "sizes": [
+        "XXS",
+        "XS",
+        "S",
+        "M",
+        "L",
+        "XL",
+        "2XL",
+        "3XL"
+      ],
+      "merchantId": "coquetryclothing-com",
+      "tagSlugs": [],
+      "description": "This bodysuit is made of lycra spandex in gorgeous vertical striped rainbow print. Cap sleeves, scoop neck, and boy cut legs. Four way stretch for a figure forming fit. This bodysuit is unlined. This item is made to order. Ships out within 5 days of purchase. Adult made-to-order romper; merchant says dispatch within five days of purchase. This does not establish delivery before Halloween. Unlined; shoes and accessories are excluded.",
+      "checkedAt": "2026-10-27T00:28:36.827435Z",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-27T00:28:36.827435Z",
+        "url": "https://coquetryclothing.com/collections/rompers/products.json?limit=250",
+        "notes": "Merchant public JSON feed confirms selected variant available at the listed USD price. Adult made-to-order romper; merchant says dispatch within five days of purchase. This does not establish delivery before Halloween. Unlined; shoes and accessories are excluded. Delivery is unconfirmed."
+      }
+    },
+    {
+      "id": "p-exp-c-5270c62a3195",
+      "title": "Long Sleeve Rainbow Romper with Fringe",
+      "url": "https://coquetryclothing.com/products/long-sleeve-rainbow-romper-with-fringe?variant=41779087474775",
+      "priceCents": 8855,
+      "currency": "USD",
+      "image": "/products/price-tiers/p-exp-c-5270c62a3195.webp",
+      "merchantImage": "/products/price-tiers/p-exp-c-5270c62a3195.webp",
+      "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/1140/4312/files/long-sleeve-rainbow-romper-with-fringe-6628523.jpg?v=1764257598"
+      ],
+      "availability": "in_stock",
+      "sizes": [
+        "XXS",
+        "XS",
+        "S",
+        "M",
+        "L",
+        "XL",
+        "2XL",
+        "3XL"
+      ],
+      "merchantId": "coquetryclothing-com",
+      "tagSlugs": [],
+      "description": "This bodysuit is made of lycra spandex in beautiful vertical stripe rainbow print. Long sleeves, scoop neckline, and boy cut legs. 6\" red chainette fringe on the sleeves! Four way stretch for a figure forming fit. This bodysuit is unlined. This item is made to order. Ships out within 5 days of purchase. Adult made-to-order romper; merchant says dispatch within five days of purchase. This does not establish delivery before Halloween. Unlined; shoes and accessories are excluded.",
+      "checkedAt": "2026-10-27T00:28:36.827435Z",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-27T00:28:36.827435Z",
+        "url": "https://coquetryclothing.com/collections/rompers/products.json?limit=250",
+        "notes": "Merchant public JSON feed confirms selected variant available at the listed USD price. Adult made-to-order romper; merchant says dispatch within five days of purchase. This does not establish delivery before Halloween. Unlined; shoes and accessories are excluded. Delivery is unconfirmed."
+      }
+    },
+    {
+      "id": "p-exp-c-98ccf5f6e6a8",
+      "title": "Rainbow Flip Sleeve Ruffle Rump Romper with 4\" Inseam",
+      "url": "https://coquetryclothing.com/products/rainbow-flip-sleeve-ruffle-rump-romper-with-4-inseam?variant=43287233790039",
+      "priceCents": 9019,
+      "currency": "USD",
+      "image": "/products/price-tiers/p-exp-c-98ccf5f6e6a8.webp",
+      "merchantImage": "/products/price-tiers/p-exp-c-98ccf5f6e6a8.webp",
+      "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/1140/4312/files/rainbow-flip-sleeve-ruffle-rump-romper-with-4-inseam-7764853.jpg?v=1778749272"
+      ],
+      "availability": "in_stock",
+      "sizes": [
+        "XXS",
+        "XS",
+        "S",
+        "M",
+        "L",
+        "XL",
+        "2XL",
+        "3XL"
+      ],
+      "merchantId": "coquetryclothing-com",
+      "tagSlugs": [],
+      "description": "This bodysuit is made of a vertical stripe rainbow spandex. Self-lined flip sleeves and boy cut legs. This fabric is so bright and bold! An adorable ruffle is built into the back! Yay ruffle rumps! Four way stretch for a figure forming fit. This bodysuit is unlined. This item is made to order. Ships out within 5 days of purchase. Adult made-to-order romper; merchant says dispatch within five days of purchase. This does not establish delivery before Halloween. Unlined; shoes and accessories are excluded.",
+      "checkedAt": "2026-10-27T00:28:36.827435Z",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-27T00:28:36.827435Z",
+        "url": "https://coquetryclothing.com/collections/rompers/products.json?limit=250",
+        "notes": "Merchant public JSON feed confirms selected variant available at the listed USD price. Adult made-to-order romper; merchant says dispatch within five days of purchase. This does not establish delivery before Halloween. Unlined; shoes and accessories are excluded. Delivery is unconfirmed."
+      }
+    },
+    {
+      "id": "p-exp-c-69f5c5c7ea4b",
+      "title": "Rainbow Knee Socks - Adult",
+      "url": "https://chicagocostume.com/products/rainbow-knee-socks-adult?variant=46133210579186",
+      "priceCents": 1499,
+      "currency": "USD",
+      "image": "/products/price-tiers/p-exp-c-69f5c5c7ea4b.webp",
+      "merchantImage": "/products/price-tiers/p-exp-c-69f5c5c7ea4b.webp",
+      "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/0610/0208/8690/files/61l-AVVUAbL._AC_SY879.jpg?v=1717004562"
+      ],
+      "availability": "in_stock",
+      "sizes": [],
+      "merchantId": "chicagocostume-com",
+      "tagSlugs": [],
+      "description": "Rainbow Knee Socks - Adult Includes (1) Pair One Size Fits Most Polyester For Ages 14+ One pair of adult rainbow knee socks; one size fits most. Closest striped sock silhouette.",
+      "checkedAt": "2026-10-27T00:28:36.827435Z",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-27T00:28:36.827435Z",
+        "url": "https://chicagocostume.com/products.json",
+        "notes": "Merchant public JSON feed confirms selected variant available at the listed USD price. One pair of adult rainbow knee socks; one size fits most. Closest striped sock silhouette. Delivery is unconfirmed."
+      }
+    },
+    {
+      "id": "p-exp-c-6c11943c5e63",
+      "title": "Rainbow Crochet Colors Stripes Knee hi",
+      "url": "https://chicagocostume.com/products/rainbow-crochet-colors-stripes-knee-hi?variant=44745718595826",
+      "priceCents": 799,
+      "currency": "USD",
+      "image": "/products/price-tiers/p-exp-c-6c11943c5e63.webp",
+      "merchantImage": "/products/price-tiers/p-exp-c-6c11943c5e63.webp",
+      "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/0610/0208/8690/files/5787-rainbow_large_633989f7-f0db-4be9-a547-4f78172be8c0.jpg?v=1697922829"
+      ],
+      "availability": "in_stock",
+      "sizes": [],
+      "merchantId": "chicagocostume-com",
+      "tagSlugs": [],
+      "description": " Rainbow crochet knee-high legwear; open crochet texture differs from solid socks. Merchant gives no numeric sizing.",
+      "checkedAt": "2026-10-27T00:28:36.827435Z",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-27T00:28:36.827435Z",
+        "url": "https://chicagocostume.com/products.json",
+        "notes": "Merchant public JSON feed confirms selected variant available at the listed USD price. Rainbow crochet knee-high legwear; open crochet texture differs from solid socks. Merchant gives no numeric sizing. Delivery is unconfirmed."
+      }
+    },
+    {
+      "id": "p-exp-c-1c11e7454563",
+      "title": "Tattered Rainbow Leggings",
+      "url": "https://chicagocostume.com/products/tattered-rainbow-leggings?variant=49128822898930",
+      "priceCents": 999,
+      "currency": "USD",
+      "image": "/products/price-tiers/p-exp-c-1c11e7454563.webp",
+      "merchantImage": "/products/price-tiers/p-exp-c-1c11e7454563.webp",
+      "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/0610/0208/8690/files/35124-rainbow_large_07d86baa-6430-4f55-b652-d94eac2bba5a.jpg?v=1777571826"
+      ],
+      "availability": "in_stock",
+      "sizes": [],
+      "merchantId": "chicagocostume-com",
+      "tagSlugs": [],
+      "description": " Rainbow tattered leggings rather than socks. Worn over opaque legwear if more coverage is wanted. Merchant gives no numeric sizing.",
+      "checkedAt": "2026-10-27T00:28:36.827435Z",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-27T00:28:36.827435Z",
+        "url": "https://chicagocostume.com/products.json",
+        "notes": "Merchant public JSON feed confirms selected variant available at the listed USD price. Rainbow tattered leggings rather than socks. Worn over opaque legwear if more coverage is wanted. Merchant gives no numeric sizing. Delivery is unconfirmed."
+      }
+    },
+    {
+      "id": "p-exp-c-7283ecc0cc80",
+      "title": "80's Sweatband Set",
+      "url": "https://chicagocostume.com/products/80s-sweatband-set?variant=46956355485938",
+      "priceCents": 799,
+      "currency": "USD",
+      "image": "/products/price-tiers/p-exp-c-7283ecc0cc80.webp",
+      "merchantImage": "/products/price-tiers/p-exp-c-7283ecc0cc80.webp",
+      "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/0610/0208/8690/files/71o7sJ_EdTL._AC_SX569.jpg?v=1728597717"
+      ],
+      "availability": "in_stock",
+      "sizes": [],
+      "merchantId": "chicagocostume-com",
+      "tagSlugs": [],
+      "description": "Get ready to sweat like it's the 80's with this hot pink sweatband set. Perfect for workouts or just looking totally rad, these sweatbands will add a fun pop of color to your outfit. Stay stylish and sweat-proof with this set! Includes: Headband (2)Wristband Hot pink headband and two wristbands included.",
+      "checkedAt": "2026-10-27T00:28:36.827435Z",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-27T00:28:36.827435Z",
+        "url": "https://chicagocostume.com/products.json",
+        "notes": "Merchant public JSON feed confirms selected variant available at the listed USD price. Hot pink headband and two wristbands included. Delivery is unconfirmed."
+      }
+    },
+    {
+      "id": "p-exp-c-110204c6a7cb",
+      "title": "Rainbow Headband and Sweatbands",
+      "url": "https://chicagocostume.com/products/rainbow-headband-and-sweatbands?variant=46139857076466",
+      "priceCents": 1499,
+      "currency": "USD",
+      "image": "/products/price-tiers/p-exp-c-110204c6a7cb.webp",
+      "merchantImage": "/products/price-tiers/p-exp-c-110204c6a7cb.webp",
+      "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/0610/0208/8690/files/81LIlsBJGtL.__AC_SX300_SY300_QL70_FMwebp.webp?v=1717088789"
+      ],
+      "availability": "in_stock",
+      "sizes": [],
+      "merchantId": "chicagocostume-com",
+      "tagSlugs": [],
+      "description": "Rainbow Headband and Sweatbands For Ages 14+ Rainbow headband and sweatbands; for ages 14 and older.",
+      "checkedAt": "2026-10-27T00:28:36.827435Z",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-27T00:28:36.827435Z",
+        "url": "https://chicagocostume.com/products.json",
+        "notes": "Merchant public JSON feed confirms selected variant available at the listed USD price. Rainbow headband and sweatbands; for ages 14 and older. Delivery is unconfirmed."
+      }
+    },
+    {
+      "id": "p-exp-c-8cc5f549c6e0",
+      "title": "Rainbow Pom Pom Headband - Adult",
+      "url": "https://chicagocostume.com/products/rainbow-pom-pom-headband-adult?variant=46133359247602",
+      "priceCents": 999,
+      "currency": "USD",
+      "image": "/products/price-tiers/p-exp-c-8cc5f549c6e0.webp",
+      "merchantImage": "/products/price-tiers/p-exp-c-8cc5f549c6e0.webp",
+      "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/0610/0208/8690/files/61OYJvt5HmL.__AC_SX300_SY300_QL70_FMwebp.webp?v=1717006419"
+      ],
+      "availability": "in_stock",
+      "sizes": [],
+      "merchantId": "chicagocostume-com",
+      "tagSlugs": [],
+      "description": "Rainbow Pom Pom Headband - Adult For Ages 14+ Adult rainbow pom-pom headband only; wristbands are not included. More playful than the athletic reference.",
+      "checkedAt": "2026-10-27T00:28:36.827435Z",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-27T00:28:36.827435Z",
+        "url": "https://chicagocostume.com/products.json",
+        "notes": "Merchant public JSON feed confirms selected variant available at the listed USD price. Adult rainbow pom-pom headband only; wristbands are not included. More playful than the athletic reference. Delivery is unconfirmed."
+      }
+    }
+  ],
+  "merchants": [
+    {
+      "id": "coquetryclothing-com",
+      "name": "Coquetry Clothing",
+      "domain": "coquetryclothing.com",
+      "url": "https://coquetryclothing.com/",
+      "kind": "boutique",
+      "neighborhoodId": null
+    },
+    {
+      "id": "chicagocostume-com",
+      "name": "Chicago Costume Company",
+      "domain": "chicagocostume.com",
+      "url": "https://chicagocostume.com/",
+      "kind": "boutique",
+      "neighborhoodId": null
+    }
+  ],
+  "neighborhoods": [],
+  "tags": [],
+  "provenance": {
+    "method": "manual-research",
+    "generatedAt": "2026-10-27T00:28:36.827435Z",
+    "notes": "Expansion research uses built-in web search and direct merchant public variant feeds. Reused basics retain their original merchant evidence and check dates. Prices exclude shipping and tax; delivery is unconfirmed. Use your own comfortable shoes; skates are not sold with this look. See docs/sourcing/expansion-c.json. Publication carries forward newer shared-product price, stock, size and check timestamps from the live database; original sourcing evidence is retained.",
+    "priceTiers": true,
+    "heroImageKind": "generated-reference"
+  }
+}

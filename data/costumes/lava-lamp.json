@@ -1,0 +1,627 @@
+{
+  "costume": {
+    "slug": "lava-lamp",
+    "name": "Lava Lamp",
+    "description": "Orange felt lava blobs float on a black base between a silver cone cap and wide silver hip band. A playful DIY build.",
+    "image": "/costumes/lava-lamp.png",
+    "alt": "Black fitted outfit with orange felt lava blobs, a small silver cone cap, and a broad silver hip band",
+    "status": "live"
+  },
+  "pieces": [
+    {
+      "id": "lava-lamp-1",
+      "name": "Black fitted base",
+      "category": "Clothing",
+      "required": true,
+      "order": 1,
+      "styleNotes": "A black fitted base forms the dark glass body of the lamp.",
+      "queries": [
+        "Black fitted base"
+      ],
+      "sizeKind": "apparel",
+      "matches": [
+        {
+          "productId": "p-33ba42bb05",
+          "rank": 0,
+          "reason": "A black fitted base forms the dark glass body of the lamp. Matte cotton base match; heavyweight garment-dyed cotton spandex, long sleeves/full length legs, black XS-XL all available. Retain existing reviewed photo/cutout if preserving product."
+        },
+        {
+          "productId": "p-b2b40f4575",
+          "rank": 1,
+          "reason": "A black fitted base forms the dark glass body of the lamp. Long sleeve full-length fitted black unitard. 85% nylon/15% spandex rather than cotton; front zipper and mock neck. All ten black XS–6XL variants available at USD42.99. Broad low-tier coverage. Merchant does not explicitly call finish matte; avoid claiming finish beyond plain nonmetallic black."
+        },
+        {
+          "productId": "p-efd5b81469",
+          "rank": 2,
+          "reason": "A black fitted base forms the dark glass body of the lamp. Explicit matte, opaque 93% nylon/7% spandex full-body long-sleeve catsuit. Includes fingers and toes; garment can be cut at wrists/ankles without running per merchant. One Size fits XS–XL; Plus Size fits up to4X but black Plus has ColorQty0, so excluded as in-stock. Live merchant embedded variant inventory object: Black, Size One Size, ColorQty3, QtyCompleted5, WebPrice95, Discontinuedfalse, production ship dateMonday10/26. One Size black stock verified, rather than inferring stock from selector. No size-specific permalink provided by merchant; URL fixes black color."
+        }
+      ]
+    },
+    {
+      "id": "lava-lamp-2",
+      "name": "Orange felt for DIY lava blobs",
+      "category": "DIY supplies",
+      "required": true,
+      "order": 2,
+      "styleNotes": "One half-yard or larger cut. Cut several rounded organic blobs and stitch to the front with your own thread. No lighting is included.",
+      "queries": [
+        "Orange felt for DIY lava blobs"
+      ],
+      "sizeKind": "one_size",
+      "matches": [
+        {
+          "productId": "p-1b4eb91408",
+          "rank": 0,
+          "reason": "One half-yard or larger cut. Cut several rounded organic blobs and stitch to the front with your own thread. No lighting is included. Price buys one 36 x 72 inch yard of bright orange 100% acrylic felt, 1.6 mm thick and 300 gsm. Raw fabric only; cut and sew diamonds yourself. Brighter and thicker than the reference's burnt-orange velvet. Merchant advertises same-day dispatch before 1 PM PT; confirm the applicable business day at checkout."
+        },
+        {
+          "productId": "p-14282b42ef",
+          "rank": 1,
+          "reason": "One half-yard or larger cut. Cut several rounded organic blobs and stitch to the front with your own thread. No lighting is included. Pumpkin is an orange heathered wool/rayon blend, approximately 1 mm thick. Price buys one 1/2-yard cut, approximately 18 x 36 inches. It is closer to burnt orange than bright acrylic felt. Cut and sew diamonds yourself; quantity depends on garment size and coverage. Multiple half-yard units yield an uncut sheet per merchant. Tools and thread are not included."
+        },
+        {
+          "productId": "p-527214ceca",
+          "rank": 2,
+          "reason": "One half-yard or larger cut. Cut several rounded organic blobs and stitch to the front with your own thread. No lighting is included. Price buys one yard of 72-inch-wide orange 100% acrylic felt, 5-ounce weight. Choose fabric rather than the $3 swatch. Raw fabric only; cut and sew diamonds yourself. Solid orange craft felt differs from velvet. Quantity depends on garment size and pattern coverage."
+        }
+      ]
+    },
+    {
+      "id": "lava-lamp-3",
+      "name": "Silver fabric for DIY cap and hip band",
+      "category": "DIY supplies",
+      "required": true,
+      "order": 3,
+      "styleNotes": "One full yard. Wrap your own lightweight card cone for a small cap; hem remaining cloth into a wide hip band. Card backing, thread, elastic and fasteners are not included. Keep the band loose enough to walk.",
+      "queries": [
+        "Silver fabric for DIY cap and hip band"
+      ],
+      "sizeKind": "one_size",
+      "matches": [
+        {
+          "productId": "p-2d4b62e79e",
+          "rank": 0,
+          "reason": "One full yard. Wrap your own lightweight card cone for a small cap; hem remaining cloth into a wide hip band. Card backing, thread, elastic and fasteners are not included. Keep the band loose enough to walk. Primary merchant public variant feed reports available true and exact USD price. One 36 × 44/45 inch yard; lightweight metallic cloth needs your own card backing for a cone cap."
+        },
+        {
+          "productId": "p-637281f86a",
+          "rank": 1,
+          "reason": "One full yard. Wrap your own lightweight card cone for a small cap; hem remaining cloth into a wide hip band. Card backing, thread, elastic and fasteners are not included. Keep the band loose enough to walk. Primary merchant public variant feed reports available true and exact USD price. One 36 × 60 inch yard; silver satin rather than metallic foil. Your own card backing needed for cap."
+        },
+        {
+          "productId": "p-dbe328ca8c",
+          "rank": 2,
+          "reason": "One full yard. Wrap your own lightweight card cone for a small cap; hem remaining cloth into a wide hip band. Card backing, thread, elastic and fasteners are not included. Keep the band loose enough to walk. Primary merchant public variant feed reports available true and exact USD price. One 36 × 60 inch yard; soft silver satin. Your own card backing needed for cap."
+        }
+      ]
+    },
+    {
+      "id": "lava-lamp-4",
+      "name": "Dark ankle boots",
+      "category": "Footwear",
+      "required": true,
+      "order": 4,
+      "styleNotes": "Plain dark shoes keep attention on the lamp silhouette.",
+      "queries": [
+        "Dark ankle boots"
+      ],
+      "sizeKind": "shoe",
+      "matches": [
+        {
+          "productId": "p-fa88c71724",
+          "rank": 0,
+          "reason": "Plain dark shoes keep attention on the lamp silhouette. Genuine black leather upper, glove leather lining, 1.25 inch stacked leather heel, elastic gores. All Standard US4-13 in half sizes available. Broad sizes; exact variant default is US4, shopper must choose correct size."
+        },
+        {
+          "productId": "p-da7d00ef0d",
+          "rank": 1,
+          "reason": "Plain dark shoes keep attention on the lamp silhouette. Budget material compromise: imitation synthetic leather rather than genuine leather. Ankle-high Chelsea, 1.25 inch heel, 0.75 inch platform. Merchant JSON-LD lists black USD49.99 InStock; live HTML exact-size inventory counts positive for all 12 listed US sizes. Size8 kid23928 count1806. Hidden generic SOLD OUT text is contradicted by variant inventory and InStock offer; verified source HTML retained /tmp/dreampairs-moon-boots.html."
+        },
+        {
+          "productId": "p-862b138943",
+          "rank": 2,
+          "reason": "Plain dark shoes keep attention on the lamp silhouette. Black premium water-resistant leather classic flat Chelsea boot. Live public feed USD209.95, not stale search result199.95. Available USwomen5-16; two equivalent AU/UK label sets in merchant variants, deduplicate before display. Exact first available variant is USwomen6."
+        }
+      ]
+    }
+  ],
+  "products": [
+    {
+      "id": "p-33ba42bb05",
+      "title": "83028GD - Garment Dye Long Sleeve Unitard",
+      "url": "https://losangelesapparel.net/products/83028gd-garment-dye-long-sleeve-unitard?variant=37888203161779",
+      "priceCents": 7000,
+      "currency": "USD",
+      "image": "/products/price-tiers/p-33ba42bb05.webp",
+      "cutout": "/products/p-33ba42bb05-cutout.png",
+      "merchantImage": "/products/price-tiers/p-33ba42bb05.webp",
+      "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/2152/0639/products/black1_1_4984a0ae-5411-4aea-a78b-eb4b02ab8afa.jpg?v=1721953708"
+      ],
+      "availability": "in_stock",
+      "sizes": [
+        "XS",
+        "S",
+        "M",
+        "L",
+        "XL"
+      ],
+      "merchantId": "losangelesapparel-net",
+      "tagSlugs": [
+        "cotton",
+        "unitard",
+        "black",
+        "long-sleeve",
+        "garment-dyed"
+      ],
+      "description": "Matte cotton base match; heavyweight garment-dyed cotton spandex, long sleeves/full length legs, black XS-XL all available. Retain existing reviewed photo/cutout if preserving product.",
+      "checkedAt": "2026-10-26T10:01:10.051Z",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-25T07:07:04.071733+00:00",
+        "url": "https://losangelesapparel.net/products/83028gd-garment-dye-long-sleeve-unitard.js",
+        "notes": "Matte cotton base match; heavyweight garment-dyed cotton spandex, long sleeves/full length legs, black XS-XL all available. Retain existing reviewed photo/cutout if preserving product."
+      }
+    },
+    {
+      "id": "p-b2b40f4575",
+      "title": "Zip Front Spandex Long Sleeve Turtleneck Unitard — Black",
+      "url": "https://www.speerise.com/products/speerise-ladies-spandex-long-sleeve-turtleneck-unitard?variant=39728194715781",
+      "priceCents": 4299,
+      "currency": "USD",
+      "image": "/products/price-tiers/p-b2b40f4575.webp",
+      "merchantImage": "/products/price-tiers/p-b2b40f4575.webp",
+      "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/0365/8003/2645/products/speerise-zip-front-spandex-long-sleeve-turtleneck-unitard-black.jpg?v=1760671730"
+      ],
+      "availability": "in_stock",
+      "sizes": [
+        "XS",
+        "S",
+        "M",
+        "L",
+        "XL",
+        "2XL",
+        "3XL",
+        "4XL",
+        "5XL",
+        "6XL"
+      ],
+      "merchantId": "speerise-com",
+      "tagSlugs": [],
+      "description": "Long sleeve full-length fitted black unitard. 85% nylon/15% spandex rather than cotton; front zipper and mock neck. All ten black XS–6XL variants available at USD42.99. Broad low-tier coverage. Merchant does not explicitly call finish matte; avoid claiming finish beyond plain nonmetallic black.",
+      "checkedAt": "2026-10-26T10:01:10.690Z",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-25T07:07:04.071733+00:00",
+        "url": "https://www.speerise.com/products/speerise-ladies-spandex-long-sleeve-turtleneck-unitard.js",
+        "notes": "Long sleeve full-length fitted black unitard. 85% nylon/15% spandex rather than cotton; front zipper and mock neck. All ten black XS–6XL variants available at USD42.99. Broad low-tier coverage. Merchant does not explicitly call finish matte; avoid claiming finish beyond plain nonmetallic black."
+      }
+    },
+    {
+      "id": "p-efd5b81469",
+      "title": "Second Skin Catsuit Style5010 — Black",
+      "url": "https://www.welovecolors.com/shop/womens/sale/second-skin-catsuit/black",
+      "priceCents": 9500,
+      "currency": "USD",
+      "image": "/products/price-tiers/p-efd5b81469.webp",
+      "merchantImage": "/products/price-tiers/p-efd5b81469.webp",
+      "sourceImages": [
+        "https://www.welovecolors.com/images/product/full/5010-w-black-second-skin-catsuit.jpg"
+      ],
+      "availability": "in_stock",
+      "sizes": [
+        "One Size"
+      ],
+      "merchantId": "welovecolors-com",
+      "tagSlugs": [],
+      "description": "Explicit matte, opaque 93% nylon/7% spandex full-body long-sleeve catsuit. Includes fingers and toes; garment can be cut at wrists/ankles without running per merchant. One Size fits XS–XL; Plus Size fits up to4X but black Plus has ColorQty0, so excluded as in-stock. Live merchant embedded variant inventory object: Black, Size One Size, ColorQty3, QtyCompleted5, WebPrice95, Discontinuedfalse, production ship dateMonday10/26. One Size black stock verified, rather than inferring stock from selector. No size-specific permalink provided by merchant; URL fixes black color.",
+      "checkedAt": "2026-10-25T08:50:58.976351Z",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-25T07:07:04.071733+00:00",
+        "url": "https://www.welovecolors.com/shop/womens/sale/second-skin-catsuit/black",
+        "notes": "Explicit matte, opaque 93% nylon/7% spandex full-body long-sleeve catsuit. Includes fingers and toes; garment can be cut at wrists/ankles without running per merchant. One Size fits XS–XL; Plus Size fits up to4X but black Plus has ColorQty0, so excluded as in-stock. Live merchant embedded variant inventory object: Black, Size One Size, ColorQty3, QtyCompleted5, WebPrice95, Discontinuedfalse, production ship dateMonday10/26. One Size black stock verified, rather than inferring stock from selector. No size-specific permalink provided by merchant; URL fixes black color."
+      }
+    },
+    {
+      "id": "p-1b4eb91408",
+      "title": "Orange Acrylic Felt Fabric / 1.6mm Thick _ 72” Wide",
+      "url": "https://icefabrics.com/products/acrylic-orange-felt-fabric-1-6mm-thick-72-wide?variant=43183310897374",
+      "priceCents": 1099,
+      "currency": "USD",
+      "image": "/products/price-tiers/p-1b4eb91408.webp",
+      "merchantImage": "/products/price-tiers/p-1b4eb91408.webp",
+      "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/0037/6802/5152/files/Orange_Acrylic_Felt_Fabric_10015_55a8f417-f188-4b9b-bc0c-d3730a1b8b68.webp?v=1780835074"
+      ],
+      "availability": "in_stock",
+      "sizes": [
+        "By The Yard"
+      ],
+      "merchantId": "icefabrics-com",
+      "tagSlugs": [],
+      "description": "Price buys one 36 x 72 inch yard of bright orange 100% acrylic felt, 1.6 mm thick and 300 gsm. Raw fabric only; cut and sew diamonds yourself. Brighter and thicker than the reference's burnt-orange velvet. Merchant advertises same-day dispatch before 1 PM PT; confirm the applicable business day at checkout.",
+      "checkedAt": "2026-10-26T10:01:11.495Z",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-25T08:50:58.976351Z",
+        "url": "https://icefabrics.com/products/acrylic-orange-felt-fabric-1-6mm-thick-72-wide.js",
+        "notes": "Price buys one 36 x 72 inch yard of bright orange 100% acrylic felt, 1.6 mm thick and 300 gsm. Raw fabric only; cut and sew diamonds yourself. Brighter and thicker than the reference's burnt-orange velvet. Merchant advertises same-day dispatch before 1 PM PT; confirm the applicable business day at checkout."
+      }
+    },
+    {
+      "id": "p-14282b42ef",
+      "title": "Pumpkin Wool Blend Felt",
+      "url": "https://www.benziedesign.com/products/pumpkin-wool-blend-felt?variant=1328706564",
+      "priceCents": 150,
+      "currency": "USD",
+      "image": "/products/price-tiers/p-14282b42ef.webp",
+      "merchantImage": "/products/price-tiers/p-14282b42ef.webp",
+      "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/0791/1095/products/pumpkinwoolblendfelt.JPG?v=1780418156"
+      ],
+      "availability": "in_stock",
+      "sizes": [
+        "9x12"
+      ],
+      "merchantId": "benziedesign-com",
+      "tagSlugs": [],
+      "description": "Pumpkin is an orange heathered wool/rayon blend, approximately 1 mm thick. Price buys one 1/2-yard cut, approximately 18 x 36 inches. It is closer to burnt orange than bright acrylic felt. Cut and sew diamonds yourself; quantity depends on garment size and coverage. Multiple half-yard units yield an uncut sheet per merchant. Tools and thread are not included.",
+      "checkedAt": "2026-10-26T10:01:11.922Z",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-25T08:50:58.976351Z",
+        "url": "https://www.benziedesign.com/products/pumpkin-wool-blend-felt.js",
+        "notes": "Pumpkin is an orange heathered wool/rayon blend, approximately 1 mm thick. Price buys one 1/2-yard cut, approximately 18 x 36 inches. It is closer to burnt orange than bright acrylic felt. Cut and sew diamonds yourself; quantity depends on garment size and coverage. Multiple half-yard units yield an uncut sheet per merchant. Tools and thread are not included."
+      }
+    },
+    {
+      "id": "p-527214ceca",
+      "title": "Orange Acrylic Felt",
+      "url": "https://britexfabrics.com/products/orange-acrylic-felt?variant=47850957275456",
+      "priceCents": 1299,
+      "currency": "USD",
+      "image": "/products/price-tiers/p-527214ceca.webp",
+      "merchantImage": "/products/price-tiers/p-527214ceca.webp",
+      "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/0754/1260/3200/files/IMG_1318_9811e346-0b93-4b9e-9f5f-a39c121fd999.jpg?v=1707514282"
+      ],
+      "availability": "in_stock",
+      "sizes": [
+        "one size"
+      ],
+      "merchantId": "britexfabrics-com",
+      "tagSlugs": [],
+      "description": "Price buys one yard of 72-inch-wide orange 100% acrylic felt, 5-ounce weight. Choose fabric rather than the $3 swatch. Raw fabric only; cut and sew diamonds yourself. Solid orange craft felt differs from velvet. Quantity depends on garment size and pattern coverage.",
+      "checkedAt": "2026-10-26T10:01:11.449Z",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-25T08:50:58.976351Z",
+        "url": "https://britexfabrics.com/products/orange-acrylic-felt.js",
+        "notes": "Price buys one yard of 72-inch-wide orange 100% acrylic felt, 5-ounce weight. Choose fabric rather than the $3 swatch. Raw fabric only; cut and sew diamonds yourself. Solid orange craft felt differs from velvet. Quantity depends on garment size and pattern coverage."
+      }
+    },
+    {
+      "id": "p-2d4b62e79e",
+      "title": "Tissue Lame — Silver, 1 yard",
+      "url": "https://fabricwholesaledirect.com/products/tissue-lame-44-45-inch-fabric?variant=39460356522099",
+      "priceCents": 499,
+      "currency": "USD",
+      "image": "/products/price-tiers/p-2d4b62e79e.webp",
+      "merchantImage": "/products/price-tiers/p-2d4b62e79e.webp",
+      "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/0558/3725/products/SV570821_TissueLame-SilverA2.jpg?v=1765159919"
+      ],
+      "availability": "in_stock",
+      "sizes": [
+        "Silver / Yard"
+      ],
+      "merchantId": "fabricwholesaledirect-com",
+      "tagSlugs": [],
+      "description": "Tissue Lame (44/45 Inch) is a shiny, lightweight, and sheer fabric. Woven in a plain style weave, this fabric is sourced from a blend of 51% PET (polyethylene terephthalate) and 49% nylon, making this fabric is lustrous on both sides, in addition to ",
+      "checkedAt": "2026-10-27T00:28:28.398Z",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-27T00:28:28.398Z",
+        "url": "https://fabricwholesaledirect.com/products/tissue-lame-44-45-inch-fabric?variant=39460356522099",
+        "notes": "Primary merchant public variant feed reports available true and exact USD price. One 36 × 44/45 inch yard; lightweight metallic cloth needs your own card backing for a cone cap."
+      }
+    },
+    {
+      "id": "p-637281f86a",
+      "title": "Silver Silky Bridal Satin — 1 yard",
+      "url": "https://icefabrics.com/products/silver-shiny-bridal-satin-fabric?variant=45683719536862",
+      "priceCents": 599,
+      "currency": "USD",
+      "image": "/products/price-tiers/p-637281f86a.webp",
+      "merchantImage": "/products/price-tiers/p-637281f86a.webp",
+      "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/0037/6802/5152/files/Bridal_Shiny_Satin_Silver.jpg?v=1765020077"
+      ],
+      "availability": "in_stock",
+      "sizes": [
+        "By The Yard (60\" Wide)"
+      ],
+      "merchantId": "icefabrics-com",
+      "tagSlugs": [],
+      "description": "Description Create your unique style with this Silky Shiny Bridal Satin Fabric! It's a fancy, smooth fabric with a shiny finish. This fabric is crafted from a mix of silk and synthetic fibers like polyester or nylon, with that silky touch and flow. I",
+      "checkedAt": "2026-10-27T00:28:28.398Z",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-27T00:28:28.398Z",
+        "url": "https://icefabrics.com/products/silver-shiny-bridal-satin-fabric?variant=45683719536862",
+        "notes": "Primary merchant public variant feed reports available true and exact USD price. One 36 × 60 inch yard; silver satin rather than metallic foil. Your own card backing needed for cap."
+      }
+    },
+    {
+      "id": "p-dbe328ca8c",
+      "title": "Silver Shiny Stretch Satin — 1 yard",
+      "url": "https://icefabrics.com/products/new-shiny-silver-charmeuse-stretch-satin-fabric?variant=44961250541790",
+      "priceCents": 799,
+      "currency": "USD",
+      "image": "/products/price-tiers/p-dbe328ca8c.webp",
+      "merchantImage": "/products/price-tiers/p-dbe328ca8c.webp",
+      "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/0037/6802/5152/files/new-shiny-silver-charmeuse-stretch-satin-fabric-945270.jpg?v=1761156770"
+      ],
+      "availability": "in_stock",
+      "sizes": [
+        "By The Yard (60\" Wide)"
+      ],
+      "merchantId": "icefabrics-com",
+      "tagSlugs": [],
+      "description": "Description Complete your creative projects with our Shiny Stretch Charmeuse Satin Fabric, an exquisite material that combines the luxurious feel of silk with the practicality and versatility of modern fabrics. New Shiny Silver Charmeuse Stretch Sati",
+      "checkedAt": "2026-10-27T00:28:28.398Z",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-27T00:28:28.398Z",
+        "url": "https://icefabrics.com/products/new-shiny-silver-charmeuse-stretch-satin-fabric?variant=44961250541790",
+        "notes": "Primary merchant public variant feed reports available true and exact USD price. One 36 × 60 inch yard; soft silver satin. Your own card backing needed for cap."
+      }
+    },
+    {
+      "id": "p-fa88c71724",
+      "title": "Duchess | Black",
+      "url": "https://thursdayboots.com/products/womens-duchess-black-chelsea-boot?variant=41611980701786",
+      "priceCents": 16000,
+      "currency": "USD",
+      "image": "/products/price-tiers/p-fa88c71724.webp",
+      "merchantImage": "/products/price-tiers/p-fa88c71724.webp",
+      "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/0419/1525/products/1024x1024-Women-Duchess-Black-Side.jpg?v=1591637693"
+      ],
+      "availability": "in_stock",
+      "sizes": [
+        "4",
+        "4.5",
+        "5",
+        "5.5",
+        "6",
+        "6.5",
+        "7",
+        "7.5",
+        "8",
+        "8.5",
+        "9",
+        "9.5",
+        "10",
+        "10.5",
+        "11",
+        "11.5",
+        "12",
+        "12.5",
+        "13"
+      ],
+      "merchantId": "thursdayboots-com",
+      "tagSlugs": [],
+      "description": "Black full-grain leather Chelsea boot, glove leather lining, 1.25-inch heel and 5.5-inch shaft. Plain boot substitutes for dark brown floral heeled reference. Listed sizes are Standard width; other widths are excluded. Merchant offers domestic US shipping.",
+      "checkedAt": "2026-10-26T10:01:10.951Z",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-25T08:51:06.361508Z",
+        "url": "https://thursdayboots.com/products/womens-duchess-black-chelsea-boot.js",
+        "notes": "Black full-grain leather Chelsea boot, glove leather lining, 1.25-inch heel and 5.5-inch shaft. Plain boot substitutes for dark brown floral heeled reference. Listed sizes are Standard width; other widths are excluded. Merchant offers domestic US shipping."
+      }
+    },
+    {
+      "id": "p-da7d00ef0d",
+      "title": "Classic Chelsea Ankle Booties — Black PU",
+      "url": "https://www.dreampairs.com/products/dab213?kid=23928",
+      "priceCents": 4999,
+      "currency": "USD",
+      "image": "/products/price-tiers/p-da7d00ef0d.webp",
+      "merchantImage": "/products/price-tiers/p-da7d00ef0d.webp",
+      "sourceImages": [
+        "https://cdnimg.dreampairs.com/dreampairshoes/product/product/DAB213/BLACK%20PU/1.jpg"
+      ],
+      "availability": "in_stock",
+      "sizes": [],
+      "merchantId": "dreampairs-com",
+      "tagSlugs": [],
+      "description": "Budget material compromise: imitation synthetic leather rather than genuine leather. Ankle-high Chelsea, 1.25 inch heel, 0.75 inch platform. Merchant JSON-LD lists black USD49.99 InStock; live HTML exact-size inventory counts positive for all 12 listed US sizes. Size8 kid23928 count1806. Hidden generic SOLD OUT text is contradicted by variant inventory and InStock offer; verified source HTML retained /tmp/dreampairs-moon-boots.html.",
+      "checkedAt": "2026-10-26T10:01:10.994Z",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-25T07:07:04.071733+00:00",
+        "url": "https://www.dreampairs.com/products/dab213?color=2038",
+        "notes": "Budget material compromise: imitation synthetic leather rather than genuine leather. Ankle-high Chelsea, 1.25 inch heel, 0.75 inch platform. Merchant JSON-LD lists black USD49.99 InStock; live HTML exact-size inventory counts positive for all 12 listed US sizes. Size8 kid23928 count1806. Hidden generic SOLD OUT text is contradicted by variant inventory and InStock offer; verified source HTML retained /tmp/dreampairs-moon-boots.html."
+      }
+    },
+    {
+      "id": "p-862b138943",
+      "title": "Women's Originals #510",
+      "url": "https://www.blundstone.com/products/black-premium-leather-v-cut-boots-womens-style-510?variant=53192323596595",
+      "priceCents": 20995,
+      "currency": "USD",
+      "image": "/products/price-tiers/p-862b138943.webp",
+      "merchantImage": "/products/price-tiers/p-862b138943.webp",
+      "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/0903/6349/4707/files/product-image_2026-10-12_510_p_usa_hero.jpg?v=1791961602"
+      ],
+      "availability": "in_stock",
+      "sizes": [
+        "6 US Women (3 AU/UK)",
+        "6.5 US Women (3.5 AU/UK)",
+        "7 US Women (4 AU/UK)",
+        "7.5 US Women (4.5 AU/UK)",
+        "8 US Women (5 AU/UK)",
+        "8.5 US Women (5.5 AU/UK)",
+        "9 US Women (6 AU/UK)",
+        "9.5 US Women (6.5 AU/UK)",
+        "10 US Women (7 AU/UK)",
+        "10.5 US Women (7.5 AU/UK)",
+        "11 US Women (8 AU/UK)",
+        "11.5 US Women (8.5 AU/UK)",
+        "12 US Women (9 AU/UK)",
+        "12.5 US Women (9.5 AU/UK)",
+        "13 US Women (10 AU/UK)",
+        "14 US Women (11 AU/UK)",
+        "15 US Women (12 AU/UK)",
+        "16 US Women (13 AU/UK)",
+        "5 US Women (2 UK/AU)",
+        "6 US Women (3 UK/AU)",
+        "6.5 US Women (3.5 UK/AU)",
+        "7 US Women (4 UK/AU)",
+        "7.5 US Women (4.5 UK/AU)",
+        "8 US Women (5 UK/AU)",
+        "8.5 US Women (5.5 UK/AU)",
+        "9 US Women (6 UK/AU)",
+        "9.5 US Women (6.5 UK/AU)",
+        "10 US Women (7 UK/AU)",
+        "10.5 US Women (7.5 UK/AU)",
+        "11 US Women (8 UK/AU)",
+        "11.5 US Women (8.5 UK/AU)",
+        "12 US Women (9 UK/AU)",
+        "12.5 US Women (9.5 UK/AU)",
+        "13 US Women (10 UK/AU)",
+        "13.5 US Women (10.5 UK/AU)",
+        "14 US Women (11 UK/AU)",
+        "15 US Women (12 UK/AU)",
+        "16 US Women (13 UK/AU)"
+      ],
+      "merchantId": "blundstone-com",
+      "tagSlugs": [],
+      "description": "Black premium water-resistant leather classic flat Chelsea boot. Live public feed USD209.95, not stale search result199.95. Available USwomen5-16; two equivalent AU/UK label sets in merchant variants, deduplicate before display. Exact first available variant is USwomen6.",
+      "checkedAt": "2026-10-26T10:01:11.130Z",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-25T07:07:04.071733+00:00",
+        "url": "https://www.blundstone.com/products/black-premium-leather-v-cut-boots-womens-style-510.js",
+        "notes": "Black premium water-resistant leather classic flat Chelsea boot. Live public feed USD209.95, not stale search result199.95. Available USwomen5-16; two equivalent AU/UK label sets in merchant variants, deduplicate before display. Exact first available variant is USwomen6."
+      }
+    }
+  ],
+  "merchants": [
+    {
+      "id": "losangelesapparel-net",
+      "name": "Los Angeles Apparel",
+      "domain": "losangelesapparel.net",
+      "url": "https://losangelesapparel.net/",
+      "kind": "boutique",
+      "neighborhoodId": null
+    },
+    {
+      "id": "speerise-com",
+      "name": "Speerise",
+      "domain": "speerise.com",
+      "url": "https://speerise.com/",
+      "kind": "boutique",
+      "neighborhoodId": null
+    },
+    {
+      "id": "welovecolors-com",
+      "name": "We Love Colors",
+      "domain": "welovecolors.com",
+      "url": "https://welovecolors.com/",
+      "kind": "boutique",
+      "neighborhoodId": null
+    },
+    {
+      "id": "icefabrics-com",
+      "name": "Ice Fabrics",
+      "domain": "icefabrics.com",
+      "url": "https://icefabrics.com/",
+      "kind": "boutique",
+      "neighborhoodId": null
+    },
+    {
+      "id": "benziedesign-com",
+      "name": "Benzie Design",
+      "domain": "benziedesign.com",
+      "url": "https://benziedesign.com/",
+      "kind": "boutique",
+      "neighborhoodId": null
+    },
+    {
+      "id": "britexfabrics-com",
+      "name": "Britex Fabrics",
+      "domain": "britexfabrics.com",
+      "url": "https://britexfabrics.com/",
+      "kind": "boutique",
+      "neighborhoodId": null
+    },
+    {
+      "id": "fabricwholesaledirect-com",
+      "name": "Fabric Wholesale Direct",
+      "domain": "fabricwholesaledirect.com",
+      "url": "https://fabricwholesaledirect.com",
+      "kind": "dtc",
+      "neighborhoodId": null
+    },
+    {
+      "id": "thursdayboots-com",
+      "name": "Thursday Boot Company",
+      "domain": "thursdayboots.com",
+      "url": "https://thursdayboots.com/",
+      "kind": "boutique",
+      "neighborhoodId": null
+    },
+    {
+      "id": "dreampairs-com",
+      "name": "DREAM PAIRS",
+      "domain": "dreampairs.com",
+      "url": "https://dreampairs.com/",
+      "kind": "boutique",
+      "neighborhoodId": null
+    },
+    {
+      "id": "blundstone-com",
+      "name": "Blundstone",
+      "domain": "blundstone.com",
+      "url": "https://blundstone.com/",
+      "kind": "boutique",
+      "neighborhoodId": null
+    }
+  ],
+  "neighborhoods": [],
+  "tags": [
+    {
+      "slug": "cotton",
+      "label": "Cotton"
+    },
+    {
+      "slug": "unitard",
+      "label": "Unitard"
+    },
+    {
+      "slug": "black",
+      "label": "Black"
+    },
+    {
+      "slug": "long-sleeve",
+      "label": "Long Sleeve"
+    },
+    {
+      "slug": "garment-dyed",
+      "label": "Garment Dyed"
+    }
+  ],
+  "provenance": {
+    "method": "manual-research",
+    "generatedAt": "2026-10-27T00:28:28.398Z",
+    "notes": "DIY costume build with reviewed merchant supplies and reused catalog basics. Generated reference shows an assembled interpretation, not a ready-made costume. Scissors, thread, adhesive/fasteners, and any card/elastic noted in piece styling are shopper-supplied. Prices exclude these consumables and shipping; arrival by Halloween is unverified. Reused products retain their original research timestamps. Publication carries forward newer shared-product price, stock, size and check timestamps from the live database; original sourcing evidence is retained.",
+    "priceTiers": true,
+    "heroImageKind": "generated-reference"
+  }
+}

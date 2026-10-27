@@ -17,7 +17,7 @@
 /* Keep the complete outfit in view, including portrait phone video. */
 .mirror-camera { width: 100%; height: 100%; position: absolute; inset: 0; object-fit: contain; background: #161616; }
 .mirror-hidden { display: none; }
-.mirror-stage-intro { position: relative; display: flex; flex-direction: column; justify-content: flex-end; height: 100%; padding: 72px 24px 24px; isolation: isolate; }
+.mirror-stage-intro { position: relative; display: flex; flex-direction: column; justify-content: safe flex-end; height: 100%; overflow-y: auto; padding: 72px 24px 24px; isolation: isolate; }
 .mirror-idle-look { position: absolute; top: 0; right: 0; width: 55%; height: 100%; object-fit: contain; opacity: .3; z-index: -1; pointer-events: none; }
 .mirror-stage-welcome, .mirror-start { position: relative; width: min(100%, 480px); }
 .mirror-stage-welcome { margin-bottom: 24px; }

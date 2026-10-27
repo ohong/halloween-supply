@@ -13,7 +13,7 @@ import { costumes } from "@/lib/costumes";
 import { applyActions, createOutfit, outfitTotal } from "@/lib/live-mirror/state";
 import { sendMirrorCommand, useLiveVoice } from "@/lib/live-mirror/use-live-voice";
 import { useLiveVideo } from "@/lib/live-mirror/use-live-video";
-import { captureFeedbackFrame, sendVisualFeedback, type FeedbackFrames } from "@/lib/live-mirror/visual-feedback";
+import { captureFeedbackFrame, sendVisualFeedback, type FeedbackFrames, type FeedbackOutfit } from "@/lib/live-mirror/visual-feedback";
 import { VoiceStateIndicator } from "./voice-state-indicator";
 import { LiveTranscript, useLiveTranscript } from "./live-transcript";
 import "./live-mirror.css";
@@ -99,7 +99,13 @@ function MirrorRoom({ costume: initialCostume, initialOutfit, onApply, onClose }
     if (mode === "likeness" && !original) throw new Error("The paired original camera image is unavailable. Resume the camera and ask again.");
     const frames: FeedbackFrames = mode === "likeness" ? { mode, preview, original: original!, frozen: !!frozenImage } : { mode, preview, frozen: !!frozenImage };
     if (!unchanged()) throw new Error("The preview changed before I could check it. Please ask again.");
-    const result = await sendVisualFeedback(frames, question, signal);
+    const { selection, uses, appearance } = outfitRef.current;
+    const selected: FeedbackOutfit = costumeRef.current.pieces.flatMap(({ piece, options }) => {
+      const product = options.find(option => option.product.id === selection[piece.id])?.product ?? options[0]?.product;
+      const color = appearance?.[piece.id]?.color;
+      return product && (uses[piece.id] ?? "buy") === "buy" ? [{ piece: piece.name.slice(0, 100), product: product.title.slice(0, 200), ...(color ? { color } : {}) }] : [];
+    }).slice(0, 20);
+    const result = await sendVisualFeedback(frames, question, signal, selected);
     if (!unchanged()) throw new Error("The preview changed while I was checking it. Please ask again.");
     return result;
   }, [consent, video.isCurrent, video.switchingCamera]);

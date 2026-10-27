@@ -1,0 +1,687 @@
+{
+  "costume": {
+    "slug": "walking-thundercloud",
+    "name": "Walking Thundercloud",
+    "description": "A handheld cloud umbrella trails silver fabric rain above a black base, finished with a lightning pin. DIY assembly required.",
+    "image": "/costumes/walking-thundercloud.png",
+    "alt": "White cloud tufts on a clear handheld umbrella with silver rain strips over a black unitard and silver lightning pin",
+    "status": "live"
+  },
+  "pieces": [
+    {
+      "id": "walking-thundercloud-1",
+      "name": "Clear umbrella cloud frame",
+      "category": "DIY supplies",
+      "required": true,
+      "order": 1,
+      "styleNotes": "One adult bubble umbrella provides the handheld frame. Keep the lower edge clear for visibility.",
+      "queries": [
+        "Clear umbrella cloud frame"
+      ],
+      "sizeKind": "one_size",
+      "matches": [
+        {
+          "productId": "p-b9b3c5ba1f",
+          "rank": 0,
+          "reason": "One adult bubble umbrella provides the handheld frame. Keep the lower edge clear for visibility. Primary merchant public variant feed reports available true and exact USD price. Clear 52-inch bubble canopy. Unmodified umbrella; craft decorations are separate."
+        },
+        {
+          "productId": "p-622ebb97c6",
+          "rank": 1,
+          "reason": "One adult bubble umbrella provides the handheld frame. Keep the lower edge clear for visibility. Primary merchant public variant feed reports available true and exact USD price. Clear canopy with black trim."
+        },
+        {
+          "productId": "p-41918e3639",
+          "rank": 2,
+          "reason": "One adult bubble umbrella provides the handheld frame. Keep the lower edge clear for visibility. Primary merchant public variant feed reports available true and exact USD price. Transparent canopy and clear crook handle."
+        }
+      ]
+    },
+    {
+      "id": "walking-thundercloud-2",
+      "name": "Fiberfill for DIY cloud tufts",
+      "category": "DIY supplies",
+      "required": true,
+      "order": 2,
+      "styleNotes": "One 12-ounce bag makes scattered white tufts; the 32-ounce alternative gives fuller coverage. Secure tufts using your own thread or mesh pockets. This is loose stuffing, not a finished cloud. No lights included.",
+      "queries": [
+        "Fiberfill for DIY cloud tufts"
+      ],
+      "sizeKind": "one_size",
+      "matches": [
+        {
+          "productId": "p-a1d82748e7",
+          "rank": 0,
+          "reason": "One 12-ounce bag makes scattered white tufts; the 32-ounce alternative gives fuller coverage. Secure tufts using your own thread or mesh pockets. This is loose stuffing, not a finished cloud. No lights included. Primary merchant public variant feed reports available true and exact USD price. One bag for scattered cloud tufts; does not fully cover an umbrella canopy. No lights included."
+        },
+        {
+          "productId": "p-5cc89b3687",
+          "rank": 1,
+          "reason": "One 12-ounce bag makes scattered white tufts; the 32-ounce alternative gives fuller coverage. Secure tufts using your own thread or mesh pockets. This is loose stuffing, not a finished cloud. No lights included. Primary merchant public variant feed reports available true and exact USD price. One 12-ounce bag for scattered cloud tufts, rather than full canopy coverage."
+        },
+        {
+          "productId": "p-c715cedad3",
+          "rank": 2,
+          "reason": "One 12-ounce bag makes scattered white tufts; the 32-ounce alternative gives fuller coverage. Secure tufts using your own thread or mesh pockets. This is loose stuffing, not a finished cloud. No lights included. Primary merchant public variant feed reports available true and exact USD price. Larger bag for fuller cloud tufts. Amount of loft depends on how thinly you spread fibers."
+        }
+      ]
+    },
+    {
+      "id": "walking-thundercloud-3",
+      "name": "Silver fabric for DIY rain strips",
+      "category": "DIY supplies",
+      "required": true,
+      "order": 3,
+      "styleNotes": "One yard provides many rain strips. Hem or finish edges, tie to the umbrella ribs with your own thread, and trim above the knees. Do not obscure your face.",
+      "queries": [
+        "Silver fabric for DIY rain strips"
+      ],
+      "sizeKind": "one_size",
+      "matches": [
+        {
+          "productId": "p-2d4b62e79e",
+          "rank": 0,
+          "reason": "One yard provides many rain strips. Hem or finish edges, tie to the umbrella ribs with your own thread, and trim above the knees. Do not obscure your face. Primary merchant public variant feed reports available true and exact USD price. One 36 × 44/45 inch yard; lightweight metallic cloth needs your own card backing for a cone cap."
+        },
+        {
+          "productId": "p-637281f86a",
+          "rank": 1,
+          "reason": "One yard provides many rain strips. Hem or finish edges, tie to the umbrella ribs with your own thread, and trim above the knees. Do not obscure your face. Primary merchant public variant feed reports available true and exact USD price. One 36 × 60 inch yard; silver satin rather than metallic foil. Your own card backing needed for cap."
+        },
+        {
+          "productId": "p-dbe328ca8c",
+          "rank": 2,
+          "reason": "One yard provides many rain strips. Hem or finish edges, tie to the umbrella ribs with your own thread, and trim above the knees. Do not obscure your face. Primary merchant public variant feed reports available true and exact USD price. One 36 × 60 inch yard; soft silver satin. Your own card backing needed for cap."
+        }
+      ]
+    },
+    {
+      "id": "walking-thundercloud-4",
+      "name": "Black fitted base",
+      "category": "Clothing",
+      "required": true,
+      "order": 4,
+      "styleNotes": "A dark fitted base sets off the white cloud and silver rain.",
+      "queries": [
+        "Black fitted base"
+      ],
+      "sizeKind": "apparel",
+      "matches": [
+        {
+          "productId": "p-33ba42bb05",
+          "rank": 0,
+          "reason": "A dark fitted base sets off the white cloud and silver rain. Matte cotton base match; heavyweight garment-dyed cotton spandex, long sleeves/full length legs, black XS-XL all available. Retain existing reviewed photo/cutout if preserving product."
+        },
+        {
+          "productId": "p-b2b40f4575",
+          "rank": 1,
+          "reason": "A dark fitted base sets off the white cloud and silver rain. Long sleeve full-length fitted black unitard. 85% nylon/15% spandex rather than cotton; front zipper and mock neck. All ten black XS–6XL variants available at USD42.99. Broad low-tier coverage. Merchant does not explicitly call finish matte; avoid claiming finish beyond plain nonmetallic black."
+        },
+        {
+          "productId": "p-efd5b81469",
+          "rank": 2,
+          "reason": "A dark fitted base sets off the white cloud and silver rain. Explicit matte, opaque 93% nylon/7% spandex full-body long-sleeve catsuit. Includes fingers and toes; garment can be cut at wrists/ankles without running per merchant. One Size fits XS–XL; Plus Size fits up to4X but black Plus has ColorQty0, so excluded as in-stock. Live merchant embedded variant inventory object: Black, Size One Size, ColorQty3, QtyCompleted5, WebPrice95, Discontinuedfalse, production ship dateMonday10/26. One Size black stock verified, rather than inferring stock from selector. No size-specific permalink provided by merchant; URL fixes black color."
+        }
+      ]
+    },
+    {
+      "id": "walking-thundercloud-5",
+      "name": "Lightning pin",
+      "category": "accessories",
+      "required": true,
+      "order": 5,
+      "styleNotes": "Small silver lightning lapel pin; not a large foam lightning bolt.",
+      "queries": [
+        "Lightning pin"
+      ],
+      "sizeKind": "one_size",
+      "matches": [
+        {
+          "productId": "p-e630af10d4",
+          "rank": 0,
+          "reason": "Small silver lightning lapel pin; not a large foam lightning bolt. Silver ARGENT glittery lightning-shaped pin, approximately 3 inches long, one size UNIQUE. One pin only. Glitter texture and larger size differ from the small plain silver reference. Merchant description calls it pewter/enamel; composition specifies 95% Zamak and 5% epoxy resin. Live primary structured data confirms $25 USD and InStock, with US shipping $9 and estimated transit 3–5 days; no delivery promise."
+        },
+        {
+          "productId": "p-0265935dc5",
+          "rank": 1,
+          "reason": "Small silver lightning lapel pin; not a large foam lightning bolt. Silver-finish lightning bolt lapel pin, 3/4 by 1/2 inch, military clutch back, individually polybagged. Smaller than the reference brooch, with the same clear bolt silhouette. One pin only at the single-unit price $8.95, with free polybag rather than the optional paid gift box. Current public feed confirms Silver available."
+        },
+        {
+          "productId": "p-0e46b18d9d",
+          "rank": 2,
+          "reason": "Small silver lightning lapel pin; not a large foam lightning bolt. Silver-tone lightning bolt lapel pin, approximately 3/4 by 3/4 inch, supplied in a gift box. One pin only. Smaller and broader than the reference bolt; silver-tone rather than solid silver. Current public product feed confirms the single $19.99 variant available, and merchant page states 2 items left. No production or dispatch lead time is stated on the product page."
+        }
+      ]
+    }
+  ],
+  "products": [
+    {
+      "id": "p-b9b3c5ba1f",
+      "title": "Auto Open Traditional Bubble — White trim",
+      "url": "https://shedrain.com/products/auto-open-traditional-bubble?variant=47570410569949",
+      "priceCents": 2500,
+      "currency": "USD",
+      "image": "/products/price-tiers/p-b9b3c5ba1f.webp",
+      "merchantImage": "/products/price-tiers/p-b9b3c5ba1f.webp",
+      "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/1643/6397/files/4015_White_Underside.jpg?v=1773339709"
+      ],
+      "availability": "in_stock",
+      "sizes": [
+        "One size"
+      ],
+      "merchantId": "shedrain-com",
+      "tagSlugs": [],
+      "description": "Your wedding day deserves every detail done right. This clear auto open bubble stick brings a timeless silhouette back to the spotlight, reimagined as the ultimate bridal umbrella for modern celebrations. The generous 52-inch arc offers plenty of cov",
+      "checkedAt": "2026-10-27T00:28:28.398Z",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-27T00:28:28.398Z",
+        "url": "https://shedrain.com/products/auto-open-traditional-bubble?variant=47570410569949",
+        "notes": "Primary merchant public variant feed reports available true and exact USD price. Clear 52-inch bubble canopy. Unmodified umbrella; craft decorations are separate."
+      }
+    },
+    {
+      "id": "p-622ebb97c6",
+      "title": "Auto Open 52-inch Fashion Bubble — Clear / Black Trim",
+      "url": "https://shedrain.com/products/bubble-auto-open-umbrella?variant=46768146383069",
+      "priceCents": 2800,
+      "currency": "USD",
+      "image": "/products/price-tiers/p-622ebb97c6.webp",
+      "merchantImage": "/products/price-tiers/p-622ebb97c6.webp",
+      "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/1643/6397/files/4015_ClearBlack_Underside_copy_e21231b4-9796-4056-986e-cc36a5520289.jpg?v=1765211388"
+      ],
+      "availability": "in_stock",
+      "sizes": [
+        "One size"
+      ],
+      "merchantId": "shedrain-com",
+      "tagSlugs": [],
+      "description": "Combining the retro style of a bubble umbrella with the timeless look of a crook-handled stick, this is one accessory that's guaranteed to make a fashion statement of its own. The transparent dome-shaped canopy features a vivid print design, while th",
+      "checkedAt": "2026-10-27T00:28:28.398Z",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-27T00:28:28.398Z",
+        "url": "https://shedrain.com/products/bubble-auto-open-umbrella?variant=46768146383069",
+        "notes": "Primary merchant public variant feed reports available true and exact USD price. Clear canopy with black trim."
+      }
+    },
+    {
+      "id": "p-41918e3639",
+      "title": "Auto Open 52-inch Clear Bubble Umbrella",
+      "url": "https://shedrain.com/products/auto-open-bubble-umbrella?variant=43580293284061",
+      "priceCents": 3000,
+      "currency": "USD",
+      "image": "/products/price-tiers/p-41918e3639.webp",
+      "merchantImage": "/products/price-tiers/p-41918e3639.webp",
+      "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/1643/6397/products/4195_ClearSilver_Underside.jpg?v=1669834015"
+      ],
+      "availability": "in_stock",
+      "sizes": [
+        "One size"
+      ],
+      "merchantId": "shedrain-com",
+      "tagSlugs": [],
+      "description": "The big, bold style that first hit the scene in the ‘70s is alive and well in this clear bubble umbrella. Embodying the look that’s been a perennial favorite for half a century, this auto-open, crook-handled stick umbrella boasts retro fashion and pr",
+      "checkedAt": "2026-10-27T00:28:28.398Z",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-27T00:28:28.398Z",
+        "url": "https://shedrain.com/products/auto-open-bubble-umbrella?variant=43580293284061",
+        "notes": "Primary merchant public variant feed reports available true and exact USD price. Transparent canopy and clear crook handle."
+      }
+    },
+    {
+      "id": "p-a1d82748e7",
+      "title": "Poly Fil Original — 12 oz",
+      "url": "https://goodsstores.com/products/poly-fil-original-pf?variant=39974798917703",
+      "priceCents": 849,
+      "currency": "USD",
+      "image": "/products/price-tiers/p-a1d82748e7.webp",
+      "merchantImage": "/products/price-tiers/p-a1d82748e7.webp",
+      "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/1921/0751/products/Fairfield_Poly_Fill_12_oz_PF12.jpg?v=1738263099"
+      ],
+      "availability": "in_stock",
+      "sizes": [
+        "One size"
+      ],
+      "merchantId": "goodsstores-com",
+      "tagSlugs": [],
+      "description": "The best-selling craft fiber fill in America. Use Fairfield Poly Fil to stuff handmade toys, dolls, bears, pillows, and other home decor projects. A special process explodes 100% polyester fibers into a fiber fill that can be used in washable project",
+      "checkedAt": "2026-10-27T00:28:28.398Z",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-27T00:28:28.398Z",
+        "url": "https://goodsstores.com/products/poly-fil-original-pf?variant=39974798917703",
+        "notes": "Primary merchant public variant feed reports available true and exact USD price. One bag for scattered cloud tufts; does not fully cover an umbrella canopy. No lights included."
+      }
+    },
+    {
+      "id": "p-5cc89b3687",
+      "title": "Premium Polyester Fiber Fill Stuffing (12 oz) — Default Title",
+      "url": "https://econocrafts.com/products/premium-polyester-fiber-fill-stuffing-12-oz?variant=48847062368538",
+      "priceCents": 998,
+      "currency": "USD",
+      "image": "/products/price-tiers/p-5cc89b3687.webp",
+      "merchantImage": "/products/price-tiers/p-5cc89b3687.webp",
+      "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/0685/7818/1402/files/81arzjvsshl._sl1500.jpg?v=1732222742"
+      ],
+      "availability": "in_stock",
+      "sizes": [
+        "One size"
+      ],
+      "merchantId": "econocrafts-com",
+      "tagSlugs": [],
+      "description": "100% Pure Polyester Fiber Washable Non-Allergic Exceptional Resilience Use to Stuff Animals and Pillows",
+      "checkedAt": "2026-10-27T00:28:28.398Z",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-27T00:28:28.398Z",
+        "url": "https://econocrafts.com/products/premium-polyester-fiber-fill-stuffing-12-oz?variant=48847062368538",
+        "notes": "Primary merchant public variant feed reports available true and exact USD price. One 12-ounce bag for scattered cloud tufts, rather than full canopy coverage."
+      }
+    },
+    {
+      "id": "p-c715cedad3",
+      "title": "Poly Fil Original — 32 oz",
+      "url": "https://goodsstores.com/products/poly-fil-original-pf?variant=39974798950471",
+      "priceCents": 1999,
+      "currency": "USD",
+      "image": "/products/price-tiers/p-c715cedad3.webp",
+      "merchantImage": "/products/price-tiers/p-c715cedad3.webp",
+      "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/1921/0751/products/Poly_fill_32oz_2000.jpg?v=1738263100"
+      ],
+      "availability": "in_stock",
+      "sizes": [
+        "One size"
+      ],
+      "merchantId": "goodsstores-com",
+      "tagSlugs": [],
+      "description": "The best-selling craft fiber fill in America. Use Fairfield Poly Fil to stuff handmade toys, dolls, bears, pillows, and other home decor projects. A special process explodes 100% polyester fibers into a fiber fill that can be used in washable project",
+      "checkedAt": "2026-10-27T00:28:28.398Z",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-27T00:28:28.398Z",
+        "url": "https://goodsstores.com/products/poly-fil-original-pf?variant=39974798950471",
+        "notes": "Primary merchant public variant feed reports available true and exact USD price. Larger bag for fuller cloud tufts. Amount of loft depends on how thinly you spread fibers."
+      }
+    },
+    {
+      "id": "p-2d4b62e79e",
+      "title": "Tissue Lame — Silver, 1 yard",
+      "url": "https://fabricwholesaledirect.com/products/tissue-lame-44-45-inch-fabric?variant=39460356522099",
+      "priceCents": 499,
+      "currency": "USD",
+      "image": "/products/price-tiers/p-2d4b62e79e.webp",
+      "merchantImage": "/products/price-tiers/p-2d4b62e79e.webp",
+      "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/0558/3725/products/SV570821_TissueLame-SilverA2.jpg?v=1765159919"
+      ],
+      "availability": "in_stock",
+      "sizes": [
+        "Silver / Yard"
+      ],
+      "merchantId": "fabricwholesaledirect-com",
+      "tagSlugs": [],
+      "description": "Tissue Lame (44/45 Inch) is a shiny, lightweight, and sheer fabric. Woven in a plain style weave, this fabric is sourced from a blend of 51% PET (polyethylene terephthalate) and 49% nylon, making this fabric is lustrous on both sides, in addition to ",
+      "checkedAt": "2026-10-27T00:28:28.398Z",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-27T00:28:28.398Z",
+        "url": "https://fabricwholesaledirect.com/products/tissue-lame-44-45-inch-fabric?variant=39460356522099",
+        "notes": "Primary merchant public variant feed reports available true and exact USD price. One 36 × 44/45 inch yard; lightweight metallic cloth needs your own card backing for a cone cap."
+      }
+    },
+    {
+      "id": "p-637281f86a",
+      "title": "Silver Silky Bridal Satin — 1 yard",
+      "url": "https://icefabrics.com/products/silver-shiny-bridal-satin-fabric?variant=45683719536862",
+      "priceCents": 599,
+      "currency": "USD",
+      "image": "/products/price-tiers/p-637281f86a.webp",
+      "merchantImage": "/products/price-tiers/p-637281f86a.webp",
+      "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/0037/6802/5152/files/Bridal_Shiny_Satin_Silver.jpg?v=1765020077"
+      ],
+      "availability": "in_stock",
+      "sizes": [
+        "By The Yard (60\" Wide)"
+      ],
+      "merchantId": "icefabrics-com",
+      "tagSlugs": [],
+      "description": "Description Create your unique style with this Silky Shiny Bridal Satin Fabric! It's a fancy, smooth fabric with a shiny finish. This fabric is crafted from a mix of silk and synthetic fibers like polyester or nylon, with that silky touch and flow. I",
+      "checkedAt": "2026-10-27T00:28:28.398Z",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-27T00:28:28.398Z",
+        "url": "https://icefabrics.com/products/silver-shiny-bridal-satin-fabric?variant=45683719536862",
+        "notes": "Primary merchant public variant feed reports available true and exact USD price. One 36 × 60 inch yard; silver satin rather than metallic foil. Your own card backing needed for cap."
+      }
+    },
+    {
+      "id": "p-dbe328ca8c",
+      "title": "Silver Shiny Stretch Satin — 1 yard",
+      "url": "https://icefabrics.com/products/new-shiny-silver-charmeuse-stretch-satin-fabric?variant=44961250541790",
+      "priceCents": 799,
+      "currency": "USD",
+      "image": "/products/price-tiers/p-dbe328ca8c.webp",
+      "merchantImage": "/products/price-tiers/p-dbe328ca8c.webp",
+      "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/0037/6802/5152/files/new-shiny-silver-charmeuse-stretch-satin-fabric-945270.jpg?v=1761156770"
+      ],
+      "availability": "in_stock",
+      "sizes": [
+        "By The Yard (60\" Wide)"
+      ],
+      "merchantId": "icefabrics-com",
+      "tagSlugs": [],
+      "description": "Description Complete your creative projects with our Shiny Stretch Charmeuse Satin Fabric, an exquisite material that combines the luxurious feel of silk with the practicality and versatility of modern fabrics. New Shiny Silver Charmeuse Stretch Sati",
+      "checkedAt": "2026-10-27T00:28:28.398Z",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-27T00:28:28.398Z",
+        "url": "https://icefabrics.com/products/new-shiny-silver-charmeuse-stretch-satin-fabric?variant=44961250541790",
+        "notes": "Primary merchant public variant feed reports available true and exact USD price. One 36 × 60 inch yard; soft silver satin. Your own card backing needed for cap."
+      }
+    },
+    {
+      "id": "p-33ba42bb05",
+      "title": "83028GD - Garment Dye Long Sleeve Unitard",
+      "url": "https://losangelesapparel.net/products/83028gd-garment-dye-long-sleeve-unitard?variant=37888203161779",
+      "priceCents": 7000,
+      "currency": "USD",
+      "image": "/products/price-tiers/p-33ba42bb05.webp",
+      "cutout": "/products/p-33ba42bb05-cutout.png",
+      "merchantImage": "/products/price-tiers/p-33ba42bb05.webp",
+      "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/2152/0639/products/black1_1_4984a0ae-5411-4aea-a78b-eb4b02ab8afa.jpg?v=1721953708"
+      ],
+      "availability": "in_stock",
+      "sizes": [
+        "XS",
+        "S",
+        "M",
+        "L",
+        "XL"
+      ],
+      "merchantId": "losangelesapparel-net",
+      "tagSlugs": [
+        "cotton",
+        "unitard",
+        "black",
+        "long-sleeve",
+        "garment-dyed"
+      ],
+      "description": "Matte cotton base match; heavyweight garment-dyed cotton spandex, long sleeves/full length legs, black XS-XL all available. Retain existing reviewed photo/cutout if preserving product.",
+      "checkedAt": "2026-10-26T10:01:10.051Z",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-25T07:07:04.071733+00:00",
+        "url": "https://losangelesapparel.net/products/83028gd-garment-dye-long-sleeve-unitard.js",
+        "notes": "Matte cotton base match; heavyweight garment-dyed cotton spandex, long sleeves/full length legs, black XS-XL all available. Retain existing reviewed photo/cutout if preserving product."
+      }
+    },
+    {
+      "id": "p-b2b40f4575",
+      "title": "Zip Front Spandex Long Sleeve Turtleneck Unitard — Black",
+      "url": "https://www.speerise.com/products/speerise-ladies-spandex-long-sleeve-turtleneck-unitard?variant=39728194715781",
+      "priceCents": 4299,
+      "currency": "USD",
+      "image": "/products/price-tiers/p-b2b40f4575.webp",
+      "merchantImage": "/products/price-tiers/p-b2b40f4575.webp",
+      "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/0365/8003/2645/products/speerise-zip-front-spandex-long-sleeve-turtleneck-unitard-black.jpg?v=1760671730"
+      ],
+      "availability": "in_stock",
+      "sizes": [
+        "XS",
+        "S",
+        "M",
+        "L",
+        "XL",
+        "2XL",
+        "3XL",
+        "4XL",
+        "5XL",
+        "6XL"
+      ],
+      "merchantId": "speerise-com",
+      "tagSlugs": [],
+      "description": "Long sleeve full-length fitted black unitard. 85% nylon/15% spandex rather than cotton; front zipper and mock neck. All ten black XS–6XL variants available at USD42.99. Broad low-tier coverage. Merchant does not explicitly call finish matte; avoid claiming finish beyond plain nonmetallic black.",
+      "checkedAt": "2026-10-26T10:01:10.690Z",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-25T07:07:04.071733+00:00",
+        "url": "https://www.speerise.com/products/speerise-ladies-spandex-long-sleeve-turtleneck-unitard.js",
+        "notes": "Long sleeve full-length fitted black unitard. 85% nylon/15% spandex rather than cotton; front zipper and mock neck. All ten black XS–6XL variants available at USD42.99. Broad low-tier coverage. Merchant does not explicitly call finish matte; avoid claiming finish beyond plain nonmetallic black."
+      }
+    },
+    {
+      "id": "p-efd5b81469",
+      "title": "Second Skin Catsuit Style5010 — Black",
+      "url": "https://www.welovecolors.com/shop/womens/sale/second-skin-catsuit/black",
+      "priceCents": 9500,
+      "currency": "USD",
+      "image": "/products/price-tiers/p-efd5b81469.webp",
+      "merchantImage": "/products/price-tiers/p-efd5b81469.webp",
+      "sourceImages": [
+        "https://www.welovecolors.com/images/product/full/5010-w-black-second-skin-catsuit.jpg"
+      ],
+      "availability": "in_stock",
+      "sizes": [
+        "One Size"
+      ],
+      "merchantId": "welovecolors-com",
+      "tagSlugs": [],
+      "description": "Explicit matte, opaque 93% nylon/7% spandex full-body long-sleeve catsuit. Includes fingers and toes; garment can be cut at wrists/ankles without running per merchant. One Size fits XS–XL; Plus Size fits up to4X but black Plus has ColorQty0, so excluded as in-stock. Live merchant embedded variant inventory object: Black, Size One Size, ColorQty3, QtyCompleted5, WebPrice95, Discontinuedfalse, production ship dateMonday10/26. One Size black stock verified, rather than inferring stock from selector. No size-specific permalink provided by merchant; URL fixes black color.",
+      "checkedAt": "2026-10-25T08:50:58.976351Z",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-25T07:07:04.071733+00:00",
+        "url": "https://www.welovecolors.com/shop/womens/sale/second-skin-catsuit/black",
+        "notes": "Explicit matte, opaque 93% nylon/7% spandex full-body long-sleeve catsuit. Includes fingers and toes; garment can be cut at wrists/ankles without running per merchant. One Size fits XS–XL; Plus Size fits up to4X but black Plus has ColorQty0, so excluded as in-stock. Live merchant embedded variant inventory object: Black, Size One Size, ColorQty3, QtyCompleted5, WebPrice95, Discontinuedfalse, production ship dateMonday10/26. One Size black stock verified, rather than inferring stock from selector. No size-specific permalink provided by merchant; URL fixes black color."
+      }
+    },
+    {
+      "id": "p-e630af10d4",
+      "title": "silver glittery éclair pin",
+      "url": "https://www.agnesb.com/en-us/men/accessories/pins-and-badges/silver-glittery-eclair-pin/707BKC51_909.html",
+      "priceCents": 2500,
+      "currency": "USD",
+      "image": "/products/price-tiers/p-e630af10d4.webp",
+      "merchantImage": "/products/price-tiers/p-e630af10d4.webp",
+      "sourceImages": [
+        "https://res.cloudinary.com/agnesb-group/image/upload/w_2000,f_jpg,fl_progressive:steep,q_auto/v1757586364/CMC/Products/707BKC51_909_1.jpg"
+      ],
+      "availability": "in_stock",
+      "sizes": [],
+      "merchantId": "agnesb-com",
+      "tagSlugs": [],
+      "description": "Silver ARGENT glittery lightning-shaped pin, approximately 3 inches long, one size UNIQUE. One pin only. Glitter texture and larger size differ from the small plain silver reference. Merchant description calls it pewter/enamel; composition specifies 95% Zamak and 5% epoxy resin. Live primary structured data confirms $25 USD and InStock, with US shipping $9 and estimated transit 3–5 days; no delivery promise.",
+      "checkedAt": "2026-10-26T10:01:22.715Z",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-25T08:50:56.026491Z",
+        "url": "https://www.agnesb.com/en-us/men/accessories/pins-and-badges/silver-glittery-eclair-pin/707BKC51_909.html",
+        "notes": "Silver ARGENT glittery lightning-shaped pin, approximately 3 inches long, one size UNIQUE. One pin only. Glitter texture and larger size differ from the small plain silver reference. Merchant description calls it pewter/enamel; composition specifies 95% Zamak and 5% epoxy resin. Live primary structured data confirms $25 USD and InStock, with US shipping $9 and estimated transit 3–5 days; no delivery promise."
+      }
+    },
+    {
+      "id": "p-0265935dc5",
+      "title": "M11 - Lightning Bolt Lapel Pin",
+      "url": "https://stockpins.com/products/lightning-bolt-lapel-pin-1?variant=45602174599362",
+      "priceCents": 895,
+      "currency": "USD",
+      "image": "/products/price-tiers/p-0265935dc5.webp",
+      "merchantImage": "/products/price-tiers/p-0265935dc5.webp",
+      "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/0697/5936/9410/files/nichenet-store_2263_65222131__27740.1514192874.1280.1280.jpg?v=1758676649"
+      ],
+      "availability": "in_stock",
+      "sizes": [
+        "one size"
+      ],
+      "merchantId": "stockpins-com",
+      "tagSlugs": [],
+      "description": "Silver-finish lightning bolt lapel pin, 3/4 by 1/2 inch, military clutch back, individually polybagged. Smaller than the reference brooch, with the same clear bolt silhouette. One pin only at the single-unit price $8.95, with free polybag rather than the optional paid gift box. Current public feed confirms Silver available.",
+      "checkedAt": "2026-10-26T10:01:23.032Z",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-25T08:50:56.026491Z",
+        "url": "https://stockpins.com/products/lightning-bolt-lapel-pin-1.js",
+        "notes": "Silver-finish lightning bolt lapel pin, 3/4 by 1/2 inch, military clutch back, individually polybagged. Smaller than the reference brooch, with the same clear bolt silhouette. One pin only at the single-unit price $8.95, with free polybag rather than the optional paid gift box. Current public feed confirms Silver available."
+      }
+    },
+    {
+      "id": "p-0e46b18d9d",
+      "title": "Silver Toned Lightning Bolt Lapel Pin",
+      "url": "https://www.kioladesigns.com/products/silver-toned-lightning-bolt-lapel-pin?variant=20422662750306",
+      "priceCents": 1999,
+      "currency": "USD",
+      "image": "/products/price-tiers/p-0e46b18d9d.webp",
+      "merchantImage": "/products/price-tiers/p-0e46b18d9d.webp",
+      "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/0892/8594/products/Silver_Toned_Lightning_Bolt_Lapel_Pin.jpg?v=1558214443"
+      ],
+      "availability": "in_stock",
+      "sizes": [
+        "one size"
+      ],
+      "merchantId": "kioladesigns-com",
+      "tagSlugs": [],
+      "description": "Silver-tone lightning bolt lapel pin, approximately 3/4 by 3/4 inch, supplied in a gift box. One pin only. Smaller and broader than the reference bolt; silver-tone rather than solid silver. Current public product feed confirms the single $19.99 variant available, and merchant page states 2 items left. No production or dispatch lead time is stated on the product page.",
+      "checkedAt": "2026-10-26T10:01:22.877Z",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-25T08:50:56.026491Z",
+        "url": "https://www.kioladesigns.com/products/silver-toned-lightning-bolt-lapel-pin.js",
+        "notes": "Silver-tone lightning bolt lapel pin, approximately 3/4 by 3/4 inch, supplied in a gift box. One pin only. Smaller and broader than the reference bolt; silver-tone rather than solid silver. Current public product feed confirms the single $19.99 variant available, and merchant page states 2 items left. No production or dispatch lead time is stated on the product page."
+      }
+    }
+  ],
+  "merchants": [
+    {
+      "id": "shedrain-com",
+      "name": "ShedRain",
+      "domain": "shedrain.com",
+      "url": "https://shedrain.com",
+      "kind": "dtc",
+      "neighborhoodId": null
+    },
+    {
+      "id": "goodsstores-com",
+      "name": "Good's Store",
+      "domain": "goodsstores.com",
+      "url": "https://goodsstores.com",
+      "kind": "dtc",
+      "neighborhoodId": null
+    },
+    {
+      "id": "econocrafts-com",
+      "name": "EconoCrafts",
+      "domain": "econocrafts.com",
+      "url": "https://econocrafts.com",
+      "kind": "dtc",
+      "neighborhoodId": null
+    },
+    {
+      "id": "fabricwholesaledirect-com",
+      "name": "Fabric Wholesale Direct",
+      "domain": "fabricwholesaledirect.com",
+      "url": "https://fabricwholesaledirect.com",
+      "kind": "dtc",
+      "neighborhoodId": null
+    },
+    {
+      "id": "icefabrics-com",
+      "name": "Ice Fabrics",
+      "domain": "icefabrics.com",
+      "url": "https://icefabrics.com/",
+      "kind": "boutique",
+      "neighborhoodId": null
+    },
+    {
+      "id": "losangelesapparel-net",
+      "name": "Los Angeles Apparel",
+      "domain": "losangelesapparel.net",
+      "url": "https://losangelesapparel.net/",
+      "kind": "boutique",
+      "neighborhoodId": null
+    },
+    {
+      "id": "speerise-com",
+      "name": "Speerise",
+      "domain": "speerise.com",
+      "url": "https://speerise.com/",
+      "kind": "boutique",
+      "neighborhoodId": null
+    },
+    {
+      "id": "welovecolors-com",
+      "name": "We Love Colors",
+      "domain": "welovecolors.com",
+      "url": "https://welovecolors.com/",
+      "kind": "boutique",
+      "neighborhoodId": null
+    },
+    {
+      "id": "agnesb-com",
+      "name": "agnès b.",
+      "domain": "agnesb.com",
+      "url": "https://agnesb.com/",
+      "kind": "boutique",
+      "neighborhoodId": null
+    },
+    {
+      "id": "stockpins-com",
+      "name": "StockPins",
+      "domain": "stockpins.com",
+      "url": "https://stockpins.com/",
+      "kind": "boutique",
+      "neighborhoodId": null
+    },
+    {
+      "id": "kioladesigns-com",
+      "name": "Kiola Designs",
+      "domain": "kioladesigns.com",
+      "url": "https://kioladesigns.com/",
+      "kind": "boutique",
+      "neighborhoodId": null
+    }
+  ],
+  "neighborhoods": [],
+  "tags": [
+    {
+      "slug": "cotton",
+      "label": "Cotton"
+    },
+    {
+      "slug": "unitard",
+      "label": "Unitard"
+    },
+    {
+      "slug": "black",
+      "label": "Black"
+    },
+    {
+      "slug": "long-sleeve",
+      "label": "Long Sleeve"
+    },
+    {
+      "slug": "garment-dyed",
+      "label": "Garment Dyed"
+    }
+  ],
+  "provenance": {
+    "method": "manual-research",
+    "generatedAt": "2026-10-27T00:28:28.398Z",
+    "notes": "DIY costume build with reviewed merchant supplies and reused catalog basics. Generated reference shows an assembled interpretation, not a ready-made costume. Scissors, thread, adhesive/fasteners, and any card/elastic noted in piece styling are shopper-supplied. Prices exclude these consumables and shipping; arrival by Halloween is unverified. Reused products retain their original research timestamps. Publication carries forward newer shared-product price, stock, size and check timestamps from the live database; original sourcing evidence is retained.",
+    "priceTiers": true,
+    "heroImageKind": "generated-reference"
+  }
+}

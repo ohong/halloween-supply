@@ -31,7 +31,7 @@ Both tabs must remain visible. Hiding either tab or locking the phone stops shar
 
 Existing `TURSO_DATABASE_URL` and `TURSO_AUTH_TOKEN` store signaling. Existing `OPENAI_API_KEY` and `FAL_KEY` run inference.
 
-For connections across restrictive networks, set server-only `CLOUDFLARE_TURN_KEY_ID` and `CLOUDFLARE_TURN_API_TOKEN`. The server requests 15-minute TURN credentials (24 hours during testing) from [Cloudflare's documented credential endpoint](https://developers.cloudflare.com/realtime/turn/generate-credentials/). Never expose the long-lived key to the browser.
+For connections across restrictive networks, set server-only `METERED_TURN_APP` (the subdomain in `<app>.metered.live`) and `METERED_TURN_API_KEY`. The server fetches TURN credentials from [Metered's credential endpoint](https://www.metered.ca/docs/turn-rest-api/get-credential) when a phone pairs. Never expose the API key to the browser.
 
 The flow first tries direct WebRTC. When the TURN credentials are configured, Cloudflare Realtime relays encrypted traffic if direct connectivity fails, including networks that isolate devices on the same Wi-Fi. A full SFU is unnecessary for one phone paired with one desktop; TURN preserves the existing peer connection and photo data channel. A failed connection ends with a retry instruction instead of silently falling back to a desktop camera.
 

@@ -1,0 +1,611 @@
+{
+  "costume": {
+    "slug": "deep-sea-diver",
+    "name": "Deep Sea Diver",
+    "description": "A gold diving-bell helmet turns cream coveralls and a broad belt into an explorer from a lost underwater expedition.",
+    "image": "/costumes/deep-sea-diver.png",
+    "alt": "Gold vintage diving bell costume helmet, cream coveralls, tan belt and brown lace-up boots",
+    "status": "live"
+  },
+  "pieces": [
+    {
+      "id": "deep-sea-diver-gold-diving-bell-costume-helmet",
+      "name": "Gold diving-bell costume helmet",
+      "category": "headwear",
+      "required": true,
+      "order": 0,
+      "styleNotes": "Gold plush helmets reproduce the antique diving-bell outline. Helmet only; decorative costume pieces without breathing protection.",
+      "queries": [
+        "Gold diving-bell costume helmet"
+      ],
+      "sizeKind": "one_size",
+      "matches": [
+        {
+          "productId": "p-d-9a8e5dd7cd",
+          "rank": 0,
+          "reason": "Gold plush diving bell helmet only. Decorative costume accessory; never use for diving or breathing protection."
+        },
+        {
+          "productId": "p-d-bcda5473fc",
+          "rank": 1,
+          "reason": "Gold soft diving bell helmet only, one size fits most. Decorative accessory, not aquatic safety equipment."
+        },
+        {
+          "productId": "p-d-2047c7b362",
+          "rank": 2,
+          "reason": "Gold plush diving bell helmet only. Decorative accessory, not aquatic safety equipment."
+        }
+      ]
+    },
+    {
+      "id": "deep-sea-diver-light-coveralls",
+      "name": "Light coveralls",
+      "category": "one-piece",
+      "required": true,
+      "order": 1,
+      "styleNotes": "Use plain white coveralls for the vintage canvas suit. Astronaut alternatives carry space patches; cover them with removable fabric. No diving function.",
+      "queries": [
+        "white astronaut jumpsuit adult",
+        "white long sleeve coveralls"
+      ],
+      "sizeKind": "apparel",
+      "matches": [
+        {
+          "productId": "p-cf22d6eba6",
+          "rank": 0,
+          "reason": "White long-sleeve Red Kap CT10 cotton/polyester twill work coveralls with zipper and pockets. The reviewed size list excludes sold-out 56. Plain workwear gives the closest antique diving-suit base; helmet, belt and boots are separate."
+        },
+        {
+          "productId": "p-987fdfb629",
+          "rank": 1,
+          "reason": "White jumpsuit with embroidered space patches, black straps and zipper accents. Bright white rather than cream; cover the space patches with removable fabric for this diver look. Helmet and footwear are separate."
+        },
+        {
+          "productId": "p-ba6ef8eafc",
+          "rank": 2,
+          "reason": "Includes 100% polyester zip-up white jumpsuit with embroidered NASA patches and zipper pockets, plus embroidered baseball cap. The cap is extra and does not replace the helmet. White with black straps; cover space patches with removable fabric for this look. Merchant offers US shipping; orders after 2pm Eastern miss that day’s cutoff."
+        }
+      ]
+    },
+    {
+      "id": "deep-sea-diver-pale-waist-belt",
+      "name": "Pale waist belt",
+      "category": "accessories",
+      "required": true,
+      "order": 2,
+      "styleNotes": "A simple pale waist belt suggests the diving-suit harness. These belts have no weights or air hoses.",
+      "queries": [
+        "white canvas belt silver buckle",
+        "khaki cotton web belt"
+      ],
+      "sizeKind": "apparel",
+      "matches": [
+        {
+          "productId": "p-a0e3a2a0b4",
+          "rank": 0,
+          "reason": "Khaki washed-cotton belt with double-prong metal buckle and eyelets. Only the listed Khaki sizes at $17.99 are included."
+        },
+        {
+          "productId": "p-0dab590d99",
+          "rank": 1,
+          "reason": "Select White – Chrome Buckle. Includes a 54-inch, 1.25-inch-wide cotton web belt with silver-colored buckle and tip; cut to fit. Merchant states dispatch in 1–3 business days."
+        },
+        {
+          "productId": "p-b495506efa",
+          "rank": 2,
+          "reason": "Khaki / Standard width / Standard length only. Beige stretch webbing and matching plastic buckle approximate the cream waist strap. Merchant selector states 1.5-inch width and 24–38-inch waist range. No silver buckle, pouches or suspenders; this belt is not designed to carry gear."
+        }
+      ]
+    },
+    {
+      "id": "deep-sea-diver-brown-lace-up-boots",
+      "name": "Brown lace-up boots",
+      "category": "footwear",
+      "required": true,
+      "order": 3,
+      "styleNotes": "Brown lace-up ankle boots complete the outfit. Shaft height, sole shape and brown shades differ between the three options.",
+      "queries": [
+        "mens dark brown lace up leather boots"
+      ],
+      "sizeKind": "shoe",
+      "matches": [
+        {
+          "productId": "p-ba0acbf53c",
+          "rank": 0,
+          "reason": "Brown leather cap-toe ankle boot with waxed cotton laces, glove leather lining and studded rubber sole. US order processing typically 1–3 business days; delivery timing is separate."
+        },
+        {
+          "productId": "p-3b0a976509",
+          "rank": 1,
+          "reason": "Brown CH style 85088-215, leather/man-made mixed upper and modern lug wedge sole. Reviewed merchant page lists $89.95. Stated usual dispatch 2–3 business days."
+        },
+        {
+          "productId": "p-10ebd36f10",
+          "rank": 2,
+          "reason": "Crimson Chromexcel dark reddish-brown leather plain-toe lace-up ankle boot with antique-brass eyelets/hooks and rubber sole. Lower shaft and no calf buckles. D Standard sizes 6–13 listed here are available at $435. Higher price does not make it a closer costume match."
+        }
+      ]
+    }
+  ],
+  "products": [
+    {
+      "id": "p-d-9a8e5dd7cd",
+      "title": "Diving Bell Plush Helmet",
+      "url": "https://chicagocostume.com/products/diving-bell-plush-helmet?variant=43255117218034",
+      "priceCents": 2999,
+      "currency": "USD",
+      "image": "/products/price-tiers/p-d-9a8e5dd7cd.webp",
+      "merchantImage": "/products/price-tiers/p-d-9a8e5dd7cd.webp",
+      "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/0610/0208/8690/products/250450__94189.1548696817.jpg?v=1655504997"
+      ],
+      "availability": "in_stock",
+      "sizes": [],
+      "merchantId": "chicagocostume-com",
+      "tagSlugs": [],
+      "description": "Dive for deep sea creatures in this Diving Bell Plush Helmet! One Size fits most. Made in China",
+      "checkedAt": "2026-10-27T00:28:51.012585+00:00",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-27T00:28:51.012585+00:00",
+        "url": "https://chicagocostume.com/products/diving-bell-plush-helmet.js",
+        "notes": "Built-in web discovery; primary merchant Shopify feed confirms selected variant available and its USD price. Gold plush diving bell helmet only. Decorative costume accessory; never use for diving or breathing protection."
+      }
+    },
+    {
+      "id": "p-d-bcda5473fc",
+      "title": "Diving Bell Scuba Helmet — GOLD / ONE SIZE FITS MOST",
+      "url": "https://villagehatshop.com/products/diving-bell-scuba-helmet?variant=45419789484170",
+      "priceCents": 3099,
+      "currency": "USD",
+      "image": "/products/price-tiers/p-d-bcda5473fc.webp",
+      "merchantImage": "/products/price-tiers/p-d-bcda5473fc.webp",
+      "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/0074/3732/0263/files/T3pYqaTThIbOjhUHzNcIX2eNA6KO3GEM-35.jpg?v=1766013851"
+      ],
+      "availability": "in_stock",
+      "sizes": [],
+      "merchantId": "villagehatshop-com",
+      "tagSlugs": [],
+      "description": "Inspired by the diving bell during the golden age of scuba diving, this authentic looking head piece completes your old-fashioned scuba costume flawlessly. Soft and comfortable to wear, the Diving Bell Scuba Helmet fits both children and adults! Approx. 13\" Height 4\" Diameter Opening Made of: 25% Cotton 75% Polyester Fabric Lining Secret Pocket Hook and Loop Adjustable Sizer - Adjusts to Fit Size: One Size Fits Most - adjustable; fits up to 7 3/8 (L) comfortably.",
+      "checkedAt": "2026-10-27T00:28:51.012585+00:00",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-27T00:28:51.012585+00:00",
+        "url": "https://villagehatshop.com/products/diving-bell-scuba-helmet.js",
+        "notes": "Built-in web discovery; primary merchant Shopify feed confirms selected variant available and its USD price. Gold soft diving bell helmet only, one size fits most. Decorative accessory, not aquatic safety equipment."
+      }
+    },
+    {
+      "id": "p-d-2047c7b362",
+      "title": "Diving Bell Plush Helmet",
+      "url": "https://prettystickbeauty.com/products/diving-bell-plush-helmet?variant=47074032287966",
+      "priceCents": 3595,
+      "currency": "USD",
+      "image": "/products/price-tiers/p-d-2047c7b362.webp",
+      "merchantImage": "/products/price-tiers/p-d-2047c7b362.webp",
+      "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/0513/0751/1992/files/IMG-5591.heic?v=1752346679"
+      ],
+      "availability": "in_stock",
+      "sizes": [],
+      "merchantId": "prettystickbeauty-com",
+      "tagSlugs": [],
+      "description": "",
+      "checkedAt": "2026-10-27T00:28:51.012585+00:00",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-27T00:28:51.012585+00:00",
+        "url": "https://prettystickbeauty.com/products/diving-bell-plush-helmet.js",
+        "notes": "Built-in web discovery; primary merchant Shopify feed confirms selected variant available and its USD price. Gold plush diving bell helmet only. Decorative accessory, not aquatic safety equipment."
+      }
+    },
+    {
+      "id": "p-cf22d6eba6",
+      "title": "Red Kap® Professional Twill Industrial workwear Action Back Coverall - White - CT10",
+      "url": "https://www.safetyvestsandmore.com/products/red-kap-professional-twill-industrial-workwear-action-back-coverall-white-ct10?variant=43348427210889",
+      "priceCents": 4059,
+      "currency": "USD",
+      "image": "/products/price-tiers/p-cf22d6eba6.webp",
+      "merchantImage": "/products/price-tiers/p-cf22d6eba6.webp",
+      "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/0338/7090/5481/files/red-kap-professional-twill-industrial-workwear-action-back-coverall-white-ct10-1.webp?v=1739224971"
+      ],
+      "availability": "in_stock",
+      "sizes": [
+        "34",
+        "36",
+        "38",
+        "40",
+        "42",
+        "44",
+        "46",
+        "48",
+        "50",
+        "52",
+        "54",
+        "58",
+        "40 (Tall)",
+        "42 (Tall)",
+        "44 (Tall)",
+        "46 (Tall)",
+        "48 (Tall)",
+        "50 (Tall)",
+        "52 (Tall)"
+      ],
+      "merchantId": "safetyvestsandmore-com",
+      "tagSlugs": [],
+      "description": "One white long-sleeve Red Kap CT10 coverall in cotton/polyester twill. A plain workwear base with zipper and pockets, without patches, orange panels or padding. Listed sizes exclude sold-out 56. Add the separate burnt-orange fabric panels; helmet, belt, gloves and boots are separate.",
+      "checkedAt": "2026-10-26T10:01:15.012Z",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-25T08:53:19.398203Z",
+        "url": "https://www.safetyvestsandmore.com/products/red-kap-professional-twill-industrial-workwear-action-back-coverall-white-ct10.js",
+        "notes": "One white long-sleeve Red Kap CT10 coverall in cotton/polyester twill. A plain workwear base with zipper and pockets, without patches, orange panels or padding. Listed sizes exclude sold-out 56. Add the separate burnt-orange fabric panels; helmet, belt, gloves and boots are separate."
+      }
+    },
+    {
+      "id": "p-987fdfb629",
+      "title": "Aerospace Astronaut Teen/Adult Costume (White)",
+      "url": "https://www.purecostumes.com/products/u29362-aerospace-astronaut-teen-adult-costume-white?variant=47643072495830",
+      "priceCents": 3495,
+      "currency": "USD",
+      "image": "/products/price-tiers/p-987fdfb629.webp",
+      "merchantImage": "/products/price-tiers/p-987fdfb629.webp",
+      "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/0792/4950/6518/files/U29362_full_1.jpg?v=1766858168"
+      ],
+      "availability": "in_stock",
+      "sizes": [
+        "Teen",
+        "Standard",
+        "X-Large"
+      ],
+      "merchantId": "purecostumes-com",
+      "tagSlugs": [],
+      "description": "Includes the white jumpsuit with embroidered patches. Product photo shows black straps and zipper accents. It is bright white rather than cream and has no burnt-orange panels or padded knees; add those from the separate fabric component. Helmet, gloves and footwear are separate.",
+      "checkedAt": "2026-10-26T10:01:15.411Z",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-25T08:53:19.398203Z",
+        "url": "https://www.purecostumes.com/products/u29362-aerospace-astronaut-teen-adult-costume-white.js",
+        "notes": "Includes the white jumpsuit with embroidered patches. Product photo shows black straps and zipper accents. It is bright white rather than cream and has no burnt-orange panels or padded knees; add those from the separate fabric component. Helmet, gloves and footwear are separate."
+      }
+    },
+    {
+      "id": "p-ba6ef8eafc",
+      "title": "Classic White Astronaut Suit & Cap Adult Costume",
+      "url": "https://abracadabranyc.com/products/white-astronaut-suit-with-cap?variant=32797833625740",
+      "priceCents": 11295,
+      "currency": "USD",
+      "image": "/products/price-tiers/p-ba6ef8eafc.webp",
+      "merchantImage": "/products/price-tiers/p-ba6ef8eafc.webp",
+      "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/1199/8814/files/618105A.jpg?v=1760379194"
+      ],
+      "availability": "in_stock",
+      "sizes": [
+        "Small",
+        "Large"
+      ],
+      "merchantId": "abracadabranyc-com",
+      "tagSlugs": [],
+      "description": "Includes 100% polyester zip-up white jumpsuit with embroidered NASA patches and zipper pockets, plus embroidered baseball cap. The cap is extra and does not replace the helmet. White with black straps, not cream/orange; add separate fabric panels. Merchant offers US shipping; orders after 2pm Eastern miss that day’s cutoff.",
+      "checkedAt": "2026-10-26T10:01:15.654Z",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-25T08:53:19.398203Z",
+        "url": "https://abracadabranyc.com/products/white-astronaut-suit-with-cap.js",
+        "notes": "Includes 100% polyester zip-up white jumpsuit with embroidered NASA patches and zipper pockets, plus embroidered baseball cap. The cap is extra and does not replace the helmet. White with black straps, not cream/orange; add separate fabric panels. Merchant offers US shipping; orders after 2pm Eastern miss that day’s cutoff."
+      }
+    },
+    {
+      "id": "p-a0e3a2a0b4",
+      "title": "Rothco Vintage Double Prong Buckle Belt",
+      "url": "https://militaryuniformsupply.com/products/ultra-force-tm-vintage-belt-with-double-prong-buckle?variant=37984953827512",
+      "priceCents": 1799,
+      "currency": "USD",
+      "image": "/products/price-tiers/p-a0e3a2a0b4.webp",
+      "merchantImage": "/products/price-tiers/p-a0e3a2a0b4.webp",
+      "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/0070/0874/7556/files/4171-double-pronged-belt-khaki.jpg?v=1753753094"
+      ],
+      "availability": "in_stock",
+      "sizes": [
+        "Black",
+        "Khaki",
+        "Olive Drab"
+      ],
+      "merchantId": "militaryuniformsupply-com",
+      "tagSlugs": [],
+      "description": "Khaki washed-cotton belt with double-prong metal buckle and eyelets. More tan than the reference cream, and has no pouches or suspenders. Only the listed Khaki sizes at $17.99 are included.",
+      "checkedAt": "2026-10-26T10:01:15.875Z",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-25T08:53:19.398203Z",
+        "url": "https://militaryuniformsupply.com/products/ultra-force-tm-vintage-belt-with-double-prong-buckle.js",
+        "notes": "Khaki washed-cotton belt with double-prong metal buckle and eyelets. More tan than the reference cream, and has no pouches or suspenders. Only the listed Khaki sizes at $17.99 are included."
+      }
+    },
+    {
+      "id": "p-0dab590d99",
+      "title": "Rothco 54 Inch Military Web Belts - 4170",
+      "url": "https://www.armynavyusa.com/products/rothco-54-inch-military-web-belts-4170?variant=49615644852379",
+      "priceCents": 799,
+      "currency": "USD",
+      "image": "/products/price-tiers/p-0dab590d99.webp",
+      "merchantImage": "/products/price-tiers/p-0dab590d99.webp",
+      "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/0782/8973/1739/files/anu-gallery-20579fa3550e53e7-ae8fedb75b8766e2.jpg?v=1791617310"
+      ],
+      "availability": "in_stock",
+      "sizes": [
+        "one size"
+      ],
+      "merchantId": "armynavyusa-com",
+      "tagSlugs": [],
+      "description": "Select White – Chrome Buckle. Includes a 54-inch, 1.25-inch-wide cotton web belt with silver-colored buckle and tip; cut to fit. Bright white and much narrower than the reference utility belt; no pouches or suspenders. Merchant states dispatch in 1–3 business days.",
+      "checkedAt": "2026-10-26T10:01:15.794Z",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-25T08:53:19.398203Z",
+        "url": "https://www.armynavyusa.com/products/rothco-54-inch-military-web-belts-4170.js",
+        "notes": "Select White – Chrome Buckle. Includes a 54-inch, 1.25-inch-wide cotton web belt with silver-colored buckle and tip; cut to fit. Bright white and much narrower than the reference utility belt; no pouches or suspenders. Merchant states dispatch in 1–3 business days."
+      }
+    },
+    {
+      "id": "p-b495506efa",
+      "title": "Atlas",
+      "url": "https://arcadebelts.com/products/atlas-stretch-belt?variant=51974259179884",
+      "priceCents": 3995,
+      "currency": "USD",
+      "image": "/products/price-tiers/p-b495506efa.webp",
+      "merchantImage": "/products/price-tiers/p-b495506efa.webp",
+      "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/0281/1170/0021/files/Atlas-Khaki-UA-NRSEEH4-453_optimized.webp?v=1787700110"
+      ],
+      "availability": "in_stock",
+      "sizes": [
+        "one size"
+      ],
+      "merchantId": "arcadebelts-com",
+      "tagSlugs": [],
+      "description": "Khaki / Standard width / Standard length only. Beige stretch webbing and matching plastic buckle approximate the cream waist strap. Merchant selector states 1.5-inch width and 24–38-inch waist range. No silver buckle, pouches or suspenders; this belt is not designed to carry gear.",
+      "checkedAt": "2026-10-26T10:01:16.043Z",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-25T08:53:19.398203Z",
+        "url": "https://arcadebelts.com/products/atlas-stretch-belt.js",
+        "notes": "Khaki / Standard width / Standard length only. Beige stretch webbing and matching plastic buckle approximate the cream waist strap. Merchant selector states 1.5-inch width and 24–38-inch waist range. No silver buckle, pouches or suspenders; this belt is not designed to carry gear."
+      }
+    },
+    {
+      "id": "p-ba0acbf53c",
+      "title": "Captain | Brown — Standard",
+      "url": "https://thursdayboots.com/products/mens-brown-captain?variant=7609600581",
+      "priceCents": 19900,
+      "currency": "USD",
+      "image": "/products/price-tiers/p-ba0acbf53c.webp",
+      "merchantImage": "/products/price-tiers/p-ba0acbf53c.webp",
+      "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/0419/1525/files/1024x1024-Men-Captain-Brown-081226-3.4-d17ac2.jpg?v=1790357464"
+      ],
+      "availability": "in_stock",
+      "sizes": [
+        "6",
+        "6.5",
+        "7",
+        "7.5",
+        "8",
+        "8.5",
+        "9",
+        "9.5",
+        "10",
+        "10.5",
+        "11",
+        "11.5",
+        "12",
+        "12.5",
+        "13",
+        "13.5",
+        "14",
+        "15",
+        "16"
+      ],
+      "merchantId": "thursdayboots-com",
+      "tagSlugs": [],
+      "description": "Brown leather cap-toe ankle boot with waxed cotton laces, glove leather lining and studded rubber sole. Shorter than the image and has no upper buckles. Standard-width sizes 6–16 listed here are all available at $199 in current feed. US order processing typically 1–3 business days; delivery timing is separate.",
+      "checkedAt": "2026-10-26T10:00:36.737Z",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-25T08:50:23.962064Z",
+        "url": "https://thursdayboots.com/products/mens-brown-captain.js",
+        "notes": "Brown leather cap-toe ankle boot with waxed cotton laces, glove leather lining and studded rubber sole. Shorter than the image and has no upper buckles. Standard-width sizes 6–16 listed here are all available at $199 in current feed. US order processing typically 1–3 business days; delivery timing is separate."
+      }
+    },
+    {
+      "id": "p-3b0a976509",
+      "title": "Karnak Plain Toe Boot — Brown CH / M (D - medium)",
+      "url": "https://www.nunnbush.com/shop/style/85088-215.html",
+      "priceCents": 8995,
+      "currency": "USD",
+      "image": "/products/price-tiers/p-3b0a976509.webp",
+      "merchantImage": "/products/price-tiers/p-3b0a976509.webp",
+      "sourceImages": [
+        "https://www.nunnbush.com/shop/images/w590/85088-215.jpg"
+      ],
+      "availability": "unknown",
+      "sizes": [
+        "7",
+        "7.5",
+        "8",
+        "8.5",
+        "9",
+        "9.5",
+        "10",
+        "10.5",
+        "11",
+        "11.5",
+        "12",
+        "13",
+        "14"
+      ],
+      "merchantId": "nunnbush-com",
+      "tagSlugs": [],
+      "description": "Brown CH style 85088-215, leather/man-made mixed upper and modern lug wedge sole. Live merchant page lists $89.95. Read-only width selection confirmed M (D medium) and every listed size explicitly In Stock; response saved in nunn-medium-width.xml. Shorter and more modern than the image, with no calf buckles. Stated usual dispatch 2–3 business days.",
+      "checkedAt": "2026-10-25T08:53:39.887804Z",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-25T08:50:23.962064Z",
+        "url": "https://www.nunnbush.com/shop/style/85088-215.html",
+        "notes": "Brown CH style 85088-215, leather/man-made mixed upper and modern lug wedge sole. Live merchant page lists $89.95. Read-only width selection confirmed M (D medium) and every listed size explicitly In Stock; response saved in nunn-medium-width.xml. Shorter and more modern than the image, with no calf buckles. Stated usual dispatch 2–3 business days."
+      }
+    },
+    {
+      "id": "p-10ebd36f10",
+      "title": "Diesel Boot Crimson Chromexcel — D (Standard)",
+      "url": "https://grantstoneshoes.com/products/diesel-boot-crimson-chromexcel?variant=12617336160320",
+      "priceCents": 43500,
+      "currency": "USD",
+      "image": "/products/price-tiers/p-10ebd36f10.webp",
+      "merchantImage": "/products/price-tiers/p-10ebd36f10.webp",
+      "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/1163/3390/files/06SIDE-Edit_14628844-8b5f-4b32-b91c-69db10615674.jpg?v=1783615369"
+      ],
+      "availability": "in_stock",
+      "sizes": [
+        "6",
+        "6.5",
+        "7",
+        "7.5",
+        "8",
+        "8.5",
+        "9",
+        "9.5",
+        "10",
+        "10.5",
+        "11",
+        "11.5",
+        "12",
+        "13"
+      ],
+      "merchantId": "grantstoneshoes-com",
+      "tagSlugs": [],
+      "description": "Crimson Chromexcel dark reddish-brown leather plain-toe lace-up ankle boot with antique-brass eyelets/hooks and rubber sole. Lower shaft and no calf buckles. D Standard sizes 6–13 listed here are available at $435. Higher price does not make it a closer costume match.",
+      "checkedAt": "2026-10-26T10:00:47.482Z",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-25T08:50:23.962064Z",
+        "url": "https://grantstoneshoes.com/products/diesel-boot-crimson-chromexcel.js",
+        "notes": "Crimson Chromexcel dark reddish-brown leather plain-toe lace-up ankle boot with antique-brass eyelets/hooks and rubber sole. Lower shaft and no calf buckles. D Standard sizes 6–13 listed here are available at $435. Higher price does not make it a closer costume match."
+      }
+    }
+  ],
+  "merchants": [
+    {
+      "id": "chicagocostume-com",
+      "name": "Chicago Costume Company",
+      "domain": "chicagocostume.com",
+      "url": "https://chicagocostume.com/",
+      "kind": "boutique",
+      "neighborhoodId": null
+    },
+    {
+      "id": "villagehatshop-com",
+      "name": "Village Hat Shop",
+      "domain": "villagehatshop.com",
+      "url": "https://villagehatshop.com/",
+      "kind": "boutique",
+      "neighborhoodId": null
+    },
+    {
+      "id": "prettystickbeauty-com",
+      "name": "PrettyStick",
+      "domain": "prettystickbeauty.com",
+      "url": "https://prettystickbeauty.com",
+      "kind": "boutique",
+      "neighborhoodId": null
+    },
+    {
+      "id": "purecostumes-com",
+      "name": "Pure Costumes",
+      "domain": "purecostumes.com",
+      "url": "https://purecostumes.com/",
+      "kind": "boutique",
+      "neighborhoodId": null
+    },
+    {
+      "id": "safetyvestsandmore-com",
+      "name": "Safety Vests and More",
+      "domain": "safetyvestsandmore.com",
+      "url": "https://safetyvestsandmore.com/",
+      "kind": "boutique",
+      "neighborhoodId": null
+    },
+    {
+      "id": "abracadabranyc-com",
+      "name": "AbracadabraNYC",
+      "domain": "abracadabranyc.com",
+      "url": "https://abracadabranyc.com/",
+      "kind": "boutique",
+      "neighborhoodId": null
+    },
+    {
+      "id": "armynavyusa-com",
+      "name": "Army Navy USA",
+      "domain": "armynavyusa.com",
+      "url": "https://armynavyusa.com/",
+      "kind": "boutique",
+      "neighborhoodId": null
+    },
+    {
+      "id": "militaryuniformsupply-com",
+      "name": "Military Uniform Supply",
+      "domain": "militaryuniformsupply.com",
+      "url": "https://militaryuniformsupply.com/",
+      "kind": "boutique",
+      "neighborhoodId": null
+    },
+    {
+      "id": "arcadebelts-com",
+      "name": "Arcade Belts",
+      "domain": "arcadebelts.com",
+      "url": "https://arcadebelts.com/",
+      "kind": "boutique",
+      "neighborhoodId": null
+    },
+    {
+      "id": "nunnbush-com",
+      "name": "Nunn Bush",
+      "domain": "nunnbush.com",
+      "url": "https://nunnbush.com/",
+      "kind": "boutique",
+      "neighborhoodId": null
+    },
+    {
+      "id": "thursdayboots-com",
+      "name": "Thursday Boot Company",
+      "domain": "thursdayboots.com",
+      "url": "https://thursdayboots.com/",
+      "kind": "boutique",
+      "neighborhoodId": null
+    },
+    {
+      "id": "grantstoneshoes-com",
+      "name": "Grant Stone",
+      "domain": "grantstoneshoes.com",
+      "url": "https://grantstoneshoes.com/",
+      "kind": "boutique",
+      "neighborhoodId": null
+    }
+  ],
+  "neighborhoods": [],
+  "tags": [],
+  "provenance": {
+    "method": "manual-research",
+    "generatedAt": "2026-10-27T00:28:51.012585+00:00",
+    "notes": "Expansion D: new defining accessories researched with built-in web search and official merchant Shopify variant feeds. Existing basics reuse reviewed catalog evidence and retain original check dates. Relative price tiers; shipping, taxes and arrival are unconfirmed. Generated image is styling inspiration; option differences and DIY work are explicit. See docs/sourcing/expansion-d.md. Publication carries forward newer shared-product price, stock, size and check timestamps from the live database; original sourcing evidence is retained.",
+    "priceTiers": true,
+    "heroImageKind": "generated-reference"
+  }
+}

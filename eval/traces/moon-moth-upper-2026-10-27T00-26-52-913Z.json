@@ -1,0 +1,441 @@
+{
+  "slug": "moon-moth-upper",
+  "base": "http://localhost:3000",
+  "model": "opencv-5:5.0.0;stock",
+  "elapsedMs": 19605,
+  "done": {
+    "t": "done",
+    "found": 1,
+    "priced": 0,
+    "timedOut": false,
+    "ms": 19571
+  },
+  "pieces": [
+    "beige moth wing cape",
+    "charcoal satin pantaloons"
+  ],
+  "approvals": [],
+  "retries": [
+    {
+      "piece": 1,
+      "attempt": 0,
+      "action": "retry",
+      "because": "color_mismatch",
+      "next": "black satin pantaloons"
+    },
+    {
+      "piece": 0,
+      "attempt": 0,
+      "action": "retry",
+      "because": "color_mismatch",
+      "next": "sage moth wing cape"
+    },
+    {
+      "piece": 1,
+      "attempt": 1,
+      "action": "retry",
+      "because": "weak_score",
+      "next": "charcoal bloomers"
+    },
+    {
+      "piece": 0,
+      "attempt": 1,
+      "action": "retry",
+      "because": "no_candidates",
+      "next": "beige wing cape"
+    }
+  ],
+  "improvedPieces": [
+    1,
+    0
+  ],
+  "trace": [
+    {
+      "t_ms": 469,
+      "piece": null,
+      "step": "perceive",
+      "detail": {
+        "person": {
+          "found": true,
+          "bbox": [
+            29,
+            116,
+            709,
+            307
+          ],
+          "confidence": 0.847
+        },
+        "timings_ms": {
+          "decode": 1,
+          "segment": 356,
+          "colors": 23,
+          "embed": 81,
+          "classify": 1,
+          "total": 462
+        },
+        "pieces": [
+          {
+            "id": "p0",
+            "region": "upper_clothes",
+            "slot": "outer",
+            "area_frac": 0.3177,
+            "pattern": "solid",
+            "query": "beige moth wing cape",
+            "alternate": "beige wing cape",
+            "colors": [
+              {
+                "name": "beige",
+                "hex": "#cbc4a8",
+                "frac": 0.467
+              },
+              {
+                "name": "sage",
+                "hex": "#9a9872",
+                "frac": 0.44
+              },
+              {
+                "name": "olive",
+                "hex": "#534e2e",
+                "frac": 0.093
+              }
+            ],
+            "garment_types": [
+              {
+                "phrase": "moth wing cape",
+                "score": 0.2867
+              },
+              {
+                "phrase": "feather shoulder cape",
+                "score": 0.2848
+              },
+              {
+                "phrase": "hooded cloak",
+                "score": 0.2727
+              }
+            ]
+          },
+          {
+            "id": "p1",
+            "region": "pants",
+            "slot": "bottom",
+            "area_frac": 0.0593,
+            "pattern": "solid",
+            "query": "charcoal satin pantaloons",
+            "alternate": "charcoal bloomers",
+            "colors": [
+              {
+                "name": "charcoal",
+                "hex": "#4c4b3e",
+                "frac": 0.576
+              },
+              {
+                "name": "black",
+                "hex": "#323124",
+                "frac": 0.326
+              },
+              {
+                "name": "gray",
+                "hex": "#989583",
+                "frac": 0.098
+              }
+            ],
+            "garment_types": [
+              {
+                "phrase": "satin pantaloons",
+                "score": 0.2799
+              },
+              {
+                "phrase": "riding breeches",
+                "score": 0.275
+              },
+              {
+                "phrase": "high-waisted trousers",
+                "score": 0.2728
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "t_ms": 650,
+      "piece": 0,
+      "step": "search",
+      "detail": {
+        "attempt": 0,
+        "query": "beige moth wing cape",
+        "candidates": 3,
+        "ms": 181
+      }
+    },
+    {
+      "t_ms": 881,
+      "piece": 1,
+      "step": "search",
+      "detail": {
+        "attempt": 0,
+        "query": "charcoal satin pantaloons",
+        "candidates": 3,
+        "ms": 412
+      }
+    },
+    {
+      "t_ms": 6083,
+      "piece": 1,
+      "step": "score",
+      "detail": {
+        "attempt": 0,
+        "results": [
+          {
+            "title": "Charcoal Printed Satin Mandarin Collar Women Regular Fit Tunic",
+            "merchant": "pantaloons.com",
+            "score": 0.3415,
+            "verdict": "reject",
+            "reasons": [
+              "color_mismatch"
+            ],
+            "embedding": 0.7663,
+            "delta_e": 53.45,
+            "color": {
+              "name": "white",
+              "hex": "#f4f0eb"
+            },
+            "foreground": "segmenter"
+          }
+        ]
+      }
+    },
+    {
+      "t_ms": 6084,
+      "piece": 1,
+      "step": "decide",
+      "detail": {
+        "attempt": 0,
+        "action": "retry",
+        "because": "color_mismatch",
+        "next": "black satin pantaloons"
+      }
+    },
+    {
+      "t_ms": 6253,
+      "piece": 1,
+      "step": "search",
+      "detail": {
+        "attempt": 1,
+        "query": "black satin pantaloons",
+        "candidates": 3,
+        "ms": 169
+      }
+    },
+    {
+      "t_ms": 6424,
+      "piece": 0,
+      "step": "score",
+      "detail": {
+        "attempt": 0,
+        "results": [
+          {
+            "title": "Atlas Moth Wings Costume Cape Hand-Painted Wings Fantasy Clothing Gothic",
+            "merchant": "etsy.com",
+            "score": 0.3377,
+            "verdict": "reject",
+            "reasons": [
+              "color_mismatch"
+            ],
+            "embedding": 0.7092,
+            "delta_e": 28.33,
+            "color": {
+              "name": "gray",
+              "hex": "#8e7166"
+            },
+            "foreground": "threshold"
+          }
+        ]
+      }
+    },
+    {
+      "t_ms": 6424,
+      "piece": 0,
+      "step": "decide",
+      "detail": {
+        "attempt": 0,
+        "action": "retry",
+        "because": "color_mismatch",
+        "next": "sage moth wing cape"
+      }
+    },
+    {
+      "t_ms": 10163,
+      "piece": 0,
+      "step": "search",
+      "detail": {
+        "attempt": 1,
+        "query": "sage moth wing cape",
+        "candidates": 3,
+        "ms": 3739
+      }
+    },
+    {
+      "t_ms": 10866,
+      "piece": 1,
+      "step": "score",
+      "detail": {
+        "attempt": 1,
+        "results": [
+          {
+            "title": "Black Satin Pantaloons",
+            "merchant": "kalikahbellydancer.com.au",
+            "score": 0.3747,
+            "verdict": "reject",
+            "reasons": [],
+            "embedding": 0.6924,
+            "delta_e": 19.88,
+            "color": {
+              "name": "black",
+              "hex": "#111112"
+            },
+            "foreground": "grabcut"
+          },
+          {
+            "title": "Black Solid Slim Fit Satin Shirt",
+            "merchant": "pantaloons.com",
+            "score": 0.3133,
+            "verdict": "reject",
+            "reasons": [
+              "color_mismatch"
+            ],
+            "embedding": 0.7494,
+            "delta_e": 50.54,
+            "color": {
+              "name": "white",
+              "hex": "#e5ddd9"
+            },
+            "foreground": "segmenter"
+          }
+        ]
+      }
+    },
+    {
+      "t_ms": 10866,
+      "piece": 1,
+      "step": "decide",
+      "detail": {
+        "attempt": 1,
+        "action": "retry",
+        "because": "weak_score",
+        "next": "charcoal bloomers"
+      }
+    },
+    {
+      "t_ms": 14166,
+      "piece": 0,
+      "step": "score",
+      "detail": {
+        "attempt": 1,
+        "results": []
+      }
+    },
+    {
+      "t_ms": 14166,
+      "piece": 0,
+      "step": "decide",
+      "detail": {
+        "attempt": 1,
+        "action": "retry",
+        "because": "no_candidates",
+        "next": "beige wing cape"
+      }
+    },
+    {
+      "t_ms": 14343,
+      "piece": 1,
+      "step": "search",
+      "detail": {
+        "attempt": 2,
+        "query": "charcoal bloomers",
+        "candidates": 3,
+        "ms": 3477
+      }
+    },
+    {
+      "t_ms": 14499,
+      "piece": 0,
+      "step": "search",
+      "detail": {
+        "attempt": 2,
+        "query": "beige wing cape",
+        "candidates": 3,
+        "ms": 333
+      }
+    },
+    {
+      "t_ms": 19538,
+      "piece": 0,
+      "step": "score",
+      "detail": {
+        "attempt": 2,
+        "results": [
+          {
+            "title": "The Manor Wool Cape - Beige Stripe",
+            "merchant": "angelwingsbylucy.com",
+            "score": 0.3634,
+            "verdict": "reject",
+            "reasons": [
+              "color_mismatch"
+            ],
+            "embedding": 0.7539,
+            "delta_e": 38.04,
+            "color": {
+              "name": "brown",
+              "hex": "#695641"
+            },
+            "foreground": "segmenter"
+          },
+          {
+            "title": "The Manor Wool Cape - Beige Stripe",
+            "merchant": "angelwingsbylucy.com",
+            "score": 0.3634,
+            "verdict": "reject",
+            "reasons": [
+              "color_mismatch"
+            ],
+            "embedding": 0.7539,
+            "delta_e": 38.04,
+            "color": {
+              "name": "brown",
+              "hex": "#695641"
+            },
+            "foreground": "segmenter"
+          },
+          {
+            "title": "The Manor Wool Cape - Beige Stripe",
+            "merchant": "angelwingsbylucy.com",
+            "score": 0.3634,
+            "verdict": "reject",
+            "reasons": [
+              "color_mismatch"
+            ],
+            "embedding": 0.7539,
+            "delta_e": 38.04,
+            "color": {
+              "name": "brown",
+              "hex": "#695641"
+            },
+            "foreground": "segmenter"
+          }
+        ]
+      }
+    },
+    {
+      "t_ms": 19542,
+      "piece": 0,
+      "step": "decide",
+      "detail": {
+        "attempt": 2,
+        "action": "approve",
+        "because": "retries_exhausted",
+        "best_score": null
+      }
+    }
+  ]
+}

@@ -224,9 +224,13 @@ export function useLiveVideo({ costume, outfit }: MirrorContext, externalCamera?
         onError: error => {
           // SDK failures are classified without logging signaling URLs or tokens.
           const message = error instanceof Error ? error.message : "";
-          const reason = message.includes("signaling") ? "signaling" : message.includes("timed out") ? "timeout" : message.includes("ICE") ? "ice" : "transport";
+          // fal sends its reason in an error frame the SDK drops; in practice it is the account's concurrent session limit.
+          const rejected = message.includes("signaling endpoint reported an error");
+          const reason = rejected ? "rejected" : message.includes("signaling") ? "signaling" : message.includes("timed out") ? "timeout" : message.includes("ICE") ? "ice" : "transport";
           console.warn(`[live-mirror] Video connection failed (${reason}).`);
-          fail(session, "The live video connection failed. Please try again.");
+          fail(session, rejected
+            ? "The live mirror is busy with other sessions right now. Close any other mirror tabs, wait a minute, and try again."
+            : "The live video connection failed. Please try again.");
         },
         onState: state => { if (state === "closed") fail(session, "The live mirror disconnected. Start again to reconnect."); },
       });

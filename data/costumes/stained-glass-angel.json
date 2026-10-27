@@ -1,0 +1,550 @@
+{
+  "costume": {
+    "slug": "stained-glass-angel",
+    "name": "Stained Glass Angel",
+    "description": "A rainbow mosaic cape spreads like cathedral wings over ivory layers. Make the short cape from printed cotton.",
+    "image": "/costumes/stained-glass-angel.png",
+    "alt": "Wing-shaped rainbow stained-glass print cotton cape over an ivory tunic and loose trousers",
+    "status": "live"
+  },
+  "pieces": [
+    {
+      "id": "stained-glass-angel-1",
+      "name": "Printed cotton for a DIY wing cape",
+      "category": "DIY supplies",
+      "required": true,
+      "order": 1,
+      "styleNotes": "One yard makes a short 36-inch-deep cape, not full-length wings. Round the corners, hem edges, and add wrist loops with your own thread and elastic. This is opaque cotton, not glass or organza.",
+      "queries": [
+        "Printed cotton for a DIY wing cape"
+      ],
+      "sizeKind": "one_size",
+      "matches": [
+        {
+          "productId": "p-38265fb512",
+          "rank": 0,
+          "reason": "One yard makes a short 36-inch-deep cape, not full-length wings. Round the corners, hem edges, and add wrist loops with your own thread and elastic. This is opaque cotton, not glass or organza. Primary product page structured offer lists USD15.20 and InStock. One yard chosen. Berkeley shop; no specific delivery promise."
+        },
+        {
+          "productId": "p-d8d59bd5f6",
+          "rank": 1,
+          "reason": "One yard makes a short 36-inch-deep cape, not full-length wings. Round the corners, hem edges, and add wrist loops with your own thread and elastic. This is opaque cotton, not glass or organza. Primary product page displays In Stock Online, USD11.95 per yard, minimum half-yard. One full yard chosen. Opaque fabric, not translucent wings."
+        },
+        {
+          "productId": "p-15bf5b5e81",
+          "rank": 2,
+          "reason": "One yard makes a short 36-inch-deep cape, not full-length wings. Round the corners, hem edges, and add wrist loops with your own thread and elastic. This is opaque cotton, not glass or organza. Primary product page states in stock; displayed woven-cotton option USD21 per yard. Structured offer shows USD20, so displayed option price retained; checkout must recheck. Select woven cotton rather than assuming URL text describes fabric."
+        }
+      ]
+    },
+    {
+      "id": "stained-glass-angel-2",
+      "name": "Ivory tunic",
+      "category": "tops",
+      "required": true,
+      "order": 2,
+      "styleNotes": "Simple ivory layers leave the colorful cape visible.",
+      "queries": [
+        "Ivory tunic"
+      ],
+      "sizeKind": "apparel",
+      "matches": [
+        {
+          "productId": "p-f35c48b860",
+          "rank": 0,
+          "reason": "Simple ivory layers leave the colorful cape visible. Natural 100% thick breathable cotton tunic with front and back slits. Longer, approximately knee-length silhouette than the reference’s tunic. S through XXXL are available at $59.99. Other garments in the photo are not included."
+        },
+        {
+          "productId": "p-3799a61906",
+          "rank": 1,
+          "reason": "Simple ivory layers leave the colorful cape visible. Natural 100% coarse cotton tunic with long sleeves, slit round neckline and side slits. Thigh-length plain base layer. Only S, XL and XXXL are currently available at $39.99; M, L and XXL are sold out. Belt, pants, wraps and shoes in the merchant photo are not included."
+        },
+        {
+          "productId": "p-54214148a4",
+          "rank": 2,
+          "reason": "Simple ivory layers leave the colorful cape visible. Natural heavy wool-blend short tunic: 74% wool, 15% polyester, 7% polyamide and 4% other natural fibers. Warmer, stiffer and more textured than the illustrated light cream layer. Only S and XXXL are available at $69.99; M through XXL are sold out. Brooch, belt and other layers are not included."
+        }
+      ]
+    },
+    {
+      "id": "stained-glass-angel-3",
+      "name": "Ivory trousers",
+      "category": "bottoms",
+      "required": true,
+      "order": 3,
+      "styleNotes": "Loose cream trousers complete the pale base.",
+      "queries": [
+        "Ivory trousers"
+      ],
+      "sizeKind": "pants",
+      "matches": [
+        {
+          "productId": "p-38e9601da6",
+          "rank": 0,
+          "reason": "Loose cream trousers complete the pale base. Undyed natural organic cotton jersey lounge pants, straight leg and elastic waist. All four listed sizes are available at $76. Softer knit texture than the illustration’s woven-looking trousers; no ankle gathers. One pair of pants only."
+        },
+        {
+          "productId": "p-6c68216fba",
+          "rank": 1,
+          "reason": "Loose cream trousers complete the pale base. White 100% European flax linen, relaxed fit and elastic waist in women’s sizing. Current product JSON-LD confirms only XS, L and XL in stock at $42; S and M are sold out. White is brighter than ivory. Straight legs lack the reference’s gathered cuffs; the blue shirt shown is not included."
+        },
+        {
+          "productId": "p-fae8356f54",
+          "rank": 2,
+          "reason": "Loose cream trousers complete the pale base. White 100% linen pants with drawstring waist, women’s sizing. Selected White XS through XL are available at $138. Wider straight leg than the reference’s tapered, gathered trousers; tuck the hem loosely into boots for a similar outline. Top and footwear not included."
+        }
+      ]
+    },
+    {
+      "id": "stained-glass-angel-4",
+      "name": "Cream rope cape tie",
+      "category": "accessories",
+      "required": true,
+      "order": 4,
+      "styleNotes": "Use the belt as a loose front cape tie, stitched to the top corners. Do not tie tightly around the neck.",
+      "queries": [
+        "Cream rope cape tie"
+      ],
+      "sizeKind": "apparel",
+      "matches": [
+        {
+          "productId": "p-ac74ad26d9",
+          "rank": 0,
+          "reason": "Use the belt as a loose front cape tie, stitched to the top corners. Do not tie tightly around the neck. Rachel Comey ivory woven cotton belt with brown leather buckle and leather ends. Only XS is available at $43.75; all other sizes are sold out or cost more. A broader belt with a buckle, rather than the reference’s narrow knotted rope and hanging ends."
+        },
+        {
+          "productId": "p-8248b874fa",
+          "rank": 1,
+          "reason": "Use the belt as a loose front cape tie, stitched to the top corners. Do not tie tightly around the neck. One 6-foot length of 1/2-inch three-ply rope, made in the USA. Merchant photo shows an off-white rope. Tie it around the waist; finished tassels are not included. The feed confirms the $15 single variant available. Multiple quantities are supplied as one continuous length unless instructed otherwise."
+        },
+        {
+          "productId": "p-c8a1001a28",
+          "rank": 2,
+          "reason": "Use the belt as a loose front cape tie, stitched to the top corners. Do not tie tightly around the neck. Cream braided rope cord with adjustable tie closure and oversized tassels at both ends. One adjustable size, currently available at $68. A closer hanging-rope silhouette than the buckled option, but glossier and more decorative than the reference. Merchant states orders normally ship in 1–3 business days, with more processing time during promotions."
+        }
+      ]
+    }
+  ],
+  "products": [
+    {
+      "id": "p-d8d59bd5f6",
+      "title": "Rainbow Stained Glass Mosaic Cotton — 1 yard",
+      "url": "https://shop.fieldsfabrics.com/Cotton-Rainbow-Stain-Glass-Stained-Glass-Mosaic-Colorful-Multi-Color-Cotton-Fabric-Print-by-the-Yard-118036_p_92908.html",
+      "priceCents": 1195,
+      "currency": "USD",
+      "image": "/products/price-tiers/p-d8d59bd5f6.webp",
+      "merchantImage": "/products/price-tiers/p-d8d59bd5f6.webp",
+      "sourceImages": [
+        "https://shop.fieldsfabrics.com/assets/images/d76689.jpg"
+      ],
+      "availability": "in_stock",
+      "sizes": [
+        "1 yard"
+      ],
+      "merchantId": "shop-fieldsfabrics-com",
+      "tagSlugs": [],
+      "description": "100% cotton, 44 inches wide. One yard of opaque rainbow mosaic print fabric for a short cape.",
+      "checkedAt": "2026-10-27T00:28:28.398Z",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-27T00:28:28.398Z",
+        "url": "https://shop.fieldsfabrics.com/Cotton-Rainbow-Stain-Glass-Stained-Glass-Mosaic-Colorful-Multi-Color-Cotton-Fabric-Print-by-the-Yard-118036_p_92908.html",
+        "notes": "Primary product page displays In Stock Online, USD11.95 per yard, minimum half-yard. One full yard chosen. Opaque fabric, not translucent wings."
+      }
+    },
+    {
+      "id": "p-38265fb512",
+      "title": "Rainbow Stained Glass Quilting Cotton — 1 yard",
+      "url": "https://stonemountainfabric.com/product/bx-16881-99/",
+      "priceCents": 1520,
+      "currency": "USD",
+      "image": "/products/price-tiers/p-38265fb512.webp",
+      "merchantImage": "/products/price-tiers/p-38265fb512.webp",
+      "sourceImages": [
+        "https://storage.googleapis.com/stmdf-production/2026/09/16881-99.jpg"
+      ],
+      "availability": "in_stock",
+      "sizes": [
+        "1 yard"
+      ],
+      "merchantId": "stonemountainfabric-com",
+      "tagSlugs": [],
+      "description": "Colorful stained-glass print quilting cotton, sold by the yard. Opaque fabric for a short wing-shaped cape.",
+      "checkedAt": "2026-10-27T00:28:28.398Z",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-27T00:28:28.398Z",
+        "url": "https://stonemountainfabric.com/product/bx-16881-99/",
+        "notes": "Primary product page structured offer lists USD15.20 and InStock. One yard chosen. Berkeley shop; no specific delivery promise."
+      }
+    },
+    {
+      "id": "p-15bf5b5e81",
+      "title": "Tropical Stained Glass — Woven Cotton, 1 yard",
+      "url": "https://purpleseamstressfabric.com/product/tropical-stained-glass-cotton-lycra/",
+      "priceCents": 2100,
+      "currency": "USD",
+      "image": "/products/price-tiers/p-15bf5b5e81.webp",
+      "merchantImage": "/products/price-tiers/p-15bf5b5e81.webp",
+      "sourceImages": [
+        "https://purpleseamstressfabric.com/wp-content/uploads/2023/06/Tropical-Stained-GLass.jpg"
+      ],
+      "availability": "in_stock",
+      "sizes": [
+        "Woven cotton / 1 yard"
+      ],
+      "merchantId": "purpleseamstressfabric-com",
+      "tagSlugs": [],
+      "description": "140 gsm woven cotton, no stretch, 42 inches wide. Opaque stained-glass print fabric for a short cape.",
+      "checkedAt": "2026-10-27T00:28:28.398Z",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-27T00:28:28.398Z",
+        "url": "https://purpleseamstressfabric.com/product/tropical-stained-glass-cotton-lycra/",
+        "notes": "Primary product page states in stock; displayed woven-cotton option USD21 per yard. Structured offer shows USD20, so displayed option price retained; checkout must recheck. Select woven cotton rather than assuming URL text describes fabric."
+      }
+    },
+    {
+      "id": "p-f35c48b860",
+      "title": "Under Tunic Gilbert Natural",
+      "url": "https://burgschneider.com/products/under-tunic-gilbert-natural?variant=47604598800731",
+      "priceCents": 5999,
+      "currency": "USD",
+      "image": "/products/price-tiers/p-f35c48b860.webp",
+      "merchantImage": "/products/price-tiers/p-f35c48b860.webp",
+      "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/0779/4189/9611/files/gilbert-natur.7qem9G.jpg?v=1774944494"
+      ],
+      "availability": "in_stock",
+      "sizes": [
+        "S",
+        "M",
+        "L",
+        "XL",
+        "XXL",
+        "XXXL"
+      ],
+      "merchantId": "burgschneider-com",
+      "tagSlugs": [],
+      "description": "Natural 100% thick breathable cotton tunic with front and back slits. Longer, approximately knee-length silhouette than the reference’s tunic. S through XXXL are available at $59.99. Other garments in the photo are not included.",
+      "checkedAt": "2026-10-26T10:01:20.009Z",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-25T08:53:39.887804Z",
+        "url": "https://burgschneider.com/products/under-tunic-gilbert-natural.js",
+        "notes": "Natural 100% thick breathable cotton tunic with front and back slits. Longer, approximately knee-length silhouette than the reference’s tunic. S through XXXL are available at $59.99. Other garments in the photo are not included."
+      }
+    },
+    {
+      "id": "p-3799a61906",
+      "title": "Medieval Tunic / Under Tunic “Leif“ - Natural",
+      "url": "https://burgschneider.com/products/under-tunic-leif-natural?variant=47604595982683",
+      "priceCents": 3999,
+      "currency": "USD",
+      "image": "/products/price-tiers/p-3799a61906.webp",
+      "merchantImage": "/products/price-tiers/p-3799a61906.webp",
+      "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/0779/4189/9611/files/leif-natur.V4lhRf.jpg?v=1774566137"
+      ],
+      "availability": "in_stock",
+      "sizes": [
+        "S",
+        "XL",
+        "XXXL"
+      ],
+      "merchantId": "burgschneider-com",
+      "tagSlugs": [],
+      "description": "Natural 100% coarse cotton tunic with long sleeves, slit round neckline and side slits. Thigh-length plain base layer. Only S, XL and XXXL are currently available at $39.99; M, L and XXL are sold out. Belt, pants, wraps and shoes in the merchant photo are not included.",
+      "checkedAt": "2026-10-26T10:01:19.879Z",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-25T08:53:39.887804Z",
+        "url": "https://burgschneider.com/products/under-tunic-leif-natural.js",
+        "notes": "Natural 100% coarse cotton tunic with long sleeves, slit round neckline and side slits. Thigh-length plain base layer. Only S, XL and XXXL are currently available at $39.99; M, L and XXL are sold out. Belt, pants, wraps and shoes in the merchant photo are not included."
+      }
+    },
+    {
+      "id": "p-54214148a4",
+      "title": "Wool Tunic Lodin Natural",
+      "url": "https://burgschneider.com/products/wool-tunic-lodin-natural?variant=50172131311963",
+      "priceCents": 6999,
+      "currency": "USD",
+      "image": "/products/price-tiers/p-54214148a4.webp",
+      "merchantImage": "/products/price-tiers/p-54214148a4.webp",
+      "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/0779/4189/9611/files/tunic-lodin-natural-front.jpg?v=1774545701"
+      ],
+      "availability": "in_stock",
+      "sizes": [
+        "S",
+        "XXXL"
+      ],
+      "merchantId": "burgschneider-com",
+      "tagSlugs": [],
+      "description": "Natural heavy wool-blend short tunic: 74% wool, 15% polyester, 7% polyamide and 4% other natural fibers. Warmer, stiffer and more textured than the illustrated light cream layer. Only S and XXXL are available at $69.99; M through XXL are sold out. Brooch, belt and other layers are not included.",
+      "checkedAt": "2026-10-26T10:01:20.092Z",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-25T08:53:39.887804Z",
+        "url": "https://burgschneider.com/products/wool-tunic-lodin-natural.js",
+        "notes": "Natural heavy wool-blend short tunic: 74% wool, 15% polyester, 7% polyamide and 4% other natural fibers. Warmer, stiffer and more textured than the illustrated light cream layer. Only S and XXXL are available at $69.99; M through XXL are sold out. Brooch, belt and other layers are not included."
+      }
+    },
+    {
+      "id": "p-38e9601da6",
+      "title": "Men's Organic Straight Leg Lounge Pants in Natural",
+      "url": "https://harvestandmill.com/products/mens-organic-straight-leg-lounge-pants-in-natural?variant=42275062218826",
+      "priceCents": 7600,
+      "currency": "USD",
+      "image": "/products/price-tiers/p-38e9601da6.webp",
+      "merchantImage": "/products/price-tiers/p-38e9601da6.webp",
+      "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/0550/6478/9066/files/Harvest_and_Mill_organic_cotton_mens_organic_lounge_pants_dye_free_11.jpg?v=1752509147"
+      ],
+      "availability": "in_stock",
+      "sizes": [
+        "small",
+        "medium",
+        "large",
+        "x-large"
+      ],
+      "merchantId": "harvestandmill-com",
+      "tagSlugs": [],
+      "description": "Undyed natural organic cotton jersey lounge pants, straight leg and elastic waist. All four listed sizes are available at $76. Softer knit texture than the illustration’s woven-looking trousers; no ankle gathers. One pair of pants only.",
+      "checkedAt": "2026-10-26T10:01:19.854Z",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-25T08:53:39.887804Z",
+        "url": "https://harvestandmill.com/products/mens-organic-straight-leg-lounge-pants-in-natural.js",
+        "notes": "Undyed natural organic cotton jersey lounge pants, straight leg and elastic waist. All four listed sizes are available at $76. Softer knit texture than the illustration’s woven-looking trousers; no ankle gathers. One pair of pants only."
+      }
+    },
+    {
+      "id": "p-6c68216fba",
+      "title": "100% European Linen Pants",
+      "url": "https://www.quince.com/women/linen-pants?color=white&size=l",
+      "priceCents": 4200,
+      "currency": "USD",
+      "image": "/products/price-tiers/p-6c68216fba.webp",
+      "merchantImage": "/products/price-tiers/p-6c68216fba.webp",
+      "sourceImages": [
+        "https://images.quince.com/1b9zqjjnnVBViU98thA2Wp/a90f82d4f75eb98ca2ee11692ab56d19/Nicole_Chavez_Editorial_01-224_245_EDITED.jpg?fm=webP&q=90&w=1600"
+      ],
+      "availability": "in_stock",
+      "sizes": [
+        "XS",
+        "L",
+        "XL"
+      ],
+      "merchantId": "quince-com",
+      "tagSlugs": [],
+      "description": "White 100% European flax linen, relaxed fit and elastic waist in women’s sizing. Current product JSON-LD confirms only XS, L and XL in stock at $42; S and M are sold out. White is brighter than ivory. Straight legs lack the reference’s gathered cuffs; the blue shirt shown is not included.",
+      "checkedAt": "2026-10-25T08:53:39.887804Z",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-25T08:53:39.887804Z",
+        "url": "https://www.quince.com/women/linen-pants?color=white",
+        "notes": "White 100% European flax linen, relaxed fit and elastic waist in women’s sizing. Current product JSON-LD confirms only XS, L and XL in stock at $42; S and M are sold out. White is brighter than ivory. Straight legs lack the reference’s gathered cuffs; the blue shirt shown is not included."
+      }
+    },
+    {
+      "id": "p-fae8356f54",
+      "title": "Linen Drawstring Pant",
+      "url": "https://larelaxed.com/products/linen-drawstring-pant?variant=46699949916389",
+      "priceCents": 13800,
+      "currency": "USD",
+      "image": "/products/price-tiers/p-fae8356f54.webp",
+      "merchantImage": "/products/price-tiers/p-fae8356f54.webp",
+      "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/0771/8275/files/White_linen_drawstring_lead.jpg?v=1776369060"
+      ],
+      "availability": "in_stock",
+      "sizes": [
+        "XS",
+        "S",
+        "M",
+        "L",
+        "XL"
+      ],
+      "merchantId": "larelaxed-com",
+      "tagSlugs": [],
+      "description": "White 100% linen pants with drawstring waist, women’s sizing. Selected White XS through XL are available at $138. Wider straight leg than the reference’s tapered, gathered trousers; tuck the hem loosely into boots for a similar outline. Top and footwear not included.",
+      "checkedAt": "2026-10-26T10:01:20.197Z",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-25T08:53:39.887804Z",
+        "url": "https://larelaxed.com/products/linen-drawstring-pant.js",
+        "notes": "White 100% linen pants with drawstring waist, women’s sizing. Selected White XS through XL are available at $138. Wider straight leg than the reference’s tapered, gathered trousers; tuck the hem loosely into boots for a similar outline. Top and footwear not included."
+      }
+    },
+    {
+      "id": "p-ac74ad26d9",
+      "title": "Rope Belt",
+      "url": "https://augustatwenty.com/products/rope-belt?variant=39957279866945",
+      "priceCents": 4375,
+      "currency": "USD",
+      "image": "/products/price-tiers/p-ac74ad26d9.webp",
+      "merchantImage": "/products/price-tiers/p-ac74ad26d9.webp",
+      "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/1886/7933/products/rachel-comey-rope-belt_2.jpg?v=1654812160"
+      ],
+      "availability": "in_stock",
+      "sizes": [
+        "XS"
+      ],
+      "merchantId": "augustatwenty-com",
+      "tagSlugs": [],
+      "description": "Rachel Comey ivory woven cotton belt with brown leather buckle and leather ends. Only XS is available at $43.75; all other sizes are sold out or cost more. A broader belt with a buckle, rather than the reference’s narrow knotted rope and hanging ends.",
+      "checkedAt": "2026-10-26T10:01:20.505Z",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-25T08:53:39.887804Z",
+        "url": "https://augustatwenty.com/products/rope-belt.js",
+        "notes": "Rachel Comey ivory woven cotton belt with brown leather buckle and leather ends. Only XS is available at $43.75; all other sizes are sold out or cost more. A broader belt with a buckle, rather than the reference’s narrow knotted rope and hanging ends."
+      }
+    },
+    {
+      "id": "p-8248b874fa",
+      "title": "Rope Belt",
+      "url": "https://garbtheworld.net/products/rope-belt?variant=31215349923902",
+      "priceCents": 1500,
+      "currency": "USD",
+      "image": "/products/price-tiers/p-8248b874fa.webp",
+      "merchantImage": "/products/price-tiers/p-8248b874fa.webp",
+      "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/0252/6727/3790/products/ropeb.jpg?v=1573780391"
+      ],
+      "availability": "in_stock",
+      "sizes": [
+        "one size"
+      ],
+      "merchantId": "garbtheworld-net",
+      "tagSlugs": [],
+      "description": "One 6-foot length of 1/2-inch three-ply rope, made in the USA. Merchant photo shows an off-white rope. Tie it around the waist; finished tassels are not included. The feed confirms the $15 single variant available. Multiple quantities are supplied as one continuous length unless instructed otherwise.",
+      "checkedAt": "2026-10-26T10:01:20.296Z",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-25T08:53:39.887804Z",
+        "url": "https://garbtheworld.net/products/rope-belt.js",
+        "notes": "One 6-foot length of 1/2-inch three-ply rope, made in the USA. Merchant photo shows an off-white rope. Tie it around the waist; finished tassels are not included. The feed confirms the $15 single variant available. Multiple quantities are supplied as one continuous length unless instructed otherwise."
+      }
+    },
+    {
+      "id": "p-c8a1001a28",
+      "title": "Tassel Rope Belt (Cream)",
+      "url": "https://www.samelosangeles.com/products/tassel-rope-belt-cream?variant=51346136531222",
+      "priceCents": 6800,
+      "currency": "USD",
+      "image": "/products/price-tiers/p-c8a1001a28.webp",
+      "merchantImage": "/products/price-tiers/p-c8a1001a28.webp",
+      "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/0964/1358/files/TASSELROPEBELT_CREAM.jpg?v=1761690215"
+      ],
+      "availability": "in_stock",
+      "sizes": [
+        "one size"
+      ],
+      "merchantId": "samelosangeles-com",
+      "tagSlugs": [],
+      "description": "Cream braided rope cord with adjustable tie closure and oversized tassels at both ends. One adjustable size, currently available at $68. A closer hanging-rope silhouette than the buckled option, but glossier and more decorative than the reference. Merchant states orders normally ship in 1–3 business days, with more processing time during promotions.",
+      "checkedAt": "2026-10-26T10:01:20.387Z",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-25T08:53:39.887804Z",
+        "url": "https://www.samelosangeles.com/products/tassel-rope-belt-cream.js",
+        "notes": "Cream braided rope cord with adjustable tie closure and oversized tassels at both ends. One adjustable size, currently available at $68. A closer hanging-rope silhouette than the buckled option, but glossier and more decorative than the reference. Merchant states orders normally ship in 1–3 business days, with more processing time during promotions."
+      }
+    }
+  ],
+  "merchants": [
+    {
+      "id": "shop-fieldsfabrics-com",
+      "name": "Fields Fabrics",
+      "domain": "shop.fieldsfabrics.com",
+      "url": "https://shop.fieldsfabrics.com",
+      "kind": "dtc",
+      "neighborhoodId": null
+    },
+    {
+      "id": "stonemountainfabric-com",
+      "name": "Stonemountain & Daughter Fabrics",
+      "domain": "stonemountainfabric.com",
+      "url": "https://stonemountainfabric.com/",
+      "kind": "boutique",
+      "neighborhoodId": null
+    },
+    {
+      "id": "purpleseamstressfabric-com",
+      "name": "Purpleseamstress Fabric",
+      "domain": "purpleseamstressfabric.com",
+      "url": "https://purpleseamstressfabric.com",
+      "kind": "dtc",
+      "neighborhoodId": null
+    },
+    {
+      "id": "burgschneider-com",
+      "name": "Burgschneider",
+      "domain": "burgschneider.com",
+      "url": "https://burgschneider.com/",
+      "kind": "boutique",
+      "neighborhoodId": null
+    },
+    {
+      "id": "harvestandmill-com",
+      "name": "Harvest & Mill",
+      "domain": "harvestandmill.com",
+      "url": "https://harvestandmill.com/",
+      "kind": "boutique",
+      "neighborhoodId": null
+    },
+    {
+      "id": "quince-com",
+      "name": "Quince",
+      "domain": "quince.com",
+      "url": "https://quince.com/",
+      "kind": "boutique",
+      "neighborhoodId": null
+    },
+    {
+      "id": "larelaxed-com",
+      "name": "LA Relaxed",
+      "domain": "larelaxed.com",
+      "url": "https://larelaxed.com/",
+      "kind": "boutique",
+      "neighborhoodId": null
+    },
+    {
+      "id": "augustatwenty-com",
+      "name": "Augusta Twenty",
+      "domain": "augustatwenty.com",
+      "url": "https://augustatwenty.com/",
+      "kind": "boutique",
+      "neighborhoodId": null
+    },
+    {
+      "id": "garbtheworld-net",
+      "name": "Garb the World",
+      "domain": "garbtheworld.net",
+      "url": "https://garbtheworld.net/",
+      "kind": "boutique",
+      "neighborhoodId": null
+    },
+    {
+      "id": "samelosangeles-com",
+      "name": "SAME",
+      "domain": "samelosangeles.com",
+      "url": "https://samelosangeles.com/",
+      "kind": "boutique",
+      "neighborhoodId": null
+    }
+  ],
+  "neighborhoods": [],
+  "tags": [],
+  "provenance": {
+    "method": "manual-research",
+    "generatedAt": "2026-10-27T00:28:28.398Z",
+    "notes": "DIY costume build with reviewed merchant supplies and reused catalog basics. Generated reference shows an assembled interpretation, not a ready-made costume. Scissors, thread, adhesive/fasteners, and any card/elastic noted in piece styling are shopper-supplied. Prices exclude these consumables and shipping; arrival by Halloween is unverified. Reused products retain their original research timestamps. Publication carries forward newer shared-product price, stock, size and check timestamps from the live database; original sourcing evidence is retained.",
+    "priceTiers": true,
+    "heroImageKind": "generated-reference"
+  }
+}

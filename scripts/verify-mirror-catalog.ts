@@ -1,5 +1,7 @@
 /** Real HTTP/database checks. --live also calls Decisions and the catalog reasoning backend. */
 import assert from "node:assert/strict";
+import { costumes } from "../lib/costumes";
+import { SNAPSHOTS } from "../lib/catalog/fallback";
 import type { CostumeView } from "../lib/types";
 import type { MirrorCatalogLook, MirrorCommand, MirrorOutfit } from "../lib/live-mirror/types";
 import { createOutfit } from "../lib/live-mirror/state";
@@ -11,7 +13,11 @@ assert.equal(indexResponse.status, 200);
 const index = await indexResponse.json() as { source: string; looks: MirrorCatalogLook[]; counts: { costumes: number; pieces: number; products: number } };
 assert.equal(index.source, "database", "Verify the database catalog, not the bundled fallback");
 assert.equal(index.looks.length, index.counts.costumes);
-assert(index.looks.length >= 25 && index.counts.products >= 380 && index.counts.pieces >= 100);
+const reviewedSlugs = costumes.filter(costume => costume.status === "live").map(costume => costume.slug);
+assert(reviewedSlugs.every(slug => index.looks.some(look => look.slug === slug)), "Mirror inventory must include every reviewed costume");
+assert.equal(new Set(index.looks.map(look => look.slug)).size, index.looks.length, "Mirror inventory must not repeat costumes");
+assert(index.counts.products >= new Set(SNAPSHOTS.flatMap(snapshot => snapshot.products.map(product => product.id))).size);
+assert(index.counts.pieces >= new Set(SNAPSHOTS.flatMap(snapshot => snapshot.pieces.map(piece => piece.id))).size);
 assert(index.looks.every(look => look.pieces.length > 0));
 console.log("PASS complete database catalog index", index.counts);
 

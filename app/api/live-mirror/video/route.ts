@@ -4,14 +4,17 @@ import { mirrorSessionSeconds } from "@/lib/try-on-policy";
 
 export const maxDuration = 30;
 
+// LIVE_MIRROR_VIDEO_DISABLED=1 stops new fal sessions without removing the key; open sessions run until their tab closes.
+const videoEnabled = () => Boolean(process.env.FAL_KEY) && process.env.LIVE_MIRROR_VIDEO_DISABLED !== "1";
+
 export async function GET() {
-  return videoResponse({ videoAvailable: Boolean(process.env.FAL_KEY), voiceAvailable: Boolean(process.env.OPENAI_API_KEY), provider: "fal", model: VIDEO_MODEL, maxSessionSeconds: mirrorSessionSeconds() });
+  return videoResponse({ videoAvailable: videoEnabled(), voiceAvailable: Boolean(process.env.OPENAI_API_KEY), provider: "fal", model: VIDEO_MODEL, maxSessionSeconds: mirrorSessionSeconds() });
 }
 
 export async function POST(request: Request) {
   try {
     z.object({ consent: z.literal(true) }).strict().parse(await readVideoJson(request));
-    if (!process.env.FAL_KEY) throw new VideoError(503, "Live video try-on is unavailable. You can still build your outfit and use photo try-on.");
+    if (!videoEnabled()) throw new VideoError(503, "Live video try-on is unavailable. You can still build your outfit and use photo try-on.");
     // fal scopes tokens to the app alias (owner/model), not its /realtime path.
     // This short-lived token authenticates signaling; it is not a session timer.
     const response = await fetch("https://rest.fal.ai/tokens/", {

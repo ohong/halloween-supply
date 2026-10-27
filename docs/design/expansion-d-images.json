@@ -1,0 +1,199 @@
+{
+  "generatedAt": "2026-10-27T00:33:52.387Z",
+  "tool": "built-in image_gen",
+  "purpose": "Five distinct Halloween costume generated inspiration references, each with the existing female and male gallery identity.",
+  "transparentBackground": true,
+  "encoding": "Cutouts PNG; models maximum 960px edge WebP quality 86 alpha quality 100",
+  "images": [
+    {
+      "slug": "deep-sea-diver",
+      "model": "invisible-mannequin",
+      "file": "/costumes/deep-sea-diver.png",
+      "source": "/Users/ohong/.codex/generated_images/01a17abe-abff-73d2-8123-954ff6cb5fcf/exec-f79cb172-ff22-4703-82ad-92aa3058e3ad.png",
+      "prompt": "Use case: product-mockup. Asset type: Halloween costume gallery reference. Create one premium photorealistic full wearable adult costume on an invisible mannequin: Vintage gold and aged brass decorative diving bell costume helmet with open face aperture, cream canvas full-length coveralls, broad tan waist belt, sturdy brown work boots. Wearable Halloween costume, not protective diving equipment. No breathing hoses or tanks. Entire costume front-on centered square canvas with clear margins around helmet and boots. Tactile believable fabric and construction, soft even studio light. Actually transparent alpha background. No person, skin, face, visible mannequin, stand, floor, shadow outside outfit, backdrop, text, watermark or collage.",
+      "width": 1254,
+      "height": 1254,
+      "sha256": "8b06a65367b666cce77605efcb85cb9de25ceef40a4ccaa12cd5b24db4e0748d"
+    },
+    {
+      "slug": "dragon-rider",
+      "model": "invisible-mannequin",
+      "file": "/costumes/dragon-rider.png",
+      "source": "/Users/ohong/.codex/generated_images/01a17abe-abff-73d2-8123-954ff6cb5fcf/exec-bae44725-c72a-4a72-af52-be69ca69615e.png",
+      "prompt": "Use case: product-mockup. Asset type: Halloween costume gallery reference. Create one premium photorealistic full wearable adult costume on an invisible mannequin: Brown leather flight jacket with cream shearling collar, overlapping scale-like brown leather shoulder armor pauldrons, fitted black trousers, brown leather ankle boots, and small dark dragon horn headband. Human dragon rider, no goggles, no wings, no dragon, no weapon. Entire costume front-on centered square canvas with 8% clear margins around headwear and boots. Tactile believable fabric and construction, soft even studio light. Actually transparent alpha background. No person, skin, face, visible mannequin, stand, floor, shadow outside outfit, backdrop, text, watermark or collage.",
+      "width": 1254,
+      "height": 1254,
+      "sha256": "12c06c6d5777f011622cc35207700e15007d7ea9ef446d080ca25af0d13bac1b"
+    },
+    {
+      "slug": "phoenix-rising",
+      "model": "invisible-mannequin",
+      "file": "/costumes/phoenix-rising.png",
+      "source": "/Users/ohong/.codex/generated_images/01a17abe-abff-73d2-8123-954ff6cb5fcf/exec-2b3ae6b7-7d13-4581-8dac-0ff2c21d3070.png",
+      "prompt": "Use case: product-mockup. Asset type: Halloween costume gallery reference. Create one premium photorealistic full wearable adult costume on an invisible mannequin: Broad layered fabric feather wings in orange, red and gold, black fitted long-sleeve full-length unitard, gold waist cord, black ankle boots. No bird head, no fire effects. Entire costume front-on centered square canvas with 8% clear margins around headwear and boots. Tactile believable fabric and construction, soft even studio light. Actually transparent alpha background. No person, skin, face, visible mannequin, stand, floor, shadow outside outfit, backdrop, text, watermark or collage.",
+      "width": 1254,
+      "height": 1254,
+      "sha256": "8712cda82a43d4ea40e5e156b1323956613bcef2012478e8c4072abc5fd16d14"
+    },
+    {
+      "slug": "ice-empress",
+      "model": "invisible-mannequin",
+      "file": "/costumes/ice-empress.png",
+      "source": "/Users/ohong/.codex/generated_images/01a17abe-abff-73d2-8123-954ff6cb5fcf/exec-c76ce005-0fc6-4b7c-b357-d2488f55ed38.png",
+      "prompt": "Use case: product-mockup. Asset type: Halloween costume gallery reference. Create one premium photorealistic full wearable adult costume on an invisible mannequin: Tall silver rhinestone crown, long flowing ivory white tunic over ivory full-length trousers, white faux-fur shoulder wrap, silver ankle boots. No gown, no gloves, no wand. Entire costume front-on centered square canvas with 8% clear margins around headwear and boots. Tactile believable fabric and construction, soft even studio light. Actually transparent alpha background. No person, skin, face, visible mannequin, stand, floor, shadow outside outfit, backdrop, text, watermark or collage.",
+      "width": 1254,
+      "height": 1254,
+      "sha256": "5e7b17c8fe4a926154be21c445dcdb22809940e69927d503c9fb19d11cb7bed5"
+    },
+    {
+      "slug": "labyrinth-faun",
+      "model": "invisible-mannequin",
+      "file": "/costumes/labyrinth-faun.png",
+      "source": "/Users/ohong/.codex/generated_images/01a17abe-abff-73d2-8123-954ff6cb5fcf/exec-76df19c1-716a-44a3-bdaf-0805b4b402e1.png",
+      "prompt": "Use case: product-mockup. Asset type: Halloween costume gallery reference. Create one premium photorealistic full wearable adult costume on an invisible mannequin: Curled brown ram horns on headband, moss-green tunic, brown utility trousers, sturdy brown ankle boots, brown leather forearm bracers. Human face, no hooves or animal legs. Entire costume front-on centered square canvas with 8% clear margins around headwear and boots. Tactile believable fabric and construction, soft even studio light. Actually transparent alpha background. No person, skin, face, visible mannequin, stand, floor, shadow outside outfit, backdrop, text, watermark or collage.",
+      "width": 1254,
+      "height": 1254,
+      "sha256": "46bb88f276568b399f5fd545466ea23736895f38a4a8733cb49cf5b6edfa9aad"
+    },
+    {
+      "slug": "deep-sea-diver",
+      "model": "female",
+      "source": "/Users/ohong/.codex/generated_images/01a17abe-abff-73d2-8123-954ff6cb5fcf/exec-e5631387-0b1f-4dc3-ace2-8a915d03e8f3.png",
+      "prompt": "Use case: identity-preserve. Produce one premium photorealistic full-body studio fashion photograph for Halloween Supply. Image 1 is the identity reference: preserve this exact adult person's face, skin tone, hair, body and calm expression. Image 2 is the outfit reference: replace the entire cowboy outfit with this exact costume. Preserve the costume's palette, textiles, accessories and silhouette, tailored naturally to the model. No cowboy clothes may remain. Front-facing relaxed standing pose, direct gaze when visible, hands naturally down unless wings need slightly spread arms. Entire person, headwear, wings and shoes visible, 8% clear margins on every side, no cropping. Soft even studio daylight, natural skin texture, believable fabric. One centered isolated adult person on an actually transparent alpha background. No floor, props, lettering, collage, watermark, mannequin or floating clothes. Fully clothed. Costume: Vintage gold and aged brass decorative diving bell costume helmet with open face aperture, cream canvas full-length coveralls, broad tan waist belt, sturdy brown work boots. Wearable Halloween costume, not protective diving equipment. No breathing hoses or tanks.",
+      "file": "/costumes/models/deep-sea-diver-female.webp",
+      "references": [
+        "/costumes/models/cosmic-cowboy-female.webp",
+        "/costumes/deep-sea-diver.png"
+      ],
+      "width": 960,
+      "height": 960,
+      "sha256": "c522176f61ae8b9d0b2e60ff58184c1ede7b3e70f1e0705ae6528217aab7f26b"
+    },
+    {
+      "slug": "deep-sea-diver",
+      "model": "male",
+      "source": "/Users/ohong/.codex/generated_images/01a17abe-abff-73d2-8123-954ff6cb5fcf/exec-69f15813-b52c-419f-aeaa-ed89a23a4bf0.png",
+      "prompt": "Use case: identity-preserve. Produce one premium photorealistic full-body studio fashion photograph for Halloween Supply. Image 1 is the identity reference: preserve this exact adult person's face, skin tone, hair, body and calm expression. Image 2 is the outfit reference: replace the entire cowboy outfit with this exact costume. Preserve the costume's palette, textiles, accessories and silhouette, tailored naturally to the model. No cowboy clothes may remain. Front-facing relaxed standing pose, direct gaze when visible, hands naturally down unless wings need slightly spread arms. Entire person, headwear, wings and shoes visible, 8% clear margins on every side, no cropping. Soft even studio daylight, natural skin texture, believable fabric. One centered isolated adult person on an actually transparent alpha background. No floor, props, lettering, collage, watermark, mannequin or floating clothes. Fully clothed. Costume: Vintage gold and aged brass decorative diving bell costume helmet with open face aperture, cream canvas full-length coveralls, broad tan waist belt, sturdy brown work boots. Wearable Halloween costume, not protective diving equipment. No breathing hoses or tanks.",
+      "file": "/costumes/models/deep-sea-diver-male.webp",
+      "references": [
+        "/costumes/models/cosmic-cowboy-male.webp",
+        "/costumes/deep-sea-diver.png"
+      ],
+      "width": 960,
+      "height": 960,
+      "sha256": "061591f94bb622d8c7f29bf4e26c7fd26b36614880ee57e69667feaf196a496c"
+    },
+    {
+      "slug": "phoenix-rising",
+      "model": "female",
+      "source": "/Users/ohong/.codex/generated_images/01a17abe-abff-73d2-8123-954ff6cb5fcf/exec-950597e2-2071-49e8-b2f9-db577dfd746e.png",
+      "prompt": "Use case: identity-preserve. Produce one premium photorealistic full-body studio fashion photograph for Halloween Supply. Image 1 is the identity reference: preserve this exact adult person's face, skin tone, hair, body and calm expression. Image 2 is the outfit reference: replace the entire cowboy outfit with this exact costume. Preserve the costume's palette, textiles, accessories and silhouette, tailored naturally to the model. No cowboy clothes may remain. Front-facing relaxed standing pose, direct gaze when visible, hands naturally down unless wings need slightly spread arms. Entire person, headwear, wings and shoes visible, 8% clear margins on every side, no cropping. Soft even studio daylight, natural skin texture, believable fabric. One centered isolated adult person on an actually transparent alpha background. No floor, props, lettering, collage, watermark, mannequin or floating clothes. Fully clothed. Costume: Broad layered fabric feather wings in orange, red and gold, black fitted long-sleeve full-length unitard, gold waist cord, black ankle boots. No bird head, no fire effects.",
+      "file": "/costumes/models/phoenix-rising-female.webp",
+      "references": [
+        "/costumes/models/cosmic-cowboy-female.webp",
+        "/costumes/phoenix-rising.png"
+      ],
+      "width": 960,
+      "height": 960,
+      "sha256": "8b4e74f193a8a4a9958f34968769f3eb96fe8c62d09f2f86693559e46356a153"
+    },
+    {
+      "slug": "phoenix-rising",
+      "model": "male",
+      "source": "/Users/ohong/.codex/generated_images/01a17abe-abff-73d2-8123-954ff6cb5fcf/exec-3c1733c1-0981-4f28-870b-14c6ce9d0ad6.png",
+      "prompt": "Use case: identity-preserve. Produce one premium photorealistic full-body studio fashion photograph for Halloween Supply. Image 1 is the identity reference: preserve this exact adult person's face, skin tone, hair, body and calm expression. Image 2 is the outfit reference: replace the entire cowboy outfit with this exact costume. Preserve the costume's palette, textiles, accessories and silhouette, tailored naturally to the model. No cowboy clothes may remain. Front-facing relaxed standing pose, direct gaze when visible, hands naturally down unless wings need slightly spread arms. Entire person, headwear, wings and shoes visible, 8% clear margins on every side, no cropping. Soft even studio daylight, natural skin texture, believable fabric. One centered isolated adult person on an actually transparent alpha background. No floor, props, lettering, collage, watermark, mannequin or floating clothes. Fully clothed. Costume: Broad layered fabric feather wings in orange, red and gold, black fitted long-sleeve full-length unitard, gold waist cord, black ankle boots. No bird head, no fire effects.",
+      "file": "/costumes/models/phoenix-rising-male.webp",
+      "references": [
+        "/costumes/models/cosmic-cowboy-male.webp",
+        "/costumes/phoenix-rising.png"
+      ],
+      "width": 960,
+      "height": 960,
+      "sha256": "525b1eefaa9c41cf80629b01b3f52d0c09b0988b6ce47169e747ab30f04090b9"
+    },
+    {
+      "slug": "ice-empress",
+      "model": "female",
+      "source": "/Users/ohong/.codex/generated_images/01a17abe-abff-73d2-8123-954ff6cb5fcf/exec-75010690-f020-40fa-b1f7-3217366fbf26.png",
+      "prompt": "Use case: identity-preserve. Produce one premium photorealistic full-body studio fashion photograph for Halloween Supply. Image 1 is the identity reference: preserve this exact adult person's face, skin tone, hair, body and calm expression. Image 2 is the outfit reference: replace the entire cowboy outfit with this exact costume. Preserve the costume's palette, textiles, accessories and silhouette, tailored naturally to the model. No cowboy clothes may remain. Front-facing relaxed standing pose, direct gaze when visible, hands naturally down unless wings need slightly spread arms. Entire person, headwear, wings and shoes visible, 8% clear margins on every side, no cropping. Soft even studio daylight, natural skin texture, believable fabric. One centered isolated adult person on an actually transparent alpha background. No floor, props, lettering, collage, watermark, mannequin or floating clothes. Fully clothed. Costume: Tall silver rhinestone crown, long flowing ivory white tunic over ivory full-length trousers, white faux-fur shoulder wrap, silver ankle boots. No gown, no gloves, no wand.",
+      "file": "/costumes/models/ice-empress-female.webp",
+      "references": [
+        "/costumes/models/cosmic-cowboy-female.webp",
+        "/costumes/ice-empress.png"
+      ],
+      "width": 960,
+      "height": 960,
+      "sha256": "7386210ba40da3b9bfb9f1babc8c6579aa6e128164e9d9d517062bb93594b05c"
+    },
+    {
+      "slug": "ice-empress",
+      "model": "male",
+      "source": "/Users/ohong/.codex/generated_images/01a17abe-abff-73d2-8123-954ff6cb5fcf/exec-5d7f9d06-616d-4e7c-a40f-f5ab81fe442e.png",
+      "prompt": "Use case: identity-preserve. Produce one premium photorealistic full-body studio fashion photograph for Halloween Supply. Image 1 is the identity reference: preserve this exact adult person's face, skin tone, hair, body and calm expression. Image 2 is the outfit reference: replace the entire cowboy outfit with this exact costume. Preserve the costume's palette, textiles, accessories and silhouette, tailored naturally to the model. No cowboy clothes may remain. Front-facing relaxed standing pose, direct gaze when visible, hands naturally down unless wings need slightly spread arms. Entire person, headwear, wings and shoes visible, 8% clear margins on every side, no cropping. Soft even studio daylight, natural skin texture, believable fabric. One centered isolated adult person on an actually transparent alpha background. No floor, props, lettering, collage, watermark, mannequin or floating clothes. Fully clothed. Costume: Tall silver rhinestone crown, long flowing ivory white tunic over ivory full-length trousers, white faux-fur shoulder wrap, silver ankle boots. No gown, no gloves, no wand.",
+      "file": "/costumes/models/ice-empress-male.webp",
+      "references": [
+        "/costumes/models/cosmic-cowboy-male.webp",
+        "/costumes/ice-empress.png"
+      ],
+      "width": 960,
+      "height": 960,
+      "sha256": "370de4b3ec04d85ac0d0a8129c54ee43802447ceeabf51069148947cd4d595b1"
+    },
+    {
+      "slug": "labyrinth-faun",
+      "model": "female",
+      "source": "/Users/ohong/.codex/generated_images/01a17abe-abff-73d2-8123-954ff6cb5fcf/exec-af8e0ffd-64d9-4879-b315-e38f8cc5cd11.png",
+      "prompt": "Use case: identity-preserve. Produce one premium photorealistic full-body studio fashion photograph for Halloween Supply. Image 1 is the identity reference: preserve this exact adult person's face, skin tone, hair, body and calm expression. Image 2 is the outfit reference: replace the entire cowboy outfit with this exact costume. Preserve the costume's palette, textiles, accessories and silhouette, tailored naturally to the model. No cowboy clothes may remain. Front-facing relaxed standing pose, direct gaze when visible, hands naturally down unless wings need slightly spread arms. Entire person, headwear, wings and shoes visible, 8% clear margins on every side, no cropping. Soft even studio daylight, natural skin texture, believable fabric. One centered isolated adult person on an actually transparent alpha background. No floor, props, lettering, collage, watermark, mannequin or floating clothes. Fully clothed. Costume: Curled brown ram horns on headband, moss-green tunic, brown utility trousers, sturdy brown ankle boots, brown leather forearm bracers. Human face, no hooves or animal legs.",
+      "file": "/costumes/models/labyrinth-faun-female.webp",
+      "references": [
+        "/costumes/models/cosmic-cowboy-female.webp",
+        "/costumes/labyrinth-faun.png"
+      ],
+      "width": 960,
+      "height": 960,
+      "sha256": "303789fb63a98016456a065bbdf96bfd5e3ee0d281692086410f89298a338972"
+    },
+    {
+      "slug": "labyrinth-faun",
+      "model": "male",
+      "source": "/Users/ohong/.codex/generated_images/01a17abe-abff-73d2-8123-954ff6cb5fcf/exec-db9a09c0-d263-4ac4-b03a-d63a5d2ca9fa.png",
+      "prompt": "Use case: identity-preserve. Produce one premium photorealistic full-body studio fashion photograph for Halloween Supply. Image 1 is the identity reference: preserve this exact adult person's face, skin tone, hair, body and calm expression. Image 2 is the outfit reference: replace the entire cowboy outfit with this exact costume. Preserve the costume's palette, textiles, accessories and silhouette, tailored naturally to the model. No cowboy clothes may remain. Front-facing relaxed standing pose, direct gaze when visible, hands naturally down unless wings need slightly spread arms. Entire person, headwear, wings and shoes visible, 8% clear margins on every side, no cropping. Soft even studio daylight, natural skin texture, believable fabric. One centered isolated adult person on an actually transparent alpha background. No floor, props, lettering, collage, watermark, mannequin or floating clothes. Fully clothed. Costume: Curled brown ram horns on headband, moss-green tunic, brown utility trousers, sturdy brown ankle boots, brown leather forearm bracers. Human face, no hooves or animal legs.",
+      "file": "/costumes/models/labyrinth-faun-male.webp",
+      "references": [
+        "/costumes/models/cosmic-cowboy-male.webp",
+        "/costumes/labyrinth-faun.png"
+      ],
+      "width": 960,
+      "height": 960,
+      "sha256": "5851c982fcf9e72c950b1a9b1043442c1d1b0150748460366ffdaf6554a11087"
+    },
+    {
+      "slug": "dragon-rider",
+      "model": "female",
+      "source": "/Users/ohong/.codex/generated_images/01a17abe-abff-73d2-8123-954ff6cb5fcf/exec-5e4f1dd3-134b-4314-a36e-0131a9299bc1.png",
+      "prompt": "Use case: identity-preserve. Create one premium photoreal full-length studio fashion photo. Image 1 is the identity reference; preserve this exact adult person's face, skin tone, hair, body and calm expression. Image 2 is the costume reference; replace all cowboy clothes with this exact brown armored dragon rider outfit. Preserve horns, scale-shaped layered brown leather shoulder pauldrons over brown shearling-collar flight jacket, black trousers, brown ankle boots. No goggles. Front-facing relaxed standing pose, direct gaze, hands down, entire person including horns and boots visible with generous 8% margin around. Tactile realistic fabric, soft studio light. Actually transparent alpha background, no floor, shadow, text, logos or props. Fully clothed.",
+      "file": "/costumes/models/dragon-rider-female.webp",
+      "references": [
+        "/costumes/models/cosmic-cowboy-female.webp",
+        "/costumes/dragon-rider.png"
+      ],
+      "width": 933,
+      "height": 960,
+      "sha256": "a404f5aa07c3a3b4909f091d3a9767447a6fa445ecc0f013594934cfa4c3fbc2"
+    },
+    {
+      "slug": "dragon-rider",
+      "model": "male",
+      "source": "/Users/ohong/.codex/generated_images/01a17abe-abff-73d2-8123-954ff6cb5fcf/exec-992aa498-a83c-49e2-ae5b-a45c4ff94018.png",
+      "prompt": "Use case: identity-preserve. Create one premium photoreal full-length studio fashion photo. Image 1 is the identity reference; preserve this exact adult person's face, skin tone, hair, body and calm expression. Image 2 is the costume reference; replace all cowboy clothes with this exact brown armored dragon rider outfit. Preserve horns, scale-shaped layered brown leather shoulder pauldrons over brown shearling-collar flight jacket, black trousers, brown ankle boots. No goggles. Front-facing relaxed standing pose, direct gaze, hands down, entire person including horns and boots visible with generous 8% margin around. Tactile realistic fabric, soft studio light. Actually transparent alpha background, no floor, shadow, text, logos or props. Fully clothed.",
+      "file": "/costumes/models/dragon-rider-male.webp",
+      "references": [
+        "/costumes/models/cosmic-cowboy-male.webp",
+        "/costumes/dragon-rider.png"
+      ],
+      "width": 960,
+      "height": 960,
+      "sha256": "eb039f85730185d815652d7d3c6e026ad9e4ef757aa5476cda12ad1142683c26"
+    }
+  ]
+}
