@@ -14,11 +14,11 @@
       "category": "headwear",
       "required": true,
       "order": 0,
-      "sizeKind": "hat",
+      "styleNotes": "Use a small orange pumpkin-shaped hat. Real hats differ from the reference's padded orange-and-charcoal velvet panels. No finished hat exactly matches the reference's tiny padded orange-and-charcoal pumpkin. The higher-price handmade hat is crochet rather than velvet.",
       "queries": [
         "orange pumpkin beret adult"
       ],
-      "styleNotes": "Use a small orange pumpkin-shaped hat. Real hats differ from the reference's padded orange-and-charcoal velvet panels. No finished hat exactly matches the reference's tiny padded orange-and-charcoal pumpkin. The higher-price handmade hat is crochet rather than velvet.",
+      "sizeKind": "hat",
       "matches": [
         {
           "productId": "p-fb76982511",
@@ -43,11 +43,11 @@
       "category": "one-piece",
       "required": true,
       "order": 1,
-      "sizeKind": "apparel",
+      "styleNotes": "DIY base: add the separately listed orange felt diamonds. These fitted black unitards do not include diamonds, balloon sleeves, orange cuffs, or a collar. No verified ready-made orange-and-charcoal diamond jumpsuit was found. This catalog uses the design's stated felt-diamond DIY method. Sewing and ordinary scissors, needle, and thread are needed; these tools are not included.",
       "queries": [
         "black long sleeve full length unitard DIY harlequin"
       ],
-      "styleNotes": "DIY base: add the separately listed orange felt diamonds. These fitted black unitards do not include diamonds, balloon sleeves, orange cuffs, or a collar. No verified ready-made orange-and-charcoal diamond jumpsuit was found. This catalog uses the design's stated felt-diamond DIY method. Sewing and ordinary scissors, needle, and thread are needed; these tools are not included.",
+      "sizeKind": "apparel",
       "matches": [
         {
           "productId": "p-2cd1a638ab",
@@ -72,11 +72,11 @@
       "category": "accessories",
       "required": true,
       "order": 2,
-      "sizeKind": "one_size",
+      "styleNotes": "Cut orange diamonds and sew them onto the black base. All choices are raw fabric, not pre-cut shapes or finished costumes. Preserve stretch between patches. Fabric amounts and material differ by tier. Lay out the chosen diamond pattern before deciding the quantity. More fabric may be needed for dense all-over coverage.",
       "queries": [
         "pumpkin orange felt yard DIY harlequin diamonds"
       ],
-      "styleNotes": "Cut orange diamonds and sew them onto the black base. All choices are raw fabric, not pre-cut shapes or finished costumes. Preserve stretch between patches. Fabric amounts and material differ by tier. Lay out the chosen diamond pattern before deciding the quantity. More fabric may be needed for dense all-over coverage.",
+      "sizeKind": "one_size",
       "matches": [
         {
           "productId": "p-1b4eb91408",
@@ -101,11 +101,11 @@
       "category": "accessories",
       "required": true,
       "order": 3,
-      "sizeKind": "one_size",
+      "styleNotes": "A broad gathered textile ruff frames the face. Real choices use orange/black fabric rather than the reference's solid burnt-orange velvet. The custom collar listings accept orders, but color-specific inventory cannot be confirmed. Their photos are real merchant samples; custom selected colors may differ. The in-stock default is the fixed black/orange Underwraps collar.",
       "queries": [
         "orange black clown ruff collar"
       ],
-      "styleNotes": "A broad gathered textile ruff frames the face. Real choices use orange/black fabric rather than the reference's solid burnt-orange velvet. The custom collar listings accept orders, but color-specific inventory cannot be confirmed. Their photos are real merchant samples; custom selected colors may differ. The in-stock default is the fixed black/orange Underwraps collar.",
+      "sizeKind": "one_size",
       "matches": [
         {
           "productId": "p-c4e438465d",
@@ -130,11 +130,11 @@
       "category": "accessories",
       "required": false,
       "order": 4,
-      "sizeKind": "one_size",
+      "styleNotes": "Plain black full-finger gloves are optional. Wrist-length styles sit under cuffs; opera-length styles can extend under sleeves. The $95 Second Skin base already covers the fingers, so separate gloves are unnecessary with that choice.",
       "queries": [
         "black costume gloves adult"
       ],
-      "styleNotes": "Plain black full-finger gloves are optional. Wrist-length styles sit under cuffs; opera-length styles can extend under sleeves. The $95 Second Skin base already covers the fingers, so separate gloves are unnecessary with that choice.",
+      "sizeKind": "one_size",
       "matches": [
         {
           "productId": "p-1929078196",
@@ -159,11 +159,11 @@
       "category": "footwear",
       "required": true,
       "order": 5,
-      "sizeKind": "shoe",
+      "styleNotes": "Black ankle boots finish the look. Prefer a pointed toe and modest heel. Laces, buckles, and almond toes are honest deviations. The middle tier has only size 6 in stock. Premium Paris boots use an almond toe, not a sharply pointed toe.",
       "queries": [
         "black pointed ankle boots costume"
       ],
-      "styleNotes": "Black ankle boots finish the look. Prefer a pointed toe and modest heel. Laces, buckles, and almond toes are honest deviations. The middle tier has only size 6 in stock. Premium Paris boots use an almond toe, not a sharply pointed toe.",
+      "sizeKind": "shoe",
       "matches": [
         {
           "productId": "p-5ddd0e0d87",
@@ -422,7 +422,7 @@
       "merchantId": "benziedesign-com",
       "tagSlugs": [],
       "description": "Pumpkin is an orange heathered wool/rayon blend, approximately 1 mm thick. Price buys one 1/2-yard cut, approximately 18 x 36 inches. It is closer to burnt orange than bright acrylic felt. Cut and sew diamonds yourself; quantity depends on garment size and coverage. Multiple half-yard units yield an uncut sheet per merchant. Tools and thread are not included.",
-      "checkedAt": "2026-10-25T08:50:58.976351Z",
+      "checkedAt": "2026-10-27T21:50:03.595Z",
       "sourcing": {
         "method": "built-in-web",
         "checkedAt": "2026-10-25T08:50:58.976351Z",
@@ -808,8 +808,8 @@
   "provenance": {
     "method": "manual-research",
     "generatedAt": "2026-10-25T08:50:58.976351Z",
+    "notes": "Built-in web search and direct official merchant evidence. Three distinct relative price points per piece: $, $$, $$$. Prices exclude shipping/tax; stock is variant-specific and delivery is unconfirmed. See docs/sourcing/price-tiers/pumpkin-harlequin.json.",
     "priceTiers": true,
-    "heroImageKind": "generated-reference",
-    "notes": "Built-in web search and direct official merchant evidence. Three distinct relative price points per piece: $, $$, $$$. Prices exclude shipping/tax; stock is variant-specific and delivery is unconfirmed. See docs/sourcing/price-tiers/pumpkin-harlequin.json."
+    "heroImageKind": "generated-reference"
   }
 }

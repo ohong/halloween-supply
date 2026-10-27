@@ -1,0 +1,29 @@
+{
+  "before": {
+    "status": "degraded",
+    "buildCommit": "dc38355a95100ea481ab0a5661f2364dcd5a3e59",
+    "coverage": {
+      "expectedCostumes": 50,
+      "shoppableCostumes": 46,
+      "missingCostumeSlugs": [
+        "jellyfish-bloom",
+        "venus-flytrap",
+        "walking-thundercloud",
+        "silent-film-star"
+      ]
+    },
+    "catalogSource": "database"
+  },
+  "afterDatabaseRepair": {
+    "status": "ok",
+    "buildCommit": "dc38355a95100ea481ab0a5661f2364dcd5a3e59",
+    "coverage": {
+      "expectedCostumes": 50,
+      "shoppableCostumes": 50,
+      "missingCostumeSlugs": []
+    },
+    "catalogSource": "database"
+  },
+  "repair": "13 freshly verified product IDs patched across shared catalog references; no whole-catalog replacement",
+  "localShopping": "Four browser flows and four unpaid Stripe TEST checkouts passed; each session expired. Tests used bundled catalogs, direct merchants and a real TEST Stripe account."
+}
