@@ -7,6 +7,7 @@ import path from "node:path";
 import { setTimeout as delay } from "node:timers/promises";
 import { chromium, type Page } from "playwright";
 import { costumes } from "../lib/costumes";
+import { parseTelemetryEvent } from "../lib/telemetry/schema";
 import snapshot from "../data/costumes/cosmic-cowboy.json";
 
 const evidence = path.join(process.cwd(), "tmp/verification/release");
@@ -41,7 +42,7 @@ async function localEnvironment(): Promise<NodeJS.ProcessEnv> {
       if ((error as NodeJS.ErrnoException).code !== "ENOENT") throw error;
     }
   }
-  return { ...env, NODE_ENV: "production", NEXT_TELEMETRY_DISABLED: "1" };
+  return { ...env, NODE_ENV: "production", NEXT_TELEMETRY_DISABLED: "1", TELEMETRY_DISABLED: "1" };
 }
 
 function launch(command: string, args: string[], env: NodeJS.ProcessEnv) {
@@ -98,11 +99,29 @@ async function browserSmoke(base: string) {
   page.setDefaultTimeout(15_000);
   const runtimeErrors: string[] = [];
   const unexpectedRequests: string[] = [];
-  page.on("pageerror", (error) => runtimeErrors.push(error.name));
+  let validatedEventRequests = 0;
+  let stage = "gallery";
+  page.on("pageerror", (error) => {
+    // This context has only synthetic state and public pages. Keep the first message line,
+    // without stack traces or URL query values, so React error codes remain useful in CI.
+    const message = error.message.split("\n")[0].replace(/https?:\/\/[^\s<>"']+/g, (value) => {
+      try { const url = new URL(value); return `${url.origin}${url.pathname}`; }
+      catch { return "[URL]"; }
+    }).slice(0, 600);
+    runtimeErrors.push(`${stage}: ${error.name}: ${message}`);
+  });
   await page.route("**/*", async (route) => {
     const request = route.request();
     const url = new URL(request.url());
     if (["data:", "blob:"].includes(url.protocol)) return route.continue();
+    if (url.origin === base && url.pathname === "/api/events" && !url.search && request.method() === "POST") {
+      try {
+        if (parseTelemetryEvent(request.postDataJSON())) {
+          validatedEventRequests++;
+          return route.continue();
+        }
+      } catch { /* Invalid events follow the same failure path as other unexpected requests. */ }
+    }
     if (url.origin !== base || !["GET", "HEAD"].includes(request.method())) {
       // Record only the method and path. Never retain payloads, tokens, or query strings.
       unexpectedRequests.push(`${request.method()} ${url.origin === base ? url.pathname : "external origin"}`);
@@ -119,11 +138,15 @@ async function browserSmoke(base: string) {
     await page.getByRole("button", { name: "Unsave Cosmic Cowboy", exact: true }).waitFor();
     await page.getByRole("button", { name: /^Saved/ }).click();
     assert.equal(await page.locator("#costume-results .tile-body").count(), 1);
-    await page.getByRole("link", { name: "View Cosmic Cowboy", exact: true }).click();
-    await page.waitForURL("**/costumes/cosmic-cowboy");
+    await page.locator("#costume-results .tile-body").click();
+    await page.waitForURL((url) => url.pathname === "/costumes/cosmic-cowboy");
     await page.getByRole("heading", { name: "Cosmic Cowboy", exact: true }).waitFor();
     pass("hydrated gallery, saved-look persistence, saved filter, and detail navigation");
 
+    // Gallery cards may apply a completion kit. Check the full catalog separately;
+    // the campaign verifier covers kit selection and owned/skipped cart agreement.
+    await page.goto(new URL("/costumes/cosmic-cowboy", base).href);
+    stage = "cart restoration";
     const addAll = page.getByRole("button", { name: "Add costume to cart", exact: true });
     await addAll.click();
     const cart = page.getByRole("dialog", { name: "Cart", exact: true });
@@ -140,6 +163,7 @@ async function browserSmoke(base: string) {
     await cart.getByRole("button", { name: "Close", exact: true }).click();
     pass("whole-costume cart, reload restoration, and line removal");
 
+    stage = "product replacement";
     await page.getByRole("button", { name: `Change ${snapshot.pieces[0].name}`, exact: true }).click();
     const alternative = page.locator('.wardrobe-rail:visible .wardrobe-rail-option:not(:disabled):not([aria-pressed="true"])').first();
     const nextTitle = await alternative.locator(".wardrobe-rail-title").innerText();
@@ -154,6 +178,7 @@ async function browserSmoke(base: string) {
     await page.screenshot({ path: path.join(evidence, "desktop.png"), animations: "disabled" });
     pass("product replacement reaches the cart without duplicate pieces; desktop layout fits");
 
+    stage = "phone cart";
     await page.setViewportSize({ width: 390, height: 844 });
     await noOverflow(page);
     await page.getByRole("button", { name: /^Cart/ }).click();
@@ -162,13 +187,16 @@ async function browserSmoke(base: string) {
     await noOverflow(page);
     await page.screenshot({ path: path.join(evidence, "phone.png"), animations: "disabled" });
     await cart.getByRole("button", { name: "Close", exact: true }).click();
-    assert.deepEqual(runtimeErrors, [], "Browser threw runtime errors");
-    assert.deepEqual(unexpectedRequests, [], "Smoke attempted an external or mutating request");
+    assert.deepEqual(runtimeErrors, [], `Browser threw runtime errors:\n${runtimeErrors.join("\n")}`);
+    assert.deepEqual(unexpectedRequests, [], "Smoke attempted an external request, invalid event, or unsupported write");
     pass("390px phone cart and layout; no browser exceptions, provider calls, or checkout requests");
   } catch (error) {
     await page.screenshot({ path: path.join(evidence, "failure.png"), animations: "disabled" }).catch(() => {});
     throw error;
-  } finally { await browser.close(); }
+  } finally {
+    await writeFile(path.join(evidence, "browser.json"), JSON.stringify({ runtimeErrors, unexpectedRequests, validatedEventRequests }, null, 2) + "\n");
+    await browser.close();
+  }
 }
 
 async function stopChildren() {

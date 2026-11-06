@@ -61,6 +61,7 @@ jobs:
           name: release-smoke-${{ github.run_attempt }}
           path: |
             tmp/verification/release/summary.json
+            tmp/verification/release/browser.json
             tmp/verification/release/desktop.png
             tmp/verification/release/phone.png
             tmp/verification/release/failure.png

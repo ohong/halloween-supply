@@ -272,7 +272,9 @@ async function main() {
     assert.equal(response.status, 200);
     const html = rendered(await response.text());
     const tiles = elements(html, "a").filter((element) => hasClass(element, "tile-body"));
-    assert.deepEqual(tiles.map((tile) => tile.attributes.href).sort(), expectedSlugs.map((slug) => `/costumes/${slug}`), "Homepage links must expose every purchasable costume");
+    const links = tiles.map((tile) => new URL(tile.attributes.href, base));
+    assert(links.every((link) => link.origin === base), "Homepage costume links must stay on this site");
+    assert.deepEqual(links.map((link) => link.pathname).sort(), expectedSlugs.map((slug) => `/costumes/${slug}`), "Homepage links must expose every purchasable costume exactly once");
     assert(!tiles.some((tile) => /style guide/i.test(tile.attributes["aria-label"] ?? "")), "Homepage still labels a costume as a style guide");
     pass(`${tiles.length} homepage tiles link to purchasable costume pages`);
   });

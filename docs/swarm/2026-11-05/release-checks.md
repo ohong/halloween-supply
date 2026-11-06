@@ -48,9 +48,9 @@ This separate command retains the existing live database parity check when datab
 | Browser state | A saved look survives reload. The saved filter opens that look. A whole-costume cart survives reload and supports removal and product replacement. |
 | Desktop and phone | The checked page and cart fit 1440px and 390px viewports without horizontal overflow. The browser throws no runtime exceptions. |
 
-The browser checker aborts external requests and all requests other than GET and HEAD. An attempted request fails the check. It does not replace app APIs with successful responses.
+The browser checker aborts external requests and writes, except for valid anonymous events sent to the same-origin `/api/events` endpoint. Event bodies must pass the shared schema. Other attempted writes fail the check. The checker does not replace app APIs with successful responses.
 
-The runner removes inherited provider credentials. It also reserves dotenv variable names with empty values before starting the server. Health must confirm the fallback catalog before verification continues.
+The runner removes inherited provider credentials. It also reserves dotenv variable names with empty values before starting the server. Health must confirm the fallback catalog before verification continues. `TELEMETRY_DISABLED=1` keeps synthetic events out of server logs.
 
 ## CI permissions and evidence
 
@@ -63,7 +63,7 @@ Actions use exact commit pins, verified against their official release tags on 2
 
 The workflow has `contents: read` permission and disables persisted checkout credentials. It uses `pull_request`, not `pull_request_target`, and references no repository secrets. Fork pull requests can run the same checks.
 
-CI retains only an explicit list of public screenshots and the check summary for seven days. It does not upload dotenv files, server logs, browser storage, traces, or authentication state. Evidence is written under `tmp/verification/release/`.
+CI retains only an explicit list of public screenshots, the check summary, and bounded browser diagnostics for seven days. Error messages retain their first line and React error code, with stacks and URL query values removed. Event payloads are never retained. CI does not upload dotenv files, server logs, browser storage, traces, or authentication state. Evidence is written under `tmp/verification/release/`.
 
 ## Design choice
 
@@ -82,7 +82,8 @@ The chosen runner adds only the missing production-server lifecycle and focused 
 | Missing production build | Passed; the runner exited with a clear build prerequisite message. |
 | Ruby YAML parser | Passed; the workflow contains the expected quality job. |
 | `git diff --check` | Passed. |
-| Full production build and runtime baseline | Pending root integration verification. This worktree shares dependencies outside its root and does not build independently. |
+| Initial production runtime baseline | Catalog, model images, saved state, cart restoration, and product swaps passed. The strict error check found React hydration error 418 when the restored cart opened immediately. |
+| Hydration fix | The cart drawer now matches its server fallback until its own hydration finishes. No test delay or error suppression was added. Production verification of this fix is pending the root rebuild. |
 | Hosted GitHub Actions | Not run in this task. |
 
 No qualifying Next.js feedback candidate was observed during this change.
