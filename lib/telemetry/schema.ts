@@ -1,4 +1,3 @@
-import { z } from "zod";
 import { costumes } from "../costumes";
 
 export const eventNames = [
@@ -22,24 +21,42 @@ export function telemetrySlug(slug: string | undefined): string | undefined {
   return slug && knownSlugs.has(slug) ? slug : undefined;
 }
 
-export const eventPropertiesSchema = z.object({
-  source: z.enum(eventSources).optional(),
-  slug: z.string().refine((slug) => knownSlugs.has(slug)).optional(),
-  durationMs: z.number().finite().min(0).max(600_000).optional(),
-  stage: z.enum(eventStages).optional(),
-  provider: z.enum(eventProviders).optional(),
-  units: z.number().finite().min(0).max(100_000_000).optional(),
-  mode: z.enum(eventModes).optional(),
-}).strict();
-
-export const eventSchema = z.object({
-  version: z.literal(1),
-  journeyId: z.string().regex(/^[0-9a-f]{32}$/),
-  sequence: z.number().int().min(1).max(1_000),
-  name: z.enum(eventNames),
-  properties: eventPropertiesSchema,
-}).strict();
-
 export type EventName = typeof eventNames[number];
-export type EventProperties = z.infer<typeof eventPropertiesSchema>;
-export type TelemetryEvent = z.infer<typeof eventSchema>;
+export interface EventProperties {
+  source?: typeof eventSources[number];
+  slug?: string;
+  durationMs?: number;
+  stage?: typeof eventStages[number];
+  provider?: typeof eventProviders[number];
+  units?: number;
+  mode?: typeof eventModes[number];
+}
+export interface TelemetryEvent {
+  version: 1;
+  journeyId: string;
+  sequence: number;
+  name: EventName;
+  properties: EventProperties;
+}
+
+const eventKeys = new Set(["version", "journeyId", "sequence", "name", "properties"]);
+const propertyKeys = new Set(["source", "slug", "durationMs", "stage", "provider", "units", "mode"]);
+const object = (value: unknown): value is Record<string, unknown> => value !== null && typeof value === "object" && !Array.isArray(value);
+const member = (value: unknown, choices: readonly string[]) => typeof value === "string" && choices.includes(value);
+const optionalMember = (value: unknown, choices: readonly string[]) => value === undefined || member(value, choices);
+const bounded = (value: unknown, max: number) => value === undefined || typeof value === "number" && Number.isFinite(value) && value >= 0 && value <= max;
+
+/** Shared, dependency-free validation keeps the browser helper small. Unknown keys fail closed. */
+export function parseTelemetryEvent(value: unknown): TelemetryEvent | null {
+  if (!object(value) || Object.keys(value).some((key) => !eventKeys.has(key))) return null;
+  if (value.version !== 1 || typeof value.journeyId !== "string" || !/^[0-9a-f]{32}$/.test(value.journeyId) ||
+    typeof value.sequence !== "number" || !Number.isInteger(value.sequence) || value.sequence < 1 || value.sequence > 1_000 ||
+    !member(value.name, eventNames)) return null;
+  const properties = value.properties;
+  if (!object(properties) || Object.keys(properties).some((key) => !propertyKeys.has(key))) return null;
+  if (!optionalMember(properties.source, eventSources) || !optionalMember(properties.stage, eventStages) ||
+    !optionalMember(properties.provider, eventProviders) || !optionalMember(properties.mode, eventModes) ||
+    !bounded(properties.durationMs, 600_000) || !bounded(properties.units, 100_000_000) ||
+    properties.slug !== undefined && (typeof properties.slug !== "string" || !knownSlugs.has(properties.slug))) return null;
+  return value as unknown as TelemetryEvent;
+}

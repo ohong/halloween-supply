@@ -1,4 +1,4 @@
-import { eventSchema, type TelemetryEvent } from "./schema";
+import { parseTelemetryEvent, type TelemetryEvent } from "./schema";
 
 export const MAX_EVENT_BYTES = 2_048;
 const WINDOW_MS = 60_000;
@@ -9,8 +9,7 @@ let windowStarted = Date.now();
 let windowEvents = 0;
 
 export function parseEvent(value: unknown): TelemetryEvent | null {
-  const parsed = eventSchema.safeParse(value);
-  return parsed.success ? parsed.data : null;
+  return parseTelemetryEvent(value);
 }
 
 /** A process-local bound, not a durable rate limiter across hosting instances. */

@@ -1,6 +1,6 @@
 "use client";
 
-import { eventSchema, telemetrySlug, type EventName, type EventProperties } from "./schema";
+import { parseTelemetryEvent, telemetrySlug, type EventName, type EventProperties } from "./schema";
 
 const STORAGE_KEY = "halloween:anonymous-journey:v1";
 let fallbackJourney: { id: string; sequence: number } | undefined;
@@ -41,16 +41,16 @@ export function trackEvent(name: EventName, properties: EventProperties = {}): v
     const journey = nextJourneyEvent();
     if (!journey) return;
     const slug = telemetrySlug(properties.slug);
-    const parsed = eventSchema.safeParse({
+    const event = parseTelemetryEvent({
       version: 1, ...journey, name,
       properties: { ...properties, slug },
     });
-    if (!parsed.success) return;
+    if (!event) return;
     // keepalive lets checkout navigation proceed while the small request finishes.
     void fetch("/api/events", {
       method: "POST", headers: { "Content-Type": "application/json" },
       credentials: "omit", mode: "same-origin", keepalive: true,
-      body: JSON.stringify(parsed.data),
+      body: JSON.stringify(event),
     }).catch(() => {});
   } catch { /* Analytics failure must never change shopping or camera behavior. */ }
 }
