@@ -52,6 +52,9 @@ export function resolveLookSelection(view: CostumeView, input: Pick<LookSelectio
   for (const pieceId of [...input.selection.map(row => row.pieceId), ...input.ownedPieceIds, ...input.skippedPieceIds]) {
     if (!known.has(pieceId)) issues.push("A saved piece is no longer in this look.");
   }
+  // Old product-only links intentionally fill omitted slots from catalog defaults.
+  // Versioned snapshots must name every slot, including an all-owned outfit.
+  const completeSnapshot = !Array.isArray(input.legacyProductIds);
   const remaining = new Set(input.legacyProductIds ?? []);
   for (const { piece, options } of view.pieces) {
     const use = input.ownedPieceIds.includes(piece.id) ? "owned" : input.skippedPieceIds.includes(piece.id) ? "skip" : "buy";
@@ -62,7 +65,7 @@ export function resolveLookSelection(view: CostumeView, input: Pick<LookSelectio
     const index = options.findIndex(({ product }) => selected ? product.id === selected : remaining.has(product.id));
     if (index >= 0 && options[index].product.availability !== "out_of_stock") {
       chosen[piece.id] = index; remaining.delete(options[index].product.id);
-    } else if (selected || input.selection.length > 0) issues.push(`${piece.name} needs an available product.`);
+    } else if (selected || completeSnapshot) issues.push(`${piece.name} needs an available product.`);
   }
   if (remaining.size) issues.push("A saved product is no longer available in this look.");
   return { chosen, uses, issues: [...new Set(issues)] };
