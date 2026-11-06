@@ -1,5 +1,4 @@
-import { describe, it } from "node:test";
-import assert from "node:assert/strict";
+import { describe, expect, it } from "bun:test";
 import { applyActions, createOutfit, outfitTotal } from "./state";
 import type { CostumeView, ProductOption } from "@/lib/types";
 
@@ -13,26 +12,26 @@ describe("mirror outfit invariants", () => {
   it("preserves locked products when optimizing budget and reports impossible budgets", () => {
     const start = createOutfit(costume);
     const { outfit, message } = applyActions(costume, start, [{ type: "lock", pieceId: "hat", locked: true }, { type: "budget", amount: "20" }, { type: "cheapest" }]);
-    assert.equal(outfit.selection.hat, "hat-a");
-    assert.equal(outfit.selection.scarf, "scarf-b");
-    assert.match(message!, /over budget/);
-    assert.equal(start.selection.scarf, "scarf-a");
+    expect(outfit.selection.hat).toBe("hat-a");
+    expect(outfit.selection.scarf).toBe("scarf-b");
+    expect(message!).toMatch(/over budget/);
+    expect(start.selection.scarf).toBe("scarf-a");
   });
   it("never selects sold-out, foreign, or unknown products or drops required pieces", () => {
     const start = createOutfit(costume);
-    for (const productId of ["hat-sold", "scarf-b", "invented"]) assert.equal(applyActions(costume, start, [{ type: "select", pieceId: "hat", productId }]).outfit.selection.hat, "hat-a");
-    assert.equal(applyActions(costume, start, [{ type: "use", pieceId: "hat", use: "skip" }]).outfit.uses.hat, "buy");
+    for (const productId of ["hat-sold", "scarf-b", "invented"]) expect(applyActions(costume, start, [{ type: "select", pieceId: "hat", productId }]).outfit.selection.hat).toBe("hat-a");
+    expect(applyActions(costume, start, [{ type: "use", pieceId: "hat", use: "skip" }]).outfit.uses.hat).toBe("buy");
   });
   it("excludes owned/skipped pieces from totals and changes only the requested slot", () => {
     const start = createOutfit(costume);
     const { outfit } = applyActions(costume, start, [{ type: "use", pieceId: "hat", use: "owned" }, { type: "select", pieceId: "scarf", productId: "scarf-b" }]);
-    assert.equal(outfitTotal(costume, outfit), 500);
-    assert.equal(outfit.selection.hat, start.selection.hat);
+    expect(outfitTotal(costume, outfit)).toBe(500);
+    expect(outfit.selection.hat).toBe(start.selection.hat);
   });
   it("requires explicit unlocking and rejects invalid budgets", () => {
     const start = createOutfit(costume, { locked: ["hat"], budget: "50" });
-    assert.equal(applyActions(costume, start, [{ type: "select", pieceId: "hat", productId: "hat-b" }]).outfit.selection.hat, "hat-a");
-    assert.equal(applyActions(costume, start, [{ type: "lock", pieceId: "hat", locked: false }, { type: "select", pieceId: "hat", productId: "hat-b" }]).outfit.selection.hat, "hat-b");
-    assert.equal(applyActions(costume, start, [{ type: "budget", amount: "Infinity" }]).outfit.budget, "50");
+    expect(applyActions(costume, start, [{ type: "select", pieceId: "hat", productId: "hat-b" }]).outfit.selection.hat).toBe("hat-a");
+    expect(applyActions(costume, start, [{ type: "lock", pieceId: "hat", locked: false }, { type: "select", pieceId: "hat", productId: "hat-b" }]).outfit.selection.hat).toBe("hat-b");
+    expect(applyActions(costume, start, [{ type: "budget", amount: "Infinity" }]).outfit.budget).toBe("50");
   });
 });

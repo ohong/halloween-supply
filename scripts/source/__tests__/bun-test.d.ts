@@ -7,6 +7,7 @@ declare module "bun:test" {
     toEqual(v: unknown): void;
     toMatchObject(v: unknown): void;
     toContain(v: unknown): void;
+    toMatch(v: RegExp | string): void;
     toHaveLength(n: number): void;
     toBeNull(): void;
     toBeLessThan(n: number): void;
