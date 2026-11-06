@@ -53,12 +53,15 @@ export function resolveVideoOutfit(costume: CostumeView, input: z.infer<typeof v
 
 export function videoOutfitPrompt(outfit: ReturnType<typeof resolveVideoOutfit>) {
   // The complete desired outfit is sent every time: Decart set() replaces state.
-  // Product cutouts provide details, leaving the prompt focused on regions.
-  const names = outfit.selected.map(({ piece }) => piece.name).join(", ");
-  const preserve = outfit.owned.length ? ` Keep the camera clothing for owned pieces: ${outfit.owned.join(", ")}.` : "";
-  const skip = outfit.skipped.length ? ` Omit optional pieces: ${outfit.skipped.join(", ")}.` : "";
-  const edits = outfit.appearance?.length ? ` Garment-only overrides: ${outfit.appearance.map(edit => `${edit.name}: ${[edit.color, edit.style].filter(Boolean).join(", ")}`).join("; ")}.` : "";
-  const prompt = `Substitute the outfit with these reference-board garments: ${names}. Match their visible colors, fabrics and cuts.${preserve}${skip}${edits} Preserve the person's face, hair, body shape, skin tone, pose, background and lighting. Reference images are garments only, never identity references. Keep other camera clothing unchanged.`;
+  // Merchant photos can contain another person. Send garment text so those
+  // models cannot become identity inputs to the video provider.
+  const short = (title: string) => title.length > 70 ? `${title.slice(0, 67).trimEnd()}...` : title;
+  const preserve = outfit.owned.length ? ` Keep their own ${outfit.owned.join(", ")} unchanged.` : "";
+  const skip = outfit.skipped.length ? ` Omit: ${outfit.skipped.join(", ")}.` : "";
+  const edits = outfit.appearance?.length ? ` Garment overrides: ${outfit.appearance.map(edit => `${edit.name}: ${[edit.color, edit.style].filter(Boolean).join(", ")}`).join("; ")}.` : "";
+  const build = (garments: string) => `Change only the clothing. Keep the exact same person: same face, facial features, expression, hair, skin tone, body shape and pose, plus the same background and lighting. Dress them in: ${garments}.${preserve}${skip}${edits} Leave all other clothing as it is.`;
+  const detailed = build(outfit.selected.map(({ piece, product }) => `${piece.name} (${short(product.title)})`).join("; "));
+  const prompt = detailed.length <= 740 ? detailed : build(outfit.selected.map(({ piece }) => piece.name).join(", "));
   if (prompt.length > 740) throw new Error("This outfit is too complex for the live mirror. Use photo try-on instead.");
   return prompt;
 }

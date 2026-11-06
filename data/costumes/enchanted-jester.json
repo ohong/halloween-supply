@@ -596,6 +596,7 @@
       "priceCents": 600,
       "currency": "USD",
       "image": "/products/price-tiers/p-5168383708.webp",
+      "merchantImage": "/products/price-tiers/p-5168383708.webp",
       "sourceImages": [
         "https://cdn.shopify.com/s/files/1/0791/1095/products/IMG_8887_-_Version_2.JPG?v=1455580591"
       ],
@@ -606,14 +607,13 @@
       "merchantId": "benziedesign-com",
       "tagSlugs": [],
       "description": "Selected Sage / 1/2 yard, USD6 and available in the live feed. Price buys approximately 18 × 36 inches of sage wool/rayon felt, about 1 mm thick. Closest muted green to the reference; felt has a matte surface rather than velvet. Cut and sew diamonds yourself. Lay out the pattern before buying; larger garments or dense coverage may need more than one cut. Ordinary scissors, needle and thread are not included. No fixed dispatch time is verified.",
-      "checkedAt": "2026-10-25T08:59:41.481945Z",
+      "checkedAt": "2026-10-27T21:50:03.006Z",
       "sourcing": {
         "method": "built-in-web",
         "checkedAt": "2026-10-25T08:59:41.481945Z",
         "url": "https://www.benziedesign.com/products/sage-wool-blend-felt.js",
         "notes": "Selected Sage / 1/2 yard, USD6 and available in the live feed. Price buys approximately 18 × 36 inches of sage wool/rayon felt, about 1 mm thick. Closest muted green to the reference; felt has a matte surface rather than velvet. Cut and sew diamonds yourself. Lay out the pattern before buying; larger garments or dense coverage may need more than one cut. Ordinary scissors, needle and thread are not included. No fixed dispatch time is verified."
-      },
-      "merchantImage": "/products/price-tiers/p-5168383708.webp"
+      }
     },
     {
       "id": "p-ee914940b0",
@@ -622,6 +622,7 @@
       "priceCents": 1099,
       "currency": "USD",
       "image": "/products/price-tiers/p-ee914940b0.webp",
+      "merchantImage": "/products/price-tiers/p-ee914940b0.webp",
       "sourceImages": [
         "https://cdn.shopify.com/s/files/1/0037/6802/5152/files/Olive_Acrylic_Felt_Fabric_10015_77cc0842-fa60-4e96-bbe9-0fa2c024f133.webp?v=1780834998"
       ],
@@ -638,8 +639,7 @@
         "checkedAt": "2026-10-25T08:59:41.481945Z",
         "url": "https://icefabrics.com/products/acrylic-olive-felt-fabric-1-6mm-thick-72-wide.js",
         "notes": "Selected Olive / By The Yard, USD10.99 and available in the live feed. One yard is 36 × 72 inches, 100% acrylic felt, 1.6 mm thick, 300 gsm. Olive is more yellow and saturated than the reference sage. Raw fabric only; cut and sew diamonds onto the purple base. Amount needed depends on garment size and diamond spacing. Tools and thread are not included. Merchant advertises same-day shipping before 1 PM PT; this is not an arrival guarantee."
-      },
-      "merchantImage": "/products/price-tiers/p-ee914940b0.webp"
+      }
     },
     {
       "id": "p-633c337525",
@@ -648,6 +648,7 @@
       "priceCents": 1299,
       "currency": "USD",
       "image": "/products/price-tiers/p-633c337525.webp",
+      "merchantImage": "/products/price-tiers/p-633c337525.webp",
       "sourceImages": [
         "https://cdn.shopify.com/s/files/1/0754/1260/3200/files/IMG_1285.jpg?v=1707515037"
       ],
@@ -662,8 +663,7 @@
         "checkedAt": "2026-10-25T08:59:41.481945Z",
         "url": "https://britexfabrics.com/products/green-acrylic-felt.js",
         "notes": "Select the full fabric option, not the USD3 Swatch. Price is USD12.99 per yard of 72-inch-wide, 5-ounce, 100% acrylic felt. Full-fabric variant is available in the live feed. This dark green is deeper than the reference sage. Cut and sew diamonds yourself; fabric is not velvet and no finished garment is included. Measure and lay out the pattern before choosing yardage. Tools and thread are not included. No fixed dispatch time is verified."
-      },
-      "merchantImage": "/products/price-tiers/p-633c337525.webp"
+      }
     }
   ],
   "merchants": [

@@ -11,6 +11,7 @@ import sharp from "sharp";
 import { costumes } from "../lib/costumes";
 import { validateSnapshot } from "../lib/catalog/validate";
 import * as query from "../lib/catalog/queries";
+import { catalogFacts, type CatalogFacts } from "../lib/checkout/catalog-facts";
 import type { CostumeSnapshot, CostumeView, ProductOption } from "../lib/types";
 
 type BunRuntime = { plugin(plugin: { name: string; setup(build: { module(name: string, loader: () => unknown): void }): void }): void };
@@ -26,6 +27,7 @@ type HealthCatalog = { costumeSlug: string; source: string; pieces: number; prod
 type Health = {
   status: string;
   catalogSource: string;
+  catalogFacts: CatalogFacts;
   database: { ok: boolean; costumes: number; products: number };
   catalogs: HealthCatalog[];
   coverage: { expectedCostumes: number; shoppableCostumes: number; missingCostumeSlugs: string[] };
@@ -272,7 +274,9 @@ async function main() {
     assert.equal(response.status, 200);
     const html = rendered(await response.text());
     const tiles = elements(html, "a").filter((element) => hasClass(element, "tile-body"));
-    assert.deepEqual(tiles.map((tile) => tile.attributes.href).sort(), expectedSlugs.map((slug) => `/costumes/${slug}`), "Homepage links must expose every purchasable costume");
+    const links = tiles.map((tile) => new URL(tile.attributes.href, base));
+    assert(links.every((link) => link.origin === base), "Homepage costume links must stay on this site");
+    assert.deepEqual(links.map((link) => link.pathname).sort(), expectedSlugs.map((slug) => `/costumes/${slug}`), "Homepage links must expose every purchasable costume exactly once");
     assert(!tiles.some((tile) => /style guide/i.test(tile.attributes["aria-label"] ?? "")), "Homepage still labels a costume as a style guide");
     pass(`${tiles.length} homepage tiles link to purchasable costume pages`);
   });
@@ -299,8 +303,17 @@ async function main() {
     assert.deepEqual(health.coverage.missingCostumeSlugs, []);
     assert.equal(health.database.costumes, expectedSlugs.length);
     assert.equal(health.database.products, new Set([...snapshots.values()].flatMap((snapshot) => snapshot.products.map(({ id }) => id))).size);
+    const sourceSnapshots = health.database.ok ? stored : [...snapshots.values()];
+    assert(sourceSnapshots, "The reported catalog source must be available for health verification");
+    assert(health.catalogFacts, "Health must report stored product facts");
+    const evaluatedAt = Date.parse(health.catalogFacts.evaluatedAt);
+    assert(Number.isFinite(evaluatedAt), "Health fact evaluation timestamp must be valid");
+    const facts = catalogFacts(sourceSnapshots.filter((snapshot) => snapshot.costume.status === "live").flatMap((snapshot) => snapshot.products), evaluatedAt);
+    assert.deepEqual(health.catalogFacts, facts, "Health facts differ from the reported catalog source");
     if (health.database.ok) {
-      assert.equal(health.status, "ok");
+      // A connected, complete database can still contain stale or unknown product facts.
+      const factsCurrent = facts.status === "fresh" && facts.stock.unknown === 0;
+      assert.equal(health.status, factsCurrent ? "ok" : "degraded", "Health status must reflect stored product freshness and stock knowledge");
       assert.equal(health.catalogSource, "database");
     } else {
       assert(allowDatabaseDown, "Database is unavailable; --allow-database-down is required for bundled-only QA");

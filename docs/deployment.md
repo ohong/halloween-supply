@@ -13,10 +13,18 @@ Production needs these variables:
 
 - `ANTHROPIC_API_KEY`
 - `FIRECRAWL_API_KEY`
+- `OPENAI_API_KEY` for screenshot understanding, photo previews, and mirror voice
 - `TURSO_DATABASE_URL`
 - `TURSO_AUTH_TOKEN`
 - `STRIPE_SECRET_KEY`
 - `CRON_SECRET`
+
+`FAL_KEY` enables live video and personal 3D previews. Phone relay needs the
+optional Metered variables described in [phone camera](phone-camera.md).
+Saved-board receipts use `SAVED_LOOK_SIGNING_SECRET` or `TURSO_AUTH_TOKEN`; replicas
+must share the value. Without either, saving reports unavailable and keeps found
+pieces on the current board. Clip input stays off until a real video request
+qualifies an explicit model; see [clip sourcing](clip-sourcing.md).
 
 Turso injects its connection variables through the Vercel Marketplace integration.
 The dedicated database uses the Starter plan ($0/month) in iad1.
@@ -30,7 +38,7 @@ vercel env ls --environment production --scope ohong-projects --project hallowee
 ```
 
 Do not pull environment files over `.env.local` or print credentials.
-Stripe remains in test mode for the five-costume demo. Do not replace the production credential with a live key without a new user instruction.
+Stripe remains in test mode for the 50-costume storefront. Do not replace the production credential with a live key without a new user instruction.
 
 ## Demo sizes
 
@@ -62,18 +70,31 @@ Never place the secret in the URL or paste it into logs.
 
 ## Release verification
 
-1. Run `bun run lint` and `bun run build`.
-2. Run `bun scripts/verify-costumes.ts LOCAL_URL --checkout --all-options --chat` against the local production server.
-3. Push the reviewed commits to `main`.
-4. Inspect the resulting Vercel deployment and confirm the commit and `READY` state.
-5. Check `https://halloween.supply/api/health`.
-6. Seed any updated live database catalogs after their image assets resolve on the production host.
-7. Run `bun scripts/verify-costumes.ts https://halloween.supply --checkout --all-options --chat`. Every verification session is test-only and expires unpaid.
+1. Run `bun run lint`.
+2. Run `bun run typecheck`.
+3. Run `bun run build`.
+4. Run `bun run verify:release` for all 50 catalogs, images, model assets, and browser shopping checks.
+5. Run `SHOPPING_EVIDENCE_DIR=/tmp/shopping-evidence bun scripts/verify-shopping-campaign.mjs LOCAL_URL` against a separate local production server.
+6. Confirm the exact PR heads pass hosted checks in the [stack order](swarm/2026-11-05/pr-stack.md).
+7. Merge reviewed commits only after the user authorizes the release.
+8. Confirm the resulting Vercel deployment's exact commit and `READY` state.
+9. Check `https://halloween.supply/api/health`.
+10. Publish any authorized catalog changes after their image assets resolve on the production host.
+11. Run authorized live-provider and checkout checks separately.
+
+The older `verify-costumes.ts` covers only five looks. Its `--checkout` and
+`--chat` modes invoke external services and do not replace the all-50 baseline.
+Every checkout verification session must remain test-only and expire unpaid.
+The credential-free CI baseline does not exercise those services.
 
 `/api/health` returns names and booleans for environment variables, database counts,
-completeness and source for each of the five catalogs, and the deployed Git commit.
+completeness and source for each of the 50 catalogs, and the deployed Git commit.
 It returns HTTP 503 when the served catalog lacks a default and two alternatives per piece.
 An available snapshot with an unreachable database reports `degraded` instead of claiming database success.
 
-The health check does not test Anthropic, Firecrawl, or Stripe credentials.
+The response also separates stock/price freshness from structural completeness.
+Refresh history is not persisted. Stale or unknown facts make status `degraded`
+without implying that structurally complete catalogs are absent.
+
+The health check does not test Anthropic, Firecrawl, OpenAI, or Stripe credentials.
 Their names being present is not evidence that provider requests succeed.

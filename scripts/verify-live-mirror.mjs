@@ -21,7 +21,7 @@ if (!process.env.MIRROR_TEST_VIDEO) execFileSync("ffmpeg", ["-hide_banner", "-lo
 if (!process.env.MIRROR_TEST_AUDIO) {
   const jacket = path.join(evidence, "jacket.aiff");
   const cape = path.join(evidence, "cape.aiff");
-  execFileSync("say", ["-o", jacket, "Keep the hat. Choose the cheapest jacket."]);
+  execFileSync("say", ["-o", jacket, "Please keep the silver cowboy hat unchanged. Choose the cheapest jacket."]);
   execFileSync("say", ["-o", cape, "Choose the cheapest cape."]);
   // Chromium loops this file. Silence prevents old requests repeating during later checks.
   execFileSync("ffmpeg", ["-hide_banner", "-loglevel", "error", "-y", "-i", jacket, "-i", cape, "-filter_complex", "[0:a]adelay=10000,apad=whole_dur=30[a];[1:a]apad=whole_dur=210[b];[a][b]concat=n=2:v=0:a=1[out]", "-map", "[out]", "-ar", "48000", "-ac", "1", microphone]);
@@ -118,10 +118,10 @@ const waitForVideo = async () => {
       return video?.videoWidth > 0 && video.currentTime > 0 ? "live" : document.querySelector(".mirror-error")?.textContent ? "error" : false;
     }, {}, { timeout: 60000 });
     if (await result.jsonValue() === "live") return;
-    const retry = page.getByRole("button", { name: "Start my mirror", exact: true });
+    const retry = page.getByRole("button", { name: "Retry my mirror", exact: true });
     if (attempt) throw new Error(await page.locator(".mirror-error").innerText());
     await retry.waitFor();
-    await page.waitForFunction(() => [...document.querySelectorAll(".mirror-start button")].some(button => button.textContent === "Start my mirror" && !button.disabled));
+    await page.waitForFunction(() => [...document.querySelectorAll(".mirror-start button")].some(button => button.textContent === "Retry my mirror" && !button.disabled));
     log("explicit-video-retry", { error: await page.locator(".mirror-error").innerText() });
     await retry.click();
   }
@@ -250,9 +250,11 @@ try {
   const nextLook = await page.locator("#mirror-look").evaluate(select => select.options[(select.selectedIndex + 1) % select.options.length].value);
   await page.locator(".mirror-stage").scrollIntoViewIfNeeded();
   const stage = await page.locator(".mirror-stage").boundingBox();
-  await page.mouse.move(stage.x + stage.width * 0.8, stage.y + stage.height / 2);
+  // Swipe the preview above the consent form; labels intentionally reject swipe gestures.
+  const swipeY = stage.y + stage.height * 0.17;
+  await page.mouse.move(stage.x + stage.width * 0.8, swipeY);
   await page.mouse.down();
-  await page.mouse.move(stage.x + stage.width * 0.2, stage.y + stage.height / 2, { steps: 8 });
+  await page.mouse.move(stage.x + stage.width * 0.2, swipeY, { steps: 8 });
   await page.mouse.up();
   await page.waitForFunction(slug => document.getElementById("mirror-look")?.value === slug, nextLook);
   await page.screenshot({ path: path.join(evidence, "mobile-mirror.png") });

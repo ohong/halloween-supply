@@ -2,6 +2,8 @@ import { describe, expect, test } from "bun:test";
 import { isBlockedDomain, isNoiseDomain, registrableDomain } from "../../../lib/sourcing/blocklist";
 
 describe("isBlockedDomain", () => {
+  test.each(["not a url", "https://amzn.to/example", "https://a.co/example"])("blocks %s", (u) => expect(isBlockedDomain(u)).toBe(true));
+
   test.each([
     "https://www.amazon.com/dp/B0",
     "https://amazon.co.uk/x",
@@ -33,10 +35,6 @@ describe("isBlockedDomain", () => {
     "https://www.lulus.com/x",
     "https://www.ebay.com/itm/1",
     "www.ebay.com/itm/1",
-    "not a url",
-  ])("blocks %s", (u) => expect(isBlockedDomain(u)).toBe(true));
-
-  test.each([
     "https://www.etsy.com/listing/1/hat",
     "https://wildwest.example/products/hat",
     "https://hmm.com/x", // not hm.com

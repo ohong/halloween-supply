@@ -1,10 +1,17 @@
 import { z } from "zod";
-import sharp from "sharp";
 import { PreviewError } from "@/lib/ai/openai";
 import { screenshotLookSchema, type ScreenshotLook } from "./screenshot-vision";
 
-/** Gemini 4 Argon watches the clip. Override per environment with GEMINI_CLIP_MODEL. */
-export const CLIP_MODEL = process.env.GEMINI_CLIP_MODEL || "gemini-4-argon";
+/** No model default: deployments must choose and verify a video-capable model. */
+export function clipModel(): string | null {
+  const model = process.env.GEMINI_CLIP_MODEL?.trim();
+  return model && /^[a-z0-9][a-z0-9._-]{1,99}$/.test(model) ? model : null;
+}
+
+export function clipEnabled() {
+  return process.env.CLIP_COSTUME_ENABLED === "1" && !!clipModel()
+    && !!process.env.GEMINI_API_KEY && !!process.env.OPENAI_API_KEY && !!process.env.FIRECRAWL_API_KEY;
+}
 
 export type ClipSource =
   | { kind: "youtube"; id: string }
@@ -22,19 +29,12 @@ export function parseYouTubeId(input: string): string | null {
   let url: URL;
   try { url = new URL(input.trim()); } catch { return null; }
   if (url.protocol !== "https:" && url.protocol !== "http:") return null;
-  if (!YOUTUBE_HOSTS.has(url.hostname.toLowerCase())) return null;
+  if (!YOUTUBE_HOSTS.has(url.hostname.toLowerCase()) || url.username || url.password || url.port || input.length > 2048) return null;
   const parts = url.pathname.split("/").filter(Boolean);
   const candidate = url.hostname.toLowerCase().endsWith("youtu.be") ? parts[0]
     : parts[0] === "watch" ? url.searchParams.get("v")
     : ["shorts", "embed", "live", "v"].includes(parts[0] ?? "") ? parts[1] : null;
   return candidate && /^[A-Za-z0-9_-]{11}$/.test(candidate) ? candidate : null;
-}
-
-/** Fixed host, validated ID: the server never fetches a user-supplied URL. */
-export async function youtubeThumbnail(id: string, signal: AbortSignal) {
-  const response = await fetch(`https://i.ytimg.com/vi/${id}/hqdefault.jpg`, { cache: "no-store", redirect: "error", signal: AbortSignal.any([signal, AbortSignal.timeout(5_000)]) });
-  if (!response.ok) throw new PreviewError(422, "We couldn’t find that YouTube video. Check that the link is public.");
-  return sharp(Buffer.from(await response.arrayBuffer()), { limitInputPixels: 20_000_000 }).jpeg({ quality: 85 }).toBuffer();
 }
 
 const PROMPT = [
@@ -59,13 +59,15 @@ function quotaError(status: number) {
 /** One generateContent call: Gemini watches the video and audio and returns the same ScreenshotLook as the still path. */
 export async function analyzeClip(source: ClipSource, signal: AbortSignal): Promise<{ look: ScreenshotLook; bestFrameSeconds: number }> {
   const key = process.env.GEMINI_API_KEY;
-  if (!key) throw new PreviewError(503, "The clip analyzer isn’t available yet.");
+  const model = clipModel();
+  if (!key || !model) throw new PreviewError(503, "The clip analyzer isn’t configured yet.");
+  if (source.kind === "youtube" && !/^[A-Za-z0-9_-]{11}$/.test(source.id)) throw new PreviewError(400, "Use a public YouTube video link.");
   const schema = z.toJSONSchema(clipLookSchema);
   delete schema.$schema;
   const video = source.kind === "youtube"
-    ? { file_data: { file_uri: `https://www.youtube.com/watch?v=${source.id}` } }
-    : { inline_data: { mime_type: source.mime, data: source.data.toString("base64") } };
-  const response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/${encodeURIComponent(CLIP_MODEL)}:generateContent`, {
+    ? { fileData: { fileUri: `https://www.youtube.com/watch?v=${source.id}` } }
+    : { inlineData: { mimeType: source.mime, data: source.data.toString("base64") } };
+  const response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/${encodeURIComponent(model)}:generateContent`, {
     method: "POST", cache: "no-store", signal,
     headers: { "x-goog-api-key": key, "Content-Type": "application/json" },
     body: JSON.stringify({
@@ -74,14 +76,17 @@ export async function analyzeClip(source: ClipSource, signal: AbortSignal): Prom
     }),
   });
   if (!response.ok) {
-    console.error(`Gemini clip analysis failed (${CLIP_MODEL}, HTTP ${response.status}):`, (await response.text().catch(() => "")).slice(0, 400));
+    // Provider bodies can contain user media, URLs or secrets; log only the status.
+    console.warn(JSON.stringify({ event: "clip_analysis_failed", status: response.status }));
     throw quotaError(response.status);
   }
   const payload = await response.json() as { candidates?: { finishReason?: string; content?: { parts?: { text?: string; thought?: boolean }[] } }[] };
   const candidate = payload.candidates?.[0];
   const text = candidate?.content?.parts?.filter(part => !part.thought).map(part => part.text ?? "").join("");
   if (!text) throw new PreviewError(422, "We couldn’t read an outfit from this clip. Try a clip where the costume is clearly visible.");
-  const parsed = clipLookSchema.safeParse(JSON.parse(text));
+  let value: unknown;
+  try { value = JSON.parse(text); } catch { throw new PreviewError(422, "The clip analyzer returned an incomplete outfit. Please try again."); }
+  const parsed = clipLookSchema.safeParse(value);
   if (!parsed.success) throw new PreviewError(422, "We couldn’t read an outfit from this clip. Try a clip where the costume is clearly visible.");
   const { bestFrameSeconds, ...look } = parsed.data;
   return { look, bestFrameSeconds };

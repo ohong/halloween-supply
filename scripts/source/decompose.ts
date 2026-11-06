@@ -43,9 +43,9 @@ export async function decompose(costume: CostumeSource): Promise<Piece[]> {
     label: `decompose:${costume.slug}`,
     schema,
     instructions:
-      "You plan a Halloween costume assembled from individual pieces bought from independent merchants (Etsy shops, vintage and secondhand stores, niche direct-to-consumer brands). " +
-      "Write search queries a human would type into Google Shopping to find those pieces. Favour wording that surfaces vintage, handmade or small-brand listings " +
-      "(for example 'vintage', 'handmade', 'western wear', 'Etsy'). Never name big-box retailers.",
+      "You plan a Halloween costume assembled from individual pieces bought from retailers and marketplaces, including Amazon.com, large chains, Etsy shops, and independent brands. " +
+      "Write search queries a human would type to find those pieces. Use the garment type, color, material, and style. " +
+      "Do not restrict queries to local, handmade, vintage, or small-brand listings unless the piece requires them.",
     prompt: `Costume: ${costume.name}\nDescription: ${costume.description}\n${costume.tip ? `Tip: ${costume.tip}\n` : ""}\n${seedBlock}\n\nReturn the pieces with styleNotes and 2 to 3 queries each.`,
   });
 

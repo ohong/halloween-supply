@@ -1,6 +1,6 @@
 // POST /api/checkout request and response contract (cart -> Stripe Checkout).
 
-import type { SizeKind } from "../types";
+import type { Availability, CartItem, SizeKind } from "../types";
 
 /** Cart slug for a look sourced from a screenshot rather than the catalog. */
 export const SCREENSHOT_SLUG = "screenshot-look";
@@ -42,15 +42,32 @@ export interface PriceChange {
   newCents: number;
 }
 
+/** Recorded alternatives remain subject to live merchant checks at checkout. */
+export interface CheckoutAlternative {
+  item: CartItem;
+  availability: Availability;
+  checkedAt: string;
+}
+
+export interface CheckoutRecovery {
+  pieceId: string;
+  pieceName: string;
+  productId: string;
+  /** A real catalog page for this piece, including pieces mixed from another look. */
+  alternativesHref: string | null;
+  alternatives: CheckoutAlternative[];
+  message: string;
+}
+
 export type CheckoutResponse =
   /** Live offers are re-checked; assumed demo sizes are marked in Stripe metadata. */
   | { status: "ok"; url: string; sessionId: string; priceChanges: PriceChange[] }
   /** No session exists yet. The customer must accept these amounts before retrying. */
   | { status: "price_changed"; priceChanges: PriceChange[]; message: string }
   /** A piece sold out at the merchant; checkout is blocked until the user swaps it. */
-  | { status: "sold_out"; pieceId: string; pieceName: string; message: string }
+  | ({ status: "sold_out" } & CheckoutRecovery)
   /** Live-money checkout still requires explicit sizes. */
   | { status: "needs_sizes"; pieceIds: string[]; message: string }
-  | { status: "invalid_size"; pieceId: string; pieceName: string; availableSizes: string[]; message: string }
-  | { status: "unverified"; pieceId: string; pieceName: string; message: string }
+  | ({ status: "invalid_size"; availableSizes: string[] } & CheckoutRecovery)
+  | ({ status: "unverified" } & CheckoutRecovery)
   | { status: "error"; message: string };

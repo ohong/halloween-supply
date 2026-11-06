@@ -3,7 +3,8 @@ import type Stripe from "stripe";
 import { getCostume } from "@/lib/catalog";
 import { readMirrorInventory } from "@/lib/live-mirror/catalog-server";
 import { getStripe } from "@/lib/checkout/stripe";
-import { DEMO_DEFAULT_SIZE, SCREENSHOT_SLUG, customLookId, type CheckoutRequest, type CheckoutResponse, type PriceChange, type WebItem } from "@/lib/checkout/types";
+import { DEMO_DEFAULT_SIZE, SCREENSHOT_SLUG, customLookId, type CheckoutRecovery, type CheckoutRequest, type CheckoutResponse, type PriceChange, type WebItem } from "@/lib/checkout/types";
+import { toCartItem } from "@/lib/cart/item";
 import { readCustomLook } from "@/lib/custom-looks/store";
 import { usesDemoSizes } from "@/lib/checkout/mode";
 import { verifyProduct, type Verification } from "@/lib/checkout/verify";
@@ -27,6 +28,8 @@ interface Line {
   product: { id: string; url: string; currency: "USD"; title: string; image: string; priceCents: number | null };
   merchant: { id: string; name: string };
   size: string | null;
+  alternativesHref: string | null;
+  alternatives: CheckoutRecovery["alternatives"];
 }
 
 function parseWeb(value: unknown): WebItem | null {
@@ -103,6 +106,7 @@ export async function POST(request: Request) {
           pieceId: saved.pieceId, pieceName: saved.pieceName, sizeKind: saved.sizeKind, size: item.size,
           product: { id: saved.productId, url: saved.productUrl, currency: "USD", title: saved.title, image: saved.image, priceCents: saved.priceCents },
           merchant: { id: saved.merchantId, name: saved.merchantName },
+          alternativesHref: null, alternatives: [],
         });
       }
     } else if (body.costumeSlug === SCREENSHOT_SLUG) {
@@ -122,6 +126,7 @@ export async function POST(request: Request) {
           pieceId: item.pieceId, pieceName: web.pieceName, sizeKind: web.sizeKind, size: item.size,
           product: { id: item.productId, url: web.url, currency: "USD", title: web.title, image: web.image, priceCents: null },
           merchant: { id: merchant, name: merchant },
+          alternativesHref: null, alternatives: [],
         });
       }
     } else {
@@ -133,7 +138,8 @@ export async function POST(request: Request) {
       const inventory = await readMirrorInventory();
       // Resolve each item against the catalog; the client never supplies prices.
       for (const item of body.items) {
-        const pv = inventory.views.flatMap(view => view.pieces).find(view => view.piece.id === item.pieceId && view.options.some(option => option.product.id === item.productId));
+        const source = inventory.views.find(view => view.pieces.some(row => row.piece.id === item.pieceId && row.options.some(option => option.product.id === item.productId)));
+        const pv = source?.pieces.find(view => view.piece.id === item.pieceId && view.options.some(option => option.product.id === item.productId));
         if (!pv) return fail(`That piece and product are not in the published catalog.`);
         const option = pv.options.find((o) => o.product.id === item.productId);
         if (!option) return fail(`Product "${item.productId}" is not an option for ${pv.piece.name}.`);
@@ -143,6 +149,10 @@ export async function POST(request: Request) {
           pieceId: pv.piece.id, pieceName: pv.piece.name, sizeKind: pv.piece.sizeKind, size: item.size,
           product: { id: option.product.id, url: option.product.url, currency: option.product.currency, title: option.product.title, image: option.product.image, priceCents: option.product.priceCents },
           merchant: { id: option.merchant.id, name: option.merchant.name },
+          alternativesHref: `/costumes/${source!.costume.slug}?piece=${encodeURIComponent(pv.piece.id)}`,
+          alternatives: pv.options.filter(({ product }) => product.id !== item.productId && product.availability !== "out_of_stock").map((alternative) => ({
+            item: toCartItem(pv.piece, alternative, item.size), availability: alternative.product.availability, checkedAt: alternative.product.checkedAt,
+          })),
         });
       }
     }
@@ -170,20 +180,21 @@ export async function POST(request: Request) {
 
     for (let i = 0; i < lines.length; i++) {
       const c = checks[i];
-      const piece = { id: lines[i].pieceId, name: lines[i].pieceName };
+      const line = lines[i];
+      const piece = { id: line.pieceId, name: line.pieceName };
+      const recovery = { pieceId: line.pieceId, pieceName: line.pieceName, productId: line.product.id, alternativesHref: line.alternativesHref, alternatives: line.alternatives };
       if (!c.verified) {
-        if (c.invalidSize) return reply({ status: "invalid_size", pieceId: piece.id, pieceName: piece.name, availableSizes: c.availableSizes ?? [], message: `The merchant no longer offers that size for ${piece.name.toLowerCase()}. Ask the assistant for another size or pick.` });
-        return reply({ status: "unverified", pieceId: piece.id, pieceName: piece.name, message: `We could not confirm the live price and stock for ${lines[i].product.title}. Try again or swap this piece.` }, 503);
+        if (c.invalidSize) return reply({ status: "invalid_size", ...recovery, availableSizes: c.availableSizes ?? [], message: `The merchant no longer offers that size for ${piece.name.toLowerCase()}. Choose an offered size or replace this piece.` });
+        return reply({ status: "unverified", ...recovery, message: `We could not confirm the live price and stock for ${line.product.title}. Try again or replace this piece.` }, 503);
       }
       if (c.verified && c.availability === "out_of_stock") {
         return reply({
           status: "sold_out",
-          pieceId: piece.id,
-          pieceName: piece.name,
+          ...recovery,
           message: `${lines[i].product.title} just sold out at ${lines[i].merchant.name}. Pick another ${piece.name.toLowerCase()} to continue.`,
         });
       }
-      if (c.availability !== "in_stock") return reply({ status: "unverified", pieceId: piece.id, pieceName: piece.name, message: `The merchant has not confirmed stock for ${lines[i].product.title}. Pick another ${piece.name.toLowerCase()} to continue.` }, 503);
+      if (c.availability !== "in_stock") return reply({ status: "unverified", ...recovery, message: `The merchant has not confirmed stock for ${line.product.title}. Pick another ${piece.name.toLowerCase()} to continue.` }, 503);
     }
 
     const verified = checks as Extract<Verification, { verified: true }>[];

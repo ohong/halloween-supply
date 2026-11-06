@@ -1,0 +1,24 @@
+{
+  "status": "passed",
+  "buildCommit": "311a8f7355d6f3b7fe6c61a3fae6bc129879bbd1",
+  "mode": "test",
+  "catalogItemsPreflighted": 2,
+  "checkoutPosts": 1,
+  "sessionsCreated": 1,
+  "sessionsVerified": 1,
+  "sessionsExpired": 1,
+  "lineCount": 1,
+  "totalCents": 1000,
+  "currency": "usd",
+  "paid": false,
+  "cleanupVerified": true,
+  "firstPreflightLimit": {
+    "merchant": "www.benziedesign.com",
+    "scope": "local merchant currency preflight only; no checkout POST",
+    "reason": "merchant_currency_not_usd"
+  },
+  "successfulCaseFile": "summary-camera-ready.json",
+  "privateSessionReferenceRemoved": true,
+  "sourceCodeEdits": false,
+  "productionDatabaseMutations": 0
+}

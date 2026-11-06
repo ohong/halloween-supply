@@ -3,6 +3,7 @@ import { SCREENSHOT_VISION_MODEL as LUNA, decomposeScreenshot as decompose, labe
 import { analyze, applyLabels, visionMode, visionModel, type TraceEntry, type VisionPiece } from "@/lib/sourcing/vision-client";
 import { PreviewError } from "@/lib/ai/openai";
 import { screenshotSourcing, type SourcingLog as Log } from "@/lib/sourcing/screenshot";
+import { signSourcedItem } from "@/lib/custom-looks/item-proof";
 import { toCartItem } from "@/lib/custom-looks/source";
 
 export const maxDuration = 40;
@@ -140,11 +141,13 @@ export async function POST(request: Request) {
           matched.add(i);
           const sizedPiece = piece.sizeKind === "one_size" && /harness/i.test(piece.name) && hit.sizes.some(size => !/^one[ -]?size$|^default title$/i.test(size))
             ? { ...piece, sizeKind: "apparel" as const } : piece;
-          emit({ t: "piece", i, why: hit.why ?? "Similar style. Colors and details may differ.", item: toCartItem(i, sizedPiece, hit) });
+          const item = toCartItem(i, sizedPiece, hit);
+          emit({ t: "piece", i, why: hit.why ?? "Similar style. Colors and details may differ.", item, proof: signSourcedItem(item) });
         }, seen[i] && { seen: seen[i], index: i, deadline: t0 + SEARCH_BUDGET_MS, trace: step, onApproval: (hit, because) => {
           if (signal.aborted) return;
           matched.add(i);
-          emit({ t: "approval", i, because, why: hit.why, item: toCartItem(i, piece, hit) });
+          const item = toCartItem(i, piece, hit);
+          emit({ t: "approval", i, because, why: hit.why, item, proof: signSourcedItem(item) });
         } })));
         await Promise.race([work, new Promise<void>(resolve => {
           if (signal.aborted) resolve();

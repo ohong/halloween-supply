@@ -1,0 +1,29 @@
+{
+  "deploymentCommit": "311a8f7355d6f3b7fe6c61a3fae6bc129879bbd1",
+  "httpStatus": 200,
+  "healthStatus": "degraded",
+  "passGroups": 55,
+  "failGroups": 0,
+  "costumes": 50,
+  "components": 242,
+  "servedImages": 556,
+  "exitCode": 0,
+  "readOnly": true,
+  "verifierChange": "Derives expected health status from independently recomputed catalog facts while preserving database and coverage checks.",
+  "catalogFacts": {
+    "status": "stale",
+    "evaluatedAt": "2026-11-06T08:43:15.005Z",
+    "maxAgeHours": 36,
+    "products": 470,
+    "fresh": 408,
+    "stale": 62,
+    "missingOrInvalidCheckedAt": 0,
+    "oldestCheckedAt": "2026-10-25T07:10:48.768Z",
+    "newestCheckedAt": "2026-11-05T10:01:49.189Z",
+    "stock": {
+      "inStock": 450,
+      "outOfStock": 14,
+      "unknown": 6
+    }
+  }
+}

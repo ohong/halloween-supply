@@ -17,10 +17,8 @@ async function verify(input) {
   });
   const result = await response.json();
   assert.equal(response.status, 200, JSON.stringify(result));
-  assert.match(result.image, /^data:image\/jpeg;base64,/, "A local product board must reach Lucy");
-  assert(result.prompt.startsWith("Substitute the outfit with these reference-board garments:"));
-  assert(result.prompt.includes("Preserve the person\'s face"));
-  assert(result.prompt.includes("never identity references"));
+  assert.equal(result.image, undefined, "No reference image may reach Lucy: it acts as a character-swap source");
+  assert(result.prompt.startsWith("Change only the clothing. Keep the exact same person: same face"));
   assert(result.prompt.length <= 740);
   checked++;
   return result;
@@ -39,9 +37,9 @@ for (const look of looks) {
       const edited = await verify({ ...input, appearance: { [hat]: { color: "blue" } } });
       assert(edited.prompt.includes("blue"));
       const owned = await verify({ ...input, uses: { ...input.uses, [hat]: "owned" } });
-      assert(owned.prompt.includes("Keep the camera clothing for owned pieces"));
+      assert(owned.prompt.includes("Keep their own"));
     }
   }
 }
-console.log(`PASS ${checked} real reference requests across ${looks.length} looks: product boards restored; preservation instructions retained through product, color and owned-piece changes.`);
+console.log(`PASS ${checked} real reference requests across ${looks.length} looks: no reference image sent; preservation instructions retained through product, color and owned-piece changes.`);
 console.log("Generated face fidelity remains unverified; these checks do not call Lucy.");

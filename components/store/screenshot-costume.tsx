@@ -5,39 +5,31 @@ import { SCREENSHOT_SLUG, formatPrice, useCart } from "@/lib/cart/context";
 import { compatibleSize } from "@/lib/cart/item";
 import type { ScreenshotMatch } from "@/lib/sourcing/screenshot-types";
 import type { CartItem } from "@/lib/types";
+import type { CustomLook, CustomPiece } from "@/lib/custom-looks/types";
+import { useCostumeModel } from "@/lib/model-selection";
+import { PhoneCameraProvider } from "./phone-camera";
+import { VirtualTryOn } from "./virtual-try-on";
+import { ClipInput } from "./clip-input";
+import { useLocalProductSizes } from "./local-product-sizes";
+import { trackEvent } from "@/lib/telemetry/client";
 import { preparePhoto } from "@/lib/photo/prepare";
 import { AssemblyPlaceholder, AssemblyStatus } from "./assembly-status";
 import { PieceInspectionPanel } from "./piece-inspection-panel";
 import { PieceDot, PieceVision, PipelineStrip, SegmentationOverlay, type PieceVisionInfo, type Segmentation } from "./segmentation-view";
 import "./screenshot-costume.css";
 
-interface LookPiece { name: string; slot: string; query: string; sizeKind: CartItem["sizeKind"] }
+type LookPiece = CustomPiece;
 type Slot =
   | { state: "looking"; name: string }
-  | { state: "found"; name: string; item: CartItem; why?: string }
+  | { state: "found"; name: string; item: CartItem; why?: string; proof?: string }
   | { state: "candidate"; name: string; match: ScreenshotMatch }
-  | { state: "approval"; name: string; item: CartItem; why?: string; because: string }
+  | { state: "approval"; name: string; item: CartItem; why?: string; because: string; proof?: string }
   | { state: "missing"; name: string };
 type VisionInfo = PieceVisionInfo;
 interface TraceStep { piece: number | null; step: string; detail: Record<string, unknown> }
 interface ScoredResult { title: string; score: number; verdict: string; reasons: string[] }
 interface LogLine { kind: string; text: string; ms: number }
 type Phase = "idle" | "running" | "done" | "error";
-type Mode = "image" | "clip";
-
-// Matches the server: a clip travels inline in one request, so it has to stay under Vercel's body cap.
-const MAX_CLIP_BYTES = 4 * 1024 * 1024;
-const CLIP_TYPES = ["video/mp4", "video/webm", "video/quicktime"];
-
-/** Draws the video's current frame to a JPEG the sourcing step can use as its reference photo. */
-function captureFrame(video: HTMLVideoElement) {
-  const scale = Math.min(1, 1024 / Math.max(video.videoWidth, video.videoHeight));
-  const canvas = document.createElement("canvas");
-  canvas.width = Math.round(video.videoWidth * scale);
-  canvas.height = Math.round(video.videoHeight * scale);
-  canvas.getContext("2d")!.drawImage(video, 0, 0, canvas.width, canvas.height);
-  return new Promise<Blob>((resolve, reject) => canvas.toBlob(blob => blob ? resolve(blob) : reject(new Error("Couldn’t capture a frame from this clip.")), "image/jpeg", 0.85));
-}
 
 // Small rotations make the pieces land like a hand-arranged flat-lay.
 const TILT = [-2.5, 1.8, -1.2, 2.4, -1.9, 1.1, -0.8];
@@ -96,6 +88,18 @@ function matchPrice(match: ScreenshotMatch) {
 
 export function ScreenshotCostume() {
   const cart = useCart();
+  const { model } = useCostumeModel();
+  const [pieceSpecs, setPieceSpecs] = useState<LookPiece[]>([]);
+  const [boardRequestId, setBoardRequestId] = useState<string | null>(null);
+  const [savedLook, setSavedLook] = useState<CustomLook | null>(null);
+  const [saving, setSaving] = useState(false);
+  const [savedPayload, setSavedPayload] = useState<string | null>(null);
+  const retryKeys = useRef<Record<string, string>>({});
+  const [saveError, setSaveError] = useState("");
+  const [saveAttempt, setSaveAttempt] = useState(0);
+  const [retrying, setRetrying] = useState<number | null>(null);
+  const saveQueue = useRef<Promise<void>>(Promise.resolve());
+  const boardVersion = useRef(0);
   const [preview, setPreview] = useState<string | null>(null);
   const [phase, setPhase] = useState<Phase>("idle");
   const [character, setCharacter] = useState<string | null>(null);
@@ -103,7 +107,7 @@ export function ScreenshotCostume() {
   const [slots, setSlots] = useState<Slot[]>([]);
   const [log, setLog] = useState<LogLine[]>([]);
   const [error, setError] = useState<string | null>(null);
-  const [sizes, setSizes] = useState<Record<string, string | null>>({});
+  const { sizes, setSize } = useLocalProductSizes();
   const [dragging, setDragging] = useState(false);
   const [vision, setVision] = useState<VisionInfo[]>([]);
   const [segmentation, setSegmentation] = useState<Segmentation | null>(null);
@@ -115,11 +119,6 @@ export function ScreenshotCostume() {
   const queue = useRef<LogLine[]>([]);
   const logRef = useRef<HTMLOListElement>(null);
   const fileRef = useRef<HTMLInputElement>(null);
-  const [mode, setMode] = useState<Mode>("image");
-  const [youtube, setYoutube] = useState("");
-  const [clip, setClip] = useState<{ file: File; url: string } | null>(null);
-  const videoRef = useRef<HTMLVideoElement>(null);
-  const clipRef = useRef<HTMLInputElement>(null);
 
   // Coming back from the cart shows the look that is already in it.
   const restored = phase === "idle" && cart.ready && cart.costumeSlug === SCREENSHOT_SLUG && slots.length === 0;
@@ -129,8 +128,12 @@ export function ScreenshotCostume() {
   const pending = visible.filter(slot => slot.state === "approval").length;
   const selected = found.find((item) => item.pieceId === selectedPieceId) ?? null;
   const total = found.reduce((sum, item) => sum + item.priceCents, 0);
-  const inCart = (item: CartItem) => cart.costumeSlug === SCREENSHOT_SLUG && cart.items.some((line) => line.pieceId === item.pieceId && line.productId === item.productId);
-  const sizeOf = (item: CartItem) => compatibleSize(item, cart.items.find((line) => cart.costumeSlug === SCREENSHOT_SLUG && line.pieceId === item.pieceId && line.productId === item.productId)?.size ?? sizes[item.pieceId]);
+  const source = savedLook ? `custom-look:${savedLook.id}` : SCREENSHOT_SLUG;
+  const inCart = (item: CartItem) => cart.costumeSlug === source && cart.items.some((line) => line.pieceId === item.pieceId && line.productId === item.productId);
+  const sizeOf = (item: CartItem) => {
+    const current = cart.items.find(line => cart.costumeSlug === source && line.pieceId === item.pieceId && line.productId === item.productId);
+    return compatibleSize(item, current ? current.size : sizes[item.productId]);
+  };
 
   // Flush bursts together so the log never trails the results by several seconds.
   useEffect(() => {
@@ -143,19 +146,98 @@ export function ScreenshotCostume() {
   useEffect(() => { logRef.current?.scrollTo({ top: logRef.current.scrollHeight }); }, [log]);
 
   useEffect(() => () => abort.current?.abort(), []);
-  useEffect(() => () => { if (clip) URL.revokeObjectURL(clip.url); }, [clip]);
+  useEffect(() => () => { if (preview) URL.revokeObjectURL(preview); }, [preview]);
 
-  const execute = useCallback(async (endpoint: string, timeoutMs: number, build: () => Promise<FormData>) => {
+  useEffect(() => {
+    const id = new URLSearchParams(window.location.search).get("saved");
+    if (!id || !/^[0-9a-f-]{36}$/i.test(id)) return;
+    const controller = new AbortController();
+    const version = boardVersion.current;
+    void fetch(`/api/saved-looks/${id}`, { signal: controller.signal }).then(async response => {
+      const data = await response.json();
+      if (!response.ok || !data.look) throw new Error(data.error ?? "This saved board could not be opened.");
+      if (version !== boardVersion.current) return;
+      const look = data.look as CustomLook;
+      setSavedLook(look); setCharacter(look.name); setSummary(look.summary);
+      setPieceSpecs(look.pieces.map(row => row.piece));
+      setSlots(look.pieces.map(row => row.item ? { state: "found", name: row.piece.name, item: row.item } : { state: "missing", name: row.piece.name }));
+      setPhase("done");
+    }).catch(error => { if (!controller.signal.aborted) setSaveError(error instanceof Error ? error.message : "This saved board could not be opened."); });
+    return () => controller.abort();
+  }, []);
+
+  // Only signed, accepted products enter the durable board. Photos remain in memory.
+  const savePayload = boardRequestId && phase !== "running" && phase !== "idle" && found.length > 0 && pieceSpecs.length === slots.length
+    ? JSON.stringify({ requestId: boardRequestId, name: (character ?? "Your screenshot look").slice(0, 160), summary: summary.slice(0, 240), model,
+      pieces: pieceSpecs.map((piece, index) => { const slot = slots[index]; const spec = { name: piece.name, slot: piece.slot, query: piece.query, sizeKind: piece.sizeKind }; return slot?.state === "found" ? { piece: { ...spec, name: slot.item.pieceName, sizeKind: slot.item.sizeKind }, item: slot.item, proof: slot.proof } : { piece: spec, item: null }; }) }) : null;
+  const boardSynced = !boardRequestId || savePayload !== null && savedPayload === savePayload;
+  useEffect(() => {
+    if (!savePayload) return;
+    let active = true;
+    const version = boardVersion.current;
+    const timer = window.setTimeout(() => {
+      setSaving(true); setSaveError("");
+      saveQueue.current = saveQueue.current.catch(() => undefined).then(async () => {
+        if (version !== boardVersion.current) return;
+        try {
+          const response = await fetch("/api/saved-looks", { method: "POST", headers: { "Content-Type": "application/json" }, body: savePayload });
+          const data = await response.json();
+          if (!response.ok || !data.look) throw new Error(data.error ?? "The board could not be saved. Your found pieces remain here.");
+          if (!active || version !== boardVersion.current) return;
+          setSavedLook(data.look); setSavedPayload(savePayload);
+          const url = new URL(window.location.href); url.searchParams.set("saved", data.look.id);
+          window.history.replaceState(null, "", url);
+        } catch (error) { if (active && version === boardVersion.current) setSaveError(error instanceof Error ? error.message : "The board could not be saved."); }
+        finally { if (active && version === boardVersion.current) setSaving(false); }
+      });
+    }, 250);
+    return () => { active = false; window.clearTimeout(timer); };
+  }, [savePayload, saveAttempt]);
+
+  async function retryPiece(pieceIndex: number) {
+    if (!savedLook || retrying !== null || !boardSynced) return;
+    const version = boardVersion.current;
+    const key = `${savedLook.id}:${pieceIndex}`;
+    const requestId = retryKeys.current[key] ??= crypto.randomUUID();
+    setRetrying(pieceIndex); setSaveError("");
+    try {
+      const response = await fetch(`/api/saved-looks/${savedLook.id}/retry`, { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ requestId, pieceIndex }) });
+      const data = await response.json();
+      if (!response.ok || !data.look) throw new Error(data.error ?? "This piece could not be searched again.");
+      if (version !== boardVersion.current) return;
+      delete retryKeys.current[key];
+      boardVersion.current++;
+      const look = data.look as CustomLook;
+      setBoardRequestId(null); setSavedLook(look); setPieceSpecs(look.pieces.map(row => row.piece));
+      setSlots(look.pieces.map(row => row.item ? { state: "found", name: row.piece.name, item: row.item } : { state: "missing", name: row.piece.name }));
+      const url = new URL(window.location.href); url.searchParams.set("saved", look.id); window.history.replaceState(null, "", url);
+      if (look.error) setSaveError(look.error);
+    } catch (error) { setSaveError(error instanceof Error ? error.message : "This piece could not be searched again."); }
+    finally { setRetrying(null); }
+  }
+
+
+  const runStream = useCallback(async (input: File | FormData, previewUrl: string | null, endpoint: string) => {
+    const started = performance.now();
     abort.current?.abort();
     const controller = new AbortController();
     abort.current = controller;
-    setPhase("running"); setError(null); setCharacter(null); setSummary(""); setSlots([]); setSizes({}); setLog([]); setSelectedPieceId(null); setVision([]); setTraces({}); setSegmentation(null); setActivePiece(null);
+    boardVersion.current++;
+    setBoardRequestId(crypto.randomUUID()); setSavedLook(null); setSavedPayload(null); setPieceSpecs([]); setSaveError(""); setSaving(false);
+    const url = new URL(window.location.href); url.searchParams.delete("saved"); window.history.replaceState(null, "", url);
+    setPreview(previewUrl);
+    setPhase("running"); setError(null); setCharacter(null); setSummary(""); setSlots([]); setLog([]); setSelectedPieceId(null); setVision([]); setTraces({}); setSegmentation(null); setActivePiece(null);
     queue.current = [];
 
+    const form = input instanceof FormData ? input : new FormData();
     try {
-      const form = await build();
-      if (controller.signal.aborted) return;
-      const response = await fetch(endpoint, { method: "POST", body: form, signal: AbortSignal.any([controller.signal, AbortSignal.timeout(timeoutMs)]) });
+      if (input instanceof File) {
+        // Keep phone screenshots below the deployed function's upload limit.
+        const photo = await preparePhoto(input);
+        if (controller.signal.aborted) return;
+        form.append("photo", photo, "screenshot.jpg");
+      }
+      const response = await fetch(endpoint, { method: "POST", body: form, signal: AbortSignal.any([controller.signal, AbortSignal.timeout(endpoint === "/api/clip-costume" ? 140_000 : 35_000)]) });
       if (!response.ok || !response.body) {
         const body = await response.json().catch(() => null) as { error?: string } | null;
         throw new Error(body?.error ?? "The stylist is unavailable right now.");
@@ -177,6 +259,7 @@ export function ScreenshotCostume() {
           else if (event.t === "look") {
             setCharacter(String(event.character));
             setSummary(String(event.summary ?? ""));
+            setPieceSpecs(event.pieces as LookPiece[]);
             setSlots((event.pieces as LookPiece[]).map((piece) => ({ state: "looking", name: piece.name })));
             setVision((event.vision as VisionInfo[] | undefined) ?? []);
             setSegmentation((event.segmentation as Segmentation | undefined) ?? null);
@@ -185,17 +268,18 @@ export function ScreenshotCostume() {
             if (entry.piece !== null) setTraces(current => ({ ...current, [entry.piece!]: [...(current[entry.piece!] ?? []), entry] }));
           } else if (event.t === "approval") {
             const item = event.item as CartItem;
-            setSlots(current => current.map((slot, i) => i === event.i ? { state: "approval", name: slot.name, item, why: typeof event.why === "string" ? event.why : undefined, because: String(event.because) } : slot));
+            setSlots(current => current.map((slot, i) => i === event.i ? { state: "approval", name: slot.name, item, why: typeof event.why === "string" ? event.why : undefined, because: String(event.because), proof: typeof event.proof === "string" ? event.proof : undefined } : slot));
           } else if (event.t === "candidate") {
             const match = event.match as ScreenshotMatch;
             setSlots(current => current.map((slot, i) => i === event.i && slot.state !== "found" && slot.state !== "approval" ? { state: "candidate", name: slot.name, match } : slot));
           } else if (event.t === "piece") {
             const item = event.item as CartItem;
-            setSlots((current) => current.map((slot, i) => i === event.i ? { state: "found", name: slot.name, item, why: typeof event.why === "string" ? event.why : undefined } : slot));
+            setSlots((current) => current.map((slot, i) => i === event.i ? { state: "found", name: slot.name, item, why: typeof event.why === "string" ? event.why : undefined, proof: typeof event.proof === "string" ? event.proof : undefined } : slot));
           } else if (event.t === "miss") {
             setSlots((current) => current.map((slot, i) => i === event.i ? { state: "missing", name: slot.name } : slot));
           } else if (event.t === "done") {
             finished = true;
+            trackEvent("source_timing", { source: "screenshot", mode: endpoint === "/api/clip-costume" ? "video" : "screenshot", stage: "complete", durationMs: Math.round(performance.now() - started) });
             queue.current.push({ kind: "done", text: `Done in ${(event.ms / 1000).toFixed(1)}s`, ms: event.ms });
             setSlots(current => current.map(slot => slot.state === "looking" ? { state: "missing", name: slot.name } : slot));
             setPhase("done");
@@ -210,44 +294,14 @@ export function ScreenshotCostume() {
       // The terminal phase renders pending pieces as unfinished, not verified misses.
       setError(caught instanceof Error && caught.name === "TimeoutError" ? "The search reached its time limit. Matches already found stay on your board." : caught instanceof Error ? caught.message : "The stylist couldn’t finish this look.");
       setPhase("error");
+      trackEvent("source_timing", { source: "screenshot", mode: endpoint === "/api/clip-costume" ? "video" : "screenshot", stage: "failure", durationMs: Math.round(performance.now() - started) });
     }
   }, []);
 
-  const run = useCallback((file: File) => {
-    if (!file.type.startsWith("image/")) { setError("That file isn’t an image. Try a PNG or JPEG screenshot."); return Promise.resolve(); }
-    setPreview((old) => { if (old) URL.revokeObjectURL(old); return URL.createObjectURL(file); });
-    return execute("/api/screenshot-costume", 35_000, async () => {
-      const form = new FormData();
-      // Keep phone screenshots below the deployed function's upload limit.
-      form.append("photo", await preparePhoto(file), "screenshot.jpg");
-      return form;
-    });
-  }, [execute]);
-
-  const chooseClip = useCallback((file: File) => {
-    if (!CLIP_TYPES.includes(file.type)) { setError("Use an MP4, WebM or MOV clip."); return; }
-    if (file.size > MAX_CLIP_BYTES) { setError("That clip is over 4 MB. Trim it to a few seconds of the costume and try again."); return; }
-    setError(null);
-    setClip(old => { if (old) URL.revokeObjectURL(old.url); return { file, url: URL.createObjectURL(file) }; });
-  }, []);
-
-  const runClip = useCallback(() => {
-    const link = youtube.trim();
-    if (!clip && !link) { setError("Paste a YouTube link or choose a clip."); return; }
-    setPreview(old => { if (old) URL.revokeObjectURL(old); return null; });
-    return execute("/api/clip-costume", 140_000, async () => {
-      const form = new FormData();
-      if (clip) {
-        const video = videoRef.current;
-        if (!video || !video.videoWidth) throw new Error("This clip couldn’t be played in your browser. Try an MP4.");
-        const frame = await captureFrame(video);
-        setPreview(URL.createObjectURL(frame));
-        form.append("clip", clip.file, clip.file.name);
-        form.append("frame", frame, "frame.jpg");
-      } else form.append("youtube", link);
-      return form;
-    });
-  }, [clip, youtube, execute]);
+  const run = useCallback(async (file: File) => {
+    if (!file.type.startsWith("image/")) { setError("That file isn’t an image. Try a PNG or JPEG screenshot."); return; }
+    await runStream(file, URL.createObjectURL(file), "/api/screenshot-costume");
+  }, [runStream]);
 
   useEffect(() => {
     const onPaste = (event: ClipboardEvent) => {
@@ -260,23 +314,24 @@ export function ScreenshotCostume() {
 
   function chooseSize(item: CartItem, size: string) {
     const value = size || null;
-    setSizes((current) => ({ ...current, [item.pieceId]: value }));
+    setSize(item.productId, value);
     if (inCart(item)) cart.setSize(item.pieceId, value);
   }
 
-  const replacesScreenshot = cart.costumeSlug === SCREENSHOT_SLUG && cart.items.some((line) => !found.some((item) => item.pieceId === line.pieceId && item.productId === line.productId));
+  const replacesScreenshot = cart.costumeSlug === source && cart.items.some((line) => !found.some((item) => item.pieceId === line.pieceId && item.productId === line.productId));
 
   function addLook() {
     // Screenshot uploads share one cart slug, so remove lines belonging to an earlier image.
     if (replacesScreenshot) cart.clear();
-    cart.addMany(found.map((item) => ({ ...item, size: sizeOf(item) })), SCREENSHOT_SLUG);
+    cart.addMany(found.map((item) => ({ ...item, size: sizeOf(item) })), source);
+    for (const item of found) if (Object.hasOwn(sizes, item.productId)) cart.setSize(item.pieceId, sizeOf(item));
     cart.setOpen(true);
   }
 
   // Uncertain matches stay out of the cart until the shopper decides.
   function decide(index: number, use: boolean) {
     setSlots(current => current.map((slot, i) => i !== index || slot.state !== "approval" ? slot
-      : use ? { state: "found", name: slot.name, item: slot.item, why: slot.why } : { state: "missing", name: slot.name }));
+      : use ? { state: "found", name: slot.name, item: slot.item, why: slot.why, proof: slot.proof } : { state: "missing", name: slot.name }));
   }
 
   function closeInspection() {
@@ -287,7 +342,10 @@ export function ScreenshotCostume() {
   function addSelected() {
     if (!selected || !cart.ready) return;
     if (replacesScreenshot) cart.clear();
-    if (!inCart(selected) || replacesScreenshot) cart.add({ ...selected, size: sizeOf(selected) }, SCREENSHOT_SLUG);
+    if (!inCart(selected) || replacesScreenshot) {
+      cart.add({ ...selected, size: sizeOf(selected) }, source);
+      if (Object.hasOwn(sizes, selected.productId)) cart.setSize(selected.pieceId, sizeOf(selected));
+    }
     cart.setOpen(true);
   }
 
@@ -295,38 +353,9 @@ export function ScreenshotCostume() {
   const allInCart = !replacesScreenshot && found.length > 0 && found.every((item) => inCart(item));
   const missing = visible.filter((slot) => slot.state === "missing").length;
 
-  const clipMode = mode === "clip";
   return <div className="page shot">
     <aside className="shot-input">
-      <div className="shot-modes" role="group" aria-label="Source">
-        <button type="button" aria-pressed={!clipMode} disabled={running} onClick={() => setMode("image")}>Screenshot</button>
-        <button type="button" aria-pressed={clipMode} disabled={running} onClick={() => setMode("clip")}>From a clip</button>
-      </div>
-      {clipMode ? <div className="shot-clip">
-        <label className="shot-clip-field">
-          <span className="meta">YouTube link</span>
-          <input type="url" inputMode="url" placeholder="https://youtube.com/watch?v=…" value={youtube} disabled={running || !!clip}
-            onChange={(event) => setYoutube(event.target.value)} />
-        </label>
-        <p className="shot-clip-or meta">or</p>
-        <div className={`shot-drop has-video ${clip ? "has-image" : ""} ${running ? "is-scanning" : ""}`}>
-          {clip ? <video ref={videoRef} src={clip.url} controls muted playsInline preload="auto"
-            onLoadedMetadata={(event) => { const video = event.currentTarget; if (video.duration > 1) video.currentTime = video.duration / 2; }} />
-            : <span className="shot-drop-hint">
-              <strong>Choose a clip</strong>
-              <span>MP4, WebM or MOV under 4 MB. A few seconds of a film scene or performance works best.</span>
-            </span>}
-          {!clip && <input ref={clipRef} type="file" accept="video/mp4,video/webm,video/quicktime" className="shot-file" disabled={running || !!youtube.trim()}
-            onChange={(event) => { const file = event.target.files?.[0]; if (file) chooseClip(file); event.target.value = ""; }} />}
-        </div>
-        {clip && <p className="meta shot-clip-hint">Pause on the frame that shows the outfit best. We use it to compare products.</p>}
-        {clip && <button type="button" className="btn btn-ghost btn-block" disabled={running} onClick={() => setClip(null)}>Choose a different clip</button>}
-        <button type="button" className="btn btn-block" disabled={running || (!clip && !youtube.trim())} onClick={() => void runClip()}>
-          {running ? "Watching the clip…" : "Find the look"}
-        </button>
-        {/* eslint-disable-next-line @next/next/no-img-element -- a local object URL, not a remote asset */}
-        {preview && <div className="shot-drop has-image"><img src={preview} alt="Reference frame" /></div>}
-      </div> : <>
+      <ClipInput disabled={running} onSubmit={(form, clipPreview) => runStream(form, clipPreview, "/api/clip-costume")} />
       <label
         className={`shot-drop ${dragging ? "is-over" : ""} ${preview ? "has-image" : ""} ${running ? "is-scanning" : ""}`}
         onDragOver={(event) => { event.preventDefault(); setDragging(true); }}
@@ -347,7 +376,6 @@ export function ScreenshotCostume() {
         {preview && segmentation && !restored && <SegmentationOverlay segmentation={segmentation} vision={vision} active={activePiece} />}
       </label>
       {preview && <button type="button" className="btn btn-ghost btn-block" disabled={running} onClick={() => fileRef.current?.click()}>Try another screenshot</button>}
-      </>}
       {(log.length > 0 || running) && <ol className="shot-log" ref={logRef} aria-live="polite" aria-label="Sourcing log">
         {log.map((line, i) => <li key={i} className={`is-${line.kind}`}><span>{(line.ms / 1000).toFixed(1)}s</span>{line.text}</li>)}
         {running && <li className="is-cursor" aria-hidden="true"><span /></li>}
@@ -357,14 +385,17 @@ export function ScreenshotCostume() {
     <section className="shot-result" aria-label="Screenshot results">
       <div className="shot-head">
         <div>
-          <p className="meta">{clipMode ? "Clip to costume" : "Screenshot to costume"}</p>
-          <h1>{character ?? (restored ? "Your screenshot look" : running ? "Reading the look…" : clipMode ? "Turn any clip into a costume." : "Turn any screenshot into a costume.")}</h1>
-          <p className="shot-summary">{summary || (restored ? "These pieces are in your cart. Pick sizes, then check out." : !character && !running ? clipMode ? "We watch the clip, break the costume into pieces, and find similar items at real shops. Matches appear as we find them." : "We read the outfit, break it into pieces, and find similar items at real shops. Matches appear as we find them, within 30 seconds." : "")}</p>
+          <p className="meta">Screenshot to costume</p>
+          <h1>{character ?? (restored ? "Your screenshot look" : running ? "Reading the look…" : "Turn any screenshot into a costume.")}</h1>
+          <p className="shot-summary">{summary || (restored ? "These pieces are in your cart. Pick sizes, then check out." : !character && !running ? "We read the outfit, break it into pieces, and find similar items at real shops. Matches appear as we find them, within 30 seconds." : "")}</p>
         </div>
         {found.length > 0 && <div className="shot-total"><span className="meta">{found.length} priced {found.length === 1 ? "piece" : "pieces"}</span><strong>{formatPrice(total)}</strong></div>}
       </div>
 
       {error && <p className="notice" role="alert">{error}</p>}
+      {(saving || savePayload && !boardSynced && !saveError) && <p className="meta" role="status">Saving this board…</p>}
+      {saveError && <p className="notice" role="alert">{saveError} {boardRequestId && <button type="button" className="text-btn" onClick={() => setSaveAttempt(value => value + 1)}>Try saving again</button>}</p>}
+      {savedLook && boardSynced && <p className="shot-saved" role="status">Your products are saved. <a href={`/create/${savedLook.id}`}>Open saved look</a>. The source photo stays temporary.</p>}
 
       {segmentation && !restored && <PipelineStrip timings={segmentation.timings_ms} />}
       {(running || visible.length > 0) && <AssemblyStatus discovery found={discovered} total={visible.length} missing={missing} running={running} stopped={phase === "error"} />}
@@ -427,6 +458,7 @@ export function ScreenshotCostume() {
             <div className="shot-frame"><AssemblyPlaceholder state={slot.state === "looking" && phase === "error" ? "stopped" : slot.state} index={i} /></div>
             <div className="shot-caption"><p className="shot-piece">{slot.name}</p></div>
           </>}
+          {savedLook && !running && (slot.state === "missing" || slot.state === "looking" || slot.state === "candidate") && <button type="button" className="text-btn shot-retry" disabled={retrying !== null || saving || !boardSynced} onClick={() => void retryPiece(i)}>{retrying === i ? "Searching this piece…" : "Search this piece again"}</button>}
           {!restored && <PieceVision vision={vision[i]} index={i} />}
           {!restored && <MatchTrace vision={vision[i]} trace={traces[i] ?? []} index={i} />}
         </li>)}
@@ -442,6 +474,13 @@ export function ScreenshotCostume() {
           {allInCart ? "View cart" : `Add ${found.length < visible.length ? "priced pieces" : "the look"} to cart · ${formatPrice(total)}`}
         </button>}
       </div>}
+      {savedLook && boardSynced && found.length > 0 && !saving && <details className="shot-personal-preview">
+        <summary>See these pieces on you</summary>
+        <p>Preview the exact saved products. Photos and previews stay temporary.</p>
+        <PhoneCameraProvider><VirtualTryOn previewSource="screenshot" savedLookId={savedLook.id} name={savedLook.name} image={found[0]?.image} totalCents={total}
+          selection={found.map(item => ({ pieceId: item.pieceId, productId: item.productId }))}
+          pieces={found.map(item => ({ id: item.pieceId, name: item.pieceName }))} /></PhoneCameraProvider>
+      </details>}
     </section>
   </div>;
 }

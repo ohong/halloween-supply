@@ -31,11 +31,19 @@ Both tabs must remain visible. Hiding either tab or locking the phone stops shar
 
 Existing `TURSO_DATABASE_URL` and `TURSO_AUTH_TOKEN` store signaling. Existing `OPENAI_API_KEY` and `FAL_KEY` run inference.
 
-For connections across restrictive networks, set server-only `METERED_TURN_APP` (the subdomain in `<app>.metered.live`) and `METERED_TURN_API_KEY`. The server fetches TURN credentials from [Metered's credential endpoint](https://www.metered.ca/docs/turn-rest-api/get-credential) when a phone pairs. Never expose the API key to the browser.
+For connections across restrictive networks, set server-only `METERED_TURN_APP` (the subdomain in `<app>.metered.live`) and `METERED_TURN_API_KEY`. Use the credential API key for an existing Metered TURN credential. The server fetches TURN credentials from [Metered's credential endpoint](https://www.metered.ca/docs/turn-rest-api/get-credential/) when a phone pairs. Never expose the API key to the browser.
 
-The flow first tries direct WebRTC. When the TURN credentials are configured, Cloudflare Realtime relays encrypted traffic if direct connectivity fails, including networks that isolate devices on the same Wi-Fi. A full SFU is unnecessary for one phone paired with one desktop; TURN preserves the existing peer connection and photo data channel. A failed connection ends with a retry instruction instead of silently falling back to a desktop camera.
+The implemented relay provider is **Metered**, not Cloudflare. The flow tries direct WebRTC first. Validated TURN credentials let Metered relay encrypted traffic when direct connectivity fails. A full media server is unnecessary for one phone paired with one desktop; TURN preserves the existing peer connection and photo data channel.
+
+Two approaches were considered: finish the existing Metered adapter, or add a Cloudflare TURN adapter. Metered preserves the current configuration and needs one small credential request. Cloudflare adds a separate credential format and provider setup, without available credentials to verify it. This change retains Metered. It does not create subscriptions or change account privileges.
+
+The claim response reports `relayStatus` as `unconfigured`, `unavailable`, or `ready`, plus `relayProvider` and `relayAvailable`. `ready` means the server fetched and validated credentials; it does not prove the browser used a relay. Missing credentials use direct STUN discovery. Incomplete credentials, invalid configuration, provider errors, and the eight-second relay timeout also use direct discovery, with an on-screen warning. Some networks require TURN and cannot connect through this fallback. The UI recommends the same Wi-Fi network or a fresh QR code. It never opens the desktop camera automatically.
 
 Connection candidates are exchanged as they arrive, including relay candidates discovered after the initial offer or answer. The former six-second gathering cutoff could drop those candidates. The authenticated signaling table stores bounded candidate lists and removes them with the pairing session.
+
+Connection progress distinguishes connection creation, network setup, camera permission, signaling, video connection, and reconnecting. Each signaling request has a twelve-second total deadline and at most two retries for transport errors or HTTP 429/502/503/504. Repeating the exact offer or answer is safe after a lost response. Different replacement descriptions remain rejected. Camera permission has a thirty-second deadline; a camera granted after cancellation or timeout is stopped immediately. Initial peer negotiation has a sixty-second deadline after the phone joins.
+
+Brief WebRTC disconnections retain the existing stream for up to twelve seconds. If the browser reconnects, sharing continues without acquiring another camera. An unrecovered transport, closed control channel, or missed heartbeat stops sharing and gives a fresh-code instruction. This recovery window does not perform an ICE restart or reuse an expired/closed link. It cannot guarantee recovery after every network change.
 
 ## Connection and media handling
 
@@ -45,6 +53,8 @@ Connection candidates are exchanged as they arrive, including relay candidates d
 - Signaling rows expire after ten minutes and are deleted on disconnect or subsequent database access after expiry. No photos or audio enter that table.
 - Photos are bounded to 3 MB and transferred in 16 KB chunks. The desktop validates and prepares a photo before acknowledging receipt.
 - Heartbeats stop media after an unresponsive peer. Closing, hiding, expiry, and late camera permission results release the camera.
+- The phone requests a screen wake lock where supported. It releases the lock when sharing stops. Browser refusal still requires keeping the screen awake manually.
+- Lens switching releases the old lens before opening the other lens for iOS compatibility. If the new lens fails, it tries to restore the previous camera without replacing the microphone or connection. Stopping during a pending switch releases the late camera track.
 - Lucy and GPT Live use cloned tracks. Stopping either inference session cannot silently kill the underlying phone connection.
 - The old `/api/capture/:id` one-photo endpoint returns an expiry message. Old QR codes must be regenerated.
 
@@ -56,6 +66,10 @@ Set `PHONE_PROVIDER_E2E=1` to additionally run real OpenAI photo generation, GPT
 
 Physical iPhone/Safari behavior, cellular connectivity, and camera quality must be distinguished from synthetic Chromium tests. Set `PHONE_FORCE_RELAY=1` to require and verify a TURN relay candidate. Set `PHONE_DELAY_CANDIDATES=1` to delay candidate delivery beyond the old six-second cutoff and verify that pairing still completes.
 
-The connection repair passed raw streaming, delayed candidate delivery (seven seconds), repeated full-resolution photo capture, camera switching, disconnect during camera switching, and all-track cleanup in two Chromium contexts. Authentication checks reject missing credentials, another phone claimant, wrong-role descriptions, unauthorized candidate writes, and oversized candidate lists. These checks do not establish physical iPhone/Safari connectivity.
+Set `PHONE_RELIABILITY_E2E=1` to inject a lost offer response, a temporary candidate-service error, brief and persistent disconnect states, a failed lens request, and a late permission result. The test still sends real synthetic video and photos between two Chromium contexts. The injected disconnect state checks recovery handling; it is not proof of a physical network handoff. Set `PHONE_TESTING_MODE=1` when the server uses `TRY_ON_TESTING_MODE=1` to check that connected sessions clear the ten-minute timer.
 
-Cloudflare Realtime activation is currently blocked: the dashboard subscription action returns “The requested operation is not allowed.” TURN credentials are not configured and forced-relay verification remains pending. The account shows Super Administrator privileges and paid invoices; the provider does not expose the reason for rejection. Do not report the relay as active until activation, credentials, and forced-relay streaming all pass.
+Add `PHONE_PERMISSION_TIMEOUT_E2E=1` to the reliability run to also wait for the actual thirty-second permission deadline. Set `PHONE_EXPECT_RELAY_STATUS` to check the server's expected relay state. An incomplete Metered configuration can verify the `unavailable` warning and direct fallback without contacting a relay provider.
+
+The connection repair passed raw streaming, delayed candidate delivery (seven seconds), repeated full-resolution photo capture, camera switching, disconnect during camera switching, and all-track cleanup in two Chromium contexts. The reliability run also passed lost-offer-response recovery, a temporary signaling error, injected brief and persistent disconnect states, a new-QR reconnect, failed-lens restoration with the same microphone, direct fallback under incomplete relay configuration, stopped permission requests, and the actual thirty-second camera-permission timeout. Late camera tracks were released after both cancellation and timeout. Authentication checks reject missing credentials, another phone claimant, wrong-role descriptions, unauthorized candidate writes, and oversized candidate lists. These checks do not establish physical iPhone/Safari connectivity.
+
+The local environment checked for this change has neither Metered nor Cloudflare TURN credentials. Forced-relay streaming, separate-network pairing, physical iPhone/Safari behavior, and cellular handoffs remain unverified. Earlier Cloudflare dashboard notes do not describe the implemented adapter. Report a relay as used only after forced-relay streaming confirms a selected `relay` candidate.

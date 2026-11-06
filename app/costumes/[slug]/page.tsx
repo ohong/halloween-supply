@@ -2,7 +2,9 @@ import type { Metadata } from "next";
 import { Suspense } from "react";
 import { notFound } from "next/navigation";
 import { cacheLife, cacheTag } from "next/cache";
-import { getCostume } from "@/lib/catalog";
+import { readCatalogs } from "@/lib/catalog";
+import { getCostume } from "@/lib/catalog/queries";
+import { getKit } from "@/lib/kits";
 import { costumes } from "@/lib/costumes";
 import { CostumeExperience } from "@/components/store/costume-experience";
 import { CostumePreview } from "@/components/store/costume-preview";
@@ -22,6 +24,7 @@ export async function generateMetadata({ params }: { params: Params }): Promise<
   return {
     title: `${costume.name} — Halloween Supply`,
     description: costume.description,
+    alternates: { canonical: `/costumes/${slug}` },
     openGraph: { title: costume.name, description: costume.description, type: "website", images },
     twitter: { card: "summary_large_image", title: costume.name, description: costume.description, images },
   };
@@ -39,9 +42,10 @@ async function CachedCostume({ slug }: { slug: string }) {
   const inspiration = costumes.find((item) => item.slug === slug);
   if (!inspiration) notFound();
   if (inspiration.status !== "live") return <CostumePreview key={slug} costume={inspiration} />;
-  const costume = await getCostume(slug);
+  const { snapshots } = await readCatalogs();
+  const costume = await getCostume(snapshots, slug);
   if (!costume || costume.pieces.length === 0 || costume.pieces.every(({ options }) => options.length === 0)) return <CostumePreview key={slug} costume={inspiration} />;
-  return <CostumeExperience key={slug} costume={costume} />;
+  return <CostumeExperience key={slug} costume={costume} kit={getKit(slug, snapshots)} />;
 }
 
 export default function CostumePage({ params }: { params: Params }) {

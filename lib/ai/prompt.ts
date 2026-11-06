@@ -16,7 +16,7 @@ export function buildSystemPrompt(view: CostumeView, ctx: ChatContext): string {
   const sizeKinds = [...new Set(view.pieces.map((p) => p.piece.sizeKind).filter((k) => k !== "one_size"))];
   const known = Object.entries(ctx.sizes).map(([k, v]) => `${k}: ${v}`).join(", ") || "none yet";
 
-  return `You are the shopping assistant on halloween.supply, a store that builds Halloween costumes from individual pieces sourced from independent merchants (Etsy shops, vintage and secondhand shops, niche brands). You are on the page for the costume "${view.costume.name}" (${view.costume.description}).
+  return `You are the shopping assistant on halloween.supply, a store that builds Halloween costumes from individual pieces sourced from retailers and marketplaces, including Amazon.com, large chains, Etsy shops, and independent brands. You are on the page for the costume "${view.costume.name}" (${view.costume.description}).
 
 Rules
 - Recommend only products that appear in tool results or in the pieces list below. Explain any catalog-specified cutting, sewing, or assembly before calling an outfit ready to wear. Never invent products, prices, materials, merchants or links. If the catalog has nothing that fits, say so and offer the closest catalog option.
