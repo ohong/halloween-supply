@@ -35,7 +35,7 @@ restoration stay together so the intermediate product has working kit links.
 | 6 | Phone camera connection | Implemented (`4f51bd9`, `d460168`) with Metered diagnostics, direct fallback, bounded recovery, source retention, and cleanup | Four synthetic Chromium runs passed; latest 16-check run confirms 11 decoded raw frames | Blocked: no TURN credentials. Forced relay, physical iPhone/Safari, separate networks, cellular handoff, and phone live inference remain unverified. |
 | 7 | Mirror controls and timing | Implemented; independent follow-ups run together and stale responses are rejected | Seven browser fixtures, source/reference guards, and real Lucy synthetic transport passed | Blocked on OpenAI credit for real commands. No before/after latency comparison or garment/identity fidelity result. |
 | 8 | Anonymous measurement | Implemented with allowlisted host logs and aggregate CLI | Helper/endpoint/stdout checks passed; integrated shopping clicks produced 53 valid events across 14 browser journeys | Actual preview/redirect funnel, production collection, host retention/export, provider usage, and billing remain unverified. |
-| 9 | Release base and checks | Three-layer stack prepared; quality workflow and production runner implemented | Production build, strict baseline, and all 12 integrated shopping QA groups passed locally | Hosted GitHub Actions, preview commit verification, and production deployment remain unverified. |
+| 9 | Release base and checks | Three dependent PRs open; quality workflow and production runner implemented | Production build, strict baseline, and all 12 integrated shopping QA groups passed locally; foundation and shopping hosted CI and all three preview builds passed | The stack page links each final head's checks. Production deployment remains unverified. |
 | 10 | Gated clip input | Implemented, default off (`7243600`) | 24 route/input checks passed without provider calls; typecheck and focused lint passed | Blocked: video probes returned 503 busy, 404 unavailable, and 429 quota. No model qualified; full YouTube/upload sourcing remains unverified. |
 
 The evidence below separates owner checks, the integrated local production
@@ -62,11 +62,11 @@ The integrated shopping checks and strict production baseline passed. See
 ### Integrated production checks
 
 The [final shopping QA](qa.md) ran against the local production app at
-`ce8f4c4cace862b6aa34718eb349e739a3dbc7cb`, with bundled catalog fallback and
+`33fde0500b39d0ad93380a8ba78be596e5ea5d7d`, with bundled catalog fallback and
 no database or OpenAI keys:
 
 ```sh
-SHOPPING_EVIDENCE_DIR=/tmp/halloween-shopping-campaign-patched-final bun scripts/verify-shopping-campaign.mjs http://localhost:3340
+SHOPPING_EVIDENCE_DIR=/tmp/halloween-shopping-campaign-source-final bun scripts/verify-shopping-campaign.mjs http://localhost:3340
 ```
 
 All 12 groups passed. All ten kit links charged only their listed new products,
@@ -82,33 +82,52 @@ price acceptance. These fixtures created no Stripe session.
 
 The run observed 53 allowlisted events across 14 browser journeys, with no
 uncaught browser error. Seven invalid preview requests failed before providers;
-clip input remained disabled. Unsigned and unsafe saved products were rejected.
-A forged proof returned 503 because the test server lacked signing credentials;
-this proves a closed failure state, not configured signature validation. The
-backend's configured synthetic-record check is recorded separately below.
+clip input remained disabled. Eight unsigned, forged, and unsafe-URL saved-board
+requests returned 503 because the server lacked signing credentials. Each response
+explicitly preserved found pieces. This configuration guard ran before product
+validation, so this pass does not establish signature or unsafe-URL rejection.
+The configured synthetic-record check is recorded separately below. The tracked
+[summary](qa-evidence/summary.json) records this exact distinction.
 
-The [strict release baseline](release-checks.md) then passed at source
-`6704bdedbbf1443256f59b4dca4c945b0026dcb7`, build
-`s6w_U3F5r-I9tuPR5ITlS`. Its own production server was started and stopped by the
+The [strict release baseline](release-checks.md) also passed at source
+`33fde0500b39d0ad93380a8ba78be596e5ea5d7d`. Its own production server was started and stopped by the
 runner. The recorded summary covers all 50 catalogs, 242 components, 556 served
 images, 100 model assets, Saved navigation, cart reload/removal/swaps, and 1440px
 and 390px layouts. It recorded zero runtime errors, zero unexpected requests, and
 ten schema-valid anonymous event requests.
 
-The exact invocation used the CI owner's script at `ed4fee4`, with the integration
-checkout as its working directory:
+The final invocation used the integration checkout's own package scripts:
 
 ```sh
-bun --no-env-file /Users/ohong/.codex/worktrees/halloween-campaign/ci/scripts/verify-release.ts
+bun run build
+bun run verify:release
 ```
 
-This ran the existing root production build and managed its own temporary server.
-The normal package alias is `bun run verify:release`; that alias was not the
-literal invocation for this recorded pass.
+The final build and strict runner passed. Raw terminal records are
+`/tmp/halloween-final-build.log` and `/tmp/halloween-final-release.log`.
+These local checks establish no provider generation, payment session, deployment,
+physical-device result, or fulfilled order.
 
-The application code is unchanged between those two checked commits; only the
-release verifier changed. No provider generation, payment session, hosted CI,
-deployment, physical-device check, or fulfilled order is implied by these passes.
+### Stack review and hosted checks
+
+All three PRs are open in [merge order](pr-stack.md): #33 foundation, #34 shopping,
+and #35 media. The first two source heads passed GitHub Actions and Vercel previews.
+The media preview also passed; its PR links checks for the final evidence-only
+tip. No PR has been merged, and no production release is claimed.
+
+Structured Codex review inspected each layer against its actual parent branch.
+All three final reviews returned no actionable finding. Earlier accepted findings
+were fixed before the final reviews: accepted-price totals, explicit restoration
+repair, optional signing configuration, terminal provider billing errors, and
+atomic requests for up to six additions. Product code is frozen at `33fde05`;
+the closeout commit only changes documentation, the QA boundary assertion, and
+its evidence. Review logs remain local under
+`/tmp/halloween-{foundation,look,media}-review.{txt,json}`.
+
+The final mirror verification also passed 12 actual command/mix-route fixture
+scenarios and the five sourcing-route availability checks, including clip guards.
+Paid boundaries in those scenarios are fixtures. They do not establish model
+accuracy, successful merchant sourcing, or image-generation fidelity.
 
 ### Completion kits and readiness
 

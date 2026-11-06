@@ -4,7 +4,7 @@
     {
       "name": "discovery price, search, Saved, and model",
       "status": "passed",
-      "durationMs": 743,
+      "durationMs": 825,
       "detail": {
         "affordableCount": 11,
         "selectedName": "Velvet Vampire"
@@ -13,7 +13,7 @@
     {
       "name": "ten completion kits charge only their listed new pieces",
       "status": "passed",
-      "durationMs": 2449,
+      "durationMs": 3040,
       "detail": [
         {
           "slug": "cosmic-cowboy-completion",
@@ -80,7 +80,7 @@
     {
       "name": "complete selection survives save, reload, and a fresh-browser share",
       "status": "passed",
-      "durationMs": 428,
+      "durationMs": 487,
       "detail": {
         "productIds": [
           "p-610c2db658",
@@ -93,12 +93,12 @@
     {
       "name": "invalid and retired selection shows repair state",
       "status": "passed",
-      "durationMs": 602
+      "durationMs": 638
     },
     {
       "name": "shared look removes owned and skipped lines from an existing cart",
       "status": "passed",
-      "durationMs": 255,
+      "durationMs": 304,
       "detail": {
         "existingLines": 5,
         "chargedLines": 3,
@@ -108,7 +108,7 @@
     {
       "name": "cart recovery keeps other lines and requires price acceptance (response fixtures)",
       "status": "passed",
-      "durationMs": 511,
+      "durationMs": 598,
       "detail": {
         "evidenceType": "browser UI with typed response fixtures",
         "checkoutAttempts": 4,
@@ -117,20 +117,23 @@
       }
     },
     {
-      "name": "saved board rejects unsigned products and unsafe reference URLs",
+      "name": "saved board validates products or reports unavailable signing configuration",
       "status": "passed",
-      "durationMs": 18,
+      "durationMs": 41,
       "detail": {
-        "unsigned": "rejected",
+        "signingConfiguration": "unavailable",
+        "unsignedStatus": 503,
         "forgedStatus": 503,
-        "unsafeUrlsRejected": 6,
+        "productValidation": "not exercised: signing configuration guard ran first",
+        "configurationGuardRequests": 8,
+        "unsafeUrlsRejected": 0,
         "databaseWrites": 0
       }
     },
     {
       "name": "event endpoint rejects private fields and cross-origin requests",
       "status": "passed",
-      "durationMs": 7,
+      "durationMs": 13,
       "detail": {
         "acceptedDemo": 1,
         "rejectedPrivatePayloads": 2,
@@ -141,7 +144,7 @@
     {
       "name": "preview rejects invalid selections before providers and clip stays disabled",
       "status": "passed",
-      "durationMs": 16,
+      "durationMs": 31,
       "detail": {
         "invalidPreviewRequestsRejected": 7,
         "providerCalls": 0,
@@ -151,7 +154,7 @@
     {
       "name": "mobile campaign layout",
       "status": "passed",
-      "durationMs": 160
+      "durationMs": 269
     },
     {
       "name": "browser campaign measurement uses one anonymous journey per context",

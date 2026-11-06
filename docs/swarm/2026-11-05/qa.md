@@ -11,12 +11,12 @@ The CI owner covers all 50 catalog pages, served catalog images, model assets, a
 Full campaign command:
 
 ```sh
-SHOPPING_EVIDENCE_DIR=/tmp/halloween-shopping-campaign-patched-final bun scripts/verify-shopping-campaign.mjs http://localhost:3340
+SHOPPING_EVIDENCE_DIR=/tmp/halloween-shopping-campaign-source-final bun scripts/verify-shopping-campaign.mjs http://localhost:3340
 ```
 
 Screenshots and the JSON summary are written outside the checkout. Each check records its actual result. Source review and browser response fixtures are labeled separately from live provider evidence.
 
-The summary is `/tmp/halloween-shopping-campaign-patched-final/summary.json`. The run used the local production server with bundled catalog fallback and no database or OpenAI keys. It created no payment sessions or provider generations. The integration checkout was at `ce8f4c4cace862b6aa34718eb349e739a3dbc7cb` during this run. Scoped ESLint and JavaScript syntax checks passed for the QA script.
+The summary is `/tmp/halloween-shopping-campaign-source-final/summary.json`. The output flag is `SHOPPING_EVIDENCE_DIR`; `CAMPAIGN_EVIDENCE_DIR` is not read by this script. The run used the local production server with bundled catalog fallback and no database or OpenAI keys. It created no payment sessions or provider generations. The integration checkout was at `33fde0500b39d0ad93380a8ba78be596e5ea5d7d` during this run. Scoped ESLint and JavaScript syntax checks passed for the QA script.
 
 All ten kit links applied their exact listed purchases. Their cart totals ranged from $13.50 to $98.39. Owned/skipped states and readiness labels agreed with each kit. The date control accepted December 31, 2026, while delivery remained explicitly unconfirmed. Discovery returned 11 looks under $100 and retained search, Saved, and male presentation together.
 
@@ -28,7 +28,7 @@ The cart response fixture exposed a new offered size, kept four unrelated lines 
 
 The browser emitted 53 anonymous events across 14 browser journeys. The observed names were view, filter, kit, cart_add, checkout_start, and checkout_recovery. Each context kept one journey identifier. Payload keys stayed within the fixed allowlist. No browser context reported an uncaught runtime error.
 
-Unsigned saved products returned 400. Six unsafe URL forms returned 400. A forged proof returned 503 because the production test server had no signing credential. This is fail-closed configuration behavior; it is not evidence of configured signature verification. The backend owner separately tested signed records against configured storage and cleaned up its synthetic record.
+The current server lacked signing credentials. All eight unsigned, forged, and unsafe-URL requests returned HTTP 503 with the explicit message that saving is unavailable and found pieces remain on the board. The configuration guard ran before product validation. This run therefore does not exercise unsigned-product, forged-proof, or unsafe-URL validation. Configured persistence and direct URL-helper checks remain recorded separately in the [backend verification](../../verification/look-state-2026-11-05.md). Foreign-origin saving still returned HTTP 403, and an invalid saved-look ID returned HTTP 404. The QA script requires HTTP 400 for invalid product values when signing is available.
 
 Seven invalid preview requests failed before providers. The clip availability endpoint reported disabled, and clip POST returned 503. Phone relay, physical-device media, actual screenshot sourcing, generated personal preview fidelity, and live checkout are outside this QA run.
 

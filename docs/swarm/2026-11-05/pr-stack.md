@@ -1,8 +1,8 @@
 # Campaign review stack
 
-The campaign uses three dependent review layers. Each layer addresses one
-reviewable product boundary. The local branches below are prepared. PR URLs and
-hosted results are recorded after creation; this document claims no merged PR.
+The campaign has three open, dependent PRs. Each layer addresses one reviewable
+product boundary. Merge order is **#33 → #34 → #35**. No PR has been merged and no
+production release is claimed.
 
 ```text
 main
@@ -15,15 +15,28 @@ main
 ```
 
 The campaign source baseline is `2062f165f397ff8d8a9cf5fbeb908e0561e9068b`.
-The final PR bases and checked commits must be recorded after the stack is built.
-Combined-branch verification does not prove that each reconstructed layer passes
-independently.
+The foundation was also built and smoke-tested independently. GitHub Actions
+checks each PR's own source and base. A combined local pass alone does not prove
+that every reconstructed layer works independently.
 
 | Layer | Branch | PR base | PR URL |
 | --- | --- | --- | --- |
-| Foundation | `codex/shopping-foundation` | `main` | Not recorded yet |
-| Shopping look continuity | `codex/shopping-look-continuity` | `codex/shopping-foundation` | Not recorded yet |
-| Media and current product docs | `codex/shopping-media` | `codex/shopping-look-continuity` | Not recorded yet |
+| Foundation | `codex/shopping-foundation` | `main` | [#33](https://github.com/ohong/halloween-supply/pull/33) |
+| Shopping look continuity | `codex/shopping-look-continuity` | `codex/shopping-foundation` | [#34](https://github.com/ohong/halloween-supply/pull/34) |
+| Media and current product docs | `codex/shopping-media` | `codex/shopping-look-continuity` | [#35](https://github.com/ohong/halloween-supply/pull/35) |
+
+Recorded source heads are `8f3645bc161e5b8b45f59f81bb6fa6df30ed1475`,
+`44ef9575b764035fe60678748585e2663643f480`, and
+`33fde0500b39d0ad93380a8ba78be596e5ea5d7d`, respectively. The last layer also
+contains the final documentation and QA-evidence update. Its PR shows the current
+tip and checks.
+
+At closeout, [foundation Actions](https://github.com/ohong/halloween-supply/actions/runs/42180233603)
+and [shopping Actions](https://github.com/ohong/halloween-supply/actions/runs/42180591631)
+passed, and both exact source heads had successful Vercel previews. The media
+preview also succeeded. Check [#35's checks](https://github.com/ohong/halloween-supply/pull/35/checks)
+for its final evidence-only tip. Preview build success does not establish live
+provider behavior or a production release.
 
 ## 1. Foundation
 
@@ -44,8 +57,9 @@ event collection, so the foundation describes the data it records.
 **Evidence and limits.** Read [checkout recovery](../../checkout-recovery.md),
 [measurement](measurement.md), and [release checks](release-checks.md). Controlled
 checkout responses remain distinct from real merchant checks. Unpaid Stripe
-sessions, production refresh writes, host retention, and hosted CI need their
-own results. The foundation layer retains the 50-look storefront.
+sessions, production refresh writes, and host retention need their own results.
+Hosted CI passed separately as recorded above. The foundation layer retains the
+50-look storefront.
 
 ## 2. Shopping look continuity
 
@@ -103,6 +117,16 @@ COOL deployment/performance and the user-owned video submission remain separate.
 ## Final verification
 
 The [campaign ledger](README.md) records exact commands and observed results.
-After creating the stack, run the required checks on each actual PR head and
-record hosted CI separately. New production deployment, payment, fulfillment,
-physical-device, and provider-success claims require their own evidence.
+All three layer reviews returned no actionable finding. Local production build,
+all-50-catalog smoke checks, and all 12 integrated shopping QA groups passed at
+the media source head above. The final QA update records a missing signing
+configuration guard separately from configured product validation.
+
+Merge #33 first. Then retarget #34 to main, verify its resulting diff and checks,
+and merge it. Retarget #35 to main after #34, verify again, then merge it. These
+are handoff instructions, not authorization to merge. Do not squash a parent
+without checking that the child diff contains only its intended layer.
+
+New production deployment, payment, fulfillment, physical-device, and
+provider-success claims require their own evidence. The original dirty checkout
+is preserved. [Open loops](open-loops.md) lists the remaining release conditions.

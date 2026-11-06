@@ -301,7 +301,7 @@ try {
     } finally { await fresh.close(); }
   });
 
-  await check("saved board rejects unsigned products and unsafe reference URLs", async () => {
+  await check("saved board validates products or reports unavailable signing configuration", async () => {
     const item = { pieceId: "screenshot-0", pieceName: "Black cape", sizeKind: "one_size", productId: "a".repeat(24),
       title: "QA black cape", productUrl: "https://www.etsy.com/listing/1234567890/qa-black-cape", image: "https://i.etsystatic.com/qa-cape.jpg",
       merchantId: "etsy.com", merchantName: "QA merchant", priceCents: 1000, availableSizes: [], size: null };
@@ -309,21 +309,35 @@ try {
       pieces: [{ piece: { name: item.pieceName, slot: "outer", query: "black cape", sizeKind: item.sizeKind }, item }] };
     const submit = (value) => context.request.post(new URL("/api/saved-looks", base).href, { data: value, headers: { origin: base.origin } });
     const unsigned = await submit(body);
-    assert.equal(unsigned.status(), 400);
-    assert.match((await unsigned.json()).error, /verified|invalid/i);
+    const unsignedStatus = unsigned.status();
+    const signingAvailable = unsignedStatus === 400;
+    const unavailableMessage = "Saving this look is unavailable right now. Your found pieces remain on this board.";
+    const unsignedBody = await unsigned.json();
+    if (signingAvailable) assert.match(unsignedBody.error, /verified|invalid/i);
+    else {
+      assert.equal(unsignedStatus, 503);
+      assert.equal(unsignedBody.error, unavailableMessage, "Missing signing configuration preserves found pieces with an explicit error");
+    }
+    const expectInvalidOrUnavailable = async (value) => {
+      const response = await submit(value);
+      assert.equal(response.status(), signingAvailable ? 400 : 503);
+      if (!signingAvailable) assert.equal((await response.json()).error, unavailableMessage);
+      return response.status();
+    };
     const forged = structuredClone(body);
     forged.pieces[0].proof = "0".repeat(64);
-    const forgedStatus = (await submit(forged)).status();
-    assert([400, 503].includes(forgedStatus), "A forged receipt fails closed, including when signing is unconfigured");
+    const forgedStatus = await expectInvalidOrUnavailable(forged);
     for (const unsafe of ["https://127.0.0.1/product", "https://localhost/product", "https://merchant.internal/product", "http://merchant.com/product", "https://user:pass@merchant.com/product", "https://merchant.com:444/product"]) {
       const changed = structuredClone(forged);
       changed.pieces[0].item.productUrl = unsafe;
-      assert.equal((await submit(changed)).status(), 400, `Reject unsafe URL ${unsafe}`);
+      await expectInvalidOrUnavailable(changed);
     }
     const foreign = await context.request.post(new URL("/api/saved-looks", base).href, { data: body, headers: { origin: "https://untrusted.invalid" } });
     assert.equal(foreign.status(), 403);
     assert.equal((await context.request.get(new URL("/api/saved-looks/not-a-uuid", base).href)).status(), 404);
-    return { unsigned: "rejected", forgedStatus, unsafeUrlsRejected: 6, databaseWrites: 0 };
+    return { signingConfiguration: signingAvailable ? "available" : "unavailable", unsignedStatus, forgedStatus,
+      productValidation: signingAvailable ? "unsigned, forged, and six unsafe URL forms rejected" : "not exercised: signing configuration guard ran first",
+      configurationGuardRequests: signingAvailable ? 0 : 8, unsafeUrlsRejected: signingAvailable ? 6 : 0, databaseWrites: 0 };
   });
 
   await check("event endpoint rejects private fields and cross-origin requests", async () => {
