@@ -1,0 +1,205 @@
+[
+  {
+    "slug": "roller-disco-striped-kit",
+    "costumeSlug": "roller-disco",
+    "name": "Roller Disco striped kit",
+    "description": "Rainbow romper, solid striped knee socks, and a pink sweatband set. Add your own white sneakers and an opaque underlayer.",
+    "buy": [
+      {
+        "pieceId": "roller-disco-rainbow-romper",
+        "productId": "p-exp-c-f82e1b54a274",
+        "quantity": 1
+      },
+      {
+        "pieceId": "roller-disco-rainbow-legwear",
+        "productId": "p-exp-c-69f5c5c7ea4b",
+        "quantity": 1
+      },
+      {
+        "pieceId": "roller-disco-headband",
+        "productId": "p-exp-c-7283ecc0cc80",
+        "quantity": 1
+      }
+    ],
+    "owned": [],
+    "skipped": [],
+    "extraSupplies": [
+      "Already own: white sneakers for the reference look; roller skates are not included or required.",
+      "Already own: an opaque underlayer that works with the unlined romper. Its cost is excluded."
+    ],
+    "assembly": {
+      "minutes": 10,
+      "steps": [
+        "Allow about 10 minutes for dressing and a fit check. This is an estimate, not a measured build time.",
+        "Put on your opaque underlayer, then the rainbow romper.",
+        "Pull on the rainbow knee socks and your own white sneakers.",
+        "Add the pink headband and both included wristbands.",
+        "Check coverage and movement before the event. No cutting, sewing, or adhesive is planned."
+      ],
+      "tools": []
+    },
+    "readiness": {
+      "notes": [
+        "The catalog purchase subtotal is $95.57 USD before tax and shipping. Owned sneakers and an underlayer are excluded.",
+        "Checked November 5, 2026, in America/Vancouver. The selected romper page shows $72.59 USD and an XXS–3XL size chooser. Confirm your size before ordering.",
+        "The romper is made to order. Coquetry says most items dispatch within five days; express postage does not shorten creation time.",
+        "Chicago Costume allows up to 24 hours to prepare orders on business days. Its cart delivery estimates are not guaranteed.",
+        "Chicago Costume offers in-store pickup, but wait for a ready email. This does not provide a pickup option for the Coquetry romper.",
+        "Arrival for any event date remains unconfirmed. Confirm each merchant's delivery estimate for your destination before purchase."
+      ],
+      "evidence": [
+        {
+          "url": "https://coquetryclothing.com/products/rainbow-striped-romper?variant=43949709197399&currency=USD",
+          "checkedAt": "2026-11-06T06:52:14Z",
+          "kind": "product",
+          "productId": "p-exp-c-f82e1b54a274",
+          "note": "Aside local browser fallback confirmed $72.59 USD, an XXS–3XL chooser, and an Add to Cart control. The page describes an unlined rainbow spandex romper. Built-in web could not open this product; its price matches the existing catalog."
+        },
+        {
+          "url": "https://chicagocostume.com/products/rainbow-knee-socks-adult",
+          "checkedAt": "2026-11-06T06:52:14Z",
+          "kind": "product",
+          "productId": "p-exp-c-69f5c5c7ea4b",
+          "note": "Built-in web confirmed the selected variant at $14.99 USD with available=true. One pair of polyester socks, one size fits most, ages 14+. Stock is limited and can change."
+        },
+        {
+          "url": "https://chicagocostume.com/products/80s-sweatband-set",
+          "checkedAt": "2026-11-06T06:52:14Z",
+          "kind": "product",
+          "productId": "p-exp-c-7283ecc0cc80",
+          "note": "Built-in web confirmed the selected variant at $7.99 USD with available=true. The set includes a hot pink headband and two wristbands."
+        },
+        {
+          "url": "https://coquetryclothing.com/policies/shipping-policy",
+          "checkedAt": "2026-11-06T06:52:14Z",
+          "kind": "shipping",
+          "productId": "p-exp-c-f82e1b54a274",
+          "note": "Most made-to-order items dispatch within five days of purchase. Express shipping applies to transit after creation. The policy gives no destination-specific arrival date."
+        },
+        {
+          "url": "https://chicagocostume.com/pages/faqs",
+          "checkedAt": "2026-11-06T06:52:14Z",
+          "kind": "shipping",
+          "note": "Allow up to 24 hours for order preparation, Monday–Friday. Carrier delivery estimates appear in the cart and are not guaranteed. Standard shipping is within the United States; international orders require merchant contact."
+        },
+        {
+          "url": "https://chicagocostume.com/pages/faqs",
+          "checkedAt": "2026-11-06T06:52:14Z",
+          "kind": "pickup",
+          "productId": "p-exp-c-69f5c5c7ea4b",
+          "note": "The merchant offers in-store pickup and allows up to 24 hours for preparation. Wait for the ready email. The socks' location-specific stock was not checked."
+        },
+        {
+          "url": "https://chicagocostume.com/pages/faqs",
+          "checkedAt": "2026-11-06T06:52:14Z",
+          "kind": "pickup",
+          "productId": "p-exp-c-7283ecc0cc80",
+          "note": "The merchant offers in-store pickup and allows up to 24 hours for preparation. Wait for the ready email. The sweatband set's location-specific stock was not checked."
+        },
+        {
+          "url": "https://chicagocostume.com/products/80s-sweatband-set",
+          "checkedAt": "2026-11-06T06:52:14Z",
+          "kind": "assembly",
+          "productId": "p-exp-c-7283ecc0cc80",
+          "note": "The headband and two wristbands are finished accessories. The proposed outfit requires dressing and fit checks, without planned fabrication. The 10-minute estimate is editorial and was not timed."
+        }
+      ]
+    },
+    "rationale": "The $95.57 catalog selection preserves the solid striped socks in the reference. The $88.57 crochet-sock alternative costs less but changes their texture and coverage. Both use the same defining romper and pink accessories."
+  },
+  {
+    "slug": "queen-of-hearts-owned-boots-kit",
+    "costumeSlug": "queen-of-hearts",
+    "name": "Queen of Hearts kit: 18w–20w",
+    "description": "A heart-neck dress with separate sleeves and a red heart-shaped wig. Requires your own black lace-up boots. Only dress size 18w–20w is confirmed.",
+    "buy": [
+      {
+        "pieceId": "queen-of-hearts-gown",
+        "productId": "p-exp-c-84d751c02e94",
+        "quantity": 1
+      },
+      {
+        "pieceId": "queen-of-hearts-wig",
+        "productId": "p-exp-c-0ac54a720391",
+        "quantity": 1
+      }
+    ],
+    "owned": [
+      {
+        "pieceId": "queen-of-hearts-boots",
+        "note": "Already own black lace-up boots that fit comfortably. Their cost is excluded. This kit does not include a footwear purchase."
+      }
+    ],
+    "skipped": [],
+    "extraSupplies": [
+      "Already own: suitable underwear and socks for the dress and boots. Their cost is excluded.",
+      "Optional and omitted: crown, fishnets, and makeup. None is included in the purchase subtotal."
+    ],
+    "assembly": {
+      "minutes": 15,
+      "steps": [
+        "Allow about 15 minutes for dressing, wig placement, and a fit check. This is an estimate, not a measured build time.",
+        "Put on the dress and its two included sleeves.",
+        "Fit the heart-shaped red wig and check that it stays secure during normal movement.",
+        "Put on your own socks and black lace-up boots.",
+        "Check the dress fit and walking comfort before the event. No crown, makeup, or craft work is required for this kit."
+      ],
+      "tools": []
+    },
+    "readiness": {
+      "notes": [
+        "The catalog purchase subtotal is $59.98 USD before tax and shipping. Owned boots and basics are excluded.",
+        "Checked November 5, 2026, in America/Vancouver. The selected dress variant is available in 18w–20w; 14w–16w is unavailable. Verify the merchant size information before ordering.",
+        "The dress is a short, heart-neck design with zebra-print cape styling. It differs from the long card gown in the reference.",
+        "The merchant lists a dress and two sleeves. The red wig is a separate purchase. Neither selected listing includes a crown.",
+        "Chicago Costume allows up to 24 hours to prepare orders on business days. Cart delivery estimates are not guaranteed.",
+        "In-store pickup is an option to confirm with the merchant. Wait for the ready email; no local stock or pickup completion time was verified.",
+        "Arrival for any event date remains unconfirmed. Confirm your destination and event date with the merchant before purchase."
+      ],
+      "evidence": [
+        {
+          "url": "https://chicagocostume.com/products/sunnywood-womens-plus-size-lava-diva-queen-of-hearts-costume",
+          "checkedAt": "2026-11-06T06:52:14Z",
+          "kind": "product",
+          "productId": "p-exp-c-84d751c02e94",
+          "note": "Built-in web confirmed $29.99 USD and selected variant 44639930908914 available=true in 18w–20w. The 14w–16w variant is unavailable. Includes a dress and two sleeves; the description identifies heart-neck and zebra-print styling."
+        },
+        {
+          "url": "https://chicagocostume.com/products/red-queen-wig-adult-wig",
+          "checkedAt": "2026-11-06T06:52:14Z",
+          "kind": "product",
+          "productId": "p-exp-c-0ac54a720391",
+          "note": "Built-in web confirmed $29.99 USD and selected variant 44561757339890 available=true. The red synthetic wig has a heart shape. Dress and crown are excluded."
+        },
+        {
+          "url": "https://chicagocostume.com/pages/faqs",
+          "checkedAt": "2026-11-06T06:52:14Z",
+          "kind": "shipping",
+          "note": "Allow up to 24 hours for order preparation on business days. Delivery estimates appear in the cart and are not guaranteed. Standard shipping is within the United States; international orders require merchant contact."
+        },
+        {
+          "url": "https://chicagocostume.com/pages/faqs",
+          "checkedAt": "2026-11-06T06:52:14Z",
+          "kind": "pickup",
+          "productId": "p-exp-c-84d751c02e94",
+          "note": "The merchant offers in-store pickup and allows up to 24 hours for preparation. Wait for the ready email. The selected dress size's location-specific stock was not checked."
+        },
+        {
+          "url": "https://chicagocostume.com/pages/faqs",
+          "checkedAt": "2026-11-06T06:52:14Z",
+          "kind": "pickup",
+          "productId": "p-exp-c-0ac54a720391",
+          "note": "The merchant offers in-store pickup and allows up to 24 hours for preparation. Wait for the ready email. The wig's location-specific stock was not checked."
+        },
+        {
+          "url": "https://chicagocostume.com/products/sunnywood-womens-plus-size-lava-diva-queen-of-hearts-costume",
+          "checkedAt": "2026-11-06T06:52:14Z",
+          "kind": "assembly",
+          "productId": "p-exp-c-84d751c02e94",
+          "note": "The merchant supplies a finished dress and two sleeves. Wearing those with the separate wig and owned boots needs no planned fabrication. The 15-minute estimate is editorial and was not timed."
+        }
+      ]
+    },
+    "rationale": "Owned boots keep the red heart-shaped wig and dress at $59.98. Buying the cheapest catalog boots with these red pieces costs $115.95. A $97.95 all-new minimum uses a darker wig, which changes the reference. This kit is only suitable when size 18w–20w and owned boots fit."
+  }
+]
