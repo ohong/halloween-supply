@@ -1,0 +1,38 @@
+%% Source for agent-workflow.svg. Render: bunx @mermaid-js/mermaid-cli@11.4.2 -i agent-workflow.mmd -o agent-workflow.svg -b white
+flowchart TD
+  upload(["Screenshot uploaded"]) --> perceive
+
+  perceive["PERCEIVE<br/>/v1/analyze: person, pieces,<br/>colors, garment types, embeddings"]
+  perceive -- "no person, confidence &lt; 0.5<br/>or no pieces" --> crop(["422: ask shopper to crop<br/>to one person, head to toe"])
+  perceive -- "for each piece (max 8)" --> act
+
+  act["ACT<br/>merchant search with the piece query<br/>(first attempt adds the alternate)"]
+  act --> reperceive["RE-PERCEIVE<br/>/v1/match: segment each product photo,<br/>embedding similarity, CIEDE2000, HS histogram"]
+  reperceive --> decide{"DECIDE<br/>decideNext(piece, results, attempt,<br/>remainingMs, tried)"}
+
+  decide -- "best result = match" --> accept(["Accept: piece joins the board"])
+  decide -- "color_mismatch most common" --> rc["Retry: measured color + phrase"]
+  decide -- "type_mismatch" --> rt["Retry: color + next garment phrase"]
+  decide -- "no candidates / no_garment ≥ half" --> ra["Retry: alternate query"]
+  decide -- "2 retries used, &lt; 6 s left<br/>or no new query" --> approve(["Keep best weak result:<br/>ask for approval"])
+
+  rc --> act
+  rt --> act
+  ra --> act
+
+  approve --> human{"Shopper:<br/>use it or skip the piece"}
+  human -- "use" --> accept
+  human -- "skip" --> skipped(["Piece skipped, nothing added"])
+  accept --> cart(["Cart, then Stripe Checkout only when the shopper pays"])
+
+  trace[["trace event at every step:<br/>{ t_ms, piece, step, detail }<br/>→ browser stream + Vercel log line"]]
+  perceive -.-> trace
+  act -.-> trace
+  reperceive -.-> trace
+  decide -.-> trace
+  human -.-> trace
+
+  classDef cv fill:#e8f5e9,stroke:#2e7d32,color:#1b5e20
+  classDef human fill:#e3f2fd,stroke:#1565c0,color:#0d47a1
+  class perceive,reperceive cv
+  class human,crop,approve human
