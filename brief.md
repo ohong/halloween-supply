@@ -1,6 +1,6 @@
 # Halloween Supply — product brief
 
-Updated November 5, 2026. Halloween Supply helps people choose a recognizable
+Updated November 6, 2026. Halloween Supply helps people choose a recognizable
 costume, buy the pieces they need, and preview their choices. Product usefulness
 comes before a demonstration or competition submission.
 

@@ -6,7 +6,7 @@ three price tiers: $, $$, and $$$. Shoppers can compare merchants, swap pieces,
 use clothing they own, ask the budget stylist, preview a look, and use guest
 checkout.
 
-This document describes the source as of November 5, 2026. Halloween has passed.
+Updated November 6, 2026, for the campaign that started November 5. Halloween has passed.
 Event readiness uses the shopper's event date; it does not promise an October 31
 arrival. The [campaign ledger](docs/swarm/2026-11-05/README.md) records implementation,
 verification, and remaining dependencies for the ten approved improvements.
@@ -30,6 +30,16 @@ saved-board photo preview, checkout recovery, phone diagnostics, mirror control
 measurements, anonymous funnel events, release checks, and gated clip input.
 Read the ledger before claiming that a campaign path passed runtime checks.
 
+Ten completion kits select defining pieces and state owned basics. Their stored
+new-piece subtotals range from $13.50 to $98.39 before supplies, tax, and shipping.
+Owned items are prerequisites. Delivery remains unconfirmed for all ten kits.
+See [kit evidence](docs/swarm/2026-11-05/kits.md) for fit, assembly, and stock limits.
+
+Clip input is off unless `CLIP_COSTUME_ENABLED=1` and an explicit
+`GEMINI_CLIP_MODEL` are configured. Current video probes did not qualify a model.
+The disabled feature preserves the screenshot path. See
+[clip sourcing](docs/clip-sourcing.md) for the observed provider errors and limits.
+
 ## Catalog and checkout
 
 Turso stores one validated JSON catalog per costume. `lib/catalog.ts` supplies
@@ -46,6 +56,12 @@ Checkout rechecks current merchant price, stock, and size. Shoppers must accept
 price changes. The total is the sum of merchant prices: no markup, concierge fee,
 or shipping line. The concierge absorbs merchant shipping. Stripe collects email
 and a US shipping address. Fulfillment remains manual.
+
+The cart focuses the failing item and offers confirmed size labels or catalog
+alternatives while preserving unrelated lines. Health separates catalog structure
+from fresh, stale, and unknown merchant facts. Refresh summaries are returned to
+the caller; they are not stored as a refresh history. See
+[checkout recovery](docs/checkout-recovery.md).
 
 Checkout does not reserve merchant inventory or guarantee arrival. An unpaid
 Stripe test session proves session creation only. It proves neither payment nor
@@ -119,6 +135,9 @@ Keep credentials in local and deployment environments. Never commit them.
 bun run lint
 bun run typecheck
 bun run build
+bunx --no-install playwright install --with-deps chromium
+bun run verify:release
+# For separate real-service checks, start the production server:
 bun run start
 # With the production server running:
 bun scripts/verify-full-catalog.ts http://localhost:3000
@@ -133,6 +152,10 @@ and expires an unpaid test session. It needs the Stripe key for the same account
 as the running app. Do not run checkout checks against a live-money account.
 Exact campaign commands, results, and limits belong in the
 [release evidence](docs/swarm/2026-11-05/README.md).
+
+`verify:release` checks a local production build with credentials removed and the
+bundled catalog. It does not call paid providers, create checkout sessions, or
+deploy. See [release checks](docs/swarm/2026-11-05/release-checks.md) for its scope.
 
 `/api/health` reports catalog structure, database status, configuration booleans,
 and release identity without exposing credentials. Structural health does not

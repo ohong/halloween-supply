@@ -1,6 +1,6 @@
 # Halloween Supply — current work
 
-Updated November 5, 2026. The original one-costume v1 checklist is retired.
+Updated November 6, 2026. The original one-costume v1 checklist is retired.
 The source baseline for this campaign is `2062f165f397ff8d8a9cf5fbeb908e0561e9068b`.
 It contains the 50-look catalog repair from PR #32.
 

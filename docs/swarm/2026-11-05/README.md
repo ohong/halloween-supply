@@ -2,12 +2,14 @@
 
 This ledger tracks the ten approved product improvements. The
 [original review](original-review.md) was prepared October 27. Its live observations
-and proposed schedule are historical. The current date is November 5; event notes
-apply to the shopper's event date.
+and proposed schedule are historical. The campaign started November 5. This
+ledger was updated November 6; event notes apply to the shopper's event date.
 
 The integration baseline is `2062f165f397ff8d8a9cf5fbeb908e0561e9068b`
 (PR #32). Work uses isolated branches. The existing dirty checkout and its accepted
 merchant policy changes remain separate inputs to integration.
+Owner hashes below identify lane commits. Integration uses cherry-picks, which can
+have different hashes. No hash below is presented as a new deployed commit.
 
 ## Status meanings
 
@@ -22,16 +24,16 @@ merchant policy changes remain separate inputs to integration.
 
 | # | Improvement | Implementation | Verification | Remaining condition |
 | --- | --- | --- | --- | --- |
-| 1 | Completion kits and price-aware discovery | Pending owner evidence | Pending | Validate kit evidence, displayed subtotal, and cart agreement. |
-| 2 | Complete saved/shared selections | Pending owner evidence | Pending | Fresh-browser restoration; no private sizes in public links. |
-| 3 | Event and assembly readiness | Pending owner evidence | Pending | Check sources, assembly notes, and uncertain arrival for each kit. |
-| 4 | Saved-board personal preview | Pending owner evidence | Pending | Real saved-board continuity, retry, selected-product preview, and curated regression check. |
-| 5 | Checkout recovery and freshness | Pending owner evidence | Pending | Invalid size, merchant failure, replacement, price acceptance, and expired unpaid test session. |
-| 6 | Phone camera connection | Pending owner evidence | Pending | Forced relay and physical phone on a separate network remain separate gates. |
-| 7 | Mirror controls and timing | Pending owner evidence | Pending | Fixed commands, paired measurements, visible output, and resource cleanup. |
-| 8 | Anonymous measurement | Pending owner evidence | Pending | Browser event sequence, consent signals, allowlisted payloads, and read-only summary. |
+| 1 | Completion kits and price-aware discovery | Ten kit overlays and discovery implemented | 61 kit/catalog checks and real Chromium discovery checks passed for all 50 cards and 10 kits | Integrated destination/cart agreement pending. New-piece subtotals depend on owned basics. |
+| 2 | Complete saved/shared selections | Backend and UI implemented (`3cb7e68`, `823f58f`, `93edd6d`) | Backend state/validation and synthetic-record persistence verified; UI lint passed | Fresh-browser UI restoration and integrated cart checks remain pending. Public links exclude sizes and photos. |
+| 3 | Event and assembly readiness | Implemented with dated evidence for 28 purchase rows and general event dates | All ten kits resolve; default and 2026-12-31 event checks passed | Arrival unconfirmed for all ten; pickup inventory and physical assembly unverified. No sourced absolute late-arrival record exists. |
+| 4 | Saved-board personal preview | Backend and UI implemented, including signed autosave and per-row retry | Saved-record persistence and server resolution verified with a signed synthetic record; UI lint passed | Blocked on OpenAI credit for generation and missing-piece retry. References are product names only; visual fidelity remains unverified. |
+| 5 | Checkout recovery and freshness | Implemented (`7290881`) | Five local checks passed, including a real merchant invalid-size response; controlled browser failures are labeled | Unpaid/expired Stripe session and authorized refresh writes were not run. No production mutation occurred. |
+| 6 | Phone camera connection | Implemented (`4f51bd9`) with Metered diagnostics, direct fallback, bounded recovery, and cleanup | Three synthetic Chromium runs passed: 16 reliability, 11 delayed-candidate, and 17 fallback/permission-timeout checks | Blocked: no TURN credentials. Forced relay, physical iPhone/Safari, separate networks, cellular handoff, and phone live inference remain unverified. |
+| 7 | Mirror controls and timing | Implemented; independent follow-ups run together and stale responses are rejected | Seven browser fixtures, source/reference guards, and real Lucy synthetic transport passed | Blocked on OpenAI credit for real commands. No before/after latency comparison or garment/identity fidelity result. |
+| 8 | Anonymous measurement | Implemented with allowlisted host logs and aggregate CLI | Real browser helper → endpoint → stdout sequence, privacy, bounds, deduplication, and summary passed | Complete UI clicks, production collection, host retention/export, provider usage, and billing were not verified. |
 | 9 | Release base and checks | Baseline selected; integration pending | Pending | Local release checks, intended preview commit, hosted shopping checks. |
-| 10 | Gated clip input | Pending owner evidence | Pending | One real supported YouTube input and one short upload; record actual model and quota state. |
+| 10 | Gated clip input | Implemented, default off (`7243600`) | 24 route/input checks passed without provider calls; typecheck and focused lint passed | Blocked: video probes returned 503 busy, 404 unavailable, and 429 quota. No model qualified; full YouTube/upload sourcing remains unverified. |
 
 No campaign verification result is implied by this initial ledger. Owners add
 their evidence in separate files. The coordinator updates this table after reading
@@ -53,3 +55,188 @@ endpoint and historical evidence have separate scope.
 
 Final owner evidence and integration checks are pending. See
 [open loops](open-loops.md) for dependencies that require later action.
+
+### Completion kits and readiness
+
+The [kit evidence](kits.md) records ten resolved overlays with new-piece subtotals
+from $13.50 to $98.39. Owned basics, tools, supplies, tax, and shipping are excluded.
+All 28 purchased product rows have dated primary-source evidence. Existing
+catalog prices, stock, and confirmation times remain unchanged.
+
+```sh
+bun scripts/verify-kits.ts
+bun scripts/verify-kits.ts 2026-12-31
+```
+
+Both commands passed 61 checks across ten kits and all 50 bundled catalogs.
+Focused types, ESLint, a browser-target library build, and diff checks also passed.
+The default check uses October 31, 2027. The second date confirms support for
+general events; neither check establishes arrival.
+
+Delivery remains unconfirmed for all ten kits. No source supplies an absolute
+earliest-arrival date. Pickup evidence covers one of two Scarecrow purchases,
+two of three Roller purchases, and both Queen purchases. Local inventory and
+completed pickup were not verified. Queen dress stock is limited to 18w–20w.
+Exact cloud/plant variant refreshes were rate limited, so their earlier catalog
+facts remain. Assembly durations are editorial estimates, with no timed build.
+
+The [discovery evidence](discovery.md) records:
+
+```sh
+bun scripts/verify-discovery-kits.ts http://127.0.0.1:3411 --require-kits
+```
+
+Real Chromium checked all 50 card subtotals and ten kit names, links, owned
+basics, supplies, pickup scope, and delivery disclosures. The $50/$100/$200
+limits returned 4/11/35 looks. Saved, model, and local search controls composed;
+empty-price recovery and keyboard access passed. The 390px and 320px layouts
+had no horizontal overflow or browser exception. Focused lint, TypeScript, and
+diff checks passed. This checks discovery links, not destination cart contents,
+semantic-provider behavior, physical devices, or production.
+
+### Saved selections and sourced boards
+
+The [saved-state evidence](../../verification/look-state-2026-11-05.md) records:
+
+```sh
+bun scripts/verify-look-state.ts http://localhost:3342
+SAVED_LOOK_PERSISTENCE_E2E=1 bun scripts/verify-look-state.ts http://localhost:3342
+```
+
+The read-only route pass covered four feature groups. The authorized persistence
+pass covered seven. One signed synthetic nonpersonal record survived create,
+stable-ID update, and GET while retaining its missing row and stripping sizes.
+Only that exact test ID and private request ID were deleted. A separate SELECT
+confirmed cleanup. No catalog record or existing saved board changed.
+
+The preview resolver used the saved product title and rejected invented products
+or mixed sources before provider work. Saved previews use product names as text
+references; they do not fetch merchant images. Live screenshot matching,
+successful missing-piece retry, generated preview fidelity, and UI continuity
+require separate checks. OpenAI credit exhaustion blocks paid generation.
+
+UI source in `93edd6d` adds exact saved/shared choices, repair states, exact-cart
+pruning, kit date constraints, screenshot autosave/reload, saved-only preview,
+public saved links, and per-missing-row retry. Private sizes remain in browser
+storage. Scoped ESLint and diff checks passed. That lane ran no UI runtime,
+production build, or full TypeScript check; integrated QA supplies that evidence.
+
+```sh
+bunx eslint components/saved-looks.tsx components/store/costume-experience.tsx components/store/virtual-try-on.tsx components/store/custom-look.tsx components/store/screenshot-costume.tsx components/store/local-product-sizes.ts app/costumes/'[slug]'/page.tsx
+```
+
+### Phone camera
+
+The [phone evidence](../../phone-camera.md) distinguishes Metered relay setup,
+direct WebRTC, simulated failures, and real hardware. The owner ran these commands
+against a local webpack development server with `TRY_ON_TESTING_MODE=1`:
+
+```sh
+PHONE_BASE_URL=http://localhost:3036 PHONE_TESTING_MODE=1 PHONE_RELIABILITY_E2E=1 PHONE_EXPECT_RELAY_STATUS=unconfigured node scripts/verify-phone-camera.mjs
+PHONE_BASE_URL=http://localhost:3036 PHONE_TESTING_MODE=1 PHONE_DELAY_CANDIDATES=1 PHONE_EXPECT_RELAY_STATUS=unconfigured node scripts/verify-phone-camera.mjs
+```
+
+The final server also set `METERED_TURN_APP=phone-e2e-unconfigured` without an
+API key. That deliberate incomplete configuration exercised direct fallback:
+
+```sh
+PHONE_BASE_URL=http://localhost:3036 PHONE_TESTING_MODE=1 PHONE_RELIABILITY_E2E=1 PHONE_PERMISSION_TIMEOUT_E2E=1 PHONE_EXPECT_RELAY_STATUS=unavailable node scripts/verify-phone-camera.mjs
+```
+
+The three runs passed 16, 11, and 17 checks respectively. They covered synthetic
+raw streaming, repeated photos, seven-second candidate delay, lost-response
+recovery, injected disconnects, failed-lens restoration, a fresh QR reconnect,
+permission cancellation, the actual 30-second deadline, and late-track cleanup.
+Each results file has an empty error list. Static checks passed.
+
+Local artifacts are under
+`/Users/ohong/.codex/visualizations/2026/11/06/halloween-camera-reliability/`.
+No Metered or Cloudflare TURN credentials were available. Relay-ready metadata
+would prove credentials only; a selected relay candidate is still required.
+Forced relay, physical iPhone/Safari, separate networks, cellular handoff, and
+phone live inference were not verified.
+
+### Mirror controls
+
+The [mirror evidence](../../mirror-control-evidence.md) records passing static
+checks, existing invariants, catalog/reference guards, and these runtime commands:
+
+```sh
+MIRROR_BASE_URL=http://localhost:3437 node scripts/verify-mirror-identity.mjs
+bun scripts/verify-mirror-catalog.ts http://localhost:3437
+MIRROR_COMMAND_FIXTURE=1 MIRROR_BASE_URL=http://localhost:3437 node scripts/verify-mirror-commands.mjs
+MIRROR_COMMAND_E2E=1 MIRROR_BASE_URL=http://localhost:3437 node scripts/verify-mirror-commands.mjs
+MIRROR_VIDEO_E2E=1 MIRROR_BASE_URL=http://localhost:3437 node scripts/verify-mirror-video-timing.mjs
+```
+
+Seven browser fixture checks passed for jacket isolation, preview color, owned
+pieces, undo, full-look restoration, stale typed results, and spoken interruption.
+Fixtures verify state handling; they do not measure provider latency.
+
+The real command request returned HTTP 429 with exhausted credit. Real text and
+voice accuracy and latency remain unverified. One real fal/Lucy synthetic-camera
+run measured 524.7 ms to provider open, then 1552.9 ms to the first playable frame.
+All captured tracks closed. These are single-run transport observations with no
+baseline. They do not prove a changed garment, preserved identity, or improvement.
+The change restores no hourly quota.
+
+### Anonymous measurement
+
+The [measurement evidence](measurement.md) records this passing runtime command:
+
+```sh
+bun scripts/verify-events.ts http://localhost:3418 /tmp/halloween-telemetry-dev.log
+```
+
+The real Chromium helper reached the real endpoint and wrote an ordered event
+sequence to stdout. Reload continuity, private-field rejection, custom-record ID
+removal, DNT/GPC suppression, origin guards, body bounds, deduplication, and
+process-local limits passed. The summary CLI consumed those actual local logs
+and returned aggregates without journey IDs. Timing and usage values in that
+check were synthetic fixtures, not provider measurements.
+
+No analytics service, log drain, or event database was provisioned. Hosting
+retention and export remain unverified. The lane did not verify production
+collection, actual provider usage, billing, or the complete UI funnel. The event
+limits do not restrict shopping or repeated demonstrations.
+
+### Checkout recovery and freshness
+
+The [checkout evidence](../../checkout-recovery.md) distinguishes controlled
+browser failures from real merchant verification. These owner commands passed:
+
+```sh
+bun run typecheck
+bunx eslint components/store/cart-drawer.tsx lib/checkout/types.ts lib/checkout/catalog-facts.ts app/api/checkout/route.ts lib/checkout/refresh.ts app/api/cron/refresh/route.ts app/api/health/route.ts scripts/verify-checkout-recovery.mjs
+node scripts/verify-checkout-recovery.mjs http://127.0.0.1:3415 --merchant
+```
+
+The five runtime checks covered 390px and 1440px layouts, focused line recovery,
+real catalog replacements, unrelated cart preservation, size persistence, and
+explicit price acceptance. Sold-out, unverified, and price-change branches used
+controlled checkout responses. They do not establish live merchant stock.
+
+The real checkout API rejected an impossible size for the Cosmic Cowboy fringe
+jacket mixed into a Vampire cart. It returned merchant-offered size labels and
+source-correct alternatives. No Stripe session could be created by that invalid
+input. The configured test key is configuration evidence only; no unpaid session
+was created or expired. Authorized refresh writes and production database
+mutations were not run. Refresh summaries are not persisted.
+
+### Clip input
+
+The [clip evidence](../../clip-sourcing.md) records the exact guards and probes.
+`bun scripts/verify-clip-sourcing.ts` passed 24 real-route checks with zero
+provider calls. `bun run typecheck` and focused ESLint passed in the owner
+worktree. A two-second local MP4 reached the actual video endpoint:
+
+| Explicit model | Result |
+| --- | --- |
+| `gemini-3.8-flash` | HTTP 503, busy |
+| `gemini-2.5-flash` | HTTP 404, unavailable |
+| `gemini-4-argon` | HTTP 429, quota |
+
+A successful model listing did not establish video access. No model is qualified,
+and the default flag remains off. A complete real YouTube or upload product board
+has not been verified. No new merchant sourcing or external publication occurred
+in this lane.
