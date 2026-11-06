@@ -22,7 +22,7 @@ export async function POST(request: Request, { params }: { params: Promise<{ id:
       if (previous.state === "running") throw new PreviewError(409, "This piece is still being searched. Retry shortly to reopen the saved result.");
       return savedLookReply(200, { id: previous.id, href: `/create/${previous.id}`, look: previous });
     }
-    if (!process.env.FIRECRAWL_API_KEY) throw new PreviewError(503, "Piece search is unavailable right now. Your saved products are unchanged.");
+    if (!process.env.FIRECRAWL_API_KEY || !process.env.ANTHROPIC_API_KEY) throw new PreviewError(503, "Piece search is unavailable right now. Your saved products are unchanged.");
     if (active >= 3) throw new PreviewError(429, "Piece search is busy. Please try again shortly.");
     active++; reserved = true;
     const claimed = await claimCustomLook({ requestId: body.requestId, query, model: original.model });
@@ -34,12 +34,12 @@ export async function POST(request: Request, { params }: { params: Promise<{ id:
       const item = hit ? validateCustomItem(toCartItem(body.pieceIndex, row.piece, hit, `custom-${look.id}`)) : null;
       if (item && !look.pieces.some(existing => existing.item?.productId === item.productId)) look = { ...look, pieces: look.pieces.map((existing, index) => index === body.pieceIndex ? { ...existing, item: { ...item, size: null } } : existing) };
       const found = look.pieces.filter(existing => existing.item).length;
-      const result = { ...look, state: found === look.pieces.length ? "complete" as const : "partial" as const,
+      const result = { ...look, state: found === look.pieces.length ? "complete" as const : found > 0 ? "partial" as const : "failed" as const,
         ...(item ? {} : { error: "No verified product was found for this piece. Your other products are saved." }) };
       await saveCustomLook(result);
       return savedLookReply(200, { id: result.id, href: `/create/${result.id}`, look: result });
     } catch {
-      const result = { ...look, state: "partial" as const, error: "This piece could not be searched. Your other products are saved." };
+      const result = { ...look, state: look.pieces.some(existing => existing.item) ? "partial" as const : "failed" as const, error: "This piece could not be searched. Your other products are saved." };
       await saveCustomLook(result);
       return savedLookReply(200, { id: result.id, href: `/create/${result.id}`, look: result });
     }
