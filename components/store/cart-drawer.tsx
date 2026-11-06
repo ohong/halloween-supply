@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useMemo, useRef, useState } from "react";
+import { useEffect, useMemo, useRef, useState, useSyncExternalStore } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { SCREENSHOT_SLUG, costumeName, formatExactPrice, formatPrice, useCart } from "@/lib/cart/context";
@@ -19,7 +19,16 @@ type Status =
   | { kind: "needs_sizes"; cartKey: string; pieceIds: string[]; text: string }
   | { kind: "message"; cartKey: string; text: string };
 
+const subscribeToHydration = () => () => {};
+
 export function CartDrawer({ demoDefaultSizes = false }: { demoDefaultSizes?: boolean }) {
+  // The shared cart can open before this Suspense boundary hydrates.
+  // Keep its first client markup equal to the server's closed drawer.
+  const hydrated = useSyncExternalStore(subscribeToHydration, () => true, () => false);
+  return hydrated ? <CartDrawerContents demoDefaultSizes={demoDefaultSizes} /> : null;
+}
+
+function CartDrawerContents({ demoDefaultSizes }: { demoDefaultSizes: boolean }) {
   const cart = useCart();
   const { items, isOpen, setOpen, costumeSlug } = cart;
   const [status, setStatus] = useState<Status>({ kind: "idle" });
