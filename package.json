@@ -10,6 +10,8 @@
     "typecheck": "next typegen && tsc --noEmit",
     "verify:catalog": "bun --no-env-file scripts/verify-full-catalog.ts",
     "verify:release": "bun --no-env-file scripts/verify-release.ts",
+    "test": "bun test",
+    "check": "bun run typecheck && bun run lint && bun run test",
     "seed": "bun scripts/seed.ts",
     "source": "bun scripts/source/index.ts"
   },
