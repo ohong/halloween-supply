@@ -1,6 +1,7 @@
 import { z } from "zod";
 import type { CartItem } from "../types";
 import type { CustomLook } from "./types";
+import { isPublicProductUrl } from "./public-url";
 
 export const customPieceSchema = z.object({
   name: z.string().trim().min(1).max(60),
@@ -9,14 +10,14 @@ export const customPieceSchema = z.object({
   sizeKind: z.enum(["apparel", "pants", "shoe", "hat", "one_size"]),
 });
 
-const httpsUrl = z.url().max(2000).refine((value) => value.startsWith("https://"));
+const httpsUrl = z.url().max(2000).refine((value) => isPublicProductUrl(value));
 const itemSchema = z.object({
   pieceId: z.string().min(1).max(150),
   pieceName: z.string().min(1).max(60),
   sizeKind: customPieceSchema.shape.sizeKind,
   productId: z.string().regex(/^[a-f0-9]{24}$/),
   title: z.string().min(1).max(200),
-  productUrl: httpsUrl,
+  productUrl: httpsUrl.refine((value) => isPublicProductUrl(value, true)),
   image: httpsUrl,
   merchantId: z.string().min(1).max(253),
   merchantName: z.string().min(1).max(253),
@@ -32,7 +33,8 @@ const customLookSchema = z.object({
   name: z.string().min(1).max(160),
   summary: z.string().max(240),
   state: z.enum(["running", "complete", "partial", "failed"]),
-  pieces: z.array(z.object({ piece: customPieceSchema, item: itemSchema.nullable() })).max(7),
+  pieces: z.array(z.object({ piece: customPieceSchema, item: itemSchema.nullable() })).max(8),
+  source: z.enum(["custom", "screenshot"]).optional(),
   createdAt: z.iso.datetime(),
   error: z.string().max(300).optional(),
 });
