@@ -84,7 +84,11 @@ export function PhoneCameraProvider({ children }: { children: React.ReactNode })
       const remote = new MediaStream();
       peer.ontrack = event => { if (sessionRef.current !== session) { event.track.stop(); return; } remote.addTrack(event.track); setStream(remote); };
       watchConnection(peer, { signal: controller.signal,
-        onRecovering: () => { session.lastPing = Date.now(); setStage("reconnecting"); setStatus("connecting"); },
+        onRecovering: () => {
+          session.lastPing = Date.now(); setStage("reconnecting");
+          // Existing consumers use connected status to retain phone media during recovery.
+          if (session.channel?.readyState !== "open") setStatus("connecting");
+        },
         onRecovered: () => { session.lastPing = Date.now(); if (session.channel?.readyState === "open") { setStage("connected"); setStatus("connected"); } },
         onFailed: () => fail(session.heartbeat ? "Your phone disconnected. Use phone camera to create a new code." : config.relayAvailable ? "Your phone could not reach this computer. Try again, or switch the phone to Wi-Fi." : "Your phone could not reach this computer. Put both devices on the same Wi-Fi network and try again."),
       });

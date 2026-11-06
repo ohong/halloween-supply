@@ -72,8 +72,14 @@ try{
  await phone.getByRole('button',{name:'Open camera',exact:true}).click();
  await desktop.getByText('Phone camera connected',{exact:true}).waitFor({timeout:40000});
  await desktop.waitForFunction(()=>document.querySelector('video[aria-label="Phone camera preview"]')?.videoWidth>0);
- await desktop.waitForFunction(async()=>{for(const peer of window.cameraTest.peers)for(const stat of (await peer.getStats()).values())if(stat.type==='inbound-rtp'&&stat.kind==='video'&&stat.framesDecoded>=10)return true;return false;});
- const rawVideo=await desktop.evaluate(async()=>{const result=[];for(const peer of window.cameraTest.peers)for(const stat of (await peer.getStats()).values())if(stat.type==='inbound-rtp'&&stat.kind==='video')result.push({framesDecoded:stat.framesDecoded,width:stat.frameWidth,height:stat.frameHeight});return result;});
+ let rawVideo=[];
+ const videoDeadline=Date.now()+20000;
+ while(Date.now()<videoDeadline) {
+  rawVideo=await desktop.evaluate(async()=>{const result=[];for(const peer of window.cameraTest.peers)for(const stat of (await peer.getStats()).values())if(stat.type==='inbound-rtp'&&stat.kind==='video')result.push({framesDecoded:stat.framesDecoded,width:stat.frameWidth,height:stat.frameHeight});return result;});
+  if(rawVideo.some(stat=>stat.framesDecoded>=10))break;
+  await new Promise(resolve=>setTimeout(resolve,200));
+ }
+ assert.ok(rawVideo.some(stat=>stat.framesDecoded>=10),'The phone must deliver at least ten decoded video frames.');
  log('phone-video-on-desktop-without-desktop-camera',{rawVideo});
  if(process.env.PHONE_RELIABILITY_E2E==='1') {
   assert.equal(retriedSignals,1);assert.equal(retriedCandidates,1);
@@ -81,6 +87,7 @@ try{
   log('lost-offer-response-and-temporary-candidate-failure-recover');
   await desktop.evaluate(()=>{const peer=window.cameraTest.peers[0];Object.defineProperty(peer,'connectionState',{configurable:true,value:'disconnected'});peer.dispatchEvent(new Event('connectionstatechange'));});
   await desktop.getByText('Reconnecting phone…',{exact:true}).waitFor();
+  assert.equal(await desktop.getByRole('button',{name:'Take photo from phone',exact:true}).isVisible(),true,'Recovery must keep the existing connected media source for mirror and voice consumers.');
   assert.equal(await phone.evaluate(()=>window.cameraTest.tracks.filter(track=>track.kind==='video'&&track.readyState==='live').length),1);
   await desktop.evaluate(()=>{const peer=window.cameraTest.peers[0];delete peer.connectionState;peer.dispatchEvent(new Event('connectionstatechange'));});
   await desktop.getByText('Phone camera connected',{exact:true}).waitFor();
