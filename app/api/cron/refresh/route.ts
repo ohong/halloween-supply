@@ -19,19 +19,12 @@ export async function GET(request: Request) {
   if (!isAuthorized(request)) {
     return Response.json({ status: "error", message: "Unauthorized" }, { status: 401, headers });
   }
-  const startedAt = Date.now();
   try {
     const summary = await refreshAllProducts();
     if (summary.databaseWritten > 0) revalidateTag("catalog", { expire: 0 });
-    const failed = Boolean(summary.databaseError) || summary.checked === 0 || summary.verified === 0;
-    const partial = !failed && summary.unverified.length > 0;
     return Response.json(
-      {
-        status: failed ? "error" : partial ? "partial" : "ok",
-        ...summary,
-        durationMs: Date.now() - startedAt,
-      },
-      { status: failed ? 503 : partial ? 207 : 200, headers },
+      summary,
+      { status: summary.status === "error" ? 503 : summary.status === "partial" ? 207 : 200, headers },
     );
   } catch {
     // Provider errors can include request URLs or credentials; keep responses and logs generic.

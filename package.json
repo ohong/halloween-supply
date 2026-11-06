@@ -8,6 +8,8 @@
     "start": "next start",
     "lint": "eslint",
     "typecheck": "next typegen && tsc --noEmit",
+    "verify:catalog": "bun --no-env-file scripts/verify-full-catalog.ts",
+    "verify:release": "bun --no-env-file scripts/verify-release.ts",
     "seed": "bun scripts/seed.ts",
     "source": "bun scripts/source/index.ts"
   },
