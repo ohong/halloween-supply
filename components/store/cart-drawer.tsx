@@ -14,7 +14,7 @@ type Status =
   | { kind: "idle" }
   | { kind: "loading"; cartKey: string }
   | { kind: "redirecting"; cartKey: string }
-  | { kind: "price_changed"; cartKey: string; changes: PriceChange[]; text: string }
+  | { kind: "price_changed"; cartKey: string; changes: PriceChange[]; subtotalCents: number; text: string }
   | { kind: "recovery"; cartKey: string; result: Extract<CheckoutResponse, { status: "sold_out" | "invalid_size" | "unverified" }> }
   | { kind: "needs_sizes"; cartKey: string; pieceIds: string[]; text: string }
   | { kind: "message"; cartKey: string; text: string };
@@ -127,7 +127,14 @@ export function CartDrawer({ demoDefaultSizes = false }: { demoDefaultSizes?: bo
           return;
         case "price_changed":
           trackEvent("checkout_recovery", { source: "checkout", slug: costumeSlug, stage: "price_changed", provider: "merchant", durationMs: performance.now() - startedAt, mode });
-          setStatus({ kind: "price_changed", cartKey, changes: result.priceChanges, text: result.message });
+          setStatus({ kind: "price_changed", cartKey, changes: result.priceChanges, text: result.message,
+            // Include earlier approvals from this exact request, even after repairing another line.
+            subtotalCents: items.reduce((sum, line) => sum + (
+              result.priceChanges.find((change) => change.pieceId === line.pieceId && change.productId === line.productId)?.newCents
+              ?? body.acceptedPrices?.find((price) => price.pieceId === line.pieceId && price.productId === line.productId)?.priceCents
+              ?? line.priceCents
+            ), 0),
+          });
           return;
         case "sold_out":
         case "invalid_size":
@@ -250,7 +257,7 @@ export function CartDrawer({ demoDefaultSizes = false }: { demoDefaultSizes?: bo
         {currentStatus.kind === "price_changed" && <div className="notice" role="alert">
           <p>{currentStatus.text}</p>
           <ul>{currentStatus.changes.map((change) => <li key={change.pieceId}>{change.pieceName}: {formatExactPrice(change.oldCents)} → {formatExactPrice(change.newCents)}</li>)}</ul>
-          <p>New subtotal: {formatExactPrice(items.reduce((sum, line) => sum + (currentStatus.changes.find((change) => change.pieceId === line.pieceId && change.productId === line.productId)?.newCents ?? line.priceCents), 0))}</p>
+          <p>New subtotal: {formatExactPrice(currentStatus.subtotalCents)}</p>
         </div>}
         {currentStatus.kind === "redirecting" && <p className="notice" role="status">Taking you to checkout…</p>}
         <button type="button" className="btn btn-block" onClick={() => void checkout(currentStatus.kind === "price_changed")} disabled={busy || (!demoDefaultSizes && missingSizes > 0)}>

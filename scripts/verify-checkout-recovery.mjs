@@ -89,10 +89,12 @@ try {
 
   const requests = [];
   const newPrice = lines[1].priceCents + 51;
+  const laterPrice = affected.priceCents + 77;
   const priceTest = await openCart((body) => {
     requests.push(body);
     if (requests.length === 1) return { status: "price_changed", priceChanges: [{ pieceId: lines[1].pieceId, productId: lines[1].productId, pieceName: lines[1].pieceName, oldCents: lines[1].priceCents, newCents: newPrice }], message: "Review the exact new price." };
     if (requests.length === 2) return { status: "invalid_size", ...recovery, availableSizes: ["Live merchant label"], message: "The old size is unavailable." };
+    if (requests.length === 3) return { status: "price_changed", priceChanges: [{ pieceId: affected.pieceId, productId: affected.productId, pieceName: affected.pieceName, oldCents: affected.priceCents, newCents: laterPrice }], message: "Another piece now has a new price." };
     return { status: "error", message: "Controlled stop before creating any checkout session." };
   }, 1440);
   try {
@@ -107,9 +109,20 @@ try {
     assert.deepEqual(after.items.slice(1), lines.slice(1));
     assert.deepEqual(after.items[0].availableSizes, ["Live merchant label"]);
     await priceTest.cart.getByRole("button", { name: "Checkout", exact: true }).click();
-    await priceTest.cart.getByText("Controlled stop before creating any checkout session.").waitFor();
+    const priceNotice = priceTest.cart.getByRole("alert").filter({ hasText: "Another piece now has a new price." });
+    await priceNotice.waitFor();
     assert.equal(requests[2].items[0].size, "Live merchant label");
     assert.equal(requests[2].acceptedPrices.find(({ pieceId }) => pieceId === lines[1].pieceId).priceCents, newPrice);
+    const displayedSubtotal = await priceNotice.getByText(/^New subtotal:/).innerText();
+    const displayedCents = Math.round(Number(displayedSubtotal.replace(/^New subtotal:\s*\$|,/g, "")) * 100);
+    assert.equal(displayedCents, lines.reduce((sum, line) => sum + line.priceCents, 0) + 51 + 77, "The new review must include the earlier accepted increase.");
+    await priceTest.page.screenshot({ path: path.join(evidence, "desktop-sequential-price-review.png") });
+    await priceTest.cart.getByRole("button", { name: "Accept prices and checkout", exact: true }).click();
+    await priceTest.cart.getByText("Controlled stop before creating any checkout session.").waitFor();
+    assert.equal(requests[3].acceptedPrices.reduce((sum, line) => sum + line.priceCents, 0), displayedCents, "The reviewed subtotal must exactly match the next request's accepted prices.");
+    assert.equal(requests[3].acceptedPrices.find(({ pieceId }) => pieceId === affected.pieceId).priceCents, laterPrice);
+    assert.equal(requests[3].acceptedPrices.find(({ pieceId }) => pieceId === lines[1].pieceId).priceCents, newPrice);
+    pass("sequential price reviews retain earlier approvals after recovery and show the exact total submitted for acceptance");
     await priceTest.page.reload();
     const persisted = await priceTest.stored();
     assert.equal(persisted.items[0].size, "Live merchant label");
