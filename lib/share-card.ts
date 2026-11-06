@@ -2,6 +2,7 @@
 // photo never leaves the device unless the guest shares it themselves.
 
 import type { MirrorMix } from "./live-mirror/types";
+import { validateLookSelection, type LookSelection } from "./look-selection";
 
 const W = 1080;
 const H = 1920;
@@ -9,8 +10,19 @@ const FOOTER = 300;
 
 export const lookParam = "look";
 
-export function lookUrl(origin: string, costumeSlug: string, productIds: string[], mixes?: MirrorMix[]) {
+export function lookUrl(origin: string, costumeSlug: string, productIds: string[], mixes?: MirrorMix[],
+  details?: Partial<Pick<LookSelection, "selection" | "ownedPieceIds" | "skippedPieceIds" | "model" | "previewEdits">>) {
   const url = new URL(`/costumes/${costumeSlug}`, origin);
+  if (details?.selection) {
+    const snapshot = validateLookSelection({ version: 1, costumeSlug, selection: details.selection,
+      ownedPieceIds: details.ownedPieceIds ?? [], skippedPieceIds: details.skippedPieceIds ?? [],
+      mixes: mixes ?? [], model: details.model ?? "female", ...(details.previewEdits ? { previewEdits: details.previewEdits } : {}) });
+    url.searchParams.set("selection", JSON.stringify(snapshot));
+    return url.toString();
+  }
+  if (details?.ownedPieceIds?.length) url.searchParams.set("owned", details.ownedPieceIds.join(","));
+  if (details?.skippedPieceIds?.length) url.searchParams.set("skipped", details.skippedPieceIds.join(","));
+  if (details?.model) url.searchParams.set("model", details.model);
   if (productIds.length > 0) url.searchParams.set(lookParam, productIds.join(","));
   if (mixes?.length) url.searchParams.set("mix", JSON.stringify(mixes));
   return url.toString();

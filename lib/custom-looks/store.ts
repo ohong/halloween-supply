@@ -70,3 +70,19 @@ export async function saveCustomLook(input: CustomLook): Promise<void> {
   });
   if (!result.rows.length) throw new Error("The custom look is no longer running.");
 }
+
+/** The private request ID is the edit capability; public look IDs grant read access only. */
+export async function saveScreenshotLook(requestId: string, input: Omit<CustomLook, "id" | "createdAt">) {
+  const previous = await readCustomLookRequest(requestId);
+  if (previous && previous.source !== "screenshot") throw new Error("This request belongs to another look.");
+  const look = validateCustomLook({ ...input, source: "screenshot", id: previous?.id ?? randomUUID(), createdAt: previous?.createdAt ?? new Date().toISOString() });
+  await ensureSchema();
+  const result = await getDatabase().execute({
+    sql: `INSERT INTO custom_looks (id, request_id, payload, updated_at) VALUES (?, ?, ?, ?)
+      ON CONFLICT(request_id) DO UPDATE SET payload = json_set(excluded.payload, '$.id', custom_looks.id, '$.createdAt', json_extract(custom_looks.payload, '$.createdAt')), updated_at = excluded.updated_at
+      WHERE json_extract(custom_looks.payload, '$.source') = 'screenshot' RETURNING payload`,
+    args: [look.id, requestId, JSON.stringify(look), Date.now()],
+  });
+  if (!result.rows[0]) throw new Error("This request belongs to another look.");
+  return validateCustomLook(JSON.parse(String(result.rows[0].payload)));
+}

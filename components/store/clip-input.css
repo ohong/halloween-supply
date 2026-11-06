@@ -1,0 +1,11 @@
+.clip-input { margin-block: 1rem; border-block: 1px solid var(--line, #d8d0bf); }
+.clip-input > summary { cursor: pointer; padding-block: 1rem; font-size: .9rem; }
+.clip-input-body { display: grid; gap: .85rem; padding-bottom: 1rem; min-width: 0; }
+.clip-input-body p { margin: 0; }
+.clip-input-link { display: grid; gap: .4rem; }
+.clip-input-link input { width: 100%; min-width: 0; border: 1px solid var(--line, #d8d0bf); background: transparent; border-radius: .25rem; padding: .75rem; font: inherit; font-size: .9rem; }
+.clip-input-file { max-width: 100%; font: inherit; font-size: .8rem; }
+.clip-input-file::file-selector-button { margin-right: .65rem; padding: .5rem .65rem; border: 1px solid var(--line, #d8d0bf); border-radius: .25rem; background: transparent; color: inherit; cursor: pointer; }
+.clip-input video { display: block; width: 100%; max-height: 22rem; background: #171613; border-radius: .25rem; }
+.clip-input :focus-visible { outline: 2px solid currentColor; outline-offset: 3px; }
+.clip-input :disabled { cursor: wait; }

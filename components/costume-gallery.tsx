@@ -10,6 +10,8 @@ import { costumes } from "@/lib/costumes";
 import { localSearch, normalizeSearchQuery, type SearchResponse } from "@/lib/costume-search";
 import type { CustomLookEvent, CustomPiece } from "@/lib/custom-looks/types";
 import { modelImage, useCostumeModel } from "@/lib/model-selection";
+import type { CostumePriceSummary, KitSummary } from "@/lib/kits";
+import { trackEvent } from "@/lib/telemetry/client";
 import { SaveLook, useSavedLooks } from "./saved-looks";
 import { searchPlaceholder, useSearchPlaceholder } from "./use-search-placeholder";
 import { LandingFilm } from "./landing-film";
@@ -22,8 +24,22 @@ type Creation = {
   message: string;
   pieces: { piece: CustomPiece; state: "looking" | "found" | "missing" }[];
 };
+type Budget = "" | "5000" | "10000" | "20000";
+const budgetOptions: { value: Budget; label: string }[] = [
+  { value: "", label: "Any price" },
+  { value: "5000", label: "$50 or less" },
+  { value: "10000", label: "$100 or less" },
+  { value: "20000", label: "$200 or less" },
+];
+const usd = new Intl.NumberFormat("en-US", { style: "currency", currency: "USD" });
+const price = (cents: number) => usd.format(cents / 100);
 
-export function CostumeGallery({ pieceCounts, children }: { pieceCounts: Record<string, number>; children?: ReactNode }) {
+export function CostumeGallery({ pieceCounts, kits, priceSummaries, children }: {
+  pieceCounts: Record<string, number>;
+  kits: KitSummary[];
+  priceSummaries: CostumePriceSummary[];
+  children?: ReactNode;
+}) {
   const router = useRouter();
   const [query, setQuery] = useState("");
   const [composing, setComposing] = useState(false);
@@ -31,6 +47,7 @@ export function CostumeGallery({ pieceCounts, children }: { pieceCounts: Record<
   const [refinement, setRefinement] = useState<Refinement | null>(null);
   const [creation, setCreation] = useState<Creation | null>(null);
   const [savedOnly, setSavedOnly] = useState(false);
+  const [budget, setBudget] = useState<Budget>("");
   const { model, setModel } = useCostumeModel();
   const { saved } = useSavedLooks();
   const creationAbort = useRef<AbortController | null>(null);
@@ -45,12 +62,22 @@ export function CostumeGallery({ pieceCounts, children }: { pieceCounts: Record<
   const running = creation?.phase === "running";
   const input = useSearchPlaceholder(query.length === 0 && !running && !composing);
   const bySlug = new Map(costumes.map((costume) => [costume.slug, costume]));
+  const kitsByCostume = new Map(kits.filter((kit) => kit.eligible).map((kit) => [kit.costumeSlug, kit]));
+  const pricesByCostume = new Map(priceSummaries.map((summary) => [summary.costumeSlug, summary]));
+  const shownPrice = (slug: string) => kitsByCostume.get(slug)?.purchaseSubtotalCents ?? pricesByCostume.get(slug)?.fullSubtotalCents;
   // Saved is a view of global results, never evidence that a costume is absent.
-  const visible = result.matches.flatMap(({ slug }) => {
+  const matching = result.matches.flatMap(({ slug }) => {
     const costume = bySlug.get(slug);
     return costume && (!savedOnly || saved.includes(slug)) ? [costume] : [];
   });
+  const visible = matching.filter(({ slug }) => {
+    const subtotal = shownPrice(slug);
+    return budget === "" || (subtotal != null && subtotal <= Number(budget));
+  });
+  const priceHidesMatches = matching.length > 0 && visible.length === 0 && budget !== "";
   const offerCreation = !savedOnly && normalized.length >= 3 && !pending && !result.hasStrongMatch;
+
+  useEffect(() => { trackEvent("view", { source: "discovery", mode: "catalog" }); }, []);
 
   useEffect(() => {
     if (composing || normalized.length < 2) return;
@@ -174,6 +201,7 @@ export function CostumeGallery({ pieceCounts, children }: { pieceCounts: Record<
         <div><h2 id="costume-collection-heading">{savedOnly ? "Your saved looks" : normalized ? "Find your look" : "Explore costumes"}</h2>
           <p id="costume-search-status" className="search-status" role="status" aria-live="polite" aria-atomic="true">
             {visible.length} {visible.length === 1 ? "look" : "looks"}{normalized && <> for “{normalized}”</>}
+            {budget && <span> · {price(Number(budget))} or less</span>}
             {pending && <span> · Finding related looks…</span>}
             {!pending && resolved?.failed && <span> · Local matches</span>}
           </p>
@@ -183,9 +211,15 @@ export function CostumeGallery({ pieceCounts, children }: { pieceCounts: Record<
             <Button variant="ghost" aria-pressed={!savedOnly} disabled={running} onClick={() => setSavedOnly(false)}>All looks</Button>
             <Button variant="ghost" aria-pressed={savedOnly} disabled={running} onClick={() => setSavedOnly(true)}><Heart aria-hidden="true" />Saved{saved.length > 0 && <span className="saved-count">{saved.length}</span>}</Button>
           </div>
+          <div className="gallery-budget"><label htmlFor="gallery-budget">Price</label><select id="gallery-budget" value={budget} disabled={running} aria-controls="costume-results" aria-describedby="gallery-price-note" onChange={(event) => {
+            const next = budgetOptions.find(({ value }) => value === event.target.value)?.value ?? "";
+            setBudget(next);
+            trackEvent("filter", { source: "discovery", mode: "catalog", stage: "budget", units: Number(next) });
+          }}>{budgetOptions.map((option) => <option key={option.value} value={option.value}>{option.label}</option>)}</select></div>
           <div className="gallery-model"><label htmlFor="gallery-model">Model</label><select id="gallery-model" value={model} disabled={running} onChange={(event) => setModel(event.target.value === "male" ? "male" : "female")}><option value="female">Female</option><option value="male">Male</option></select></div>
         </div>
       </div>
+      <p id="gallery-price-note" className="gallery-price-note">Listed USD item subtotals, before shipping and tax. Kits need the owned basics shown below. Confirm stock, sizes and delivery.</p>
 
     {creation ? <section className="search-creation" aria-label="Creating your costume" aria-busy={running}>
       <div className="search-creation-heading"><h2>{creation.name}</h2>
@@ -204,17 +238,35 @@ export function CostumeGallery({ pieceCounts, children }: { pieceCounts: Record<
       {visible.map((costume, index) => {
         const live = costume.status === "live";
         const count = pieceCounts[costume.slug];
-        const detail = !live ? "Style guide" : count ? `${count} pieces` : "Shop the look";
+        const kit = kitsByCostume.get(costume.slug);
+        const subtotal = shownPrice(costume.slug);
+        const detail = !live ? "Style guide" : kit ? `${kit.purchaseCount} new ${kit.purchaseCount === 1 ? "piece" : "pieces"}` : count ? `${count} pieces` : "Shop the look";
+        const href = kit ? `/costumes/${costume.slug}?kit=${encodeURIComponent(kit.slug)}` : `/costumes/${costume.slug}`;
         return <li className="tile" key={costume.slug}>
-          <Link href={`/costumes/${costume.slug}`} className="tile-body" aria-label={`View ${costume.name}${live ? "" : " style guide"}`}>
+          <Link href={href} className="tile-body" aria-label={`View ${costume.name}${kit ? " completion kit" : live ? "" : " style guide"}`} aria-describedby={`tile-summary-${costume.slug}`} onClick={kit ? () => trackEvent("kit", { source: "discovery", slug: costume.slug, stage: "request", units: kit.purchaseCount }) : undefined}>
             <span className="tile-picture"><Image src={modelImage(costume.slug, model)} alt={`${costume.name} worn by our ${model} model. ${costume.alt}`} fill sizes="(min-width: 1360px) 300px, (min-width: 1100px) 25vw, (min-width: 700px) 33vw, 50vw" preload={index === 0} /></span>
-            <span className="tile-caption"><span className="tile-name">{costume.name}</span><span className="tile-detail"><span>{detail}</span><ArrowUpRight size={15} aria-hidden="true" /></span></span>
+            <span className="tile-caption" id={`tile-summary-${costume.slug}`}>
+              <span className="tile-name">{kit?.name ?? costume.name}</span>
+              {live && <span className="tile-price">{subtotal != null ? <>{kit ? "New pieces" : "Full look from"} <strong>{price(subtotal)}</strong></> : "Price unavailable"}</span>}
+              <span className="tile-detail"><span>{detail}</span><ArrowUpRight size={15} aria-hidden="true" /></span>
+              {kit && <>
+                <span className="tile-kit-basics">{kit.ownedBasics.length ? `Own: ${kit.ownedBasics.join(", ")}` : "No owned basics needed"}</span>
+                {kit.supplies.length > 0 && <span className="tile-kit-basics">Supplies not priced: {kit.supplies.join(", ")}</span>}
+                <span className="tile-readiness">{kit.assemblyMinutes === 0 ? "No assembly" : `About ${kit.assemblyMinutes} min assembly`}</span>
+                {kit.deliveryStatus === "pickup_option_found" && <span className="tile-readiness">Pickup listed for {kit.pickupItemCount} of {kit.purchaseCount} new pieces</span>}
+                <span className="tile-readiness">Delivery unconfirmed{kit.unknownStockCount > 0 && " · Stock unconfirmed"}</span>
+              </>}
+            </span>
           </Link>
           <SaveLook slug={costume.slug} name={costume.name} />
         </li>;
       })}
     </ul>
-    {visible.length === 0 && savedOnly && <div className="empty-state">
+    {priceHidesMatches ? <div className="empty-state">
+      <h3>No looks in this price range</h3>
+      <p>Choose a higher price to see more {savedOnly ? "saved " : ""}looks{normalized ? " for this search" : ""}.</p>
+      <Button variant="outline" onClick={() => setBudget("")}>Clear price filter<ArrowRight aria-hidden="true" /></Button>
+    </div> : visible.length === 0 && savedOnly && <div className="empty-state">
       <Heart size={24} aria-hidden="true" />
       <h3>{normalized ? "No saved looks match" : "Keep your favorites here"}</h3>
       <p>{normalized ? "Try a different search, or explore all costumes." : "Tap the heart on a costume to save it for later."}</p>

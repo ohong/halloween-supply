@@ -1,0 +1,203 @@
+[
+  {
+    "slug": "walking-thundercloud",
+    "costumeSlug": "walking-thundercloud",
+    "name": "Walking Thundercloud kit",
+    "description": "Build scattered cloud tufts and silver rain on a clear umbrella. Add your own black clothes and shoes.",
+    "buy": [
+      { "pieceId": "walking-thundercloud-1", "productId": "p-b9b3c5ba1f", "quantity": 1 },
+      { "pieceId": "walking-thundercloud-2", "productId": "p-a1d82748e7", "quantity": 1 },
+      { "pieceId": "walking-thundercloud-3", "productId": "p-2d4b62e79e", "quantity": 1 },
+      { "pieceId": "walking-thundercloud-5", "productId": "p-0265935dc5", "quantity": 1 }
+    ],
+    "owned": [
+      { "pieceId": "walking-thundercloud-4", "note": "Use a black long-sleeve top and black trousers or leggings you already own." }
+    ],
+    "ownedExtras": ["Comfortable dark shoes you already own"],
+    "skipped": [],
+    "extraSupplies": [
+      "White scrap fabric for a removable cloud backing; supply your own, cost excluded",
+      "Sewing thread for attachment and hems; supply your own, cost excluded",
+      "Hook-and-loop tabs for the removable backing; supply your own, cost excluded",
+      "Hot-glue sticks for attaching fiberfill to the fabric backing; supply your own, cost excluded"
+    ],
+    "assembly": {
+      "minutes": 120,
+      "steps": [
+        "Estimate: allow about 120 minutes after every item arrives. This build has not been timed.",
+        "Fit white scrap fabric over the open umbrella and cut a center slit so the backing can lift off.",
+        "Attach hook-and-loop tabs to the backing corners and around the umbrella ribs; keep the opening mechanism clear.",
+        "Remove the backing and glue small fiberfill tufts onto it. One 12-ounce bag gives scattered coverage, not a solid cloud.",
+        "Cut the silver yard into narrow rain strips. Turn and stitch the edges with a fine needle and lightweight thread.",
+        "Tie strips to the outer ribs, away from the face. Trim every strip above the knees.",
+        "Replace the dry cloud backing and pin the small lightning bolt to your black top.",
+        "Walk and turn with the open umbrella. Remove the backing before closing it. This is a costume prop, not tested rainwear."
+      ],
+      "tools": ["Fabric scissors", "Fine sewing needle", "Tape measure", "Hot-glue gun"]
+    },
+    "readiness": {
+      "notes": [
+        "Catalog purchase subtotal: $47.43 USD before shipping, tax, and separately supplied craft materials.",
+        "This plan assumes you own the listed clothes, shoes, tools, and extra supplies. Missing supplies add cost and shopping time.",
+        "The umbrella, stuffing, silver yard, and pin come from four merchants. No event-date delivery is confirmed.",
+        "Primary product pages were reviewed November 5, 2026, Pacific time. Exact variant stock could not be refreshed; catalog timestamps remain unchanged.",
+        "Good's Store permits online-order pickup in East Earl, Pennsylvania. This is not a confirmed local pickup plan for this kit.",
+        "The pin measures only 3/4 by 1/2 inch. No lights or large lightning prop are included."
+      ],
+      "evidence": [
+        {
+          "url": "https://shedrain.com/products/auto-open-traditional-bubble",
+          "checkedAt": "2026-11-06T06:57:02Z",
+          "kind": "product",
+          "productId": "p-b9b3c5ba1f",
+          "note": "Primary page lists $25 USD, White as a color option, and a transparent 52-inch canopy. White variant selection and stock were not freshly verified."
+        },
+        {
+          "url": "https://goodsstores.com/products/poly-fil-original-pf",
+          "checkedAt": "2026-11-06T06:57:02Z",
+          "kind": "product",
+          "productId": "p-a1d82748e7",
+          "note": "Primary page shows $8.49 and 12-ounce/32-ounce options. Polyester fiberfill is described for cloud scenes. The catalog selects one 12-ounce bag."
+        },
+        {
+          "url": "https://fabricwholesaledirect.com/products/tissue-lame-44-45-inch-fabric",
+          "checkedAt": "2026-11-06T06:57:02Z",
+          "kind": "product",
+          "productId": "p-2d4b62e79e",
+          "note": "Primary page shows Silver at $4.99 per yard, 44/45 inches wide. This is lightweight, sheer metallic fabric, not pre-cut rain strips."
+        },
+        {
+          "url": "https://stockpins.com/products/lightning-bolt-lapel-pin-1",
+          "checkedAt": "2026-11-06T06:57:02Z",
+          "kind": "product",
+          "productId": "p-0265935dc5",
+          "note": "Primary page lists $8.95 per pin, Silver as a finish, free polybag packaging, and a 3/4 by 1/2 inch bolt with clutch back."
+        },
+        {
+          "url": "https://shedrain.com/policies/shipping-policy",
+          "checkedAt": "2026-11-06T06:57:02Z",
+          "kind": "shipping",
+          "productId": "p-b9b3c5ba1f",
+          "note": "Merchant shipping policy supplies no product-specific absolute arrival date for this umbrella. Product page calculates shipping at checkout."
+        },
+        {
+          "url": "https://goodsstores.com/policies/shipping-policy",
+          "checkedAt": "2026-11-06T06:57:02Z",
+          "kind": "shipping",
+          "productId": "p-a1d82748e7",
+          "note": "Merchant states dispatch within 1-3 business days and delivery estimates at checkout. Lower-48 standard shipping is $7.99 for orders through $20; shipping is excluded from the subtotal. East Earl pickup requires a separate location decision."
+        },
+        {
+          "url": "https://help.fabricwholesaledirect.com/en-US/shipping-319913",
+          "checkedAt": "2026-11-06T06:57:02Z",
+          "kind": "shipping",
+          "productId": "p-2d4b62e79e",
+          "note": "Merchant estimates 1-3 business days preparation and 5-7 business days standard transit, with variation. These estimates do not establish arrival for an event."
+        },
+        {
+          "url": "https://stockpins.com/pages/faq",
+          "checkedAt": "2026-11-06T06:57:02Z",
+          "kind": "shipping",
+          "productId": "p-0265935dc5",
+          "note": "Merchant allows up to three days to process orders and does not guarantee same-day or next-day dispatch, even with overnight shipping."
+        },
+        {
+          "url": "https://fabricwholesaledirect.com/products/tissue-lame-44-45-inch-fabric",
+          "checkedAt": "2026-11-06T06:57:02Z",
+          "kind": "assembly",
+          "productId": "p-2d4b62e79e",
+          "note": "Merchant recommends a fine sharp needle, lightweight thread, gentle handling, and a scrap test when sewing this delicate fabric. Kit build time is an editorial estimate."
+        },
+        {
+          "url": "https://spotofteadesigns.com/diy-rain-cloud-costume/",
+          "checkedAt": "2026-11-06T06:57:02Z",
+          "kind": "assembly",
+          "note": "Original creator demonstrates a removable fabric umbrella backing, hook-and-loop attachment, glued Poly-Fil tufts, and hanging rain. This kit adapts that method to scattered tufts and silver strips; it is not a tested copy of that build."
+        }
+      ]
+    },
+    "rationale": "Keep the cloud frame, tufts, rain, and lightning silhouette. Reuse black separates instead of purchasing a unitard. The cheapest catalog pin keeps the listed purchases under $50; four separate shipping charges remain possible."
+  },
+  {
+    "slug": "venus-flytrap",
+    "costumeSlug": "venus-flytrap",
+    "name": "Venus Flytrap kit",
+    "description": "Cut a soft green plant collar with an orange mouth and white teeth. Wear it over your own black clothes.",
+    "buy": [
+      { "pieceId": "venus-flytrap-1", "productId": "p-5168383708", "quantity": 1 },
+      { "pieceId": "venus-flytrap-2", "productId": "p-14282b42ef", "quantity": 1 },
+      { "pieceId": "venus-flytrap-3", "productId": "p-af9a50034c", "quantity": 1 }
+    ],
+    "owned": [
+      { "pieceId": "venus-flytrap-4", "note": "Use a black top and black trousers or leggings you already own." },
+      { "pieceId": "venus-flytrap-5", "note": "Use comfortable dark shoes or ankle boots you already own." }
+    ],
+    "skipped": [],
+    "extraSupplies": [
+      "Sewing thread or embroidery floss; supply your own, cost excluded",
+      "Two safety pins to attach the collar to your top; supply your own, cost excluded",
+      "Scrap paper for a shoulder-size template; supply your own, cost excluded"
+    ],
+    "assembly": {
+      "minutes": 120,
+      "steps": [
+        "Estimate: allow about 120 minutes after all felt arrives. This build has not been timed.",
+        "Make a paper template for an open shoulder collar and two leaves. Fit it before cutting felt.",
+        "Lay every green shape within the approximately 18 by 36 inch half-yard cut. Keep the face and neck opening clear.",
+        "Cut the green collar and leaves. Cut an orange mouth patch that fits on the front of the collar.",
+        "Cut small triangular teeth from the 9 by 12 inch white sheet.",
+        "Stitch the mouth patch and teeth onto the collar. Stitch the leaves to the collar shoulders.",
+        "Pin the collar to the shoulders of your black top. Close pin clasps and check arm movement.",
+        "Wear your own black trousers and dark shoes. This makes a soft collar, not a rigid headpiece or full plant suit."
+      ],
+      "tools": ["Fabric scissors", "Sewing needle", "Pencil", "Tape measure"]
+    },
+    "readiness": {
+      "notes": [
+        "Catalog purchase subtotal: $13.50 USD before shipping, tax, and separately supplied thread and fasteners.",
+        "This plan assumes you own the listed clothes, shoes, tools, and extra supplies. Missing supplies add cost and shopping time.",
+        "All three felt purchases use Benzie Design. No event-date delivery or local pickup is confirmed.",
+        "Choose one 1/2-yard Sage cut, one 1/2-yard Pumpkin cut, and one 9 by 12 inch White sheet. Smaller felt options are not equivalent.",
+        "Primary pages were reviewed November 5, 2026, Pacific time. Exact variant price and stock refresh was blocked; $6, $6, and $1.50 remain catalog prices checked October 27.",
+        "Sage is muted green, Pumpkin is burnt orange, and wool-blend White is soft white. The result differs from bright acrylic felt.",
+        "The small felt quantities support the described collar and leaves. A larger headpiece or full-body plant needs more material."
+      ],
+      "evidence": [
+        {
+          "url": "https://www.benziedesign.com/products/sage-wool-blend-felt",
+          "checkedAt": "2026-11-06T06:57:02Z",
+          "kind": "product",
+          "productId": "p-5168383708",
+          "note": "Primary page offers Sage in 1/2-yard cuts on approximately 36-inch bolts. Selected catalog variant 1330487300 costs $6, checked October 27; exact variant price and stock were not freshly verified."
+        },
+        {
+          "url": "https://www.benziedesign.com/products/pumpkin-wool-blend-felt",
+          "checkedAt": "2026-11-06T06:57:02Z",
+          "kind": "product",
+          "productId": "p-14282b42ef",
+          "note": "Primary page offers Pumpkin in 1/2-yard cuts. Selected catalog variant 1328706564 costs $6, checked October 27; the default $2.50 page price belongs to a different size. Exact variant stock was not freshly verified."
+        },
+        {
+          "url": "https://www.benziedesign.com/products/white-wool-blend-felt",
+          "checkedAt": "2026-11-06T06:57:02Z",
+          "kind": "product",
+          "productId": "p-af9a50034c",
+          "note": "Primary page offers 9 by 12 inch White felt and explains that natural wool content produces soft white. Catalog variant 1331231668 costs $1.50, checked October 27. Exact variant stock was not freshly verified."
+        },
+        {
+          "url": "https://www.benziedesign.com/pages/shipping",
+          "checkedAt": "2026-11-06T06:57:02Z",
+          "kind": "shipping",
+          "note": "Merchant says most orders dispatch within 24 hours, six days weekly; large orders, holidays, and custom work can add 1-2 days. Carrier transit remains separate. International delivery can take 1-6 weeks. No absolute arrival date is established."
+        },
+        {
+          "url": "https://www.benziedesign.com/blogs/tutorials/felt-mobile",
+          "checkedAt": "2026-11-06T06:57:02Z",
+          "kind": "assembly",
+          "note": "Merchant tutorial demonstrates cutting Sage felt leaves, attaching felt details, and adding soft felt teeth. It supports the craft techniques, not this collar pattern or its estimated 120-minute build time."
+        }
+      ]
+    },
+    "rationale": "Buy the three defining felt colors from one merchant and reuse the black base and footwear. Half-yard wool-blend cuts cost less than the catalog acrylic yards, but produce a smaller, muted soft collar rather than a sculpted headpiece."
+  }
+]

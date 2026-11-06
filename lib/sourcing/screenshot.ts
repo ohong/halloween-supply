@@ -152,7 +152,7 @@ const matchFor = (result: SearchResult, piece: ScreenshotPiece): ScreenshotMatch
 // A shop's cart currency is stable, so later screenshots skip this round trip. Failures are retried.
 const currencies = new Map<string, Promise<string | null>>();
 
-export function screenshotSourcing(signal: AbortSignal, log: SourcingLog, reference: Buffer) {
+export function screenshotSourcing(signal: AbortSignal, log: SourcingLog, reference: Buffer | null) {
   const searches = new Map<string, Promise<SearchResult[]>>();
   let backupReported = false;
   function search(query: string) {
@@ -346,7 +346,8 @@ export function screenshotSourcing(signal: AbortSignal, log: SourcingLog, refere
     onMatch(matchFor(candidates[0], piece));
     log("found", `${piece.name}: found a similar item at ${registrableDomain(candidates[0].url)}`);
     const details = await readAll(candidates, piece, onMatch);
-    if (!details.length || signal.aborted) return;
+    // A video thumbnail is not evidence of the outfit; link-only clips remain discovery results.
+    if (!details.length || signal.aborted || !reference) return;
     log("review", `${piece.name}: quick product-photo check`);
     try {
       const verdict = await reviewScreenshotProducts(reference, piece, details.map(detail => detail.match), AbortSignal.any([signal, AbortSignal.timeout(7_000)]));

@@ -10,6 +10,7 @@ export interface CustomPiece {
 /** Guest-created looks remain outside the reviewed editorial catalog. */
 export interface CustomLook {
   id: string;
+  source?: "custom" | "screenshot";
   query: string;
   model: "male" | "female";
   name: string;

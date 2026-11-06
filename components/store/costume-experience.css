@@ -111,3 +111,20 @@
   .ui-dialog-overlay, .ui-dialog-content { animation: none; }
   .costume-shop [data-slot="button"], .piece-dialog [data-slot="button"] { transition: none; }
 }
+
+.look-share { display: flex; flex-wrap: wrap; align-items: center; gap: 12px; margin-top: 12px; font-size: 12px; color: var(--mid); }
+.look-share p { line-height: 1.5; }
+.costume-kit { display: grid; gap: 12px; padding: 20px; margin-bottom: 24px; border: 1px solid var(--line); border-radius: 8px; }
+.costume-kit > div { display: flex; flex-wrap: wrap; gap: 8px 16px; justify-content: space-between; align-items: baseline; }
+.costume-kit h2 { font-size: 16px; font-weight: 500; }
+.costume-kit strong { font-size: 14px; font-weight: 500; }
+.costume-kit p, .costume-kit details { font-size: 12px; line-height: 1.6; color: var(--mid); }
+.costume-kit p b { font-weight: 500; color: var(--ink); }
+.costume-kit summary { cursor: pointer; min-height: 36px; }
+.costume-kit li { margin-top: 8px; }
+.costume-kit a { text-decoration: underline; text-underline-offset: 3px; }
+.piece-use { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding-bottom: 14px; font-size: 11px; color: var(--mid); }
+.piece-use select { min-height: 36px; padding: 0 10px; border: 1px solid var(--line); border-radius: 4px; background: var(--bg); color: var(--ink); font: inherit; }
+
+.kit-event-date { display: flex; align-items: center; justify-content: space-between; gap: 12px; font-size: 12px; }
+.kit-event-date input { min-height: 40px; max-width: 190px; padding: 0 10px; border: 1px solid var(--line); border-radius: 4px; background: var(--bg); color: var(--ink); font: inherit; }
