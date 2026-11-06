@@ -83,10 +83,13 @@ The chosen runner adds only the missing production-server lifecycle and focused 
 | Ruby YAML parser | Passed; the workflow contains the expected quality job. |
 | `git diff --check` | Passed. |
 | Initial production runtime baseline | Catalog, model images, saved state, cart restoration, and product swaps passed. The strict error check found React hydration error 418 when the restored cart opened immediately. |
-| Hydration fix | The cart drawer now matches its server fallback until its own hydration finishes. No test delay or error suppression was added. Production verification of this fix is pending the root rebuild. |
+| Hydration fix | Passed on the integrated production build. The drawer matches its server fallback until its own hydration finishes. No test delay or error suppression was added. |
+| Final strict production baseline | Passed: 50 catalogs, 242 components, 556 served images, 100 model assets, saved navigation, cart restoration/removal/swaps, and desktop/390px layouts. Browser diagnostics contain zero runtime errors, zero unexpected requests, and ten schema-valid anonymous events. |
 | Hosted GitHub Actions | Not run in this task. |
 
 No qualifying Next.js feedback candidate was observed during this change.
+
+The final run used build `s6w_U3F5r-I9tuPR5ITlS` from the integration checkout at source commit `6704bdedbbf1443256f59b4dca4c945b0026dcb7`. The runner started and stopped its own production server. Gallery navigation and full-costume cart checks use separate fresh browser sessions, so the saved kit's owned pieces do not change the full-costume fixture.
 
 ## Release limits
 
