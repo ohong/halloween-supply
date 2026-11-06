@@ -42,7 +42,10 @@ next-env.d.ts
 
 
 # Local provider state and generated agent integrations
-.claude/
+!.claude/
+.claude/*
+!.claude/settings.json
+!.claude/hooks/
 .agents/
 .cursor/
 
