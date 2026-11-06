@@ -14,13 +14,14 @@ The private random `requestId` lets the browser update its screenshot board whil
 
 ## Validation run
 
-`bun scripts/verify-look-state.ts http://localhost:3342` passed five feature groups against a real local Next route and bundled catalog data:
+`bun scripts/verify-look-state.ts http://localhost:3342` passed six feature groups against a real local Next route and bundled catalog data:
 
 - A swapped product, an owned required piece, a skipped optional piece, a mix, model preference and preview edits round-trip through a link. The restored merchandise subtotal equals the selected products.
 - Private sizes stay local. Unsupported versions, malformed links, incomplete snapshots and retired products produce repair information. Versioned snapshots must explicitly select, own or skip every current piece. Old product-only links retain their default-fill behavior. Existing URL fields remain readable.
 - Private, local, credentialed, non-HTTPS and noise product URLs fail validation.
 - The real persistence route rejects unsigned, tampered and unsafe products before a database write.
 - The real photo route rejects a partial disposition before image decoding or provider access.
+- Screenshot pieces with 61- and 70-character names pass actual source-item construction, receipt signing, saved-record validation and the save route. The route reaches its database-unavailable guard for both found and missing rows. Names with 71 characters fail with HTTP 400; the source and saved schemas also reject them. This check disables database configuration in its own process and makes no writes.
 
 The authorized persistence run used `SAVED_LOOK_PERSISTENCE_E2E=1` and existing server credentials. All seven persistence-run feature groups passed before the additional incomplete-snapshot regression check. One synthetic nonpersonal record was created through the real HTTP route. A repeated request updated that same record. A fresh GET returned the same found item and missing row, with no chosen size or photo data. The actual preview-reference resolver read the product title from that persisted record. The photo route rejected an invented saved product and a mixed saved/curated source before provider access. A retry of an already-found row returned HTTP 400.
 

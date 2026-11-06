@@ -80,6 +80,45 @@ const item: CartItem = { pieceId: "verification-boots", pieceName: "Silver boots
 const proof = signSourcedItem(item); assert(verifySourcedItem(item, proof)); assert(!verifySourcedItem({ ...item, priceCents: 1 }, proof));
 const piece = { name: item.pieceName, slot: "feet" as const, query: "silver western costume boots", sizeKind: item.sizeKind };
 const missingPiece = { name: "Black hat", slot: "head" as const, query: "black western costume hat", sizeKind: "hat" as const };
+
+// Pass the screenshot reader's accepted names through the exact source item,
+// receipt, saved-record and request boundaries. No provider or database is used.
+const { screenshotLookSchema } = await import("../lib/sourcing/screenshot-vision");
+const { toCartItem: sourcedCartItem } = await import("../lib/custom-looks/source");
+const { customPieceSchema, validateCustomLook } = await import("../lib/custom-looks/validate");
+const { POST: saveBoundary } = await import("../app/api/saved-looks/route");
+const databaseEnvironment = { url: process.env.TURSO_DATABASE_URL, token: process.env.TURSO_AUTH_TOKEN };
+try {
+  delete process.env.TURSO_DATABASE_URL; delete process.env.TURSO_AUTH_TOKEN;
+  for (const length of [61, 70]) {
+    const name = "Silver costume boots with elaborate decorative stitched western trim".padEnd(length, "x").slice(0, length);
+    const missingName = "Black western hat with decorative stitched ornamental brim detail".padEnd(length, "x").slice(0, length);
+    const analyzed = screenshotLookSchema.parse({ character: "Boundary look", summary: "Name length boundary.", pieces: [
+      { ...piece, name, alternate: piece.query, assembly: null },
+      { ...missingPiece, name: missingName, alternate: missingPiece.query, assembly: null },
+    ] });
+    const sourced = sourcedCartItem(0, analyzed.pieces[0], { title: item.title, image: item.image, url: item.productUrl, priceCents: item.priceCents, merchant: item.merchantName, sizes: item.availableSizes });
+    const receipt = signSourcedItem(sourced);
+    assert(verifySourcedItem(sourced, receipt));
+    const rows = [{ piece: analyzed.pieces[0], item: sourced }, { piece: analyzed.pieces[1], item: null }];
+    const savedBoundary = validateCustomLook({ id: randomUUID(), source: "screenshot", query: "Boundary look", model: "male", name: "Boundary look", summary: "Name length boundary.", state: "partial", pieces: rows, createdAt: new Date().toISOString() });
+    assert.equal(savedBoundary.pieces[0].item?.pieceName.length, length);
+    assert.equal(savedBoundary.pieces[1].piece.name.length, length);
+    const response = await saveBoundary(new Request(`${origin}/api/saved-looks`, { method: "POST", headers: { origin, "Content-Type": "application/json" }, body: JSON.stringify({ requestId: randomUUID(), name: "Boundary look", model: "male", pieces: [{ ...rows[0], proof: receipt }, rows[1]] }) }));
+    assert.equal(response.status, 503);
+    assert.equal((await response.json()).error, "Saved looks are unavailable right now. Your found pieces remain on this board.", "Accepted source names must pass schema and receipt validation before the database availability guard.");
+    const overlong = name + "x".repeat(71 - name.length);
+    assert.equal(customPieceSchema.safeParse({ ...piece, name: overlong }).success, false);
+    assert.throws(() => signSourcedItem({ ...sourced, pieceName: overlong }));
+    assert.equal(screenshotLookSchema.safeParse({ ...analyzed, pieces: [{ ...analyzed.pieces[0], name: overlong }] }).success, false);
+    const rejected = await saveBoundary(new Request(`${origin}/api/saved-looks`, { method: "POST", headers: { origin, "Content-Type": "application/json" }, body: JSON.stringify({ requestId: randomUUID(), name: "Boundary look", model: "male", pieces: [{ ...rows[0], proof: receipt }, { piece: { ...analyzed.pieces[1], name: overlong }, item: null }] }) }));
+    assert.equal(rejected.status, 400);
+  }
+} finally {
+  if (databaseEnvironment.url === undefined) delete process.env.TURSO_DATABASE_URL; else process.env.TURSO_DATABASE_URL = databaseEnvironment.url;
+  if (databaseEnvironment.token === undefined) delete process.env.TURSO_AUTH_TOKEN; else process.env.TURSO_AUTH_TOKEN = databaseEnvironment.token;
+}
+pass("61- and 70-character found/missing screenshot names cross sourcing, receipt, saved-record and save-route validation; 71-character names fail clearly");
 const requestId = randomUUID();
 const body = { requestId, name: "Saved board verification", summary: "Synthetic record for persistence verification only.", model: "male", pieces: [{ piece, item, proof }, { piece: missingPiece, item: null }] };
 async function post(input: unknown, expected: number) {

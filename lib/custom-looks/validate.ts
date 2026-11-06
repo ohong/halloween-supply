@@ -4,7 +4,7 @@ import type { CustomLook } from "./types";
 import { isPublicProductUrl } from "./public-url";
 
 export const customPieceSchema = z.object({
-  name: z.string().trim().min(1).max(60),
+  name: z.string().trim().min(1).max(70),
   slot: z.enum(["head", "top", "outer", "bottom", "feet", "accessory"]),
   query: z.string().trim().min(3).max(90),
   sizeKind: z.enum(["apparel", "pants", "shoe", "hat", "one_size"]),
@@ -13,7 +13,7 @@ export const customPieceSchema = z.object({
 const httpsUrl = z.url().max(2000).refine((value) => isPublicProductUrl(value));
 const itemSchema = z.object({
   pieceId: z.string().min(1).max(150),
-  pieceName: z.string().min(1).max(60),
+  pieceName: customPieceSchema.shape.name,
   sizeKind: customPieceSchema.shape.sizeKind,
   productId: z.string().regex(/^[a-f0-9]{24}$/),
   title: z.string().min(1).max(200),
