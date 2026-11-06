@@ -9,6 +9,8 @@ const eslintConfig = defineConfig([
   globalIgnores([
     "data/cache/**",
     "tmp/**",
+    // Agent worktrees are full copies of the app; lint only this checkout.
+    ".claude/**",
     // Vendored upstream Draco decoder; keep its distributed source intact.
     "public/draco/**",
     // Default ignores of eslint-config-next:
