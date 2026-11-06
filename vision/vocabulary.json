@@ -1,0 +1,2346 @@
+[
+ {
+  "phrase": "felt cowboy hat",
+  "region": "hat",
+  "slot": "head",
+  "size_kind": "hat",
+  "alternate": "western hat",
+  "assembly": null
+ },
+ {
+  "phrase": "tricorn pirate hat",
+  "region": "hat",
+  "slot": "head",
+  "size_kind": "hat",
+  "alternate": "pirate hat",
+  "assembly": null
+ },
+ {
+  "phrase": "pointed witch hat",
+  "region": "hat",
+  "slot": "head",
+  "size_kind": "hat",
+  "alternate": "witch hat",
+  "assembly": null
+ },
+ {
+  "phrase": "tall top hat",
+  "region": "hat",
+  "slot": "head",
+  "size_kind": "hat",
+  "alternate": "top hat",
+  "assembly": null
+ },
+ {
+  "phrase": "deerstalker cap",
+  "region": "hat",
+  "slot": "head",
+  "size_kind": "hat",
+  "alternate": "detective cap",
+  "assembly": null
+ },
+ {
+  "phrase": "leather flight cap",
+  "region": "hat",
+  "slot": "head",
+  "size_kind": "hat",
+  "alternate": "aviator cap",
+  "assembly": null
+ },
+ {
+  "phrase": "rounded astronaut helmet",
+  "region": "hat",
+  "slot": "head",
+  "size_kind": "hat",
+  "alternate": "space helmet",
+  "assembly": null
+ },
+ {
+  "phrase": "shell crown",
+  "region": "hat",
+  "slot": "head",
+  "size_kind": "hat",
+  "alternate": "seashell crown",
+  "assembly": null
+ },
+ {
+  "phrase": "leaf twig crown",
+  "region": "hat",
+  "slot": "head",
+  "size_kind": "hat",
+  "alternate": "leaf crown",
+  "assembly": null
+ },
+ {
+  "phrase": "rose flower crown",
+  "region": "hat",
+  "slot": "head",
+  "size_kind": "hat",
+  "alternate": "flower crown",
+  "assembly": null
+ },
+ {
+  "phrase": "jeweled royal crown",
+  "region": "hat",
+  "slot": "head",
+  "size_kind": "hat",
+  "alternate": "gold crown",
+  "assembly": null
+ },
+ {
+  "phrase": "belled jester cap",
+  "region": "hat",
+  "slot": "head",
+  "size_kind": "hat",
+  "alternate": "jester hat",
+  "assembly": null
+ },
+ {
+  "phrase": "wool beret",
+  "region": "hat",
+  "slot": "head",
+  "size_kind": "hat",
+  "alternate": "beret",
+  "assembly": null
+ },
+ {
+  "phrase": "spotted mushroom hat",
+  "region": "hat",
+  "slot": "head",
+  "size_kind": "hat",
+  "alternate": "mushroom cap",
+  "assembly": null
+ },
+ {
+  "phrase": "insect antenna headband",
+  "region": "hat",
+  "slot": "head",
+  "size_kind": "hat",
+  "alternate": "antenna headband",
+  "assembly": null
+ },
+ {
+  "phrase": "owl feather headpiece",
+  "region": "hat",
+  "slot": "head",
+  "size_kind": "hat",
+  "alternate": "feather headpiece",
+  "assembly": null
+ },
+ {
+  "phrase": "raven feather headpiece",
+  "region": "hat",
+  "slot": "head",
+  "size_kind": "hat",
+  "alternate": "bird headpiece",
+  "assembly": null
+ },
+ {
+  "phrase": "starry wizard hat",
+  "region": "hat",
+  "slot": "head",
+  "size_kind": "hat",
+  "alternate": "wizard hat",
+  "assembly": null
+ },
+ {
+  "phrase": "straw scarecrow hat",
+  "region": "hat",
+  "slot": "head",
+  "size_kind": "hat",
+  "alternate": "straw hat",
+  "assembly": null
+ },
+ {
+  "phrase": "floppy felt hat",
+  "region": "hat",
+  "slot": "head",
+  "size_kind": "hat",
+  "alternate": "slouch hat",
+  "assembly": null
+ },
+ {
+  "phrase": "wool bowler hat",
+  "region": "hat",
+  "slot": "head",
+  "size_kind": "hat",
+  "alternate": "bowler hat",
+  "assembly": null
+ },
+ {
+  "phrase": "felt fedora hat",
+  "region": "hat",
+  "slot": "head",
+  "size_kind": "hat",
+  "alternate": "fedora",
+  "assembly": null
+ },
+ {
+  "phrase": "sailor captain cap",
+  "region": "hat",
+  "slot": "head",
+  "size_kind": "hat",
+  "alternate": "captain hat",
+  "assembly": null
+ },
+ {
+  "phrase": "viking horned helmet",
+  "region": "hat",
+  "slot": "head",
+  "size_kind": "hat",
+  "alternate": "viking helmet",
+  "assembly": null
+ },
+ {
+  "phrase": "metal knight helmet",
+  "region": "hat",
+  "slot": "head",
+  "size_kind": "hat",
+  "alternate": "knight helmet",
+  "assembly": null
+ },
+ {
+  "phrase": "roman centurion helmet",
+  "region": "hat",
+  "slot": "head",
+  "size_kind": "hat",
+  "alternate": "roman helmet",
+  "assembly": null
+ },
+ {
+  "phrase": "devil horn headband",
+  "region": "hat",
+  "slot": "head",
+  "size_kind": "hat",
+  "alternate": "horns headband",
+  "assembly": null
+ },
+ {
+  "phrase": "cat ear headband",
+  "region": "hat",
+  "slot": "head",
+  "size_kind": "hat",
+  "alternate": "cat ears",
+  "assembly": null
+ },
+ {
+  "phrase": "bunny ear headband",
+  "region": "hat",
+  "slot": "head",
+  "size_kind": "hat",
+  "alternate": "bunny ears",
+  "assembly": null
+ },
+ {
+  "phrase": "jeweled tiara",
+  "region": "hat",
+  "slot": "head",
+  "size_kind": "hat",
+  "alternate": "tiara",
+  "assembly": null
+ },
+ {
+  "phrase": "laurel leaf wreath",
+  "region": "hat",
+  "slot": "head",
+  "size_kind": "hat",
+  "alternate": "leaf wreath",
+  "assembly": null
+ },
+ {
+  "phrase": "hooded cloak hood",
+  "region": "hat",
+  "slot": "head",
+  "size_kind": "hat",
+  "alternate": "hood",
+  "assembly": null
+ },
+ {
+  "phrase": "lace bonnet",
+  "region": "hat",
+  "slot": "head",
+  "size_kind": "hat",
+  "alternate": "bonnet",
+  "assembly": null
+ },
+ {
+  "phrase": "ruffled mob cap",
+  "region": "hat",
+  "slot": "head",
+  "size_kind": "hat",
+  "alternate": "mob cap",
+  "assembly": null
+ },
+ {
+  "phrase": "pumpkin beret",
+  "region": "hat",
+  "slot": "head",
+  "size_kind": "hat",
+  "alternate": "orange beret",
+  "assembly": null
+ },
+ {
+  "phrase": "tall chef hat",
+  "region": "hat",
+  "slot": "head",
+  "size_kind": "hat",
+  "alternate": "chef hat",
+  "assembly": null
+ },
+ {
+  "phrase": "feathered musketeer hat",
+  "region": "hat",
+  "slot": "head",
+  "size_kind": "hat",
+  "alternate": "cavalier hat",
+  "assembly": null
+ },
+ {
+  "phrase": "crescent moon headpiece",
+  "region": "hat",
+  "slot": "head",
+  "size_kind": "hat",
+  "alternate": "moon headpiece",
+  "assembly": null
+ },
+ {
+  "phrase": "gold star headband",
+  "region": "hat",
+  "slot": "head",
+  "size_kind": "hat",
+  "alternate": "star headband",
+  "assembly": null
+ },
+ {
+  "phrase": "white bedsheet hood",
+  "region": "hat",
+  "slot": "head",
+  "size_kind": "hat",
+  "alternate": "ghost hood",
+  "assembly": null
+ },
+ {
+  "phrase": "foil space helmet",
+  "region": "hat",
+  "slot": "head",
+  "size_kind": "hat",
+  "alternate": "silver helmet",
+  "assembly": "Shape a dome from crumpled aluminum foil over a paper bowl and cut a face opening."
+ },
+ {
+  "phrase": "paper crown",
+  "region": "hat",
+  "slot": "head",
+  "size_kind": "hat",
+  "alternate": "cardboard crown",
+  "assembly": "Cut a zigzag strip of cardstock, decorate it, and staple it to fit your head."
+ },
+ {
+  "phrase": "felt cat ear headband",
+  "region": "hat",
+  "slot": "head",
+  "size_kind": "hat",
+  "alternate": "DIY cat ears",
+  "assembly": "Cut two felt triangles and glue them onto a plain headband."
+ },
+ {
+  "phrase": "ruffled poet shirt",
+  "region": "upper_clothes",
+  "slot": "top",
+  "size_kind": "apparel",
+  "alternate": "pirate shirt",
+  "assembly": null
+ },
+ {
+  "phrase": "billowy pirate shirt",
+  "region": "upper_clothes",
+  "slot": "top",
+  "size_kind": "apparel",
+  "alternate": "loose white shirt",
+  "assembly": null
+ },
+ {
+  "phrase": "cotton collared shirt",
+  "region": "upper_clothes",
+  "slot": "top",
+  "size_kind": "apparel",
+  "alternate": "button-up shirt",
+  "assembly": null
+ },
+ {
+  "phrase": "ruffled dress shirt",
+  "region": "upper_clothes",
+  "slot": "top",
+  "size_kind": "apparel",
+  "alternate": "frilly shirt",
+  "assembly": null
+ },
+ {
+  "phrase": "high-collar blouse",
+  "region": "upper_clothes",
+  "slot": "top",
+  "size_kind": "apparel",
+  "alternate": "victorian blouse",
+  "assembly": null
+ },
+ {
+  "phrase": "draped silk blouse",
+  "region": "upper_clothes",
+  "slot": "top",
+  "size_kind": "apparel",
+  "alternate": "flowy blouse",
+  "assembly": null
+ },
+ {
+  "phrase": "lace peasant blouse",
+  "region": "upper_clothes",
+  "slot": "top",
+  "size_kind": "apparel",
+  "alternate": "peasant blouse",
+  "assembly": null
+ },
+ {
+  "phrase": "striped knit sweater",
+  "region": "upper_clothes",
+  "slot": "top",
+  "size_kind": "apparel",
+  "alternate": "sweater",
+  "assembly": null
+ },
+ {
+  "phrase": "turtleneck sweater",
+  "region": "upper_clothes",
+  "slot": "top",
+  "size_kind": "apparel",
+  "alternate": "turtleneck",
+  "assembly": null
+ },
+ {
+  "phrase": "cotton t-shirt",
+  "region": "upper_clothes",
+  "slot": "top",
+  "size_kind": "apparel",
+  "alternate": "t-shirt",
+  "assembly": null
+ },
+ {
+  "phrase": "pullover hoodie",
+  "region": "upper_clothes",
+  "slot": "top",
+  "size_kind": "apparel",
+  "alternate": "hoodie",
+  "assembly": null
+ },
+ {
+  "phrase": "knit cardigan",
+  "region": "upper_clothes",
+  "slot": "top",
+  "size_kind": "apparel",
+  "alternate": "cardigan",
+  "assembly": null
+ },
+ {
+  "phrase": "sleeveless tank top",
+  "region": "upper_clothes",
+  "slot": "top",
+  "size_kind": "apparel",
+  "alternate": "tank top",
+  "assembly": null
+ },
+ {
+  "phrase": "velvet waistcoat",
+  "region": "upper_clothes",
+  "slot": "top",
+  "size_kind": "apparel",
+  "alternate": "vest",
+  "assembly": null
+ },
+ {
+  "phrase": "tweed waistcoat",
+  "region": "upper_clothes",
+  "slot": "top",
+  "size_kind": "apparel",
+  "alternate": "wool vest",
+  "assembly": null
+ },
+ {
+  "phrase": "brocade vest",
+  "region": "upper_clothes",
+  "slot": "top",
+  "size_kind": "apparel",
+  "alternate": "embroidered vest",
+  "assembly": null
+ },
+ {
+  "phrase": "fringe suede jacket",
+  "region": "upper_clothes",
+  "slot": "top",
+  "size_kind": "apparel",
+  "alternate": "western jacket",
+  "assembly": null
+ },
+ {
+  "phrase": "shearling flight jacket",
+  "region": "upper_clothes",
+  "slot": "top",
+  "size_kind": "apparel",
+  "alternate": "leather jacket",
+  "assembly": null
+ },
+ {
+  "phrase": "leather biker jacket",
+  "region": "upper_clothes",
+  "slot": "top",
+  "size_kind": "apparel",
+  "alternate": "motorcycle jacket",
+  "assembly": null
+ },
+ {
+  "phrase": "denim jacket",
+  "region": "upper_clothes",
+  "slot": "top",
+  "size_kind": "apparel",
+  "alternate": "jean jacket",
+  "assembly": null
+ },
+ {
+  "phrase": "military dress jacket",
+  "region": "upper_clothes",
+  "slot": "top",
+  "size_kind": "apparel",
+  "alternate": "army jacket",
+  "assembly": null
+ },
+ {
+  "phrase": "cropped embroidered jacket",
+  "region": "upper_clothes",
+  "slot": "top",
+  "size_kind": "apparel",
+  "alternate": "cropped jacket",
+  "assembly": null
+ },
+ {
+  "phrase": "velvet blazer",
+  "region": "upper_clothes",
+  "slot": "top",
+  "size_kind": "apparel",
+  "alternate": "dinner jacket",
+  "assembly": null
+ },
+ {
+  "phrase": "tailored blazer",
+  "region": "upper_clothes",
+  "slot": "top",
+  "size_kind": "apparel",
+  "alternate": "suit jacket",
+  "assembly": null
+ },
+ {
+  "phrase": "double-breasted tailcoat",
+  "region": "upper_clothes",
+  "slot": "top",
+  "size_kind": "apparel",
+  "alternate": "tailcoat",
+  "assembly": null
+ },
+ {
+  "phrase": "gold trim tailcoat",
+  "region": "upper_clothes",
+  "slot": "top",
+  "size_kind": "apparel",
+  "alternate": "ringmaster coat",
+  "assembly": null
+ },
+ {
+  "phrase": "long frock coat",
+  "region": "upper_clothes",
+  "slot": "top",
+  "size_kind": "apparel",
+  "alternate": "frock coat",
+  "assembly": null
+ },
+ {
+  "phrase": "long pirate coat",
+  "region": "upper_clothes",
+  "slot": "top",
+  "size_kind": "apparel",
+  "alternate": "captain coat",
+  "assembly": null
+ },
+ {
+  "phrase": "long wool overcoat",
+  "region": "upper_clothes",
+  "slot": "top",
+  "size_kind": "apparel",
+  "alternate": "overcoat",
+  "assembly": null
+ },
+ {
+  "phrase": "belted trench coat",
+  "region": "upper_clothes",
+  "slot": "top",
+  "size_kind": "apparel",
+  "alternate": "trench coat",
+  "assembly": null
+ },
+ {
+  "phrase": "hooded raincoat",
+  "region": "upper_clothes",
+  "slot": "top",
+  "size_kind": "apparel",
+  "alternate": "rain jacket",
+  "assembly": null
+ },
+ {
+  "phrase": "beekeeper jacket",
+  "region": "upper_clothes",
+  "slot": "top",
+  "size_kind": "apparel",
+  "alternate": "safari jacket",
+  "assembly": null
+ },
+ {
+  "phrase": "hooded utility jacket",
+  "region": "upper_clothes",
+  "slot": "top",
+  "size_kind": "apparel",
+  "alternate": "hooded jacket",
+  "assembly": null
+ },
+ {
+  "phrase": "white lab coat",
+  "region": "upper_clothes",
+  "slot": "top",
+  "size_kind": "apparel",
+  "alternate": "doctor coat",
+  "assembly": null
+ },
+ {
+  "phrase": "wool poncho",
+  "region": "upper_clothes",
+  "slot": "top",
+  "size_kind": "apparel",
+  "alternate": "poncho",
+  "assembly": null
+ },
+ {
+  "phrase": "fitted bodysuit",
+  "region": "upper_clothes",
+  "slot": "top",
+  "size_kind": "apparel",
+  "alternate": "leotard",
+  "assembly": null
+ },
+ {
+  "phrase": "fitted unitard",
+  "region": "upper_clothes",
+  "slot": "top",
+  "size_kind": "apparel",
+  "alternate": "stretch bodysuit",
+  "assembly": null
+ },
+ {
+  "phrase": "diamond harlequin bodysuit",
+  "region": "upper_clothes",
+  "slot": "top",
+  "size_kind": "apparel",
+  "alternate": "harlequin suit",
+  "assembly": null
+ },
+ {
+  "phrase": "theatrical tunic",
+  "region": "upper_clothes",
+  "slot": "top",
+  "size_kind": "apparel",
+  "alternate": "medieval tunic",
+  "assembly": null
+ },
+ {
+  "phrase": "linen tunic top",
+  "region": "upper_clothes",
+  "slot": "top",
+  "size_kind": "apparel",
+  "alternate": "linen tunic",
+  "assembly": null
+ },
+ {
+  "phrase": "leather corset",
+  "region": "upper_clothes",
+  "slot": "top",
+  "size_kind": "apparel",
+  "alternate": "corset top",
+  "assembly": null
+ },
+ {
+  "phrase": "lace-up corset",
+  "region": "upper_clothes",
+  "slot": "top",
+  "size_kind": "apparel",
+  "alternate": "bustier",
+  "assembly": null
+ },
+ {
+  "phrase": "satin corset top",
+  "region": "upper_clothes",
+  "slot": "top",
+  "size_kind": "apparel",
+  "alternate": "corset",
+  "assembly": null
+ },
+ {
+  "phrase": "velvet cape",
+  "region": "upper_clothes",
+  "slot": "top",
+  "size_kind": "apparel",
+  "alternate": "short cape",
+  "assembly": null
+ },
+ {
+  "phrase": "hooded cape",
+  "region": "upper_clothes",
+  "slot": "top",
+  "size_kind": "apparel",
+  "alternate": "cape with hood",
+  "assembly": null
+ },
+ {
+  "phrase": "feather shoulder cape",
+  "region": "upper_clothes",
+  "slot": "top",
+  "size_kind": "apparel",
+  "alternate": "feather cape",
+  "assembly": null
+ },
+ {
+  "phrase": "moth wing cape",
+  "region": "upper_clothes",
+  "slot": "outer",
+  "size_kind": "apparel",
+  "alternate": "wing cape",
+  "assembly": null
+ },
+ {
+  "phrase": "inverness cape coat",
+  "region": "upper_clothes",
+  "slot": "top",
+  "size_kind": "apparel",
+  "alternate": "cape coat",
+  "assembly": null
+ },
+ {
+  "phrase": "hooded cloak",
+  "region": "upper_clothes",
+  "slot": "top",
+  "size_kind": "apparel",
+  "alternate": "cloak",
+  "assembly": null
+ },
+ {
+  "phrase": "star and moon cape",
+  "region": "upper_clothes",
+  "slot": "top",
+  "size_kind": "apparel",
+  "alternate": "starry cape",
+  "assembly": null
+ },
+ {
+  "phrase": "armor chest plate",
+  "region": "upper_clothes",
+  "slot": "top",
+  "size_kind": "apparel",
+  "alternate": "breastplate",
+  "assembly": null
+ },
+ {
+  "phrase": "flight jumpsuit",
+  "region": "upper_clothes",
+  "slot": "top",
+  "size_kind": "apparel",
+  "alternate": "jumpsuit",
+  "assembly": null
+ },
+ {
+  "phrase": "flared disco jumpsuit",
+  "region": "upper_clothes",
+  "slot": "top",
+  "size_kind": "apparel",
+  "alternate": "disco jumpsuit",
+  "assembly": null
+ },
+ {
+  "phrase": "astronaut space suit",
+  "region": "upper_clothes",
+  "slot": "top",
+  "size_kind": "apparel",
+  "alternate": "spacesuit",
+  "assembly": null
+ },
+ {
+  "phrase": "bib overalls",
+  "region": "upper_clothes",
+  "slot": "top",
+  "size_kind": "apparel",
+  "alternate": "denim overalls",
+  "assembly": null
+ },
+ {
+  "phrase": "cardboard robot box",
+  "region": "upper_clothes",
+  "slot": "top",
+  "size_kind": "apparel",
+  "alternate": "robot costume",
+  "assembly": "Cut arm and head holes in a cardboard box and cover it with foil and bottle caps."
+ },
+ {
+  "phrase": "tin foil armor vest",
+  "region": "upper_clothes",
+  "slot": "top",
+  "size_kind": "apparel",
+  "alternate": "foil vest",
+  "assembly": "Fold cardboard into a vest shape and wrap it tightly with aluminum foil."
+ },
+ {
+  "phrase": "trash bag cape",
+  "region": "upper_clothes",
+  "slot": "outer",
+  "size_kind": "apparel",
+  "alternate": "plastic cape",
+  "assembly": "Cut a neck slit in a black trash bag, tie it at the collar, and trim the bottom edge."
+ },
+ {
+  "phrase": "velvet ball gown",
+  "region": "dress",
+  "slot": "top",
+  "size_kind": "apparel",
+  "alternate": "ball gown",
+  "assembly": null
+ },
+ {
+  "phrase": "long velvet gown",
+  "region": "dress",
+  "slot": "top",
+  "size_kind": "apparel",
+  "alternate": "evening gown",
+  "assembly": null
+ },
+ {
+  "phrase": "dark flowing dress",
+  "region": "dress",
+  "slot": "top",
+  "size_kind": "apparel",
+  "alternate": "black dress",
+  "assembly": null
+ },
+ {
+  "phrase": "candy corn dress",
+  "region": "dress",
+  "slot": "top",
+  "size_kind": "apparel",
+  "alternate": "striped tiered dress",
+  "assembly": null
+ },
+ {
+  "phrase": "layered tulle dress",
+  "region": "dress",
+  "slot": "top",
+  "size_kind": "apparel",
+  "alternate": "tutu dress",
+  "assembly": null
+ },
+ {
+  "phrase": "victorian bustle gown",
+  "region": "dress",
+  "slot": "top",
+  "size_kind": "apparel",
+  "alternate": "victorian dress",
+  "assembly": null
+ },
+ {
+  "phrase": "medieval princess gown",
+  "region": "dress",
+  "slot": "top",
+  "size_kind": "apparel",
+  "alternate": "medieval dress",
+  "assembly": null
+ },
+ {
+  "phrase": "renaissance corset dress",
+  "region": "dress",
+  "slot": "top",
+  "size_kind": "apparel",
+  "alternate": "renaissance dress",
+  "assembly": null
+ },
+ {
+  "phrase": "peasant maxi dress",
+  "region": "dress",
+  "slot": "top",
+  "size_kind": "apparel",
+  "alternate": "peasant dress",
+  "assembly": null
+ },
+ {
+  "phrase": "lace wedding gown",
+  "region": "dress",
+  "slot": "top",
+  "size_kind": "apparel",
+  "alternate": "wedding dress",
+  "assembly": null
+ },
+ {
+  "phrase": "flapper fringe dress",
+  "region": "dress",
+  "slot": "top",
+  "size_kind": "apparel",
+  "alternate": "flapper dress",
+  "assembly": null
+ },
+ {
+  "phrase": "satin cocktail dress",
+  "region": "dress",
+  "slot": "top",
+  "size_kind": "apparel",
+  "alternate": "cocktail dress",
+  "assembly": null
+ },
+ {
+  "phrase": "long maxi dress",
+  "region": "dress",
+  "slot": "top",
+  "size_kind": "apparel",
+  "alternate": "maxi dress",
+  "assembly": null
+ },
+ {
+  "phrase": "sequin mermaid gown",
+  "region": "dress",
+  "slot": "top",
+  "size_kind": "apparel",
+  "alternate": "mermaid dress",
+  "assembly": null
+ },
+ {
+  "phrase": "gothic lace dress",
+  "region": "dress",
+  "slot": "top",
+  "size_kind": "apparel",
+  "alternate": "gothic dress",
+  "assembly": null
+ },
+ {
+  "phrase": "witch tattered dress",
+  "region": "dress",
+  "slot": "top",
+  "size_kind": "apparel",
+  "alternate": "witch dress",
+  "assembly": null
+ },
+ {
+  "phrase": "hooded wizard robe",
+  "region": "dress",
+  "slot": "top",
+  "size_kind": "apparel",
+  "alternate": "wizard robe",
+  "assembly": null
+ },
+ {
+  "phrase": "celestial robe",
+  "region": "dress",
+  "slot": "outer",
+  "size_kind": "apparel",
+  "alternate": "star robe",
+  "assembly": null
+ },
+ {
+  "phrase": "long hooded robe",
+  "region": "dress",
+  "slot": "outer",
+  "size_kind": "apparel",
+  "alternate": "hooded robe",
+  "assembly": null
+ },
+ {
+  "phrase": "monk friar robe",
+  "region": "dress",
+  "slot": "outer",
+  "size_kind": "apparel",
+  "alternate": "monk robe",
+  "assembly": null
+ },
+ {
+  "phrase": "satin kimono robe",
+  "region": "dress",
+  "slot": "outer",
+  "size_kind": "apparel",
+  "alternate": "kimono",
+  "assembly": null
+ },
+ {
+  "phrase": "academic graduation gown",
+  "region": "dress",
+  "slot": "outer",
+  "size_kind": "apparel",
+  "alternate": "graduation robe",
+  "assembly": null
+ },
+ {
+  "phrase": "roman toga",
+  "region": "dress",
+  "slot": "top",
+  "size_kind": "apparel",
+  "alternate": "toga",
+  "assembly": null
+ },
+ {
+  "phrase": "long velvet cape",
+  "region": "dress",
+  "slot": "outer",
+  "size_kind": "apparel",
+  "alternate": "long cape",
+  "assembly": null
+ },
+ {
+  "phrase": "hooded long cape",
+  "region": "dress",
+  "slot": "outer",
+  "size_kind": "apparel",
+  "alternate": "full length cape",
+  "assembly": null
+ },
+ {
+  "phrase": "vampire collar cape",
+  "region": "dress",
+  "slot": "outer",
+  "size_kind": "apparel",
+  "alternate": "dracula cape",
+  "assembly": null
+ },
+ {
+  "phrase": "opera cloak",
+  "region": "dress",
+  "slot": "outer",
+  "size_kind": "apparel",
+  "alternate": "evening cloak",
+  "assembly": null
+ },
+ {
+  "phrase": "hooded cloak",
+  "region": "dress",
+  "slot": "outer",
+  "size_kind": "apparel",
+  "alternate": "cloak",
+  "assembly": null
+ },
+ {
+  "phrase": "belted trench coat",
+  "region": "dress",
+  "slot": "outer",
+  "size_kind": "apparel",
+  "alternate": "trench coat",
+  "assembly": null
+ },
+ {
+  "phrase": "long wool overcoat",
+  "region": "dress",
+  "slot": "outer",
+  "size_kind": "apparel",
+  "alternate": "long coat",
+  "assembly": null
+ },
+ {
+  "phrase": "long frock coat",
+  "region": "dress",
+  "slot": "outer",
+  "size_kind": "apparel",
+  "alternate": "frock coat",
+  "assembly": null
+ },
+ {
+  "phrase": "long pirate coat",
+  "region": "dress",
+  "slot": "outer",
+  "size_kind": "apparel",
+  "alternate": "captain coat",
+  "assembly": null
+ },
+ {
+  "phrase": "inverness cape coat",
+  "region": "dress",
+  "slot": "outer",
+  "size_kind": "apparel",
+  "alternate": "cape coat",
+  "assembly": null
+ },
+ {
+  "phrase": "hooded raincoat",
+  "region": "dress",
+  "slot": "outer",
+  "size_kind": "apparel",
+  "alternate": "raincoat",
+  "assembly": null
+ },
+ {
+  "phrase": "moth wing cape",
+  "region": "dress",
+  "slot": "outer",
+  "size_kind": "apparel",
+  "alternate": "wing cape",
+  "assembly": null
+ },
+ {
+  "phrase": "leaf green tunic",
+  "region": "dress",
+  "slot": "top",
+  "size_kind": "apparel",
+  "alternate": "forest tunic",
+  "assembly": null
+ },
+ {
+  "phrase": "theatrical tunic",
+  "region": "dress",
+  "slot": "top",
+  "size_kind": "apparel",
+  "alternate": "medieval tunic",
+  "assembly": null
+ },
+ {
+  "phrase": "long linen tunic",
+  "region": "dress",
+  "slot": "top",
+  "size_kind": "apparel",
+  "alternate": "long tunic",
+  "assembly": null
+ },
+ {
+  "phrase": "flared disco jumpsuit",
+  "region": "dress",
+  "slot": "top",
+  "size_kind": "apparel",
+  "alternate": "disco jumpsuit",
+  "assembly": null
+ },
+ {
+  "phrase": "flight jumpsuit",
+  "region": "dress",
+  "slot": "top",
+  "size_kind": "apparel",
+  "alternate": "jumpsuit",
+  "assembly": null
+ },
+ {
+  "phrase": "fitted unitard",
+  "region": "dress",
+  "slot": "top",
+  "size_kind": "apparel",
+  "alternate": "stretch bodysuit",
+  "assembly": null
+ },
+ {
+  "phrase": "diamond harlequin bodysuit",
+  "region": "dress",
+  "slot": "top",
+  "size_kind": "apparel",
+  "alternate": "harlequin suit",
+  "assembly": null
+ },
+ {
+  "phrase": "astronaut space suit",
+  "region": "dress",
+  "slot": "top",
+  "size_kind": "apparel",
+  "alternate": "spacesuit",
+  "assembly": null
+ },
+ {
+  "phrase": "full body onesie",
+  "region": "dress",
+  "slot": "top",
+  "size_kind": "apparel",
+  "alternate": "animal onesie",
+  "assembly": null
+ },
+ {
+  "phrase": "white bedsheet ghost",
+  "region": "dress",
+  "slot": "top",
+  "size_kind": "apparel",
+  "alternate": "ghost costume",
+  "assembly": "White flat sheet: cut two eye holes and drape it over your head and body."
+ },
+ {
+  "phrase": "toilet paper mummy wrap",
+  "region": "dress",
+  "slot": "top",
+  "size_kind": "apparel",
+  "alternate": "mummy costume",
+  "assembly": "Wrap white strips of toilet paper or gauze around a base outfit and tuck the ends."
+ },
+ {
+  "phrase": "cardboard robot box",
+  "region": "dress",
+  "slot": "top",
+  "size_kind": "apparel",
+  "alternate": "robot costume",
+  "assembly": "Cut arm and head holes in a large cardboard box and cover it with foil and bottle caps."
+ },
+ {
+  "phrase": "long skirt",
+  "region": "skirt",
+  "slot": "bottom",
+  "size_kind": "apparel",
+  "alternate": "maxi skirt",
+  "assembly": null
+ },
+ {
+  "phrase": "mermaid skirt",
+  "region": "skirt",
+  "slot": "bottom",
+  "size_kind": "apparel",
+  "alternate": "fishtail skirt",
+  "assembly": null
+ },
+ {
+  "phrase": "tulle tutu skirt",
+  "region": "skirt",
+  "slot": "bottom",
+  "size_kind": "apparel",
+  "alternate": "tutu",
+  "assembly": null
+ },
+ {
+  "phrase": "pleated skirt",
+  "region": "skirt",
+  "slot": "bottom",
+  "size_kind": "apparel",
+  "alternate": "plaid skirt",
+  "assembly": null
+ },
+ {
+  "phrase": "ruffled tiered skirt",
+  "region": "skirt",
+  "slot": "bottom",
+  "size_kind": "apparel",
+  "alternate": "tiered skirt",
+  "assembly": null
+ },
+ {
+  "phrase": "hoop skirt",
+  "region": "skirt",
+  "slot": "bottom",
+  "size_kind": "apparel",
+  "alternate": "crinoline skirt",
+  "assembly": null
+ },
+ {
+  "phrase": "pencil skirt",
+  "region": "skirt",
+  "slot": "bottom",
+  "size_kind": "apparel",
+  "alternate": "straight skirt",
+  "assembly": null
+ },
+ {
+  "phrase": "circle skirt",
+  "region": "skirt",
+  "slot": "bottom",
+  "size_kind": "apparel",
+  "alternate": "poodle skirt",
+  "assembly": null
+ },
+ {
+  "phrase": "denim mini skirt",
+  "region": "skirt",
+  "slot": "bottom",
+  "size_kind": "apparel",
+  "alternate": "mini skirt",
+  "assembly": null
+ },
+ {
+  "phrase": "patchwork skirt",
+  "region": "skirt",
+  "slot": "bottom",
+  "size_kind": "apparel",
+  "alternate": "quilted skirt",
+  "assembly": null
+ },
+ {
+  "phrase": "grass hula skirt",
+  "region": "skirt",
+  "slot": "bottom",
+  "size_kind": "apparel",
+  "alternate": "hula skirt",
+  "assembly": null
+ },
+ {
+  "phrase": "layered petticoat",
+  "region": "skirt",
+  "slot": "bottom",
+  "size_kind": "apparel",
+  "alternate": "petticoat",
+  "assembly": null
+ },
+ {
+  "phrase": "velvet wrap skirt",
+  "region": "skirt",
+  "slot": "bottom",
+  "size_kind": "apparel",
+  "alternate": "wrap skirt",
+  "assembly": null
+ },
+ {
+  "phrase": "leather skirt",
+  "region": "skirt",
+  "slot": "bottom",
+  "size_kind": "apparel",
+  "alternate": "faux leather skirt",
+  "assembly": null
+ },
+ {
+  "phrase": "tartan kilt",
+  "region": "skirt",
+  "slot": "bottom",
+  "size_kind": "apparel",
+  "alternate": "plaid kilt",
+  "assembly": null
+ },
+ {
+  "phrase": "fringe skirt",
+  "region": "skirt",
+  "slot": "bottom",
+  "size_kind": "apparel",
+  "alternate": "flapper skirt",
+  "assembly": null
+ },
+ {
+  "phrase": "sequin skirt",
+  "region": "skirt",
+  "slot": "bottom",
+  "size_kind": "apparel",
+  "alternate": "glitter skirt",
+  "assembly": null
+ },
+ {
+  "phrase": "asymmetric hem skirt",
+  "region": "skirt",
+  "slot": "bottom",
+  "size_kind": "apparel",
+  "alternate": "high-low skirt",
+  "assembly": null
+ },
+ {
+  "phrase": "flared trousers",
+  "region": "pants",
+  "slot": "bottom",
+  "size_kind": "pants",
+  "alternate": "bell bottoms",
+  "assembly": null
+ },
+ {
+  "phrase": "utility trousers",
+  "region": "pants",
+  "slot": "bottom",
+  "size_kind": "pants",
+  "alternate": "work pants",
+  "assembly": null
+ },
+ {
+  "phrase": "tweed trousers",
+  "region": "pants",
+  "slot": "bottom",
+  "size_kind": "pants",
+  "alternate": "wool trousers",
+  "assembly": null
+ },
+ {
+  "phrase": "velvet trousers",
+  "region": "pants",
+  "slot": "bottom",
+  "size_kind": "pants",
+  "alternate": "fitted trousers",
+  "assembly": null
+ },
+ {
+  "phrase": "high-waisted trousers",
+  "region": "pants",
+  "slot": "bottom",
+  "size_kind": "pants",
+  "alternate": "tailored trousers",
+  "assembly": null
+ },
+ {
+  "phrase": "pirate breeches",
+  "region": "pants",
+  "slot": "bottom",
+  "size_kind": "pants",
+  "alternate": "knee breeches",
+  "assembly": null
+ },
+ {
+  "phrase": "bib overalls",
+  "region": "pants",
+  "slot": "bottom",
+  "size_kind": "pants",
+  "alternate": "denim overalls",
+  "assembly": null
+ },
+ {
+  "phrase": "corduroy overalls",
+  "region": "pants",
+  "slot": "bottom",
+  "size_kind": "pants",
+  "alternate": "overalls",
+  "assembly": null
+ },
+ {
+  "phrase": "striped leggings",
+  "region": "pants",
+  "slot": "bottom",
+  "size_kind": "pants",
+  "alternate": "leggings",
+  "assembly": null
+ },
+ {
+  "phrase": "black leggings",
+  "region": "pants",
+  "slot": "bottom",
+  "size_kind": "pants",
+  "alternate": "stretch leggings",
+  "assembly": null
+ },
+ {
+  "phrase": "waterproof trousers",
+  "region": "pants",
+  "slot": "bottom",
+  "size_kind": "pants",
+  "alternate": "rain pants",
+  "assembly": null
+ },
+ {
+  "phrase": "denim jeans",
+  "region": "pants",
+  "slot": "bottom",
+  "size_kind": "pants",
+  "alternate": "blue jeans",
+  "assembly": null
+ },
+ {
+  "phrase": "cargo pants",
+  "region": "pants",
+  "slot": "bottom",
+  "size_kind": "pants",
+  "alternate": "combat pants",
+  "assembly": null
+ },
+ {
+  "phrase": "harem pants",
+  "region": "pants",
+  "slot": "bottom",
+  "size_kind": "pants",
+  "alternate": "genie pants",
+  "assembly": null
+ },
+ {
+  "phrase": "wide-leg trousers",
+  "region": "pants",
+  "slot": "bottom",
+  "size_kind": "pants",
+  "alternate": "palazzo pants",
+  "assembly": null
+ },
+ {
+  "phrase": "riding breeches",
+  "region": "pants",
+  "slot": "bottom",
+  "size_kind": "pants",
+  "alternate": "jodhpurs",
+  "assembly": null
+ },
+ {
+  "phrase": "linen pants",
+  "region": "pants",
+  "slot": "bottom",
+  "size_kind": "pants",
+  "alternate": "loose trousers",
+  "assembly": null
+ },
+ {
+  "phrase": "fitted tights",
+  "region": "pants",
+  "slot": "bottom",
+  "size_kind": "pants",
+  "alternate": "tights",
+  "assembly": null
+ },
+ {
+  "phrase": "striped stockings",
+  "region": "pants",
+  "slot": "bottom",
+  "size_kind": "pants",
+  "alternate": "striped tights",
+  "assembly": null
+ },
+ {
+  "phrase": "fishnet stockings",
+  "region": "pants",
+  "slot": "bottom",
+  "size_kind": "pants",
+  "alternate": "fishnet tights",
+  "assembly": null
+ },
+ {
+  "phrase": "thigh-high stockings",
+  "region": "pants",
+  "slot": "bottom",
+  "size_kind": "pants",
+  "alternate": "knee socks",
+  "assembly": null
+ },
+ {
+  "phrase": "satin pantaloons",
+  "region": "pants",
+  "slot": "bottom",
+  "size_kind": "pants",
+  "alternate": "bloomers",
+  "assembly": null
+ },
+ {
+  "phrase": "dress slacks",
+  "region": "pants",
+  "slot": "bottom",
+  "size_kind": "pants",
+  "alternate": "suit trousers",
+  "assembly": null
+ },
+ {
+  "phrase": "wide leather belt",
+  "region": "belt",
+  "slot": "accessory",
+  "size_kind": "one_size",
+  "alternate": "leather belt",
+  "assembly": null
+ },
+ {
+  "phrase": "rope waist belt",
+  "region": "belt",
+  "slot": "accessory",
+  "size_kind": "one_size",
+  "alternate": "cord belt",
+  "assembly": null
+ },
+ {
+  "phrase": "fabric waist sash",
+  "region": "belt",
+  "slot": "accessory",
+  "size_kind": "one_size",
+  "alternate": "sash",
+  "assembly": null
+ },
+ {
+  "phrase": "fabric utility belt",
+  "region": "belt",
+  "slot": "accessory",
+  "size_kind": "one_size",
+  "alternate": "tool belt",
+  "assembly": null
+ },
+ {
+  "phrase": "potion bottle belt",
+  "region": "belt",
+  "slot": "accessory",
+  "size_kind": "one_size",
+  "alternate": "bottle belt",
+  "assembly": null
+ },
+ {
+  "phrase": "studded leather belt",
+  "region": "belt",
+  "slot": "accessory",
+  "size_kind": "one_size",
+  "alternate": "studded belt",
+  "assembly": null
+ },
+ {
+  "phrase": "gold chain belt",
+  "region": "belt",
+  "slot": "accessory",
+  "size_kind": "one_size",
+  "alternate": "chain belt",
+  "assembly": null
+ },
+ {
+  "phrase": "buckled belt",
+  "region": "belt",
+  "slot": "accessory",
+  "size_kind": "one_size",
+  "alternate": "pirate belt",
+  "assembly": null
+ },
+ {
+  "phrase": "silk cummerbund",
+  "region": "belt",
+  "slot": "accessory",
+  "size_kind": "one_size",
+  "alternate": "cummerbund",
+  "assembly": null
+ },
+ {
+  "phrase": "corset waist belt",
+  "region": "belt",
+  "slot": "accessory",
+  "size_kind": "one_size",
+  "alternate": "waist cincher",
+  "assembly": null
+ },
+ {
+  "phrase": "silver waist belt",
+  "region": "belt",
+  "slot": "accessory",
+  "size_kind": "one_size",
+  "alternate": "metallic belt",
+  "assembly": null
+ },
+ {
+  "phrase": "holster gun belt",
+  "region": "belt",
+  "slot": "accessory",
+  "size_kind": "one_size",
+  "alternate": "holster belt",
+  "assembly": null
+ },
+ {
+  "phrase": "leather bandolier",
+  "region": "belt",
+  "slot": "accessory",
+  "size_kind": "one_size",
+  "alternate": "bandolier strap",
+  "assembly": null
+ },
+ {
+  "phrase": "braided rope sash",
+  "region": "belt",
+  "slot": "accessory",
+  "size_kind": "one_size",
+  "alternate": "rope sash",
+  "assembly": null
+ },
+ {
+  "phrase": "fringe waist sash",
+  "region": "belt",
+  "slot": "accessory",
+  "size_kind": "one_size",
+  "alternate": "scarf sash",
+  "assembly": null
+ },
+ {
+  "phrase": "wide obi belt",
+  "region": "belt",
+  "slot": "accessory",
+  "size_kind": "one_size",
+  "alternate": "obi sash",
+  "assembly": null
+ },
+ {
+  "phrase": "pointed western boots",
+  "region": "shoes",
+  "slot": "feet",
+  "size_kind": "shoe",
+  "alternate": "cowboy boots",
+  "assembly": null
+ },
+ {
+  "phrase": "lace-up work boots",
+  "region": "shoes",
+  "slot": "feet",
+  "size_kind": "shoe",
+  "alternate": "work boots",
+  "assembly": null
+ },
+ {
+  "phrase": "lace-up combat boots",
+  "region": "shoes",
+  "slot": "feet",
+  "size_kind": "shoe",
+  "alternate": "combat boots",
+  "assembly": null
+ },
+ {
+  "phrase": "platform ankle boots",
+  "region": "shoes",
+  "slot": "feet",
+  "size_kind": "shoe",
+  "alternate": "platform boots",
+  "assembly": null
+ },
+ {
+  "phrase": "leather ankle boots",
+  "region": "shoes",
+  "slot": "feet",
+  "size_kind": "shoe",
+  "alternate": "ankle boots",
+  "assembly": null
+ },
+ {
+  "phrase": "buckled pirate boots",
+  "region": "shoes",
+  "slot": "feet",
+  "size_kind": "shoe",
+  "alternate": "pirate boots",
+  "assembly": null
+ },
+ {
+  "phrase": "tall riding boots",
+  "region": "shoes",
+  "slot": "feet",
+  "size_kind": "shoe",
+  "alternate": "riding boots",
+  "assembly": null
+ },
+ {
+  "phrase": "rubber rain boots",
+  "region": "shoes",
+  "slot": "feet",
+  "size_kind": "shoe",
+  "alternate": "rain boots",
+  "assembly": null
+ },
+ {
+  "phrase": "leather brogue shoes",
+  "region": "shoes",
+  "slot": "feet",
+  "size_kind": "shoe",
+  "alternate": "brogues",
+  "assembly": null
+ },
+ {
+  "phrase": "curled-toe jester boots",
+  "region": "shoes",
+  "slot": "feet",
+  "size_kind": "shoe",
+  "alternate": "jester shoes",
+  "assembly": null
+ },
+ {
+  "phrase": "metallic space boots",
+  "region": "shoes",
+  "slot": "feet",
+  "size_kind": "shoe",
+  "alternate": "silver boots",
+  "assembly": null
+ },
+ {
+  "phrase": "knee-high boots",
+  "region": "shoes",
+  "slot": "feet",
+  "size_kind": "shoe",
+  "alternate": "tall boots",
+  "assembly": null
+ },
+ {
+  "phrase": "thigh-high boots",
+  "region": "shoes",
+  "slot": "feet",
+  "size_kind": "shoe",
+  "alternate": "over-the-knee boots",
+  "assembly": null
+ },
+ {
+  "phrase": "witch buckle boots",
+  "region": "shoes",
+  "slot": "feet",
+  "size_kind": "shoe",
+  "alternate": "witch boots",
+  "assembly": null
+ },
+ {
+  "phrase": "chelsea boots",
+  "region": "shoes",
+  "slot": "feet",
+  "size_kind": "shoe",
+  "alternate": "elastic boots",
+  "assembly": null
+ },
+ {
+  "phrase": "leather oxford shoes",
+  "region": "shoes",
+  "slot": "feet",
+  "size_kind": "shoe",
+  "alternate": "oxfords",
+  "assembly": null
+ },
+ {
+  "phrase": "buckle pilgrim shoes",
+  "region": "shoes",
+  "slot": "feet",
+  "size_kind": "shoe",
+  "alternate": "buckle shoes",
+  "assembly": null
+ },
+ {
+  "phrase": "mary jane shoes",
+  "region": "shoes",
+  "slot": "feet",
+  "size_kind": "shoe",
+  "alternate": "strap shoes",
+  "assembly": null
+ },
+ {
+  "phrase": "ballet flats",
+  "region": "shoes",
+  "slot": "feet",
+  "size_kind": "shoe",
+  "alternate": "flat shoes",
+  "assembly": null
+ },
+ {
+  "phrase": "classic high heels",
+  "region": "shoes",
+  "slot": "feet",
+  "size_kind": "shoe",
+  "alternate": "heels",
+  "assembly": null
+ },
+ {
+  "phrase": "chunky platform shoes",
+  "region": "shoes",
+  "slot": "feet",
+  "size_kind": "shoe",
+  "alternate": "platform shoes",
+  "assembly": null
+ },
+ {
+  "phrase": "canvas sneakers",
+  "region": "shoes",
+  "slot": "feet",
+  "size_kind": "shoe",
+  "alternate": "sneakers",
+  "assembly": null
+ },
+ {
+  "phrase": "leather loafers",
+  "region": "shoes",
+  "slot": "feet",
+  "size_kind": "shoe",
+  "alternate": "loafers",
+  "assembly": null
+ },
+ {
+  "phrase": "strappy sandals",
+  "region": "shoes",
+  "slot": "feet",
+  "size_kind": "shoe",
+  "alternate": "sandals",
+  "assembly": null
+ },
+ {
+  "phrase": "gladiator sandals",
+  "region": "shoes",
+  "slot": "feet",
+  "size_kind": "shoe",
+  "alternate": "roman sandals",
+  "assembly": null
+ },
+ {
+  "phrase": "suede moccasins",
+  "region": "shoes",
+  "slot": "feet",
+  "size_kind": "shoe",
+  "alternate": "moccasins",
+  "assembly": null
+ },
+ {
+  "phrase": "fuzzy slippers",
+  "region": "shoes",
+  "slot": "feet",
+  "size_kind": "shoe",
+  "alternate": "slippers",
+  "assembly": null
+ },
+ {
+  "phrase": "wooden clogs",
+  "region": "shoes",
+  "slot": "feet",
+  "size_kind": "shoe",
+  "alternate": "clogs",
+  "assembly": null
+ },
+ {
+  "phrase": "wellington boots",
+  "region": "shoes",
+  "slot": "feet",
+  "size_kind": "shoe",
+  "alternate": "wellies",
+  "assembly": null
+ },
+ {
+  "phrase": "lace-up corset boots",
+  "region": "shoes",
+  "slot": "feet",
+  "size_kind": "shoe",
+  "alternate": "victorian boots",
+  "assembly": null
+ },
+ {
+  "phrase": "patent dress shoes",
+  "region": "shoes",
+  "slot": "feet",
+  "size_kind": "shoe",
+  "alternate": "dress shoes",
+  "assembly": null
+ },
+ {
+  "phrase": "fur trim boots",
+  "region": "shoes",
+  "slot": "feet",
+  "size_kind": "shoe",
+  "alternate": "snow boots",
+  "assembly": null
+ },
+ {
+  "phrase": "leather satchel",
+  "region": "bag",
+  "slot": "accessory",
+  "size_kind": "one_size",
+  "alternate": "shoulder bag",
+  "assembly": null
+ },
+ {
+  "phrase": "wicker basket",
+  "region": "bag",
+  "slot": "accessory",
+  "size_kind": "one_size",
+  "alternate": "picnic basket",
+  "assembly": null
+ },
+ {
+  "phrase": "jack-o-lantern bucket",
+  "region": "bag",
+  "slot": "accessory",
+  "size_kind": "one_size",
+  "alternate": "pumpkin bucket",
+  "assembly": null
+ },
+ {
+  "phrase": "plastic candy bucket",
+  "region": "bag",
+  "slot": "accessory",
+  "size_kind": "one_size",
+  "alternate": "trick or treat bucket",
+  "assembly": null
+ },
+ {
+  "phrase": "carried lantern",
+  "region": "bag",
+  "slot": "accessory",
+  "size_kind": "one_size",
+  "alternate": "oil lantern",
+  "assembly": null
+ },
+ {
+  "phrase": "canvas messenger bag",
+  "region": "bag",
+  "slot": "accessory",
+  "size_kind": "one_size",
+  "alternate": "messenger bag",
+  "assembly": null
+ },
+ {
+  "phrase": "drawstring pouch",
+  "region": "bag",
+  "slot": "accessory",
+  "size_kind": "one_size",
+  "alternate": "belt pouch",
+  "assembly": null
+ },
+ {
+  "phrase": "leather coin pouch",
+  "region": "bag",
+  "slot": "accessory",
+  "size_kind": "one_size",
+  "alternate": "money bag",
+  "assembly": null
+ },
+ {
+  "phrase": "canvas backpack",
+  "region": "bag",
+  "slot": "accessory",
+  "size_kind": "one_size",
+  "alternate": "rucksack",
+  "assembly": null
+ },
+ {
+  "phrase": "carpet bag",
+  "region": "bag",
+  "slot": "accessory",
+  "size_kind": "one_size",
+  "alternate": "doctor bag",
+  "assembly": null
+ },
+ {
+  "phrase": "leather handbag",
+  "region": "bag",
+  "slot": "accessory",
+  "size_kind": "one_size",
+  "alternate": "purse",
+  "assembly": null
+ },
+ {
+  "phrase": "small clutch purse",
+  "region": "bag",
+  "slot": "accessory",
+  "size_kind": "one_size",
+  "alternate": "clutch",
+  "assembly": null
+ },
+ {
+  "phrase": "leather fanny pack",
+  "region": "bag",
+  "slot": "accessory",
+  "size_kind": "one_size",
+  "alternate": "belt bag",
+  "assembly": null
+ },
+ {
+  "phrase": "treasure chest",
+  "region": "bag",
+  "slot": "accessory",
+  "size_kind": "one_size",
+  "alternate": "pirate chest",
+  "assembly": null
+ },
+ {
+  "phrase": "potion bottle satchel",
+  "region": "bag",
+  "slot": "accessory",
+  "size_kind": "one_size",
+  "alternate": "potion bag",
+  "assembly": null
+ },
+ {
+  "phrase": "beaded evening bag",
+  "region": "bag",
+  "slot": "accessory",
+  "size_kind": "one_size",
+  "alternate": "evening bag",
+  "assembly": null
+ },
+ {
+  "phrase": "quiver arrow bag",
+  "region": "bag",
+  "slot": "accessory",
+  "size_kind": "one_size",
+  "alternate": "arrow quiver",
+  "assembly": null
+ },
+ {
+  "phrase": "burlap sack",
+  "region": "bag",
+  "slot": "accessory",
+  "size_kind": "one_size",
+  "alternate": "sack",
+  "assembly": null
+ },
+ {
+  "phrase": "pillowcase candy bag",
+  "region": "bag",
+  "slot": "accessory",
+  "size_kind": "one_size",
+  "alternate": "trick or treat bag",
+  "assembly": "Use a plain pillowcase, decorate it with fabric paint, and carry it by the opening."
+ },
+ {
+  "phrase": "knotted neckerchief",
+  "region": "scarf",
+  "slot": "accessory",
+  "size_kind": "one_size",
+  "alternate": "bandana",
+  "assembly": null
+ },
+ {
+  "phrase": "ruffled collar",
+  "region": "scarf",
+  "slot": "accessory",
+  "size_kind": "one_size",
+  "alternate": "ruff collar",
+  "assembly": null
+ },
+ {
+  "phrase": "faux fur collar",
+  "region": "scarf",
+  "slot": "accessory",
+  "size_kind": "one_size",
+  "alternate": "fur collar",
+  "assembly": null
+ },
+ {
+  "phrase": "feather boa",
+  "region": "scarf",
+  "slot": "accessory",
+  "size_kind": "one_size",
+  "alternate": "feathered boa",
+  "assembly": null
+ },
+ {
+  "phrase": "silk cravat",
+  "region": "scarf",
+  "slot": "accessory",
+  "size_kind": "one_size",
+  "alternate": "cravat",
+  "assembly": null
+ },
+ {
+  "phrase": "silk ascot",
+  "region": "scarf",
+  "slot": "accessory",
+  "size_kind": "one_size",
+  "alternate": "ascot tie",
+  "assembly": null
+ },
+ {
+  "phrase": "lace jabot",
+  "region": "scarf",
+  "slot": "accessory",
+  "size_kind": "one_size",
+  "alternate": "frilly neck ruffle",
+  "assembly": null
+ },
+ {
+  "phrase": "satin bow tie",
+  "region": "scarf",
+  "slot": "accessory",
+  "size_kind": "one_size",
+  "alternate": "bow tie",
+  "assembly": null
+ },
+ {
+  "phrase": "striped necktie",
+  "region": "scarf",
+  "slot": "accessory",
+  "size_kind": "one_size",
+  "alternate": "necktie",
+  "assembly": null
+ },
+ {
+  "phrase": "knit winter scarf",
+  "region": "scarf",
+  "slot": "accessory",
+  "size_kind": "one_size",
+  "alternate": "scarf",
+  "assembly": null
+ },
+ {
+  "phrase": "striped long scarf",
+  "region": "scarf",
+  "slot": "accessory",
+  "size_kind": "one_size",
+  "alternate": "striped scarf",
+  "assembly": null
+ },
+ {
+  "phrase": "pirate head bandana",
+  "region": "scarf",
+  "slot": "accessory",
+  "size_kind": "one_size",
+  "alternate": "pirate bandana",
+  "assembly": null
+ },
+ {
+  "phrase": "white pleated ruff",
+  "region": "scarf",
+  "slot": "accessory",
+  "size_kind": "one_size",
+  "alternate": "elizabethan ruff",
+  "assembly": null
+ },
+ {
+  "phrase": "peter pan collar",
+  "region": "scarf",
+  "slot": "accessory",
+  "size_kind": "one_size",
+  "alternate": "round collar",
+  "assembly": null
+ },
+ {
+  "phrase": "velvet choker",
+  "region": "scarf",
+  "slot": "accessory",
+  "size_kind": "one_size",
+  "alternate": "ribbon choker",
+  "assembly": null
+ },
+ {
+  "phrase": "wool wrap shawl",
+  "region": "scarf",
+  "slot": "accessory",
+  "size_kind": "one_size",
+  "alternate": "shawl",
+  "assembly": null
+ },
+ {
+  "phrase": "hooded knit cowl",
+  "region": "scarf",
+  "slot": "accessory",
+  "size_kind": "one_size",
+  "alternate": "cowl",
+  "assembly": null
+ },
+ {
+  "phrase": "high stand collar",
+  "region": "scarf",
+  "slot": "accessory",
+  "size_kind": "one_size",
+  "alternate": "stand-up collar",
+  "assembly": null
+ },
+ {
+  "phrase": "lace trim collar",
+  "region": "scarf",
+  "slot": "accessory",
+  "size_kind": "one_size",
+  "alternate": "lace collar",
+  "assembly": null
+ },
+ {
+  "phrase": "silk kerchief",
+  "region": "scarf",
+  "slot": "accessory",
+  "size_kind": "one_size",
+  "alternate": "neck kerchief",
+  "assembly": null
+ },
+ {
+  "phrase": "brass steampunk goggles",
+  "region": "sunglasses",
+  "slot": "head",
+  "size_kind": "one_size",
+  "alternate": "steampunk goggles",
+  "assembly": null
+ },
+ {
+  "phrase": "leather aviator goggles",
+  "region": "sunglasses",
+  "slot": "head",
+  "size_kind": "one_size",
+  "alternate": "aviator goggles",
+  "assembly": null
+ },
+ {
+  "phrase": "round sunglasses",
+  "region": "sunglasses",
+  "slot": "head",
+  "size_kind": "one_size",
+  "alternate": "sunglasses",
+  "assembly": null
+ },
+ {
+  "phrase": "domino eye mask",
+  "region": "sunglasses",
+  "slot": "head",
+  "size_kind": "one_size",
+  "alternate": "eye mask",
+  "assembly": null
+ },
+ {
+  "phrase": "masquerade mask",
+  "region": "sunglasses",
+  "slot": "head",
+  "size_kind": "one_size",
+  "alternate": "venetian mask",
+  "assembly": null
+ },
+ {
+  "phrase": "cat eye glasses",
+  "region": "sunglasses",
+  "slot": "head",
+  "size_kind": "one_size",
+  "alternate": "cat eye sunglasses",
+  "assembly": null
+ },
+ {
+  "phrase": "round wire glasses",
+  "region": "sunglasses",
+  "slot": "head",
+  "size_kind": "one_size",
+  "alternate": "round glasses",
+  "assembly": null
+ },
+ {
+  "phrase": "gold monocle",
+  "region": "sunglasses",
+  "slot": "head",
+  "size_kind": "one_size",
+  "alternate": "monocle",
+  "assembly": null
+ },
+ {
+  "phrase": "pirate eye patch",
+  "region": "sunglasses",
+  "slot": "head",
+  "size_kind": "one_size",
+  "alternate": "eye patch",
+  "assembly": null
+ },
+ {
+  "phrase": "ski goggles",
+  "region": "sunglasses",
+  "slot": "head",
+  "size_kind": "one_size",
+  "alternate": "snow goggles",
+  "assembly": null
+ },
+ {
+  "phrase": "lab safety goggles",
+  "region": "sunglasses",
+  "slot": "head",
+  "size_kind": "one_size",
+  "alternate": "safety goggles",
+  "assembly": null
+ },
+ {
+  "phrase": "heart shaped sunglasses",
+  "region": "sunglasses",
+  "slot": "head",
+  "size_kind": "one_size",
+  "alternate": "heart glasses",
+  "assembly": null
+ },
+ {
+  "phrase": "mirrored disco sunglasses",
+  "region": "sunglasses",
+  "slot": "head",
+  "size_kind": "one_size",
+  "alternate": "party sunglasses",
+  "assembly": null
+ },
+ {
+  "phrase": "plague doctor mask",
+  "region": "sunglasses",
+  "slot": "head",
+  "size_kind": "one_size",
+  "alternate": "beak mask",
+  "assembly": null
+ },
+ {
+  "phrase": "3D paper glasses",
+  "region": "sunglasses",
+  "slot": "head",
+  "size_kind": "one_size",
+  "alternate": "party glasses",
+  "assembly": null
+ },
+ {
+  "phrase": "scholar spectacles",
+  "region": "sunglasses",
+  "slot": "head",
+  "size_kind": "one_size",
+  "alternate": "reading glasses",
+  "assembly": null
+ },
+ {
+  "phrase": "cardboard eye mask",
+  "region": "sunglasses",
+  "slot": "head",
+  "size_kind": "one_size",
+  "alternate": "paper mask",
+  "assembly": "Cut a mask shape from cardboard, punch two eye holes, and attach elastic."
+ }
+]

@@ -1,0 +1,875 @@
+{
+  "costume": {
+    "slug": "ice-empress",
+    "name": "Ice Empress",
+    "description": "A towering silver crown and ivory layers create an ice ruler, softened by white fur and finished with silver boots.",
+    "image": "/costumes/ice-empress.png",
+    "alt": "Tall silver rhinestone crown, ivory long tunic and trousers, white faux-fur shoulder collar and silver boots",
+    "status": "live"
+  },
+  "pieces": [
+    {
+      "id": "ice-empress-silver-crystal-look-crown",
+      "name": "Silver crystal-look crown",
+      "category": "headwear",
+      "required": true,
+      "order": 0,
+      "styleNotes": "Silver rhinestones suggest frozen crystal. The tall default is a rodeo crown; smaller tiaras offer lower-profile alternatives.",
+      "queries": [
+        "Silver crystal-look crown"
+      ],
+      "sizeKind": "one_size",
+      "matches": [
+        {
+          "productId": "p-d-51cdc3fe1b",
+          "rank": 0,
+          "reason": "Tall silver rhinestone rodeo crown creates a crystalline ice crown silhouette; not real ice or crystal."
+        },
+        {
+          "productId": "p-d-511837eb8c",
+          "rank": 1,
+          "reason": "Rhinestone Tiara - Silver. A smaller silver rhinestone tiara changes the height of the ice crown."
+        },
+        {
+          "productId": "p-d-6af821c5b5",
+          "rank": 2,
+          "reason": "Rhinestone Tiara - Silver. A smaller silver rhinestone tiara changes the height of the ice crown."
+        }
+      ]
+    },
+    {
+      "id": "ice-empress-ivory-long-tunic",
+      "name": "Ivory long tunic",
+      "category": "tops",
+      "required": true,
+      "order": 1,
+      "styleNotes": "A natural or ivory tunic makes the upper layer of the ice ruler. Conventional sleeves and hem lengths vary; belts pictured by merchants are not included.",
+      "queries": [
+        "natural cotton medieval tunic",
+        "ivory wool tunic"
+      ],
+      "sizeKind": "apparel",
+      "matches": [
+        {
+          "productId": "p-f35c48b860",
+          "rank": 0,
+          "reason": "Natural 100% thick breathable cotton tunic with front and back slits. S through XXXL are available at $59.99. Other garments in the photo are not included."
+        },
+        {
+          "productId": "p-3799a61906",
+          "rank": 1,
+          "reason": "Natural 100% coarse cotton tunic with long sleeves, slit round neckline and side slits. Thigh-length plain base layer. Only S, XL and XXXL are currently available at $39.99; M, L and XXL are sold out. Belt, pants, wraps and shoes in the merchant photo are not included."
+        },
+        {
+          "productId": "p-54214148a4",
+          "rank": 2,
+          "reason": "Natural heavy wool-blend short tunic: 74% wool, 15% polyester, 7% polyamide and 4% other natural fibers. Warmer, stiffer and more textured than the illustrated light cream layer. Only S and XXXL are available at $69.99; M through XXL are sold out. Brooch, belt and other layers are not included."
+        }
+      ]
+    },
+    {
+      "id": "ice-empress-ivory-trousers",
+      "name": "Ivory trousers",
+      "category": "bottoms",
+      "required": true,
+      "order": 2,
+      "styleNotes": "Relaxed ivory or white trousers complete the pale base. Tuck straight or wide hems loosely into boots without restricting movement.",
+      "queries": [
+        "white linen drawstring pants",
+        "natural cotton lounge pants"
+      ],
+      "sizeKind": "pants",
+      "matches": [
+        {
+          "productId": "p-38e9601da6",
+          "rank": 0,
+          "reason": "Undyed natural organic cotton jersey lounge pants, straight leg and elastic waist. All four listed sizes are available at $76. One pair of pants only."
+        },
+        {
+          "productId": "p-6c68216fba",
+          "rank": 1,
+          "reason": "White 100% European flax linen, relaxed fit and elastic waist in women’s sizing. The reviewed product evidence confirms only XS, L and XL in stock at $42; S and M are sold out. White is brighter than ivory."
+        },
+        {
+          "productId": "p-fae8356f54",
+          "rank": 2,
+          "reason": "White 100% linen pants with drawstring waist, women’s sizing. Selected White XS through XL are available at $138. Top and footwear not included."
+        }
+      ]
+    },
+    {
+      "id": "ice-empress-ivory-faux-fur-shoulder-collar",
+      "name": "Ivory faux-fur shoulder collar",
+      "category": "Accessories",
+      "required": true,
+      "order": 3,
+      "styleNotes": "An ivory or cream faux-fur collar adds a soft snowy shoulder layer. Collar length and white shades differ between options.",
+      "queries": [
+        "handmade ivory faux fur collar neck wrap cream Etsy",
+        "vintage cream faux fur collar stole detachable",
+        "white fluffy faux fur shrug collar handmade costume"
+      ],
+      "sizeKind": "one_size",
+      "matches": [
+        {
+          "productId": "p-3850171d93",
+          "rank": 0,
+          "reason": "Handmade acrylic faux fur, cotton lining and polyester ribbon. Exact Beige & Ivory variant is available at USD29. Ships from Sweden; current merchant notice says still ships outside EU. Low-stock message; confirm delivery date before purchase. Generic page includes hidden sold-out text, but selected variant available true."
+        },
+        {
+          "productId": "p-39ce60e414",
+          "rank": 1,
+          "reason": "Faux fur scarf/collar, 120cm ×15cm, with hidden pass-through hole. Exact Creamy Ivory variant reports available true at USD44. Merchant gives 1–2 business days processing plus US ground10–12 business days; do not promise Halloween arrival."
+        },
+        {
+          "productId": "p-3afdfbc4a6",
+          "rank": 2,
+          "reason": "Plush faux fur collar approximately24in long from center back to tip and6in wide. Exact variant reports available true at USD58. Page calls it ivory, but one customer reports stark white; keep this color uncertainty visible. Merchant no longer promises fixed processing days in current policy."
+        }
+      ]
+    },
+    {
+      "id": "ice-empress-silver-boots",
+      "name": "Silver boots",
+      "category": "footwear",
+      "required": true,
+      "order": 4,
+      "styleNotes": "Metallic silver boots finish the pale outfit. Heel heights, toe shapes and shaft heights differ; choose a height you can wear comfortably.",
+      "queries": [
+        "silver metallic knee high boots",
+        "silver leather boots"
+      ],
+      "sizeKind": "shoe",
+      "matches": [
+        {
+          "productId": "p-21e9dbc725",
+          "rank": 0,
+          "reason": "Silver stretch vegan-leather knee-high go-go boots with 3-inch block heel and side zipper. Sizes use Women’s US labels; size 8 is sold out and omitted."
+        },
+        {
+          "productId": "p-3fba2f0088",
+          "rank": 1,
+          "reason": "Silver stretch knee-high go-go boots with 4-inch heel and 1.5-inch platform, full inner side zipper. Smooth fashion silhouette, not flat ribbed space boots. Women’s US sizes 6, 10 and 11 are available at $58.95; other sizes are sold out. Clearance: final sale."
+        },
+        {
+          "productId": "p-77c39948bb",
+          "rank": 2,
+          "reason": "100% leather silver pointed-toe ankle boots with black lightning bolts, stud outlines and a low stacked heel. EU sizes 36, 37, 38, 39 and 41 are available; 40 is sold out. Merchant states free US shipping."
+        }
+      ]
+    }
+  ],
+  "products": [
+    {
+      "id": "p-d-51cdc3fe1b",
+      "title": "Rodeo Queen Crown - Silver",
+      "url": "https://chicagocostume.com/products/rodeo-queen-crown-silver?variant=47948105842930",
+      "priceCents": 9999,
+      "currency": "USD",
+      "image": "/products/price-tiers/p-d-51cdc3fe1b.webp",
+      "merchantImage": "/products/price-tiers/p-d-51cdc3fe1b.webp",
+      "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/0610/0208/8690/files/UnbeatablesaleInc_snwd643xx650xx02e479.webp?v=1757717916"
+      ],
+      "availability": "in_stock",
+      "sizes": [],
+      "merchantId": "chicagocostume-com",
+      "tagSlugs": [],
+      "description": "Rodeo Queen Crown",
+      "checkedAt": "2026-10-27T00:28:51.012585+00:00",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-27T00:28:51.012585+00:00",
+        "url": "https://chicagocostume.com/products/rodeo-queen-crown-silver.js",
+        "notes": "Built-in web discovery; primary merchant Shopify feed confirms selected variant available and its USD price. Tall silver rhinestone rodeo crown creates a crystalline ice crown silhouette; not real ice or crystal."
+      }
+    },
+    {
+      "id": "p-d-511837eb8c",
+      "title": "Rhinestone Tiara - Silver",
+      "url": "https://chicagocostume.com/products/rhinestone-tiara-silver-4?variant=47949338837234",
+      "priceCents": 2199,
+      "currency": "USD",
+      "image": "/products/price-tiers/p-d-511837eb8c.webp",
+      "merchantImage": "/products/price-tiers/p-d-511837eb8c.webp",
+      "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/0610/0208/8690/files/2528_a6c897d7-ca74-4792-83fa-e713f6ba10fe.webp?v=1757776122"
+      ],
+      "availability": "in_stock",
+      "sizes": [],
+      "merchantId": "chicagocostume-com",
+      "tagSlugs": [],
+      "description": "Rhinestone Tiara - Silver",
+      "checkedAt": "2026-10-27T00:28:51.012585+00:00",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-27T00:28:51.012585+00:00",
+        "url": "https://chicagocostume.com/products/rhinestone-tiara-silver-4.js",
+        "notes": "Built-in web discovery; primary merchant Shopify feed confirms selected variant available and its USD price. Smaller silver rhinestone tiara; lower silhouette than the tall reference crown."
+      }
+    },
+    {
+      "id": "p-d-6af821c5b5",
+      "title": "Rhinestone Tiara - Silver",
+      "url": "https://chicagocostume.com/products/rhinestone-tiara-silver-1?variant=47949351223538",
+      "priceCents": 3299,
+      "currency": "USD",
+      "image": "/products/price-tiers/p-d-6af821c5b5.webp",
+      "merchantImage": "/products/price-tiers/p-d-6af821c5b5.webp",
+      "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/0610/0208/8690/files/4131-510x510.webp?v=1757776474"
+      ],
+      "availability": "in_stock",
+      "sizes": [],
+      "merchantId": "chicagocostume-com",
+      "tagSlugs": [],
+      "description": "Rhinestone Tiara - Silver",
+      "checkedAt": "2026-10-27T00:28:51.012585+00:00",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-27T00:28:51.012585+00:00",
+        "url": "https://chicagocostume.com/products/rhinestone-tiara-silver-1.js",
+        "notes": "Built-in web discovery; primary merchant Shopify feed confirms selected variant available and its USD price. Silver rhinestone tiara; an ornate lower-profile alternative to the tall reference crown."
+      }
+    },
+    {
+      "id": "p-f35c48b860",
+      "title": "Under Tunic Gilbert Natural",
+      "url": "https://burgschneider.com/products/under-tunic-gilbert-natural?variant=47604598800731",
+      "priceCents": 5999,
+      "currency": "USD",
+      "image": "/products/price-tiers/p-f35c48b860.webp",
+      "merchantImage": "/products/price-tiers/p-f35c48b860.webp",
+      "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/0779/4189/9611/files/gilbert-natur.7qem9G.jpg?v=1774944494"
+      ],
+      "availability": "in_stock",
+      "sizes": [
+        "S",
+        "M",
+        "L",
+        "XL",
+        "XXL",
+        "XXXL"
+      ],
+      "merchantId": "burgschneider-com",
+      "tagSlugs": [],
+      "description": "Natural 100% thick breathable cotton tunic with front and back slits. Longer, approximately knee-length silhouette than the reference’s tunic. S through XXXL are available at $59.99. Other garments in the photo are not included.",
+      "checkedAt": "2026-10-26T10:01:20.009Z",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-25T08:53:39.887804Z",
+        "url": "https://burgschneider.com/products/under-tunic-gilbert-natural.js",
+        "notes": "Natural 100% thick breathable cotton tunic with front and back slits. Longer, approximately knee-length silhouette than the reference’s tunic. S through XXXL are available at $59.99. Other garments in the photo are not included."
+      }
+    },
+    {
+      "id": "p-3799a61906",
+      "title": "Medieval Tunic / Under Tunic “Leif“ - Natural",
+      "url": "https://burgschneider.com/products/under-tunic-leif-natural?variant=47604595982683",
+      "priceCents": 3999,
+      "currency": "USD",
+      "image": "/products/price-tiers/p-3799a61906.webp",
+      "merchantImage": "/products/price-tiers/p-3799a61906.webp",
+      "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/0779/4189/9611/files/leif-natur.V4lhRf.jpg?v=1774566137"
+      ],
+      "availability": "in_stock",
+      "sizes": [
+        "S",
+        "XL",
+        "XXXL"
+      ],
+      "merchantId": "burgschneider-com",
+      "tagSlugs": [],
+      "description": "Natural 100% coarse cotton tunic with long sleeves, slit round neckline and side slits. Thigh-length plain base layer. Only S, XL and XXXL are currently available at $39.99; M, L and XXL are sold out. Belt, pants, wraps and shoes in the merchant photo are not included.",
+      "checkedAt": "2026-10-26T10:01:19.879Z",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-25T08:53:39.887804Z",
+        "url": "https://burgschneider.com/products/under-tunic-leif-natural.js",
+        "notes": "Natural 100% coarse cotton tunic with long sleeves, slit round neckline and side slits. Thigh-length plain base layer. Only S, XL and XXXL are currently available at $39.99; M, L and XXL are sold out. Belt, pants, wraps and shoes in the merchant photo are not included."
+      }
+    },
+    {
+      "id": "p-54214148a4",
+      "title": "Wool Tunic Lodin Natural",
+      "url": "https://burgschneider.com/products/wool-tunic-lodin-natural?variant=50172131311963",
+      "priceCents": 6999,
+      "currency": "USD",
+      "image": "/products/price-tiers/p-54214148a4.webp",
+      "merchantImage": "/products/price-tiers/p-54214148a4.webp",
+      "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/0779/4189/9611/files/tunic-lodin-natural-front.jpg?v=1774545701"
+      ],
+      "availability": "in_stock",
+      "sizes": [
+        "S",
+        "XXXL"
+      ],
+      "merchantId": "burgschneider-com",
+      "tagSlugs": [],
+      "description": "Natural heavy wool-blend short tunic: 74% wool, 15% polyester, 7% polyamide and 4% other natural fibers. Warmer, stiffer and more textured than the illustrated light cream layer. Only S and XXXL are available at $69.99; M through XXL are sold out. Brooch, belt and other layers are not included.",
+      "checkedAt": "2026-10-26T10:01:20.092Z",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-25T08:53:39.887804Z",
+        "url": "https://burgschneider.com/products/wool-tunic-lodin-natural.js",
+        "notes": "Natural heavy wool-blend short tunic: 74% wool, 15% polyester, 7% polyamide and 4% other natural fibers. Warmer, stiffer and more textured than the illustrated light cream layer. Only S and XXXL are available at $69.99; M through XXL are sold out. Brooch, belt and other layers are not included."
+      }
+    },
+    {
+      "id": "p-38e9601da6",
+      "title": "Men's Organic Straight Leg Lounge Pants in Natural",
+      "url": "https://harvestandmill.com/products/mens-organic-straight-leg-lounge-pants-in-natural?variant=42275062218826",
+      "priceCents": 7600,
+      "currency": "USD",
+      "image": "/products/price-tiers/p-38e9601da6.webp",
+      "merchantImage": "/products/price-tiers/p-38e9601da6.webp",
+      "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/0550/6478/9066/files/Harvest_and_Mill_organic_cotton_mens_organic_lounge_pants_dye_free_11.jpg?v=1752509147"
+      ],
+      "availability": "in_stock",
+      "sizes": [
+        "small",
+        "medium",
+        "large",
+        "x-large"
+      ],
+      "merchantId": "harvestandmill-com",
+      "tagSlugs": [],
+      "description": "Undyed natural organic cotton jersey lounge pants, straight leg and elastic waist. All four listed sizes are available at $76. Softer knit texture than the illustration’s woven-looking trousers; no ankle gathers. One pair of pants only.",
+      "checkedAt": "2026-10-26T10:01:19.854Z",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-25T08:53:39.887804Z",
+        "url": "https://harvestandmill.com/products/mens-organic-straight-leg-lounge-pants-in-natural.js",
+        "notes": "Undyed natural organic cotton jersey lounge pants, straight leg and elastic waist. All four listed sizes are available at $76. Softer knit texture than the illustration’s woven-looking trousers; no ankle gathers. One pair of pants only."
+      }
+    },
+    {
+      "id": "p-6c68216fba",
+      "title": "100% European Linen Pants",
+      "url": "https://www.quince.com/women/linen-pants?color=white&size=l",
+      "priceCents": 4200,
+      "currency": "USD",
+      "image": "/products/price-tiers/p-6c68216fba.webp",
+      "merchantImage": "/products/price-tiers/p-6c68216fba.webp",
+      "sourceImages": [
+        "https://images.quince.com/1b9zqjjnnVBViU98thA2Wp/a90f82d4f75eb98ca2ee11692ab56d19/Nicole_Chavez_Editorial_01-224_245_EDITED.jpg?fm=webP&q=90&w=1600"
+      ],
+      "availability": "in_stock",
+      "sizes": [
+        "XS",
+        "L",
+        "XL"
+      ],
+      "merchantId": "quince-com",
+      "tagSlugs": [],
+      "description": "White 100% European flax linen, relaxed fit and elastic waist in women’s sizing. Current product JSON-LD confirms only XS, L and XL in stock at $42; S and M are sold out. White is brighter than ivory. Straight legs lack the reference’s gathered cuffs; the blue shirt shown is not included.",
+      "checkedAt": "2026-10-25T08:53:39.887804Z",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-25T08:53:39.887804Z",
+        "url": "https://www.quince.com/women/linen-pants?color=white",
+        "notes": "White 100% European flax linen, relaxed fit and elastic waist in women’s sizing. Current product JSON-LD confirms only XS, L and XL in stock at $42; S and M are sold out. White is brighter than ivory. Straight legs lack the reference’s gathered cuffs; the blue shirt shown is not included."
+      }
+    },
+    {
+      "id": "p-fae8356f54",
+      "title": "Linen Drawstring Pant",
+      "url": "https://larelaxed.com/products/linen-drawstring-pant?variant=46699949916389",
+      "priceCents": 13800,
+      "currency": "USD",
+      "image": "/products/price-tiers/p-fae8356f54.webp",
+      "merchantImage": "/products/price-tiers/p-fae8356f54.webp",
+      "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/0771/8275/files/White_linen_drawstring_lead.jpg?v=1776369060"
+      ],
+      "availability": "in_stock",
+      "sizes": [
+        "XS",
+        "S",
+        "M",
+        "L",
+        "XL"
+      ],
+      "merchantId": "larelaxed-com",
+      "tagSlugs": [],
+      "description": "White 100% linen pants with drawstring waist, women’s sizing. Selected White XS through XL are available at $138. Wider straight leg than the reference’s tapered, gathered trousers; tuck the hem loosely into boots for a similar outline. Top and footwear not included.",
+      "checkedAt": "2026-10-26T10:01:20.197Z",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-25T08:53:39.887804Z",
+        "url": "https://larelaxed.com/products/linen-drawstring-pant.js",
+        "notes": "White 100% linen pants with drawstring waist, women’s sizing. Selected White XS through XL are available at $138. Wider straight leg than the reference’s tapered, gathered trousers; tuck the hem loosely into boots for a similar outline. Top and footwear not included."
+      }
+    },
+    {
+      "id": "p-3850171d93",
+      "title": "Faux Fur Collar — Beige & Ivory",
+      "url": "https://dejmo.com/products/fur-collar?currency=USD&variant=32744541454463",
+      "priceCents": 2900,
+      "currency": "USD",
+      "image": "/products/price-tiers/p-3850171d93.webp",
+      "cutout": "/products/p-3850171d93-cutout.png",
+      "merchantImage": "/products/price-tiers/p-3850171d93.webp",
+      "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/0070/3833/7151/products/Ergi_FurCollar_Cream_Ivory.jpg?v=1599837590"
+      ],
+      "availability": "in_stock",
+      "sizes": [
+        "one size"
+      ],
+      "merchantId": "dejmo-com",
+      "tagSlugs": [
+        "handmade",
+        "faux-fur",
+        "beige",
+        "ivory",
+        "ribbon"
+      ],
+      "description": "Handmade acrylic faux fur, cotton lining and polyester ribbon. Exact Beige & Ivory variant is available at USD29. Ships from Sweden; current merchant notice says still ships outside EU. Low-stock message; confirm delivery date before purchase. Generic page includes hidden sold-out text, but selected variant available true.",
+      "checkedAt": "2026-10-26T10:01:10.508Z",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-25T07:07:04.071733+00:00",
+        "url": "https://dejmo.com/products/fur-collar.js?currency=USD",
+        "notes": "Handmade acrylic faux fur, cotton lining and polyester ribbon. Exact Beige & Ivory variant is available at USD29. Ships from Sweden; current merchant notice says still ships outside EU. Low-stock message; confirm delivery date before purchase. Generic page includes hidden sold-out text, but selected variant available true."
+      }
+    },
+    {
+      "id": "p-39ce60e414",
+      "title": "47.2-inch Faux Fur Shoulder Collar Scarf — Creamy Ivory",
+      "url": "https://babeyond.com/products/babeyond-womens-faux-fur-shawl-faux-fur-scarf-wrap-evening-cape-for-winter-coat-47-2?variant=43960664129757",
+      "priceCents": 4400,
+      "currency": "USD",
+      "image": "/products/price-tiers/p-39ce60e414.webp",
+      "merchantImage": "/products/price-tiers/p-39ce60e414.webp",
+      "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/0015/8937/9159/products/6-3.jpg?v=1750323916"
+      ],
+      "availability": "in_stock",
+      "sizes": [
+        "one size"
+      ],
+      "merchantId": "babeyond-com",
+      "tagSlugs": [],
+      "description": "Faux fur scarf/collar, 120cm ×15cm, with hidden pass-through hole. Exact Creamy Ivory variant reports available true at USD44. More elongated than compact moth ruff. Merchant gives 1–2 business days processing plus US ground10–12 business days; do not promise Halloween arrival.",
+      "checkedAt": "2026-10-26T10:01:10.153Z",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-25T07:07:04.071733+00:00",
+        "url": "https://babeyond.com/products/babeyond-womens-faux-fur-shawl-faux-fur-scarf-wrap-evening-cape-for-winter-coat-47-2.js",
+        "notes": "Faux fur scarf/collar, 120cm ×15cm, with hidden pass-through hole. Exact Creamy Ivory variant reports available true at USD44. More elongated than compact moth ruff. Merchant gives 1–2 business days processing plus US ground10–12 business days; do not promise Halloween arrival."
+      }
+    },
+    {
+      "id": "p-3afdfbc4a6",
+      "title": "Penny Blanc Ivory Faux Fur Collar",
+      "url": "https://jennafergracecollection.com/products/penny-blanc-faux-fur-collar?variant=43246681686265",
+      "priceCents": 5800,
+      "currency": "USD",
+      "image": "/products/price-tiers/p-3afdfbc4a6.webp",
+      "cutout": "/products/p-3afdfbc4a6-cutout.png",
+      "merchantImage": "/products/price-tiers/p-3afdfbc4a6.webp",
+      "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/0658/3425/4585/files/Faux-Fur-Collar-Penny-Blanc-Fleur-De-Peche-Flutter-Wrap-Dress-002.jpg?v=1762654297"
+      ],
+      "availability": "in_stock",
+      "sizes": [
+        "one size"
+      ],
+      "merchantId": "jennafergracecollection-com",
+      "tagSlugs": [
+        "faux-fur",
+        "ivory",
+        "collar",
+        "boho",
+        "layering"
+      ],
+      "description": "Plush faux fur collar approximately24in long from center back to tip and6in wide. Exact variant reports available true at USD58. Page calls it ivory, but one customer reports stark white; keep this color uncertainty visible. Merchant no longer promises fixed processing days in current policy.",
+      "checkedAt": "2026-10-26T10:01:10.395Z",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-25T07:07:04.071733+00:00",
+        "url": "https://jennafergracecollection.com/products/penny-blanc-faux-fur-collar.js",
+        "notes": "Plush faux fur collar approximately24in long from center back to tip and6in wide. Exact variant reports available true at USD58. Page calls it ivory, but one customer reports stark white; keep this color uncertainty visible. Merchant no longer promises fixed processing days in current policy."
+      }
+    },
+    {
+      "id": "p-21e9dbc725",
+      "title": "Gogo-300",
+      "url": "https://pleasershoes.com/products/gogo-300spu?variant=40958056136752",
+      "priceCents": 6795,
+      "currency": "USD",
+      "image": "/products/price-tiers/p-21e9dbc725.webp",
+      "merchantImage": "/products/price-tiers/p-21e9dbc725.webp",
+      "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/2089/7573/files/gogo-300-spu_44ced8ae-c52f-480e-b340-555925592deb.jpg?v=1696462816"
+      ],
+      "availability": "in_stock",
+      "sizes": [
+        "5",
+        "6",
+        "7",
+        "9",
+        "10",
+        "11",
+        "12",
+        "13",
+        "14",
+        "15",
+        "16"
+      ],
+      "merchantId": "pleasershoes-com",
+      "tagSlugs": [],
+      "description": "Silver stretch vegan-leather knee-high go-go boots with 3-inch block heel and side zipper. Smoother and slimmer than the reference, without ribbed padding. Sizes use Women’s US labels; size 8 is sold out and omitted.",
+      "checkedAt": "2026-10-26T10:01:16.673Z",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-25T08:53:19.398203Z",
+        "url": "https://pleasershoes.com/products/gogo-300spu.js",
+        "notes": "Silver stretch vegan-leather knee-high go-go boots with 3-inch block heel and side zipper. Smoother and slimmer than the reference, without ribbed padding. Sizes use Women’s US labels; size 8 is sold out and omitted."
+      }
+    },
+    {
+      "id": "p-3fba2f0088",
+      "title": "Exotica-2000",
+      "url": "https://pleasershoes.com/products/exotica-2000s?variant=40957793992752",
+      "priceCents": 5895,
+      "currency": "USD",
+      "image": "/products/price-tiers/p-3fba2f0088.webp",
+      "merchantImage": "/products/price-tiers/p-3fba2f0088.webp",
+      "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/2089/7573/files/exotica-2000-s_93b8e56d-73e1-413f-9aa1-6f87e2888bed.jpg?v=1696457112"
+      ],
+      "availability": "in_stock",
+      "sizes": [
+        "6",
+        "10",
+        "11"
+      ],
+      "merchantId": "pleasershoes-com",
+      "tagSlugs": [],
+      "description": "Silver stretch knee-high go-go boots with 4-inch heel and 1.5-inch platform, full inner side zipper. Smooth fashion silhouette, not flat ribbed space boots. Women’s US sizes 6, 10 and 11 are available at $58.95; other sizes are sold out. Clearance: final sale.",
+      "checkedAt": "2026-10-26T10:01:16.424Z",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-25T08:53:19.398203Z",
+        "url": "https://pleasershoes.com/products/exotica-2000s.js",
+        "notes": "Silver stretch knee-high go-go boots with 4-inch heel and 1.5-inch platform, full inner side zipper. Smooth fashion silhouette, not flat ribbed space boots. Women’s US sizes 6, 10 and 11 are available at $58.95; other sizes are sold out. Clearance: final sale."
+      }
+    },
+    {
+      "id": "p-77c39948bb",
+      "title": "Any Old Iron The Silver Lightning Bolt Boots",
+      "url": "https://www.anyoldiron.us/products/any-old-iron-the-lightning-bolt-boots?variant=40247074422902",
+      "priceCents": 28500,
+      "currency": "USD",
+      "image": "/products/price-tiers/p-77c39948bb.webp",
+      "merchantImage": "/products/price-tiers/p-77c39948bb.webp",
+      "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/0882/8672/files/Photoroom_20251217_135937.jpg?v=1766436005"
+      ],
+      "availability": "in_stock",
+      "sizes": [
+        "36",
+        "37",
+        "38",
+        "39",
+        "41"
+      ],
+      "merchantId": "anyoldiron-us",
+      "tagSlugs": [],
+      "description": "100% leather silver pointed-toe ankle boots with black lightning bolts, stud outlines and a low stacked heel. Much shorter and more decorative than the reference knee-high space boots. EU sizes 36, 37, 38, 39 and 41 are available; 40 is sold out. Merchant states free US shipping.",
+      "checkedAt": "2026-10-26T10:01:16.432Z",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-25T08:53:19.398203Z",
+        "url": "https://www.anyoldiron.us/products/any-old-iron-the-lightning-bolt-boots.js",
+        "notes": "100% leather silver pointed-toe ankle boots with black lightning bolts, stud outlines and a low stacked heel. Much shorter and more decorative than the reference knee-high space boots. EU sizes 36, 37, 38, 39 and 41 are available; 40 is sold out. Merchant states free US shipping."
+      }
+    }
+  ],
+  "merchants": [
+    {
+      "id": "chicagocostume-com",
+      "name": "Chicago Costume Company",
+      "domain": "chicagocostume.com",
+      "url": "https://chicagocostume.com/",
+      "kind": "boutique",
+      "neighborhoodId": null
+    },
+    {
+      "id": "burgschneider-com",
+      "name": "Burgschneider",
+      "domain": "burgschneider.com",
+      "url": "https://burgschneider.com/",
+      "kind": "boutique",
+      "neighborhoodId": null
+    },
+    {
+      "id": "quince-com",
+      "name": "Quince",
+      "domain": "quince.com",
+      "url": "https://quince.com/",
+      "kind": "boutique",
+      "neighborhoodId": null
+    },
+    {
+      "id": "harvestandmill-com",
+      "name": "Harvest & Mill",
+      "domain": "harvestandmill.com",
+      "url": "https://harvestandmill.com/",
+      "kind": "boutique",
+      "neighborhoodId": null
+    },
+    {
+      "id": "larelaxed-com",
+      "name": "LA Relaxed",
+      "domain": "larelaxed.com",
+      "url": "https://larelaxed.com/",
+      "kind": "boutique",
+      "neighborhoodId": null
+    },
+    {
+      "id": "dejmo-com",
+      "name": "Dejmo (Ergi by Piratessan)",
+      "domain": "dejmo.com",
+      "url": "https://dejmo.com",
+      "kind": "dtc",
+      "neighborhoodId": null
+    },
+    {
+      "id": "jennafergracecollection-com",
+      "name": "Jennafer Grace",
+      "domain": "jennafergracecollection.com",
+      "url": "https://jennafergracecollection.com",
+      "kind": "boutique",
+      "neighborhoodId": null
+    },
+    {
+      "id": "babeyond-com",
+      "name": "BABEYOND",
+      "domain": "babeyond.com",
+      "url": "https://babeyond.com/",
+      "kind": "boutique",
+      "neighborhoodId": null
+    },
+    {
+      "id": "pleasershoes-com",
+      "name": "Pleaser Shoes",
+      "domain": "pleasershoes.com",
+      "url": "https://pleasershoes.com/",
+      "kind": "boutique",
+      "neighborhoodId": null
+    },
+    {
+      "id": "anyoldiron-us",
+      "name": "Any Old Iron",
+      "domain": "anyoldiron.us",
+      "url": "https://anyoldiron.us/",
+      "kind": "boutique",
+      "neighborhoodId": null
+    }
+  ],
+  "neighborhoods": [],
+  "tags": [
+    {
+      "slug": "chiffon",
+      "label": "Chiffon"
+    },
+    {
+      "slug": "luna-moth",
+      "label": "Luna Moth"
+    },
+    {
+      "slug": "handmade",
+      "label": "Handmade"
+    },
+    {
+      "slug": "wing-cape",
+      "label": "Wing Cape"
+    },
+    {
+      "slug": "one-size",
+      "label": "One Size"
+    },
+    {
+      "slug": "cecropia-moth",
+      "label": "Cecropia Moth"
+    },
+    {
+      "slug": "synthetic",
+      "label": "Synthetic"
+    },
+    {
+      "slug": "emperor-moth",
+      "label": "Emperor Moth"
+    },
+    {
+      "slug": "cotton",
+      "label": "Cotton"
+    },
+    {
+      "slug": "unitard",
+      "label": "Unitard"
+    },
+    {
+      "slug": "black",
+      "label": "Black"
+    },
+    {
+      "slug": "long-sleeve",
+      "label": "Long Sleeve"
+    },
+    {
+      "slug": "garment-dyed",
+      "label": "Garment Dyed"
+    },
+    {
+      "slug": "velvet",
+      "label": "Velvet"
+    },
+    {
+      "slug": "charcoal",
+      "label": "Charcoal"
+    },
+    {
+      "slug": "catsuit",
+      "label": "Catsuit"
+    },
+    {
+      "slug": "fitted",
+      "label": "Fitted"
+    },
+    {
+      "slug": "recycled",
+      "label": "Recycled"
+    },
+    {
+      "slug": "activewear",
+      "label": "Activewear"
+    },
+    {
+      "slug": "final-sale",
+      "label": "Final Sale"
+    },
+    {
+      "slug": "faux-fur",
+      "label": "Faux Fur"
+    },
+    {
+      "slug": "beige",
+      "label": "Beige"
+    },
+    {
+      "slug": "ivory",
+      "label": "Ivory"
+    },
+    {
+      "slug": "ribbon",
+      "label": "Ribbon"
+    },
+    {
+      "slug": "collar",
+      "label": "Collar"
+    },
+    {
+      "slug": "boho",
+      "label": "Boho"
+    },
+    {
+      "slug": "layering",
+      "label": "Layering"
+    },
+    {
+      "slug": "ribbon-tie",
+      "label": "Ribbon Tie"
+    },
+    {
+      "slug": "neck-wrap",
+      "label": "Neck Wrap"
+    },
+    {
+      "slug": "leather",
+      "label": "Leather"
+    },
+    {
+      "slug": "mass-market",
+      "label": "Mass Market"
+    },
+    {
+      "slug": "antenna",
+      "label": "Antenna"
+    },
+    {
+      "slug": "headband",
+      "label": "Headband"
+    },
+    {
+      "slug": "bopper",
+      "label": "Bopper"
+    },
+    {
+      "slug": "western",
+      "label": "Western"
+    },
+    {
+      "slug": "pull-on",
+      "label": "Pull On"
+    },
+    {
+      "slug": "creeper",
+      "label": "Creeper"
+    },
+    {
+      "slug": "lace-up",
+      "label": "Lace Up"
+    },
+    {
+      "slug": "brogue",
+      "label": "Brogue"
+    },
+    {
+      "slug": "platform",
+      "label": "Platform"
+    },
+    {
+      "slug": "vegan-leather",
+      "label": "Vegan Leather"
+    },
+    {
+      "slug": "lace",
+      "label": "Lace"
+    },
+    {
+      "slug": "corset",
+      "label": "Corset"
+    },
+    {
+      "slug": "knee-high",
+      "label": "Knee High"
+    },
+    {
+      "slug": "feather",
+      "label": "Feather"
+    },
+    {
+      "slug": "insect",
+      "label": "Insect"
+    },
+    {
+      "slug": "silver",
+      "label": "Silver"
+    }
+  ],
+  "provenance": {
+    "method": "manual-research",
+    "generatedAt": "2026-10-27T00:28:51.012585+00:00",
+    "notes": "Expansion D: new defining accessories researched with built-in web search and official merchant Shopify variant feeds. Existing basics reuse reviewed catalog evidence and retain original check dates. Relative price tiers; shipping, taxes and arrival are unconfirmed. Generated image is styling inspiration; option differences and DIY work are explicit. See docs/sourcing/expansion-d.md. Publication carries forward newer shared-product price, stock, size and check timestamps from the live database; original sourcing evidence is retained.",
+    "priceTiers": true,
+    "heroImageKind": "generated-reference"
+  }
+}

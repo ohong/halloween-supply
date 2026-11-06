@@ -1,0 +1,315 @@
+{
+  "slug": "candy-corn-sorceress",
+  "base": "http://localhost:3000",
+  "model": "opencv-5:5.0.0;stock",
+  "elapsedMs": 30201,
+  "done": {
+    "t": "done",
+    "found": 2,
+    "priced": 0,
+    "timedOut": true,
+    "ms": 30019
+  },
+  "pieces": [
+    "rust straw scarecrow hat",
+    "black velvet cape",
+    "orange candy corn dress",
+    "mustard pencil skirt",
+    "orange striped stockings",
+    "black knee-high boots"
+  ],
+  "approvals": [],
+  "retries": [],
+  "improvedPieces": [],
+  "trace": [
+    {
+      "t_ms": 5995,
+      "piece": null,
+      "step": "perceive",
+      "detail": {
+        "person": {
+          "found": true,
+          "bbox": [
+            290,
+            75,
+            444,
+            932
+          ],
+          "confidence": 0.796
+        },
+        "timings_ms": {
+          "decode": 3,
+          "segment": 4658,
+          "colors": 174,
+          "embed": 988,
+          "classify": 15,
+          "total": 5859
+        },
+        "pieces": [
+          {
+            "id": "p0",
+            "region": "hat",
+            "slot": "head",
+            "area_frac": 0.0118,
+            "pattern": "patterned",
+            "query": "rust straw scarecrow hat",
+            "alternate": "rust straw hat",
+            "colors": [
+              {
+                "name": "rust",
+                "hex": "#8a4404",
+                "frac": 0.449
+              },
+              {
+                "name": "mustard",
+                "hex": "#f1b63f",
+                "frac": 0.428
+              },
+              {
+                "name": "orange",
+                "hex": "#ef5c0f",
+                "frac": 0.123
+              }
+            ],
+            "garment_types": [
+              {
+                "phrase": "straw scarecrow hat",
+                "score": 0.2878
+              },
+              {
+                "phrase": "floppy felt hat",
+                "score": 0.2827
+              },
+              {
+                "phrase": "felt cowboy hat",
+                "score": 0.276
+              }
+            ]
+          },
+          {
+            "id": "p1",
+            "region": "upper_clothes",
+            "slot": "top",
+            "area_frac": 0.0595,
+            "pattern": "solid",
+            "query": "plain black velvet cape",
+            "alternate": "black short cape",
+            "colors": [
+              {
+                "name": "black",
+                "hex": "#151212",
+                "frac": 0.82
+              },
+              {
+                "name": "beige",
+                "hex": "#d8c7b6",
+                "frac": 0.153
+              },
+              {
+                "name": "rust",
+                "hex": "#d14e19",
+                "frac": 0.027
+              }
+            ],
+            "garment_types": [
+              {
+                "phrase": "velvet cape",
+                "score": 0.2817
+              },
+              {
+                "phrase": "satin corset top",
+                "score": 0.2801
+              },
+              {
+                "phrase": "feather shoulder cape",
+                "score": 0.2721
+              }
+            ]
+          },
+          {
+            "id": "p2",
+            "region": "dress",
+            "slot": "top",
+            "area_frac": 0.0671,
+            "pattern": "patterned",
+            "query": "orange candy corn dress",
+            "alternate": "orange striped tiered dress",
+            "colors": [
+              {
+                "name": "orange",
+                "hex": "#e3520f",
+                "frac": 0.661
+              },
+              {
+                "name": "gold",
+                "hex": "#eba324",
+                "frac": 0.298
+              },
+              {
+                "name": "chocolate",
+                "hex": "#3e1910",
+                "frac": 0.041
+              }
+            ],
+            "garment_types": [
+              {
+                "phrase": "candy corn dress",
+                "score": 0.3174
+              },
+              {
+                "phrase": "layered tulle dress",
+                "score": 0.2582
+              },
+              {
+                "phrase": "witch tattered dress",
+                "score": 0.2535
+              }
+            ]
+          },
+          {
+            "id": "p3",
+            "region": "skirt",
+            "slot": "bottom",
+            "area_frac": 0.0103,
+            "pattern": "solid",
+            "query": "mustard pencil skirt",
+            "alternate": "mustard straight skirt",
+            "colors": [
+              {
+                "name": "mustard",
+                "hex": "#f0af2b",
+                "frac": 0.566
+              },
+              {
+                "name": "orange",
+                "hex": "#d37f07",
+                "frac": 0.265
+              },
+              {
+                "name": "orange",
+                "hex": "#e54f0e",
+                "frac": 0.17
+              }
+            ],
+            "garment_types": [
+              {
+                "phrase": "pencil skirt",
+                "score": 0.244
+              },
+              {
+                "phrase": "long skirt",
+                "score": 0.2367
+              },
+              {
+                "phrase": "ruffled tiered skirt",
+                "score": 0.2346
+              }
+            ]
+          },
+          {
+            "id": "p4",
+            "region": "pants",
+            "slot": "bottom",
+            "area_frac": 0.02,
+            "pattern": "patterned",
+            "query": "orange striped stockings",
+            "alternate": "orange striped tights",
+            "colors": [
+              {
+                "name": "orange",
+                "hex": "#e2500a",
+                "frac": 0.371
+              },
+              {
+                "name": "beige",
+                "hex": "#dbc6b6",
+                "frac": 0.36
+              },
+              {
+                "name": "mustard",
+                "hex": "#e59e17",
+                "frac": 0.269
+              }
+            ],
+            "garment_types": [
+              {
+                "phrase": "striped stockings",
+                "score": 0.2523
+              },
+              {
+                "phrase": "dress slacks",
+                "score": 0.2371
+              },
+              {
+                "phrase": "thigh-high stockings",
+                "score": 0.2337
+              }
+            ]
+          },
+          {
+            "id": "p5",
+            "region": "shoes",
+            "slot": "feet",
+            "area_frac": 0.019,
+            "pattern": "patterned",
+            "query": "black knee-high boots",
+            "alternate": "black tall boots",
+            "colors": [
+              {
+                "name": "black",
+                "hex": "#1a1716",
+                "frac": 0.609
+              },
+              {
+                "name": "chocolate",
+                "hex": "#3e3937",
+                "frac": 0.339
+              },
+              {
+                "name": "silver",
+                "hex": "#cbc0b4",
+                "frac": 0.051
+              }
+            ],
+            "garment_types": [
+              {
+                "phrase": "knee-high boots",
+                "score": 0.2721
+              },
+              {
+                "phrase": "platform ankle boots",
+                "score": 0.2695
+              },
+              {
+                "phrase": "thigh-high boots",
+                "score": 0.2646
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "t_ms": 25285,
+      "piece": 0,
+      "step": "search",
+      "detail": {
+        "attempt": 0,
+        "query": "rust straw scarecrow hat",
+        "candidates": 3,
+        "ms": 19282
+      }
+    },
+    {
+      "t_ms": 29443,
+      "piece": 1,
+      "step": "search",
+      "detail": {
+        "attempt": 0,
+        "query": "plain black velvet cape",
+        "candidates": 3,
+        "ms": 23440
+      }
+    }
+  ]
+}

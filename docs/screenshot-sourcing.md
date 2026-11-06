@@ -42,6 +42,60 @@ A `piece` event adds an item to the existing size/inspection/cart flow only when
 
 The UI consumes NDJSON events directly, without waiting for the full response. Logs flush in batches so they do not trail the board. Priced pieces can be inspected or added while other searches continue. Displayed totals include only priced cart items.
 
+## OpenCV vision mode (opt-in supplement)
+
+Luna stays the default (`SCREENSHOT_VISION=luna`). `SCREENSHOT_VISION=opencv` adds the OpenCV vision service (`plans/contract.md` v1.1, set by `VISION_SERVICE_URL` and `VISION_SERVICE_TOKEN`) as a supplement to Luna. `/v1/analyze` segments the person into pieces with colors, garment guesses, a CLIP embedding, a crop and an outline. One Luna call (`labelSegments`) then sees the full screenshot plus every crop and its hints, and decides what each piece is: its name, garment phrase, search query, alternate query and slot, or drops it (skin, hair, duplicates). OpenCV keeps the measurements; Luna's garment phrase replaces OpenCV's top guess, so `/v1/match` and retries use it. `/v1/match` scores each candidate's product photo against its piece. `X-Vision-Model` reports `opencv-5:<build>+gpt-6-luna`.
+
+OpenCV never fails a request. If the health check or `/v1/analyze` fails, the request runs the Luna path above. If `/v1/match` fails or would end within 2 s of the deadline, that piece emits `score` with `error: "opencv_unavailable"` and a `decide` of `approve`, and the shopper confirms the first cart-ready find. Each miss logs `screenshot_opencv_miss`. At most two `/v1/match` calls run at once per server instance, because a 2-vCPU service runs them about one at a time and extra calls only make all of them late.
+
+The `look` event carries `segmentation` (image size, person outline, service timings) and each piece's outline, so `/screenshot` draws the segmentation over the preview, shows each piece's crop, colors and query, and lists the pipeline timings. Older service builds without outlines render no overlay.
+
+amazon.com (and its subdomains) is an allowed merchant for search and checkout; short links (`amzn.to`, `a.co`) and other Amazon country domains stay blocked.
+
+Each piece runs a small agent loop inside the same 30-second budget. Each retry changes one thing about the query, so the trace shows why the next search differs:
+
+```text
+analyze -> piece -> search -> /v1/match -> decide
+                      ^                      |
+                      |  retry (max 2)       | match       -> accept
+                      +----------------------+ weak/reject -> retry or ask
+retry query:  color_mismatch -> "<detected color> <phrase>"
+              type_mismatch  -> "<color> <next garment phrase>"
+              no_garment / no candidates / weak score -> alternate phrase
+ask shopper:  retries_exhausted, budget_low (<10 s left), no_new_query
+```
+
+An uncertain best result becomes an `approval` event, and the shopper confirms it before it joins the cart. Every step streams as a `trace` event (`perceive`, `label`, `search`, `score`, `decide`, `approve`) and is logged once per request as `screenshot_agent_trace`. The UI shows the trace for each piece.
+
+Verify against a running app with the service configured. This calls the real route, the real service and real search:
+
+```sh
+bun scripts/verify-screenshot-agent.ts http://localhost:3000
+# Samples can be slugs from public/costumes or PNG paths; --require-retry needs one improving color/type retry:
+SCREENSHOT_SAMPLES=eval/traces/moon-moth-upper.png,eval/traces/cosmic-cowboy-upper.png bun scripts/verify-screenshot-agent.ts http://localhost:3000 --require-retry
+```
+
+Each run saves its trace to `eval/traces/`. Examples saved there:
+
+- `moon-moth-upper-…22-54`: a color retry ("charcoal satin pantaloons" -> "black satin pantaloons") clears `color_mismatch` and raises the best score from 0.358 to 0.366. That is still a reject, so the piece goes to approval.
+- `moon-moth-upper-…26-52`: the same color retry raises the pantaloons from 0.342 to 0.375, and a color retry on the cape ("beige" -> "sage") is followed by a `no_candidates` retry that reaches 0.363. Both stay rejects and go to approval.
+- `cosmic-cowboy-upper-…30-18` (stock service image): a color retry on the hat ("silver felt cowboy hat") turns a weak pick at 0.593 with `color_mismatch` into a match at 0.658, which the agent accepts.
+- `cosmic-cowboy-upper-…22-12`: a color retry raises the best pantaloons score from 0.269 to 0.364, also still a reject.
+- `moon-moth-…`, `storm-chaser-…`: weak results that go to shopper approval.
+
+Known limits, measured against the service running locally:
+
+- Search, not vision, uses most of the budget. Firecrawl's two-job scrape queue makes a first search take 5–19 s, so a retry that starts after about 15 s is rarely scored in time. Looks with five or more pieces (`candy-corn-sorceress-…`) can reach the deadline before every piece is scored.
+- `/v1/match` took 1–8 s per piece here, and up to 27 s when several requests ran at once.
+- Against the AWS service (t4g.small, 2 vCPU, build `5.0.0;stock`, through CloudFront): `/v1/analyze` took 5.0 s (segment 2.9 s, embed 1.4 s). One `/v1/match` of three photos took 1.2 s once transparent product PNGs are flattened onto white before JPEG encoding (`offerImage` does this); unflattened, their black backgrounds sent every candidate to the segmenter and the same call took 8.8 s. Four calls at once queue on the 2 vCPUs, and each took 14–33 s with the unflattened photos. With perceive and label done by about 12 s, the first score step started at 18–24 s, so in the four-sample run on 2026-10-27 (`…05-43-49` to `…05-45-08`) only 1 of 12 pieces got a real score; the other pieces went to shopper approval through `opencv_unavailable`. That run predates the flattening fix, so it overstates the scoring delay.
+- Most retries raise scores without changing the verdict, so those pieces still go to approval. A retry can also return no candidates at all (`moon-moth-upper-…24-35` found nothing).
+
+## Live mirror feedback
+
+When the shopper asks the live mirror a visual question, `/api/live-mirror/feedback` also sends the Lucy preview frame (Image 1) to `/v1/analyze`, with a 15-second limit. The client sends the current outfit selection (piece, product and shown color for each bought piece, at most 20, validated with zod). The route adds a "Measured by OpenCV" section to Luna's input: each segmented garment with its region and color fractions, then each selected piece with whether a matching garment was detected and whether its color matches. Luna uses these lines to ground colors and point out a missing or recolored piece, and trusts the image when they disagree. If the service is slow or fails, Luna answers alone and the route logs `mirror_opencv_miss`; a success logs `mirror_opencv` with timings. Frames are not stored.
+
+Measured with a real cosmic-cowboy frame: 9.4 s for the whole answer against the AWS service, of which 4.7 s was OpenCV (8.7 s and 4.3 s against the local service). With the service paused, the route answered in 19.1 s after the 15-second miss.
+
 ## Verification
 
 ```sh

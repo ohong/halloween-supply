@@ -3,9 +3,7 @@ import { readFile } from "node:fs/promises";
 import path from "node:path";
 import sharp from "sharp";
 import { z } from "zod";
-import { costumes } from "@/lib/costumes";
-import { readMirrorInventory } from "@/lib/live-mirror/catalog-server";
-import { composeMirrorCostume } from "@/lib/live-mirror/mixed-outfit";
+import { resolvePreviewReferences } from "@/lib/try-on/references";
 import { mixSchema } from "@/lib/live-mirror/mix-schema";
 import { openaiRequest, PreviewError } from "@/lib/ai/openai";
 import { isTryOnTesting } from "@/lib/try-on-policy";
@@ -76,11 +74,8 @@ export async function POST(request: Request) {
   try {
     const origin = request.headers.get("origin");
     if (origin && origin !== new URL(request.url).origin) throw new PreviewError(403, "Open try-on from this site.");
-    if (!process.env.OPENAI_API_KEY) throw new PreviewError(503, "Photo try-on is not available yet. Please try again later.");
     const form = await readForm(request);
     if (form.get("consent") !== "true") throw new PreviewError(400, "Confirm that this is your photo and that you agree to send it to OpenAI.");
-    const costume = costumes.find((item) => item.slug === form.get("costumeSlug"));
-    if (!costume) throw new PreviewError(400, "Choose a costume from the gallery.");
     const photo = form.get("photo");
     if (!(photo instanceof File) || !photo.size || photo.size > MAX_PHOTO) throw new PreviewError(400, "Choose a JPEG, PNG or WebP photo smaller than 3 MB.");
     if (!["image/jpeg", "image/png", "image/webp"].includes(photo.type)) throw new PreviewError(400, "Use a JPEG, PNG or WebP photo.");
@@ -88,8 +83,12 @@ export async function POST(request: Request) {
     const selected = selectionSchema.parse(JSON.parse(String(form.get("selection") ?? "[]")));
     const owned = idsSchema.parse(JSON.parse(String(form.get("ownedPieceIds") ?? "[]")));
     const skipped = idsSchema.parse(JSON.parse(String(form.get("skippedPieceIds") ?? "[]")));
-    const ids = [...selected.map((item) => item.pieceId), ...owned, ...skipped];
-    if (new Set(ids).size !== ids.length) throw new PreviewError(400, "Choose each outfit piece only once.");
+    const savedLookId = form.get("savedLookId");
+    if (savedLookId !== null) z.uuid().parse(savedLookId);
+    const resolved = await resolvePreviewReferences({ costumeSlug: String(form.get("costumeSlug") ?? "") || undefined,
+      savedLookId: savedLookId ? String(savedLookId) : undefined, selected, owned, skipped, mixes });
+    const { costume, productPreview, referenceSources, descriptions, ownedNames, skippedNames } = resolved;
+    if (!process.env.OPENAI_API_KEY) throw new PreviewError(503, "Photo try-on is not available yet. Please try again later.");
     let person: Buffer;
     try {
       const input = sharp(Buffer.from(await photo.arrayBuffer()), { limitInputPixels: 32_000_000 });
@@ -99,39 +98,6 @@ export async function POST(request: Request) {
       person = await input.rotate().resize({ width: 1536, height: 2048, fit: "inside", withoutEnlargement: true }).jpeg({ quality: 90 }).toBuffer();
     } catch { throw new PreviewError(400, "This photo could not be opened. Try another JPEG, PNG or WebP photo."); }
 
-    // The shopper is the only person reference. Editorial models and raw
-    // merchant photos must not compete with shopper identity.
-    const productPreview = ids.length > 0;
-    const referenceSources: string[] = [];
-    const descriptions: string[] = [];
-    const ownedNames: string[] = [];
-    const skippedNames: string[] = [];
-    if (ids.length) {
-      const inventory = await readMirrorInventory();
-      const base = inventory.views.find(view => view.costume.slug === costume.slug);
-      if (!base) throw new PreviewError(400, "This costume is unavailable.");
-      let view;
-      try { view = composeMirrorCostume(base, mixes, inventory.views); }
-      catch (error) { throw new PreviewError(400, error instanceof Error ? error.message : "Invalid mixed outfit."); }
-      if (!view || ids.some((id) => !view.pieces.some(({ piece }) => piece.id === id))) throw new PreviewError(400, "Some outfit pieces are no longer in this costume.");
-      if (view.pieces.some(({ piece }) => !ids.includes(piece.id))) throw new PreviewError(400, "Include a choice for every outfit piece.");
-      for (const { piece, options } of view.pieces) {
-        if (owned.includes(piece.id)) { ownedNames.push(piece.name); continue; }
-        if (skipped.includes(piece.id)) {
-          if (piece.required) throw new PreviewError(400, "Required costume pieces cannot be skipped.");
-          skippedNames.push(piece.name); continue;
-        }
-        const choice = selected.find((item) => item.pieceId === piece.id);
-        const option = options.find(({ product }) => product.id === choice?.productId);
-        if (!option || option.product.availability === "out_of_stock") throw new PreviewError(400, "A selected product is unavailable. Choose another outfit first.");
-        // Raw merchant photos may contain another face. Only isolated garment
-        // cutouts can guide appearance without competing with shopper identity.
-        const garmentImage = option.product.cutout;
-        const hasImage = Boolean(garmentImage?.startsWith("/products/"));
-        descriptions.push(`${piece.name}: ${option.product.title}. ${option.product.description.slice(0, 700)}${hasImage ? ` (reference image ${referenceSources.length + 2})` : " (text reference only)"}`);
-        if (hasImage) referenceSources.push(garmentImage!);
-      }
-    }
     reserved = reserve();
     // Promise.all preserves image numbering while decoding independent assets together.
     const references = await Promise.all(referenceSources.map(localReference));
@@ -151,7 +117,7 @@ export async function POST(request: Request) {
     const generated = performance.now();
     if (!result.success) throw new PreviewError(502, "The image service did not return a preview. Please try another photo.");
     const image = `data:image/jpeg;base64,${result.data.data[0].b64_json}`;
-    return respond(200, { image, costumeSlug: costume.slug, render3d: offer3d(image) }, { prepare: generationStarted - started, generate: generated - generationStarted, model });
+    return respond(200, { image, costumeSlug: costume.slug, ...(resolved.savedLookId ? { savedLookId: resolved.savedLookId } : {}), render3d: offer3d(image) }, { prepare: generationStarted - started, generate: generated - generationStarted, model });
   } catch (error) {
     if (error instanceof PreviewError) return respond(error.status, { error: error.message });
     if (error instanceof z.ZodError || error instanceof SyntaxError) return respond(400, { error: "The outfit request is invalid. Refresh the page and try again." });

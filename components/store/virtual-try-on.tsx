@@ -13,6 +13,9 @@ import { preparePhoto } from "@/lib/photo/prepare";
 import { PhoneCameraControls, usePhoneCamera } from "./phone-camera";
 
 import type { MirrorMix } from "@/lib/live-mirror/types";
+import { useCostumeModel } from "@/lib/model-selection";
+import type { LookSelection } from "@/lib/look-selection";
+import { trackEvent } from "@/lib/telemetry/client";
 
 type Selection = { pieceId: string; productId: string }[];
 
@@ -23,13 +26,14 @@ const SAVE = "M12 4v11m0 0l-4-4m4 4l4-4M5 20h14";
 const CLOSE = "M6 6l12 12M18 6L6 18";
 const SHARE = "M12 15V4m0 0L8 8m4-4l4 4M5 13v5a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-5";
 
-export function VirtualTryOn({ costumeSlug, selection = [], ownedPieceIds = [], skippedPieceIds = [], totalCents = 0, pieces, mixes }: {
-  costumeSlug: string; mixes?: MirrorMix[]; selection?: Selection; ownedPieceIds?: string[]; skippedPieceIds?: string[]; totalCents?: number; pieces?: FocusPiece[];
+export function VirtualTryOn({ costumeSlug, savedLookId, name, image, selection = [], ownedPieceIds = [], skippedPieceIds = [], totalCents = 0, pieces, mixes, previewEdits, previewSource }: {
+  previewSource?: "look" | "custom" | "screenshot"; previewEdits?: LookSelection["previewEdits"]; costumeSlug?: string; savedLookId?: string; name?: string; image?: string; mixes?: MirrorMix[]; selection?: Selection; ownedPieceIds?: string[]; skippedPieceIds?: string[]; totalCents?: number; pieces?: FocusPiece[];
 }) {
   const [photo, setPhoto] = useState<Blob | null>(null);
   const [photoUrl, setPhotoUrl] = useState("");
   const [preparing, setPreparing] = useState(false);
   const [busy, setBusy] = useState(false);
+  const [done, setDone] = useState(false);
   const [error, setError] = useState("");
   const [result, setResult] = useState<{ image: string; key: string; render3d: RenderOffer | null } | null>(null);
   const [peek, setPeek] = useState(false);
@@ -37,8 +41,10 @@ export function VirtualTryOn({ costumeSlug, selection = [], ownedPieceIds = [], 
   const uploadVersion = useRef(0);
   const fileInput = useRef<HTMLInputElement>(null);
   const cameraInput = useRef<HTMLInputElement>(null);
-  const costume = costumes.find((item) => item.slug === costumeSlug)!;
-  const outfitKey = JSON.stringify([costumeSlug, selection, ownedPieceIds, skippedPieceIds, mixes]);
+  const curated = costumes.find((item) => item.slug === costumeSlug);
+  const costume = { name: name ?? curated?.name ?? "Your saved look", image: image ?? curated?.image, pieces: curated?.pieces ?? [] };
+  const { model } = useCostumeModel();
+  const outfitKey = JSON.stringify([costumeSlug, savedLookId, selection, ownedPieceIds, skippedPieceIds, mixes, previewEdits]);
   const current = result?.key === outfitKey ? result : null;
   useEffect(() => () => { controller.current?.abort(); }, []);
   useEffect(() => () => { if (photoUrl) URL.revokeObjectURL(photoUrl); }, [photoUrl]);
@@ -60,7 +66,8 @@ export function VirtualTryOn({ costumeSlug, selection = [], ownedPieceIds = [], 
 
   async function share() {
     if (!readyCard) return;
-    const url = lookUrl(location.origin, costumeSlug, selection.map((item) => item.productId), mixes);
+    const url = savedLookId ? new URL(`/create/${savedLookId}`, location.origin).toString()
+      : lookUrl(location.origin, costumeSlug!, selection.map((item) => item.productId), mixes, { selection, ownedPieceIds, skippedPieceIds, model, previewEdits });
     const data = { files: [readyCard], title: costume.name, text: `Me as the ${costume.name}`, url };
     if (navigator.canShare?.(data)) {
       try { await navigator.share(data); } catch (caught) {
@@ -121,11 +128,17 @@ export function VirtualTryOn({ costumeSlug, selection = [], ownedPieceIds = [], 
   // Tapping the primary button is the consent; the disclosure sits directly under it.
   async function generate() {
     if (!photo || busy) return;
+    const started = performance.now();
+    const eventProps = { source: previewSource ?? (savedLookId ? "custom" as const : "look" as const), slug: costumeSlug ?? `custom-look:${savedLookId}`, provider: "openai" as const, mode: "photo" as const };
+    trackEvent("preview_request", { ...eventProps, stage: "request" });
     const requestController = new AbortController();
     controller.current = requestController;
     setCard(null); setBusy(true); setError(""); setShareNote("");
     const form = new FormData();
-    form.set("photo", photo, "photo.jpg"); form.set("costumeSlug", costumeSlug); form.set("consent", "true");
+    form.set("photo", photo, "photo.jpg");
+    if (savedLookId) form.set("savedLookId", savedLookId);
+    else if (costumeSlug) form.set("costumeSlug", costumeSlug);
+    form.set("consent", "true");
     form.set("selection", JSON.stringify(selection));
     form.set("mixes", JSON.stringify(mixes ?? []));
     form.set("ownedPieceIds", JSON.stringify(ownedPieceIds));
@@ -140,12 +153,17 @@ export function VirtualTryOn({ costumeSlug, selection = [], ownedPieceIds = [], 
       if (response.status === 413) throw new Error("This upload is too large. Choose a smaller photo.");
       if (response.status === 504) throw new Error("The preview took too long. Please try again.");
       if (!response.ok || !data || typeof data !== "object" || !("image" in data) || typeof data.image !== "string" || !data.image.startsWith("data:image/jpeg;base64,")) throw new Error("The preview could not be created. Please try again.");
+      // Let the bar visibly finish before the result replaces the photo.
+      setDone(true);
+      await new Promise((resolve) => setTimeout(resolve, 300));
       if (!requestController.signal.aborted) {
         const offer = "render3d" in data ? data.render3d as RenderOffer | null : null;
         setResult({ image: data.image, key: outfitKey, render3d: offer });
+        trackEvent("preview_completion", { ...eventProps, stage: "complete", durationMs: Math.round(performance.now() - started) });
+        trackEvent("provider_usage", { ...eventProps, stage: "image", units: 1 });
       }
-    } catch (caught) { if (!requestController.signal.aborted) setError(caught instanceof Error ? caught.message : "The preview could not be created. Please try again."); }
-    finally { if (controller.current === requestController) setBusy(false); }
+    } catch (caught) { if (!requestController.signal.aborted) { setError(caught instanceof Error ? caught.message : "The preview could not be created. Please try again."); trackEvent("preview_failure", { ...eventProps, stage: "failure", durationMs: Math.round(performance.now() - started) }); } }
+    finally { if (controller.current === requestController) { setBusy(false); setDone(false); } }
   }
 
   const showResult = current && !peek;
@@ -156,7 +174,7 @@ export function VirtualTryOn({ costumeSlug, selection = [], ownedPieceIds = [], 
       <figure className="try-on-stage"><video ref={phonePreview} className="try-on-phone-video" autoPlay playsInline muted aria-label="Phone camera preview" /><span className="try-on-badge">Live phone camera</span></figure>
     ) : (
       <button type="button" className="try-on-stage try-on-empty" onClick={() => fileInput.current?.click()} disabled={preparing} aria-label="Add a photo of yourself">
-        <img src={costume.image} alt="" className="try-on-ghost" />
+        {costume.image && <img src={costume.image} alt="" className="try-on-ghost" />}
         <span className="try-on-cta"><Icon d={CAMERA} size={30} /></span>
         <span className="try-on-title">See yourself in it</span>
       </button>
@@ -165,12 +183,12 @@ export function VirtualTryOn({ costumeSlug, selection = [], ownedPieceIds = [], 
         onPointerDown={() => current && setPeek(true)} onPointerUp={() => setPeek(false)} onPointerLeave={() => setPeek(false)} onPointerCancel={() => setPeek(false)}
         onContextMenu={(event) => current && event.preventDefault()}>
         <img src={showResult ? current.image : photoUrl} alt={showResult ? `You in ${costume.name}, AI preview` : "Your photo"} draggable={false} />
-        {busy && <span className="try-on-progress" role="status" aria-label="Creating your preview"><span /></span>}
+        {busy && <span className={`try-on-progress${done ? " is-done" : ""}`} role="status" aria-label="Creating your preview"><span /></span>}
         {current && <span className={`try-on-badge${peek ? " is-on" : ""}`} aria-hidden="true">{peek ? "Before" : "After"}</span>}
         <button type="button" className="try-on-close" onClick={reset} aria-label="Remove photo"><Icon d={CLOSE} size={18} /></button>
       </figure>
     )}
-    {current && <TryOn3D key={current.key} image={current.image} offer={current.render3d} pieces={(pieces ?? costume.pieces.map((name, index) => ({ id: String(index), name }))).filter((piece) => !skippedPieceIds.includes(piece.id))} />}
+    {current && !savedLookId && <TryOn3D key={current.key} image={current.image} offer={current.render3d} pieces={(pieces ?? costume.pieces.map((name, index) => ({ id: String(index), name }))).filter((piece) => !skippedPieceIds.includes(piece.id))} />}
     {!busy && <>
       <div className="try-on-actions try-on-photo-actions">
         <button type="button" className={photoUrl ? "btn btn-ghost" : "btn"} onClick={() => fileInput.current?.click()} disabled={preparing}>{photoUrl ? "Change photo" : "Upload photo"}</button>
@@ -181,7 +199,7 @@ export function VirtualTryOn({ costumeSlug, selection = [], ownedPieceIds = [], 
     {photoUrl && <div className="try-on-actions">
       {current ? <>
         <button type="button" className="btn try-on-primary" onClick={share} disabled={!readyCard}><Icon d={SHARE} size={18} />Share</button>
-        <a className="btn btn-ghost try-on-icon" href={current.image} download={`${costumeSlug}-try-on.jpg`} aria-label="Save preview"><Icon d={SAVE} size={18} /></a>
+        <a className="btn btn-ghost try-on-icon" href={current.image} download={`${costumeSlug ?? "saved-look"}-try-on.jpg`} aria-label="Save preview"><Icon d={SAVE} size={18} /></a>
         <button type="button" className="btn btn-ghost" aria-pressed={peek} onClick={() => setPeek((value) => !value)}>{peek ? "Show preview" : "Show original"}</button>
       </> : busy ? (
         <button type="button" className="btn btn-ghost btn-block" onClick={() => { controller.current?.abort(); setBusy(false); }}>Cancel</button>

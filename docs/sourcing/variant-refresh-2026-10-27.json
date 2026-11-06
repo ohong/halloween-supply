@@ -1,0 +1,971 @@
+{
+  "checkedAt": "2026-10-27T21:58:16.768Z",
+  "method": "Direct merchant Ajax product and currency endpoints, compared with the real refresh/checkout verifier",
+  "offers": [
+    {
+      "productId": "exp-b-68a3dcfb87da",
+      "url": "https://camerareadycosmetics.com/products/ben-nye-clown-white-makeup?variant=22326379079",
+      "endpoint": "https://camerareadycosmetics.com/products/ben-nye-clown-white-makeup.js",
+      "currency": "USD",
+      "variant": {
+        "id": 22326379079,
+        "title": "8.0oz (CW-4)",
+        "option1": "8.0oz (CW-4)",
+        "option2": null,
+        "option3": null,
+        "sku": "107138004",
+        "requires_shipping": true,
+        "taxable": true,
+        "featured_image": {
+          "id": 30024645902521,
+          "product_id": 7037416583,
+          "position": 5,
+          "created_at": "2021-08-20T16:25:55-05:00",
+          "updated_at": "2023-07-17T18:04:51-05:00",
+          "alt": "Ben Nye Clown White Makeup Clown Makeup 8.0oz (CW-4)  ",
+          "width": 900,
+          "height": 900,
+          "src": "https://cdn.shopify.com/s/files/1/1073/6222/products/ben-nye-CW-4-Clown-White-3168.jpg?v=1689635091",
+          "variant_ids": [
+            22326379079
+          ]
+        },
+        "available": true,
+        "name": "Ben Nye Clown White Makeup - 8.0oz (CW-4)",
+        "public_title": "8.0oz (CW-4)",
+        "options": [
+          "8.0oz (CW-4)"
+        ],
+        "price": 2400,
+        "weight": 269,
+        "compare_at_price": null,
+        "inventory_quantity": 9,
+        "inventory_management": "shopify",
+        "inventory_policy": "deny",
+        "barcode": "784779006363",
+        "featured_media": {
+          "alt": "Ben Nye Clown White Makeup Clown Makeup 8.0oz (CW-4)  ",
+          "id": 22311374586041,
+          "position": 5,
+          "preview_image": {
+            "aspect_ratio": 1,
+            "height": 900,
+            "width": 900,
+            "src": "https://cdn.shopify.com/s/files/1/1073/6222/products/ben-nye-CW-4-Clown-White-3168.jpg?v=1689635091"
+          }
+        },
+        "quantity_rule": {
+          "min": 1,
+          "max": null,
+          "increment": 1
+        },
+        "quantity_price_breaks": [],
+        "requires_selling_plan": false,
+        "selling_plan_allocations": []
+      },
+      "checkedAt": "2026-10-27T21:58:12.324Z"
+    },
+    {
+      "productId": "exp-b-9dd26e08251d",
+      "url": "https://camerareadycosmetics.com/products/ben-nye-clown-white-makeup?variant=22326379015",
+      "endpoint": "https://camerareadycosmetics.com/products/ben-nye-clown-white-makeup.js",
+      "currency": "USD",
+      "variant": {
+        "id": 22326379015,
+        "title": "3.0oz (CW-3)",
+        "option1": "3.0oz (CW-3)",
+        "option2": null,
+        "option3": null,
+        "sku": "107138003",
+        "requires_shipping": true,
+        "taxable": true,
+        "featured_image": {
+          "id": 13957000455,
+          "product_id": 7037416583,
+          "position": 4,
+          "created_at": "2016-06-08T10:04:48-05:00",
+          "updated_at": "2023-07-17T18:04:47-05:00",
+          "alt": "Ben Nye Clown White Makeup Clown Makeup 3.0oz (CW-3)  ",
+          "width": 600,
+          "height": 600,
+          "src": "https://cdn.shopify.com/s/files/1/1073/6222/products/6129_zoom_1433979317.jpg?v=1689635087",
+          "variant_ids": [
+            22326379015
+          ]
+        },
+        "available": true,
+        "name": "Ben Nye Clown White Makeup - 3.0oz (CW-3)",
+        "public_title": "3.0oz (CW-3)",
+        "options": [
+          "3.0oz (CW-3)"
+        ],
+        "price": 1200,
+        "weight": 116,
+        "compare_at_price": null,
+        "inventory_quantity": 46,
+        "inventory_management": "shopify",
+        "inventory_policy": "deny",
+        "barcode": "784779003621",
+        "featured_media": {
+          "alt": "Ben Nye Clown White Makeup Clown Makeup 3.0oz (CW-3)  ",
+          "id": 42872078447,
+          "position": 4,
+          "preview_image": {
+            "aspect_ratio": 1,
+            "height": 600,
+            "width": 600,
+            "src": "https://cdn.shopify.com/s/files/1/1073/6222/products/6129_zoom_1433979317.jpg?v=1689635087"
+          }
+        },
+        "quantity_rule": {
+          "min": 1,
+          "max": null,
+          "increment": 1
+        },
+        "quantity_price_breaks": [],
+        "requires_selling_plan": false,
+        "selling_plan_allocations": []
+      },
+      "checkedAt": "2026-10-27T21:58:11.963Z"
+    },
+    {
+      "productId": "exp-b-a557291982f8",
+      "url": "https://camerareadycosmetics.com/products/ben-nye-clown-white-makeup?variant=22326378887",
+      "endpoint": "https://camerareadycosmetics.com/products/ben-nye-clown-white-makeup.js",
+      "currency": "USD",
+      "variant": {
+        "id": 22326378887,
+        "title": "1.75oz (CW-2)",
+        "option1": "1.75oz (CW-2)",
+        "option2": null,
+        "option3": null,
+        "sku": "107138002",
+        "requires_shipping": true,
+        "taxable": true,
+        "featured_image": {
+          "id": 13956998535,
+          "product_id": 7037416583,
+          "position": 2,
+          "created_at": "2016-06-08T10:04:45-05:00",
+          "updated_at": "2023-07-17T18:04:39-05:00",
+          "alt": "Ben Nye Clown White Makeup Clown Makeup 1.75oz (CW-2)  ",
+          "width": 600,
+          "height": 600,
+          "src": "https://cdn.shopify.com/s/files/1/1073/6222/products/8610_zoom_1433977502.jpg?v=1689635079",
+          "variant_ids": [
+            22326378887
+          ]
+        },
+        "available": true,
+        "name": "Ben Nye Clown White Makeup - 1.75oz (CW-2)",
+        "public_title": "1.75oz (CW-2)",
+        "options": [
+          "1.75oz (CW-2)"
+        ],
+        "price": 1000,
+        "weight": 68,
+        "compare_at_price": null,
+        "inventory_quantity": 4,
+        "inventory_management": "shopify",
+        "inventory_policy": "deny",
+        "barcode": "784779003614",
+        "featured_media": {
+          "alt": "Ben Nye Clown White Makeup Clown Makeup 1.75oz (CW-2)  ",
+          "id": 42871980143,
+          "position": 2,
+          "preview_image": {
+            "aspect_ratio": 1,
+            "height": 600,
+            "width": 600,
+            "src": "https://cdn.shopify.com/s/files/1/1073/6222/products/8610_zoom_1433977502.jpg?v=1689635079"
+          }
+        },
+        "quantity_rule": {
+          "min": 1,
+          "max": null,
+          "increment": 1
+        },
+        "quantity_price_breaks": [],
+        "requires_selling_plan": false,
+        "selling_plan_allocations": []
+      },
+      "checkedAt": "2026-10-27T21:58:11.498Z"
+    },
+    {
+      "productId": "p-05ea3d6031",
+      "url": "https://fabricwholesaledirect.com/products/crystal-organza-59-60-inch-fabric?variant=39460333355123",
+      "endpoint": "https://fabricwholesaledirect.com/products/crystal-organza-59-60-inch-fabric.js",
+      "currency": "USD",
+      "variant": {
+        "id": 39460333355123,
+        "title": "Pink / Yard",
+        "option1": "Pink",
+        "option2": "Yard",
+        "option3": null,
+        "sku": "SV571258",
+        "requires_shipping": true,
+        "taxable": true,
+        "featured_image": {
+          "id": 39842031173747,
+          "product_id": 422880115,
+          "position": 12,
+          "created_at": "2026-02-03T10:53:24-05:00",
+          "updated_at": "2026-02-03T11:02:34-05:00",
+          "alt": "Crystal Organza (59/60 Inch) Fabric SV571258 Pink Image A1",
+          "width": 1500,
+          "height": 1500,
+          "src": "https://cdn.shopify.com/s/files/1/0558/3725/files/Pink_A1_3a447e21-2eba-4d80-b60e-a058efbe2fd2.jpg?v=1770134554",
+          "variant_ids": [
+            39460333355123,
+            39966623563891
+          ]
+        },
+        "available": true,
+        "name": "Crystal Organza (59/60 Inch) - Pink / Yard",
+        "public_title": "Pink / Yard",
+        "options": [
+          "Pink",
+          "Yard"
+        ],
+        "price": 299,
+        "weight": 85,
+        "compare_at_price": null,
+        "inventory_quantity": 1649,
+        "inventory_management": "shopify",
+        "inventory_policy": "deny",
+        "barcode": "791398712827",
+        "featured_media": {
+          "alt": "Crystal Organza (59/60 Inch) Fabric SV571258 Pink Image A1",
+          "id": 30830305345651,
+          "position": 17,
+          "preview_image": {
+            "aspect_ratio": 1,
+            "height": 1500,
+            "width": 1500,
+            "src": "https://cdn.shopify.com/s/files/1/0558/3725/files/Pink_A1_3a447e21-2eba-4d80-b60e-a058efbe2fd2.jpg?v=1770134554"
+          }
+        },
+        "quantity_rule": {
+          "min": 1,
+          "max": null,
+          "increment": 1
+        },
+        "quantity_price_breaks": [],
+        "requires_selling_plan": false,
+        "selling_plan_allocations": []
+      },
+      "checkedAt": "2026-10-27T21:58:12.020Z"
+    },
+    {
+      "productId": "p-1028d82446",
+      "url": "https://fabricwholesaledirect.com/products/iridescent-pearl-organza-fabric?variant=40668982575219",
+      "endpoint": "https://fabricwholesaledirect.com/products/iridescent-pearl-organza-fabric.js",
+      "currency": "USD",
+      "variant": {
+        "id": 40668982575219,
+        "title": "Pearl / Yard",
+        "option1": "Pearl",
+        "option2": "Yard",
+        "option3": null,
+        "sku": "SV578486",
+        "requires_shipping": true,
+        "taxable": true,
+        "featured_image": {
+          "id": 31942048219251,
+          "product_id": 7084709052531,
+          "position": 18,
+          "created_at": "2023-02-10T15:49:40-05:00",
+          "updated_at": "2023-10-24T15:17:01-04:00",
+          "alt": "Iridescent Pearl Organza Fabric SV578486 Pearl 1",
+          "width": 1500,
+          "height": 1500,
+          "src": "https://cdn.shopify.com/s/files/1/0558/3725/products/SV578486IridescentMetallicOrganza-PearlA2.png?v=1698175021",
+          "variant_ids": [
+            40668982575219,
+            40668982607987
+          ]
+        },
+        "available": true,
+        "name": "Iridescent Pearl Organza - Pearl / Yard",
+        "public_title": "Pearl / Yard",
+        "options": [
+          "Pearl",
+          "Yard"
+        ],
+        "price": 449,
+        "weight": 51,
+        "compare_at_price": null,
+        "inventory_quantity": 1654,
+        "inventory_management": "shopify",
+        "inventory_policy": "deny",
+        "barcode": null,
+        "featured_media": {
+          "alt": "Iridescent Pearl Organza Fabric SV578486 Pearl 1",
+          "id": 24292829757555,
+          "position": 18,
+          "preview_image": {
+            "aspect_ratio": 1,
+            "height": 1500,
+            "width": 1500,
+            "src": "https://cdn.shopify.com/s/files/1/0558/3725/products/SV578486IridescentMetallicOrganza-PearlA2.png?v=1698175021"
+          }
+        },
+        "quantity_rule": {
+          "min": 1,
+          "max": null,
+          "increment": 1
+        },
+        "quantity_price_breaks": [],
+        "requires_selling_plan": false,
+        "selling_plan_allocations": []
+      },
+      "checkedAt": "2026-10-27T21:58:11.772Z"
+    },
+    {
+      "productId": "p-14282b42ef",
+      "url": "https://www.benziedesign.com/products/pumpkin-wool-blend-felt?variant=1328706564",
+      "endpoint": "https://www.benziedesign.com/products/pumpkin-wool-blend-felt.js",
+      "currency": "USD",
+      "variant": {
+        "id": 1328706564,
+        "title": "1/2 yard",
+        "option1": "1/2 yard",
+        "option2": null,
+        "option3": null,
+        "sku": "BF4058",
+        "requires_shipping": true,
+        "taxable": true,
+        "featured_image": {
+          "id": 1313339848,
+          "product_id": 462413924,
+          "position": 1,
+          "created_at": "2015-04-22T12:39:00-05:00",
+          "updated_at": "2026-06-02T11:35:56-05:00",
+          "alt": null,
+          "width": 1661,
+          "height": 1661,
+          "src": "https://cdn.shopify.com/s/files/1/0791/1095/products/pumpkinwoolblendfelt.JPG?v=1780418156",
+          "variant_ids": [
+            1328706556,
+            1328706560,
+            1328706564,
+            1328706568
+          ]
+        },
+        "available": true,
+        "name": "Pumpkin Wool Blend Felt - 1/2 yard",
+        "public_title": "1/2 yard",
+        "options": [
+          "1/2 yard"
+        ],
+        "price": 600,
+        "weight": 85,
+        "compare_at_price": null,
+        "inventory_quantity": 150,
+        "inventory_management": null,
+        "inventory_policy": "deny",
+        "barcode": null,
+        "featured_media": {
+          "alt": null,
+          "id": 47068577826,
+          "position": 1,
+          "preview_image": {
+            "aspect_ratio": 1,
+            "height": 1661,
+            "width": 1661,
+            "src": "https://cdn.shopify.com/s/files/1/0791/1095/products/pumpkinwoolblendfelt.JPG?v=1780418156"
+          }
+        },
+        "quantity_rule": {
+          "min": 1,
+          "max": null,
+          "increment": 1
+        },
+        "quantity_price_breaks": [],
+        "requires_selling_plan": false,
+        "selling_plan_allocations": []
+      },
+      "checkedAt": "2026-10-27T21:58:12.618Z"
+    },
+    {
+      "productId": "p-2d4b62e79e",
+      "url": "https://fabricwholesaledirect.com/products/tissue-lame-44-45-inch-fabric?variant=39460356522099",
+      "endpoint": "https://fabricwholesaledirect.com/products/tissue-lame-44-45-inch-fabric.js",
+      "currency": "USD",
+      "variant": {
+        "id": 39460356522099,
+        "title": "Silver / Yard",
+        "option1": "Silver",
+        "option2": "Yard",
+        "option3": null,
+        "sku": "SV570821",
+        "requires_shipping": true,
+        "taxable": true,
+        "featured_image": {
+          "id": 32209665556595,
+          "product_id": 636648003,
+          "position": 2,
+          "created_at": "2023-03-31T15:18:48-04:00",
+          "updated_at": "2025-12-07T21:11:59-05:00",
+          "alt": "Tissue Lame (44/45 Inch) Fabric SV570821 Silver Image A2",
+          "width": 1500,
+          "height": 1500,
+          "src": "https://cdn.shopify.com/s/files/1/0558/3725/products/SV570821_TissueLame-SilverA2.jpg?v=1765159919",
+          "variant_ids": [
+            39460356522099,
+            39966871912563
+          ]
+        },
+        "available": true,
+        "name": "Tissue Lame (44/45 Inch) - Silver / Yard",
+        "public_title": "Silver / Yard",
+        "options": [
+          "Silver",
+          "Yard"
+        ],
+        "price": 499,
+        "weight": 94,
+        "compare_at_price": null,
+        "inventory_quantity": 3017,
+        "inventory_management": "shopify",
+        "inventory_policy": "deny",
+        "barcode": "782398781043",
+        "featured_media": {
+          "alt": "Tissue Lame (44/45 Inch) Fabric SV570821 Silver Image A2",
+          "id": 24564800225395,
+          "position": 2,
+          "preview_image": {
+            "aspect_ratio": 1,
+            "height": 1500,
+            "width": 1500,
+            "src": "https://cdn.shopify.com/s/files/1/0558/3725/products/SV570821_TissueLame-SilverA2.jpg?v=1765159919"
+          }
+        },
+        "quantity_rule": {
+          "min": 1,
+          "max": null,
+          "increment": 1
+        },
+        "quantity_price_breaks": [],
+        "requires_selling_plan": false,
+        "selling_plan_allocations": []
+      },
+      "checkedAt": "2026-10-27T21:58:14.105Z"
+    },
+    {
+      "productId": "p-3e2283c539",
+      "url": "https://www.benziedesign.com/products/white-wool-blend-felt?variant=1331231676",
+      "endpoint": "https://www.benziedesign.com/products/white-wool-blend-felt.js",
+      "currency": "USD",
+      "variant": {
+        "id": 1331231676,
+        "title": "1/2 yard",
+        "option1": "1/2 yard",
+        "option2": null,
+        "option3": null,
+        "sku": "BF4099",
+        "requires_shipping": true,
+        "taxable": true,
+        "featured_image": {
+          "id": 1315170656,
+          "product_id": 462803448,
+          "position": 1,
+          "created_at": "2015-04-23T22:40:02-05:00",
+          "updated_at": "2026-01-20T19:39:21-06:00",
+          "alt": null,
+          "width": 1651,
+          "height": 1651,
+          "src": "https://cdn.shopify.com/s/files/1/0791/1095/products/white_blend.JPG?v=1768959561",
+          "variant_ids": [
+            1331231668,
+            1331231672,
+            1331231676,
+            1331231680
+          ]
+        },
+        "available": true,
+        "name": "White Wool Blend Felt - 1/2 yard",
+        "public_title": "1/2 yard",
+        "options": [
+          "1/2 yard"
+        ],
+        "price": 600,
+        "weight": 85,
+        "compare_at_price": null,
+        "inventory_quantity": 68,
+        "inventory_management": "shopify",
+        "inventory_policy": "deny",
+        "barcode": null,
+        "featured_media": {
+          "alt": null,
+          "id": 47108063266,
+          "position": 1,
+          "preview_image": {
+            "aspect_ratio": 1,
+            "height": 1651,
+            "width": 1651,
+            "src": "https://cdn.shopify.com/s/files/1/0791/1095/products/white_blend.JPG?v=1768959561"
+          }
+        },
+        "quantity_rule": {
+          "min": 1,
+          "max": null,
+          "increment": 1
+        },
+        "quantity_price_breaks": [],
+        "requires_selling_plan": false,
+        "selling_plan_allocations": []
+      },
+      "checkedAt": "2026-10-27T21:58:13.138Z"
+    },
+    {
+      "productId": "p-5168383708",
+      "url": "https://www.benziedesign.com/products/sage-wool-blend-felt?variant=1330487300",
+      "endpoint": "https://www.benziedesign.com/products/sage-wool-blend-felt.js",
+      "currency": "USD",
+      "variant": {
+        "id": 1330487300,
+        "title": "1/2 yard",
+        "option1": "1/2 yard",
+        "option2": null,
+        "option3": null,
+        "sku": "BF4027",
+        "requires_shipping": true,
+        "taxable": true,
+        "featured_image": {
+          "id": 1314693292,
+          "product_id": 462692068,
+          "position": 1,
+          "created_at": "2015-04-23T13:34:39-05:00",
+          "updated_at": "2016-02-15T17:56:31-06:00",
+          "alt": null,
+          "width": 1734,
+          "height": 1734,
+          "src": "https://cdn.shopify.com/s/files/1/0791/1095/products/IMG_8887_-_Version_2.JPG?v=1455580591",
+          "variant_ids": [
+            1330487292,
+            1330487296,
+            1330487300,
+            1330487304
+          ]
+        },
+        "available": true,
+        "name": "Sage Wool Blend Felt - 1/2 yard",
+        "public_title": "1/2 yard",
+        "options": [
+          "1/2 yard"
+        ],
+        "price": 600,
+        "weight": 85,
+        "compare_at_price": null,
+        "inventory_quantity": 150,
+        "inventory_management": "shopify",
+        "inventory_policy": "deny",
+        "barcode": null,
+        "featured_media": {
+          "alt": null,
+          "id": 47092695074,
+          "position": 1,
+          "preview_image": {
+            "aspect_ratio": 1,
+            "height": 1734,
+            "width": 1734,
+            "src": "https://cdn.shopify.com/s/files/1/0791/1095/products/IMG_8887_-_Version_2.JPG?v=1455580591"
+          }
+        },
+        "quantity_rule": {
+          "min": 1,
+          "max": null,
+          "increment": 1
+        },
+        "quantity_price_breaks": [],
+        "requires_selling_plan": false,
+        "selling_plan_allocations": []
+      },
+      "checkedAt": "2026-10-27T21:58:12.580Z"
+    },
+    {
+      "productId": "p-a1d82748e7",
+      "url": "https://goodsstores.com/products/poly-fil-original-pf?variant=39974798917703",
+      "endpoint": "https://goodsstores.com/products/poly-fil-original-pf.js",
+      "currency": "USD",
+      "variant": {
+        "id": 39974798917703,
+        "title": "12 oz",
+        "option1": "12 oz",
+        "option2": null,
+        "option3": null,
+        "sku": "06043350",
+        "requires_shipping": true,
+        "taxable": true,
+        "featured_image": {
+          "id": 29277516595271,
+          "product_id": 6775128784967,
+          "position": 1,
+          "created_at": "2023-03-17T07:56:03-04:00",
+          "updated_at": "2025-01-30T13:51:39-05:00",
+          "alt": "Poly Fil 12 oz bag.",
+          "width": 1711,
+          "height": 1711,
+          "src": "https://cdn.shopify.com/s/files/1/1921/0751/products/Fairfield_Poly_Fill_12_oz_PF12.jpg?v=1738263099",
+          "variant_ids": [
+            39974798917703
+          ]
+        },
+        "available": true,
+        "name": "Poly Fil Original PF - 12 oz",
+        "public_title": "12 oz",
+        "options": [
+          "12 oz"
+        ],
+        "price": 849,
+        "weight": 0,
+        "compare_at_price": null,
+        "inventory_management": "shopify",
+        "barcode": "06043350",
+        "featured_media": {
+          "alt": "Poly Fil 12 oz bag.",
+          "id": 21613838499911,
+          "position": 1,
+          "preview_image": {
+            "aspect_ratio": 1,
+            "height": 1711,
+            "width": 1711,
+            "src": "https://cdn.shopify.com/s/files/1/1921/0751/products/Fairfield_Poly_Fill_12_oz_PF12.jpg?v=1738263099"
+          }
+        },
+        "quantity_rule": {
+          "min": 1,
+          "max": null,
+          "increment": 1
+        },
+        "quantity_price_breaks": [],
+        "requires_selling_plan": false,
+        "selling_plan_allocations": []
+      },
+      "checkedAt": "2026-10-27T21:58:13.905Z"
+    },
+    {
+      "productId": "p-af9a50034c",
+      "url": "https://www.benziedesign.com/products/white-wool-blend-felt?variant=1331231668",
+      "endpoint": "https://www.benziedesign.com/products/white-wool-blend-felt.js",
+      "currency": "USD",
+      "variant": {
+        "id": 1331231668,
+        "title": "9x12",
+        "option1": "9x12",
+        "option2": null,
+        "option3": null,
+        "sku": "BF2099",
+        "requires_shipping": true,
+        "taxable": true,
+        "featured_image": {
+          "id": 1315170656,
+          "product_id": 462803448,
+          "position": 1,
+          "created_at": "2015-04-23T22:40:02-05:00",
+          "updated_at": "2026-01-20T19:39:21-06:00",
+          "alt": null,
+          "width": 1651,
+          "height": 1651,
+          "src": "https://cdn.shopify.com/s/files/1/0791/1095/products/white_blend.JPG?v=1768959561",
+          "variant_ids": [
+            1331231668,
+            1331231672,
+            1331231676,
+            1331231680
+          ]
+        },
+        "available": true,
+        "name": "White Wool Blend Felt - 9x12",
+        "public_title": "9x12",
+        "options": [
+          "9x12"
+        ],
+        "price": 150,
+        "weight": 14,
+        "compare_at_price": null,
+        "inventory_quantity": 150,
+        "inventory_management": null,
+        "inventory_policy": "deny",
+        "barcode": null,
+        "featured_media": {
+          "alt": null,
+          "id": 47108063266,
+          "position": 1,
+          "preview_image": {
+            "aspect_ratio": 1,
+            "height": 1651,
+            "width": 1651,
+            "src": "https://cdn.shopify.com/s/files/1/0791/1095/products/white_blend.JPG?v=1768959561"
+          }
+        },
+        "quantity_rule": {
+          "min": 1,
+          "max": null,
+          "increment": 1
+        },
+        "quantity_price_breaks": [],
+        "requires_selling_plan": false,
+        "selling_plan_allocations": []
+      },
+      "checkedAt": "2026-10-27T21:58:12.991Z"
+    },
+    {
+      "productId": "p-c715cedad3",
+      "url": "https://goodsstores.com/products/poly-fil-original-pf?variant=39974798950471",
+      "endpoint": "https://goodsstores.com/products/poly-fil-original-pf.js",
+      "currency": "USD",
+      "variant": {
+        "id": 39974798950471,
+        "title": "32 oz",
+        "option1": "32 oz",
+        "option2": null,
+        "option3": null,
+        "sku": "06269120",
+        "requires_shipping": true,
+        "taxable": true,
+        "featured_image": {
+          "id": 29277516628039,
+          "product_id": 6775128784967,
+          "position": 2,
+          "created_at": "2023-03-17T07:56:04-04:00",
+          "updated_at": "2025-01-30T13:51:40-05:00",
+          "alt": "Poly Fil 32 oz.",
+          "width": 1570,
+          "height": 1570,
+          "src": "https://cdn.shopify.com/s/files/1/1921/0751/products/Poly_fill_32oz_2000.jpg?v=1738263100",
+          "variant_ids": [
+            39974798950471
+          ]
+        },
+        "available": true,
+        "name": "Poly Fil Original PF - 32 oz",
+        "public_title": "32 oz",
+        "options": [
+          "32 oz"
+        ],
+        "price": 1999,
+        "weight": 0,
+        "compare_at_price": null,
+        "inventory_management": "shopify",
+        "barcode": "06269120",
+        "featured_media": {
+          "alt": "Poly Fil 32 oz.",
+          "id": 21613838532679,
+          "position": 2,
+          "preview_image": {
+            "aspect_ratio": 1,
+            "height": 1570,
+            "width": 1570,
+            "src": "https://cdn.shopify.com/s/files/1/1921/0751/products/Poly_fill_32oz_2000.jpg?v=1738263100"
+          }
+        },
+        "quantity_rule": {
+          "min": 1,
+          "max": null,
+          "increment": 1
+        },
+        "quantity_price_breaks": [],
+        "requires_selling_plan": false,
+        "selling_plan_allocations": []
+      },
+      "checkedAt": "2026-10-27T21:58:13.692Z"
+    },
+    {
+      "productId": "p-dcfbb43556",
+      "url": "https://www.benziedesign.com/products/white-wool-blend-felt?variant=1331231672",
+      "endpoint": "https://www.benziedesign.com/products/white-wool-blend-felt.js",
+      "currency": "USD",
+      "variant": {
+        "id": 1331231672,
+        "title": "12x18",
+        "option1": "12x18",
+        "option2": null,
+        "option3": null,
+        "sku": "BF3099",
+        "requires_shipping": true,
+        "taxable": true,
+        "featured_image": {
+          "id": 1315170656,
+          "product_id": 462803448,
+          "position": 1,
+          "created_at": "2015-04-23T22:40:02-05:00",
+          "updated_at": "2026-01-20T19:39:21-06:00",
+          "alt": null,
+          "width": 1651,
+          "height": 1651,
+          "src": "https://cdn.shopify.com/s/files/1/0791/1095/products/white_blend.JPG?v=1768959561",
+          "variant_ids": [
+            1331231668,
+            1331231672,
+            1331231676,
+            1331231680
+          ]
+        },
+        "available": true,
+        "name": "White Wool Blend Felt - 12x18",
+        "public_title": "12x18",
+        "options": [
+          "12x18"
+        ],
+        "price": 250,
+        "weight": 28,
+        "compare_at_price": null,
+        "inventory_quantity": -4829,
+        "inventory_management": null,
+        "inventory_policy": "deny",
+        "barcode": null,
+        "featured_media": {
+          "alt": null,
+          "id": 47108063266,
+          "position": 1,
+          "preview_image": {
+            "aspect_ratio": 1,
+            "height": 1651,
+            "width": 1651,
+            "src": "https://cdn.shopify.com/s/files/1/0791/1095/products/white_blend.JPG?v=1768959561"
+          }
+        },
+        "quantity_rule": {
+          "min": 1,
+          "max": null,
+          "increment": 1
+        },
+        "quantity_price_breaks": [],
+        "requires_selling_plan": false,
+        "selling_plan_allocations": []
+      },
+      "checkedAt": "2026-10-27T21:58:13.133Z"
+    }
+  ],
+  "updates": [
+    {
+      "id": "exp-b-a557291982f8",
+      "priceCents": 1000,
+      "availability": "in_stock",
+      "sizes": [
+        "1.75oz (CW-2)"
+      ],
+      "checkedAt": "2026-10-27T21:58:11.498Z"
+    },
+    {
+      "id": "p-1028d82446",
+      "priceCents": 449,
+      "availability": "in_stock",
+      "sizes": [
+        "Yard"
+      ],
+      "checkedAt": "2026-10-27T21:58:11.772Z"
+    },
+    {
+      "id": "exp-b-9dd26e08251d",
+      "priceCents": 1200,
+      "availability": "in_stock",
+      "sizes": [
+        "3.0oz (CW-3)"
+      ],
+      "checkedAt": "2026-10-27T21:58:11.963Z"
+    },
+    {
+      "id": "p-05ea3d6031",
+      "priceCents": 299,
+      "availability": "in_stock",
+      "sizes": [
+        "Yard"
+      ],
+      "checkedAt": "2026-10-27T21:58:12.020Z"
+    },
+    {
+      "id": "exp-b-68a3dcfb87da",
+      "priceCents": 2400,
+      "availability": "in_stock",
+      "sizes": [
+        "8.0oz (CW-4)"
+      ],
+      "checkedAt": "2026-10-27T21:58:12.324Z"
+    },
+    {
+      "id": "p-14282b42ef",
+      "priceCents": 600,
+      "availability": "in_stock",
+      "sizes": [
+        "1/2 yard"
+      ],
+      "checkedAt": "2026-10-27T21:58:12.618Z"
+    },
+    {
+      "id": "p-5168383708",
+      "priceCents": 600,
+      "availability": "in_stock",
+      "sizes": [
+        "1/2 yard"
+      ],
+      "checkedAt": "2026-10-27T21:58:12.580Z"
+    },
+    {
+      "id": "p-af9a50034c",
+      "priceCents": 150,
+      "availability": "in_stock",
+      "sizes": [
+        "9x12"
+      ],
+      "checkedAt": "2026-10-27T21:58:12.991Z"
+    },
+    {
+      "id": "p-dcfbb43556",
+      "priceCents": 250,
+      "availability": "in_stock",
+      "sizes": [
+        "12x18"
+      ],
+      "checkedAt": "2026-10-27T21:58:13.133Z"
+    },
+    {
+      "id": "p-3e2283c539",
+      "priceCents": 600,
+      "availability": "in_stock",
+      "sizes": [
+        "1/2 yard"
+      ],
+      "checkedAt": "2026-10-27T21:58:13.138Z"
+    },
+    {
+      "id": "p-c715cedad3",
+      "priceCents": 1999,
+      "availability": "in_stock",
+      "sizes": [
+        "32 oz"
+      ],
+      "checkedAt": "2026-10-27T21:58:13.692Z"
+    },
+    {
+      "id": "p-a1d82748e7",
+      "priceCents": 849,
+      "availability": "in_stock",
+      "sizes": [
+        "12 oz"
+      ],
+      "checkedAt": "2026-10-27T21:58:13.905Z"
+    },
+    {
+      "id": "p-2d4b62e79e",
+      "priceCents": 499,
+      "availability": "in_stock",
+      "sizes": [
+        "Yard"
+      ],
+      "checkedAt": "2026-10-27T21:58:14.105Z"
+    }
+  ],
+  "databaseWritten": 13,
+  "cases": [
+    "13 exact merchant variants",
+    "13 pinned checkout selections",
+    "explicit size selection",
+    "sold-out pin",
+    "removed pin",
+    "invalid size"
+  ],
+  "allCatalogPricePointsComplete": true
+}

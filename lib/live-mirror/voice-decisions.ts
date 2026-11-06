@@ -13,9 +13,9 @@ type LookChoice = Pick<Costume, "slug" | "name" | "description">;
 export function outfitQuestions(costume: CostumeView, looks: readonly LookChoice[] = costumes): DecisionQuestion[] {
   return [
     { type: "choice", name: "visual_feedback", instructions: "Does the latest user request ask you to inspect the CURRENT visible costume preview? Choose style for How do I look, does this outfit suit me, what can you see, or feedback on visible styling, colors or accessories. Choose likeness for requests to compare the generated preview with the original camera, such as does this still look like me, did it change my face, or compare my likeness. Choose none for generic model-capability or privacy questions, catalog questions, outfit-change commands, hypothetical future feedback, negation, or unrelated speech. This is a read-only visual question, never authorization to change an outfit. A likeness comparison describes visible rendering differences, not identity verification.", choices: [{ value: "none" }, { value: "style" }, { value: "likeness" }] },
-    { type: "choice", name: "look", instructions: `Does the latest request switch to a DIFFERENT full costume? Current look: ${costume.costume.name}. For change my costume, something else, surprise me, or another look without a named costume, choose next and act without asking the shopper to use a selector. Choose none for questions, searches, comparisons, individual piece changes, budget requests, or keeping this look. References to prior catalog results belong to catalog_search, not a guessed costume switch.`, choices: [{ value: "none" }, { value: "next", description: "Try the next full costume, including an unspecified request for something different." }, { value: "previous", description: "Try the previous full costume." }, ...looks.filter(look => look.slug !== costume.costume.slug).map(look => ({ value: look.slug, description: `${look.name}: ${look.description}` }))] },
+    { type: "choice", name: "look", instructions: `Does the latest request switch to a DIFFERENT full costume? Current look: ${costume.costume.name}. For change my costume, something else, surprise me, or another look without a named costume, choose next and act without asking the shopper to use a selector. Choose none for questions, searches, comparisons, individual piece changes, budget requests, or keeping this look. References to prior catalog results belong to catalog_search, not a guessed costume switch.`, choices: [{ value: "none" }, { value: "next", description: "Try the next full costume, including an unspecified request for something different." }, { value: "previous", description: "Try the previous full costume." }, ...looks.filter(look => look.slug !== costume.costume.slug).map(look => ({ value: look.slug, description: `${look.name}: ${look.description.slice(0, 100)}` }))] },
     { type: "choice", name: "preview_edit", instructions: "Choose yes when the latest request changes or restores the visual color, material, pattern, shape or style of a CURRENT piece in the video, such as make the cape blue, turn the hat pink, make the jacket leather, or restore its original color. This is a preview edit and does not need a matching catalog product. Choose no for finding or buying a real product variant, a full costume switch, questions, negation, or unrelated speech. Face, likeness, makeup, age, gender, skin, hair and body changes are never garment edits. Reports that the preview changed someone's face must not become appearance overrides.", choices: [{ value: "no" }, { value: "yes" }] },
-    { type: "choice", name: "catalog_search", instructions: "Does the latest request need catalog information, discovery or comparison? Choose yes for finding costumes or pieces ANYWHERE in inventory; questions about materials, sizes, price, stock or merchants; comparing costumes; options outside the current look; and ALL add, replace, borrow or mix requests for catalog products, including indirect descriptions, synonyms and previous results such as use the shiny pair or try the second one. Choose no for choosing a current piece by price, including choose the cheapest cape or jacket; its piece question already compares every current option. Choose no for visual-only color, material or style changes to current pieces in the preview; these belong to preview_edit and do not require a real product variant. Choose no for a simple explicit current-piece edit that picks a known current option, a direct named full-costume switch, locks, owned pieces, undo, save, freeze or resume. Questions and searches do not themselves authorize outfit changes.", choices: [{ value: "no" }, { value: "yes" }] },
+    { type: "choice", name: "catalog_search", instructions: "Does the latest request need catalog information, discovery or comparison? Choose yes for finding costumes or pieces ANYWHERE in inventory; questions about materials, sizes, price, stock or merchants; comparing costumes; options outside the current look; and ALL add, replace, borrow or mix requests for catalog products, including indirect descriptions, synonyms and previous results such as use the shiny pair or try the second one. Choose no for choosing a current piece by price, including choose the cheapest cape or jacket; its piece question already compares every current option. Choose no for visual-only color, material or style changes to current pieces in the preview; these belong to preview_edit and do not require a real product variant. Choose no for a simple explicit current-piece edit that picks a known current option, a direct named full-costume switch, an unspecified request for a different costume such as change my costume or something else, locks, owned pieces, undo, save, freeze or resume. Questions and searches do not themselves authorize outfit changes.", choices: [{ value: "no" }, { value: "yes" }] },
     ...costume.pieces.flatMap(({ piece, options }, index): DecisionQuestion[] => [
       {
         type: "choice", name: `piece_${index}`,
@@ -25,7 +25,7 @@ export function outfitQuestions(costume: CostumeView, looks: readonly LookChoice
           { value: "owned", description: "The shopper says they already own this piece; use their existing clothing." },
           ...(piece.required ? [] : [{ value: "skip", description: "Omit this optional piece." }]),
           ...options.flatMap(({ product, merchant }, optionIndex) => product.availability === "out_of_stock" ? [] : [{
-            value: product.id, description: `Option ${optionIndex + 1}: ${product.title} from ${merchant.name}. $${(product.priceCents / 100).toFixed(2)}. ${product.description.slice(0, 500)}`,
+            value: product.id, description: `Option ${optionIndex + 1}: ${product.title} from ${merchant.name}. $${(product.priceCents / 100).toFixed(2)}. ${product.description.slice(0, 120)}`,
           }]),
         ],
       },
@@ -68,6 +68,8 @@ export function commandFromAnswers(answers: DecisionAnswer[], costume: CostumeVi
     uncertain = true;
     return undefined;
   };
+  // Undo always restores one complete snapshot, even if a look choice also arrives.
+  if (choice("action") === "undo") return { actions: [{ type: "undo" }] };
   const requestedLook = choice("look");
   const currentIndex = looks.findIndex(item => item.slug === costume.costume.slug);
   const look = requestedLook === "next" || requestedLook === "previous"
@@ -96,19 +98,20 @@ export function commandFromAnswers(answers: DecisionAnswer[], costume: CostumeVi
 }
 
 export function needsBudget(answers: DecisionAnswer[]) {
-  return answers.some(answer => answer.type === "choice" && answer.name === "needs_budget" && answer.choice === "yes");
+  return answers.some(answer => answer.type === "choice" && answer.name === "needs_budget" && answer.choice === "yes" && typeof answer.confidence === "number" && answer.confidence >= minimumEditConfidence && answer.confidence <= 1);
 }
 
 export function needsCatalog(answers: DecisionAnswer[]) {
-  return answers.some(answer => answer.type === "choice" && answer.name === "catalog_search" && answer.choice === "yes");
+  return answers.some(answer => answer.type === "choice" && answer.name === "catalog_search" && answer.choice === "yes" && typeof answer.confidence === "number" && answer.confidence >= minimumEditConfidence && answer.confidence <= 1);
 }
 
 export function needsPreview(answers: DecisionAnswer[]) {
-  return answers.some(answer => answer.type === "choice" && answer.name === "preview_edit" && answer.choice === "yes");
+  return answers.some(answer => answer.type === "choice" && answer.name === "preview_edit" && answer.choice === "yes" && typeof answer.confidence === "number" && answer.confidence >= minimumEditConfidence && answer.confidence <= 1);
 }
 
 /** A catalog recommendation must not overwrite an explicit current-piece edit. */
 export function mergeCatalogCommand(current: MirrorCommand, found: MirrorCommand): MirrorCommand {
+  if (found.requiresClarification) return { ...found, actions: [] };
   const edited = new Set(current.actions.flatMap(action => ["select", "use", "appearance"].includes(action.type) && "pieceId" in action ? [action.pieceId] : []));
   return { ...found, actions: [...current.actions, ...found.actions.filter(action => action.type !== "mix" || !edited.has(action.replacesPieceId ?? action.source.pieceId))] };
 }

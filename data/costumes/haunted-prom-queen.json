@@ -1,0 +1,599 @@
+{
+  "costume": {
+    "slug": "haunted-prom-queen",
+    "name": "Haunted Prom Queen",
+    "description": "A burgundy velvet gown, rose crown and white Prom Queen sash turn formalwear into a ghost story.",
+    "image": "/costumes/haunted-prom-queen.png",
+    "alt": "Burgundy velvet floor-length gown, brass rose crown, white Prom Queen sash and dark ankle boots.",
+    "status": "live"
+  },
+  "pieces": [
+    {
+      "id": "haunted-prom-queen-rose-garden-queen-gown",
+      "name": "Burgundy velvet gown",
+      "category": "dresses",
+      "required": true,
+      "order": 0,
+      "styleNotes": "Keep the burgundy velvet anchor. Available dresses approximate either the full royal silhouette or the raised flower detail. Add the separate roses where absent. No ready-made option reproduces the full illustrated velvet skirt, gold rose-vine embroidery and corset together.",
+      "queries": [
+        "burgundy velvet floral gown ball gown"
+      ],
+      "sizeKind": "apparel",
+      "matches": [
+        {
+          "productId": "p-f84baae8a4",
+          "rank": 0,
+          "reason": "Burgundy velvet bodice with sheer embroidered long sleeves and a full embroidered tulle skirt with train. Floral sequins/beadwork differ from gold rose vines; the skirt is tulle rather than velvet. Add separate fabric roses for raised blooms. Burgundy size 8 is sold out; only listed sizes are available."
+        },
+        {
+          "productId": "p-8d1bae85e1",
+          "rank": 1,
+          "reason": "Burgundy gown listed under color Red; velvet bodice, lined polyester, open back, nude mesh side panels. Modern fitted silhouette, without rose embroidery or the illustrated full skirt. Add the separate fabric roses. Only 2XL and 3XL available. Merchant aims to process within 48 hours; peak periods may take longer."
+        },
+        {
+          "productId": "p-96679a3aae",
+          "rank": 2,
+          "reason": "Burgundy 100% polyester velvet, fully lined, high neck and sleeveless. Merchant confirms 3D velvet flowers at shoulder and waist are included. Column silhouette, hip drape and thigh slit differ from the illustrated ball gown. Separate rose heads can add further blooms but are not needed for its two existing flowers."
+        }
+      ]
+    },
+    {
+      "id": "haunted-prom-queen-prom-sash",
+      "name": "Prom Queen sash",
+      "category": "accessories",
+      "required": true,
+      "order": 1,
+      "styleNotes": "White sash and readable Prom Queen lettering define the character. Budget and middle options are plain; premium has printed blood detail.",
+      "queries": [
+        "Prom Queen sash costume"
+      ],
+      "sizeKind": "one_size",
+      "matches": [
+        {
+          "productId": "exp-b-fc56c9654a05",
+          "rank": 0,
+          "reason": "One white satin sash with gold Prom Queen lettering. Single sash package; six-sash case excluded. Public merchant variant feed confirms this exact USD price and available variant on the research date."
+        },
+        {
+          "productId": "exp-b-f55bc94e7d4c",
+          "rank": 1,
+          "reason": "Single white satin Prom Queen sash with gold lettering. Merchant Product/Offer structured data confirms USD price and InStock on the research date."
+        },
+        {
+          "productId": "exp-b-502d51419f05",
+          "rank": 2,
+          "reason": "Single white satin Prom Queen sash with printed horror blood detail and adjustable pin. Pattern differs from the plain default; no dress or crown included. Merchant Product/Offer structured data confirms USD price and InStock on the research date."
+        }
+      ]
+    },
+    {
+      "id": "haunted-prom-queen-rose-garden-queen-crown",
+      "name": "Brass-colored rose crown",
+      "category": "headwear",
+      "required": true,
+      "order": 2,
+      "styleNotes": "A delicate warm brass crown with rose or floral detail. The $ crown substitutes small blossoms; separate burgundy roses can be added.",
+      "queries": [
+        "brass rose crown gold flower headband"
+      ],
+      "sizeKind": "one_size",
+      "matches": [
+        {
+          "productId": "p-ecabbd00d3",
+          "rank": 0,
+          "reason": "Three-dimensional golden brass rosebuds on a thin metal headband. Strong match for the brass rose anchor, but this is a headband rather than a full circular coronet. Handmade in Southern California; stated dispatch within two weeks."
+        },
+        {
+          "productId": "p-0815fd0233",
+          "rank": 1,
+          "reason": "Golden brass blossom crown on a slim band. Small blossoms replace roses: add a burgundy rose from the separate embellishment piece if desired. Live feed confirms six units/order slots available. Handmade in Southern California; stated dispatch within two weeks."
+        },
+        {
+          "productId": "p-21f722ad43",
+          "rank": 2,
+          "reason": "Golden brass rose petals and leaf vines, gold Swarovski beads, flexible wire, and gold velvet ribbon ties. Floral portion about 13 inches; overall band about 16 inches. Handmade to order; stated dispatch within two weeks. No burgundy fabric flowers included."
+        }
+      ]
+    },
+    {
+      "id": "haunted-prom-queen-rose-garden-queen-boots",
+      "name": "Dark ankle boots",
+      "category": "footwear",
+      "required": true,
+      "order": 3,
+      "styleNotes": "Dark brown or black ankle boots ground the gown. Plain real boots replace the illustrated floral decoration.",
+      "queries": [
+        "dark ankle boots women leather"
+      ],
+      "sizeKind": "shoe",
+      "matches": [
+        {
+          "productId": "p-fa88c71724",
+          "rank": 0,
+          "reason": "Black full-grain leather Chelsea boot, glove leather lining, 1.25-inch heel and 5.5-inch shaft. Plain boot substitutes for dark brown floral heeled reference. Listed sizes are Standard width; other widths are excluded. Merchant offers domestic US shipping."
+        },
+        {
+          "productId": "p-9f0ec3e56f",
+          "rank": 1,
+          "reason": "Dark brown faux-leather lace-up ankle boots with side zip and 5.3 cm chunky lug heel/platform. Rounder and bulkier than the illustrated dress boot; no floral decoration. Exact available US sizes only."
+        },
+        {
+          "productId": "p-65bdda9af7",
+          "rank": 2,
+          "reason": "Black leather Original Chelsea boots with low heel. A sturdy plain approximation; no pointed dress heel, vines or roses. Exact merchant US Women and UK/AU labels retained. Current merchant price is $209.95."
+        }
+      ]
+    }
+  ],
+  "products": [
+    {
+      "id": "p-96679a3aae",
+      "title": "Burgundy High Neck Velvet Column Gown With 3D Flowers",
+      "url": "https://macduggal.com/products/21163?variant=44809551937715",
+      "priceCents": 49800,
+      "currency": "USD",
+      "image": "/products/price-tiers/p-96679a3aae.webp",
+      "merchantImage": "/products/price-tiers/p-96679a3aae.webp",
+      "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/0511/3783/9283/files/21163-Burgundy-AB.jpg?v=1753872536"
+      ],
+      "availability": "in_stock",
+      "sizes": [
+        "US XS",
+        "US S",
+        "US M",
+        "US L"
+      ],
+      "merchantId": "macduggal-com",
+      "tagSlugs": [],
+      "description": "Burgundy 100% polyester velvet, fully lined, high neck and sleeveless. Merchant confirms 3D velvet flowers at shoulder and waist are included. Column silhouette, hip drape and thigh slit differ from the illustrated ball gown. Separate rose heads can add further blooms but are not needed for its two existing flowers.",
+      "checkedAt": "2026-10-26T10:01:17.311Z",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-25T08:51:06.361508Z",
+        "url": "https://macduggal.com/products/21163.js",
+        "notes": "Burgundy 100% polyester velvet, fully lined, high neck and sleeveless. Merchant confirms 3D velvet flowers at shoulder and waist are included. Column silhouette, hip drape and thigh slit differ from the illustrated ball gown. Separate rose heads can add further blooms but are not needed for its two existing flowers."
+      }
+    },
+    {
+      "id": "p-8d1bae85e1",
+      "title": "Ginevra Burgundy Velvet Gown",
+      "url": "https://www.emprada.com/products/ginevra-burgundy-velvet-gown?variant=39999752011909",
+      "priceCents": 11999,
+      "currency": "USD",
+      "image": "/products/price-tiers/p-8d1bae85e1.webp",
+      "merchantImage": "/products/price-tiers/p-8d1bae85e1.webp",
+      "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/0511/4373/files/2327286919382128899222.png?v=1754703104"
+      ],
+      "availability": "in_stock",
+      "sizes": [
+        "2XL",
+        "3XL"
+      ],
+      "merchantId": "emprada-com",
+      "tagSlugs": [],
+      "description": "Burgundy gown listed under color Red; velvet bodice, lined polyester, open back, nude mesh side panels. Modern fitted silhouette, without rose embroidery or the illustrated full skirt. Add the separate fabric roses. Only 2XL and 3XL available. Merchant aims to process within 48 hours; peak periods may take longer.",
+      "checkedAt": "2026-10-26T10:01:18.893Z",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-25T08:51:06.361508Z",
+        "url": "https://www.emprada.com/products/ginevra-burgundy-velvet-gown.js",
+        "notes": "Burgundy gown listed under color Red; velvet bodice, lined polyester, open back, nude mesh side panels. Modern fitted silhouette, without rose embroidery or the illustrated full skirt. Add the separate fabric roses. Only 2XL and 3XL available. Merchant aims to process within 48 hours; peak periods may take longer."
+      }
+    },
+    {
+      "id": "p-f84baae8a4",
+      "title": "Carolyn Gown - Long Sleeve Velvet & Lace Ball Gown",
+      "url": "https://www.ladyblacktie.com/products/carolyn-gown-long-sleeve-velvet-lace-ball-gown?variant=67558359171369",
+      "priceCents": 32500,
+      "currency": "USD",
+      "image": "/products/price-tiers/p-f84baae8a4.webp",
+      "merchantImage": "/products/price-tiers/p-f84baae8a4.webp",
+      "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/0875/9364/8425/files/cm394_burgundy_1.jpg?v=1790799016"
+      ],
+      "availability": "in_stock",
+      "sizes": [
+        "10",
+        "12",
+        "14",
+        "16",
+        "18",
+        "20"
+      ],
+      "merchantId": "ladyblacktie-com",
+      "tagSlugs": [],
+      "description": "Burgundy velvet bodice with sheer embroidered long sleeves and a full embroidered tulle skirt with train. Floral sequins/beadwork differ from gold rose vines; the skirt is tulle rather than velvet. Add separate fabric roses for raised blooms. Burgundy size 8 is sold out; only listed sizes are available.",
+      "checkedAt": "2026-10-26T10:01:17.813Z",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-25T08:51:06.361508Z",
+        "url": "https://www.ladyblacktie.com/products/carolyn-gown-long-sleeve-velvet-lace-ball-gown.js",
+        "notes": "Burgundy velvet bodice with sheer embroidered long sleeves and a full embroidered tulle skirt with train. Floral sequins/beadwork differ from gold rose vines; the skirt is tulle rather than velvet. Add separate fabric roses for raised blooms. Burgundy size 8 is sold out; only listed sizes are available."
+      }
+    },
+    {
+      "id": "exp-b-fc56c9654a05",
+      "title": "Prom Queen Satin Sash — Package (1 Sash)",
+      "url": "https://www.bulkpartysupplies.com/products/prom-queen-satin-sash?variant=44736784335067",
+      "priceCents": 715,
+      "currency": "USD",
+      "image": "/products/price-tiers/exp-b-fc56c9654a05.webp",
+      "merchantImage": "/products/price-tiers/exp-b-fc56c9654a05.webp",
+      "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/2384/2133/products/60191.jpg?v=1759439979"
+      ],
+      "availability": "in_stock",
+      "sizes": [
+        "Package (1 Sash)"
+      ],
+      "merchantId": "exp-b-bulkpartysupplies-com",
+      "tagSlugs": [],
+      "description": "One white satin sash with gold Prom Queen lettering. Single sash package; six-sash case excluded. Public merchant variant feed confirms this exact USD price and available variant on the research date.",
+      "checkedAt": "2026-10-27T00:28:28.338770Z",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-27T00:28:28.338770Z",
+        "url": "https://www.bulkpartysupplies.com/products/prom-queen-satin-sash",
+        "notes": "One white satin sash with gold Prom Queen lettering. Single sash package; six-sash case excluded. Public merchant variant feed confirms this exact USD price and available variant on the research date."
+      }
+    },
+    {
+      "id": "exp-b-f55bc94e7d4c",
+      "title": "Prom Queen Sash",
+      "url": "https://www.cappelsinc.com/product/prom-queen-sash/",
+      "priceCents": 929,
+      "currency": "USD",
+      "image": "/products/price-tiers/exp-b-f55bc94e7d4c.webp",
+      "merchantImage": "/products/price-tiers/exp-b-f55bc94e7d4c.webp",
+      "sourceImages": [
+        "https://www.cappelsinc.com/wp-content/uploads/2014/12/60191_Prom_Queen_Sash1.jpg"
+      ],
+      "availability": "in_stock",
+      "sizes": [],
+      "merchantId": "exp-b-cappelsinc-com",
+      "tagSlugs": [],
+      "description": "Single white satin Prom Queen sash with gold lettering. Merchant Product/Offer structured data confirms USD price and InStock on the research date.",
+      "checkedAt": "2026-10-27T00:28:28.338770Z",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-27T00:28:28.338770Z",
+        "url": "https://www.cappelsinc.com/product/prom-queen-sash/",
+        "notes": "Single white satin Prom Queen sash with gold lettering. Merchant Product/Offer structured data confirms USD price and InStock on the research date."
+      }
+    },
+    {
+      "id": "exp-b-502d51419f05",
+      "title": "Halloween Prom Queen Sash - Halloween Bloody Sash Zombie Prom Queen Sash Belt - Corpse Cosplay Spooky Queen Zombie Prom Sash for Halloween Day of The",
+      "url": "https://www.retailmarket.net/products/halloween-prom-queen-sash-halloween-bloody-sash-zombie-prom-queen-sash-belt-corpse-cosplay-spooky-queen-zombie-prom-sash-for-halloween-day-of-the-dead-party-decorations/",
+      "priceCents": 1949,
+      "currency": "USD",
+      "image": "/products/price-tiers/exp-b-502d51419f05.webp",
+      "merchantImage": "/products/price-tiers/exp-b-502d51419f05.webp",
+      "sourceImages": [
+        "https://trm-objects.exceptionalcdn.com/retailmarket/dam/1/objects/20101403/ea/35/af/21/4a/66/0b/04/61oS0iIYn9L.jpg"
+      ],
+      "availability": "in_stock",
+      "sizes": [],
+      "merchantId": "exp-b-retailmarket-net",
+      "tagSlugs": [],
+      "description": "Single white satin Prom Queen sash with printed horror blood detail and adjustable pin. Pattern differs from the plain default; no dress or crown included. Merchant Product/Offer structured data confirms USD price and InStock on the research date.",
+      "checkedAt": "2026-10-27T00:28:28.338770Z",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-27T00:28:28.338770Z",
+        "url": "https://www.retailmarket.net/products/halloween-prom-queen-sash-halloween-bloody-sash-zombie-prom-queen-sash-belt-corpse-cosplay-spooky-queen-zombie-prom-sash-for-halloween-day-of-the-dead-party-decorations/",
+        "notes": "Single white satin Prom Queen sash with printed horror blood detail and adjustable pin. Pattern differs from the plain default; no dress or crown included. Merchant Product/Offer structured data confirms USD price and InStock on the research date."
+      }
+    },
+    {
+      "id": "p-ecabbd00d3",
+      "title": "Rosebud Crown - Gold Flower Crown, Hairpiece, Bridal, Head Piece, Hair Accessories, tiara",
+      "url": "https://www.acutedesignsshop.com/products/rosebud-crown-gold-flower-crown-hairpiece-bridal-head-piece-hair-accessories-tiara?variant=31280205824113",
+      "priceCents": 8800,
+      "currency": "USD",
+      "image": "/products/price-tiers/p-ecabbd00d3.webp",
+      "merchantImage": "/products/price-tiers/p-ecabbd00d3.webp",
+      "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/0677/0749/products/acute_designs-180.jpg?v=1744763739"
+      ],
+      "availability": "in_stock",
+      "sizes": [
+        "one size"
+      ],
+      "merchantId": "acutedesignsshop-com",
+      "tagSlugs": [],
+      "description": "Three-dimensional golden brass rosebuds on a thin metal headband. Strong match for the brass rose anchor, but this is a headband rather than a full circular coronet. Handmade in Southern California; stated dispatch within two weeks.",
+      "checkedAt": "2026-10-26T10:01:17.527Z",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-25T08:51:06.361508Z",
+        "url": "https://www.acutedesignsshop.com/products/rosebud-crown-gold-flower-crown-hairpiece-bridal-head-piece-hair-accessories-tiara.js",
+        "notes": "Three-dimensional golden brass rosebuds on a thin metal headband. Strong match for the brass rose anchor, but this is a headband rather than a full circular coronet. Handmade in Southern California; stated dispatch within two weeks."
+      }
+    },
+    {
+      "id": "p-21f722ad43",
+      "title": "Rose Petal Bridal Crown Headband, Wedding Head Piece, Flower Crown",
+      "url": "https://www.acutedesignsshop.com/products/rose-petal-bridal-crown-headband-wedding-head-piece-flower-crown?variant=3346139349016",
+      "priceCents": 12500,
+      "currency": "USD",
+      "image": "/products/price-tiers/p-21f722ad43.webp",
+      "merchantImage": "/products/price-tiers/p-21f722ad43.webp",
+      "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/0677/0749/products/rose_petal_crown_2.jpg?v=1744764184"
+      ],
+      "availability": "in_stock",
+      "sizes": [
+        "one size"
+      ],
+      "merchantId": "acutedesignsshop-com",
+      "tagSlugs": [],
+      "description": "Golden brass rose petals and leaf vines, gold Swarovski beads, flexible wire, and gold velvet ribbon ties. Floral portion about 13 inches; overall band about 16 inches. Handmade to order; stated dispatch within two weeks. No burgundy fabric flowers included.",
+      "checkedAt": "2026-10-26T10:01:17.127Z",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-25T08:51:06.361508Z",
+        "url": "https://www.acutedesignsshop.com/products/rose-petal-bridal-crown-headband-wedding-head-piece-flower-crown.js",
+        "notes": "Golden brass rose petals and leaf vines, gold Swarovski beads, flexible wire, and gold velvet ribbon ties. Floral portion about 13 inches; overall band about 16 inches. Handmade to order; stated dispatch within two weeks. No burgundy fabric flowers included."
+      }
+    },
+    {
+      "id": "p-0815fd0233",
+      "title": "Golden Blossom Crown – Bridal Wedding Hair Piece",
+      "url": "https://www.acutedesignsshop.com/products/golden-blossom-crown-bridal-wedding-hair-piece?variant=43526313607281",
+      "priceCents": 6800,
+      "currency": "USD",
+      "image": "/products/price-tiers/p-0815fd0233.webp",
+      "merchantImage": "/products/price-tiers/p-0815fd0233.webp",
+      "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/0677/0749/files/AcuteDesignsMay2026-109.jpg?v=1782334782"
+      ],
+      "availability": "in_stock",
+      "sizes": [
+        "one size"
+      ],
+      "merchantId": "acutedesignsshop-com",
+      "tagSlugs": [],
+      "description": "Golden brass blossom crown on a slim band. Small blossoms replace roses: add a burgundy rose from the separate embellishment piece if desired. Live feed confirms six units/order slots available. Handmade in Southern California; stated dispatch within two weeks.",
+      "checkedAt": "2026-10-26T10:01:17.242Z",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-25T08:51:06.361508Z",
+        "url": "https://www.acutedesignsshop.com/products/golden-blossom-crown-bridal-wedding-hair-piece.js",
+        "notes": "Golden brass blossom crown on a slim band. Small blossoms replace roses: add a burgundy rose from the separate embellishment piece if desired. Live feed confirms six units/order slots available. Handmade in Southern California; stated dispatch within two weeks."
+      }
+    },
+    {
+      "id": "p-9f0ec3e56f",
+      "title": "Danie Brown Boots",
+      "url": "https://www.rocketdog.com/products/danner-brown-boots?variant=43737405587526",
+      "priceCents": 5597,
+      "currency": "USD",
+      "image": "/products/price-tiers/p-9f0ec3e56f.webp",
+      "merchantImage": "/products/price-tiers/p-9f0ec3e56f.webp",
+      "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/1903/5555/files/DANNERAO_DARKBROWN_2.jpg?v=1756989780"
+      ],
+      "availability": "in_stock",
+      "sizes": [
+        "7",
+        "7.5",
+        "8",
+        "8.5",
+        "9",
+        "9.5",
+        "10"
+      ],
+      "merchantId": "rocketdog-com",
+      "tagSlugs": [],
+      "description": "Dark brown faux-leather lace-up ankle boots with side zip and 5.3 cm chunky lug heel/platform. Rounder and bulkier than the illustrated dress boot; no floral decoration. Exact available US sizes only.",
+      "checkedAt": "2026-10-26T10:00:36.278Z",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-25T08:51:06.361508Z",
+        "url": "https://www.rocketdog.com/products/danner-brown-boots.js",
+        "notes": "Dark brown faux-leather lace-up ankle boots with side zip and 5.3 cm chunky lug heel/platform. Rounder and bulkier than the illustrated dress boot; no floral decoration. Exact available US sizes only."
+      }
+    },
+    {
+      "id": "p-fa88c71724",
+      "title": "Duchess | Black",
+      "url": "https://thursdayboots.com/products/womens-duchess-black-chelsea-boot?variant=41611980701786",
+      "priceCents": 16000,
+      "currency": "USD",
+      "image": "/products/price-tiers/p-fa88c71724.webp",
+      "merchantImage": "/products/price-tiers/p-fa88c71724.webp",
+      "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/0419/1525/products/1024x1024-Women-Duchess-Black-Side.jpg?v=1591637693"
+      ],
+      "availability": "in_stock",
+      "sizes": [
+        "4",
+        "4.5",
+        "5",
+        "5.5",
+        "6",
+        "6.5",
+        "7",
+        "7.5",
+        "8",
+        "8.5",
+        "9",
+        "9.5",
+        "10",
+        "10.5",
+        "11",
+        "11.5",
+        "12",
+        "12.5",
+        "13"
+      ],
+      "merchantId": "thursdayboots-com",
+      "tagSlugs": [],
+      "description": "Black full-grain leather Chelsea boot, glove leather lining, 1.25-inch heel and 5.5-inch shaft. Plain boot substitutes for dark brown floral heeled reference. Listed sizes are Standard width; other widths are excluded. Merchant offers domestic US shipping.",
+      "checkedAt": "2026-10-26T10:01:10.951Z",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-25T08:51:06.361508Z",
+        "url": "https://thursdayboots.com/products/womens-duchess-black-chelsea-boot.js",
+        "notes": "Black full-grain leather Chelsea boot, glove leather lining, 1.25-inch heel and 5.5-inch shaft. Plain boot substitutes for dark brown floral heeled reference. Listed sizes are Standard width; other widths are excluded. Merchant offers domestic US shipping."
+      }
+    },
+    {
+      "id": "p-65bdda9af7",
+      "title": "Women's Originals #510",
+      "url": "https://www.blundstone.com/products/black-premium-leather-v-cut-boots-womens-style-510?variant=53192324219187",
+      "priceCents": 20995,
+      "currency": "USD",
+      "image": "/products/price-tiers/p-65bdda9af7.webp",
+      "merchantImage": "/products/price-tiers/p-65bdda9af7.webp",
+      "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/0903/6349/4707/files/product-image_2026-10-12_510_p_usa_hero.jpg?v=1791961602"
+      ],
+      "availability": "in_stock",
+      "sizes": [
+        "6 US Women (3 AU/UK)",
+        "6.5 US Women (3.5 AU/UK)",
+        "7 US Women (4 AU/UK)",
+        "7.5 US Women (4.5 AU/UK)",
+        "8 US Women (5 AU/UK)",
+        "8.5 US Women (5.5 AU/UK)",
+        "9 US Women (6 AU/UK)",
+        "9.5 US Women (6.5 AU/UK)",
+        "10 US Women (7 AU/UK)",
+        "10.5 US Women (7.5 AU/UK)",
+        "11 US Women (8 AU/UK)",
+        "11.5 US Women (8.5 AU/UK)",
+        "12 US Women (9 AU/UK)",
+        "12.5 US Women (9.5 AU/UK)",
+        "13 US Women (10 AU/UK)",
+        "14 US Women (11 AU/UK)",
+        "15 US Women (12 AU/UK)",
+        "16 US Women (13 AU/UK)",
+        "5 US Women (2 UK/AU)",
+        "6 US Women (3 UK/AU)",
+        "6.5 US Women (3.5 UK/AU)",
+        "7 US Women (4 UK/AU)",
+        "7.5 US Women (4.5 UK/AU)",
+        "8 US Women (5 UK/AU)",
+        "8.5 US Women (5.5 UK/AU)",
+        "9 US Women (6 UK/AU)",
+        "9.5 US Women (6.5 UK/AU)",
+        "10 US Women (7 UK/AU)",
+        "10.5 US Women (7.5 UK/AU)",
+        "11 US Women (8 UK/AU)",
+        "11.5 US Women (8.5 UK/AU)",
+        "12 US Women (9 UK/AU)",
+        "12.5 US Women (9.5 UK/AU)",
+        "13 US Women (10 UK/AU)",
+        "13.5 US Women (10.5 UK/AU)",
+        "14 US Women (11 UK/AU)",
+        "15 US Women (12 UK/AU)",
+        "16 US Women (13 UK/AU)"
+      ],
+      "merchantId": "blundstone-com",
+      "tagSlugs": [],
+      "description": "Black leather Original Chelsea boots with low heel. A sturdy plain approximation; no pointed dress heel, vines or roses. Exact merchant US Women and UK/AU labels retained. Current merchant price is $209.95.",
+      "checkedAt": "2026-10-26T10:01:18.922Z",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-25T08:51:06.361508Z",
+        "url": "https://www.blundstone.com/products/black-premium-leather-v-cut-boots-womens-style-510.js",
+        "notes": "Black leather Original Chelsea boots with low heel. A sturdy plain approximation; no pointed dress heel, vines or roses. Exact merchant US Women and UK/AU labels retained. Current merchant price is $209.95."
+      }
+    }
+  ],
+  "merchants": [
+    {
+      "id": "acutedesignsshop-com",
+      "name": "Acute Designs",
+      "domain": "acutedesignsshop.com",
+      "url": "https://acutedesignsshop.com/",
+      "kind": "boutique",
+      "neighborhoodId": null
+    },
+    {
+      "id": "emprada-com",
+      "name": "Emprada",
+      "domain": "emprada.com",
+      "url": "https://emprada.com/",
+      "kind": "boutique",
+      "neighborhoodId": null
+    },
+    {
+      "id": "ladyblacktie-com",
+      "name": "Lady Black Tie",
+      "domain": "ladyblacktie.com",
+      "url": "https://ladyblacktie.com/",
+      "kind": "boutique",
+      "neighborhoodId": null
+    },
+    {
+      "id": "macduggal-com",
+      "name": "Mac Duggal",
+      "domain": "macduggal.com",
+      "url": "https://macduggal.com/",
+      "kind": "boutique",
+      "neighborhoodId": null
+    },
+    {
+      "id": "rocketdog-com",
+      "name": "Rocket Dog",
+      "domain": "rocketdog.com",
+      "url": "https://rocketdog.com/",
+      "kind": "boutique",
+      "neighborhoodId": null
+    },
+    {
+      "id": "thursdayboots-com",
+      "name": "Thursday Boot Company",
+      "domain": "thursdayboots.com",
+      "url": "https://thursdayboots.com/",
+      "kind": "boutique",
+      "neighborhoodId": null
+    },
+    {
+      "id": "blundstone-com",
+      "name": "Blundstone",
+      "domain": "blundstone.com",
+      "url": "https://blundstone.com/",
+      "kind": "boutique",
+      "neighborhoodId": null
+    },
+    {
+      "id": "exp-b-bulkpartysupplies-com",
+      "name": "Bulk Party Supplies",
+      "domain": "bulkpartysupplies.com",
+      "url": "https://bulkpartysupplies.com",
+      "kind": "boutique",
+      "neighborhoodId": null
+    },
+    {
+      "id": "exp-b-cappelsinc-com",
+      "name": "Cappel’s",
+      "domain": "cappelsinc.com",
+      "url": "https://cappelsinc.com",
+      "kind": "boutique",
+      "neighborhoodId": null
+    },
+    {
+      "id": "exp-b-retailmarket-net",
+      "name": "Retail Market",
+      "domain": "retailmarket.net",
+      "url": "https://retailmarket.net",
+      "kind": "boutique",
+      "neighborhoodId": null
+    }
+  ],
+  "neighborhoods": [],
+  "tags": [],
+  "provenance": {
+    "method": "manual-research",
+    "generatedAt": "2026-10-27T00:28:28.338770Z",
+    "notes": "2026 catalog expansion B. Defining pieces checked against primary merchant pages/public variant feeds using built-in web discovery. Appropriate base garments reused from earlier reviewed catalog with original product evidence and check dates. Generated hero is styling inspiration; merchant photos show actual purchases. Sizes, stock and price require checkout recheck. No Halloween arrival guarantee. Publication carries forward newer shared-product price, stock, size and check timestamps from the live database; original sourcing evidence is retained.",
+    "priceTiers": true,
+    "heroImageKind": "generated-reference"
+  }
+}

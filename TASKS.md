@@ -1,23 +1,34 @@
-# halloween.supply v1 — TASKS
+# Halloween Supply — current work
 
-**Goal.** Ship brief.md's v1 finish line on https://halloween.supply.
+Updated November 6, 2026. The original one-costume v1 checklist is retired.
+The source baseline for this campaign is `2062f165f397ff8d8a9cf5fbeb908e0561e9068b`.
+It contains the 50-look catalog repair from PR #32.
 
-**Finish line.** On production: home → cosmic-cowboy → swap a piece → tell the assistant sizes → cart → Stripe test checkout (4242…) → success. The Stripe session carries merchant, product URL and size per piece. `bun run build`, `bunx tsc --noEmit`, `bun run lint` pass. Verified at 375px and 1440px.
+Use the [ten-item ledger](docs/swarm/2026-11-05/README.md) for implementation,
+verification commands, and exact remaining limits. Use the
+[open-loop ledger](docs/swarm/2026-11-05/open-loops.md) for older branches,
+provider dependencies, competition evidence, and user-owned work.
 
-## Preflight (done 2026-10-24)
-- [x] .env.local has all six keys; STRIPE_SECRET_KEY is sk_test_.
-- [x] SERP probe: `udm=28` → 40 shopping results, all priced. `--tbm` → empty body (JSON parse error). Use udm. Shopping links are google.com/search?ibp=oshop redirects, not merchant URLs.
-- [x] `bun run warm` against FalkorDB Cloud: answered, skeleton seeded (5 pieces, 0 products).
-- [x] Vercel linked; production env has the six keys + generated CRON_SECRET.
-- [x] `claude-sonnet-5-5` is in Anthropic's model list.
+| # | Approved work | Success condition |
+| --- | --- | --- |
+| 1 | Affordable completion kits and discovery | New-piece subtotal agrees with selected kit pieces; owned basics are explicit. |
+| 2 | Complete saved and shared selections | Product, owned, skipped, mix, and presentation choices restore; private sizes stay local. |
+| 3 | Event and assembly readiness | Evidence, supplies, assembly, and unknown arrival are visible for priority kits. |
+| 4 | Screenshot/custom photo preview | A saved board retains products and previews those same products. |
+| 5 | Checkout recovery and freshness | A failing line offers useful repair while unrelated cart choices remain. |
+| 6 | Phone camera connection | Diagnostics, relay evidence, device results, and media cleanup are reported separately. |
+| 7 | Mirror controls and measurements | Fixed commands change intended choices; timing stages and provider limits are recorded. |
+| 8 | Anonymous measurement | Expected event sequence appears without private inputs or invented cost figures. |
+| 9 | One release base and runtime checks | The integrated commit passes required local checks; hosted verification remains explicit. |
+| 10 | Gated clip input | The default flag stays off until real supported-input provider checks pass. |
 
-## Milestones
-- [ ] M1 Real data: source cosmic-cowboy (5×3 products, 0 blocked, ≥2 Bay Area, one merchant with 2 pieces), seed graph. — worker `data`
-- [ ] M2 Storefront: tokens, mosaic, costume page, cart. — worker `storefront`
-- [ ] M3 Assistant: /api/chat, tools, panel. — worker `assistant`
-- [ ] M4 Checkout: /api/checkout, Stripe, success, cron. — worker `checkout`
-- [ ] M5 Ship: build/tsc/lint, fresh review, push, prod E2E at 375/1440, Stripe metadata check.
-- [ ] M6 Polish: editorial cowboy tile photo.
+Preserve guest checkout, merchandise-price totals without a shipping line,
+private sizes, broad retailer sourcing, and unrestricted repeated demonstrations.
+Do not replace the 50-look catalog with an old bundled snapshot.
 
-## Next step
-Workers running; review and commit each diff as it lands.
+The [production report](docs/verification/production-2026-11-06.md) records the
+authorized release, 12/12 hosted browser groups, all 50 catalogs, and one verified,
+expired unpaid Stripe TEST session. Nine kits are eligible; Linen Ghost blocks
+its sold-out sheet. Provider, saved-board persistence, physical phone, relay, and
+fidelity limits remain open. No completed payment, fulfilled order, or COOL speed
+advantage is established. Use general event dates and show uncertain arrival.

@@ -1,0 +1,750 @@
+{
+  "costume": {
+    "slug": "mad-tea-hatter",
+    "name": "Mad Tea Hatter",
+    "description": "A tall tagged hat, midnight brocade coat, ivory ruffles, and plum trousers make a gloriously mismatched tea-party host.",
+    "image": "/costumes/mad-tea-hatter.png",
+    "alt": "Black top hat with a 10/6 card, midnight-blue brocade long coat, ivory ruffled shirt, plum trousers, and black boots.",
+    "status": "live"
+  },
+  "pieces": [
+    {
+      "id": "mad-tea-hatter-top-hat",
+      "name": "Tall hat with a DIY 10/6 card",
+      "category": "headwear",
+      "required": true,
+      "order": 0,
+      "styleNotes": "The 10/6 card and colored hat-band ribbon are DIY additions using your own materials. The Safari Mad Hatter alternative is patterned rather than plain black. Use a tall black crown and curved brim. The reference red hat band is a small optional ribbon addition; these hats have black bands.",
+      "queries": [
+        "black satin top hat adult",
+        "black wool Victorian top hat"
+      ],
+      "sizeKind": "hat",
+      "matches": [
+        {
+          "productId": "p-a5306831a3",
+          "rank": 0,
+          "reason": "Black structured wool felt, mid-rise crown, grosgrain band and leather sweatband; unlined. Only M is currently available at $81.95. Shorter crown than the reference; red ribbon is not included."
+        },
+        {
+          "productId": "p-005fe33405",
+          "rank": 1,
+          "reason": "Black 100% wool felt, 7-inch crown, 2-inch curled brim and 2-inch grosgrain band with flat side bow; unlined. Only L and XL currently available. No red ribbon included."
+        },
+        {
+          "productId": "p-exp-c-27b8ddd01304",
+          "rank": 2,
+          "reason": "All you need is a destination and this hat is ready to take you on incredible adventures! Join the Mad Hatter with this stunning green and purple plaid safari hat with outlandishly vibrant sash. Includes interior velcro size adjuster and shapeable wire brim. Pair with the Mad Hatter's Hat Pin Collection for the complete movie replica look. For ages 14 and up Officially Licensed Safari Mad Hatter hat only. Different styling from a classic plain black top hat; compare the actual merchant photograph. Outfit is excluded."
+        }
+      ]
+    },
+    {
+      "id": "mad-tea-hatter-brocade-coat",
+      "name": "Midnight blue long coat",
+      "category": "outerwear",
+      "required": true,
+      "order": 1,
+      "styleNotes": "Long dark blue pirate or frock coat with ornate fabric or trim and substantial cuffs. Pattern and gold details vary.",
+      "queries": [
+        "midnight blue brocade pirate long coat"
+      ],
+      "sizeKind": "apparel",
+      "matches": [
+        {
+          "productId": "p-9fa4c1cdef",
+          "rank": 0,
+          "reason": "Blue/gold brocade long pirate frock coat with large cuffs. Gold all-over pattern is stronger than the reference dark blue pattern. Coat only. Only these four size variants are available; Medium, Large, Extra large and 4XL are sold out. Colorado shop offers shipping; no dispatch date is stated."
+        },
+        {
+          "productId": "p-381cb7b30c",
+          "rank": 1,
+          "reason": "Blue-on-black brocade knee-length frock coat with turned cuffs, mandarin collar, pockets, and silver trim/buttons. Silver differs from the reference gold. Coat only. USD feed accepts all listed sizes but does not expose physical inventory; stock and dispatch timing remain unconfirmed. Store shipping estimator includes United States."
+        },
+        {
+          "productId": "p-a4ff1ae678",
+          "rank": 2,
+          "reason": "Blue cotton velvet long coat with gold brocade trim, period cuffs, front buttons, two side pockets and adjustable rear belt. Body is plain velvet rather than all-over brocade. Coat only. Positive physical inventory for S, L and XL; M has zero inventory and is excluded despite being orderable."
+        }
+      ]
+    },
+    {
+      "id": "mad-tea-hatter-ruffled-shirt",
+      "name": "Cream or white ruffled shirt",
+      "category": "tops",
+      "required": true,
+      "order": 2,
+      "styleNotes": "Use a pale long-sleeve shirt with chest ruffles under the coat. The budget option is ivory; the other tiers are white rather than cream. Only the budget shirt is ivory. The white alternatives preserve the pale ruffled chest but are not exact cream matches.",
+      "queries": [
+        "ivory ruffled pirate shirt men",
+        "white jabot ruffled shirt"
+      ],
+      "sizeKind": "apparel",
+      "matches": [
+        {
+          "productId": "p-4d5ad424a6",
+          "rank": 0,
+          "reason": "White polyester shirt with a high collar, three front ruffle rows and cuff ruffles. Shirt only; white rather than ivory. Select a listed size. This replaces the sold-out Bard shirt."
+        },
+        {
+          "productId": "p-670c3fec1d",
+          "rank": 1,
+          "reason": "Ivory lace-up ruffled shirt only, made in USA. Only Small/Ivory is available at the $12 sale price. Hat, trousers and boots in its photograph are excluded. The lace-up neckline differs from the reference high collar and dense jabot. Merchant advertises same-day US dispatch before 5 PM Eastern on weekdays; weekends and holidays excluded."
+        },
+        {
+          "productId": "p-2b5518f3ab",
+          "rank": 2,
+          "reason": "White cotton early-1800s reproduction shirt, bone buttons at neck/wrists and ruffled bosom slit. All six named sizes available at $120. Ruffles are narrower and cuffs plainer than the reference; white instead of cream. The black neckcloth shown is a styling accessory, not included."
+        }
+      ]
+    },
+    {
+      "id": "mad-tea-hatter-plum-trousers",
+      "name": "Fitted plum or burgundy velvet trousers",
+      "category": "bottoms",
+      "required": true,
+      "order": 3,
+      "styleNotes": "Fitted velvet leggings recreate the narrow plum trouser line. These have no gold side piping; burgundy and purple are color approximations. None includes the generated gold piping. The mid-price option fits only XS.",
+      "queries": [
+        "burgundy velvet leggings boutique",
+        "purple velvet fitted leggings"
+      ],
+      "sizeKind": "apparel",
+      "matches": [
+        {
+          "productId": "p-4996c0f103",
+          "rank": 0,
+          "reason": "Spanx Rich Burgundy velvet leggings. Only XS is available at USD49 in the live feed; S, M, L, XL and 1X are sold out and excluded. Burgundy rather than plum; no gold side trim. Boutique is in Aberdeen, South Dakota."
+        },
+        {
+          "productId": "p-c8061d241c",
+          "rank": 1,
+          "reason": "Burgundy stretch velvet leggings with elastic waist and semi-cropped length. All four listed sizes available in the live merchant feed. Wine/burgundy rather than plum, shorter than full trousers, and no gold piping. Boots can cover the cropped hem."
+        },
+        {
+          "productId": "p-1414e3a171",
+          "rank": 2,
+          "reason": "Select purple velvet. High-waisted fitted velvet leggings; all XS–XL purple variants available at USD81 in the US storefront feed. Purple is brighter than the reference plum. No gold side piping. Use merchant measurements; no size conversion is assumed."
+        }
+      ]
+    },
+    {
+      "id": "mad-tea-hatter-boots",
+      "name": "Black lace-up boots",
+      "category": "footwear",
+      "required": true,
+      "order": 4,
+      "styleNotes": "Black ankle boots with visible lacing finish the outfit. These pairs have no crescent or star embroidery; heels and soles differ from the reference.",
+      "queries": [
+        "black lace up ankle boots women",
+        "black Victorian lace up boots"
+      ],
+      "sizeKind": "shoe",
+      "matches": [
+        {
+          "productId": "p-982c5731f8",
+          "rank": 0,
+          "reason": "Black full-grain leather lace-up combat boot with glove-leather lining, YKK side zipper, 6-inch shaft, 1.5-inch heel and rubber outsole. No celestial embroidery. Standard-width women’s US 5–12, including all offered half sizes, are available at $190. This option represents Standard width only. Pair of boots; free domestic US ground shipping is offered, but arrival is not verified."
+        },
+        {
+          "productId": "p-ed0b6d3416",
+          "rank": 1,
+          "reason": "Black faux-leather combat boots with lace front, inner zipper, microfiber lining and chunky treaded rubber sole. 1.8-inch heel; more casual than the reference decorative heeled boots. Pair of boots only. Feed confirms US women’s 6, 6.5, 7, 7.5, 8, 8.5, 9, 9.5, 10 and 11 available at the current $55.97 sale price; 12 is sold out. US direct store; dispatch timing is not stated."
+        },
+        {
+          "productId": "p-9ceb60b1a5",
+          "rank": 2,
+          "reason": "Black calf-leather Balmoral ankle boots with cotton-twill/pigskin lining, leather soles, adjustable laces, 5-inch shaft and 1-inch heel. Vintage shape; no stars or crescent detail and a lower heel than the reference. Pair of boots. Current feed confirms women’s US 5, 6, 6.5, 7, 7.5, 8, 8.5, 9, 9.5, 10 and 12 at $285; 10.5 and 11 are unavailable. Regular B width. US merchant; dispatch date is not stated."
+        }
+      ]
+    }
+  ],
+  "products": [
+    {
+      "id": "p-a5306831a3",
+      "title": "Regency Top Hat - Black Wool",
+      "url": "https://historicalemporium.com/products/regency-top-hat-black-wool?variant=51717783126310",
+      "priceCents": 8195,
+      "currency": "USD",
+      "image": "/products/price-tiers/p-a5306831a3.webp",
+      "merchantImage": "/products/price-tiers/p-a5306831a3.webp",
+      "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/0980/0974/3654/files/007628_01_5f6fc9cc-e846-4e55-87f4-af33e987da9f.jpg?v=1769541911"
+      ],
+      "availability": "in_stock",
+      "sizes": [
+        "M"
+      ],
+      "merchantId": "historicalemporium-com",
+      "tagSlugs": [],
+      "description": "Black structured wool felt, mid-rise crown, grosgrain band and leather sweatband; unlined. Only M is currently available at $81.95. Shorter crown than the reference; red ribbon is not included.",
+      "checkedAt": "2026-10-26T10:01:23.468Z",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-25T08:51:41.862679Z",
+        "url": "https://historicalemporium.com/products/regency-top-hat-black-wool.js",
+        "notes": "Black structured wool felt, mid-rise crown, grosgrain band and leather sweatband; unlined. Only M is currently available at $81.95. Shorter crown than the reference; red ribbon is not included."
+      }
+    },
+    {
+      "id": "p-005fe33405",
+      "title": "Victorian Top Hat - Black",
+      "url": "https://historicalemporium.com/products/victorian-top-hat-black?variant=51717865341222",
+      "priceCents": 11795,
+      "currency": "USD",
+      "image": "/products/price-tiers/p-005fe33405.webp",
+      "merchantImage": "/products/price-tiers/p-005fe33405.webp",
+      "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/0980/0974/3654/files/007625_01_1d609ce7-abed-4a59-a866-79866ed514d6.jpg?v=1769541909"
+      ],
+      "availability": "in_stock",
+      "sizes": [
+        "L",
+        "XL"
+      ],
+      "merchantId": "historicalemporium-com",
+      "tagSlugs": [],
+      "description": "Black 100% wool felt, 7-inch crown, 2-inch curled brim and 2-inch grosgrain band with flat side bow; unlined. Only L and XL currently available. No red ribbon included.",
+      "checkedAt": "2026-10-26T10:01:23.417Z",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-25T08:51:41.862679Z",
+        "url": "https://historicalemporium.com/products/victorian-top-hat-black.js",
+        "notes": "Black 100% wool felt, 7-inch crown, 2-inch curled brim and 2-inch grosgrain band with flat side bow; unlined. Only L and XL currently available. No red ribbon included."
+      }
+    },
+    {
+      "id": "p-exp-c-27b8ddd01304",
+      "title": "Alice Through the Looking Glass - Safari Mad Hatter Hat",
+      "url": "https://chicagocostume.com/products/alice-through-the-looking-glass-safari-mad-hatter-hat?variant=42139893727474",
+      "priceCents": 2499,
+      "currency": "USD",
+      "image": "/products/price-tiers/p-exp-c-27b8ddd01304.webp",
+      "merchantImage": "/products/price-tiers/p-exp-c-27b8ddd01304.webp",
+      "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/0610/0208/8690/products/img_proxy_50cb1710-6267-4c4f-9413-cff154bc6998.jpg?v=1638541016"
+      ],
+      "availability": "in_stock",
+      "sizes": [],
+      "merchantId": "chicagocostume-com",
+      "tagSlugs": [],
+      "description": "All you need is a destination and this hat is ready to take you on incredible adventures! Join the Mad Hatter with this stunning green and purple plaid safari hat with outlandishly vibrant sash. Includes interior velcro size adjuster and shapeable wire brim. Pair with the Mad Hatter's Hat Pin Collection for the complete movie replica look. For ages 14 and up Officially Licensed Safari Mad Hatter hat only. Different styling from a classic plain black top hat; compare the actual merchant photograph. Outfit is excluded.",
+      "checkedAt": "2026-10-27T00:28:36.827435Z",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-27T00:28:36.827435Z",
+        "url": "https://chicagocostume.com/collections/alice-in-wonderland/products.json?limit=250",
+        "notes": "Merchant public JSON feed confirms selected variant available at the listed USD price. Safari Mad Hatter hat only. Different styling from a classic plain black top hat; compare the actual merchant photograph. Outfit is excluded. Delivery is unconfirmed."
+      }
+    },
+    {
+      "id": "p-a4ff1ae678",
+      "title": "Caribbean Coast Pirate Coat",
+      "url": "https://www.costumesandcollectibles.com/products/barbary-coast-pirate-coat?variant=12433902403643",
+      "priceCents": 19495,
+      "currency": "USD",
+      "image": "/products/price-tiers/p-a4ff1ae678.webp",
+      "merchantImage": "/products/price-tiers/p-a4ff1ae678.webp",
+      "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/1485/9888/products/0007577_0.jpg?v=1527489926"
+      ],
+      "availability": "in_stock",
+      "sizes": [
+        "S",
+        "M",
+        "L",
+        "XL"
+      ],
+      "merchantId": "costumesandcollectibles-com",
+      "tagSlugs": [],
+      "description": "Blue cotton velvet long coat with gold brocade trim, period cuffs, front buttons, two side pockets and adjustable rear belt. Body is plain velvet rather than all-over brocade. Coat only. Positive physical inventory for S, L and XL; M has zero inventory and is excluded despite being orderable.",
+      "checkedAt": "2026-10-26T10:01:09.080Z",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-25T08:47:48Z",
+        "url": "https://www.costumesandcollectibles.com/products/barbary-coast-pirate-coat.js",
+        "notes": "Blue cotton velvet long coat with gold brocade trim, period cuffs, front buttons, two side pockets and adjustable rear belt. Body is plain velvet rather than all-over brocade. Coat only. Positive physical inventory for S, L and XL; M has zero inventory and is excluded despite being orderable."
+      }
+    },
+    {
+      "id": "p-381cb7b30c",
+      "title": "Renaissance Men's Blue Brocade Goth Steampunk Victorian Velvet Frock Coat USA",
+      "url": "https://www.darkrock.net/products/renaissance-mens-blue-brocade-goth-steampunk-victorian-velvet-frock-coat-usa?variant=46473933324373",
+      "priceCents": 5675,
+      "currency": "USD",
+      "image": "/products/price-tiers/p-381cb7b30c.webp",
+      "merchantImage": "/products/price-tiers/p-381cb7b30c.webp",
+      "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/0729/6267/0677/files/dark-rock-Renaissance-Mens-Blue-Brocade-Goth-Steampunk-Victorian-Velvet-Frock-Coat-1.jpg?v=1792735594"
+      ],
+      "availability": "in_stock",
+      "sizes": [
+        "S",
+        "M",
+        "L",
+        "XL",
+        "2XL",
+        "3XL"
+      ],
+      "merchantId": "darkrock-net",
+      "tagSlugs": [],
+      "description": "Blue-on-black brocade knee-length frock coat with turned cuffs, mandarin collar, pockets, and silver trim/buttons. Silver differs from the reference gold. Coat only. USD feed accepts all listed sizes but does not expose physical inventory; stock and dispatch timing remain unconfirmed. Store shipping estimator includes United States.",
+      "checkedAt": "2026-10-26T10:01:09.050Z",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-25T08:47:48Z",
+        "url": "https://www.darkrock.net/products/renaissance-mens-blue-brocade-goth-steampunk-victorian-velvet-frock-coat-usa.js",
+        "notes": "Blue-on-black brocade knee-length frock coat with turned cuffs, mandarin collar, pockets, and silver trim/buttons. Silver differs from the reference gold. Coat only. USD feed accepts all listed sizes but does not expose physical inventory; stock and dispatch timing remain unconfirmed. Store shipping estimator includes United States."
+      }
+    },
+    {
+      "id": "p-9fa4c1cdef",
+      "title": "Brocade Military Pirate Frock Coat | Blue & Gold",
+      "url": "https://fspartystore.com/products/brocade-military-pirate-frock-coat-blue-gold?variant=51472663216426",
+      "priceCents": 15000,
+      "currency": "USD",
+      "image": "/products/price-tiers/p-9fa4c1cdef.webp",
+      "merchantImage": "/products/price-tiers/p-9fa4c1cdef.webp",
+      "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/0272/4082/4943/files/CT23202-1-600x600.jpg?v=1777322723"
+      ],
+      "availability": "in_stock",
+      "sizes": [
+        "Small",
+        "2XL",
+        "3XL",
+        "5XL"
+      ],
+      "merchantId": "fspartystore-com",
+      "tagSlugs": [],
+      "description": "Blue/gold brocade long pirate frock coat with large cuffs. Gold all-over pattern is stronger than the reference dark blue pattern. Coat only. Only these four size variants are available; Medium, Large, Extra large and 4XL are sold out. Colorado shop offers shipping; no dispatch date is stated.",
+      "checkedAt": "2026-10-26T10:01:09.070Z",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-25T08:47:48Z",
+        "url": "https://fspartystore.com/products/brocade-military-pirate-frock-coat-blue-gold.js",
+        "notes": "Blue/gold brocade long pirate frock coat with large cuffs. Gold all-over pattern is stronger than the reference dark blue pattern. Coat only. Only these four size variants are available; Medium, Large, Extra large and 4XL are sold out. Colorado shop offers shipping; no dispatch date is stated."
+      }
+    },
+    {
+      "id": "p-2b5518f3ab",
+      "title": "Ruffled Cotton Shirt | Regency",
+      "url": "https://samsonhistorical.com/products/ruffled-cotton-shirt-regency?variant=43812843454685",
+      "priceCents": 12000,
+      "currency": "USD",
+      "image": "/products/price-tiers/p-2b5518f3ab.webp",
+      "merchantImage": "/products/price-tiers/p-2b5518f3ab.webp",
+      "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/0440/7857/products/Samson_02_Lynn_Jackson_0084.jpg?v=1681955899"
+      ],
+      "availability": "in_stock",
+      "sizes": [
+        "Small",
+        "Medium",
+        "Large",
+        "X Large",
+        "XX Large",
+        "XXX Large"
+      ],
+      "merchantId": "samsonhistorical-com",
+      "tagSlugs": [],
+      "description": "White cotton early-1800s reproduction shirt, bone buttons at neck/wrists and ruffled bosom slit. All six named sizes available at $120. Ruffles are narrower and cuffs plainer than the reference; white instead of cream. The black neckcloth shown is a styling accessory, not included.",
+      "checkedAt": "2026-10-26T10:01:23.940Z",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-25T08:51:41.862679Z",
+        "url": "https://samsonhistorical.com/products/ruffled-cotton-shirt-regency.js",
+        "notes": "White cotton early-1800s reproduction shirt, bone buttons at neck/wrists and ruffled bosom slit. All six named sizes available at $120. Ruffles are narrower and cuffs plainer than the reference; white instead of cream. The black neckcloth shown is a styling accessory, not included."
+      }
+    },
+    {
+      "id": "p-670c3fec1d",
+      "title": "Pirate Shirt for Men Costume",
+      "url": "https://romaretailshop.com/products/pirate-shirt-for-men-costume?variant=33765644206218",
+      "priceCents": 1200,
+      "currency": "USD",
+      "image": "/products/price-tiers/p-670c3fec1d.webp",
+      "merchantImage": "/products/price-tiers/p-670c3fec1d.webp",
+      "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/0378/4186/2794/products/4651.jpg?v=1588888929"
+      ],
+      "availability": "in_stock",
+      "sizes": [
+        "Small"
+      ],
+      "merchantId": "romaretailshop-com",
+      "tagSlugs": [],
+      "description": "Ivory lace-up ruffled shirt only, made in USA. Only Small/Ivory is available at the $12 sale price. Hat, trousers and boots in its photograph are excluded. The lace-up neckline differs from the reference high collar and dense jabot. Merchant advertises same-day US dispatch before 5 PM Eastern on weekdays; weekends and holidays excluded.",
+      "checkedAt": "2026-10-26T10:01:24.035Z",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-25T08:51:41.862679Z",
+        "url": "https://romaretailshop.com/products/pirate-shirt-for-men-costume.js",
+        "notes": "Ivory lace-up ruffled shirt only, made in USA. Only Small/Ivory is available at the $12 sale price. Hat, trousers and boots in its photograph are excluded. The lace-up neckline differs from the reference high collar and dense jabot. Merchant advertises same-day US dispatch before 5 PM Eastern on weekdays; weekends and holidays excluded."
+      }
+    },
+    {
+      "id": "p-c8061d241c",
+      "title": "Burgundy Velvet Leggings",
+      "url": "https://fashionpaintboutique.com/products/burgundy-velvet-leggings?variant=32086278471722",
+      "priceCents": 4700,
+      "currency": "USD",
+      "image": "/products/price-tiers/p-c8061d241c.webp",
+      "merchantImage": "/products/price-tiers/p-c8061d241c.webp",
+      "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/0031/9275/0180/products/image_8a5efe79-952f-4be9-b4f6-dd611c1f160d.jpg?v=1603138834"
+      ],
+      "availability": "in_stock",
+      "sizes": [
+        "S(2-4)",
+        "M(6)",
+        "L(8-10)",
+        "XL(12)"
+      ],
+      "merchantId": "fashionpaintboutique-com",
+      "tagSlugs": [],
+      "description": "Burgundy stretch velvet leggings with elastic waist and semi-cropped length. All four listed sizes available in the live merchant feed. Wine/burgundy rather than plum, shorter than full trousers, and no gold piping. Boots can cover the cropped hem.",
+      "checkedAt": "2026-10-26T10:00:54.993Z",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-25T08:59:41.481945Z",
+        "url": "https://fashionpaintboutique.com/products/burgundy-velvet-leggings.js",
+        "notes": "Burgundy stretch velvet leggings with elastic waist and semi-cropped length. All four listed sizes available in the live merchant feed. Wine/burgundy rather than plum, shorter than full trousers, and no gold piping. Boots can cover the cropped hem."
+      }
+    },
+    {
+      "id": "p-4996c0f103",
+      "title": "Velvet Leggings - Rich Burgundy",
+      "url": "https://www.shopkarismaboutiqueaberdeen.com/products/velvet-leggings-rich-burgundy?variant=42062020247772",
+      "priceCents": 4900,
+      "currency": "USD",
+      "image": "/products/price-tiers/p-4996c0f103.webp",
+      "merchantImage": "/products/price-tiers/p-4996c0f103.webp",
+      "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/0649/7667/products/DSC_0216.jpg?v=1637717062"
+      ],
+      "availability": "in_stock",
+      "sizes": [
+        "XS"
+      ],
+      "merchantId": "shopkarismaboutiqueaberdeen-com",
+      "tagSlugs": [],
+      "description": "Spanx Rich Burgundy velvet leggings. Only XS is available at USD49 in the live feed; S, M, L, XL and 1X are sold out and excluded. Burgundy rather than plum; no gold side trim. Boutique is in Aberdeen, South Dakota.",
+      "checkedAt": "2026-10-26T10:00:55.324Z",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-25T08:59:41.481945Z",
+        "url": "https://www.shopkarismaboutiqueaberdeen.com/products/velvet-leggings-rich-burgundy.js",
+        "notes": "Spanx Rich Burgundy velvet leggings. Only XS is available at USD49 in the live feed; S, M, L, XL and 1X are sold out and excluded. Burgundy rather than plum; no gold side trim. Boutique is in Aberdeen, South Dakota."
+      }
+    },
+    {
+      "id": "p-1414e3a171",
+      "title": "High Waist Velvet Leggings – Adele",
+      "url": "https://dragonflybrand.com/en-us/products/high-waisted-velvet-leggings-adele?variant=44043296538846",
+      "priceCents": 8100,
+      "currency": "USD",
+      "image": "/products/price-tiers/p-1414e3a171.webp",
+      "merchantImage": "/products/price-tiers/p-1414e3a171.webp",
+      "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/0531/6309/8266/files/Velvet-leggings-Adele-Color-purple-velvet.jpg?v=1782115996"
+      ],
+      "availability": "in_stock",
+      "sizes": [
+        "XS",
+        "S",
+        "M",
+        "L",
+        "XL"
+      ],
+      "merchantId": "dragonflybrand-com",
+      "tagSlugs": [],
+      "description": "Select purple velvet. High-waisted fitted velvet leggings; all XS–XL purple variants available at USD81 in the US storefront feed. Purple is brighter than the reference plum. No gold side piping. Use merchant measurements; no size conversion is assumed.",
+      "checkedAt": "2026-10-26T10:00:55.513Z",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-25T08:59:41.481945Z",
+        "url": "https://dragonflybrand.com/en-us/products/high-waisted-velvet-leggings-adele.js",
+        "notes": "Select purple velvet. High-waisted fitted velvet leggings; all XS–XL purple variants available at USD81 in the US storefront feed. Purple is brighter than the reference plum. No gold side piping. Use merchant measurements; no size conversion is assumed."
+      }
+    },
+    {
+      "id": "p-9ceb60b1a5",
+      "title": "Rainey Vintage Lace-Up Boots (Black)",
+      "url": "https://www.americanduchess.com/products/rainey-womens-vintage-lace-up-boots-black?variant=42358320824470",
+      "priceCents": 28500,
+      "currency": "USD",
+      "image": "/products/price-tiers/p-9ceb60b1a5.webp",
+      "merchantImage": "/products/price-tiers/p-9ceb60b1a5.webp",
+      "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/0450/5721/2566/products/rainey-vintage-boots-dandy-wellington-black-of.jpg?v=1671580774"
+      ],
+      "availability": "in_stock",
+      "sizes": [
+        "5",
+        "6",
+        "6.5",
+        "7",
+        "7.5",
+        "8",
+        "8.5",
+        "9",
+        "9.5",
+        "10",
+        "12"
+      ],
+      "merchantId": "americanduchess-com",
+      "tagSlugs": [],
+      "description": "Black calf-leather Balmoral ankle boots with cotton-twill/pigskin lining, leather soles, adjustable laces, 5-inch shaft and 1-inch heel. Vintage shape; no stars or crescent detail and a lower heel than the reference. Pair of boots. Current feed confirms women’s US 5, 6, 6.5, 7, 7.5, 8, 8.5, 9, 9.5, 10 and 12 at $285; 10.5 and 11 are unavailable. Regular B width. US merchant; dispatch date is not stated.",
+      "checkedAt": "2026-10-26T10:00:37.837Z",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-25T08:48:40.074055Z",
+        "url": "https://www.americanduchess.com/products/rainey-womens-vintage-lace-up-boots-black.js",
+        "notes": "Black calf-leather Balmoral ankle boots with cotton-twill/pigskin lining, leather soles, adjustable laces, 5-inch shaft and 1-inch heel. Vintage shape; no stars or crescent detail and a lower heel than the reference. Pair of boots. Current feed confirms women’s US 5, 6, 6.5, 7, 7.5, 8, 8.5, 9, 9.5, 10 and 12 at $285; 10.5 and 11 are unavailable. Regular B width. US merchant; dispatch date is not stated."
+      }
+    },
+    {
+      "id": "p-982c5731f8",
+      "title": "Combat | Black",
+      "url": "https://thursdayboots.com/products/womens-combat-boot-black?variant=32904484126810",
+      "priceCents": 19000,
+      "currency": "USD",
+      "image": "/products/price-tiers/p-982c5731f8.webp",
+      "merchantImage": "/products/price-tiers/p-982c5731f8.webp",
+      "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/0419/1525/products/1024x1024-Women-Combat-Black-081721-Side.jpg?v=1683319134"
+      ],
+      "availability": "in_stock",
+      "sizes": [
+        "5",
+        "5.5",
+        "6",
+        "6.5",
+        "7",
+        "7.5",
+        "8",
+        "8.5",
+        "9",
+        "9.5",
+        "10",
+        "10.5",
+        "11",
+        "11.5",
+        "12"
+      ],
+      "merchantId": "thursdayboots-com",
+      "tagSlugs": [],
+      "description": "Black full-grain leather lace-up combat boot with glove-leather lining, YKK side zipper, 6-inch shaft, 1.5-inch heel and rubber outsole. No celestial embroidery. Standard-width women’s US 5–12, including all offered half sizes, are available at $190. This option represents Standard width only. Pair of boots; free domestic US ground shipping is offered, but arrival is not verified.",
+      "checkedAt": "2026-10-26T10:01:21.952Z",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-25T08:48:40.074055Z",
+        "url": "https://thursdayboots.com/products/womens-combat-boot-black.js",
+        "notes": "Black full-grain leather lace-up combat boot with glove-leather lining, YKK side zipper, 6-inch shaft, 1.5-inch heel and rubber outsole. No celestial embroidery. Standard-width women’s US 5–12, including all offered half sizes, are available at $190. This option represents Standard width only. Pair of boots; free domestic US ground shipping is offered, but arrival is not verified."
+      }
+    },
+    {
+      "id": "p-ed0b6d3416",
+      "title": "Prima Black Combat Boots",
+      "url": "https://www.rocketdog.com/products/prima-black-combat-boots?variant=45600624508998",
+      "priceCents": 5597,
+      "currency": "USD",
+      "image": "/products/price-tiers/p-ed0b6d3416.webp",
+      "merchantImage": "/products/price-tiers/p-ed0b6d3416.webp",
+      "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/1903/5555/files/prima_grinnel_pu_black_002.jpg?v=1784302923"
+      ],
+      "availability": "in_stock",
+      "sizes": [
+        "6",
+        "6.5",
+        "7",
+        "7.5",
+        "8",
+        "8.5",
+        "9",
+        "9.5",
+        "10",
+        "11"
+      ],
+      "merchantId": "rocketdog-com",
+      "tagSlugs": [],
+      "description": "Black faux-leather combat boots with lace front, inner zipper, microfiber lining and chunky treaded rubber sole. 1.8-inch heel; more casual than the reference decorative heeled boots. Pair of boots only. Feed confirms US women’s 6, 6.5, 7, 7.5, 8, 8.5, 9, 9.5, 10 and 11 available at the current $55.97 sale price; 12 is sold out. US direct store; dispatch timing is not stated.",
+      "checkedAt": "2026-10-26T10:00:37.590Z",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-25T08:48:40.074055Z",
+        "url": "https://www.rocketdog.com/products/prima-black-combat-boots.js",
+        "notes": "Black faux-leather combat boots with lace front, inner zipper, microfiber lining and chunky treaded rubber sole. 1.8-inch heel; more casual than the reference decorative heeled boots. Pair of boots only. Feed confirms US women’s 6, 6.5, 7, 7.5, 8, 8.5, 9, 9.5, 10 and 11 available at the current $55.97 sale price; 12 is sold out. US direct store; dispatch timing is not stated."
+      }
+    },
+    {
+      "id": "p-4d5ad424a6",
+      "title": "New Colonies White Ruffle Shirt",
+      "url": "https://www.costumesandcollectibles.com/products/new-colonies-white-ruffle-shirt?variant=21374030905403",
+      "priceCents": 6995,
+      "currency": "USD",
+      "image": "/products/price-tiers/p-4d5ad424a6.webp",
+      "merchantImage": "/products/price-tiers/p-4d5ad424a6.webp",
+      "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/1485/9888/products/0009877_0.jpeg?v=1567510722"
+      ],
+      "availability": "in_stock",
+      "sizes": [
+        "Small",
+        "Medium",
+        "Large",
+        "X-Large"
+      ],
+      "merchantId": "costumesandcollectibles-com",
+      "tagSlugs": [],
+      "description": "White rather than ivory. Polyester shirt has a high collar, three front ruffle rows, cuff ruffles, and white/silver buttons. Shirt only. Feed exposes positive inventory for all four listed sizes.",
+      "checkedAt": "2026-10-26T10:01:08.711Z",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-25T08:47:48Z",
+        "url": "https://www.costumesandcollectibles.com/products/new-colonies-white-ruffle-shirt.js",
+        "notes": "White rather than ivory. Polyester shirt has a high collar, three front ruffle rows, cuff ruffles, and white/silver buttons. Shirt only. Feed exposes positive inventory for all four listed sizes."
+      }
+    }
+  ],
+  "merchants": [
+    {
+      "id": "costumesandcollectibles-com",
+      "name": "Costumes & Collectibles",
+      "domain": "costumesandcollectibles.com",
+      "url": "https://costumesandcollectibles.com/",
+      "kind": "boutique",
+      "neighborhoodId": null
+    },
+    {
+      "id": "chicagocostume-com",
+      "name": "Chicago Costume Company",
+      "domain": "chicagocostume.com",
+      "url": "https://chicagocostume.com/",
+      "kind": "boutique",
+      "neighborhoodId": null
+    },
+    {
+      "id": "americanduchess-com",
+      "name": "American Duchess",
+      "domain": "americanduchess.com",
+      "url": "https://americanduchess.com/",
+      "kind": "boutique",
+      "neighborhoodId": null
+    },
+    {
+      "id": "samsonhistorical-com",
+      "name": "Samson Historical",
+      "domain": "samsonhistorical.com",
+      "url": "https://samsonhistorical.com/",
+      "kind": "boutique",
+      "neighborhoodId": null
+    },
+    {
+      "id": "romaretailshop-com",
+      "name": "Roma Retail Shop",
+      "domain": "romaretailshop.com",
+      "url": "https://romaretailshop.com/",
+      "kind": "boutique",
+      "neighborhoodId": null
+    },
+    {
+      "id": "fashionpaintboutique-com",
+      "name": "Fashion Paint Boutique",
+      "domain": "fashionpaintboutique.com",
+      "url": "https://fashionpaintboutique.com/",
+      "kind": "boutique",
+      "neighborhoodId": null
+    },
+    {
+      "id": "historicalemporium-com",
+      "name": "Historical Emporium",
+      "domain": "historicalemporium.com",
+      "url": "https://historicalemporium.com/",
+      "kind": "boutique",
+      "neighborhoodId": null
+    },
+    {
+      "id": "fspartystore-com",
+      "name": "Fun Services Colorado",
+      "domain": "fspartystore.com",
+      "url": "https://fspartystore.com/",
+      "kind": "boutique",
+      "neighborhoodId": null
+    },
+    {
+      "id": "thursdayboots-com",
+      "name": "Thursday Boot Company",
+      "domain": "thursdayboots.com",
+      "url": "https://thursdayboots.com/",
+      "kind": "boutique",
+      "neighborhoodId": null
+    },
+    {
+      "id": "shopkarismaboutiqueaberdeen-com",
+      "name": "Karisma Boutique",
+      "domain": "shopkarismaboutiqueaberdeen.com",
+      "url": "https://shopkarismaboutiqueaberdeen.com/",
+      "kind": "boutique",
+      "neighborhoodId": null
+    },
+    {
+      "id": "dragonflybrand-com",
+      "name": "Dragonfly",
+      "domain": "dragonflybrand.com",
+      "url": "https://dragonflybrand.com/",
+      "kind": "boutique",
+      "neighborhoodId": null
+    },
+    {
+      "id": "rocketdog-com",
+      "name": "Rocket Dog",
+      "domain": "rocketdog.com",
+      "url": "https://rocketdog.com/",
+      "kind": "boutique",
+      "neighborhoodId": null
+    },
+    {
+      "id": "darkrock-net",
+      "name": "DarkRock",
+      "domain": "darkrock.net",
+      "url": "https://darkrock.net/",
+      "kind": "boutique",
+      "neighborhoodId": null
+    },
+    {
+      "id": "medievalcollectibles-com",
+      "name": "Medieval Collectibles",
+      "domain": "medievalcollectibles.com",
+      "url": "https://medievalcollectibles.com/",
+      "kind": "boutique",
+      "neighborhoodId": null
+    },
+    {
+      "id": "piratefashions-com",
+      "name": "Pirate Fashions",
+      "domain": "piratefashions.com",
+      "url": "https://piratefashions.com/",
+      "kind": "boutique",
+      "neighborhoodId": null
+    },
+    {
+      "id": "lostislandtrading-com",
+      "name": "Lost Island Trading",
+      "domain": "lostislandtrading.com",
+      "url": "https://lostislandtrading.com/",
+      "kind": "boutique",
+      "neighborhoodId": null
+    }
+  ],
+  "neighborhoods": [],
+  "tags": [],
+  "provenance": {
+    "method": "manual-research",
+    "generatedAt": "2026-10-27T00:28:36.827435Z",
+    "notes": "Expansion research uses built-in web search and direct merchant public variant feeds. Reused basics retain their original merchant evidence and check dates. Prices exclude shipping and tax; delivery is unconfirmed. Hat card, decorative ribbon and teacup are DIY or owned additions, not included. See docs/sourcing/expansion-c.json. Publication carries forward newer shared-product price, stock, size and check timestamps from the live database; original sourcing evidence is retained.",
+    "priceTiers": true,
+    "heroImageKind": "generated-reference"
+  }
+}

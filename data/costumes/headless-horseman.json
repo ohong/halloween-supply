@@ -1,0 +1,407 @@
+{
+  "costume": {
+    "slug": "headless-horseman",
+    "name": "Headless Horseman",
+    "description": "Raised shoulders and a black cloak hide the head inside a theatrical illusion, with dark trousers and riding-style boots.",
+    "image": "/costumes/headless-horseman.png",
+    "alt": "Headless illusion costume with a black cape, raised empty collar, white lace ascot, black trousers and tall dark boots.",
+    "status": "live"
+  },
+  "pieces": [
+    {
+      "id": "headless-horseman-illusion-bundle",
+      "name": "Headless illusion coat, cape and supports",
+      "category": "costume-bundle",
+      "required": true,
+      "order": 0,
+      "styleNotes": "One charged bundle includes the illusion structure and upper garments. Default and middle have a white ascot; all three repeat the California Costumes 00742 illusion bundle from separate merchants. Pants and boots remain separate. Mesh restricts vision; fit and visibility must be checked.",
+      "queries": [
+        "Headless illusion coat, cape and supports costume"
+      ],
+      "sizeKind": "apparel",
+      "matches": [
+        {
+          "productId": "exp-b-0ba42fbf7e60",
+          "rank": 0,
+          "reason": "California Costumes 00742 adult illusion bundle: vest with attached sleeves, lace ascot, cape and headpiece. Pants and shoes are not included. Lightweight shoulder supports create the missing-head illusion. Public merchant variant feed confirms this exact USD price and available variant on the research date."
+        },
+        {
+          "productId": "exp-b-267320b305fd",
+          "rank": 1,
+          "reason": "California Costumes adult illusion bundle: vest with sleeves, attached ascot and cape, headpiece and inflatable shoulders. Only Medium available in this feed; pants are not included. Public merchant variant feed confirms this exact USD price and available variant on the research date."
+        },
+        {
+          "productId": "exp-b-44bfbd1d5745",
+          "rank": 2,
+          "reason": "Primary merchant page checked with built-in web: Small selected at $42.95 and four left. Bundle includes vest with sleeves, attached lace ascot and cape, headpiece and inflatable shoulder components. Pants and shoes not included. No arrival guarantee."
+        }
+      ]
+    },
+    {
+      "id": "headless-horseman-midnight-pirate-black-trousers",
+      "name": "Black pirate trousers",
+      "category": "bottoms",
+      "required": true,
+      "order": 1,
+      "styleNotes": "Loose black trousers tuck into tall boots. The burgundy waist sash is a separate piece.",
+      "queries": [
+        "black pirate trousers drawstring"
+      ],
+      "sizeKind": "pants",
+      "matches": [
+        {
+          "productId": "p-7a7693db8b",
+          "rank": 0,
+          "reason": "Selected Black 100% cotton wide-leg sailor trousers with drawstring waist; tuck into boots. Trousers only. Positive live stock exists only for Black Small and Medium. Other black sizes are backordered and excluded."
+        },
+        {
+          "productId": "p-035b491978",
+          "rank": 1,
+          "reason": "Selected solid Black cotton trousers with drawstring waist, generous cut, slightly flared legs and deep pockets. Trousers only; sash, shirt, hat, vest and boots excluded. Both listed sizes have positive live inventory. Merchant specifies dry clean only."
+        },
+        {
+          "productId": "p-c1bf560c38",
+          "rank": 2,
+          "reason": "Selected Black cotton velveteen trousers with tie front, tie legs and functional pockets. Softer velvet finish differs from the reference. Made in USA. Trousers only. Black Medium and Large each have positive live stock; other black sizes are backordered and excluded."
+        }
+      ]
+    },
+    {
+      "id": "headless-horseman-velvet-ringmaster-black-boots",
+      "name": "Tall black boots",
+      "category": "footwear",
+      "required": true,
+      "order": 2,
+      "styleNotes": "Tall black boots under dark trousers. Wear your own tall dark boots if available.",
+      "queries": [
+        "mens black knee high costume boots",
+        "black leather cavalry boots"
+      ],
+      "sizeKind": "shoe",
+      "matches": [
+        {
+          "productId": "p-6c25477681",
+          "rank": 0,
+          "reason": "Pair of distressed black faux-leather boots with 16–17-inch shaft, inner zipper, decorative lacing/buttons and 1.5-inch heel with lug sole. All S–XL grouped boot sizes currently available; consult merchant sizing chart. The textured steampunk finish is less polished than the reference."
+        },
+        {
+          "productId": "p-691dccf66e",
+          "rank": 1,
+          "reason": "Pair of black theatrical pirate/cavalier boots in heavy foam-backed vinyl, side zipper, 1-inch heel and approximately 16-inch total height. Photo shows a folded cuff, unlike the reference smooth riding boot. Available merchant sizes are Men's Shoe S (8 - 9), M (10 - 11), and L (12 - 13); no XL stock claimed."
+        },
+        {
+          "productId": "p-bfb0395c79",
+          "rank": 2,
+          "reason": "Pair of 100% black leather cavalry boots, low heel, square toe, pull loops and 15-inch back shaft with 3-inch front rise. Best smooth riding-boot silhouette of these choices; square toe differs from the reference rounded toe. Only 7, 8, 9 and 10 available; 11–13 excluded."
+        }
+      ]
+    }
+  ],
+  "products": [
+    {
+      "id": "exp-b-0ba42fbf7e60",
+      "title": "Headless Horseman Adult Costume — Small",
+      "url": "https://www.purecostumes.com/products/00742-headless-horseman-adult-costume?variant=47636496711894",
+      "priceCents": 3895,
+      "currency": "USD",
+      "image": "/products/price-tiers/exp-b-0ba42fbf7e60.webp",
+      "merchantImage": "/products/price-tiers/exp-b-0ba42fbf7e60.webp",
+      "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/0792/4950/6518/files/00742_full_1.jpg?v=1766602388"
+      ],
+      "availability": "in_stock",
+      "sizes": [
+        "Small",
+        "Medium",
+        "Large",
+        "X-Large"
+      ],
+      "merchantId": "exp-b-purecostumes-com",
+      "tagSlugs": [],
+      "description": "California Costumes 00742 adult illusion bundle: vest with attached sleeves, lace ascot, cape and headpiece. Pants and shoes are not included. Lightweight shoulder supports create the missing-head illusion. Public merchant variant feed confirms this exact USD price and available variant on the research date.",
+      "checkedAt": "2026-10-27T00:28:28.338770Z",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-27T00:28:28.338770Z",
+        "url": "https://www.purecostumes.com/products/00742-headless-horseman-adult-costume",
+        "notes": "California Costumes 00742 adult illusion bundle: vest with attached sleeves, lace ascot, cape and headpiece. Pants and shoes are not included. Lightweight shoulder supports create the missing-head illusion. Public merchant variant feed confirms this exact USD price and available variant on the research date."
+      }
+    },
+    {
+      "id": "exp-b-267320b305fd",
+      "title": "Headless Horseman Costume Adult — Medium",
+      "url": "https://www.toynk.com/products/headless-horseman-costume-adult-1?variant=44178568839290",
+      "priceCents": 6099,
+      "currency": "USD",
+      "image": "/products/price-tiers/exp-b-267320b305fd.webp",
+      "merchantImage": "/products/price-tiers/exp-b-267320b305fd.webp",
+      "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/1140/8354/files/CCC-00742-PA_c8b6a888-1536-46cf-9798-7487fda1bece.jpg?v=1790941402"
+      ],
+      "availability": "in_stock",
+      "sizes": [
+        "Medium"
+      ],
+      "merchantId": "exp-b-toynk-com",
+      "tagSlugs": [],
+      "description": "California Costumes adult illusion bundle: vest with sleeves, attached ascot and cape, headpiece and inflatable shoulders. Only Medium available in this feed; pants are not included. Public merchant variant feed confirms this exact USD price and available variant on the research date.",
+      "checkedAt": "2026-10-27T00:28:28.338770Z",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-27T00:28:28.338770Z",
+        "url": "https://www.toynk.com/products/headless-horseman-costume-adult-1?variant=44178568839290",
+        "notes": "California Costumes adult illusion bundle: vest with sleeves, attached ascot and cape, headpiece and inflatable shoulders. Only Medium available in this feed; pants are not included. Public merchant variant feed confirms this exact USD price and available variant on the research date."
+      }
+    },
+    {
+      "id": "exp-b-44bfbd1d5745",
+      "title": "California Costumes Headless Horseman — Small",
+      "url": "https://abracadabranyc.com/products/headless-horseman-1",
+      "priceCents": 4295,
+      "currency": "USD",
+      "image": "/products/price-tiers/exp-b-44bfbd1d5745.webp",
+      "merchantImage": "/products/price-tiers/exp-b-44bfbd1d5745.webp",
+      "sourceImages": [
+        "https://abracadabranyc.com/cdn/shop/files/00742.jpg?v=1760732827"
+      ],
+      "availability": "in_stock",
+      "sizes": [
+        "Small"
+      ],
+      "merchantId": "exp-b-abracadabranyc-com",
+      "tagSlugs": [],
+      "description": "Primary merchant page checked with built-in web: Small selected at $42.95 and four left. Bundle includes vest with sleeves, attached lace ascot and cape, headpiece and inflatable shoulder components. Pants and shoes not included. No arrival guarantee.",
+      "checkedAt": "2026-10-27T00:28:28.338770Z",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-27T00:28:28.338770Z",
+        "url": "https://abracadabranyc.com/products/headless-horseman-1",
+        "notes": "Primary merchant page checked with built-in web: Small selected at $42.95 and four left. Bundle includes vest with sleeves, attached lace ascot and cape, headpiece and inflatable shoulder components. Pants and shoes not included. No arrival guarantee."
+      }
+    },
+    {
+      "id": "p-035b491978",
+      "title": "First Mate Pants",
+      "url": "https://www.medievalcollectibles.com/product/first-mate-pants/?attribute_pa_color=black&attribute_pa_size=large-x-large",
+      "priceCents": 3900,
+      "currency": "USD",
+      "image": "/products/price-tiers/p-035b491978.webp",
+      "merchantImage": "/products/price-tiers/p-035b491978.webp",
+      "sourceImages": [
+        "https://www.medievalcollectibles.com/wp-content/uploads/2020/04/100518_2.jpg"
+      ],
+      "availability": "in_stock",
+      "sizes": [
+        "Small/Medium",
+        "Large/X-Large"
+      ],
+      "merchantId": "medievalcollectibles-com",
+      "tagSlugs": [],
+      "description": "Selected solid Black cotton trousers with drawstring waist, generous cut, slightly flared legs and deep pockets. Trousers only; sash, shirt, hat, vest and boots excluded. Both listed sizes have positive live inventory. Merchant specifies dry clean only.",
+      "checkedAt": "2026-10-25T08:47:48Z",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-25T08:47:48Z",
+        "url": "https://www.medievalcollectibles.com/product/first-mate-pants/?attribute_pa_color=black&attribute_pa_size=large-x-large",
+        "notes": "Selected solid Black cotton trousers with drawstring waist, generous cut, slightly flared legs and deep pockets. Trousers only; sash, shirt, hat, vest and boots excluded. Both listed sizes have positive live inventory. Merchant specifies dry clean only."
+      }
+    },
+    {
+      "id": "p-7a7693db8b",
+      "title": "Sailor Pants",
+      "url": "https://www.medievalcollectibles.com/product/sailor-pants-2/?attribute_pa_color=black&attribute_pa_size=small",
+      "priceCents": 6000,
+      "currency": "USD",
+      "image": "/products/price-tiers/p-7a7693db8b.webp",
+      "merchantImage": "/products/price-tiers/p-7a7693db8b.webp",
+      "sourceImages": [
+        "https://www.medievalcollectibles.com/wp-content/uploads/2019/03/SS-SPANTS-BLK.jpg"
+      ],
+      "availability": "in_stock",
+      "sizes": [
+        "Small",
+        "Medium"
+      ],
+      "merchantId": "medievalcollectibles-com",
+      "tagSlugs": [],
+      "description": "Selected Black 100% cotton wide-leg sailor trousers with drawstring waist; tuck into boots. Trousers only. Positive live stock exists only for Black Small and Medium. Other black sizes are backordered and excluded.",
+      "checkedAt": "2026-10-25T08:47:48Z",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-25T08:47:48Z",
+        "url": "https://www.medievalcollectibles.com/product/sailor-pants-2/?attribute_pa_color=black&attribute_pa_size=small",
+        "notes": "Selected Black 100% cotton wide-leg sailor trousers with drawstring waist; tuck into boots. Trousers only. Positive live stock exists only for Black Small and Medium. Other black sizes are backordered and excluded."
+      }
+    },
+    {
+      "id": "p-c1bf560c38",
+      "title": "Pirate Captain’s Pants",
+      "url": "https://www.medievalcollectibles.com/product/pirate-captains-pants/?attribute_pa_color=black&attribute_pa_size=medium",
+      "priceCents": 9500,
+      "currency": "USD",
+      "image": "/products/price-tiers/p-c1bf560c38.webp",
+      "merchantImage": "/products/price-tiers/p-c1bf560c38.webp",
+      "sourceImages": [
+        "https://www.medievalcollectibles.com/wp-content/uploads/2019/03/SS-CPANTS-Blk.jpg"
+      ],
+      "availability": "in_stock",
+      "sizes": [
+        "Medium",
+        "Large"
+      ],
+      "merchantId": "medievalcollectibles-com",
+      "tagSlugs": [],
+      "description": "Selected Black cotton velveteen trousers with tie front, tie legs and functional pockets. Softer velvet finish differs from the reference. Made in USA. Trousers only. Black Medium and Large each have positive live stock; other black sizes are backordered and excluded.",
+      "checkedAt": "2026-10-25T08:47:48Z",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-25T08:47:48Z",
+        "url": "https://www.medievalcollectibles.com/product/pirate-captains-pants/?attribute_pa_color=black&attribute_pa_size=medium",
+        "notes": "Selected Black cotton velveteen trousers with tie front, tie legs and functional pockets. Softer velvet finish differs from the reference. Made in USA. Trousers only. Black Medium and Large each have positive live stock; other black sizes are backordered and excluded."
+      }
+    },
+    {
+      "id": "p-6c25477681",
+      "title": "Sky Pilot Faux Leather Boots - Black",
+      "url": "https://historicalemporium.com/products/mens-faux-leather-sky-pilot-boots-black?variant=51717725913382",
+      "priceCents": 12095,
+      "currency": "USD",
+      "image": "/products/price-tiers/p-6c25477681.webp",
+      "merchantImage": "/products/price-tiers/p-6c25477681.webp",
+      "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/0980/0974/3654/files/006564_01_2b95236b-324e-4978-8373-e0a04ae81a5c.jpg?v=1769539801"
+      ],
+      "availability": "in_stock",
+      "sizes": [
+        "S",
+        "M",
+        "L",
+        "XL"
+      ],
+      "merchantId": "historicalemporium-com",
+      "tagSlugs": [],
+      "description": "Pair of distressed black faux-leather boots with 16–17-inch shaft, inner zipper, decorative lacing/buttons and 1.5-inch heel with lug sole. All S–XL grouped boot sizes currently available; consult merchant sizing chart. The textured steampunk finish is less polished than the reference.",
+      "checkedAt": "2026-10-26T10:00:39.405Z",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-25T08:51:41.862679Z",
+        "url": "https://historicalemporium.com/products/mens-faux-leather-sky-pilot-boots-black.js",
+        "notes": "Pair of distressed black faux-leather boots with 16–17-inch shaft, inner zipper, decorative lacing/buttons and 1.5-inch heel with lug sole. All S–XL grouped boot sizes currently available; consult merchant sizing chart. The textured steampunk finish is less polished than the reference."
+      }
+    },
+    {
+      "id": "p-bfb0395c79",
+      "title": "Long Leather Cavalry Boots - Black",
+      "url": "https://historicalemporium.com/products/long-leather-cavalry-boots-black?variant=51717700813094",
+      "priceCents": 26995,
+      "currency": "USD",
+      "image": "/products/price-tiers/p-bfb0395c79.webp",
+      "merchantImage": "/products/price-tiers/p-bfb0395c79.webp",
+      "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/0980/0974/3654/files/006560_01_b92ad657-0bbc-43e4-8301-c833d954a5df.jpg?v=1769539795"
+      ],
+      "availability": "in_stock",
+      "sizes": [
+        "7",
+        "8",
+        "9",
+        "10"
+      ],
+      "merchantId": "historicalemporium-com",
+      "tagSlugs": [],
+      "description": "Pair of 100% black leather cavalry boots, low heel, square toe, pull loops and 15-inch back shaft with 3-inch front rise. Best smooth riding-boot silhouette of these choices; square toe differs from the reference rounded toe. Only 7, 8, 9 and 10 available; 11–13 excluded.",
+      "checkedAt": "2026-10-26T10:00:39.614Z",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-25T08:51:41.862679Z",
+        "url": "https://historicalemporium.com/products/long-leather-cavalry-boots-black.js",
+        "notes": "Pair of 100% black leather cavalry boots, low heel, square toe, pull loops and 15-inch back shaft with 3-inch front rise. Best smooth riding-boot silhouette of these choices; square toe differs from the reference rounded toe. Only 7, 8, 9 and 10 available; 11–13 excluded."
+      }
+    },
+    {
+      "id": "p-691dccf66e",
+      "title": "Men's Pirate Boot - Black",
+      "url": "https://halloweenhallway.com/products/mens-pirate-boot-black?variant=35353964511397",
+      "priceCents": 7200,
+      "currency": "USD",
+      "image": "/products/price-tiers/p-691dccf66e.webp",
+      "merchantImage": "/products/price-tiers/p-691dccf66e.webp",
+      "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/0439/5935/3509/products/HA52BK.jpg?v=1596013396"
+      ],
+      "availability": "in_stock",
+      "sizes": [
+        "one size"
+      ],
+      "merchantId": "halloweenhallway-com",
+      "tagSlugs": [],
+      "description": "Pair of black theatrical pirate/cavalier boots in heavy foam-backed vinyl, side zipper, 1-inch heel and approximately 16-inch total height. Photo shows a folded cuff, unlike the reference smooth riding boot. Available merchant sizes are Men's Shoe S (8 - 9), M (10 - 11), and L (12 - 13); no XL stock claimed.",
+      "checkedAt": "2026-10-26T10:01:24.294Z",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-25T08:51:41.862679Z",
+        "url": "https://halloweenhallway.com/products/mens-pirate-boot-black.js",
+        "notes": "Pair of black theatrical pirate/cavalier boots in heavy foam-backed vinyl, side zipper, 1-inch heel and approximately 16-inch total height. Photo shows a folded cuff, unlike the reference smooth riding boot. Available merchant sizes are Men's Shoe S (8 - 9), M (10 - 11), and L (12 - 13); no XL stock claimed."
+      }
+    }
+  ],
+  "merchants": [
+    {
+      "id": "exp-b-purecostumes-com",
+      "name": "Pure Costumes",
+      "domain": "purecostumes.com",
+      "url": "https://purecostumes.com",
+      "kind": "boutique",
+      "neighborhoodId": null
+    },
+    {
+      "id": "exp-b-toynk-com",
+      "name": "Toynk",
+      "domain": "toynk.com",
+      "url": "https://toynk.com",
+      "kind": "boutique",
+      "neighborhoodId": null
+    },
+    {
+      "id": "exp-b-abracadabranyc-com",
+      "name": "Abracadabra NYC",
+      "domain": "abracadabranyc.com",
+      "url": "https://abracadabranyc.com",
+      "kind": "boutique",
+      "neighborhoodId": null
+    },
+    {
+      "id": "medievalcollectibles-com",
+      "name": "Medieval Collectibles",
+      "domain": "medievalcollectibles.com",
+      "url": "https://medievalcollectibles.com/",
+      "kind": "boutique",
+      "neighborhoodId": null
+    },
+    {
+      "id": "historicalemporium-com",
+      "name": "Historical Emporium",
+      "domain": "historicalemporium.com",
+      "url": "https://historicalemporium.com/",
+      "kind": "boutique",
+      "neighborhoodId": null
+    },
+    {
+      "id": "halloweenhallway-com",
+      "name": "Halloween Hallway",
+      "domain": "halloweenhallway.com",
+      "url": "https://halloweenhallway.com/",
+      "kind": "boutique",
+      "neighborhoodId": null
+    }
+  ],
+  "neighborhoods": [],
+  "tags": [],
+  "provenance": {
+    "method": "manual-research",
+    "generatedAt": "2026-10-27T00:28:28.338770Z",
+    "notes": "2026 catalog expansion B. Defining pieces checked against primary merchant pages/public variant feeds using built-in web discovery. Appropriate base garments reused from earlier reviewed catalog with original product evidence and check dates. Generated hero is styling inspiration; merchant photos show actual purchases. Sizes, stock and price require checkout recheck. No Halloween arrival guarantee. Publication carries forward newer shared-product price, stock, size and check timestamps from the live database; original sourcing evidence is retained.",
+    "priceTiers": true,
+    "heroImageKind": "generated-reference"
+  }
+}

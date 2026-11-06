@@ -1,0 +1,694 @@
+{
+  "costume": {
+    "slug": "haunted-bellhop",
+    "name": "Haunted Bellhop",
+    "description": "A red and gold hotel uniform with a pillbox cap, white gloves and a room that does not exist.",
+    "image": "/costumes/haunted-bellhop.png",
+    "alt": "Red bellhop pillbox cap and gold-trimmed red jacket, black trousers, white gloves and black boots.",
+    "status": "live"
+  },
+  "pieces": [
+    {
+      "id": "haunted-bellhop-diy-bellhop-pillbox-hat-foam",
+      "name": "DIY bellhop pillbox hat foam",
+      "category": "headwear",
+      "required": true,
+      "order": 0,
+      "styleNotes": "Raw black EVA foam, not a finished red hat. Cut a small circle and side strip, glue into a pillbox shape, cover with your own red fabric and add gold ribbon. Fabric, glue, ribbon and hair clips are extra supplies. Different tiers are 6, 8 and 10 mm thick; thinner foam bends more easily.",
+      "queries": [
+        "DIY bellhop pillbox hat foam"
+      ],
+      "sizeKind": "one_size",
+      "matches": [
+        {
+          "productId": "e-5493f9b30a",
+          "rank": 0,
+          "reason": "Public variant feed confirms this thickness, black color, 500 × 1500 mm sheet and stock. Raw foam only; finished prop, paint, glue, fabric and fastening are not included."
+        },
+        {
+          "productId": "e-e752cfcae7",
+          "rank": 1,
+          "reason": "Public variant feed confirms this thickness, black color, 500 × 1500 mm sheet and stock. Raw foam only; finished prop, paint, glue, fabric and fastening are not included."
+        },
+        {
+          "productId": "e-729c1587bc",
+          "rank": 2,
+          "reason": "Public variant feed confirms this thickness, black color, 500 × 1500 mm sheet and stock. Raw foam only; finished prop, paint, glue, fabric and fastening are not included."
+        }
+      ]
+    },
+    {
+      "id": "haunted-bellhop-velvet-ringmaster-red-tailcoat",
+      "name": "Red tailcoat with gold trim",
+      "category": "outerwear",
+      "required": true,
+      "order": 1,
+      "styleNotes": "Use the red coat and gold trim as a theatrical bellhop uniform. Cuts differ from the short illustrated jacket. Budget and middle coats have fitted women’s sizing; selected sizes alone match the saved prices. Premium set includes an attached vest, dickey and top hat; the top hat is extra and not part of this look.",
+      "queries": [
+        "red velvet gold braid ringmaster tailcoat",
+        "red black gold long tailcoat"
+      ],
+      "sizeKind": "apparel",
+      "matches": [
+        {
+          "productId": "p-9437603696",
+          "rank": 0,
+          "reason": "Includes one women's red/black open-front long-tail coat with gold trim. Material compromise: merchant calls it polyester plush velvet, but the selected Red photo visibly shows a sequined red front and black tails. It does not reproduce plain deep-red velvet. Only Red/S costs $56.46; other sizes have different prices. US economy shipping estimate is 5–8 business days, not a delivery guarantee."
+        },
+        {
+          "productId": "p-87734c54a0",
+          "rank": 1,
+          "reason": "Includes one fitted women's long-sleeve red velvet-style swallow-tail coat, black lapels/cuffs, gold braided edging and single-button front. Less ornate than the reference; no shirt or vest included. Exact $39.48 applies only to Red/M; other available sizes cost more. Merchant lists the material as \"95% Velvet, 5% Metal\", which does not identify fiber content. US shipping policy estimates 5–8 business days for economy shipping; no delivery guarantee."
+        },
+        {
+          "productId": "p-1bb478cabf",
+          "rank": 2,
+          "reason": "Leg Avenue 87388 three-piece set: red velvet tailcoat with attached red/white harlequin vest, dickey and top hat. Manufacturer confirms gold trim, chains, black cuffs and fringed epaulettes; coat is 93% polyester/7% spandex. The attached vest differs from the reference black/gold waistcoat and cannot be bought separately in this listing. Pants, boots and whip are not included. All three listed MULTICOLOR sizes available at $82.99. Dispatch time is not stated on this merchant product page."
+        }
+      ]
+    },
+    {
+      "id": "haunted-bellhop-midnight-pirate-black-trousers",
+      "name": "Black trousers",
+      "category": "bottoms",
+      "required": true,
+      "order": 2,
+      "styleNotes": "Loose black trousers beneath the red uniform jacket. No sash is needed.",
+      "queries": [
+        "black pirate trousers drawstring"
+      ],
+      "sizeKind": "pants",
+      "matches": [
+        {
+          "productId": "p-7a7693db8b",
+          "rank": 0,
+          "reason": "Selected Black 100% cotton wide-leg sailor trousers with drawstring waist; tuck into boots. Trousers only. Positive live stock exists only for Black Small and Medium. Other black sizes are backordered and excluded."
+        },
+        {
+          "productId": "p-035b491978",
+          "rank": 1,
+          "reason": "Selected solid Black cotton trousers with drawstring waist, generous cut, slightly flared legs and deep pockets. Trousers only; sash, shirt, hat, vest and boots excluded. Both listed sizes have positive live inventory. Merchant specifies dry clean only."
+        },
+        {
+          "productId": "p-c1bf560c38",
+          "rank": 2,
+          "reason": "Selected Black cotton velveteen trousers with tie front, tie legs and functional pockets. Softer velvet finish differs from the reference. Made in USA. Trousers only. Black Medium and Large each have positive live stock; other black sizes are backordered and excluded."
+        }
+      ]
+    },
+    {
+      "id": "haunted-bellhop-retro-astronaut-gloves",
+      "name": "Light full-finger gloves",
+      "category": "accessories",
+      "required": true,
+      "order": 3,
+      "styleNotes": "White full-finger gloves complete the hotel uniform. Cotton options are thin; the astronaut option has longer cuffs and black accents.",
+      "queries": [
+        "cream cotton full finger gloves",
+        "white adult astronaut gloves"
+      ],
+      "sizeKind": "one_size",
+      "matches": [
+        {
+          "productId": "p-1ec5fec4c5",
+          "rank": 0,
+          "reason": "100% organic cotton overnight gloves, shown natural cream with elastic wrists. Closest simple color match, but thin and unpadded. This merchant does not state a size label, so check fit before purchase."
+        },
+        {
+          "productId": "p-fd0a416d23",
+          "rank": 1,
+          "reason": "One-size cotton hand-care gloves, shown white with a black LONDONTOWN mark. Thin everyday glove approximation; no padding or silver wrist cuff."
+        },
+        {
+          "productId": "p-6e8b5f055f",
+          "rank": 2,
+          "reason": "Pair of white astronaut costume gloves with black piping and NASA patch; longer cuffs and darker trim than the cream reference. One size fits most. Current merchant HTML lists $28.88 and instock:true; older search-cached text shows $19.88. Internet-only item."
+        }
+      ]
+    },
+    {
+      "id": "haunted-bellhop-moon-boots",
+      "name": "Dark ankle boots",
+      "category": "Footwear",
+      "required": true,
+      "order": 4,
+      "styleNotes": "Black or dark brown leather ankle boots with a low block heel or flat sole, slightly worn in. Vintage or witchy styling like lace-up or Chelsea boots keeps the base look grounded.",
+      "queries": [
+        "vintage black leather ankle boots lace up women's",
+        "secondhand black Chelsea ankle boots leather vintage",
+        "handmade black leather lace-up ankle boots small brand"
+      ],
+      "sizeKind": "shoe",
+      "matches": [
+        {
+          "productId": "p-fa88c71724",
+          "rank": 0,
+          "reason": "Genuine black leather upper, glove leather lining, 1.25 inch stacked leather heel, elastic gores. All Standard US4-13 in half sizes available. Broad sizes; exact variant default is US4, shopper must choose correct size."
+        },
+        {
+          "productId": "p-da7d00ef0d",
+          "rank": 1,
+          "reason": "Budget material compromise: imitation synthetic leather rather than genuine leather. Ankle-high Chelsea, 1.25 inch heel, 0.75 inch platform. Merchant JSON-LD lists black USD49.99 InStock; live HTML exact-size inventory counts positive for all 12 listed US sizes. Size8 kid23928 count1806. Hidden generic SOLD OUT text is contradicted by variant inventory and InStock offer; verified source HTML retained /tmp/dreampairs-moon-boots.html."
+        },
+        {
+          "productId": "p-862b138943",
+          "rank": 2,
+          "reason": "Black premium water-resistant leather classic flat Chelsea boot. Live public feed USD209.95, not stale search result199.95. Available USwomen5-16; two equivalent AU/UK label sets in merchant variants, deduplicate before display. Exact first available variant is USwomen6."
+        }
+      ]
+    }
+  ],
+  "products": [
+    {
+      "id": "e-5493f9b30a",
+      "title": "Cosplay Pros EVA Foam Sheet — 6mm / 500mm x 1500mm / Black",
+      "url": "https://www.thecosplaypros.com/products/eva-foam-sheets?variant=20494372601967",
+      "priceCents": 2149,
+      "currency": "USD",
+      "image": "/products/price-tiers/e-5493f9b30a.webp",
+      "merchantImage": "/products/price-tiers/e-5493f9b30a.webp",
+      "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/0055/6220/4271/products/71Km8wsI1wL._AC_SL1500.jpg?v=1614097339"
+      ],
+      "availability": "in_stock",
+      "sizes": [],
+      "merchantId": "expansion-e-thecosplaypros-com",
+      "tagSlugs": [],
+      "description": "Public variant feed confirms this thickness, black color, 500 × 1500 mm sheet and stock. Raw foam only; finished prop, paint, glue, fabric and fastening are not included.",
+      "checkedAt": "2026-10-27T00:28:53.880632Z",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-27T00:28:53.880632Z",
+        "url": "https://www.thecosplaypros.com/products/eva-foam-sheets?variant=20494372601967",
+        "notes": "Public variant feed confirms this thickness, black color, 500 × 1500 mm sheet and stock. Raw foam only; finished prop, paint, glue, fabric and fastening are not included."
+      }
+    },
+    {
+      "id": "e-e752cfcae7",
+      "title": "Cosplay Pros EVA Foam Sheet — 8mm / 500mm x 1500mm / Black",
+      "url": "https://www.thecosplaypros.com/products/eva-foam-sheets?variant=20494372667503",
+      "priceCents": 2436,
+      "currency": "USD",
+      "image": "/products/price-tiers/e-e752cfcae7.webp",
+      "merchantImage": "/products/price-tiers/e-e752cfcae7.webp",
+      "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/0055/6220/4271/products/71Km8wsI1wL._AC_SL1500.jpg?v=1614097339"
+      ],
+      "availability": "in_stock",
+      "sizes": [],
+      "merchantId": "expansion-e-thecosplaypros-com",
+      "tagSlugs": [],
+      "description": "Public variant feed confirms this thickness, black color, 500 × 1500 mm sheet and stock. Raw foam only; finished prop, paint, glue, fabric and fastening are not included.",
+      "checkedAt": "2026-10-27T00:28:53.880632Z",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-27T00:28:53.880632Z",
+        "url": "https://www.thecosplaypros.com/products/eva-foam-sheets?variant=20494372667503",
+        "notes": "Public variant feed confirms this thickness, black color, 500 × 1500 mm sheet and stock. Raw foam only; finished prop, paint, glue, fabric and fastening are not included."
+      }
+    },
+    {
+      "id": "e-729c1587bc",
+      "title": "Cosplay Pros EVA Foam Sheet — 10mm / 500mm x 1500mm / Black",
+      "url": "https://www.thecosplaypros.com/products/eva-foam-sheets?variant=20494372765807",
+      "priceCents": 2724,
+      "currency": "USD",
+      "image": "/products/price-tiers/e-729c1587bc.webp",
+      "merchantImage": "/products/price-tiers/e-729c1587bc.webp",
+      "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/0055/6220/4271/products/71Km8wsI1wL._AC_SL1500.jpg?v=1614097339"
+      ],
+      "availability": "in_stock",
+      "sizes": [],
+      "merchantId": "expansion-e-thecosplaypros-com",
+      "tagSlugs": [],
+      "description": "Public variant feed confirms this thickness, black color, 500 × 1500 mm sheet and stock. Raw foam only; finished prop, paint, glue, fabric and fastening are not included.",
+      "checkedAt": "2026-10-27T00:28:53.880632Z",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-27T00:28:53.880632Z",
+        "url": "https://www.thecosplaypros.com/products/eva-foam-sheets?variant=20494372765807",
+        "notes": "Public variant feed confirms this thickness, black color, 500 × 1500 mm sheet and stock. Raw foam only; finished prop, paint, glue, fabric and fastening are not included."
+      }
+    },
+    {
+      "id": "p-9437603696",
+      "title": "Velvet Circus Ringmaster Tailcoat Jacket Marching Band Halloween Showman Outerwear",
+      "url": "https://teejaytraders.com/products/velvet-circus-ringmaster-tailcoat-jacket-marching-band-halloween-showman-outerwear?variant=47479214014652",
+      "priceCents": 5646,
+      "currency": "USD",
+      "image": "/products/price-tiers/p-9437603696.webp",
+      "merchantImage": "/products/price-tiers/p-9437603696.webp",
+      "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/0611/3240/6972/files/S15e6db84cd9a4390ac0535380f1e72e7o.webp?v=1789369815"
+      ],
+      "availability": "in_stock",
+      "sizes": [
+        "S"
+      ],
+      "merchantId": "teejaytraders-com",
+      "tagSlugs": [],
+      "description": "Includes one women's red/black open-front long-tail coat with gold trim. Material compromise: merchant calls it polyester plush velvet, but the selected Red photo visibly shows a sequined red front and black tails. It does not reproduce plain deep-red velvet. Only Red/S costs $56.46; other sizes have different prices. US economy shipping estimate is 5–8 business days, not a delivery guarantee.",
+      "checkedAt": "2026-10-26T10:01:23.625Z",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-25T08:51:41.862679Z",
+        "url": "https://teejaytraders.com/products/velvet-circus-ringmaster-tailcoat-jacket-marching-band-halloween-showman-outerwear.js",
+        "notes": "Includes one women's red/black open-front long-tail coat with gold trim. Material compromise: merchant calls it polyester plush velvet, but the selected Red photo visibly shows a sequined red front and black tails. It does not reproduce plain deep-red velvet. Only Red/S costs $56.46; other sizes have different prices. US economy shipping estimate is 5–8 business days, not a delivery guarantee."
+      }
+    },
+    {
+      "id": "p-87734c54a0",
+      "title": "Velvet Circus Ringmaster Gold-Trimmed Swallow-Tail Blazer Coat",
+      "url": "https://teejaytraders.com/products/velvet-circus-ringmaster-gold-trimmed-swallow-tail-blazer-coat?variant=47479427432636",
+      "priceCents": 3948,
+      "currency": "USD",
+      "image": "/products/price-tiers/p-87734c54a0.webp",
+      "merchantImage": "/products/price-tiers/p-87734c54a0.webp",
+      "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/0611/3240/6972/files/H00c993a337f046e58e3415aa995a8bd0s.webp?v=1789370964"
+      ],
+      "availability": "in_stock",
+      "sizes": [
+        "M"
+      ],
+      "merchantId": "teejaytraders-com",
+      "tagSlugs": [],
+      "description": "Includes one fitted women's long-sleeve red velvet-style swallow-tail coat, black lapels/cuffs, gold braided edging and single-button front. Less ornate than the reference; no shirt or vest included. Exact $39.48 applies only to Red/M; other available sizes cost more. Merchant lists the material as \"95% Velvet, 5% Metal\", which does not identify fiber content. US shipping policy estimates 5–8 business days for economy shipping; no delivery guarantee.",
+      "checkedAt": "2026-10-26T10:01:23.550Z",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-25T08:51:41.862679Z",
+        "url": "https://teejaytraders.com/products/velvet-circus-ringmaster-gold-trimmed-swallow-tail-blazer-coat.js",
+        "notes": "Includes one fitted women's long-sleeve red velvet-style swallow-tail coat, black lapels/cuffs, gold braided edging and single-button front. Less ornate than the reference; no shirt or vest included. Exact $39.48 applies only to Red/M; other available sizes cost more. Merchant lists the material as \"95% Velvet, 5% Metal\", which does not identify fiber content. US shipping policy estimates 5–8 business days for economy shipping; no delivery guarantee."
+      }
+    },
+    {
+      "id": "p-1bb478cabf",
+      "title": "Men's 3 PC Ring Master Costume - 87388",
+      "url": "https://thesultryvixen.com/products/mens-3-pc-ring-master-costume-87388?variant=50931820691623",
+      "priceCents": 8299,
+      "currency": "USD",
+      "image": "/products/price-tiers/p-1bb478cabf.webp",
+      "merchantImage": "/products/price-tiers/p-1bb478cabf.webp",
+      "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/0060/4245/2004/files/87388_06_101.jpg?v=1783114552"
+      ],
+      "availability": "in_stock",
+      "sizes": [
+        "one size"
+      ],
+      "merchantId": "thesultryvixen-com",
+      "tagSlugs": [],
+      "description": "Leg Avenue 87388 three-piece set: red velvet tailcoat with attached red/white harlequin vest, dickey and top hat. Manufacturer confirms gold trim, chains, black cuffs and fringed epaulettes; coat is 93% polyester/7% spandex. The attached vest differs from the reference black/gold waistcoat and cannot be bought separately in this listing. Pants, boots and whip are not included. All three listed MULTICOLOR sizes available at $82.99. Dispatch time is not stated on this merchant product page.",
+      "checkedAt": "2026-10-26T10:01:23.821Z",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-25T08:51:41.862679Z",
+        "url": "https://thesultryvixen.com/products/mens-3-pc-ring-master-costume-87388.js",
+        "notes": "Leg Avenue 87388 three-piece set: red velvet tailcoat with attached red/white harlequin vest, dickey and top hat. Manufacturer confirms gold trim, chains, black cuffs and fringed epaulettes; coat is 93% polyester/7% spandex. The attached vest differs from the reference black/gold waistcoat and cannot be bought separately in this listing. Pants, boots and whip are not included. All three listed MULTICOLOR sizes available at $82.99. Dispatch time is not stated on this merchant product page."
+      }
+    },
+    {
+      "id": "p-7a7693db8b",
+      "title": "Sailor Pants",
+      "url": "https://www.medievalcollectibles.com/product/sailor-pants-2/?attribute_pa_color=black&attribute_pa_size=small",
+      "priceCents": 6000,
+      "currency": "USD",
+      "image": "/products/price-tiers/p-7a7693db8b.webp",
+      "merchantImage": "/products/price-tiers/p-7a7693db8b.webp",
+      "sourceImages": [
+        "https://www.medievalcollectibles.com/wp-content/uploads/2019/03/SS-SPANTS-BLK.jpg"
+      ],
+      "availability": "in_stock",
+      "sizes": [
+        "Small",
+        "Medium"
+      ],
+      "merchantId": "medievalcollectibles-com",
+      "tagSlugs": [],
+      "description": "Selected Black 100% cotton wide-leg sailor trousers with drawstring waist; tuck into boots. Trousers only. Positive live stock exists only for Black Small and Medium. Other black sizes are backordered and excluded.",
+      "checkedAt": "2026-10-25T08:47:48Z",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-25T08:47:48Z",
+        "url": "https://www.medievalcollectibles.com/product/sailor-pants-2/?attribute_pa_color=black&attribute_pa_size=small",
+        "notes": "Selected Black 100% cotton wide-leg sailor trousers with drawstring waist; tuck into boots. Trousers only. Positive live stock exists only for Black Small and Medium. Other black sizes are backordered and excluded."
+      }
+    },
+    {
+      "id": "p-035b491978",
+      "title": "First Mate Pants",
+      "url": "https://www.medievalcollectibles.com/product/first-mate-pants/?attribute_pa_color=black&attribute_pa_size=large-x-large",
+      "priceCents": 3900,
+      "currency": "USD",
+      "image": "/products/price-tiers/p-035b491978.webp",
+      "merchantImage": "/products/price-tiers/p-035b491978.webp",
+      "sourceImages": [
+        "https://www.medievalcollectibles.com/wp-content/uploads/2020/04/100518_2.jpg"
+      ],
+      "availability": "in_stock",
+      "sizes": [
+        "Small/Medium",
+        "Large/X-Large"
+      ],
+      "merchantId": "medievalcollectibles-com",
+      "tagSlugs": [],
+      "description": "Selected solid Black cotton trousers with drawstring waist, generous cut, slightly flared legs and deep pockets. Trousers only; sash, shirt, hat, vest and boots excluded. Both listed sizes have positive live inventory. Merchant specifies dry clean only.",
+      "checkedAt": "2026-10-25T08:47:48Z",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-25T08:47:48Z",
+        "url": "https://www.medievalcollectibles.com/product/first-mate-pants/?attribute_pa_color=black&attribute_pa_size=large-x-large",
+        "notes": "Selected solid Black cotton trousers with drawstring waist, generous cut, slightly flared legs and deep pockets. Trousers only; sash, shirt, hat, vest and boots excluded. Both listed sizes have positive live inventory. Merchant specifies dry clean only."
+      }
+    },
+    {
+      "id": "p-c1bf560c38",
+      "title": "Pirate Captain’s Pants",
+      "url": "https://www.medievalcollectibles.com/product/pirate-captains-pants/?attribute_pa_color=black&attribute_pa_size=medium",
+      "priceCents": 9500,
+      "currency": "USD",
+      "image": "/products/price-tiers/p-c1bf560c38.webp",
+      "merchantImage": "/products/price-tiers/p-c1bf560c38.webp",
+      "sourceImages": [
+        "https://www.medievalcollectibles.com/wp-content/uploads/2019/03/SS-CPANTS-Blk.jpg"
+      ],
+      "availability": "in_stock",
+      "sizes": [
+        "Medium",
+        "Large"
+      ],
+      "merchantId": "medievalcollectibles-com",
+      "tagSlugs": [],
+      "description": "Selected Black cotton velveteen trousers with tie front, tie legs and functional pockets. Softer velvet finish differs from the reference. Made in USA. Trousers only. Black Medium and Large each have positive live stock; other black sizes are backordered and excluded.",
+      "checkedAt": "2026-10-25T08:47:48Z",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-25T08:47:48Z",
+        "url": "https://www.medievalcollectibles.com/product/pirate-captains-pants/?attribute_pa_color=black&attribute_pa_size=medium",
+        "notes": "Selected Black cotton velveteen trousers with tie front, tie legs and functional pockets. Softer velvet finish differs from the reference. Made in USA. Trousers only. Black Medium and Large each have positive live stock; other black sizes are backordered and excluded."
+      }
+    },
+    {
+      "id": "p-1ec5fec4c5",
+      "title": "Organic Cotton Overnight Gloves",
+      "url": "https://shopheybella.com/products/paume-organic-cotton-overnight-gloves?variant=50660898472214",
+      "priceCents": 1500,
+      "currency": "USD",
+      "image": "/products/price-tiers/p-1ec5fec4c5.webp",
+      "merchantImage": "/products/price-tiers/p-1ec5fec4c5.webp",
+      "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/0059/9785/4793/files/paume_hand_gloves_mask.jpg?v=1762533394"
+      ],
+      "availability": "in_stock",
+      "sizes": [
+        "one size"
+      ],
+      "merchantId": "shopheybella-com",
+      "tagSlugs": [],
+      "description": "100% organic cotton overnight gloves, shown natural cream with elastic wrists. Closest simple color match, but thin and unpadded. This merchant does not state a size label, so check fit before purchase.",
+      "checkedAt": "2026-10-26T10:01:16.136Z",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-25T08:53:19.398203Z",
+        "url": "https://shopheybella.com/products/paume-organic-cotton-overnight-gloves.js",
+        "notes": "100% organic cotton overnight gloves, shown natural cream with elastic wrists. Closest simple color match, but thin and unpadded. This merchant does not state a size label, so check fit before purchase."
+      }
+    },
+    {
+      "id": "p-fd0a416d23",
+      "title": "Gloves",
+      "url": "https://www.londontownusa.com/products/gloves?variant=21466587529293",
+      "priceCents": 1000,
+      "currency": "USD",
+      "image": "/products/price-tiers/p-fd0a416d23.webp",
+      "merchantImage": "/products/price-tiers/p-fd0a416d23.webp",
+      "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/2239/6447/products/Gloves-clippedred_1.png?v=1762268755"
+      ],
+      "availability": "in_stock",
+      "sizes": [
+        "one size"
+      ],
+      "merchantId": "londontownusa-com",
+      "tagSlugs": [],
+      "description": "One-size cotton hand-care gloves, shown white with a black LONDONTOWN mark. Thin everyday glove approximation; no padding or silver wrist cuff.",
+      "checkedAt": "2026-10-26T10:01:16.319Z",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-25T08:53:19.398203Z",
+        "url": "https://www.londontownusa.com/products/gloves.js",
+        "notes": "One-size cotton hand-care gloves, shown white with a black LONDONTOWN mark. Thin everyday glove approximation; no padding or silver wrist cuff."
+      }
+    },
+    {
+      "id": "p-6e8b5f055f",
+      "title": "Astronaut Gloves White Adult",
+      "url": "https://www.fantasycostumes.com/astronaut-gloves-white-adult/",
+      "priceCents": 2888,
+      "currency": "USD",
+      "image": "/products/price-tiers/p-6e8b5f055f.webp",
+      "merchantImage": "/products/price-tiers/p-6e8b5f055f.webp",
+      "sourceImages": [
+        "https://cdn11.bigcommerce.com/s-obcuok9/images/stencil/1280w/products/6285/20079/adult-s-astronaut-gloves-whiteur28854std__41961.1706478785.jpg?c=2"
+      ],
+      "availability": "in_stock",
+      "sizes": [
+        "One size fits most"
+      ],
+      "merchantId": "fantasycostumes-com",
+      "tagSlugs": [],
+      "description": "Pair of white astronaut costume gloves with black piping and NASA patch; longer cuffs and darker trim than the cream reference. One size fits most. Current merchant HTML lists $28.88 and instock:true; older search-cached text shows $19.88. Internet-only item.",
+      "checkedAt": "2026-10-25T08:53:19.398203Z",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-25T08:53:19.398203Z",
+        "url": "https://www.fantasycostumes.com/astronaut-gloves-white-adult/",
+        "notes": "Pair of white astronaut costume gloves with black piping and NASA patch; longer cuffs and darker trim than the cream reference. One size fits most. Current merchant HTML lists $28.88 and instock:true; older search-cached text shows $19.88. Internet-only item."
+      }
+    },
+    {
+      "id": "p-fa88c71724",
+      "title": "Duchess | Black",
+      "url": "https://thursdayboots.com/products/womens-duchess-black-chelsea-boot?variant=41611980701786",
+      "priceCents": 16000,
+      "currency": "USD",
+      "image": "/products/price-tiers/p-fa88c71724.webp",
+      "merchantImage": "/products/price-tiers/p-fa88c71724.webp",
+      "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/0419/1525/products/1024x1024-Women-Duchess-Black-Side.jpg?v=1591637693"
+      ],
+      "availability": "in_stock",
+      "sizes": [
+        "4",
+        "4.5",
+        "5",
+        "5.5",
+        "6",
+        "6.5",
+        "7",
+        "7.5",
+        "8",
+        "8.5",
+        "9",
+        "9.5",
+        "10",
+        "10.5",
+        "11",
+        "11.5",
+        "12",
+        "12.5",
+        "13"
+      ],
+      "merchantId": "thursdayboots-com",
+      "tagSlugs": [],
+      "description": "Genuine black leather upper, glove leather lining, 1.25 inch stacked leather heel, elastic gores. All Standard US4-13 in half sizes available. Broad sizes; exact variant default is US4, shopper must choose correct size.",
+      "checkedAt": "2026-10-26T10:01:10.951Z",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-25T07:07:04.071733+00:00",
+        "url": "https://thursdayboots.com/products/womens-duchess-black-chelsea-boot.js",
+        "notes": "Genuine black leather upper, glove leather lining, 1.25 inch stacked leather heel, elastic gores. All Standard US4-13 in half sizes available. Broad sizes; exact variant default is US4, shopper must choose correct size."
+      }
+    },
+    {
+      "id": "p-da7d00ef0d",
+      "title": "Classic Chelsea Ankle Booties — Black PU",
+      "url": "https://www.dreampairs.com/products/dab213?kid=23928",
+      "priceCents": 4999,
+      "currency": "USD",
+      "image": "/products/price-tiers/p-da7d00ef0d.webp",
+      "merchantImage": "/products/price-tiers/p-da7d00ef0d.webp",
+      "sourceImages": [
+        "https://cdnimg.dreampairs.com/dreampairshoes/product/product/DAB213/BLACK%20PU/1.jpg"
+      ],
+      "availability": "in_stock",
+      "sizes": [],
+      "merchantId": "dreampairs-com",
+      "tagSlugs": [],
+      "description": "Budget material compromise: imitation synthetic leather rather than genuine leather. Ankle-high Chelsea, 1.25 inch heel, 0.75 inch platform. Merchant JSON-LD lists black USD49.99 InStock; live HTML exact-size inventory counts positive for all 12 listed US sizes. Size8 kid23928 count1806. Hidden generic SOLD OUT text is contradicted by variant inventory and InStock offer; verified source HTML retained /tmp/dreampairs-moon-boots.html.",
+      "checkedAt": "2026-10-26T10:01:10.994Z",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-25T07:07:04.071733+00:00",
+        "url": "https://www.dreampairs.com/products/dab213?color=2038",
+        "notes": "Budget material compromise: imitation synthetic leather rather than genuine leather. Ankle-high Chelsea, 1.25 inch heel, 0.75 inch platform. Merchant JSON-LD lists black USD49.99 InStock; live HTML exact-size inventory counts positive for all 12 listed US sizes. Size8 kid23928 count1806. Hidden generic SOLD OUT text is contradicted by variant inventory and InStock offer; verified source HTML retained /tmp/dreampairs-moon-boots.html."
+      }
+    },
+    {
+      "id": "p-862b138943",
+      "title": "Women's Originals #510",
+      "url": "https://www.blundstone.com/products/black-premium-leather-v-cut-boots-womens-style-510?variant=53192323596595",
+      "priceCents": 20995,
+      "currency": "USD",
+      "image": "/products/price-tiers/p-862b138943.webp",
+      "merchantImage": "/products/price-tiers/p-862b138943.webp",
+      "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/0903/6349/4707/files/product-image_2026-10-12_510_p_usa_hero.jpg?v=1791961602"
+      ],
+      "availability": "in_stock",
+      "sizes": [
+        "6 US Women (3 AU/UK)",
+        "6.5 US Women (3.5 AU/UK)",
+        "7 US Women (4 AU/UK)",
+        "7.5 US Women (4.5 AU/UK)",
+        "8 US Women (5 AU/UK)",
+        "8.5 US Women (5.5 AU/UK)",
+        "9 US Women (6 AU/UK)",
+        "9.5 US Women (6.5 AU/UK)",
+        "10 US Women (7 AU/UK)",
+        "10.5 US Women (7.5 AU/UK)",
+        "11 US Women (8 AU/UK)",
+        "11.5 US Women (8.5 AU/UK)",
+        "12 US Women (9 AU/UK)",
+        "12.5 US Women (9.5 AU/UK)",
+        "13 US Women (10 AU/UK)",
+        "14 US Women (11 AU/UK)",
+        "15 US Women (12 AU/UK)",
+        "16 US Women (13 AU/UK)",
+        "5 US Women (2 UK/AU)",
+        "6 US Women (3 UK/AU)",
+        "6.5 US Women (3.5 UK/AU)",
+        "7 US Women (4 UK/AU)",
+        "7.5 US Women (4.5 UK/AU)",
+        "8 US Women (5 UK/AU)",
+        "8.5 US Women (5.5 UK/AU)",
+        "9 US Women (6 UK/AU)",
+        "9.5 US Women (6.5 UK/AU)",
+        "10 US Women (7 UK/AU)",
+        "10.5 US Women (7.5 UK/AU)",
+        "11 US Women (8 UK/AU)",
+        "11.5 US Women (8.5 UK/AU)",
+        "12 US Women (9 UK/AU)",
+        "12.5 US Women (9.5 UK/AU)",
+        "13 US Women (10 UK/AU)",
+        "13.5 US Women (10.5 UK/AU)",
+        "14 US Women (11 UK/AU)",
+        "15 US Women (12 UK/AU)",
+        "16 US Women (13 UK/AU)"
+      ],
+      "merchantId": "blundstone-com",
+      "tagSlugs": [],
+      "description": "Black premium water-resistant leather classic flat Chelsea boot. Live public feed USD209.95, not stale search result199.95. Available USwomen5-16; two equivalent AU/UK label sets in merchant variants, deduplicate before display. Exact first available variant is USwomen6.",
+      "checkedAt": "2026-10-26T10:01:11.130Z",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-25T07:07:04.071733+00:00",
+        "url": "https://www.blundstone.com/products/black-premium-leather-v-cut-boots-womens-style-510.js",
+        "notes": "Black premium water-resistant leather classic flat Chelsea boot. Live public feed USD209.95, not stale search result199.95. Available USwomen5-16; two equivalent AU/UK label sets in merchant variants, deduplicate before display. Exact first available variant is USwomen6."
+      }
+    }
+  ],
+  "merchants": [
+    {
+      "id": "thesultryvixen-com",
+      "name": "The Sultry Vixen",
+      "domain": "thesultryvixen.com",
+      "url": "https://thesultryvixen.com/",
+      "kind": "boutique",
+      "neighborhoodId": null
+    },
+    {
+      "id": "fantasycostumes-com",
+      "name": "Fantasy Costumes",
+      "domain": "fantasycostumes.com",
+      "url": "https://fantasycostumes.com/",
+      "kind": "boutique",
+      "neighborhoodId": null
+    },
+    {
+      "id": "londontownusa-com",
+      "name": "LONDONTOWN",
+      "domain": "londontownusa.com",
+      "url": "https://londontownusa.com/",
+      "kind": "boutique",
+      "neighborhoodId": null
+    },
+    {
+      "id": "teejaytraders-com",
+      "name": "Tee Jay Traders",
+      "domain": "teejaytraders.com",
+      "url": "https://teejaytraders.com/",
+      "kind": "boutique",
+      "neighborhoodId": null
+    },
+    {
+      "id": "medievalcollectibles-com",
+      "name": "Medieval Collectibles",
+      "domain": "medievalcollectibles.com",
+      "url": "https://medievalcollectibles.com/",
+      "kind": "boutique",
+      "neighborhoodId": null
+    },
+    {
+      "id": "dreampairs-com",
+      "name": "DREAM PAIRS",
+      "domain": "dreampairs.com",
+      "url": "https://dreampairs.com/",
+      "kind": "boutique",
+      "neighborhoodId": null
+    },
+    {
+      "id": "expansion-e-thecosplaypros-com",
+      "name": "Cosplay Pros",
+      "domain": "thecosplaypros.com",
+      "url": "https://thecosplaypros.com",
+      "kind": "boutique",
+      "neighborhoodId": null
+    },
+    {
+      "id": "blundstone-com",
+      "name": "Blundstone",
+      "domain": "blundstone.com",
+      "url": "https://blundstone.com/",
+      "kind": "boutique",
+      "neighborhoodId": null
+    },
+    {
+      "id": "shopheybella-com",
+      "name": "Hey Bella",
+      "domain": "shopheybella.com",
+      "url": "https://shopheybella.com/",
+      "kind": "boutique",
+      "neighborhoodId": null
+    },
+    {
+      "id": "thursdayboots-com",
+      "name": "Thursday Boot Company",
+      "domain": "thursdayboots.com",
+      "url": "https://thursdayboots.com/",
+      "kind": "boutique",
+      "neighborhoodId": null
+    }
+  ],
+  "neighborhoods": [],
+  "tags": [],
+  "provenance": {
+    "method": "manual-research",
+    "generatedAt": "2026-10-27T00:28:53.880632Z",
+    "notes": "2026 catalog expansion. Defining accessories sourced through built-in web search and primary merchant pages/public feeds. Suitable basics reuse reviewed catalog records without changing their checkedAt dates. Generated references show styling, not the exact products. DIY items are raw supplies; assembly extras and owned wardrobe basics are explicit in piece notes. Publication carries forward newer shared-product price, stock, size and check timestamps from the live database; original sourcing evidence is retained.",
+    "priceTiers": true,
+    "heroImageKind": "generated-reference"
+  }
+}

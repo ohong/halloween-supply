@@ -17,6 +17,8 @@ const desktopContext = await browser.newContext({viewport:{width:1440,height:110
 const phoneContext = await browser.newContext({viewport:{width:390,height:844},isMobile:true,permissions:['camera','microphone']});
 const desktop=await desktopContext.newPage(), phone=await phoneContext.newPage();
 const errors=[], checks=[];
+let phoneClaimant;
+phone.on('request',request=>{if(request.method()==='POST'&&new URL(request.url()).pathname.startsWith('/api/camera-pair/')){const body=request.postDataJSON();if(body?.action==='claim')phoneClaimant=body.claimant;}});
 const log=(check,data={})=>{checks.push({check,...data});console.log(JSON.stringify(checks.at(-1)));};
 for(const page of [desktop,phone]) {
  page.setDefaultTimeout(20000);
@@ -29,11 +31,11 @@ for(const page of [desktop,phone]) {
   window.setTimeout=(callback,delay,...args)=>{const id=schedule(callback,delay,...args);if(delay>=170000&&delay<=610000)window.cameraTest.cutoffs.set(id,delay);return id;};
   window.clearTimeout=id=>{window.cameraTest.cutoffs.delete(id);return cancel(id);};
   const Peer=window.RTCPeerConnection;
-  window.RTCPeerConnection=class extends Peer {constructor(...args){if(forceRelay && args[0]?.iceServers?.some(s=>JSON.stringify(s.urls).includes('cloudflare.com')))args[0]={...args[0],iceTransportPolicy:'relay'};super(...args);window.cameraTest.peers.push(this); const index=window.cameraTest.peers.length-1; this.addEventListener("connectionstatechange",()=>window.cameraTest.peerEvents.push({index,state:this.connectionState,at:performance.now()})); this.addEventListener("icecandidate",event=>{if(event.candidate)window.cameraTest.peerEvents.push({index,candidateType:event.candidate.type,protocol:event.candidate.protocol,at:performance.now()});});} close(){window.cameraTest.peerEvents.push({close:window.cameraTest.peers.indexOf(this),at:performance.now(),stack:new Error().stack}); return super.close();}createDataChannel(...args){const channel=super.createDataChannel(...args);channel.addEventListener('message',({data})=>{try{const event=JSON.parse(data);window.cameraTest.events.push({type:event.type,delta:event.delta});}catch{}});return channel;}};
+  window.RTCPeerConnection=class extends Peer {constructor(...args){if(forceRelay && args[0]?.iceServers?.some(s=>/turns?:/.test(JSON.stringify(s.urls))))args[0]={...args[0],iceTransportPolicy:'relay'};super(...args);window.cameraTest.peers.push(this); const index=window.cameraTest.peers.length-1; this.addEventListener("connectionstatechange",()=>window.cameraTest.peerEvents.push({index,state:this.connectionState,at:performance.now()})); this.addEventListener("icecandidate",event=>{if(event.candidate)window.cameraTest.peerEvents.push({index,candidateType:event.candidate.type,protocol:event.candidate.protocol,at:performance.now()});});} close(){window.cameraTest.peerEvents.push({close:window.cameraTest.peers.indexOf(this),at:performance.now(),stack:new Error().stack}); return super.close();}createDataChannel(...args){const channel=super.createDataChannel(...args);channel.addEventListener('message',({data})=>{try{const event=JSON.parse(data);window.cameraTest.events.push({type:event.type,delta:event.delta});}catch{}});return channel;}};
   const replace=RTCRtpSender.prototype.replaceTrack;
   RTCRtpSender.prototype.replaceTrack=async function(track){await replace.call(this,track);if(window.cameraTest.delayNextReplace){window.cameraTest.delayNextReplace=false;await new Promise(resolve=>{window.cameraTest.releaseReplace=resolve;});}};
   const capture=navigator.mediaDevices.getUserMedia.bind(navigator.mediaDevices);
-  navigator.mediaDevices.getUserMedia=async constraints=>{window.cameraTest.requests.push(constraints);const stream=await capture(constraints);window.cameraTest.tracks.push(...stream.getTracks());return stream;};
+  navigator.mediaDevices.getUserMedia=async constraints=>{window.cameraTest.requests.push(constraints);if(window.cameraTest.failNextCamera){window.cameraTest.failNextCamera=false;throw new DOMException('Test lens unavailable','NotReadableError');}const stream=await capture(constraints);window.cameraTest.tracks.push(...stream.getTracks());if(window.cameraTest.holdNextCamera){window.cameraTest.holdNextCamera=false;await new Promise(resolve=>{window.cameraTest.releaseCamera=resolve;});}return stream;};
  },process.env.PHONE_FORCE_RELAY==='1');
 }
 try{
@@ -44,6 +46,15 @@ try{
  const link=desktop.getByRole('link',{name:'Open phone camera link'});
  await link.waitFor({timeout:20000});
  const url=await link.getAttribute('href');
+ let retriedSignals=0, retriedCandidates=0;
+ if(process.env.PHONE_RELIABILITY_E2E==='1') {
+  await phone.route('**/api/camera-pair/*',async route=>{
+   const request=route.request(),body=request.method()==='POST'?request.postDataJSON():null;
+   if(body?.action==='signal'&&retriedSignals===0){retriedSignals++;await route.fetch();await route.abort('connectionfailed');return;}
+   if(body?.action==='candidates'&&retriedCandidates===0){retriedCandidates++;await route.fulfill({status:503,json:{error:'Temporary signaling interruption.'}});return;}
+   await route.continue();
+  });
+ }
  let delayedCandidates=0;
  if(process.env.PHONE_DELAY_CANDIDATES==='1') {
   for(const page of [desktop,phone]) await page.route('**/api/camera-pair/*',async route=>{
@@ -61,7 +72,27 @@ try{
  await phone.getByRole('button',{name:'Open camera',exact:true}).click();
  await desktop.getByText('Phone camera connected',{exact:true}).waitFor({timeout:40000});
  await desktop.waitForFunction(()=>document.querySelector('video[aria-label="Phone camera preview"]')?.videoWidth>0);
- log('phone-video-on-desktop-without-desktop-camera');
+ let rawVideo=[];
+ const videoDeadline=Date.now()+20000;
+ while(Date.now()<videoDeadline) {
+  rawVideo=await desktop.evaluate(async()=>{const result=[];for(const peer of window.cameraTest.peers)for(const stat of (await peer.getStats()).values())if(stat.type==='inbound-rtp'&&stat.kind==='video')result.push({framesDecoded:stat.framesDecoded,width:stat.frameWidth,height:stat.frameHeight});return result;});
+  if(rawVideo.some(stat=>stat.framesDecoded>=10))break;
+  await new Promise(resolve=>setTimeout(resolve,200));
+ }
+ assert.ok(rawVideo.some(stat=>stat.framesDecoded>=10),'The phone must deliver at least ten decoded video frames.');
+ log('phone-video-on-desktop-without-desktop-camera',{rawVideo});
+ if(process.env.PHONE_RELIABILITY_E2E==='1') {
+  assert.equal(retriedSignals,1);assert.equal(retriedCandidates,1);
+  await phone.unroute('**/api/camera-pair/*');
+  log('lost-offer-response-and-temporary-candidate-failure-recover');
+  await desktop.evaluate(()=>{const peer=window.cameraTest.peers[0];Object.defineProperty(peer,'connectionState',{configurable:true,value:'disconnected'});peer.dispatchEvent(new Event('connectionstatechange'));});
+  await desktop.getByText('Reconnecting phone…',{exact:true}).waitFor();
+  assert.equal(await desktop.getByRole('button',{name:'Take photo from phone',exact:true}).isVisible(),true,'Recovery must keep the existing connected media source for mirror and voice consumers.');
+  assert.equal(await phone.evaluate(()=>window.cameraTest.tracks.filter(track=>track.kind==='video'&&track.readyState==='live').length),1);
+  await desktop.evaluate(()=>{const peer=window.cameraTest.peers[0];delete peer.connectionState;peer.dispatchEvent(new Event('connectionstatechange'));});
+  await desktop.getByText('Phone camera connected',{exact:true}).waitFor();
+  log('injected-brief-disconnect-recovers-existing-peer-and-camera');
+ }
  if(process.env.PHONE_DELAY_CANDIDATES==='1') {
   assert.ok(delayedCandidates>=2,'Both peers must exchange late candidates.');
   log('late-candidates-connect-after-old-six-second-cutoff',{delayedCandidates});
@@ -71,12 +102,18 @@ try{
   for(const page of [desktop,phone])assert.equal(await page.evaluate(()=>[...window.cameraTest.cutoffs.values()].some(delay=>delay>500000)),false,'Connected demo phone must clear its ten-minute cutoff.');
   log('testing-mode-clears-connected-phone-cutoff');
  }
+ const [id,token]=new URL(url).hash.slice(1).split('.');
+ const base=`${origin}/api/camera-pair/${id}`;
+ const configuration=await (await phoneContext.request.post(base,{headers:{origin,authorization:`Bearer ${token}`},data:{action:'claim',claimant:phoneClaimant}})).json();
+ assert.equal(configuration.relayAvailable,configuration.relayStatus==='ready');
+ if(process.env.PHONE_EXPECT_RELAY_STATUS)assert.equal(configuration.relayStatus,process.env.PHONE_EXPECT_RELAY_STATUS);
+ if(process.env.PHONE_FORCE_RELAY==='1')assert.equal(configuration.relayAvailable,true,'Forced relay needs usable METERED_TURN_APP and METERED_TURN_API_KEY.');
+ if(configuration.relayStatus==='unavailable')await desktop.getByText('The network relay is unavailable. Trying a direct connection; keep both devices on the same Wi-Fi.',{exact:true}).waitFor();
+ log('relay-configuration-reports-state',{relayStatus:configuration.relayStatus,relayProvider:configuration.relayProvider});
  if(process.env.PHONE_FORCE_RELAY==='1') {
   const candidate=await phone.evaluate(async()=>{const stats=await window.cameraTest.peers[0].getStats();for(const stat of stats.values())if(stat.type==='transport'&&stat.selectedCandidatePairId){const pair=stats.get(stat.selectedCandidatePairId);return stats.get(pair.localCandidateId)?.candidateType;}});
   assert.equal(candidate,'relay');log('forced-turn-relay',{candidate});
  }
- const [id,token]=new URL(url).hash.slice(1).split('.');
- const base=`${origin}/api/camera-pair/${id}`;
  assert.equal((await phoneContext.request.get(base)).status(),401);
  assert.equal((await phoneContext.request.post(base,{headers:{origin,authorization:`Bearer ${token}`},data:{action:'candidates',candidates:[],claimant:crypto.randomUUID()}})).status(),403);
  assert.equal((await phoneContext.request.post(base,{headers:{origin,authorization:`Bearer ${token}`},data:{action:'candidates',candidates:Array.from({length:129},()=>({candidate:'x'}))}})).status(),400);
@@ -96,6 +133,17 @@ try{
  await phone.getByRole('button',{name:'Switch camera',exact:true}).waitFor();
  assert.equal(await phone.evaluate(()=>window.cameraTest.tracks.filter(track=>track.kind==='video'&&track.readyState==='live').length),1);
  log('camera-switch-keeps-one-live-camera');
+ if(process.env.PHONE_RELIABILITY_E2E==='1') {
+  const microphone=await phone.evaluate(()=>window.cameraTest.tracks.find(track=>track.kind==='audio'&&track.readyState==='live')?.id);
+  await phone.evaluate(()=>{window.cameraTest.failNextCamera=true;});
+  await phone.getByRole('button',{name:'Switch camera',exact:true}).click();
+  await phone.getByRole('alert').filter({hasText:'The previous camera is restored.'}).waitFor();
+  assert.equal(await phone.evaluate(()=>window.cameraTest.tracks.filter(track=>track.kind==='video'&&track.readyState==='live').length),1);
+  assert.equal(await phone.evaluate(()=>window.cameraTest.tracks.find(track=>track.kind==='audio'&&track.readyState==='live')?.id),microphone);
+  await phone.getByRole('button',{name:'Take photo',exact:true}).click();
+  await phone.getByText('Photo received on your computer. You can take another.').waitFor();
+  log('failed-lens-switch-restores-camera-keeps-microphone-and-transfers-photo');
+ }
  await desktop.screenshot({path:path.join(output,'desktop-phone-preview.png')});
  await phone.screenshot({path:path.join(output,'phone-controls.png')});
  if(process.env.PHONE_PROVIDER_E2E!=='1'){
@@ -179,6 +227,47 @@ try{
  await phone.getByRole('alert').waitFor();
  assert.equal(await phone.evaluate(()=>window.cameraTest.requests.length),priorRequests);
  log('closed-link-rejected-before-camera-capture');
+ if(process.env.PHONE_RELIABILITY_E2E==='1') {
+  await desktop.getByRole('button',{name:/^(?:Take|Retake) photo$/}).click();
+  const fresh=desktop.getByRole('link',{name:'Open phone camera link'});await fresh.waitFor();
+  const nextUrl=await fresh.getAttribute('href');assert.notEqual(nextUrl,url);
+  await phone.goto(nextUrl);
+  await phone.getByRole('button',{name:'Open camera',exact:true}).click();
+  await desktop.getByText('Phone camera connected',{exact:true}).waitFor({timeout:40000});
+  log('new-qr-reconnects-after-closed-link');
+  await desktop.evaluate(()=>{const peer=window.cameraTest.peers.at(-1);Object.defineProperty(peer,'connectionState',{configurable:true,value:'disconnected'});peer.dispatchEvent(new Event('connectionstatechange'));});
+  await desktop.getByText('Reconnecting phone…',{exact:true}).waitFor();
+  await desktop.getByRole('alert').filter({hasText:'Your phone disconnected.'}).waitFor({timeout:16000});
+  await desktop.evaluate(()=>{delete window.cameraTest.peers.at(-1).connectionState;});
+  assert.equal(await desktop.evaluate(()=>window.cameraTest.peers.every(peer=>peer.connectionState==='closed')),true);
+  await phone.waitForFunction(()=>window.cameraTest.tracks.every(track=>track.readyState==='ended'));
+  log('persistent-disconnect-bounds-recovery-and-stops-phone');
+  await desktop.getByRole('button',{name:'Use phone camera',exact:true}).click();
+  await fresh.waitFor();await phone.goto(await fresh.getAttribute('href'));
+  const peersBeforePermission=await phone.evaluate(()=>window.cameraTest.peers.length);
+  await phone.evaluate(()=>{window.cameraTest.holdNextCamera=true;});
+  await phone.getByRole('button',{name:'Open camera',exact:true}).click();
+  await phone.waitForFunction(()=>typeof window.cameraTest.releaseCamera==='function');
+  await phone.getByText('Waiting for camera permission…',{exact:true}).waitFor();
+  await phone.getByRole('button',{name:'Stop sharing',exact:true}).click();
+  await phone.evaluate(()=>window.cameraTest.releaseCamera());
+  await phone.waitForFunction(()=>window.cameraTest.tracks.every(track=>track.readyState==='ended'));
+  assert.equal(await phone.evaluate(()=>window.cameraTest.peers.length),peersBeforePermission);
+  log('stop-during-camera-permission-releases-late-track-without-peer');
+  await desktop.getByRole('button',{name:'Use phone camera',exact:true}).waitFor();
+  if(process.env.PHONE_PERMISSION_TIMEOUT_E2E==='1') {
+   await desktop.getByRole('button',{name:'Use phone camera',exact:true}).click();
+   await fresh.waitFor();await phone.goto(await fresh.getAttribute('href'));
+   await phone.evaluate(()=>{delete window.cameraTest.releaseCamera;window.cameraTest.holdNextCamera=true;});
+   await phone.getByRole('button',{name:'Open camera',exact:true}).click();
+   await phone.waitForFunction(()=>typeof window.cameraTest.releaseCamera==='function');
+   await phone.getByRole('alert').filter({hasText:'Camera permission timed out.'}).waitFor({timeout:35000});
+   await phone.evaluate(()=>window.cameraTest.releaseCamera());
+   await phone.waitForFunction(()=>window.cameraTest.tracks.every(track=>track.readyState==='ended'));
+   assert.equal(await phone.evaluate(()=>window.cameraTest.peers.length),peersBeforePermission);
+   log('camera-permission-timeout-releases-late-track-without-peer');
+  }
+ }
  assert.deepEqual(errors,[]);
  writeFileSync(path.join(output,'results.json'),JSON.stringify({checks,errors},null,2));
  console.log(`PASS ${output}`);

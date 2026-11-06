@@ -1,0 +1,5 @@
+.cart-line [data-checkout-recovery] { margin-top: 10px; }
+.cart-line [data-checkout-recovery] p + div,
+.cart-line [data-checkout-recovery] div + div { margin-top: 8px; }
+.cart-line [data-checkout-recovery] .text-btn { display: inline-block; padding: 6px 8px; margin: 2px 4px 2px 0; text-align: left; overflow-wrap: anywhere; }
+.cart-line:focus { outline: 2px solid var(--ink); outline-offset: 3px; }

@@ -90,31 +90,25 @@ to the app's state; GPT Live receives fresh visual observations only when the sh
 appearance feedback; control state alone is not visual evidence. Video and
 microphone data continue to use their separate providers.
 
-The server builds the earlier product-reference board from local catalog assets.
-Each cell uses a product cutout when available, otherwise its catalog image.
-The browser sends the board as `reference_image_url` to
-`decart/lucy-2-5/realtime`, with prompt expansion disabled. The prompt asks Lucy
-to substitute those garments and preserve the camera person's face, hair,
-body shape, skin tone, pose, background and lighting. Owned pieces remain unchanged.
-Color and style overrides still apply to garments.
+The reference route returns a bounded text prompt for the complete selected
+outfit. The browser sends it to `decart/lucy-2-5/realtime` with prompt expansion
+disabled. It sends no `reference_image_url`. Merchant photos can show another
+person; omitting them removes that person from the provider's identity input.
+The prompt asks Lucy to preserve the shopper and their owned clothing.
 
-This restores the rendering behavior from before commit `dc2349d`, while keeping
-camera switching and on-request GPT Live visual feedback. It does not revert
-photo generation or catalog changes. The separate fal Lucy 2.1 VTON endpoint
-is not used.
-
-A reference board can contain a merchant model when no cutout exists. The prompt
-instructs Lucy to treat references as garments, never identity references, but
-this is not an enforced face lock. Do not promise unchanged faces based on a
-successful connection or prompt check. Visual comparisons with the original
-camera remain available through GPT Live.
+This is not an enforced face lock. Do not promise unchanged faces from a
+successful connection or prompt check. OpenCV-grounded visual feedback and
+paired original-camera comparisons remain available on request.
 
 ## Lifetime and rendering limits
 
 Camera capture starts only after consent and an explicit Start action. Closing,
 leaving, or hiding the page releases media. Freeze disconnects video and releases
 the camera while voice remains available; Resume creates a new video connection.
-Failed connections require an explicit retry. Outside testing mode, each UI
+Transient failures receive at most three provider attempts while the phone
+preview stays connected. Billing, authentication, and invalid-input failures
+stop immediately. Consent withdrawal and closing cancel pending retries. After
+retry exhaustion, the shopper can retry explicitly. Outside testing mode, each UI
 session stops after three minutes. Token expiry alone does not terminate a running fal session; the
 three-minute limit is client-side, not a provider-enforced spending cap.
 
@@ -144,8 +138,10 @@ MIRROR_BASE_URL=http://localhost:3028 node scripts/verify-mirror-identity.mjs
 ```
 
 This checks every published look at three available product tiers, plus color
-and owned-piece changes. It verifies that product boards and face preservation
-instructions remain present. It does not measure generated likeness.
+and owned-piece changes. It verifies that no image reaches Lucy and that bounded
+preservation prompts remain present. It does not measure generated likeness.
+See [selective control evidence](./mirror-control-evidence.md) for current
+command checks, cancellation checks, timings, and provider limits.
 
 ```sh
 bun install

@@ -1,0 +1,588 @@
+{
+  "costume": {
+    "slug": "escaped-masterpiece",
+    "name": "Escaped Masterpiece",
+    "description": "A walking gallery portrait: a gilt frame surrounds an ivory blouse and flowing burgundy skirt.",
+    "image": "/costumes/escaped-masterpiece.png",
+    "alt": "An ornate gold portrait frame around an ivory ruffled blouse and burgundy maxi skirt, with dark boots.",
+    "status": "live"
+  },
+  "pieces": [
+    {
+      "id": "escaped-masterpiece-diy-portrait-frame-foam",
+      "name": "DIY portrait frame foam",
+      "category": "accessories",
+      "required": true,
+      "order": 0,
+      "styleNotes": "Raw black EVA foam, not a finished gold frame. Cut a four-sided frame with corner joins and open center; use cardboard backing if needed. Prime and paint gold. Supply your own glue, paint and ribbon loops; never use glass. All options are 500 × 1500 mm sheets in different thicknesses.",
+      "queries": [
+        "DIY portrait frame foam"
+      ],
+      "sizeKind": "one_size",
+      "matches": [
+        {
+          "productId": "e-5493f9b30a",
+          "rank": 0,
+          "reason": "Public variant feed confirms this thickness, black color, 500 × 1500 mm sheet and stock. Raw foam only; finished prop, paint, glue, fabric and fastening are not included."
+        },
+        {
+          "productId": "e-e752cfcae7",
+          "rank": 1,
+          "reason": "Public variant feed confirms this thickness, black color, 500 × 1500 mm sheet and stock. Raw foam only; finished prop, paint, glue, fabric and fastening are not included."
+        },
+        {
+          "productId": "e-729c1587bc",
+          "rank": 2,
+          "reason": "Public variant feed confirms this thickness, black color, 500 × 1500 mm sheet and stock. Raw foam only; finished prop, paint, glue, fabric and fastening are not included."
+        }
+      ]
+    },
+    {
+      "id": "escaped-masterpiece-ivory-blouse",
+      "name": "Ivory billowy shirt",
+      "category": "tops",
+      "required": true,
+      "order": 1,
+      "styleNotes": "Pale ivory or white billowy blouse above the burgundy skirt. The white options differ from the ivory reference.",
+      "queries": [
+        "ivory ruffled pirate shirt billowy sleeves"
+      ],
+      "sizeKind": "apparel",
+      "matches": [
+        {
+          "productId": "p-4d5ad424a6",
+          "rank": 0,
+          "reason": "White rather than ivory. Polyester shirt has a high collar, three front ruffle rows, cuff ruffles, and white/silver buttons. Shirt only. Feed exposes positive inventory for all four listed sizes."
+        },
+        {
+          "productId": "p-d37d64fa7f",
+          "rank": 1,
+          "reason": "Ivory shirt with ruffles and lace-up neckline; shirt only. Only Small is available at $12; sold-out Medium has a different price. Made in USA. Merchant advertises same-day US dispatch before 5pm EST Monday-Friday, excluding holidays."
+        },
+        {
+          "productId": "p-368be886f2",
+          "rank": 2,
+          "reason": "White cotton-linen shirt includes detachable lace-edged neck jabot and adjustable lace cuffs. White differs from ivory. Listed sizes have physical stock; S/M 42 is sold out and excluded. Other pictured clothing is excluded. Merchant FAQ states normal 24-hour packing for fully stocked orders; no delivery date promised."
+        }
+      ]
+    },
+    {
+      "id": "escaped-masterpiece-burgundy-skirt",
+      "name": "Burgundy maxi skirt",
+      "category": "bottoms",
+      "required": true,
+      "order": 2,
+      "styleNotes": "Default is burgundy micro velvet with gold sequins. Middle option is a burgundy everyday maxi skirt in Medium; premium option is maroon polyester eyelet lace. All are separate skirts, not dresses. Check each merchant size chart.",
+      "queries": [
+        "burgundy maxi skirt"
+      ],
+      "sizeKind": "apparel",
+      "matches": [
+        {
+          "productId": "e-b8d2d05059",
+          "rank": 0,
+          "reason": "Primary merchant HTML shows live Buy control at USD 44.99 and limited quantity. Burgundy micro velvet with gold embroidery and sequins; more embellished than the plain reference. Elastic waist one size; check the merchant measurements. No blouse included."
+        },
+        {
+          "productId": "e-d743aa9de3",
+          "rank": 1,
+          "reason": "Merchant feed confirms Medium is available at $54.99. Burgundy lined maxi skirt with elastic waist, pockets and pleated tiers. Fabric finish differs from the velvet reference; blouse not included."
+        },
+        {
+          "productId": "e-5d2008e2c1",
+          "rank": 2,
+          "reason": "Merchant feed confirms S, M and L in Maroon at $82. Burgundy polyester eyelet lace, lined with side pockets and scalloped hem; this is lace rather than velvet."
+        }
+      ]
+    },
+    {
+      "id": "escaped-masterpiece-moon-boots",
+      "name": "Dark ankle boots",
+      "category": "Footwear",
+      "required": true,
+      "order": 3,
+      "styleNotes": "Black or dark brown leather ankle boots with a low block heel or flat sole, slightly worn in. Vintage or witchy styling like lace-up or Chelsea boots keeps the base look grounded.",
+      "queries": [
+        "vintage black leather ankle boots lace up women's",
+        "secondhand black Chelsea ankle boots leather vintage",
+        "handmade black leather lace-up ankle boots small brand"
+      ],
+      "sizeKind": "shoe",
+      "matches": [
+        {
+          "productId": "p-fa88c71724",
+          "rank": 0,
+          "reason": "Genuine black leather upper, glove leather lining, 1.25 inch stacked leather heel, elastic gores. All Standard US4-13 in half sizes available. Broad sizes; exact variant default is US4, shopper must choose correct size."
+        },
+        {
+          "productId": "p-da7d00ef0d",
+          "rank": 1,
+          "reason": "Budget material compromise: imitation synthetic leather rather than genuine leather. Ankle-high Chelsea, 1.25 inch heel, 0.75 inch platform. Merchant JSON-LD lists black USD49.99 InStock; live HTML exact-size inventory counts positive for all 12 listed US sizes. Size8 kid23928 count1806. Hidden generic SOLD OUT text is contradicted by variant inventory and InStock offer; verified source HTML retained /tmp/dreampairs-moon-boots.html."
+        },
+        {
+          "productId": "p-862b138943",
+          "rank": 2,
+          "reason": "Black premium water-resistant leather classic flat Chelsea boot. Live public feed USD209.95, not stale search result199.95. Available USwomen5-16; two equivalent AU/UK label sets in merchant variants, deduplicate before display. Exact first available variant is USwomen6."
+        }
+      ]
+    }
+  ],
+  "products": [
+    {
+      "id": "e-5493f9b30a",
+      "title": "Cosplay Pros EVA Foam Sheet — 6mm / 500mm x 1500mm / Black",
+      "url": "https://www.thecosplaypros.com/products/eva-foam-sheets?variant=20494372601967",
+      "priceCents": 2149,
+      "currency": "USD",
+      "image": "/products/price-tiers/e-5493f9b30a.webp",
+      "merchantImage": "/products/price-tiers/e-5493f9b30a.webp",
+      "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/0055/6220/4271/products/71Km8wsI1wL._AC_SL1500.jpg?v=1614097339"
+      ],
+      "availability": "in_stock",
+      "sizes": [],
+      "merchantId": "expansion-e-thecosplaypros-com",
+      "tagSlugs": [],
+      "description": "Public variant feed confirms this thickness, black color, 500 × 1500 mm sheet and stock. Raw foam only; finished prop, paint, glue, fabric and fastening are not included.",
+      "checkedAt": "2026-10-27T00:28:53.880632Z",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-27T00:28:53.880632Z",
+        "url": "https://www.thecosplaypros.com/products/eva-foam-sheets?variant=20494372601967",
+        "notes": "Public variant feed confirms this thickness, black color, 500 × 1500 mm sheet and stock. Raw foam only; finished prop, paint, glue, fabric and fastening are not included."
+      }
+    },
+    {
+      "id": "e-e752cfcae7",
+      "title": "Cosplay Pros EVA Foam Sheet — 8mm / 500mm x 1500mm / Black",
+      "url": "https://www.thecosplaypros.com/products/eva-foam-sheets?variant=20494372667503",
+      "priceCents": 2436,
+      "currency": "USD",
+      "image": "/products/price-tiers/e-e752cfcae7.webp",
+      "merchantImage": "/products/price-tiers/e-e752cfcae7.webp",
+      "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/0055/6220/4271/products/71Km8wsI1wL._AC_SL1500.jpg?v=1614097339"
+      ],
+      "availability": "in_stock",
+      "sizes": [],
+      "merchantId": "expansion-e-thecosplaypros-com",
+      "tagSlugs": [],
+      "description": "Public variant feed confirms this thickness, black color, 500 × 1500 mm sheet and stock. Raw foam only; finished prop, paint, glue, fabric and fastening are not included.",
+      "checkedAt": "2026-10-27T00:28:53.880632Z",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-27T00:28:53.880632Z",
+        "url": "https://www.thecosplaypros.com/products/eva-foam-sheets?variant=20494372667503",
+        "notes": "Public variant feed confirms this thickness, black color, 500 × 1500 mm sheet and stock. Raw foam only; finished prop, paint, glue, fabric and fastening are not included."
+      }
+    },
+    {
+      "id": "e-729c1587bc",
+      "title": "Cosplay Pros EVA Foam Sheet — 10mm / 500mm x 1500mm / Black",
+      "url": "https://www.thecosplaypros.com/products/eva-foam-sheets?variant=20494372765807",
+      "priceCents": 2724,
+      "currency": "USD",
+      "image": "/products/price-tiers/e-729c1587bc.webp",
+      "merchantImage": "/products/price-tiers/e-729c1587bc.webp",
+      "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/0055/6220/4271/products/71Km8wsI1wL._AC_SL1500.jpg?v=1614097339"
+      ],
+      "availability": "in_stock",
+      "sizes": [],
+      "merchantId": "expansion-e-thecosplaypros-com",
+      "tagSlugs": [],
+      "description": "Public variant feed confirms this thickness, black color, 500 × 1500 mm sheet and stock. Raw foam only; finished prop, paint, glue, fabric and fastening are not included.",
+      "checkedAt": "2026-10-27T00:28:53.880632Z",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-27T00:28:53.880632Z",
+        "url": "https://www.thecosplaypros.com/products/eva-foam-sheets?variant=20494372765807",
+        "notes": "Public variant feed confirms this thickness, black color, 500 × 1500 mm sheet and stock. Raw foam only; finished prop, paint, glue, fabric and fastening are not included."
+      }
+    },
+    {
+      "id": "p-fa88c71724",
+      "title": "Duchess | Black",
+      "url": "https://thursdayboots.com/products/womens-duchess-black-chelsea-boot?variant=41611980701786",
+      "priceCents": 16000,
+      "currency": "USD",
+      "image": "/products/price-tiers/p-fa88c71724.webp",
+      "merchantImage": "/products/price-tiers/p-fa88c71724.webp",
+      "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/0419/1525/products/1024x1024-Women-Duchess-Black-Side.jpg?v=1591637693"
+      ],
+      "availability": "in_stock",
+      "sizes": [
+        "4",
+        "4.5",
+        "5",
+        "5.5",
+        "6",
+        "6.5",
+        "7",
+        "7.5",
+        "8",
+        "8.5",
+        "9",
+        "9.5",
+        "10",
+        "10.5",
+        "11",
+        "11.5",
+        "12",
+        "12.5",
+        "13"
+      ],
+      "merchantId": "thursdayboots-com",
+      "tagSlugs": [],
+      "description": "Genuine black leather upper, glove leather lining, 1.25 inch stacked leather heel, elastic gores. All Standard US4-13 in half sizes available. Broad sizes; exact variant default is US4, shopper must choose correct size.",
+      "checkedAt": "2026-10-26T10:01:10.951Z",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-25T07:07:04.071733+00:00",
+        "url": "https://thursdayboots.com/products/womens-duchess-black-chelsea-boot.js",
+        "notes": "Genuine black leather upper, glove leather lining, 1.25 inch stacked leather heel, elastic gores. All Standard US4-13 in half sizes available. Broad sizes; exact variant default is US4, shopper must choose correct size."
+      }
+    },
+    {
+      "id": "p-da7d00ef0d",
+      "title": "Classic Chelsea Ankle Booties — Black PU",
+      "url": "https://www.dreampairs.com/products/dab213?kid=23928",
+      "priceCents": 4999,
+      "currency": "USD",
+      "image": "/products/price-tiers/p-da7d00ef0d.webp",
+      "merchantImage": "/products/price-tiers/p-da7d00ef0d.webp",
+      "sourceImages": [
+        "https://cdnimg.dreampairs.com/dreampairshoes/product/product/DAB213/BLACK%20PU/1.jpg"
+      ],
+      "availability": "in_stock",
+      "sizes": [],
+      "merchantId": "dreampairs-com",
+      "tagSlugs": [],
+      "description": "Budget material compromise: imitation synthetic leather rather than genuine leather. Ankle-high Chelsea, 1.25 inch heel, 0.75 inch platform. Merchant JSON-LD lists black USD49.99 InStock; live HTML exact-size inventory counts positive for all 12 listed US sizes. Size8 kid23928 count1806. Hidden generic SOLD OUT text is contradicted by variant inventory and InStock offer; verified source HTML retained /tmp/dreampairs-moon-boots.html.",
+      "checkedAt": "2026-10-26T10:01:10.994Z",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-25T07:07:04.071733+00:00",
+        "url": "https://www.dreampairs.com/products/dab213?color=2038",
+        "notes": "Budget material compromise: imitation synthetic leather rather than genuine leather. Ankle-high Chelsea, 1.25 inch heel, 0.75 inch platform. Merchant JSON-LD lists black USD49.99 InStock; live HTML exact-size inventory counts positive for all 12 listed US sizes. Size8 kid23928 count1806. Hidden generic SOLD OUT text is contradicted by variant inventory and InStock offer; verified source HTML retained /tmp/dreampairs-moon-boots.html."
+      }
+    },
+    {
+      "id": "p-862b138943",
+      "title": "Women's Originals #510",
+      "url": "https://www.blundstone.com/products/black-premium-leather-v-cut-boots-womens-style-510?variant=53192323596595",
+      "priceCents": 20995,
+      "currency": "USD",
+      "image": "/products/price-tiers/p-862b138943.webp",
+      "merchantImage": "/products/price-tiers/p-862b138943.webp",
+      "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/0903/6349/4707/files/product-image_2026-10-12_510_p_usa_hero.jpg?v=1791961602"
+      ],
+      "availability": "in_stock",
+      "sizes": [
+        "6 US Women (3 AU/UK)",
+        "6.5 US Women (3.5 AU/UK)",
+        "7 US Women (4 AU/UK)",
+        "7.5 US Women (4.5 AU/UK)",
+        "8 US Women (5 AU/UK)",
+        "8.5 US Women (5.5 AU/UK)",
+        "9 US Women (6 AU/UK)",
+        "9.5 US Women (6.5 AU/UK)",
+        "10 US Women (7 AU/UK)",
+        "10.5 US Women (7.5 AU/UK)",
+        "11 US Women (8 AU/UK)",
+        "11.5 US Women (8.5 AU/UK)",
+        "12 US Women (9 AU/UK)",
+        "12.5 US Women (9.5 AU/UK)",
+        "13 US Women (10 AU/UK)",
+        "14 US Women (11 AU/UK)",
+        "15 US Women (12 AU/UK)",
+        "16 US Women (13 AU/UK)",
+        "5 US Women (2 UK/AU)",
+        "6 US Women (3 UK/AU)",
+        "6.5 US Women (3.5 UK/AU)",
+        "7 US Women (4 UK/AU)",
+        "7.5 US Women (4.5 UK/AU)",
+        "8 US Women (5 UK/AU)",
+        "8.5 US Women (5.5 UK/AU)",
+        "9 US Women (6 UK/AU)",
+        "9.5 US Women (6.5 UK/AU)",
+        "10 US Women (7 UK/AU)",
+        "10.5 US Women (7.5 UK/AU)",
+        "11 US Women (8 UK/AU)",
+        "11.5 US Women (8.5 UK/AU)",
+        "12 US Women (9 UK/AU)",
+        "12.5 US Women (9.5 UK/AU)",
+        "13 US Women (10 UK/AU)",
+        "13.5 US Women (10.5 UK/AU)",
+        "14 US Women (11 UK/AU)",
+        "15 US Women (12 UK/AU)",
+        "16 US Women (13 UK/AU)"
+      ],
+      "merchantId": "blundstone-com",
+      "tagSlugs": [],
+      "description": "Black premium water-resistant leather classic flat Chelsea boot. Live public feed USD209.95, not stale search result199.95. Available USwomen5-16; two equivalent AU/UK label sets in merchant variants, deduplicate before display. Exact first available variant is USwomen6.",
+      "checkedAt": "2026-10-26T10:01:11.130Z",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-25T07:07:04.071733+00:00",
+        "url": "https://www.blundstone.com/products/black-premium-leather-v-cut-boots-womens-style-510.js",
+        "notes": "Black premium water-resistant leather classic flat Chelsea boot. Live public feed USD209.95, not stale search result199.95. Available USwomen5-16; two equivalent AU/UK label sets in merchant variants, deduplicate before display. Exact first available variant is USwomen6."
+      }
+    },
+    {
+      "id": "p-368be886f2",
+      "title": "Fancy Court Pirate Shirt",
+      "url": "https://piratefashions.com/products/fancy-court-pirate-shirt?variant=9215160909884",
+      "priceCents": 9000,
+      "currency": "USD",
+      "image": "/products/price-tiers/p-368be886f2.webp",
+      "merchantImage": "/products/price-tiers/p-368be886f2.webp",
+      "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/0358/8265/products/court_shirt1.jpg?v=1571274870"
+      ],
+      "availability": "in_stock",
+      "sizes": [
+        "L/XL 48 R",
+        "XXL 54"
+      ],
+      "merchantId": "piratefashions-com",
+      "tagSlugs": [],
+      "description": "White cotton-linen shirt includes detachable lace-edged neck jabot and adjustable lace cuffs. White differs from ivory. Listed sizes have physical stock; S/M 42 is sold out and excluded. Other pictured clothing is excluded. Merchant FAQ states normal 24-hour packing for fully stocked orders; no delivery date promised.",
+      "checkedAt": "2026-10-26T10:01:08.756Z",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-25T08:47:48Z",
+        "url": "https://piratefashions.com/products/fancy-court-pirate-shirt.js",
+        "notes": "White cotton-linen shirt includes detachable lace-edged neck jabot and adjustable lace cuffs. White differs from ivory. Listed sizes have physical stock; S/M 42 is sold out and excluded. Other pictured clothing is excluded. Merchant FAQ states normal 24-hour packing for fully stocked orders; no delivery date promised."
+      }
+    },
+    {
+      "id": "p-4d5ad424a6",
+      "title": "New Colonies White Ruffle Shirt",
+      "url": "https://www.costumesandcollectibles.com/products/new-colonies-white-ruffle-shirt?variant=21374030905403",
+      "priceCents": 6995,
+      "currency": "USD",
+      "image": "/products/price-tiers/p-4d5ad424a6.webp",
+      "merchantImage": "/products/price-tiers/p-4d5ad424a6.webp",
+      "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/1485/9888/products/0009877_0.jpeg?v=1567510722"
+      ],
+      "availability": "in_stock",
+      "sizes": [
+        "Small",
+        "Medium",
+        "Large",
+        "X-Large"
+      ],
+      "merchantId": "costumesandcollectibles-com",
+      "tagSlugs": [],
+      "description": "White rather than ivory. Polyester shirt has a high collar, three front ruffle rows, cuff ruffles, and white/silver buttons. Shirt only. Feed exposes positive inventory for all four listed sizes.",
+      "checkedAt": "2026-10-26T10:01:08.711Z",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-25T08:47:48Z",
+        "url": "https://www.costumesandcollectibles.com/products/new-colonies-white-ruffle-shirt.js",
+        "notes": "White rather than ivory. Polyester shirt has a high collar, three front ruffle rows, cuff ruffles, and white/silver buttons. Shirt only. Feed exposes positive inventory for all four listed sizes."
+      }
+    },
+    {
+      "id": "p-d37d64fa7f",
+      "title": "Pirate Shirt for Men Costume",
+      "url": "https://www.romaretailshop.com/products/pirate-shirt-for-men-costume?variant=33765644206218",
+      "priceCents": 1200,
+      "currency": "USD",
+      "image": "/products/price-tiers/p-d37d64fa7f.webp",
+      "merchantImage": "/products/price-tiers/p-d37d64fa7f.webp",
+      "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/0378/4186/2794/products/4651.jpg?v=1588888929"
+      ],
+      "availability": "in_stock",
+      "sizes": [
+        "Small"
+      ],
+      "merchantId": "romaretailshop-com",
+      "tagSlugs": [],
+      "description": "Ivory shirt with ruffles and lace-up neckline; shirt only. Only Small is available at $12; sold-out Medium has a different price. Made in USA. Merchant advertises same-day US dispatch before 5pm EST Monday-Friday, excluding holidays.",
+      "checkedAt": "2026-10-26T10:01:09.013Z",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-25T08:47:48Z",
+        "url": "https://www.romaretailshop.com/products/pirate-shirt-for-men-costume.js",
+        "notes": "Ivory shirt with ruffles and lace-up neckline; shirt only. Only Small is available at $12; sold-out Medium has a different price. Made in USA. Merchant advertises same-day US dispatch before 5pm EST Monday-Friday, excluding holidays."
+      }
+    },
+    {
+      "id": "e-b8d2d05059",
+      "title": "Sequin Embellished Velvet Maxi Skirt with Side Pockets",
+      "url": "https://www.thelittlebazaar.com/item/5620.html",
+      "priceCents": 4499,
+      "currency": "USD",
+      "image": "/products/price-tiers/e-b8d2d05059.webp",
+      "merchantImage": "/products/price-tiers/e-b8d2d05059.webp",
+      "sourceImages": [
+        "https://www.thelittlebazaar.com/m/Clothing/5620-sequin-embellished-velvet-maxi-skirt-with-side-pockets-fb.jpg"
+      ],
+      "availability": "in_stock",
+      "sizes": [
+        "One size"
+      ],
+      "merchantId": "expansion-e-thelittlebazaar-com",
+      "tagSlugs": [],
+      "description": "Primary merchant HTML shows live Buy control at USD 44.99 and limited quantity. Burgundy micro velvet with gold embroidery and sequins; more embellished than the plain reference. Elastic waist one size; check the merchant measurements. No blouse included.",
+      "checkedAt": "2026-10-27T00:30:40.926512Z",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-27T00:30:40.926512Z",
+        "url": "https://www.thelittlebazaar.com/item/5620.html",
+        "notes": "Primary merchant HTML shows live Buy control at USD 44.99 and limited quantity. Burgundy micro velvet with gold embroidery and sequins; more embellished than the plain reference. Elastic waist one size; check the merchant measurements. No blouse included."
+      }
+    },
+    {
+      "id": "e-d743aa9de3",
+      "title": "The Ruth Burgundy Maxi Skirt — Medium",
+      "url": "https://lizmareeboutique.com/products/the-ruth-burgundy-maxi-skirt?variant=45158295732420",
+      "priceCents": 5499,
+      "currency": "USD",
+      "image": "/products/price-tiers/e-d743aa9de3.webp",
+      "merchantImage": "/products/price-tiers/e-d743aa9de3.webp",
+      "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/0528/1074/4004/files/54A58DB1-D8D6-40DA-BBBE-1319A261FA86.jpg?v=1757451103"
+      ],
+      "availability": "in_stock",
+      "sizes": [
+        "Medium"
+      ],
+      "merchantId": "expansion-e-lizmareeboutique-com",
+      "tagSlugs": [],
+      "description": "Merchant feed confirms Medium is available at $54.99. Burgundy lined maxi skirt with elastic waist, pockets and pleated tiers. Fabric finish differs from the velvet reference; blouse not included.",
+      "checkedAt": "2026-10-27T00:30:40.926512Z",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-27T00:30:40.926512Z",
+        "url": "https://lizmareeboutique.com/products/the-ruth-burgundy-maxi-skirt?variant=45158295732420",
+        "notes": "Merchant feed confirms Medium is available at $54.99. Burgundy lined maxi skirt with elastic waist, pockets and pleated tiers. Fabric finish differs from the velvet reference; blouse not included."
+      }
+    },
+    {
+      "id": "e-5d2008e2c1",
+      "title": "Burgundy Eyelet Scalloped Maxi Skirt — S / Maroon",
+      "url": "https://shopthe99.boutique/products/burgundy-eyelet-scalloped-maxi-skirt?variant=47468227985497",
+      "priceCents": 8200,
+      "currency": "USD",
+      "image": "/products/price-tiers/e-5d2008e2c1.webp",
+      "merchantImage": "/products/price-tiers/e-5d2008e2c1.webp",
+      "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/0076/8298/1939/files/1a695c1bb2afe8a39df3f2b4805bb80a9b48c5e84647506390879069e561af74.jpg?v=1792037339"
+      ],
+      "availability": "in_stock",
+      "sizes": [
+        "S / Maroon",
+        "M / Maroon",
+        "L / Maroon"
+      ],
+      "merchantId": "expansion-e-shopthe99-boutique",
+      "tagSlugs": [],
+      "description": "Merchant feed confirms S, M and L in Maroon at $82. Burgundy polyester eyelet lace, lined with side pockets and scalloped hem; this is lace rather than velvet.",
+      "checkedAt": "2026-10-27T00:30:40.926512Z",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-27T00:30:40.926512Z",
+        "url": "https://shopthe99.boutique/products/burgundy-eyelet-scalloped-maxi-skirt?variant=47468227985497",
+        "notes": "Merchant feed confirms S, M and L in Maroon at $82. Burgundy polyester eyelet lace, lined with side pockets and scalloped hem; this is lace rather than velvet."
+      }
+    }
+  ],
+  "merchants": [
+    {
+      "id": "thursdayboots-com",
+      "name": "Thursday Boot Company",
+      "domain": "thursdayboots.com",
+      "url": "https://thursdayboots.com/",
+      "kind": "boutique",
+      "neighborhoodId": null
+    },
+    {
+      "id": "piratefashions-com",
+      "name": "Pirate Fashions",
+      "domain": "piratefashions.com",
+      "url": "https://piratefashions.com/",
+      "kind": "boutique",
+      "neighborhoodId": null
+    },
+    {
+      "id": "expansion-e-thecosplaypros-com",
+      "name": "Cosplay Pros",
+      "domain": "thecosplaypros.com",
+      "url": "https://thecosplaypros.com",
+      "kind": "boutique",
+      "neighborhoodId": null
+    },
+    {
+      "id": "romaretailshop-com",
+      "name": "Roma Retail Shop",
+      "domain": "romaretailshop.com",
+      "url": "https://romaretailshop.com/",
+      "kind": "boutique",
+      "neighborhoodId": null
+    },
+    {
+      "id": "expansion-e-shopthe99-boutique",
+      "name": "Ninety Nine Boutique",
+      "domain": "shopthe99.boutique",
+      "url": "https://shopthe99.boutique",
+      "kind": "boutique",
+      "neighborhoodId": null
+    },
+    {
+      "id": "expansion-e-lizmareeboutique-com",
+      "name": "Liz Maree Boutique",
+      "domain": "lizmareeboutique.com",
+      "url": "https://lizmareeboutique.com",
+      "kind": "boutique",
+      "neighborhoodId": null
+    },
+    {
+      "id": "expansion-e-thelittlebazaar-com",
+      "name": "The Little Bazaar",
+      "domain": "thelittlebazaar.com",
+      "url": "https://thelittlebazaar.com",
+      "kind": "boutique",
+      "neighborhoodId": null
+    },
+    {
+      "id": "costumesandcollectibles-com",
+      "name": "Costumes & Collectibles",
+      "domain": "costumesandcollectibles.com",
+      "url": "https://costumesandcollectibles.com/",
+      "kind": "boutique",
+      "neighborhoodId": null
+    },
+    {
+      "id": "dreampairs-com",
+      "name": "DREAM PAIRS",
+      "domain": "dreampairs.com",
+      "url": "https://dreampairs.com/",
+      "kind": "boutique",
+      "neighborhoodId": null
+    },
+    {
+      "id": "blundstone-com",
+      "name": "Blundstone",
+      "domain": "blundstone.com",
+      "url": "https://blundstone.com/",
+      "kind": "boutique",
+      "neighborhoodId": null
+    }
+  ],
+  "neighborhoods": [],
+  "tags": [],
+  "provenance": {
+    "method": "manual-research",
+    "generatedAt": "2026-10-27T00:28:53.880632Z",
+    "notes": "2026 catalog expansion. Defining accessories sourced through built-in web search and primary merchant pages/public feeds. Suitable basics reuse reviewed catalog records without changing their checkedAt dates. Generated references show styling, not the exact products. DIY items are raw supplies; assembly extras and owned wardrobe basics are explicit in piece notes. Publication carries forward newer shared-product price, stock, size and check timestamps from the live database; original sourcing evidence is retained.",
+    "priceTiers": true,
+    "heroImageKind": "generated-reference"
+  }
+}

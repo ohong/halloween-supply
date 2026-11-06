@@ -1,0 +1,239 @@
+{
+  "slug": "storm-chaser",
+  "base": "http://localhost:3000",
+  "model": "opencv-5:5.0.0;stock",
+  "elapsedMs": 30624,
+  "done": {
+    "t": "done",
+    "found": 2,
+    "priced": 0,
+    "timedOut": true,
+    "ms": 30005
+  },
+  "pieces": [
+    "gold hooded utility jacket",
+    "navy utility trousers",
+    "black tall riding boots"
+  ],
+  "approvals": [
+    {
+      "i": 0,
+      "because": "budget_low"
+    }
+  ],
+  "retries": [],
+  "improvedPieces": [],
+  "trace": [
+    {
+      "t_ms": 17418,
+      "piece": null,
+      "step": "perceive",
+      "detail": {
+        "person": {
+          "found": true,
+          "bbox": [
+            331,
+            19,
+            364,
+            979
+          ],
+          "confidence": 0.966
+        },
+        "timings_ms": {
+          "decode": 5,
+          "segment": 11792,
+          "colors": 159,
+          "embed": 4138,
+          "classify": 8,
+          "total": 16117
+        },
+        "pieces": [
+          {
+            "id": "p0",
+            "region": "upper_clothes",
+            "slot": "top",
+            "area_frac": 0.1337,
+            "pattern": "solid",
+            "query": "plain gold hooded utility jacket",
+            "alternate": "gold hooded jacket",
+            "colors": [
+              {
+                "name": "gold",
+                "hex": "#ca8e24",
+                "frac": 0.742
+              },
+              {
+                "name": "black",
+                "hex": "#2c2227",
+                "frac": 0.16
+              },
+              {
+                "name": "silver",
+                "hex": "#cec3b7",
+                "frac": 0.099
+              }
+            ],
+            "garment_types": [
+              {
+                "phrase": "hooded utility jacket",
+                "score": 0.3028
+              },
+              {
+                "phrase": "hooded raincoat",
+                "score": 0.2849
+              },
+              {
+                "phrase": "beekeeper jacket",
+                "score": 0.2804
+              }
+            ]
+          },
+          {
+            "id": "p1",
+            "region": "pants",
+            "slot": "bottom",
+            "area_frac": 0.0493,
+            "pattern": "solid",
+            "query": "navy utility trousers",
+            "alternate": "navy work pants",
+            "colors": [
+              {
+                "name": "navy",
+                "hex": "#222432",
+                "frac": 0.802
+              },
+              {
+                "name": "navy",
+                "hex": "#3c4054",
+                "frac": 0.198
+              }
+            ],
+            "garment_types": [
+              {
+                "phrase": "utility trousers",
+                "score": 0.3082
+              },
+              {
+                "phrase": "waterproof trousers",
+                "score": 0.2951
+              },
+              {
+                "phrase": "cargo pants",
+                "score": 0.2897
+              }
+            ]
+          },
+          {
+            "id": "p2",
+            "region": "shoes",
+            "slot": "feet",
+            "area_frac": 0.0253,
+            "pattern": "solid",
+            "query": "black tall riding boots",
+            "alternate": "black riding boots",
+            "colors": [
+              {
+                "name": "black",
+                "hex": "#212128",
+                "frac": 0.643
+              },
+              {
+                "name": "charcoal",
+                "hex": "#3b3b43",
+                "frac": 0.322
+              },
+              {
+                "name": "gray",
+                "hex": "#8f9097",
+                "frac": 0.035
+              }
+            ],
+            "garment_types": [
+              {
+                "phrase": "tall riding boots",
+                "score": 0.2981
+              },
+              {
+                "phrase": "wellington boots",
+                "score": 0.2971
+              },
+              {
+                "phrase": "knee-high boots",
+                "score": 0.2966
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "t_ms": 23356,
+      "piece": 0,
+      "step": "search",
+      "detail": {
+        "attempt": 0,
+        "query": "plain gold hooded utility jacket",
+        "candidates": 3,
+        "ms": 5938
+      }
+    },
+    {
+      "t_ms": 28636,
+      "piece": 0,
+      "step": "score",
+      "detail": {
+        "attempt": 0,
+        "results": [
+          {
+            "title": "The Essential Cotton Twill Utility Jacket",
+            "merchant": "wildfang.com",
+            "score": 0.4315,
+            "verdict": "weak",
+            "reasons": [
+              "color_mismatch"
+            ],
+            "embedding": 0.8246,
+            "delta_e": 52.42,
+            "color": {
+              "name": "black",
+              "hex": "#24232a"
+            },
+            "foreground": "segmenter"
+          }
+        ]
+      }
+    },
+    {
+      "t_ms": 28636,
+      "piece": 0,
+      "step": "decide",
+      "detail": {
+        "attempt": 0,
+        "action": "approve",
+        "because": "budget_low",
+        "best_score": 0.4315
+      }
+    },
+    {
+      "t_ms": 28636,
+      "piece": 0,
+      "step": "approve",
+      "detail": {
+        "because": "budget_low",
+        "score": 0.4315,
+        "title": "The Essential Cotton Twill Utility Jacket"
+      }
+    },
+    {
+      "t_ms": 29476,
+      "piece": 2,
+      "step": "search",
+      "detail": {
+        "attempt": 0,
+        "query": "black tall riding boots",
+        "candidates": 3,
+        "ms": 12058
+      }
+    }
+  ]
+}

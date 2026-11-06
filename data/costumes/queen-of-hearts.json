@@ -1,0 +1,409 @@
+{
+  "costume": {
+    "slug": "queen-of-hearts",
+    "name": "Queen of Hearts",
+    "description": "A dramatic red-and-black card gown and sculpted red wig turn every doorway into a royal entrance.",
+    "image": "/costumes/queen-of-hearts.png",
+    "alt": "Queen of Hearts in a red and black heart-motif gown, a red heart-shaped wig, small crown, and black boots.",
+    "status": "live"
+  },
+  "pieces": [
+    {
+      "id": "queen-of-hearts-gown",
+      "name": "Queen of Hearts dress or gown set",
+      "category": "one-piece",
+      "required": true,
+      "order": 0,
+      "styleNotes": "The middle and premium sets include headpieces. The lowest-price plus-size dress has separate sleeves and no crown. Shapes differ; compare merchant photographs.",
+      "queries": [
+        "Queen of Hearts dress or gown set"
+      ],
+      "sizeKind": "apparel",
+      "matches": [
+        {
+          "productId": "p-exp-c-04a31f38d973",
+          "rank": 0,
+          "reason": "Transform into the royal and ruthless Queen of Hearts with this deluxe adult costume. With its intricate details and regal design, you'll rule the Halloween party in style. Show off your inner villain and make a statement that's truly off with their heads! Includes: Dress Headpiece (Makeup not included) Officially Licensed Dress and headpiece included. Makeup and shoes are not included. Use the merchant size labels; these are costume sizes."
+        },
+        {
+          "productId": "p-exp-c-84d751c02e94",
+          "rank": 1,
+          "reason": "You'll have heads rolling for sure with this sassy Queen of Hearts costume. From the heart shaped top to the zebra print cape, this is one hot take on a beloved character. Pair with fishnets for a truly stunning ensemble Costume Includes: Dress 2x Sleeves Only 18w-20w is available. Includes dress and two sleeves; crown is not included. Zebra-print cape styling differs from the classic long red/black card gown."
+        },
+        {
+          "productId": "p-exp-c-89e69030ed3c",
+          "rank": 2,
+          "reason": "Turn into the most glamorous villain of all as the Queen of Hearts with this Royal Red Queen costume from Chicago Costume! Perfect for Halloween, cosplay, or themed parties. Includes dress, sash, and crown accessory. Adult size Small. Adult Small only per description, despite Default Title variant label. Includes dress, sash, and crown accessory. No larger size is confirmed."
+        }
+      ]
+    },
+    {
+      "id": "queen-of-hearts-wig",
+      "name": "Red Queen wig",
+      "category": "headwear",
+      "required": true,
+      "order": 1,
+      "styleNotes": "Choose the heart-shaped red wig for the reference silhouette. Alternatives offer looser or darker styling; no crown is included with a wig.",
+      "queries": [
+        "Red Queen wig"
+      ],
+      "sizeKind": "one_size",
+      "matches": [
+        {
+          "productId": "p-exp-c-0ac54a720391",
+          "rank": 0,
+          "reason": "Off with their heads! Red 100% synthetic fiber wig shaped to resemble a heart. Crown and dress not included. Includes: Red Queen wig Heart-shaped red synthetic wig only. Crown and dress excluded."
+        },
+        {
+          "productId": "p-exp-c-b5f112a65083",
+          "rank": 1,
+          "reason": "If you prefer your fairytales with a twist then this evil queen wig is just for you! One size fits most adults. Adult one-size wig; darker twisted-fairytale styling rather than the reference smooth heart shape."
+        },
+        {
+          "productId": "p-exp-c-593fd401383f",
+          "rank": 2,
+          "reason": "We're all mad here. With that said... off with your head! Get lost in wonderland with the Red Queen wig. One size fits most, to ensure all day wear, secure the unit with bobbypins. Includes: Red Queen wig Red Queen wig only. One size fits most. Merchant recommends securing it with bobby pins."
+        }
+      ]
+    },
+    {
+      "id": "queen-of-hearts-boots",
+      "name": "Black lace-up boots",
+      "category": "footwear",
+      "required": true,
+      "order": 2,
+      "styleNotes": "Black ankle boots with visible lacing finish the outfit. These pairs have no crescent or star embroidery; heels and soles differ from the reference.",
+      "queries": [
+        "black lace up ankle boots women",
+        "black Victorian lace up boots"
+      ],
+      "sizeKind": "shoe",
+      "matches": [
+        {
+          "productId": "p-982c5731f8",
+          "rank": 0,
+          "reason": "Black full-grain leather lace-up combat boot with glove-leather lining, YKK side zipper, 6-inch shaft, 1.5-inch heel and rubber outsole. No celestial embroidery. Standard-width women’s US 5–12, including all offered half sizes, are available at $190. This option represents Standard width only. Pair of boots; free domestic US ground shipping is offered, but arrival is not verified."
+        },
+        {
+          "productId": "p-ed0b6d3416",
+          "rank": 1,
+          "reason": "Black faux-leather combat boots with lace front, inner zipper, microfiber lining and chunky treaded rubber sole. 1.8-inch heel; more casual than the reference decorative heeled boots. Pair of boots only. Feed confirms US women’s 6, 6.5, 7, 7.5, 8, 8.5, 9, 9.5, 10 and 11 available at the current $55.97 sale price; 12 is sold out. US direct store; dispatch timing is not stated."
+        },
+        {
+          "productId": "p-9ceb60b1a5",
+          "rank": 2,
+          "reason": "Black calf-leather Balmoral ankle boots with cotton-twill/pigskin lining, leather soles, adjustable laces, 5-inch shaft and 1-inch heel. Vintage shape; no stars or crescent detail and a lower heel than the reference. Pair of boots. Current feed confirms women’s US 5, 6, 6.5, 7, 7.5, 8, 8.5, 9, 9.5, 10 and 12 at $285; 10.5 and 11 are unavailable. Regular B width. US merchant; dispatch date is not stated."
+        }
+      ]
+    }
+  ],
+  "products": [
+    {
+      "id": "p-exp-c-04a31f38d973",
+      "title": "Queen of Hearts - Disney Villain Deluxe Adult Costume",
+      "url": "https://chicagocostume.com/products/queen-of-hearts-disney-villain-deluxe-adult-costume?variant=47546436452594",
+      "priceCents": 12999,
+      "currency": "USD",
+      "image": "/products/price-tiers/p-exp-c-04a31f38d973.webp",
+      "merchantImage": "/products/price-tiers/p-exp-c-04a31f38d973.webp",
+      "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/0610/0208/8690/files/81BmquO9FpL._AC_SY741.jpg?v=1746632334"
+      ],
+      "availability": "in_stock",
+      "sizes": [
+        "Small (4-6X)",
+        "Medium (8-10)",
+        "Large (12-14)",
+        "X-Large (18-20)"
+      ],
+      "merchantId": "chicagocostume-com",
+      "tagSlugs": [],
+      "description": "Transform into the royal and ruthless Queen of Hearts with this deluxe adult costume. With its intricate details and regal design, you'll rule the Halloween party in style. Show off your inner villain and make a statement that's truly off with their heads! Includes: Dress Headpiece (Makeup not included) Officially Licensed Dress and headpiece included. Makeup and shoes are not included. Use the merchant size labels; these are costume sizes.",
+      "checkedAt": "2026-10-27T00:28:36.827435Z",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-27T00:28:36.827435Z",
+        "url": "https://chicagocostume.com/products.json",
+        "notes": "Merchant public JSON feed confirms selected variant available at the listed USD price. Dress and headpiece included. Makeup and shoes are not included. Use the merchant size labels; these are costume sizes. Delivery is unconfirmed."
+      }
+    },
+    {
+      "id": "p-exp-c-84d751c02e94",
+      "title": "Sunnywood Women's Plus-Size Lava Diva Queen Of Hearts Costume",
+      "url": "https://chicagocostume.com/products/sunnywood-womens-plus-size-lava-diva-queen-of-hearts-costume?variant=44639930908914",
+      "priceCents": 2999,
+      "currency": "USD",
+      "image": "/products/price-tiers/p-exp-c-84d751c02e94.webp",
+      "merchantImage": "/products/price-tiers/p-exp-c-84d751c02e94.webp",
+      "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/0610/0208/8690/files/71unK47xkSL._AC_UY741.jpg?v=1693861601"
+      ],
+      "availability": "in_stock",
+      "sizes": [
+        "18w-20w"
+      ],
+      "merchantId": "chicagocostume-com",
+      "tagSlugs": [],
+      "description": "You'll have heads rolling for sure with this sassy Queen of Hearts costume. From the heart shaped top to the zebra print cape, this is one hot take on a beloved character. Pair with fishnets for a truly stunning ensemble Costume Includes: Dress 2x Sleeves Only 18w-20w is available. Includes dress and two sleeves; crown is not included. Zebra-print cape styling differs from the classic long red/black card gown.",
+      "checkedAt": "2026-10-27T00:28:36.827435Z",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-27T00:28:36.827435Z",
+        "url": "https://chicagocostume.com/collections/alice-in-wonderland/products.json?limit=250",
+        "notes": "Merchant public JSON feed confirms selected variant available at the listed USD price. Only 18w-20w is available. Includes dress and two sleeves; crown is not included. Zebra-print cape styling differs from the classic long red/black card gown. Delivery is unconfirmed."
+      }
+    },
+    {
+      "id": "p-exp-c-89e69030ed3c",
+      "title": "Royal Red Queen Deluxe Adult Costume",
+      "url": "https://chicagocostume.com/products/royal-red-queen-deluxe-adult-costume?variant=42498032271602",
+      "priceCents": 18999,
+      "currency": "USD",
+      "image": "/products/price-tiers/p-exp-c-89e69030ed3c.webp",
+      "merchantImage": "/products/price-tiers/p-exp-c-89e69030ed3c.webp",
+      "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/0610/0208/8690/products/image_8aacbd3c-5590-412c-81e4-df228f255ac3.jpg?v=1645740695"
+      ],
+      "availability": "in_stock",
+      "sizes": [
+        "Adult Small"
+      ],
+      "merchantId": "chicagocostume-com",
+      "tagSlugs": [],
+      "description": "Turn into the most glamorous villain of all as the Queen of Hearts with this Royal Red Queen costume from Chicago Costume! Perfect for Halloween, cosplay, or themed parties. Includes dress, sash, and crown accessory. Adult size Small. Adult Small only per description, despite Default Title variant label. Includes dress, sash, and crown accessory. No larger size is confirmed.",
+      "checkedAt": "2026-10-27T00:28:36.827435Z",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-27T00:28:36.827435Z",
+        "url": "https://chicagocostume.com/collections/alice-in-wonderland/products.json?limit=250",
+        "notes": "Merchant public JSON feed confirms selected variant available at the listed USD price. Adult Small only per description, despite Default Title variant label. Includes dress, sash, and crown accessory. No larger size is confirmed. Delivery is unconfirmed."
+      }
+    },
+    {
+      "id": "p-exp-c-0ac54a720391",
+      "title": "Red Queen Wig - Adult Wig",
+      "url": "https://chicagocostume.com/products/red-queen-wig-adult-wig?variant=44561757339890",
+      "priceCents": 2999,
+      "currency": "USD",
+      "image": "/products/price-tiers/p-exp-c-0ac54a720391.webp",
+      "merchantImage": "/products/price-tiers/p-exp-c-0ac54a720391.webp",
+      "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/0610/0208/8690/files/714V8gELX_L._AC_UY741.jpg?v=1687879959"
+      ],
+      "availability": "in_stock",
+      "sizes": [],
+      "merchantId": "chicagocostume-com",
+      "tagSlugs": [],
+      "description": "Off with their heads! Red 100% synthetic fiber wig shaped to resemble a heart. Crown and dress not included. Includes: Red Queen wig Heart-shaped red synthetic wig only. Crown and dress excluded.",
+      "checkedAt": "2026-10-27T00:28:36.827435Z",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-27T00:28:36.827435Z",
+        "url": "https://chicagocostume.com/collections/alice-in-wonderland/products.json?limit=250",
+        "notes": "Merchant public JSON feed confirms selected variant available at the listed USD price. Heart-shaped red synthetic wig only. Crown and dress excluded. Delivery is unconfirmed."
+      }
+    },
+    {
+      "id": "p-exp-c-b5f112a65083",
+      "title": "Twisted Queen of Broken Hearts Wig",
+      "url": "https://chicagocostume.com/products/twisted-queen-of-broken-hearts-wig?variant=42138033357042",
+      "priceCents": 1199,
+      "currency": "USD",
+      "image": "/products/price-tiers/p-exp-c-b5f112a65083.webp",
+      "merchantImage": "/products/price-tiers/p-exp-c-b5f112a65083.webp",
+      "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/0610/0208/8690/products/img_proxy_a7e32e69-9a2f-4047-96c6-077c52a1422e.jpg?v=1638516288"
+      ],
+      "availability": "in_stock",
+      "sizes": [],
+      "merchantId": "chicagocostume-com",
+      "tagSlugs": [],
+      "description": "If you prefer your fairytales with a twist then this evil queen wig is just for you! One size fits most adults. Adult one-size wig; darker twisted-fairytale styling rather than the reference smooth heart shape.",
+      "checkedAt": "2026-10-27T00:28:36.827435Z",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-27T00:28:36.827435Z",
+        "url": "https://chicagocostume.com/collections/alice-in-wonderland/products.json?limit=250",
+        "notes": "Merchant public JSON feed confirms selected variant available at the listed USD price. Adult one-size wig; darker twisted-fairytale styling rather than the reference smooth heart shape. Delivery is unconfirmed."
+      }
+    },
+    {
+      "id": "p-exp-c-593fd401383f",
+      "title": "Red Queen Wig",
+      "url": "https://chicagocostume.com/products/red-queen-wig?variant=42141172105458",
+      "priceCents": 2499,
+      "currency": "USD",
+      "image": "/products/price-tiers/p-exp-c-593fd401383f.webp",
+      "merchantImage": "/products/price-tiers/p-exp-c-593fd401383f.webp",
+      "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/0610/0208/8690/products/img_proxy_d84aa23e-b27f-4dfe-b83c-7d9a0fb00292.jpg?v=1638565435"
+      ],
+      "availability": "in_stock",
+      "sizes": [],
+      "merchantId": "chicagocostume-com",
+      "tagSlugs": [],
+      "description": "We're all mad here. With that said... off with your head! Get lost in wonderland with the Red Queen wig. One size fits most, to ensure all day wear, secure the unit with bobbypins. Includes: Red Queen wig Red Queen wig only. One size fits most. Merchant recommends securing it with bobby pins.",
+      "checkedAt": "2026-10-27T00:28:36.827435Z",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-27T00:28:36.827435Z",
+        "url": "https://chicagocostume.com/collections/alice-in-wonderland/products.json?limit=250",
+        "notes": "Merchant public JSON feed confirms selected variant available at the listed USD price. Red Queen wig only. One size fits most. Merchant recommends securing it with bobby pins. Delivery is unconfirmed."
+      }
+    },
+    {
+      "id": "p-9ceb60b1a5",
+      "title": "Rainey Vintage Lace-Up Boots (Black)",
+      "url": "https://www.americanduchess.com/products/rainey-womens-vintage-lace-up-boots-black?variant=42358320824470",
+      "priceCents": 28500,
+      "currency": "USD",
+      "image": "/products/price-tiers/p-9ceb60b1a5.webp",
+      "merchantImage": "/products/price-tiers/p-9ceb60b1a5.webp",
+      "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/0450/5721/2566/products/rainey-vintage-boots-dandy-wellington-black-of.jpg?v=1671580774"
+      ],
+      "availability": "in_stock",
+      "sizes": [
+        "5",
+        "6",
+        "6.5",
+        "7",
+        "7.5",
+        "8",
+        "8.5",
+        "9",
+        "9.5",
+        "10",
+        "12"
+      ],
+      "merchantId": "americanduchess-com",
+      "tagSlugs": [],
+      "description": "Black calf-leather Balmoral ankle boots with cotton-twill/pigskin lining, leather soles, adjustable laces, 5-inch shaft and 1-inch heel. Vintage shape; no stars or crescent detail and a lower heel than the reference. Pair of boots. Current feed confirms women’s US 5, 6, 6.5, 7, 7.5, 8, 8.5, 9, 9.5, 10 and 12 at $285; 10.5 and 11 are unavailable. Regular B width. US merchant; dispatch date is not stated.",
+      "checkedAt": "2026-10-26T10:00:37.837Z",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-25T08:48:40.074055Z",
+        "url": "https://www.americanduchess.com/products/rainey-womens-vintage-lace-up-boots-black.js",
+        "notes": "Black calf-leather Balmoral ankle boots with cotton-twill/pigskin lining, leather soles, adjustable laces, 5-inch shaft and 1-inch heel. Vintage shape; no stars or crescent detail and a lower heel than the reference. Pair of boots. Current feed confirms women’s US 5, 6, 6.5, 7, 7.5, 8, 8.5, 9, 9.5, 10 and 12 at $285; 10.5 and 11 are unavailable. Regular B width. US merchant; dispatch date is not stated."
+      }
+    },
+    {
+      "id": "p-982c5731f8",
+      "title": "Combat | Black",
+      "url": "https://thursdayboots.com/products/womens-combat-boot-black?variant=32904484126810",
+      "priceCents": 19000,
+      "currency": "USD",
+      "image": "/products/price-tiers/p-982c5731f8.webp",
+      "merchantImage": "/products/price-tiers/p-982c5731f8.webp",
+      "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/0419/1525/products/1024x1024-Women-Combat-Black-081721-Side.jpg?v=1683319134"
+      ],
+      "availability": "in_stock",
+      "sizes": [
+        "5",
+        "5.5",
+        "6",
+        "6.5",
+        "7",
+        "7.5",
+        "8",
+        "8.5",
+        "9",
+        "9.5",
+        "10",
+        "10.5",
+        "11",
+        "11.5",
+        "12"
+      ],
+      "merchantId": "thursdayboots-com",
+      "tagSlugs": [],
+      "description": "Black full-grain leather lace-up combat boot with glove-leather lining, YKK side zipper, 6-inch shaft, 1.5-inch heel and rubber outsole. No celestial embroidery. Standard-width women’s US 5–12, including all offered half sizes, are available at $190. This option represents Standard width only. Pair of boots; free domestic US ground shipping is offered, but arrival is not verified.",
+      "checkedAt": "2026-10-26T10:01:21.952Z",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-25T08:48:40.074055Z",
+        "url": "https://thursdayboots.com/products/womens-combat-boot-black.js",
+        "notes": "Black full-grain leather lace-up combat boot with glove-leather lining, YKK side zipper, 6-inch shaft, 1.5-inch heel and rubber outsole. No celestial embroidery. Standard-width women’s US 5–12, including all offered half sizes, are available at $190. This option represents Standard width only. Pair of boots; free domestic US ground shipping is offered, but arrival is not verified."
+      }
+    },
+    {
+      "id": "p-ed0b6d3416",
+      "title": "Prima Black Combat Boots",
+      "url": "https://www.rocketdog.com/products/prima-black-combat-boots?variant=45600624508998",
+      "priceCents": 5597,
+      "currency": "USD",
+      "image": "/products/price-tiers/p-ed0b6d3416.webp",
+      "merchantImage": "/products/price-tiers/p-ed0b6d3416.webp",
+      "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/1903/5555/files/prima_grinnel_pu_black_002.jpg?v=1784302923"
+      ],
+      "availability": "in_stock",
+      "sizes": [
+        "6",
+        "6.5",
+        "7",
+        "7.5",
+        "8",
+        "8.5",
+        "9",
+        "9.5",
+        "10",
+        "11"
+      ],
+      "merchantId": "rocketdog-com",
+      "tagSlugs": [],
+      "description": "Black faux-leather combat boots with lace front, inner zipper, microfiber lining and chunky treaded rubber sole. 1.8-inch heel; more casual than the reference decorative heeled boots. Pair of boots only. Feed confirms US women’s 6, 6.5, 7, 7.5, 8, 8.5, 9, 9.5, 10 and 11 available at the current $55.97 sale price; 12 is sold out. US direct store; dispatch timing is not stated.",
+      "checkedAt": "2026-10-26T10:00:37.590Z",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-25T08:48:40.074055Z",
+        "url": "https://www.rocketdog.com/products/prima-black-combat-boots.js",
+        "notes": "Black faux-leather combat boots with lace front, inner zipper, microfiber lining and chunky treaded rubber sole. 1.8-inch heel; more casual than the reference decorative heeled boots. Pair of boots only. Feed confirms US women’s 6, 6.5, 7, 7.5, 8, 8.5, 9, 9.5, 10 and 11 available at the current $55.97 sale price; 12 is sold out. US direct store; dispatch timing is not stated."
+      }
+    }
+  ],
+  "merchants": [
+    {
+      "id": "thursdayboots-com",
+      "name": "Thursday Boot Company",
+      "domain": "thursdayboots.com",
+      "url": "https://thursdayboots.com/",
+      "kind": "boutique",
+      "neighborhoodId": null
+    },
+    {
+      "id": "rocketdog-com",
+      "name": "Rocket Dog",
+      "domain": "rocketdog.com",
+      "url": "https://rocketdog.com/",
+      "kind": "boutique",
+      "neighborhoodId": null
+    },
+    {
+      "id": "chicagocostume-com",
+      "name": "Chicago Costume Company",
+      "domain": "chicagocostume.com",
+      "url": "https://chicagocostume.com/",
+      "kind": "boutique",
+      "neighborhoodId": null
+    },
+    {
+      "id": "americanduchess-com",
+      "name": "American Duchess",
+      "domain": "americanduchess.com",
+      "url": "https://americanduchess.com/",
+      "kind": "boutique",
+      "neighborhoodId": null
+    }
+  ],
+  "neighborhoods": [],
+  "tags": [],
+  "provenance": {
+    "method": "manual-research",
+    "generatedAt": "2026-10-27T00:28:36.827435Z",
+    "notes": "Expansion research uses built-in web search and direct merchant public variant feeds. Reused basics retain their original merchant evidence and check dates. Prices exclude shipping and tax; delivery is unconfirmed.  See docs/sourcing/expansion-c.json. Publication carries forward newer shared-product price, stock, size and check timestamps from the live database; original sourcing evidence is retained.",
+    "priceTiers": true,
+    "heroImageKind": "generated-reference"
+  }
+}

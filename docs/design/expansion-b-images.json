@@ -1,0 +1,193 @@
+{
+  "generatedAt": "2026-10-27T00:34:06.611Z",
+  "tool": "built-in image_gen",
+  "transparentBackground": true,
+  "encoding": "960px maximum edge, WebP quality 86, alpha quality 100",
+  "images": [
+    {
+      "slug": "art-deco-robot",
+      "prompt": "Use case: product-mockup. Asset: Halloween Supply costume reference. Premium photorealistic catalog product photography, one complete wearable adult outfit on invisible mannequin. Art Deco Robot: silver angular Alchemist-style robot full head mask with raised gear-like round side discs, charcoal tailored waistcoat over a plain fitted black long-sleeve shirt, slim silver metallic trousers, silver fabric gloves and plain black ankle boots. No armor, chest panels, shoulder plates, or decorative silver pieces on torso or arms. Robot identity comes ONLY from the head mask and silver pants/gloves. Front-facing centered square, entire outfit visible with 8% margin around headwear and shoes. Truly transparent alpha background, soft studio daylight. No person, face, body, mannequin, stand, floor, shadow, text or watermark.",
+      "source": "/Users/ohong/.codex/generated_images/01a17abe-8ffb-7171-8ff4-099b7a50ba69/exec-efee1ede-312f-4eb1-8046-31a55af4be2d.png",
+      "file": "/costumes/art-deco-robot.png",
+      "width": 1254,
+      "height": 1254,
+      "sha256": "e03efd23cda7fd9c4e16d4b67e4dddea1a452336c081bebbfc1b1780213ae1c8"
+    },
+    {
+      "slug": "haunted-prom-queen",
+      "prompt": "Use case: product-mockup. Asset: Halloween Supply costume reference. Premium photorealistic premium catalog product photography, tactile wearable fabrics and real construction. One cohesive complete adult outfit on invisible mannequin. Entire outfit centered front-facing on square canvas with 8% clear margin and shoes visible. Genuinely transparent alpha background. No person, face, body, mannequin, stand, floor, shadow, watermark, collage. Subject: Burgundy velvet floor-length prom gown with puff sleeves and slightly distressed hem, white satin sash printed exactly PROM QUEEN across chest, delicate brass rose crown floating above neckline, dark ankle boots peeking under hem. Romantic eerie late-night elegance.",
+      "source": "/Users/ohong/.codex/generated_images/01a17abe-8ffb-7171-8ff4-099b7a50ba69/exec-538dbfc6-8f9b-45d7-8dee-16e19f29dd1c.png",
+      "file": "/costumes/haunted-prom-queen.png",
+      "width": 1254,
+      "height": 1254,
+      "sha256": "bb16bf64e662aa433d4549cb4eefe9fca6bee0d6aff4840fc8d00fba1297a58c"
+    },
+    {
+      "slug": "headless-horseman",
+      "prompt": "Use case: product-mockup. Asset: Halloween Supply costume reference. Premium photorealistic premium catalog product photography, tactile wearable fabrics and real construction. One cohesive complete adult outfit on invisible mannequin. Entire outfit centered front-facing on square canvas with 8% clear margin and shoes visible. Genuinely transparent alpha background. No person, face, body, mannequin, stand, floor, shadow, watermark, collage. Subject: A wearable headless horseman illusion costume: black high-collared old-fashioned long coat and sweeping black cape, raised empty neck collar with no head, ivory shirt and black waistcoat, charcoal trousers, black riding boots. Completely bloodless, no gore or severed body parts, no pumpkin or weapon. Clearly an empty ghost costume.",
+      "source": "/Users/ohong/.codex/generated_images/01a17abe-8ffb-7171-8ff4-099b7a50ba69/exec-cc693830-a51e-4645-ac96-a08d8348bdc3.png",
+      "file": "/costumes/headless-horseman.png",
+      "width": 1254,
+      "height": 1254,
+      "sha256": "6869ecfb0f4b356efda0ea73055a7117a5c541a01a2ab17336cbe04d2a20d65b"
+    },
+    {
+      "slug": "phantom-opera",
+      "prompt": "Use case: product-mockup. Asset: Halloween Supply costume reference. Premium photorealistic premium catalog product photography, tactile wearable fabrics and real construction. One cohesive complete adult outfit on invisible mannequin. Entire outfit centered front-facing on square canvas with 8% clear margin and shoes visible. Genuinely transparent alpha background. No person, face, body, mannequin, stand, floor, shadow, watermark, collage. Subject: A classic opera phantom outfit: white right half-face mask floating above black formal cape lined deep burgundy satin, ivory ruffled shirt, tailored black waistcoat, black formal trousers and polished black ankle boots. Dramatic theatrical yet restrained.",
+      "source": "/Users/ohong/.codex/generated_images/01a17abe-8ffb-7171-8ff4-099b7a50ba69/exec-7c521e75-706e-4652-8467-c5e39b29d2be.png",
+      "file": "/costumes/phantom-opera.png",
+      "width": 1254,
+      "height": 1254,
+      "sha256": "fccbb983a66e0831489e04bdc9a4983da358edc6480c0c9ac219ebe01cb024d9"
+    },
+    {
+      "slug": "silent-film-star",
+      "prompt": "Use case: product-mockup. Asset: Halloween Supply costume reference. Premium photorealistic premium catalog product photography, tactile wearable fabrics and real construction. One cohesive complete adult outfit on invisible mannequin. Entire outfit centered front-facing on square canvas with 8% clear margin and shoes visible. Genuinely transparent alpha background. No person, face, body, mannequin, stand, floor, shadow, watermark, collage. Subject: A 1920s silent film star outfit in black, white and charcoal only: black top hat floating above white collared shirt, charcoal wool waistcoat, high-waisted pleated black trousers, neat black ankle boots, white fabric gloves. Crisp vintage tailoring and small black bow tie. No cane, no face.",
+      "source": "/Users/ohong/.codex/generated_images/01a17abe-8ffb-7171-8ff4-099b7a50ba69/exec-a6435392-7194-44db-bf5f-06f280fdc99c.png",
+      "file": "/costumes/silent-film-star.png",
+      "width": 1254,
+      "height": 1254,
+      "sha256": "0dc8c3ac0a81ea2374af6ccb8480b25b455d09f635dd930e4d4ce38de9bc8e23"
+    },
+    {
+      "slug": "art-deco-robot",
+      "model": "female",
+      "prompt": "Use case: identity-preserve. Asset: Halloween Supply model gallery. Image 1 is the identity reference: preserve this exact adult female person's face, skin tone, hair, build and calm expression. Image 2 is the outfit reference: replace the entire cowboy outfit with this precise costume, with all its palette, garment shapes, textiles, accessories and silhouette. Tailor naturally to the person. No clothes from image 1 remain. One premium photorealistic full-body fashion photograph, centered front-facing relaxed standing pose, headwear and shoes fully visible, 8 percent clear margin on all sides, natural skin texture and fabric, soft even studio daylight. Genuinely transparent alpha background, no floor, backdrop, cast shadow, collage, watermark or extra objects. Fully clothed. ",
+      "source": "/Users/ohong/.codex/generated_images/01a17abe-8ffb-7171-8ff4-099b7a50ba69/exec-f779e8f2-36a5-4d40-a860-144f4b88418e.png",
+      "file": "/costumes/models/art-deco-robot-female.webp",
+      "references": [
+        "/costumes/models/cosmic-cowboy-female.webp",
+        "/costumes/art-deco-robot.png"
+      ],
+      "width": 960,
+      "height": 960,
+      "sha256": "fb295e40e89afe3e2290c52ebae022cfc7eac18ae0f8c5ff234b54d1565cb014"
+    },
+    {
+      "slug": "art-deco-robot",
+      "model": "male",
+      "prompt": "Use case: identity-preserve. Asset: Halloween Supply model gallery. Image 1 is the identity reference: preserve this exact adult male person's face, skin tone, hair, build and calm expression. Image 2 is the outfit reference: replace the entire cowboy outfit with this precise costume, with all its palette, garment shapes, textiles, accessories and silhouette. Tailor naturally to the person. No clothes from image 1 remain. One premium photorealistic full-body fashion photograph, centered front-facing relaxed standing pose, headwear and shoes fully visible, 8 percent clear margin on all sides, natural skin texture and fabric, soft even studio daylight. Genuinely transparent alpha background, no floor, backdrop, cast shadow, collage, watermark or extra objects. Fully clothed. ",
+      "source": "/Users/ohong/.codex/generated_images/01a17abe-8ffb-7171-8ff4-099b7a50ba69/exec-835cf368-58fd-47ca-a8f0-0eefe0bf783f.png",
+      "file": "/costumes/models/art-deco-robot-male.webp",
+      "references": [
+        "/costumes/models/cosmic-cowboy-male.webp",
+        "/costumes/art-deco-robot.png"
+      ],
+      "width": 960,
+      "height": 960,
+      "sha256": "e2de1aceb4be32e9cdc0b2c2dc861d6ab309c2115d3c2104cc91f775addb7e00"
+    },
+    {
+      "slug": "haunted-prom-queen",
+      "model": "female",
+      "prompt": "Use case: identity-preserve. Asset: Halloween Supply model gallery. Image 1 is the identity reference: preserve this exact adult female person's face, skin tone, hair, build and calm expression. Image 2 is the outfit reference: replace the entire cowboy outfit with this precise costume, with all its palette, garment shapes, textiles, accessories and silhouette. Tailor naturally to the person. No clothes from image 1 remain. One premium photorealistic full-body fashion photograph, centered front-facing relaxed standing pose, headwear and shoes fully visible, 8 percent clear margin on all sides, natural skin texture and fabric, soft even studio daylight. Genuinely transparent alpha background, no floor, backdrop, cast shadow, collage, watermark or extra objects. Fully clothed. Apply subtle pale eerie theatrical makeup, preserve crown and PROM QUEEN sash.",
+      "source": "/Users/ohong/.codex/generated_images/01a17abe-8ffb-7171-8ff4-099b7a50ba69/exec-f39a56c1-e44f-4af4-b585-4309b0c044f7.png",
+      "file": "/costumes/models/haunted-prom-queen-female.webp",
+      "references": [
+        "/costumes/models/cosmic-cowboy-female.webp",
+        "/costumes/haunted-prom-queen.png"
+      ],
+      "width": 960,
+      "height": 960,
+      "sha256": "67aad01f673a986a6b78b11de6d46faa42264ed55d2c2aad02df3d1511bc3a3d"
+    },
+    {
+      "slug": "haunted-prom-queen",
+      "model": "male",
+      "prompt": "Use case: identity-preserve. Asset: Halloween Supply model gallery. Image 1 is the identity reference: preserve this exact adult male person's face, skin tone, hair, build and calm expression. Image 2 is the outfit reference: replace the entire cowboy outfit with this precise costume, with all its palette, garment shapes, textiles, accessories and silhouette. Tailor naturally to the person. No clothes from image 1 remain. One premium photorealistic full-body fashion photograph, centered front-facing relaxed standing pose, headwear and shoes fully visible, 8 percent clear margin on all sides, natural skin texture and fabric, soft even studio daylight. Genuinely transparent alpha background, no floor, backdrop, cast shadow, collage, watermark or extra objects. Fully clothed. Apply subtle pale eerie theatrical makeup, preserve crown and PROM QUEEN sash.",
+      "source": "/Users/ohong/.codex/generated_images/01a17abe-8ffb-7171-8ff4-099b7a50ba69/exec-48b06def-8aaf-4305-8e7e-b8399f424fc4.png",
+      "file": "/costumes/models/haunted-prom-queen-male.webp",
+      "references": [
+        "/costumes/models/cosmic-cowboy-male.webp",
+        "/costumes/haunted-prom-queen.png"
+      ],
+      "width": 960,
+      "height": 960,
+      "sha256": "abb020779fe9d4179d78fc790ef898d5d1cdd2053a3beb45f3c5f228395edc57"
+    },
+    {
+      "slug": "headless-horseman",
+      "model": "female",
+      "prompt": "Use case: identity-preserve. Asset: Halloween Supply model gallery. Image 1 is the identity reference: preserve this exact adult female person's face, skin tone, hair, build and calm expression. Image 2 is the outfit reference: replace the entire cowboy outfit with this precise costume, with all its palette, garment shapes, textiles, accessories and silhouette. Tailor naturally to the person. No clothes from image 1 remain. One premium photorealistic full-body fashion photograph, centered front-facing relaxed standing pose, headwear and shoes fully visible, 8 percent clear margin on all sides, natural skin texture and fabric, soft even studio daylight. Genuinely transparent alpha background, no floor, backdrop, cast shadow, collage, watermark or extra objects. Fully clothed. This is a wearable headless illusion costume. The person's head is concealed safely inside the raised torso and collar, leaving the top neck opening visibly empty. No head appears above the collar. Bloodless, no gore.",
+      "source": "/Users/ohong/.codex/generated_images/01a17abe-8ffb-7171-8ff4-099b7a50ba69/exec-8d0306e8-ae7e-4248-b62f-10b01967c6fd.png",
+      "file": "/costumes/models/headless-horseman-female.webp",
+      "references": [
+        "/costumes/models/cosmic-cowboy-female.webp",
+        "/costumes/headless-horseman.png"
+      ],
+      "width": 887,
+      "height": 960,
+      "sha256": "74533b5aaecdb704722e33282b95830e9b9452ace103a1197681804ace776ad7"
+    },
+    {
+      "slug": "headless-horseman",
+      "model": "male",
+      "prompt": "Use case: identity-preserve. Asset: Halloween Supply model gallery. Image 1 is the identity reference: preserve this exact adult male person's face, skin tone, hair, build and calm expression. Image 2 is the outfit reference: replace the entire cowboy outfit with this precise costume, with all its palette, garment shapes, textiles, accessories and silhouette. Tailor naturally to the person. No clothes from image 1 remain. One premium photorealistic full-body fashion photograph, centered front-facing relaxed standing pose, headwear and shoes fully visible, 8 percent clear margin on all sides, natural skin texture and fabric, soft even studio daylight. Genuinely transparent alpha background, no floor, backdrop, cast shadow, collage, watermark or extra objects. Fully clothed. This is a wearable headless illusion costume. The person's head is concealed safely inside the raised torso and collar, leaving the top neck opening visibly empty. No head appears above the collar. Bloodless, no gore.",
+      "source": "/Users/ohong/.codex/generated_images/01a17abe-8ffb-7171-8ff4-099b7a50ba69/exec-86f6ac63-2c03-4ffa-b997-bb3654b952c0.png",
+      "file": "/costumes/models/headless-horseman-male.webp",
+      "references": [
+        "/costumes/models/cosmic-cowboy-male.webp",
+        "/costumes/headless-horseman.png"
+      ],
+      "width": 939,
+      "height": 960,
+      "sha256": "8be27960594c7611eb0e059e6cd8ab63197e3cb7495bc819e89a45a65c15952d"
+    },
+    {
+      "slug": "phantom-opera",
+      "model": "female",
+      "prompt": "Use case: precise-object-edit. Asset: Halloween Supply Phantom of the Opera gallery model. Edit the attached photograph. REQUIRED: add a rigid ivory-white asymmetric Phantom of the Opera half-face mask WORN ON THE RIGHT HALF OF THE MODEL'S FACE, covering right forehead, right eye area with an eye cutout, right cheek and right side of the nose. The mask must visibly cover half the face, not sit on the hair or forehead and not be held in a hand. Preserve the exact adult model identity, black cape and burgundy lining, ivory ruffled shirt, black waistcoat, black trousers, black boots, standing pose, centered full body framing and transparent background. Do not change anything else. The white half mask is the most important distinguishing feature. Keep visible the other half of face and both feet. Genuinely transparent alpha background.",
+      "source": "/Users/ohong/.codex/generated_images/01a17abe-8ffb-7171-8ff4-099b7a50ba69/exec-b359c614-0c58-49b7-91aa-32d7d0b14639.png",
+      "file": "/costumes/models/phantom-opera-female.webp",
+      "references": [
+        "/costumes/models/cosmic-cowboy-female.webp",
+        "/costumes/phantom-opera.png"
+      ],
+      "width": 960,
+      "height": 960,
+      "sha256": "e1572c97c5315f995402789c4c309a59706de6988bec1debd3b7f5030e175a70"
+    },
+    {
+      "slug": "phantom-opera",
+      "model": "male",
+      "prompt": "Use case: precise-object-edit. Asset: Halloween Supply Phantom of the Opera gallery model. Edit the attached photograph. REQUIRED: add a rigid ivory-white asymmetric Phantom of the Opera half-face mask WORN ON THE RIGHT HALF OF THE MODEL'S FACE, covering right forehead, right eye area with an eye cutout, right cheek and right side of the nose. The mask must visibly cover half the face, not sit on the hair or forehead and not be held in a hand. Preserve the exact adult model identity, black cape and burgundy lining, ivory ruffled shirt, black waistcoat, black trousers, black boots, standing pose, centered full body framing and transparent background. Do not change anything else. The white half mask is the most important distinguishing feature. Keep visible the other half of face and both feet. Genuinely transparent alpha background.",
+      "source": "/Users/ohong/.codex/generated_images/01a17abe-8ffb-7171-8ff4-099b7a50ba69/exec-b4c05a68-eec1-4080-a99d-7332e850deab.png",
+      "file": "/costumes/models/phantom-opera-male.webp",
+      "references": [
+        "/costumes/models/cosmic-cowboy-male.webp",
+        "/costumes/phantom-opera.png"
+      ],
+      "width": 960,
+      "height": 960,
+      "sha256": "57ebc363aea03b2760cbc5880db6a0cd8b2dbafb2022a1f3e2e86e4f63f456ea"
+    },
+    {
+      "slug": "silent-film-star",
+      "model": "female",
+      "prompt": "Use case: identity-preserve. Asset: Halloween Supply model gallery. Image 1 is the identity reference: preserve this exact adult female person's face, skin tone, hair, build and calm expression. Image 2 is the outfit reference: replace the entire cowboy outfit with this precise costume, with all its palette, garment shapes, textiles, accessories and silhouette. Tailor naturally to the person. No clothes from image 1 remain. One premium photorealistic full-body fashion photograph, centered front-facing relaxed standing pose, headwear and shoes fully visible, 8 percent clear margin on all sides, natural skin texture and fabric, soft even studio daylight. Genuinely transparent alpha background, no floor, backdrop, cast shadow, collage, watermark or extra objects. Fully clothed. Apply theatrical pale white face makeup with subtle charcoal eye definition to make this a silent film star, preserving the person's features. Keep the whole image in black, white and grey.",
+      "source": "/Users/ohong/.codex/generated_images/01a17abe-8ffb-7171-8ff4-099b7a50ba69/exec-2d9696b2-6a85-4c21-8928-4a83d89f2952.png",
+      "file": "/costumes/models/silent-film-star-female.webp",
+      "references": [
+        "/costumes/models/cosmic-cowboy-female.webp",
+        "/costumes/silent-film-star.png"
+      ],
+      "width": 960,
+      "height": 960,
+      "sha256": "3b712a3504229ac1c6033b45fee4a753ddc158492ded23b0628ea7f466dcc266"
+    },
+    {
+      "slug": "silent-film-star",
+      "model": "male",
+      "prompt": "Use case: identity-preserve. Asset: Halloween Supply model gallery. Image 1 is the identity reference: preserve this exact adult male person's face, skin tone, hair, build and calm expression. Image 2 is the outfit reference: replace the entire cowboy outfit with this precise costume, with all its palette, garment shapes, textiles, accessories and silhouette. Tailor naturally to the person. No clothes from image 1 remain. One premium photorealistic full-body fashion photograph, centered front-facing relaxed standing pose, headwear and shoes fully visible, 8 percent clear margin on all sides, natural skin texture and fabric, soft even studio daylight. Genuinely transparent alpha background, no floor, backdrop, cast shadow, collage, watermark or extra objects. Fully clothed. Apply theatrical pale white face makeup with subtle charcoal eye definition to make this a silent film star, preserving the person's features. Keep the whole image in black, white and grey.",
+      "source": "/Users/ohong/.codex/generated_images/01a17abe-8ffb-7171-8ff4-099b7a50ba69/exec-07051068-fe4b-409a-bcb9-3f2eca3bd975.png",
+      "file": "/costumes/models/silent-film-star-male.webp",
+      "references": [
+        "/costumes/models/cosmic-cowboy-male.webp",
+        "/costumes/silent-film-star.png"
+      ],
+      "width": 960,
+      "height": 960,
+      "sha256": "542796d4802a7133010aab16d34985f931355390310d0910a17d8fd121f83e82"
+    }
+  ]
+}

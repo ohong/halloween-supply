@@ -25,10 +25,13 @@ export function captureFeedbackFrame(element: HTMLVideoElement | HTMLImageElemen
   } catch { return null; }
 }
 
-export async function sendVisualFeedback(frames: FeedbackFrames, question: string, signal: AbortSignal): Promise<MirrorCommand> {
+/** Names of the selected pieces, so the server can compare OpenCV's measurements with them. */
+export type FeedbackOutfit = { piece: string; product: string; color?: string }[];
+
+export async function sendVisualFeedback(frames: FeedbackFrames, question: string, signal: AbortSignal, outfit: FeedbackOutfit = []): Promise<MirrorCommand> {
   const result = await readMirrorResponse<MirrorCommand>(await fetch("/api/live-mirror/feedback", {
     method: "POST", headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ ...frames, question, consent: true }),
+    body: JSON.stringify({ ...frames, question, consent: true, outfit }),
     signal: AbortSignal.any([signal, AbortSignal.timeout(35_000)]),
   }));
   if (!Array.isArray(result.actions) || result.actions.length || typeof result.message !== "string" || !result.message.trim()) throw new Error("The visual assessment could not be read. Please ask again.");

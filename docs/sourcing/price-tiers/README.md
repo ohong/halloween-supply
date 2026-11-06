@@ -1,6 +1,6 @@
 # Price-tier catalog research
 
-All 25 looks have researched shopping catalogs. Built-in web search and direct official merchant evidence supplied the options. No Firecrawl was used for this research. Exact checked timestamps, URLs, selected sizes, original photos, lead times, and compromises are preserved in each costume JSON.
+This directory covers the original 25 researched shopping catalogs. The expanded catalog has 50 looks; evidence for the additions is in `../expansion-{a,b,c,d,e}.{json,md}`. Built-in web search and direct official merchant evidence supplied the options. No Firecrawl was used for this research. Exact checked timestamps, URLs, selected sizes, original photos, lead times, and compromises are preserved in each costume JSON.
 
 Each purchasable component has three ascending USD price points. Bundles count once; DIY supplies have their own component and assembly notes. Higher prices do not imply better quality.
 

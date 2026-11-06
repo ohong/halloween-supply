@@ -1,0 +1,171 @@
+{
+  "generatedAt": "2026-10-27T00:30:49.145Z",
+  "tool": "built-in image_gen",
+  "purpose": "Costume catalog expansion: generated style references and matching full-length model variants.",
+  "transparentBackground": true,
+  "encoding": "Heroes PNG; models max edge 960px, WebP quality 86, alphaQuality 100",
+  "heroes": [
+    {
+      "slug": "jellyfish-bloom",
+      "file": "/costumes/jellyfish-bloom.png",
+      "prompt": "Use case: product-mockup. One cohesive wearable adult Halloween costume isolated on genuinely transparent background, premium photorealistic catalog product photography. Full outfit on invisible mannequin, front view, square composition, 8% clear margin. Costume: A handheld clear dome umbrella decorated around its edge with long pale pink, pearl-white and silver sheer-fabric ribbon tentacles over an ivory long-sleeve tunic and ivory trousers. Brown ankle boots. No lights or glow. Soft even studio light, tactile cloth and craft detail. No person, visible mannequin, skin, face, floor, backdrop, words, watermark or collage.",
+      "width": 1254,
+      "height": 1254,
+      "sha256": "99a4419c418c33f7524ee595ef637c11fb422a3619458397733afb4ad51432d4"
+    },
+    {
+      "slug": "venus-flytrap",
+      "file": "/costumes/venus-flytrap.png",
+      "prompt": "Use case: product-mockup. One cohesive wearable adult Halloween costume isolated on genuinely transparent background, premium photorealistic catalog product photography. Full outfit on invisible mannequin, front view, square composition, 8% clear margin. Costume: A black long-sleeve fitted unitard and black ankle boots with a handmade green felt Venus flytrap head hood: two large oval leaf jaws frame an open face hole, orange inner surface and blunt white felt triangular teeth. A green felt leaf collar and leaves at wrists and waist. Soft simple DIY craft construction. Soft even studio light, tactile cloth and craft detail. No person, visible mannequin, skin, face, floor, backdrop, words, watermark or collage.",
+      "width": 1254,
+      "height": 1254,
+      "sha256": "2d647f99f746b0477f42be1d52280251c74a3006dcf267d0503b6de7bf62f76c"
+    },
+    {
+      "slug": "lava-lamp",
+      "file": "/costumes/lava-lamp.png",
+      "prompt": "Use case: product-mockup. One cohesive wearable adult Halloween costume isolated on genuinely transparent background, premium photorealistic catalog product photography. Full outfit on invisible mannequin, front view, square composition, 8% clear margin. Costume: A black long-sleeve unitard and black boots with orange felt organic lava-blob appliques, a simple silver metallic fabric cone hat and wide silver metallic fabric band around hips. No full silver dress. Soft even studio light, tactile cloth and craft detail. No person, visible mannequin, skin, face, floor, backdrop, words, watermark or collage.",
+      "width": 1254,
+      "height": 1254,
+      "sha256": "f97d75d07eddd431417e897b92b1f5e70eee8d34e24c05cfdff2dc362407a80b"
+    },
+    {
+      "slug": "walking-thundercloud",
+      "file": "/costumes/walking-thundercloud.png",
+      "prompt": "Use case: product-mockup. One cohesive wearable adult Halloween costume isolated on genuinely transparent background, premium photorealistic catalog product photography. Full outfit on invisible mannequin, front view, square composition, 8% clear margin. Costume: A hand-held clear dome umbrella covered on top with fluffy white and light-gray fiberfill cloud stuffing, dangling silver fabric ribbon rain strips, held overhead. Plain black long sleeve unitard and black boots, small silver lightning brooch at chest. No lights or large yellow lightning bolt. Soft even studio light, tactile cloth and craft detail. No person, visible mannequin, skin, face, floor, backdrop, words, watermark or collage.",
+      "width": 1254,
+      "height": 1254,
+      "sha256": "6e6d686b9061cfb94b1ff1e5540896e6b5afe90e0e73a7ee9bd5d70da7150e26"
+    },
+    {
+      "slug": "stained-glass-angel",
+      "file": "/costumes/stained-glass-angel.png",
+      "prompt": "Use case: product-mockup. One cohesive wearable adult Halloween costume isolated on genuinely transparent background, premium photorealistic catalog product photography. Full outfit on invisible mannequin, front view, square composition, 8% clear margin. Costume: An opaque rainbow stained-glass print cotton wing-shaped cape with jewel-toned turquoise, amber, cobalt and ruby panels separated by printed black outlines; ivory long sleeve tunic, ivory trousers, brown ankle boots. Cream tie at neck. No halo, no literal glass or framed wings. Cape extends gently outward. Soft even studio light, tactile cloth and craft detail. No person, visible mannequin, skin, face, floor, backdrop, words, watermark or collage.",
+      "width": 1254,
+      "height": 1254,
+      "sha256": "60d38ab8e4f6b30fb17e7e189611db6e72eee3f78cda1d129111222c016cfbaa"
+    }
+  ],
+  "images": [
+    {
+      "slug": "jellyfish-bloom",
+      "model": "male",
+      "file": "/costumes/models/jellyfish-bloom-male.webp",
+      "width": 960,
+      "height": 960,
+      "sha256": "799b49a676acebfd44aa3752b1d6e96c2a228cbcd9518ce19cd8665f18b2c0b6",
+      "prompt": "Use case: identity-preserve. Use the reference only to preserve the exact adult male model's face, hair, skin tone, body and calm expression. Replace all cowboy clothing, hat, neckerchief and boots with this Halloween costume: A handheld clear dome umbrella decorated around its edge with long pale pink, pearl-white and silver sheer-fabric ribbon tentacles over an ivory long-sleeve tunic and ivory trousers. Brown ankle boots. No lights or glow. Premium photorealistic full-body studio fashion photograph, one adult centered in square canvas. Front-facing relaxed standing pose, entire person and all headwear and shoes visible, generous 8% clear margin around silhouette. Soft even studio daylight, realistic fabric and craft detail, fully clothed, believable wearable construction. Genuinely transparent alpha background. No floor, backdrop, extra props, text, watermark, collage or mannequin.",
+      "references": [
+        "/costumes/models/cosmic-cowboy-male.webp"
+      ]
+    },
+    {
+      "slug": "venus-flytrap",
+      "model": "female",
+      "file": "/costumes/models/venus-flytrap-female.webp",
+      "width": 960,
+      "height": 960,
+      "sha256": "d83b1071ef585996ec457158b9dfadeae572e1b3059b734ed7626ee47cc7e180",
+      "prompt": "Use case: identity-preserve. Use the reference only to preserve the exact adult female model's face, hair, skin tone, body and calm expression. Replace all cowboy clothing, hat, neckerchief and boots with this Halloween costume: A black long-sleeve fitted unitard and black ankle boots with a handmade green felt Venus flytrap head hood: two large oval leaf jaws frame the face, orange inner surface and blunt white felt triangular teeth. A green felt leaf collar and leaves at wrists and waist. Soft simple DIY craft construction. Premium photorealistic full-body studio fashion photograph, one adult centered in square canvas. Front-facing relaxed standing pose, entire person and all headwear and shoes visible, generous 8% clear margin around silhouette. Soft even studio daylight, realistic fabric and craft detail, fully clothed, believable wearable construction. Genuinely transparent alpha background. No floor, backdrop, extra props, text, watermark, collage or mannequin.",
+      "references": [
+        "/costumes/models/cosmic-cowboy-female.webp"
+      ]
+    },
+    {
+      "slug": "jellyfish-bloom",
+      "model": "female",
+      "file": "/costumes/models/jellyfish-bloom-female.webp",
+      "width": 960,
+      "height": 960,
+      "sha256": "e3b63987a1ef2421a5c2a5dab9160f781209e0b44d385ebf15f3586063bb412f",
+      "prompt": "Use case: identity-preserve. Use the reference only to preserve the exact adult female model's face, hair, skin tone, body and calm expression. Replace all cowboy clothing, hat, neckerchief and boots with this Halloween costume: A handheld clear dome umbrella decorated around its edge with long pale pink, pearl-white and silver sheer-fabric ribbon tentacles over an ivory long-sleeve tunic and ivory trousers. Brown ankle boots. No lights or glow. Premium photorealistic full-body studio fashion photograph, one adult centered in square canvas. Front-facing relaxed standing pose, entire person and all headwear and shoes visible, generous 8% clear margin around silhouette. Soft even studio daylight, realistic fabric and craft detail, fully clothed, believable wearable construction. Genuinely transparent alpha background. No floor, backdrop, extra props, text, watermark, collage or mannequin.",
+      "references": [
+        "/costumes/models/cosmic-cowboy-female.webp"
+      ]
+    },
+    {
+      "slug": "venus-flytrap",
+      "model": "male",
+      "file": "/costumes/models/venus-flytrap-male.webp",
+      "width": 960,
+      "height": 960,
+      "sha256": "0a3fbee8aafac91d54850a6056bdc23ec8a3f020e8ac4532ce5c9ee8cdcc14e2",
+      "prompt": "Use case: identity-preserve. Use the reference only to preserve the exact adult male model's face, hair, skin tone, body and calm expression. Replace all cowboy clothing, hat, neckerchief and boots with this Halloween costume: A black long-sleeve fitted unitard and black ankle boots with a handmade green felt Venus flytrap head hood: two large oval leaf jaws frame the face, orange inner surface and blunt white felt triangular teeth. A green felt leaf collar and leaves at wrists and waist. Soft simple DIY craft construction. Premium photorealistic full-body studio fashion photograph, one adult centered in square canvas. Front-facing relaxed standing pose, entire person and all headwear and shoes visible, generous 8% clear margin around silhouette. Soft even studio daylight, realistic fabric and craft detail, fully clothed, believable wearable construction. Genuinely transparent alpha background. No floor, backdrop, extra props, text, watermark, collage or mannequin.",
+      "references": [
+        "/costumes/models/cosmic-cowboy-male.webp"
+      ]
+    },
+    {
+      "slug": "lava-lamp",
+      "model": "female",
+      "file": "/costumes/models/lava-lamp-female.webp",
+      "width": 960,
+      "height": 960,
+      "sha256": "9e3084d8055795d9f8e60e75172563e14f3daa51fd34a6bbedc0b20732b07218",
+      "prompt": "Use case: identity-preserve. Use the reference only to preserve the exact adult female model's face, hair, skin tone, body and calm expression. Replace all cowboy clothing, hat, neckerchief and boots with this Halloween costume: A black long-sleeve unitard and black boots with orange felt organic lava-blob appliques, a simple silver metallic fabric cone hat and wide silver metallic fabric band around hips. No full silver dress. Premium photorealistic full-body studio fashion photograph, one adult centered in square canvas. Front-facing relaxed standing pose, entire person and all headwear and shoes visible, generous 8% clear margin around silhouette. Soft even studio daylight, realistic fabric and craft detail, fully clothed, believable wearable construction. Genuinely transparent alpha background. No floor, backdrop, extra props, text, watermark, collage or mannequin.",
+      "references": [
+        "/costumes/models/cosmic-cowboy-female.webp"
+      ]
+    },
+    {
+      "slug": "stained-glass-angel",
+      "model": "female",
+      "file": "/costumes/models/stained-glass-angel-female.webp",
+      "width": 960,
+      "height": 960,
+      "sha256": "81cad11487083712dec7a4a4c176aa41f149d330c664f66f902c308d26e423a6",
+      "prompt": "Use case: identity-preserve. Use the reference only to preserve the exact adult female model's face, hair, skin tone, body and calm expression. Replace all cowboy clothing, hat, neckerchief and boots with this Halloween costume: An opaque rainbow stained-glass print cotton wing-shaped cape with jewel-toned turquoise, amber, cobalt and ruby panels separated by printed black outlines; ivory long sleeve tunic, ivory trousers, brown ankle boots. Cream tie at neck. No halo, no literal glass or framed wings. Cape held gently outward. Premium photorealistic full-body studio fashion photograph, one adult centered in square canvas. Front-facing relaxed standing pose, entire person and all headwear and shoes visible, generous 8% clear margin around silhouette. Soft even studio daylight, realistic fabric and craft detail, fully clothed, believable wearable construction. Genuinely transparent alpha background. No floor, backdrop, extra props, text, watermark, collage or mannequin.",
+      "references": [
+        "/costumes/models/cosmic-cowboy-female.webp"
+      ]
+    },
+    {
+      "slug": "walking-thundercloud",
+      "model": "female",
+      "file": "/costumes/models/walking-thundercloud-female.webp",
+      "width": 960,
+      "height": 960,
+      "sha256": "b9d028133b5c62c2b0c2e39859bd5f5cca2636588db239a67ea1f41ff7f1037f",
+      "prompt": "Use case: identity-preserve. Use the reference only to preserve the exact adult female model's face, hair, skin tone, body and calm expression. Replace all cowboy clothing, hat, neckerchief and boots with this Halloween costume: A hand-held clear dome umbrella covered on top with fluffy white and light-gray fiberfill cloud stuffing, dangling silver fabric ribbon rain strips, held overhead. Plain black long sleeve unitard and black boots, small silver lightning brooch at chest. No lights or large yellow lightning bolt. Face unobstructed. Premium photorealistic full-body studio fashion photograph, one adult centered in square canvas. Front-facing relaxed standing pose, entire person and all headwear and shoes visible, generous 8% clear margin around silhouette. Soft even studio daylight, realistic fabric and craft detail, fully clothed, believable wearable construction. Genuinely transparent alpha background. No floor, backdrop, extra props, text, watermark, collage or mannequin.",
+      "references": [
+        "/costumes/models/cosmic-cowboy-female.webp"
+      ]
+    },
+    {
+      "slug": "lava-lamp",
+      "model": "male",
+      "file": "/costumes/models/lava-lamp-male.webp",
+      "width": 960,
+      "height": 960,
+      "sha256": "9b0b21eea4cda4c9fe50b70cfbcd9fdf618da626cca17d7040b7af00b371a9d0",
+      "prompt": "Use case: identity-preserve. Use the reference only to preserve the exact adult male model's face, hair, skin tone, body and calm expression. Replace all cowboy clothing, hat, neckerchief and boots with this Halloween costume: A black long-sleeve unitard and black boots with orange felt organic lava-blob appliques, a simple silver metallic fabric cone hat and wide silver metallic fabric band around hips. No full silver dress. Premium photorealistic full-body studio fashion photograph, one adult centered in square canvas. Front-facing relaxed standing pose, entire person and all headwear and shoes visible, generous 8% clear margin around silhouette. Soft even studio daylight, realistic fabric and craft detail, fully clothed, believable wearable construction. Genuinely transparent alpha background. No floor, backdrop, extra props, text, watermark, collage or mannequin.",
+      "references": [
+        "/costumes/models/cosmic-cowboy-male.webp"
+      ]
+    },
+    {
+      "slug": "walking-thundercloud",
+      "model": "male",
+      "file": "/costumes/models/walking-thundercloud-male.webp",
+      "width": 960,
+      "height": 960,
+      "sha256": "4f39d11c84f6634ff6e924a32c3a750f4169f913a220b5095ac54fd7b3043e84",
+      "prompt": "Use case: identity-preserve. Use the reference only to preserve the exact adult male model's face, hair, skin tone, body and calm expression. Replace all cowboy clothing, hat, neckerchief and boots with this Halloween costume: A hand-held clear dome umbrella covered on top with fluffy white and light-gray fiberfill cloud stuffing, dangling silver fabric ribbon rain strips, held overhead. Plain black long sleeve unitard and black boots, small silver lightning brooch at chest. No lights or large yellow lightning bolt. Face unobstructed. Premium photorealistic full-body studio fashion photograph, one adult centered in square canvas. Front-facing relaxed standing pose, entire person and all headwear and shoes visible, generous 8% clear margin around silhouette. Soft even studio daylight, realistic fabric and craft detail, fully clothed, believable wearable construction. Genuinely transparent alpha background. No floor, backdrop, extra props, text, watermark, collage or mannequin.",
+      "references": [
+        "/costumes/models/cosmic-cowboy-male.webp"
+      ]
+    },
+    {
+      "slug": "stained-glass-angel",
+      "model": "male",
+      "file": "/costumes/models/stained-glass-angel-male.webp",
+      "width": 960,
+      "height": 960,
+      "sha256": "80f2d4c2df32f3eac9b28712dafaef1c4c61e3025bc5309ed3a59c8e31e49dee",
+      "prompt": "Use case: identity-preserve. Use the reference only to preserve the exact adult male model's face, hair, skin tone, body and calm expression. Replace all cowboy clothing, hat, neckerchief and boots with this Halloween costume: An opaque rainbow stained-glass print cotton wing-shaped cape with jewel-toned turquoise, amber, cobalt and ruby panels separated by printed black outlines; ivory long sleeve tunic, ivory trousers, brown ankle boots. Cream tie at neck. No halo, no literal glass or framed wings. Cape held gently outward. Premium photorealistic full-body studio fashion photograph, one adult centered in square canvas. Front-facing relaxed standing pose, entire person and all headwear and shoes visible, generous 8% clear margin around silhouette. Soft even studio daylight, realistic fabric and craft detail, fully clothed, believable wearable construction. Genuinely transparent alpha background. No floor, backdrop, extra props, text, watermark, collage or mannequin.",
+      "references": [
+        "/costumes/models/cosmic-cowboy-male.webp"
+      ]
+    }
+  ]
+}

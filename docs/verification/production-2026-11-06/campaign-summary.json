@@ -1,0 +1,215 @@
+{
+  "base": "https://halloween.supply/",
+  "search": {
+    "endpointAttempts": 1,
+    "responses": [
+      {
+        "status": 200,
+        "source": "semantic"
+      }
+    ],
+    "upstreamProviderCalls": "not observable; semantic responses may be cached"
+  },
+  "results": [
+    {
+      "name": "discovery price, search, Saved, and model",
+      "status": "passed",
+      "durationMs": 3207,
+      "detail": {
+        "affordableCount": 10,
+        "selectedName": "Velvet Vampire"
+      }
+    },
+    {
+      "name": "ten completion kits charge exact new pieces or block unavailable products",
+      "status": "passed",
+      "durationMs": 9537,
+      "detail": [
+        {
+          "slug": "cosmic-cowboy-completion",
+          "eligibility": "ready",
+          "piecesCharged": 4,
+          "ownedCount": 1,
+          "subtotalCents": 7997,
+          "priceTarget": "met"
+        },
+        {
+          "slug": "velvet-vampire-completion",
+          "eligibility": "ready",
+          "piecesCharged": 4,
+          "ownedCount": 1,
+          "subtotalCents": 9839,
+          "priceTarget": "met"
+        },
+        {
+          "slug": "linen-ghost-completion",
+          "eligibility": "blocked_out_of_stock",
+          "outOfStock": [
+            "p-734febc080"
+          ],
+          "piecesCharged": 0,
+          "subtotalCents": 6499,
+          "priceTarget": "met"
+        },
+        {
+          "slug": "starlight-witch-completion",
+          "eligibility": "ready",
+          "piecesCharged": 3,
+          "ownedCount": 2,
+          "subtotalCents": 9598,
+          "priceTarget": "met"
+        },
+        {
+          "slug": "autumn-scarecrow-completion",
+          "eligibility": "ready",
+          "piecesCharged": 2,
+          "ownedCount": 4,
+          "subtotalCents": 2499,
+          "priceTarget": "met"
+        },
+        {
+          "slug": "midnight-pirate-completion",
+          "eligibility": "ready",
+          "piecesCharged": 2,
+          "ownedCount": 4,
+          "subtotalCents": 2900,
+          "priceTarget": "met"
+        },
+        {
+          "slug": "roller-disco-striped-kit",
+          "eligibility": "ready",
+          "piecesCharged": 3,
+          "ownedCount": 0,
+          "subtotalCents": 9557,
+          "priceTarget": "met"
+        },
+        {
+          "slug": "queen-of-hearts-owned-boots-kit",
+          "eligibility": "ready",
+          "piecesCharged": 2,
+          "ownedCount": 1,
+          "subtotalCents": 5998,
+          "priceTarget": "met"
+        },
+        {
+          "slug": "walking-thundercloud",
+          "eligibility": "ready",
+          "piecesCharged": 4,
+          "ownedCount": 1,
+          "subtotalCents": 4743,
+          "priceTarget": "met"
+        },
+        {
+          "slug": "venus-flytrap",
+          "eligibility": "ready",
+          "piecesCharged": 3,
+          "ownedCount": 2,
+          "subtotalCents": 1350,
+          "priceTarget": "met"
+        }
+      ]
+    },
+    {
+      "name": "complete selection survives save, reload, and a fresh-browser share",
+      "status": "passed",
+      "durationMs": 1724,
+      "detail": {
+        "fixtureSource": "published catalog",
+        "productIds": [
+          "p-610c2db658",
+          "p-9bbb0166a7",
+          "p-68dc4caa64"
+        ],
+        "subtotalCents": 15018
+      }
+    },
+    {
+      "name": "invalid and retired selection shows repair state",
+      "status": "passed",
+      "durationMs": 745
+    },
+    {
+      "name": "shared look removes owned and skipped lines from an existing cart",
+      "status": "passed",
+      "durationMs": 994,
+      "detail": {
+        "existingLines": 5,
+        "chargedLines": 3,
+        "ownedAndSkippedCharged": 0
+      }
+    },
+    {
+      "name": "cart recovery keeps other lines and requires price acceptance (response fixtures)",
+      "status": "passed",
+      "durationMs": 1095,
+      "detail": {
+        "evidenceType": "browser UI with typed response fixtures",
+        "checkoutAttempts": 4,
+        "preservedOtherLines": 4,
+        "paymentSessions": 0
+      }
+    },
+    {
+      "name": "saved board validates products or reports unavailable signing configuration",
+      "status": "passed",
+      "durationMs": 1320,
+      "detail": {
+        "signingConfiguration": "available",
+        "unsignedStatus": 400,
+        "forgedStatus": 400,
+        "productValidation": "unsigned, forged, and six unsafe URL forms rejected",
+        "configurationGuardRequests": 0,
+        "unsafeUrlsRejected": 6,
+        "databaseWrites": 0
+      }
+    },
+    {
+      "name": "event endpoint rejects private fields and cross-origin requests",
+      "status": "passed",
+      "durationMs": 674,
+      "detail": {
+        "acceptedDemo": 1,
+        "rejectedPrivatePayloads": 2,
+        "rejectedOrigins": 2,
+        "doNotTrack": "honored"
+      }
+    },
+    {
+      "name": "preview rejects invalid selections before providers and clip stays disabled",
+      "status": "passed",
+      "durationMs": 2827,
+      "detail": {
+        "invalidPreviewRequestsRejected": 7,
+        "providerCalls": 0,
+        "clipFlag": "disabled"
+      }
+    },
+    {
+      "name": "mobile campaign layout",
+      "status": "passed",
+      "durationMs": 272
+    },
+    {
+      "name": "browser campaign measurement uses one anonymous journey per context",
+      "status": "passed",
+      "durationMs": 1,
+      "detail": {
+        "eventCount": 53,
+        "names": [
+          "cart_add",
+          "checkout_recovery",
+          "checkout_start",
+          "filter",
+          "kit",
+          "view"
+        ],
+        "browserJourneys": 14
+      }
+    },
+    {
+      "name": "browser has no uncaught runtime errors",
+      "status": "passed",
+      "durationMs": 0
+    }
+  ]
+}

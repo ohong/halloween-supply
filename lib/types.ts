@@ -47,7 +47,7 @@ export interface Neighborhood {
   region: string | null;
 }
 
-export type MerchantKind = "etsy" | "vintage" | "secondhand" | "pawn" | "dtc" | "boutique";
+export type MerchantKind = "etsy" | "vintage" | "secondhand" | "pawn" | "dtc" | "boutique" | "retail" | "marketplace";
 
 export interface Merchant {
   /** e.g. "etsy-desertsonvintage" or a domain slug "bootbarn-sf". */

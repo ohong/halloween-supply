@@ -39,6 +39,7 @@ export function looksLikeProductUrl(url: string): boolean {
   const host = u.hostname.replace(/^www\./, "");
   const p = u.pathname.toLowerCase();
   if (/(^|\.)etsy\.com$/.test(host)) return /\/listing\/\d+/.test(p);
+  if (/(^|\.)amazon\.com$/.test(host)) return /\/(?:dp|gp\/product)\/[a-z0-9]{10}(?:\/|$)/i.test(p);
   if (p === "/" || p === "") return false;
   if (/\/collections\/[^/]+\/?$/.test(p) || (p.includes("/collections/") && !p.includes("/products/"))) return false;
   if (/\/(search|category|categories|blog|blogs|articles?|news|tag|tags|guide|guides|wiki)(\/|$)/.test(p)) return false;

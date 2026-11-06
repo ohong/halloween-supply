@@ -1,0 +1,81 @@
+{
+  "pre": "311a8f7355d6f3b7fe6c61a3fae6bc129879bbd1",
+  "post": "311a8f7355d6f3b7fe6c61a3fae6bc129879bbd1",
+  "source": "database",
+  "passed": 12,
+  "total": 12,
+  "discovery": {
+    "affordableCount": 10,
+    "selectedName": "Velvet Vampire"
+  },
+  "kitsReady": 9,
+  "kitsBlocked": [
+    {
+      "slug": "linen-ghost-completion",
+      "eligibility": "blocked_out_of_stock",
+      "outOfStock": [
+        "p-734febc080"
+      ],
+      "piecesCharged": 0,
+      "subtotalCents": 6499,
+      "priceTarget": "met"
+    }
+  ],
+  "targetMisses": [],
+  "search": {
+    "endpointAttempts": 1,
+    "responses": [
+      {
+        "status": 200,
+        "source": "semantic"
+      }
+    ],
+    "upstreamProviderCalls": "not observable; semantic responses may be cached"
+  },
+  "shared": {
+    "fixtureSource": "published catalog",
+    "productIds": [
+      "p-610c2db658",
+      "p-9bbb0166a7",
+      "p-68dc4caa64"
+    ],
+    "subtotalCents": 15018
+  },
+  "saved": {
+    "signingConfiguration": "available",
+    "unsignedStatus": 400,
+    "forgedStatus": 400,
+    "productValidation": "unsigned, forged, and six unsafe URL forms rejected",
+    "configurationGuardRequests": 0,
+    "unsafeUrlsRejected": 6,
+    "databaseWrites": 0
+  },
+  "events": {
+    "eventCount": 53,
+    "names": [
+      "cart_add",
+      "checkout_recovery",
+      "checkout_start",
+      "filter",
+      "kit",
+      "view"
+    ],
+    "browserJourneys": 14
+  },
+  "catalogFacts": {
+    "status": "stale",
+    "evaluatedAt": "2026-11-06T08:46:55.513Z",
+    "maxAgeHours": 36,
+    "products": 470,
+    "fresh": 408,
+    "stale": 62,
+    "missingOrInvalidCheckedAt": 0,
+    "oldestCheckedAt": "2026-10-25T07:10:48.768Z",
+    "newestCheckedAt": "2026-11-05T10:01:49.189Z",
+    "stock": {
+      "inStock": 450,
+      "outOfStock": 14,
+      "unknown": 6
+    }
+  }
+}

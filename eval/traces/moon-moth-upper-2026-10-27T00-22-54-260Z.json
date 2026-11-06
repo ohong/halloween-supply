@@ -1,0 +1,453 @@
+{
+  "slug": "moon-moth-upper",
+  "base": "http://localhost:3000",
+  "model": "opencv-5:5.0.0;stock",
+  "elapsedMs": 25608,
+  "done": {
+    "t": "done",
+    "found": 1,
+    "priced": 0,
+    "timedOut": false,
+    "ms": 24187
+  },
+  "pieces": [
+    "beige moth wing cape",
+    "charcoal satin pantaloons"
+  ],
+  "approvals": [
+    {
+      "i": 0,
+      "because": "retries_exhausted"
+    }
+  ],
+  "retries": [
+    {
+      "piece": 0,
+      "attempt": 0,
+      "action": "retry",
+      "because": "color_mismatch",
+      "next": "sage moth wing cape"
+    },
+    {
+      "piece": 1,
+      "attempt": 0,
+      "action": "retry",
+      "because": "color_mismatch",
+      "next": "black satin pantaloons"
+    },
+    {
+      "piece": 0,
+      "attempt": 1,
+      "action": "retry",
+      "because": "no_candidates",
+      "next": "beige wing cape"
+    }
+  ],
+  "improvedPieces": [
+    1
+  ],
+  "trace": [
+    {
+      "t_ms": 4449,
+      "piece": null,
+      "step": "perceive",
+      "detail": {
+        "person": {
+          "found": true,
+          "bbox": [
+            37,
+            154,
+            948,
+            409
+          ],
+          "confidence": 0.884
+        },
+        "timings_ms": {
+          "decode": 405,
+          "segment": 2820,
+          "colors": 157,
+          "embed": 784,
+          "classify": 36,
+          "total": 4245
+        },
+        "pieces": [
+          {
+            "id": "p0",
+            "region": "upper_clothes",
+            "slot": "outer",
+            "area_frac": 0.3594,
+            "pattern": "solid",
+            "query": "beige moth wing cape",
+            "alternate": "beige wing cape",
+            "colors": [
+              {
+                "name": "beige",
+                "hex": "#ccc6aa",
+                "frac": 0.476
+              },
+              {
+                "name": "sage",
+                "hex": "#9c9a74",
+                "frac": 0.424
+              },
+              {
+                "name": "olive",
+                "hex": "#544e30",
+                "frac": 0.099
+              }
+            ],
+            "garment_types": [
+              {
+                "phrase": "moth wing cape",
+                "score": 0.287
+              },
+              {
+                "phrase": "feather shoulder cape",
+                "score": 0.2584
+              },
+              {
+                "phrase": "double-breasted tailcoat",
+                "score": 0.2519
+              }
+            ]
+          },
+          {
+            "id": "p1",
+            "region": "pants",
+            "slot": "bottom",
+            "area_frac": 0.0555,
+            "pattern": "solid",
+            "query": "charcoal satin pantaloons",
+            "alternate": "charcoal bloomers",
+            "colors": [
+              {
+                "name": "charcoal",
+                "hex": "#4e4d40",
+                "frac": 0.545
+              },
+              {
+                "name": "black",
+                "hex": "#343328",
+                "frac": 0.363
+              },
+              {
+                "name": "sage",
+                "hex": "#9d9b88",
+                "frac": 0.091
+              }
+            ],
+            "garment_types": [
+              {
+                "phrase": "satin pantaloons",
+                "score": 0.2767
+              },
+              {
+                "phrase": "high-waisted trousers",
+                "score": 0.2734
+              },
+              {
+                "phrase": "flared trousers",
+                "score": 0.2724
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "t_ms": 4981,
+      "piece": 0,
+      "step": "search",
+      "detail": {
+        "attempt": 0,
+        "query": "beige moth wing cape",
+        "candidates": 3,
+        "ms": 528
+      }
+    },
+    {
+      "t_ms": 5156,
+      "piece": 1,
+      "step": "search",
+      "detail": {
+        "attempt": 0,
+        "query": "charcoal satin pantaloons",
+        "candidates": 3,
+        "ms": 695
+      }
+    },
+    {
+      "t_ms": 12193,
+      "piece": 0,
+      "step": "score",
+      "detail": {
+        "attempt": 0,
+        "results": [
+          {
+            "title": "Spongy Moth Wings Costume Cape Hand-Painted",
+            "merchant": "etsy.com",
+            "score": 0.4661,
+            "verdict": "weak",
+            "reasons": [
+              "color_mismatch"
+            ],
+            "embedding": 0.7993,
+            "delta_e": 30.62,
+            "color": {
+              "name": "gray",
+              "hex": "#806c65"
+            },
+            "foreground": "threshold"
+          }
+        ]
+      }
+    },
+    {
+      "t_ms": 12194,
+      "piece": 0,
+      "step": "decide",
+      "detail": {
+        "attempt": 0,
+        "action": "retry",
+        "because": "color_mismatch",
+        "next": "sage moth wing cape"
+      }
+    },
+    {
+      "t_ms": 12556,
+      "piece": 0,
+      "step": "search",
+      "detail": {
+        "attempt": 1,
+        "query": "sage moth wing cape",
+        "candidates": 3,
+        "ms": 362
+      }
+    },
+    {
+      "t_ms": 12755,
+      "piece": 1,
+      "step": "score",
+      "detail": {
+        "attempt": 0,
+        "results": [
+          {
+            "title": "Charcoal Printed Satin Mandarin Collar Women Regular Fit Tunic",
+            "merchant": "pantaloons.com",
+            "score": 0.3579,
+            "verdict": "reject",
+            "reasons": [
+              "color_mismatch"
+            ],
+            "embedding": 0.7769,
+            "delta_e": 52.36,
+            "color": {
+              "name": "white",
+              "hex": "#f4f0eb"
+            },
+            "foreground": "segmenter"
+          }
+        ]
+      }
+    },
+    {
+      "t_ms": 12756,
+      "piece": 1,
+      "step": "decide",
+      "detail": {
+        "attempt": 0,
+        "action": "retry",
+        "because": "color_mismatch",
+        "next": "black satin pantaloons"
+      }
+    },
+    {
+      "t_ms": 16572,
+      "piece": 0,
+      "step": "score",
+      "detail": {
+        "attempt": 1,
+        "results": []
+      }
+    },
+    {
+      "t_ms": 16572,
+      "piece": 0,
+      "step": "decide",
+      "detail": {
+        "attempt": 1,
+        "action": "retry",
+        "because": "no_candidates",
+        "next": "beige wing cape"
+      }
+    },
+    {
+      "t_ms": 17776,
+      "piece": 1,
+      "step": "search",
+      "detail": {
+        "attempt": 1,
+        "query": "black satin pantaloons",
+        "candidates": 3,
+        "ms": 5020
+      }
+    },
+    {
+      "t_ms": 18088,
+      "piece": 0,
+      "step": "search",
+      "detail": {
+        "attempt": 2,
+        "query": "beige wing cape",
+        "candidates": 3,
+        "ms": 1517
+      }
+    },
+    {
+      "t_ms": 21789,
+      "piece": 0,
+      "step": "score",
+      "detail": {
+        "attempt": 2,
+        "results": [
+          {
+            "title": "The Manor Wool Cape - Beige Stripe",
+            "merchant": "angelwingsbylucy.com",
+            "score": 0.2549,
+            "verdict": "reject",
+            "reasons": [
+              "color_mismatch"
+            ],
+            "embedding": 0.6845,
+            "delta_e": 38.38,
+            "color": {
+              "name": "brown",
+              "hex": "#695641"
+            },
+            "foreground": "segmenter"
+          },
+          {
+            "title": "The Manor Wool Cape - Beige Stripe",
+            "merchant": "angelwingsbylucy.com",
+            "score": 0.2549,
+            "verdict": "reject",
+            "reasons": [
+              "color_mismatch"
+            ],
+            "embedding": 0.6845,
+            "delta_e": 38.38,
+            "color": {
+              "name": "brown",
+              "hex": "#695641"
+            },
+            "foreground": "segmenter"
+          },
+          {
+            "title": "The Manor Wool Cape - Beige Stripe",
+            "merchant": "angelwingsbylucy.com",
+            "score": 0.2549,
+            "verdict": "reject",
+            "reasons": [
+              "color_mismatch"
+            ],
+            "embedding": 0.6845,
+            "delta_e": 38.38,
+            "color": {
+              "name": "brown",
+              "hex": "#695641"
+            },
+            "foreground": "segmenter"
+          }
+        ]
+      }
+    },
+    {
+      "t_ms": 21789,
+      "piece": 0,
+      "step": "decide",
+      "detail": {
+        "attempt": 2,
+        "action": "approve",
+        "because": "retries_exhausted",
+        "best_score": 0.4661
+      }
+    },
+    {
+      "t_ms": 21789,
+      "piece": 0,
+      "step": "approve",
+      "detail": {
+        "because": "retries_exhausted",
+        "score": 0.4661,
+        "title": "Spongy Moth Wings Costume Cape Hand-Painted"
+      }
+    },
+    {
+      "t_ms": 24186,
+      "piece": 1,
+      "step": "score",
+      "detail": {
+        "attempt": 1,
+        "results": [
+          {
+            "title": "Black Satin Pantaloons",
+            "merchant": "kalikahbellydancer.com.au",
+            "score": 0.3657,
+            "verdict": "reject",
+            "reasons": [],
+            "embedding": 0.689,
+            "delta_e": 20.37,
+            "color": {
+              "name": "black",
+              "hex": "#111112"
+            },
+            "foreground": "grabcut"
+          },
+          {
+            "title": "belly dance pantaloons/black and white satin harem pants for tribal fusion/cabaret-3 yard-renaissance-ATS",
+            "merchant": "etsy.com",
+            "score": 0.3602,
+            "verdict": "reject",
+            "reasons": [
+              "type_mismatch"
+            ],
+            "embedding": 0.6729,
+            "delta_e": 17.73,
+            "color": {
+              "name": "black",
+              "hex": "#1a1b1b"
+            },
+            "foreground": "grabcut"
+          },
+          {
+            "title": "Black Solid Slim Fit Satin Shirt",
+            "merchant": "pantaloons.com",
+            "score": 0.3317,
+            "verdict": "reject",
+            "reasons": [
+              "color_mismatch"
+            ],
+            "embedding": 0.7611,
+            "delta_e": 49.41,
+            "color": {
+              "name": "white",
+              "hex": "#e5ddd9"
+            },
+            "foreground": "segmenter"
+          }
+        ]
+      }
+    },
+    {
+      "t_ms": 24186,
+      "piece": 1,
+      "step": "decide",
+      "detail": {
+        "attempt": 1,
+        "action": "approve",
+        "because": "budget_low",
+        "best_score": null
+      }
+    }
+  ]
+}

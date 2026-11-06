@@ -1,0 +1,420 @@
+{
+  "editorial": [
+    {
+      "slug": "escaped-masterpiece",
+      "status": "live",
+      "name": "Escaped Masterpiece",
+      "description": "A walking gallery portrait: a gilt frame surrounds an ivory blouse and flowing burgundy skirt.",
+      "image": "/costumes/escaped-masterpiece.png",
+      "alt": "An ornate gold portrait frame around an ivory ruffled blouse and burgundy maxi skirt, with dark boots.",
+      "pieces": [
+        "DIY portrait frame foam",
+        "Ivory billowy shirt",
+        "Burgundy maxi skirt",
+        "Dark ankle boots"
+      ],
+      "tip": "Cut the frame from lightweight foam. Glue the corners, paint it gold, and add ribbon shoulder loops. Paint, glue and ribbon are extra supplies."
+    },
+    {
+      "slug": "fortune-teller",
+      "status": "live",
+      "name": "Fortune Teller",
+      "description": "An ivory blouse and flowing black skirt, finished with blue and gold coins for a theatrical midnight oracle.",
+      "image": "/costumes/fortune-teller.png",
+      "alt": "Ivory billowy blouse, long black skirt, blue coin hip scarf and black boots.",
+      "pieces": [
+        "Ivory billowy shirt",
+        "Long black skirt",
+        "Gold coin styling accessory",
+        "Dark ankle boots"
+      ],
+      "tip": "Tie the blue scarf over a skirt you own. Add a handwritten prediction card as a conversation starter."
+    },
+    {
+      "slug": "alien-botanist",
+      "status": "live",
+      "name": "Alien Botanist",
+      "description": "A cream utility suit, silver antennae and a belt of tiny specimen bottles make a curious visitor from another garden.",
+      "image": "/costumes/alien-botanist.png",
+      "alt": "Cream utility jumpsuit, silver antenna headband, small green specimen bottles at the belt, silver gloves and brown boots.",
+      "pieces": [
+        "Light flight jumpsuit base",
+        "Alien antenna headpiece",
+        "Potion bottles with belt holder",
+        "Silver gloves",
+        "Brown leather boots"
+      ],
+      "tip": "Put tiny fabric leaves in empty specimen bottles. Label them with invented planet names; no live plants or chemicals are needed."
+    },
+    {
+      "slug": "haunted-bellhop",
+      "status": "live",
+      "name": "Haunted Bellhop",
+      "description": "A red and gold hotel uniform with a pillbox cap, white gloves and a room that does not exist.",
+      "image": "/costumes/haunted-bellhop.png",
+      "alt": "Red bellhop pillbox cap and gold-trimmed red jacket, black trousers, white gloves and black boots.",
+      "pieces": [
+        "DIY bellhop pillbox hat foam",
+        "Red tailcoat with gold trim",
+        "Black trousers",
+        "Light full-finger gloves",
+        "Dark ankle boots"
+      ],
+      "tip": "Build a small pillbox cap from foam and cover it in red fabric. Pin on a paper badge for Room 13."
+    },
+    {
+      "slug": "masquerade-sun-king",
+      "status": "live",
+      "name": "Masquerade Sun King",
+      "description": "A radiant gold sunburst crown rises over cream layers and a theatrical white ruff.",
+      "image": "/costumes/masquerade-sun-king.png",
+      "alt": "Gold sunburst halo crown, ivory tunic, white pleated ruff, black trousers and dark boots.",
+      "pieces": [
+        "Gold sunburst crown",
+        "Cream tunic",
+        "Cream or white ruff collar",
+        "Black trousers",
+        "Dark ankle boots"
+      ],
+      "tip": "Keep the layers pale and let the crown catch the light. A paper invitation to your solar court completes the character."
+    }
+  ],
+  "researchedAt": "2026-10-27T00:28:53.880632Z",
+  "newProducts": [
+    {
+      "id": "e-5493f9b30a",
+      "title": "Cosplay Pros EVA Foam Sheet — 6mm / 500mm x 1500mm / Black",
+      "url": "https://www.thecosplaypros.com/products/eva-foam-sheets?variant=20494372601967",
+      "priceCents": 2149,
+      "currency": "USD",
+      "image": "/products/price-tiers/e-5493f9b30a.webp",
+      "merchantImage": "/products/price-tiers/e-5493f9b30a.webp",
+      "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/0055/6220/4271/products/71Km8wsI1wL._AC_SL1500.jpg?v=1614097339"
+      ],
+      "availability": "in_stock",
+      "sizes": [],
+      "merchantId": "expansion-e-thecosplaypros-com",
+      "tagSlugs": [],
+      "description": "Public variant feed confirms this thickness, black color, 500 × 1500 mm sheet and stock. Raw foam only; finished prop, paint, glue, fabric and fastening are not included.",
+      "checkedAt": "2026-10-27T00:28:53.880632Z",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-27T00:28:53.880632Z",
+        "url": "https://www.thecosplaypros.com/products/eva-foam-sheets?variant=20494372601967",
+        "notes": "Public variant feed confirms this thickness, black color, 500 × 1500 mm sheet and stock. Raw foam only; finished prop, paint, glue, fabric and fastening are not included."
+      }
+    },
+    {
+      "id": "e-e752cfcae7",
+      "title": "Cosplay Pros EVA Foam Sheet — 8mm / 500mm x 1500mm / Black",
+      "url": "https://www.thecosplaypros.com/products/eva-foam-sheets?variant=20494372667503",
+      "priceCents": 2436,
+      "currency": "USD",
+      "image": "/products/price-tiers/e-e752cfcae7.webp",
+      "merchantImage": "/products/price-tiers/e-e752cfcae7.webp",
+      "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/0055/6220/4271/products/71Km8wsI1wL._AC_SL1500.jpg?v=1614097339"
+      ],
+      "availability": "in_stock",
+      "sizes": [],
+      "merchantId": "expansion-e-thecosplaypros-com",
+      "tagSlugs": [],
+      "description": "Public variant feed confirms this thickness, black color, 500 × 1500 mm sheet and stock. Raw foam only; finished prop, paint, glue, fabric and fastening are not included.",
+      "checkedAt": "2026-10-27T00:28:53.880632Z",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-27T00:28:53.880632Z",
+        "url": "https://www.thecosplaypros.com/products/eva-foam-sheets?variant=20494372667503",
+        "notes": "Public variant feed confirms this thickness, black color, 500 × 1500 mm sheet and stock. Raw foam only; finished prop, paint, glue, fabric and fastening are not included."
+      }
+    },
+    {
+      "id": "e-729c1587bc",
+      "title": "Cosplay Pros EVA Foam Sheet — 10mm / 500mm x 1500mm / Black",
+      "url": "https://www.thecosplaypros.com/products/eva-foam-sheets?variant=20494372765807",
+      "priceCents": 2724,
+      "currency": "USD",
+      "image": "/products/price-tiers/e-729c1587bc.webp",
+      "merchantImage": "/products/price-tiers/e-729c1587bc.webp",
+      "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/0055/6220/4271/products/71Km8wsI1wL._AC_SL1500.jpg?v=1614097339"
+      ],
+      "availability": "in_stock",
+      "sizes": [],
+      "merchantId": "expansion-e-thecosplaypros-com",
+      "tagSlugs": [],
+      "description": "Public variant feed confirms this thickness, black color, 500 × 1500 mm sheet and stock. Raw foam only; finished prop, paint, glue, fabric and fastening are not included.",
+      "checkedAt": "2026-10-27T00:28:53.880632Z",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-27T00:28:53.880632Z",
+        "url": "https://www.thecosplaypros.com/products/eva-foam-sheets?variant=20494372765807",
+        "notes": "Public variant feed confirms this thickness, black color, 500 × 1500 mm sheet and stock. Raw foam only; finished prop, paint, glue, fabric and fastening are not included."
+      }
+    },
+    {
+      "id": "e-bf56d9c5b7",
+      "title": "Fortune Teller Headband and Earrings Set",
+      "url": "https://caufields.com/products/gypsy-headband-and-earrings-set?variant=71272647164157",
+      "priceCents": 1299,
+      "currency": "USD",
+      "image": "/products/price-tiers/e-bf56d9c5b7.webp",
+      "merchantImage": "/products/price-tiers/e-bf56d9c5b7.webp",
+      "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/0524/6392/7479/files/31565.jpg?v=1788987005"
+      ],
+      "availability": "in_stock",
+      "sizes": [
+        "One size fits most"
+      ],
+      "merchantId": "expansion-e-caufields-com",
+      "tagSlugs": [],
+      "description": "Public merchant variant feed confirms price and stock. Headband and earrings set; no hip scarf included. Wear at the head rather than the waist.",
+      "checkedAt": "2026-10-27T00:28:53.880632Z",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-27T00:28:53.880632Z",
+        "url": "https://caufields.com/products/gypsy-headband-and-earrings-set?variant=71272647164157",
+        "notes": "Public merchant variant feed confirms price and stock. Headband and earrings set; no hip scarf included. Wear at the head rather than the waist."
+      }
+    },
+    {
+      "id": "e-aa9e96ab7d",
+      "title": "Fortune Teller Coin Hip Scarf - Blue & Gold",
+      "url": "https://caufields.com/products/fortune-teller-coin-hip-scarf-blue-gold?variant=44514146877693",
+      "priceCents": 1599,
+      "currency": "USD",
+      "image": "/products/price-tiers/e-aa9e96ab7d.webp",
+      "merchantImage": "/products/price-tiers/e-aa9e96ab7d.webp",
+      "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/0524/6392/7479/files/Screenshot2024-02-13160159.png?v=1707858162"
+      ],
+      "availability": "in_stock",
+      "sizes": [
+        "One size fits most"
+      ],
+      "merchantId": "expansion-e-caufields-com",
+      "tagSlugs": [],
+      "description": "Public merchant variant feed confirms price and stock. Blue wrap with gold-colored coins; merchant states one size fits most.",
+      "checkedAt": "2026-10-27T00:28:53.880632Z",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-27T00:28:53.880632Z",
+        "url": "https://caufields.com/products/fortune-teller-coin-hip-scarf-blue-gold?variant=44514146877693",
+        "notes": "Public merchant variant feed confirms price and stock. Blue wrap with gold-colored coins; merchant states one size fits most."
+      }
+    },
+    {
+      "id": "e-f353260179",
+      "title": "Belly Dance Velvet Hip Scarf With Gold Coins — Royal Blue",
+      "url": "https://missbellydance.com/products/belly-dance-velvet-hip-scarf-with-gold-coins?variant=45950013046996",
+      "priceCents": 1799,
+      "currency": "USD",
+      "image": "/products/price-tiers/e-f353260179.webp",
+      "merchantImage": "/products/price-tiers/e-f353260179.webp",
+      "sourceImages": [
+        "https://missbellydance.com/cdn/shop/files/OV_royal.jpg?v=1735590360"
+      ],
+      "availability": "in_stock",
+      "sizes": [],
+      "merchantId": "expansion-e-missbellydance-com",
+      "tagSlugs": [],
+      "description": "Merchant page embeds Royal Blue variant 45950013046996, price 1799 cents, available true, and this exact photograph. Velvet hip scarf; base skirt and blouse not included.",
+      "checkedAt": "2026-10-27T00:28:53.880632Z",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-27T00:28:53.880632Z",
+        "url": "https://missbellydance.com/products/belly-dance-velvet-hip-scarf-with-gold-coins?variant=45950013046996",
+        "notes": "Merchant page embeds Royal Blue variant 45950013046996, price 1799 cents, available true, and this exact photograph. Velvet hip scarf; base skirt and blouse not included."
+      }
+    },
+    {
+      "id": "e-b5e9fc5ddd",
+      "title": "Gold Sunburst Halo Crown Headband - Gold — Gold",
+      "url": "https://masqueradestore.com/products/gold-sunburst-halo-crown-headwear?variant=46625513799983",
+      "priceCents": 4000,
+      "currency": "USD",
+      "image": "/products/price-tiers/e-b5e9fc5ddd.webp",
+      "merchantImage": "/products/price-tiers/e-b5e9fc5ddd.webp",
+      "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/0738/6159/5439/products/il_1588xn.2014407969_iv76.jpg?v=1692205193"
+      ],
+      "availability": "in_stock",
+      "sizes": [
+        "One size"
+      ],
+      "merchantId": "expansion-e-masqueradestore-com",
+      "tagSlugs": [],
+      "description": "Merchant public variant feed confirms Gold is available at this USD price. Painted zip-tie halo, adult/unisex size.",
+      "checkedAt": "2026-10-27T00:28:53.880632Z",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-27T00:28:53.880632Z",
+        "url": "https://masqueradestore.com/products/gold-sunburst-halo-crown-headwear?variant=46625513799983",
+        "notes": "Merchant public variant feed confirms Gold is available at this USD price. Painted zip-tie halo, adult/unisex size."
+      }
+    },
+    {
+      "id": "e-cce8046f9e",
+      "title": "Golden Halo Sunburst Crown — Gold",
+      "url": "https://hollyhardwick.com/products/golden-halo-sunburst-crown?variant=31727530180661",
+      "priceCents": 20000,
+      "currency": "USD",
+      "image": "/products/price-tiers/e-cce8046f9e.webp",
+      "merchantImage": "/products/price-tiers/e-cce8046f9e.webp",
+      "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/2186/5239/products/6.png?v=1587411174"
+      ],
+      "availability": "in_stock",
+      "sizes": [
+        "One size"
+      ],
+      "merchantId": "expansion-e-hollyhardwick-com",
+      "tagSlugs": [],
+      "description": "Merchant public variant feed confirms Gold is available at this USD price. Handmade flexible crown, 7 cm high; gold base with champagne crystals. Other finishes are separate variants; production/arrival timing is unconfirmed.",
+      "checkedAt": "2026-10-27T00:28:53.880632Z",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-27T00:28:53.880632Z",
+        "url": "https://hollyhardwick.com/products/golden-halo-sunburst-crown?variant=31727530180661",
+        "notes": "Merchant public variant feed confirms Gold is available at this USD price. Handmade flexible crown, 7 cm high; gold base with champagne crystals. Other finishes are separate variants; production/arrival timing is unconfirmed."
+      }
+    },
+    {
+      "id": "e-3b2851abbd",
+      "title": "Floral Pearl Sunburst Mary Halo Crown — Gold",
+      "url": "https://babeyond.com/products/floral-sunburst-mary-halo-crown",
+      "priceCents": 2900,
+      "currency": "USD",
+      "image": "/products/price-tiers/e-3b2851abbd.webp",
+      "merchantImage": "/products/price-tiers/e-3b2851abbd.webp",
+      "sourceImages": [
+        "https://babeyond.com/cdn/shop/products/Floral-Sunburst-Mary-Halo-Crown-Gold-3.jpg?v=1750323367"
+      ],
+      "availability": "in_stock",
+      "sizes": [],
+      "merchantId": "expansion-e-babeyond-com",
+      "tagSlugs": [],
+      "description": "Primary product page lists Gold at $29 USD with In stock and Add to cart. Painted spikes, imitation pearls and rhinestones. Generic Unavailable text also exists in the unselected control; verify selected Gold before checkout. US ground shipping estimates 10–12 business days plus processing; no Halloween arrival claim.",
+      "checkedAt": "2026-10-27T00:28:53.880632Z",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-27T00:28:53.880632Z",
+        "url": "https://babeyond.com/products/floral-sunburst-mary-halo-crown",
+        "notes": "Primary product page lists Gold at $29 USD with In stock and Add to cart. Painted spikes, imitation pearls and rhinestones. Generic Unavailable text also exists in the unselected control; verify selected Gold before checkout. US ground shipping estimates 10–12 business days plus processing; no Halloween arrival claim."
+      }
+    },
+    {
+      "id": "e-1ffb7f1e73",
+      "title": "Sparkling Alien Antenna Headband — Silver",
+      "url": "https://www.costume-shop.com/products/14107026?variant=45418179395817",
+      "priceCents": 1519,
+      "currency": "USD",
+      "image": "/products/price-tiers/e-1ffb7f1e73.webp",
+      "merchantImage": "/products/price-tiers/e-1ffb7f1e73.webp",
+      "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/0084/9113/9138/products/alien_20antenna_bc08sv_0f07250c-0ae1-43cf-be2f-f24a32e27631.jpg?v=1692935174"
+      ],
+      "availability": "in_stock",
+      "sizes": [
+        "One size"
+      ],
+      "merchantId": "expansion-e-costume-shop-com",
+      "tagSlugs": [],
+      "description": "Silver variant available true at 1519 cents in merchant feed. Plastic base, wired tinsel and glitter balls. Gold variant is sold out and is not selected.",
+      "checkedAt": "2026-10-27T00:28:53.880632Z",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-27T00:28:53.880632Z",
+        "url": "https://www.costume-shop.com/products/14107026?variant=45418179395817",
+        "notes": "Silver variant available true at 1519 cents in merchant feed. Plastic base, wired tinsel and glitter balls. Gold variant is sold out and is not selected."
+      }
+    },
+    {
+      "id": "e-b8d2d05059",
+      "title": "Sequin Embellished Velvet Maxi Skirt with Side Pockets",
+      "url": "https://www.thelittlebazaar.com/item/5620.html",
+      "priceCents": 4499,
+      "currency": "USD",
+      "image": "/products/price-tiers/e-b8d2d05059.webp",
+      "merchantImage": "/products/price-tiers/e-b8d2d05059.webp",
+      "sourceImages": [
+        "https://www.thelittlebazaar.com/m/Clothing/5620-sequin-embellished-velvet-maxi-skirt-with-side-pockets-fb.jpg"
+      ],
+      "availability": "in_stock",
+      "sizes": [
+        "One size"
+      ],
+      "merchantId": "expansion-e-thelittlebazaar-com",
+      "tagSlugs": [],
+      "description": "Primary merchant HTML shows live Buy control at USD 44.99 and limited quantity. Burgundy micro velvet with gold embroidery and sequins; more embellished than the plain reference. Elastic waist one size; check the merchant measurements. No blouse included.",
+      "checkedAt": "2026-10-27T00:30:40.926512Z",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-27T00:30:40.926512Z",
+        "url": "https://www.thelittlebazaar.com/item/5620.html",
+        "notes": "Primary merchant HTML shows live Buy control at USD 44.99 and limited quantity. Burgundy micro velvet with gold embroidery and sequins; more embellished than the plain reference. Elastic waist one size; check the merchant measurements. No blouse included."
+      }
+    },
+    {
+      "id": "e-d743aa9de3",
+      "title": "The Ruth Burgundy Maxi Skirt — Medium",
+      "url": "https://lizmareeboutique.com/products/the-ruth-burgundy-maxi-skirt?variant=45158295732420",
+      "priceCents": 5499,
+      "currency": "USD",
+      "image": "/products/price-tiers/e-d743aa9de3.webp",
+      "merchantImage": "/products/price-tiers/e-d743aa9de3.webp",
+      "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/0528/1074/4004/files/54A58DB1-D8D6-40DA-BBBE-1319A261FA86.jpg?v=1757451103"
+      ],
+      "availability": "in_stock",
+      "sizes": [
+        "Medium"
+      ],
+      "merchantId": "expansion-e-lizmareeboutique-com",
+      "tagSlugs": [],
+      "description": "Merchant feed confirms Medium is available at $54.99. Burgundy lined maxi skirt with elastic waist, pockets and pleated tiers. Fabric finish differs from the velvet reference; blouse not included.",
+      "checkedAt": "2026-10-27T00:30:40.926512Z",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-27T00:30:40.926512Z",
+        "url": "https://lizmareeboutique.com/products/the-ruth-burgundy-maxi-skirt?variant=45158295732420",
+        "notes": "Merchant feed confirms Medium is available at $54.99. Burgundy lined maxi skirt with elastic waist, pockets and pleated tiers. Fabric finish differs from the velvet reference; blouse not included."
+      }
+    },
+    {
+      "id": "e-5d2008e2c1",
+      "title": "Burgundy Eyelet Scalloped Maxi Skirt — S / Maroon",
+      "url": "https://shopthe99.boutique/products/burgundy-eyelet-scalloped-maxi-skirt?variant=47468227985497",
+      "priceCents": 8200,
+      "currency": "USD",
+      "image": "/products/price-tiers/e-5d2008e2c1.webp",
+      "merchantImage": "/products/price-tiers/e-5d2008e2c1.webp",
+      "sourceImages": [
+        "https://cdn.shopify.com/s/files/1/0076/8298/1939/files/1a695c1bb2afe8a39df3f2b4805bb80a9b48c5e84647506390879069e561af74.jpg?v=1792037339"
+      ],
+      "availability": "in_stock",
+      "sizes": [
+        "S / Maroon",
+        "M / Maroon",
+        "L / Maroon"
+      ],
+      "merchantId": "expansion-e-shopthe99-boutique",
+      "tagSlugs": [],
+      "description": "Merchant feed confirms S, M and L in Maroon at $82. Burgundy polyester eyelet lace, lined with side pockets and scalloped hem; this is lace rather than velvet.",
+      "checkedAt": "2026-10-27T00:30:40.926512Z",
+      "sourcing": {
+        "method": "built-in-web",
+        "checkedAt": "2026-10-27T00:30:40.926512Z",
+        "url": "https://shopthe99.boutique/products/burgundy-eyelet-scalloped-maxi-skirt?variant=47468227985497",
+        "notes": "Merchant feed confirms S, M and L in Maroon at $82. Burgundy polyester eyelet lace, lined with side pockets and scalloped hem; this is lace rather than velvet."
+      }
+    }
+  ],
+  "limits": [
+    "Merchant stock can change. Arrival by Halloween is not confirmed.",
+    "DIY frame and pillbox need paint/glue/fasteners or fabric, which are not included in their listed foam price.",
+    "Existing product evidence dates are preserved."
+  ]
+}

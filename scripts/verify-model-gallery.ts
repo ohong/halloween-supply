@@ -17,7 +17,8 @@ assert.deepEqual(diskFiles.sort(), [...expected].sort());
 const response = await fetch(origin, { cache: "no-store", signal: AbortSignal.timeout(20_000) });
 assert.equal(response.status, 200);
 const html = (await response.text()).replace(/<script\b[^>]*>[\s\S]*?<\/script>/gi, "");
-assert(html.includes('aria-label="Model"') && html.includes(">Male</button>") && html.includes(">Female</button>"));
+assert(html.includes('<label for="gallery-model">Model</label>') && /<select\b[^>]*id="gallery-model"/.test(html));
+assert(/<option\b[^>]*value="male"[^>]*>Male<\/option>/.test(html) && /<option\b[^>]*value="female"[^>]*>Female<\/option>/.test(html));
 assert.equal((html.match(/class="tile-picture"/g) ?? []).length, costumes.length);
 for (const { slug } of costumes) {
   const file = `/costumes/models/${slug}-female.webp`;

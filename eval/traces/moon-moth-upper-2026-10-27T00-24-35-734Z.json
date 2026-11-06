@@ -1,0 +1,268 @@
+{
+  "slug": "moon-moth-upper",
+  "base": "http://localhost:3000",
+  "model": "opencv-5:5.0.0;stock",
+  "elapsedMs": 21192,
+  "done": {
+    "t": "done",
+    "found": 0,
+    "priced": 0,
+    "timedOut": false,
+    "ms": 21105
+  },
+  "pieces": [
+    "beige moth wing cape",
+    "charcoal satin pantaloons"
+  ],
+  "approvals": [],
+  "retries": [
+    {
+      "piece": 0,
+      "attempt": 0,
+      "action": "retry",
+      "because": "no_candidates",
+      "next": "beige wing cape"
+    },
+    {
+      "piece": 1,
+      "attempt": 0,
+      "action": "retry",
+      "because": "no_candidates",
+      "next": "charcoal bloomers"
+    }
+  ],
+  "improvedPieces": [],
+  "trace": [
+    {
+      "t_ms": 638,
+      "piece": null,
+      "step": "perceive",
+      "detail": {
+        "person": {
+          "found": true,
+          "bbox": [
+            37,
+            154,
+            948,
+            409
+          ],
+          "confidence": 0.884
+        },
+        "timings_ms": {
+          "decode": 2,
+          "segment": 438,
+          "colors": 32,
+          "embed": 155,
+          "classify": 4,
+          "total": 632
+        },
+        "pieces": [
+          {
+            "id": "p0",
+            "region": "upper_clothes",
+            "slot": "outer",
+            "area_frac": 0.3594,
+            "pattern": "solid",
+            "query": "beige moth wing cape",
+            "alternate": "beige wing cape",
+            "colors": [
+              {
+                "name": "beige",
+                "hex": "#ccc6aa",
+                "frac": 0.476
+              },
+              {
+                "name": "sage",
+                "hex": "#9c9a74",
+                "frac": 0.424
+              },
+              {
+                "name": "olive",
+                "hex": "#544e30",
+                "frac": 0.099
+              }
+            ],
+            "garment_types": [
+              {
+                "phrase": "moth wing cape",
+                "score": 0.287
+              },
+              {
+                "phrase": "feather shoulder cape",
+                "score": 0.2584
+              },
+              {
+                "phrase": "double-breasted tailcoat",
+                "score": 0.2519
+              }
+            ]
+          },
+          {
+            "id": "p1",
+            "region": "pants",
+            "slot": "bottom",
+            "area_frac": 0.0555,
+            "pattern": "solid",
+            "query": "charcoal satin pantaloons",
+            "alternate": "charcoal bloomers",
+            "colors": [
+              {
+                "name": "charcoal",
+                "hex": "#4e4d40",
+                "frac": 0.545
+              },
+              {
+                "name": "black",
+                "hex": "#343328",
+                "frac": 0.363
+              },
+              {
+                "name": "sage",
+                "hex": "#9d9b88",
+                "frac": 0.091
+              }
+            ],
+            "garment_types": [
+              {
+                "phrase": "satin pantaloons",
+                "score": 0.2767
+              },
+              {
+                "phrase": "high-waisted trousers",
+                "score": 0.2734
+              },
+              {
+                "phrase": "flared trousers",
+                "score": 0.2724
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "t_ms": 980,
+      "piece": 0,
+      "step": "search",
+      "detail": {
+        "attempt": 0,
+        "query": "beige moth wing cape",
+        "candidates": 3,
+        "ms": 342
+      }
+    },
+    {
+      "t_ms": 1809,
+      "piece": 0,
+      "step": "score",
+      "detail": {
+        "attempt": 0,
+        "results": []
+      }
+    },
+    {
+      "t_ms": 1809,
+      "piece": 0,
+      "step": "decide",
+      "detail": {
+        "attempt": 0,
+        "action": "retry",
+        "because": "no_candidates",
+        "next": "beige wing cape"
+      }
+    },
+    {
+      "t_ms": 8606,
+      "piece": 1,
+      "step": "search",
+      "detail": {
+        "attempt": 0,
+        "query": "charcoal satin pantaloons",
+        "candidates": 2,
+        "ms": 7967
+      }
+    },
+    {
+      "t_ms": 9119,
+      "piece": 1,
+      "step": "score",
+      "detail": {
+        "attempt": 0,
+        "results": []
+      }
+    },
+    {
+      "t_ms": 9119,
+      "piece": 1,
+      "step": "decide",
+      "detail": {
+        "attempt": 0,
+        "action": "retry",
+        "because": "no_candidates",
+        "next": "charcoal bloomers"
+      }
+    },
+    {
+      "t_ms": 13816,
+      "piece": 0,
+      "step": "search",
+      "detail": {
+        "attempt": 1,
+        "query": "beige wing cape",
+        "candidates": 0,
+        "ms": 12007
+      }
+    },
+    {
+      "t_ms": 13816,
+      "piece": 0,
+      "step": "score",
+      "detail": {
+        "attempt": 1,
+        "results": []
+      }
+    },
+    {
+      "t_ms": 13816,
+      "piece": 0,
+      "step": "decide",
+      "detail": {
+        "attempt": 1,
+        "action": "approve",
+        "because": "no_new_query",
+        "best_score": null
+      }
+    },
+    {
+      "t_ms": 21104,
+      "piece": 1,
+      "step": "search",
+      "detail": {
+        "attempt": 1,
+        "query": "charcoal bloomers",
+        "candidates": 0,
+        "ms": 11985
+      }
+    },
+    {
+      "t_ms": 21105,
+      "piece": 1,
+      "step": "score",
+      "detail": {
+        "attempt": 1,
+        "results": []
+      }
+    },
+    {
+      "t_ms": 21105,
+      "piece": 1,
+      "step": "decide",
+      "detail": {
+        "attempt": 1,
+        "action": "approve",
+        "because": "budget_low",
+        "best_score": null
+      }
+    }
+  ]
+}

@@ -1,0 +1,261 @@
+[
+  {
+    "slug": "cosmic-cowboy-completion",
+    "costumeSlug": "cosmic-cowboy",
+    "name": "Cosmic Cowboy completion kit",
+    "description": "Add a silver hat, tinsel fringe, satin trousers, and a blue bandana to boots you already own.",
+    "buy": [
+      { "pieceId": "cowboy-hat", "productId": "p-9a55a595ed", "quantity": 1 },
+      { "pieceId": "fringe-jacket", "productId": "p-47ca5a0d66", "quantity": 1 },
+      { "pieceId": "silver-trousers", "productId": "p-ba3ef9a46e", "quantity": 1 },
+      { "pieceId": "neckerchief", "productId": "p-8c95a056a9", "quantity": 1 }
+    ],
+    "owned": [
+      {
+        "pieceId": "western-boots",
+        "note": "Use your own pointed western boots in black, white, or silver. Boots are required and are not included in the purchase subtotal."
+      }
+    ],
+    "skipped": [],
+    "extraSupplies": ["Your own plain base top to wear beneath the open jacket"],
+    "assembly": {
+      "minutes": 15,
+      "steps": [
+        "Put on your base top, silver trousers, and owned boots.",
+        "Add the tinsel jacket and check that the fringe clears your hands.",
+        "Fold the blue bandana into a triangle and tie it loosely at the neck.",
+        "Fit the cowboy hat. Leave the lights off or follow the supplied battery and button instructions.",
+        "Walk and sit in the full outfit. Adjust the trouser hem so it clears the floor."
+      ],
+      "tools": []
+    },
+    "readiness": {
+      "notes": [
+        "The catalog purchase subtotal is $79.97 USD before shipping, tax, and any extra supplies. Four merchants may charge separately.",
+        "Assembly time is an estimate after the pieces arrive. It has not been measured.",
+        "The jacket is L/XL only. The trousers use S/M/L/XL sizing. Check both merchants' measurements before ordering.",
+        "The jacket uses allover tinsel fringe rather than a tailored western yoke. The trousers have satin sheen rather than foil shine.",
+        "Delivery for the complete kit is unconfirmed. Processing times are not arrival dates; check every merchant against your event date.",
+        "The cheaper Johnnie Brocks trousers are not used because the checked page still displays an online-ordering pause."
+      ],
+      "evidence": [
+        {
+          "url": "https://www.flashingblinkylights.com/silver-sequin-cowboy-hat-with-white-led-brim.html",
+          "checkedAt": "2026-11-05T22:51:09-08:00",
+          "kind": "product",
+          "productId": "p-9a55a595ed",
+          "note": "The merchant page lists one hat at $9.99, installed replaceable batteries, an adjustable chin strap, and activation instructions."
+        },
+        {
+          "url": "https://www.flashingblinkylights.com/shipping-policy",
+          "checkedAt": "2026-11-05T22:51:09-08:00",
+          "kind": "shipping",
+          "productId": "p-9a55a595ed",
+          "note": "In-stock orders received by noon Pacific ship the same business day. Transit depends on destination and service; no arrival date is established."
+        },
+        {
+          "url": "https://theoddassortment.com/products/adult-l-xl-silver-tinsel-fringe-jacket",
+          "checkedAt": "2026-11-05T22:51:09-08:00",
+          "kind": "product",
+          "productId": "p-47ca5a0d66",
+          "note": "The merchant identifies a KBW adult L/XL silver tinsel fringe jacket at $24.99."
+        },
+        {
+          "url": "https://theoddassortment.com/policies/shipping-policy",
+          "checkedAt": "2026-11-05T22:51:09-08:00",
+          "kind": "shipping",
+          "productId": "p-47ca5a0d66",
+          "note": "Items typically ship within 24 hours of cleared payment. Weekend orders may wait until the next business day; no transit estimate is published here."
+        },
+        {
+          "url": "https://thelocalgroup.shop/products/metallic-muse-satin-trouser-in-silver",
+          "checkedAt": "2026-11-05T22:51:09-08:00",
+          "kind": "product",
+          "productId": "p-ba3ef9a46e",
+          "note": "The page lists silver satin wide-leg trousers at $39, with S/M/L/XL options, front pleats, and a button/zip fly."
+        },
+        {
+          "url": "https://thelocalgroup.shop/products/metallic-muse-satin-trouser-in-silver",
+          "checkedAt": "2026-11-05T22:51:09-08:00",
+          "kind": "shipping",
+          "productId": "p-ba3ef9a46e",
+          "note": "The page states processing and shipping within 1–2 business days. It lists $12.95 domestic shipping below $99, without establishing an arrival date."
+        },
+        {
+          "url": "https://wexpress.com/bandanas-royal-blue-paisley-usa-made/",
+          "checkedAt": "2026-11-05T22:51:09-08:00",
+          "kind": "product",
+          "productId": "p-8c95a056a9",
+          "note": "The merchant lists the royal blue paisley bandana at $5.99 and specifies 100% cotton and 22-by-22-inch dimensions."
+        },
+        {
+          "url": "https://wexpress.com/pages/shipping-information",
+          "checkedAt": "2026-11-05T22:51:09-08:00",
+          "kind": "shipping",
+          "productId": "p-8c95a056a9",
+          "note": "Retail orders usually ship within 1–2 business days. Basic USA delivery is estimated at 5–7 business days; Canada is 10–21. These are estimates."
+        }
+      ]
+    },
+    "rationale": "Buying the visible silver pieces preserves the theme without assuming a special jacket or metallic trousers are already owned. Reusing boots avoids a size-sensitive footwear purchase."
+  },
+  {
+    "slug": "velvet-vampire-completion",
+    "costumeSlug": "velvet-vampire",
+    "name": "Velvet Vampire completion kit",
+    "description": "Build the cape, ruffles, black waistcoat, and silver ornament around your own black trousers and boots.",
+    "buy": [
+      { "pieceId": "vampire-cape", "productId": "p-10914a6666", "quantity": 1 },
+      { "pieceId": "ruffled-shirt", "productId": "p-3917412b3f", "quantity": 1 },
+      { "pieceId": "black-waistcoat", "productId": "p-43dbc8c569", "quantity": 1 },
+      { "pieceId": "silver-brooch", "productId": "p-f6b66c527c", "quantity": 1 }
+    ],
+    "owned": [
+      {
+        "pieceId": "vampire-boots",
+        "note": "Use your own black tall boots. They are required and are not included in the purchase subtotal."
+      }
+    ],
+    "skipped": [],
+    "extraSupplies": ["Your own black trousers"],
+    "assembly": {
+      "minutes": 15,
+      "steps": [
+        "Put on the ruffled shirt, your black trousers, and your black tall boots.",
+        "Button the waistcoat and adjust its back buckle without flattening the shirt ruffles.",
+        "Drape the cape over your shoulders and arrange the red lining so it shows at the opening.",
+        "Place the magnetic brooch on the shirt or waistcoat. Keep the cape's own closure responsible for holding the cape.",
+        "Walk, sit, and raise your arms. Check the cape hem and adjust it before leaving."
+      ],
+      "tools": []
+    },
+    "readiness": {
+      "notes": [
+        "The catalog purchase subtotal is $98.39 USD before shipping, tax, and any extra supplies. Four merchants may charge separately.",
+        "Assembly time is an estimate after the pieces arrive. It has not been measured.",
+        "The shirt has one standard size, up to a 42-inch chest. Confirm the fit; this kit does not cover every body size.",
+        "The cape is adult size. The waistcoat has separate S–5XL options; use its size chart.",
+        "The brooch is silver-tone and magnetic. It is not a sterling silver gemstone brooch or a load-bearing cape fastener.",
+        "Delivery for the complete kit is unconfirmed. The cape and waistcoat still need merchant-specific delivery checks against your event date."
+      ],
+      "evidence": [
+        {
+          "url": "https://statefairseasons.com/products/black-velvet-hooded-cape-with-red-satin-lining",
+          "checkedAt": "2026-11-05T22:51:09-08:00",
+          "kind": "product",
+          "productId": "p-10914a6666",
+          "note": "The merchant page identifies Underwraps #30355, an adult black velvet hooded cape with red satin lining, at $21.99."
+        },
+        {
+          "url": "https://www.medievalcollectibles.com/product/ruffled-costume-shirt/",
+          "checkedAt": "2026-11-05T22:51:09-08:00",
+          "kind": "product",
+          "productId": "p-3917412b3f",
+          "note": "The merchant lists FM-64755 at $22 and describes a white poly-cotton shirt with front ruffles, lace sleeve trim, and a 42-inch chest limit."
+        },
+        {
+          "url": "https://www.medievalcollectibles.com/faq/",
+          "checkedAt": "2026-11-05T22:51:09-08:00",
+          "kind": "shipping",
+          "productId": "p-3917412b3f",
+          "note": "In-stock orders ship the same or next business day. The FAQ estimates 1–7 business days to reach domestic customers, depending on location and method; international delivery can take longer."
+        },
+        {
+          "url": "https://www.darkrock.net/products/mens-waistcoat-vest-black-brocade-gothic-steampunk-vtg-usa",
+          "checkedAt": "2026-11-05T22:51:09-08:00",
+          "kind": "product",
+          "productId": "p-43dbc8c569",
+          "note": "The page lists the black brocade waistcoat at $32.45, with S–5XL options, a V-neck, three front buttons, and an adjustable back buckle."
+        },
+        {
+          "url": "https://historicalemporium.com/products/sunburst-magnetic-brooch-silver",
+          "checkedAt": "2026-11-05T22:51:09-08:00",
+          "kind": "product",
+          "productId": "p-f6b66c527c",
+          "note": "The page lists a $21.95 magnetic sunburst brooch, approximately 2.5 inches across. The merchant warns that its magnet may interfere with pacemakers."
+        },
+        {
+          "url": "https://historicalemporium.com/pages/shipping-options",
+          "checkedAt": "2026-11-05T22:51:09-08:00",
+          "kind": "shipping",
+          "productId": "p-f6b66c527c",
+          "note": "For USA orders, the merchant quotes arrival within eight business days for standard service or five for expedited service, excluding weekends and holidays. Confirm service for your address."
+        }
+      ]
+    },
+    "rationale": "The red-lined cape, white ruffles, black brocade, and silver ornament carry the vampire look. Reusing black trousers and tall boots keeps the catalog purchase subtotal below $100."
+  },
+  {
+    "slug": "linen-ghost-completion",
+    "costumeSlug": "linen-ghost",
+    "name": "Linen Ghost completion kit",
+    "description": "Shape one white linen sheet over light clothes and brown boots you already own.",
+    "buy": [
+      { "pieceId": "ghost-linen-drape", "productId": "p-734febc080", "quantity": 1 }
+    ],
+    "owned": [
+      {
+        "pieceId": "ghost-light-top",
+        "note": "Use your own comfortable white, cream, or pale natural T-shirt as the hidden base top."
+      },
+      {
+        "pieceId": "ghost-base-pants",
+        "note": "Use your own comfortable light-coloured trousers as the hidden base layer. They do not need to be linen."
+      },
+      {
+        "pieceId": "brown-lace-up-boots",
+        "note": "Use your own brown lace-up boots. The hem should reveal the boots and stay clear of the floor."
+      },
+      {
+        "pieceId": "ghost-drape-fastener",
+        "note": "Use your own closed safety pins inside the sheet to secure it to the cap. This replaces the optional decorative shawl pin."
+      }
+    ],
+    "skipped": [],
+    "extraSupplies": ["Your own fitted baseball cap, worn backward beneath the sheet"],
+    "assembly": {
+      "minutes": 30,
+      "steps": [
+        "Put on the light base layers, boots, and a backward baseball cap.",
+        "Ask a helper to drape the sheet evenly. Mark the cap position, eye openings, and a hem that clears your shoes.",
+        "Remove the sheet before cutting. Cut generous eye openings and trim the marked hem.",
+        "Secure the sheet to the cap with closed safety pins inside the fabric. Keep pin points covered and away from skin.",
+        "Put on the costume and check your view in all directions. Enlarge the openings if the sheet blocks your view.",
+        "Walk, turn, sit, and raise your arms with a helper nearby. Adjust the drape so it stays clear of your feet."
+      ],
+      "tools": ["Fabric scissors", "Washable fabric marker or tailor's chalk", "Measuring tape"]
+    },
+    "readiness": {
+      "notes": [
+        "The catalog purchase subtotal is $64.99 USD before shipping, tax, and any extra supplies. This assumes you own the listed clothing, cap, pins, and tools.",
+        "Assembly time is an estimate. The draping and cutting have not been timed or tested with this linen sheet.",
+        "The selected sheet is white Queen, 90 by 102 inches. It is white rather than the off-white natural linen in the original look.",
+        "This is a DIY drape, not a finished costume. Cutting permanently changes the sheet; fit it before making openings.",
+        "Delivery is unconfirmed. The merchant publishes processing time, but no address-specific arrival date was checked."
+      ],
+      "evidence": [
+        {
+          "url": "https://www.simpleopulence.com/products/linen-flat-sheet-basic-style",
+          "checkedAt": "2026-11-05T22:51:09-08:00",
+          "kind": "product",
+          "productId": "p-734febc080",
+          "note": "The page lists a $64.99 flat sheet in 100% stonewashed linen and shows White / Queen, 90 by 102 inches, among its options."
+        },
+        {
+          "url": "https://www.simpleopulence.com/policies/shipping-policy",
+          "checkedAt": "2026-11-05T22:51:09-08:00",
+          "kind": "shipping",
+          "productId": "p-734febc080",
+          "note": "The warehouse needs 1–2 business days to process an order and operates Monday through Friday. Actual delivery can change with external conditions; processing is not arrival."
+        },
+        {
+          "url": "https://www.youtube.com/watch?v=rZrLPYFQ5aM",
+          "checkedAt": "2026-11-05T22:51:09-08:00",
+          "kind": "assembly",
+          "note": "Howcast's published sheet-ghost tutorial uses a cap, pins, marked eye openings, and a trimmed hem. This supports the method, not a measured build time for this sheet."
+        }
+      ]
+    },
+    "rationale": "The draped linen creates the visible costume. Reusing hidden light layers, brown boots, and pins avoids purchases that add little to the silhouette."
+  }
+]

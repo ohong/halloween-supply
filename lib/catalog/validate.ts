@@ -51,7 +51,7 @@ const schema = z.object({
     name: text,
     domain: text,
     url,
-    kind: z.enum(["etsy", "vintage", "secondhand", "pawn", "dtc", "boutique"]),
+    kind: z.enum(["etsy", "vintage", "secondhand", "pawn", "dtc", "boutique", "retail", "marketplace"]),
     neighborhoodId: id.nullable(),
   })),
   neighborhoods: z.array(z.object({ id, name: text, city: text, region: text.nullable() })),

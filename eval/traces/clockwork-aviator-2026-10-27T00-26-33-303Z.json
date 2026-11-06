@@ -1,0 +1,368 @@
+{
+  "slug": "clockwork-aviator",
+  "base": "http://localhost:3000",
+  "model": "opencv-5:5.0.0;stock",
+  "elapsedMs": 5665,
+  "done": {
+    "t": "done",
+    "found": 3,
+    "priced": 3,
+    "timedOut": false,
+    "ms": 5547
+  },
+  "pieces": [
+    "chocolate shearling flight jacket",
+    "brown cargo pants",
+    "chocolate knee-high boots"
+  ],
+  "approvals": [],
+  "retries": [],
+  "improvedPieces": [],
+  "trace": [
+    {
+      "t_ms": 1041,
+      "piece": null,
+      "step": "perceive",
+      "detail": {
+        "person": {
+          "found": true,
+          "bbox": [
+            318,
+            137,
+            387,
+            873
+          ],
+          "confidence": 0.943
+        },
+        "timings_ms": {
+          "decode": 8,
+          "segment": 586,
+          "colors": 51,
+          "embed": 365,
+          "classify": 8,
+          "total": 1025
+        },
+        "pieces": [
+          {
+            "id": "p0",
+            "region": "upper_clothes",
+            "slot": "top",
+            "area_frac": 0.099,
+            "pattern": "patterned",
+            "query": "chocolate shearling flight jacket",
+            "alternate": "chocolate leather jacket",
+            "colors": [
+              {
+                "name": "chocolate",
+                "hex": "#3e2417",
+                "frac": 0.388
+              },
+              {
+                "name": "brown",
+                "hex": "#725342",
+                "frac": 0.312
+              },
+              {
+                "name": "beige",
+                "hex": "#d5bda1",
+                "frac": 0.299
+              }
+            ],
+            "garment_types": [
+              {
+                "phrase": "shearling flight jacket",
+                "score": 0.3101
+              },
+              {
+                "phrase": "belted trench coat",
+                "score": 0.2687
+              },
+              {
+                "phrase": "leather biker jacket",
+                "score": 0.2629
+              }
+            ]
+          },
+          {
+            "id": "p1",
+            "region": "pants",
+            "slot": "bottom",
+            "area_frac": 0.0623,
+            "pattern": "patterned",
+            "query": "brown cargo pants",
+            "alternate": "brown combat pants",
+            "colors": [
+              {
+                "name": "brown",
+                "hex": "#5d4732",
+                "frac": 0.627
+              },
+              {
+                "name": "chocolate",
+                "hex": "#3a2718",
+                "frac": 0.364
+              },
+              {
+                "name": "cream",
+                "hex": "#dbcdbf",
+                "frac": 0.009
+              }
+            ],
+            "garment_types": [
+              {
+                "phrase": "cargo pants",
+                "score": 0.3017
+              },
+              {
+                "phrase": "corduroy overalls",
+                "score": 0.2961
+              },
+              {
+                "phrase": "utility trousers",
+                "score": 0.2877
+              }
+            ]
+          },
+          {
+            "id": "p2",
+            "region": "shoes",
+            "slot": "feet",
+            "area_frac": 0.0239,
+            "pattern": "patterned",
+            "query": "chocolate knee-high boots",
+            "alternate": "chocolate tall boots",
+            "colors": [
+              {
+                "name": "chocolate",
+                "hex": "#321f17",
+                "frac": 0.532
+              },
+              {
+                "name": "chocolate",
+                "hex": "#543f35",
+                "frac": 0.419
+              },
+              {
+                "name": "tan",
+                "hex": "#b29f92",
+                "frac": 0.049
+              }
+            ],
+            "garment_types": [
+              {
+                "phrase": "knee-high boots",
+                "score": 0.2589
+              },
+              {
+                "phrase": "tall riding boots",
+                "score": 0.257
+              },
+              {
+                "phrase": "pointed western boots",
+                "score": 0.2567
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "t_ms": 1404,
+      "piece": 1,
+      "step": "search",
+      "detail": {
+        "attempt": 0,
+        "query": "brown cargo pants",
+        "candidates": 3,
+        "ms": 361
+      }
+    },
+    {
+      "t_ms": 1455,
+      "piece": 2,
+      "step": "search",
+      "detail": {
+        "attempt": 0,
+        "query": "chocolate knee-high boots",
+        "candidates": 3,
+        "ms": 412
+      }
+    },
+    {
+      "t_ms": 1472,
+      "piece": 0,
+      "step": "search",
+      "detail": {
+        "attempt": 0,
+        "query": "chocolate shearling flight jacket",
+        "candidates": 3,
+        "ms": 430
+      }
+    },
+    {
+      "t_ms": 3074,
+      "piece": 2,
+      "step": "score",
+      "detail": {
+        "attempt": 0,
+        "results": [
+          {
+            "title": "Women's Brown Plain-Toe Leather Knee-High Boots — Garston",
+            "merchant": "rebelsmarket.com",
+            "score": 0.9136,
+            "verdict": "match",
+            "reasons": [],
+            "embedding": 0.8984,
+            "delta_e": 3.45,
+            "color": {
+              "name": "chocolate",
+              "hex": "#32241e"
+            },
+            "foreground": "segmenter"
+          },
+          {
+            "title": "Vera Knee High Boot Chocolate Brown",
+            "merchant": "nisolo.com",
+            "score": 0.8197,
+            "verdict": "match",
+            "reasons": [],
+            "embedding": 0.9043,
+            "delta_e": 6.68,
+            "color": {
+              "name": "chocolate",
+              "hex": "#3e312e"
+            },
+            "foreground": "grabcut"
+          },
+          {
+            "title": "The Alice Faux Suede Knee High Boot in Chocolate",
+            "merchant": "shopimpressions.com",
+            "score": 0.339,
+            "verdict": "reject",
+            "reasons": [
+              "type_mismatch"
+            ],
+            "embedding": 0.6098,
+            "delta_e": 7.33,
+            "color": {
+              "name": "chocolate",
+              "hex": "#2d1214"
+            },
+            "foreground": "segmenter"
+          }
+        ]
+      }
+    },
+    {
+      "t_ms": 3074,
+      "piece": 2,
+      "step": "decide",
+      "detail": {
+        "attempt": 0,
+        "action": "accept",
+        "because": "match",
+        "best_score": 0.9136
+      }
+    },
+    {
+      "t_ms": 5308,
+      "piece": 0,
+      "step": "score",
+      "detail": {
+        "attempt": 0,
+        "results": [
+          {
+            "title": "William Shearling Bomber Jacket - Chocolate",
+            "merchant": "bigardini.com",
+            "score": 0.6959,
+            "verdict": "match",
+            "reasons": [],
+            "embedding": 0.8585,
+            "delta_e": 13.58,
+            "color": {
+              "name": "black",
+              "hex": "#191615"
+            },
+            "foreground": "segmenter"
+          },
+          {
+            "title": "Distressed Leather Shearling Collar Bomber Jacket Dark Chocolate",
+            "merchant": "jaxengrey.com",
+            "score": 0.6965,
+            "verdict": "match",
+            "reasons": [],
+            "embedding": 0.8627,
+            "delta_e": 13.75,
+            "color": {
+              "name": "black",
+              "hex": "#191615"
+            },
+            "foreground": "segmenter"
+          },
+          {
+            "title": "Kashani Chocolate Aviator Flight Shearling Jacket",
+            "merchant": "dudesboutique.com",
+            "score": 0.6345,
+            "verdict": "weak",
+            "reasons": [
+              "color_mismatch"
+            ],
+            "embedding": 0.9067,
+            "delta_e": 36.89,
+            "color": {
+              "name": "tan",
+              "hex": "#a9896b"
+            },
+            "foreground": "grabcut"
+          }
+        ]
+      }
+    },
+    {
+      "t_ms": 5308,
+      "piece": 0,
+      "step": "decide",
+      "detail": {
+        "attempt": 0,
+        "action": "accept",
+        "because": "match",
+        "best_score": 0.6965
+      }
+    },
+    {
+      "t_ms": 5547,
+      "piece": 1,
+      "step": "score",
+      "detail": {
+        "attempt": 0,
+        "results": [
+          {
+            "title": "Tobacco Brown Loose Fit Cargo Pants",
+            "merchant": "hyperdenim.com",
+            "score": 0.7854,
+            "verdict": "match",
+            "reasons": [],
+            "embedding": 0.8545,
+            "delta_e": 13.29,
+            "color": {
+              "name": "camel",
+              "hex": "#8e6039"
+            },
+            "foreground": "grabcut"
+          }
+        ]
+      }
+    },
+    {
+      "t_ms": 5547,
+      "piece": 1,
+      "step": "decide",
+      "detail": {
+        "attempt": 0,
+        "action": "accept",
+        "because": "match",
+        "best_score": 0.7854
+      }
+    }
+  ]
+}

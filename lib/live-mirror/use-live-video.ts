@@ -5,8 +5,10 @@ import type { ManagedRealtimeSession, LucyRealtimeSession } from "@fal-ai/client
 import type { MirrorContext, MirrorStatus } from "./types";
 import { videoOutfitRequest } from "./video-outfit";
 import { readMirrorResponse } from "./read-response";
+import { recordMirrorTiming } from "./timing";
+import { lucyWithFailures, videoFailureFor, type VideoFailure } from "./video-failure";
 
-type Reference = { image: string; prompt: string };
+type Reference = { prompt: string };
 type FacingMode = "user" | "environment";
 const cameraConstraints = (facingMode: MediaTrackConstraints["facingMode"], deviceId?: string): MediaStreamConstraints => ({
   audio: false,
@@ -26,6 +28,10 @@ type VideoSession = {
   peer?: RTCPeerConnection;
   switching?: boolean;
   external: boolean;
+  attempt: number;
+  startedAt: number;
+  openedAt?: number;
+  attemptController?: AbortController;
 };
 async function referenceFor(key: string, signal: AbortSignal) {
   return readMirrorResponse<Reference>(await fetch("/api/live-mirror/reference", {
@@ -33,20 +39,38 @@ async function referenceFor(key: string, signal: AbortSignal) {
     signal: AbortSignal.any([signal, AbortSignal.timeout(20_000)]),
   }));
 }
-const inputFor = (reference: Reference) => ({ prompt: reference.prompt, reference_image_url: reference.image, enable_prompt_expansion: false });
+const inputFor = (reference: Reference) => ({ prompt: reference.prompt, enable_prompt_expansion: false });
+async function closeAttempt(session: VideoSession) {
+  session.attemptController?.abort();
+  clearTimeout(session.firstFrameTimer);
+  clearTimeout(session.disconnectedTimer);
+  await session.client?.close().catch(() => {});
+  session.client = undefined;
+  session.remote?.getTracks().forEach(track => track.stop());
+  session.remote = undefined;
+  session.peer = undefined;
+  session.updating = false;
+}
 function release(session: VideoSession) {
   session.controller.abort();
   clearTimeout(session.timer);
-  clearTimeout(session.firstFrameTimer);
-  clearTimeout(session.disconnectedTimer);
-  void session.client?.close().catch(() => {});
+  void closeAttempt(session);
   session.camera?.getTracks().forEach(track => track.stop());
-  session.remote?.getTracks().forEach(track => track.stop());
+}
+function waitToRetry(ms: number, signal: AbortSignal) {
+  return new Promise<void>((resolve, reject) => {
+    const cancel = () => { clearTimeout(timer); reject(signal.reason); };
+    const timer = setTimeout(() => { signal.removeEventListener("abort", cancel); resolve(); }, ms);
+    signal.addEventListener("abort", cancel, { once: true });
+    if (signal.aborted) cancel();
+  });
 }
 
 /** Video goes to Decart through fal signaling; only the voice session captures audio. */
 export function useLiveVideo({ costume, outfit }: MirrorContext, externalCamera?: MediaStream | null) {
   const [status, setStatus] = useState<MirrorStatus>("idle");
+  const [recovery, setRecovery] = useState<string | null>(null);
+  const [hasFrames, setHasFrames] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [stream, setStream] = useState<MediaStream | null>(null);
   const [cameraStream, setCameraStream] = useState<MediaStream | null>(null);
@@ -60,18 +84,19 @@ export function useLiveVideo({ costume, outfit }: MirrorContext, externalCamera?
   const mounted = useRef(true);
   const outfitKey = JSON.stringify(videoOutfitRequest(costume, outfit));
   const latestKey = useRef(outfitKey);
+  const keyChangedAt = useRef(0);
 
   const fail = useCallback((session: VideoSession, message: string) => {
     if (sessionRef.current !== session) return;
     sessionRef.current = null;
     release(session);
-    if (mounted.current) { setStream(null); setCameraStream(null); setSentKey(null); setSwitchingCamera(false); setCanSwitchCamera(false); setCameraError(null); setError(message); setStatus("error"); }
+    if (mounted.current) { setStream(null); setHasFrames(false); setRecovery(null); setCameraStream(null); setSentKey(null); setSwitchingCamera(false); setCanSwitchCamera(false); setCameraError(null); setError(message); setStatus("error"); }
   }, []);
   const stop = useCallback(() => {
     const session = sessionRef.current;
     sessionRef.current = null;
     if (session) release(session);
-    if (mounted.current) { setStream(null); setCameraStream(null); setSentKey(null); setSwitchingCamera(false); setCanSwitchCamera(false); setCameraError(null); setStatus("idle"); setError(null); }
+    if (mounted.current) { setStream(null); setHasFrames(false); setRecovery(null); setCameraStream(null); setSentKey(null); setSwitchingCamera(false); setCanSwitchCamera(false); setCameraError(null); setStatus("idle"); setError(null); }
   }, []);
   const attachCamera = useCallback((session: VideoSession, camera: MediaStream, facing: FacingMode) => {
     session.camera = camera;
@@ -136,107 +161,144 @@ export function useLiveVideo({ costume, outfit }: MirrorContext, externalCamera?
   const onFrame = useCallback(() => {
     const session = sessionRef.current;
     if (!session?.remote) return;
+    if (!session.decoded) recordMirrorTiming("first_frame", session.openedAt ?? session.startedAt, "video");
     session.decoded = true;
+    setHasFrames(true);
+    setRecovery(null);
     clearTimeout(session.firstFrameTimer);
     if (!session.updating) setStatus("live");
   }, []);
 
   const update = useCallback(async (session: VideoSession) => {
     if (session.updating || !session.client || sessionRef.current !== session) return;
+    const client = session.client;
     session.updating = true;
     try {
-      while (sessionRef.current === session && session.appliedKey !== latestKey.current) {
+      while (sessionRef.current === session && session.client === client && session.appliedKey !== latestKey.current) {
         const key = latestKey.current;
         setStatus("connecting");
-        const reference = await referenceFor(key, session.controller.signal);
-        if (sessionRef.current !== session) return;
+        const reference = await referenceFor(key, AbortSignal.any([session.controller.signal, session.attemptController!.signal]));
+        if (sessionRef.current !== session || session.client !== client) return;
         if (key !== latestKey.current) continue;
-        session.client.send(inputFor(reference));
+        client.send(inputFor(reference));
+        recordMirrorTiming("provider_send", keyChangedAt.current, "video");
         // fal's control send has no garment-render acknowledgement. This tracks
         // the requested outfit, never proof that its pixels have appeared.
         session.appliedKey = key;
         setSentKey(key);
       }
-      if (sessionRef.current === session) setStatus(session.decoded ? "live" : "connecting");
+      if (sessionRef.current === session && session.client === client) setStatus(session.decoded ? "live" : "connecting");
     } catch {
-      if (sessionRef.current === session) fail(session, "The outfit could not be updated. Please reconnect.");
-    } finally { session.updating = false; }
+      if (sessionRef.current === session && session.client === client && !session.attemptController?.signal.aborted) fail(session, "The outfit could not be updated. Please reconnect.");
+    } finally { if (session.client === client) session.updating = false; }
   }, [fail]);
   useEffect(() => {
     latestKey.current = outfitKey;
+    keyChangedAt.current = performance.now();
     const timer = setTimeout(() => { if (sessionRef.current) void update(sessionRef.current); }, 120);
     return () => clearTimeout(timer);
   }, [outfitKey, update]);
 
   const start = useCallback(async () => {
     if (sessionRef.current) return;
-    const session: VideoSession = { controller: new AbortController(), updating: false, decoded: false, external: !!externalCamera };
+    const session: VideoSession = { controller: new AbortController(), updating: false, decoded: false, external: !!externalCamera, attempt: 0, startedAt: performance.now() };
     sessionRef.current = session;
-    setError(null); setStream(null); setCameraStream(null); setSentKey(null); setStatus("connecting");
+    setError(null); setRecovery(null); setStream(null); setHasFrames(false); setCameraStream(null); setSentKey(null); setStatus("connecting");
+    const current = () => sessionRef.current === session;
     try {
-      if (!navigator.mediaDevices?.getUserMedia) throw new Error("Use HTTPS and allow camera access, or try photo try-on.");
-      const [{ fal }, { lucyRealtime }] = await Promise.all([import("@fal-ai/client"), import("@fal-ai/client/realtime")]);
-      if (sessionRef.current !== session) return;
+      if (!externalCamera && !navigator.mediaDevices?.getUserMedia) throw new Error("Use HTTPS and allow camera access, or try photo try-on.");
+      const { fal } = await import("@fal-ai/client");
+      if (!current()) return;
+      if (externalCamera && !externalCamera.getVideoTracks().some(track => track.readyState === "live")) throw new Error("Your phone camera stopped. Connect your phone again.");
       const camera = externalCamera ? new MediaStream(externalCamera.getVideoTracks().map(track => track.clone())) : await navigator.mediaDevices.getUserMedia(cameraConstraints({ ideal: facingRef.current }));
       // Permission dialogs cannot be aborted; stop any late result after close.
-      if (sessionRef.current !== session) { camera.getTracks().forEach(track => track.stop()); return; }
+      if (!current()) { camera.getTracks().forEach(track => track.stop()); return; }
       attachCamera(session, camera, facingRef.current);
-      let key = latestKey.current;
-      let reference = await referenceFor(key, session.controller.signal);
-      while (sessionRef.current === session && key !== latestKey.current) {
-        key = latestKey.current;
-        reference = await referenceFor(key, session.controller.signal);
-      }
-      if (sessionRef.current !== session) return;
-      const token = await readMirrorResponse<{ token: string; model: string; maxSessionSeconds: number | null }>(await fetch("/api/live-mirror/video", {
-        method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ consent: true }),
-        signal: AbortSignal.any([session.controller.signal, AbortSignal.timeout(20_000)]),
-      }));
-      if (sessionRef.current !== session) return;
-      if (token.maxSessionSeconds !== null) session.timer = setTimeout(() => fail(session, "This mirror session has ended. Start again to keep trying pieces."), Math.min(token.maxSessionSeconds ?? 180, 180) * 1000);
-      session.firstFrameTimer = setTimeout(() => fail(session, "The mirror did not return video in time. Please try again."), 45_000);
-      session.client = fal.realtime.open(lucyRealtime({ endpoints: [token.model] }), {
-        endpointId: token.model, input: inputFor(reference), localStream: camera,
-        abortSignal: session.controller.signal, negotiationTimeoutMs: 30_000,
-        peerConnectionFactory: configuration => {
-          const peer = new RTCPeerConnection(configuration);
-          session.peer = peer;
-          return peer;
-        },
-        // One token per connection. Reconnect is explicit, never an automatic paid loop.
-        tokenProvider: async () => token.token,
-        onMedia: remote => {
-          if (sessionRef.current !== session) { remote.getTracks().forEach(track => track.stop()); return; }
-          session.remote = remote;
-          setStream(remote);
-        },
-        onDiagnostic: event => {
-          if (sessionRef.current !== session || event.kind !== "progress" || event.phase !== "connection-state") return;
-          if (event.detail?.state === "disconnected") {
-            setStatus("connecting");
-            clearTimeout(session.disconnectedTimer);
-            session.disconnectedTimer = setTimeout(() => fail(session, "The video connection was lost. Start again to reconnect."), 5000);
-          } else if (event.detail?.state === "connected") {
-            clearTimeout(session.disconnectedTimer);
-            if (session.decoded && !session.updating) setStatus("live");
+      // Keep camera ownership separate from each provider attempt. Retrying Lucy
+      // must never stop the paired phone or acquire this computer's camera.
+      for (let attempt = 0; attempt < 3 && current(); attempt++) {
+        session.attempt = attempt;
+        session.attemptController = new AbortController();
+        session.decoded = false;
+        session.appliedKey = undefined;
+        let providerFailure: VideoFailure | undefined;
+        let rejectAttempt!: (reason: unknown) => void;
+        const failure = new Promise<never>((_, reject) => { rejectAttempt = reject; });
+        // Errors may arrive while reference/token requests are still pending.
+        void failure.catch(() => {});
+        const cancel = () => rejectAttempt(session.controller.signal.reason);
+        session.controller.signal.addEventListener("abort", cancel, { once: true });
+        const active = () => current() && session.attempt === attempt;
+        try {
+          let key = latestKey.current;
+          let reference = await referenceFor(key, session.controller.signal);
+          while (current() && key !== latestKey.current) {
+            key = latestKey.current;
+            reference = await referenceFor(key, session.controller.signal);
           }
-        },
-        onError: error => {
-          // SDK failures are classified without logging signaling URLs or tokens.
-          const message = error instanceof Error ? error.message : "";
-          const reason = message.includes("signaling") ? "signaling" : message.includes("timed out") ? "timeout" : message.includes("ICE") ? "ice" : "transport";
-          console.warn(`[live-mirror] Video connection failed (${reason}).`);
-          fail(session, "The live video connection failed. Please try again.");
-        },
-        onState: state => { if (state === "closed") fail(session, "The live mirror disconnected. Start again to reconnect."); },
-      });
-      await session.client.ready;
-      if (sessionRef.current !== session) return;
-      session.appliedKey = key;
-      setSentKey(key);
-      await update(session);
+          if (!current()) return;
+          const token = await readMirrorResponse<{ token: string; model: string; maxSessionSeconds: number | null }>(await fetch("/api/live-mirror/video", {
+            method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ consent: true }),
+            signal: AbortSignal.any([session.controller.signal, AbortSignal.timeout(20_000)]),
+          }));
+          if (!current()) return;
+          // Recovery does not extend the room's duration or spending window.
+          if (!session.timer && token.maxSessionSeconds !== null) session.timer = setTimeout(() => fail(session, "This mirror session has ended. Start again to keep trying pieces."), Math.min(token.maxSessionSeconds ?? 180, 180) * 1000);
+          session.firstFrameTimer = setTimeout(() => rejectAttempt(new Error("The mirror did not return video in time.")), 45_000);
+          session.openedAt = performance.now();
+          session.client = fal.realtime.open(lucyWithFailures(token.model, reason => { providerFailure = reason; }), {
+            endpointId: token.model, input: inputFor(reference), localStream: session.camera,
+            abortSignal: session.controller.signal, negotiationTimeoutMs: 30_000,
+            peerConnectionFactory: configuration => {
+              const peer = new RTCPeerConnection(configuration);
+              session.peer = peer;
+              return peer;
+            },
+            // A fresh short-lived token belongs to each bounded attempt.
+            tokenProvider: async () => token.token,
+            onMedia: remote => {
+              if (!active()) { remote.getTracks().forEach(track => track.stop()); return; }
+              session.remote = remote;
+              setStream(remote);
+            },
+            onDiagnostic: event => {
+              if (!active() || event.kind !== "progress" || event.phase !== "connection-state") return;
+              if (event.detail?.state === "disconnected") {
+                setStatus("connecting");
+                clearTimeout(session.disconnectedTimer);
+                session.disconnectedTimer = setTimeout(() => rejectAttempt(new Error("The video transport disconnected.")), 8000);
+              } else if (event.detail?.state === "connected") {
+                clearTimeout(session.disconnectedTimer);
+                if (session.decoded && !session.updating) setStatus("live");
+              }
+            },
+            onError: error => { if (active()) rejectAttempt(error); },
+            onState: state => { if (active() && state === "closed") rejectAttempt(new Error("The live video transport closed.")); },
+          });
+          recordMirrorTiming("provider_connect", session.startedAt, "video");
+          await Promise.race([session.client.ready, failure]);
+          if (!current()) return;
+          session.appliedKey = key;
+          setSentKey(key);
+          await update(session);
+          await failure;
+        } catch (error) {
+          if (!current()) return;
+          const reason = providerFailure ?? videoFailureFor(error);
+          console.warn(`[live-mirror] Video connection failed (${reason.code}; attempt ${attempt + 1}/3).`);
+          await closeAttempt(session);
+          if (!current()) return;
+          setStream(null); setHasFrames(false); setSentKey(null);
+          if (!reason.retryable || attempt === 2) { fail(session, reason.message); return; }
+          setStatus("connecting");
+          setRecovery(`Reconnecting costume video… Attempt ${attempt + 2} of 3. Your camera stays connected.`);
+          await waitToRetry(reason.code === "capacity" ? (attempt + 1) * 8000 : attempt === 0 ? 3000 : 10000, session.controller.signal);
+        } finally {
+          session.controller.signal.removeEventListener("abort", cancel);
+        }
+      }
     } catch (error) {
-      if (sessionRef.current !== session) return;
+      if (!current()) return;
       fail(session, error instanceof DOMException && error.name === "NotAllowedError"
         ? "Camera access was declined. Allow it in your browser to use the live mirror."
         : error instanceof DOMException && error.name === "NotFoundError"
@@ -259,6 +321,6 @@ export function useLiveVideo({ costume, outfit }: MirrorContext, externalCamera?
       if (session) release(session);
     };
   }, [stop]);
-  return { status, error, stream, cameraStream, facingMode, canSwitchCamera, switchingCamera, cameraError, switchCamera,
+  return { status, error, recovery, hasFrames, stream, cameraStream, facingMode, canSwitchCamera, switchingCamera, cameraError, switchCamera,
     isCurrent: status === "live" && sentKey === outfitKey && !switchingCamera, onFrame, start, stop };
 }

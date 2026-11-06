@@ -1,0 +1,252 @@
+{
+  "editorial": [
+    {
+      "slug": "art-deco-robot",
+      "name": "Art Deco Robot",
+      "description": "An angular silver machine face, charcoal waistcoat, silver trousers and metallic gloves create a silent mechanical performer.",
+      "image": "/costumes/art-deco-robot.png",
+      "alt": "Silver geometric robot mask, charcoal waistcoat over a black shirt, silver trousers, silver gloves and black shoes.",
+      "status": "live",
+      "pieces": [
+        "Sculptural robot mask or helmet",
+        "Charcoal waistcoat",
+        "Silver trousers",
+        "Silver gloves"
+      ],
+      "tip": "Wear your own black shirt and comfortable black shoes. Practice a few slow, precise turns to bring the machine to life."
+    },
+    {
+      "slug": "haunted-prom-queen",
+      "name": "Haunted Prom Queen",
+      "description": "A burgundy velvet gown, rose crown and white Prom Queen sash turn formalwear into a ghost story.",
+      "image": "/costumes/haunted-prom-queen.png",
+      "alt": "Burgundy velvet floor-length gown, brass rose crown, white Prom Queen sash and dark ankle boots.",
+      "status": "live",
+      "pieces": [
+        "Burgundy velvet gown",
+        "Prom Queen sash",
+        "Brass-colored rose crown",
+        "Dark ankle boots"
+      ],
+      "tip": "Use a gown you already own if you can. Add smudged eye makeup and a faded corsage for the haunted effect."
+    },
+    {
+      "slug": "headless-horseman",
+      "name": "Headless Horseman",
+      "description": "Raised shoulders and a black cloak hide the head inside a theatrical illusion, with dark trousers and riding-style boots.",
+      "image": "/costumes/headless-horseman.png",
+      "alt": "Headless illusion costume with a black cape, raised empty collar, white lace ascot, black trousers and tall dark boots.",
+      "status": "live",
+      "pieces": [
+        "Headless illusion coat, cape and supports",
+        "Black pirate trousers",
+        "Tall black boots"
+      ],
+      "tip": "Fit the shoulder supports before dressing. Check the mesh sightline in good light, and keep the cape clear of your feet."
+    },
+    {
+      "slug": "phantom-opera",
+      "name": "Phantom of the Opera",
+      "description": "A white half mask and sweeping black cape frame a ruffled shirt and dark waistcoat for a dramatic entrance.",
+      "image": "/costumes/phantom-opera.png",
+      "alt": "White half-face phantom mask, black cape with burgundy lining, white ruffled shirt, black waistcoat, own black trousers and tall black boots.",
+      "status": "live",
+      "pieces": [
+        "White phantom half mask",
+        "Black velvet cape",
+        "White ruffled shirt",
+        "Black waistcoat — wear with your own black trousers",
+        "Black tall boots"
+      ],
+      "tip": "Keep the mask on one side of the face. Wear your own black trousers, and let the pale shirt show at the collar."
+    },
+    {
+      "slug": "silent-film-star",
+      "name": "Silent Film Star",
+      "description": "A black top hat, ivory shirt and charcoal waistcoat pair with pale stage makeup for a walking silent movie.",
+      "image": "/costumes/silent-film-star.png",
+      "alt": "Black top hat, ivory collared shirt, charcoal waistcoat, high-waisted black trousers and pale stage makeup, with own black shoes.",
+      "status": "live",
+      "pieces": [
+        "Black top hat",
+        "Cream collared shirt",
+        "Charcoal waistcoat",
+        "Black high-waisted trousers",
+        "White stage makeup"
+      ],
+      "tip": "Bring your own black shoes and a handwritten dialogue card. White gloves and a bow tie are optional finishes; the makeup row supplies white cream only."
+    }
+  ],
+  "researchDate": "2026-10-27T00:28:28.338770Z",
+  "newProductEvidence": [
+    {
+      "id": "exp-b-0d14d3785c84",
+      "url": "https://www.purecostumes.com/products/m39340s-the-alchemist-mask-silver?variant=47646226383062",
+      "priceCents": 1395,
+      "stock": "in_stock",
+      "sizes": [
+        "Standard"
+      ],
+      "image": "https://cdn.shopify.com/s/files/1/0792/4950/6518/files/M39340S_full_1.jpg?v=1766883011",
+      "evidence": "Silver molded steampunk robot face with raised mechanical details. Matches the angular machine face; it is a lightweight costume mask, not metal armor. Public merchant variant feed confirms this exact USD price and available variant on the research date."
+    },
+    {
+      "id": "exp-b-c9e7c356f8ab",
+      "url": "https://www.purecostumes.com/products/m39340c-the-alchemist-mask-copper?variant=47646226251990",
+      "priceCents": 2095,
+      "stock": "in_stock",
+      "sizes": [
+        "Standard"
+      ],
+      "image": "https://cdn.shopify.com/s/files/1/0792/4950/6518/files/M39340C_full_1.jpg?v=1766883007",
+      "evidence": "Copper Alchemist face mask with sculpted mechanical details. Same shape in a copper metallic finish rather than silver. Public merchant variant feed confirms this exact USD price and available variant on the research date."
+    },
+    {
+      "id": "exp-b-33d0f585ef6e",
+      "url": "https://www.purecostumes.com/products/m39340g-the-alchemist-mask-gold?variant=47646226350294",
+      "priceCents": 2895,
+      "stock": "in_stock",
+      "sizes": [
+        "Standard"
+      ],
+      "image": "https://cdn.shopify.com/s/files/1/0792/4950/6518/files/M39340G_full_1.jpg?v=1766883010",
+      "evidence": "Gold Alchemist face mask with sculpted mechanical details. Same shape in a warm gold metallic finish rather than silver. Public merchant variant feed confirms this exact USD price and available variant on the research date."
+    },
+    {
+      "id": "exp-b-cf31bdc72612",
+      "url": "https://www.purecostumes.com/products/mw7348-enigmatic-phantom-half-mask?variant=47646245224662",
+      "priceCents": 795,
+      "stock": "in_stock",
+      "sizes": [
+        "White"
+      ],
+      "image": "https://cdn.shopify.com/s/files/1/0792/4950/6518/files/MW7348_full_1.jpg?v=1766883167",
+      "evidence": "White one-sided phantom half mask. Choose White; black variant is unavailable. Public merchant variant feed confirms this exact USD price and available variant on the research date."
+    },
+    {
+      "id": "exp-b-c66568ddba1e",
+      "url": "https://blockbustercostumes.com/products/adults-white-phantom-half-mask.html",
+      "priceCents": 299,
+      "stock": "in_stock",
+      "sizes": [],
+      "image": "https://cdn11.bigcommerce.com/s-cdu7h4/images/stencil/1280x1280/products/162510/206660/kc88404-w-1__11300.1693532639.jpg?c=2",
+      "evidence": "White hard half-face phantom mask, one size fits most. Merchant Product/Offer structured data confirms USD price and InStock on the research date."
+    },
+    {
+      "id": "exp-b-9c735e7bf1fe",
+      "url": "https://www.purecostumes.com/products/fm59845-strong-phantom-mask?variant=47637868445910",
+      "priceCents": 995,
+      "stock": "in_stock",
+      "sizes": [
+        "Standard"
+      ],
+      "image": "https://cdn.shopify.com/s/files/1/0792/4950/6518/files/FM59845_full_1.jpg?v=1766707829",
+      "evidence": "White rigid phantom mask covering the upper right face; open left side. Standard size. Public merchant variant feed confirms this exact USD price and available variant on the research date."
+    },
+    {
+      "id": "exp-b-fc56c9654a05",
+      "url": "https://www.bulkpartysupplies.com/products/prom-queen-satin-sash?variant=44736784335067",
+      "priceCents": 715,
+      "stock": "in_stock",
+      "sizes": [
+        "Package (1 Sash)"
+      ],
+      "image": "https://cdn.shopify.com/s/files/1/2384/2133/products/60191.jpg?v=1759439979",
+      "evidence": "One white satin sash with gold Prom Queen lettering. Single sash package; six-sash case excluded. Public merchant variant feed confirms this exact USD price and available variant on the research date."
+    },
+    {
+      "id": "exp-b-f55bc94e7d4c",
+      "url": "https://www.cappelsinc.com/product/prom-queen-sash/",
+      "priceCents": 929,
+      "stock": "in_stock",
+      "sizes": [],
+      "image": "https://www.cappelsinc.com/wp-content/uploads/2014/12/60191_Prom_Queen_Sash1.jpg",
+      "evidence": "Single white satin Prom Queen sash with gold lettering. Merchant Product/Offer structured data confirms USD price and InStock on the research date."
+    },
+    {
+      "id": "exp-b-502d51419f05",
+      "url": "https://www.retailmarket.net/products/halloween-prom-queen-sash-halloween-bloody-sash-zombie-prom-queen-sash-belt-corpse-cosplay-spooky-queen-zombie-prom-sash-for-halloween-day-of-the-dead-party-decorations/",
+      "priceCents": 1949,
+      "stock": "in_stock",
+      "sizes": [],
+      "image": "https://trm-objects.exceptionalcdn.com/retailmarket/dam/1/objects/20101403/ea/35/af/21/4a/66/0b/04/61oS0iIYn9L.jpg",
+      "evidence": "Single white satin Prom Queen sash with printed horror blood detail and adjustable pin. Pattern differs from the plain default; no dress or crown included. Merchant Product/Offer structured data confirms USD price and InStock on the research date."
+    },
+    {
+      "id": "exp-b-0ba42fbf7e60",
+      "url": "https://www.purecostumes.com/products/00742-headless-horseman-adult-costume?variant=47636496711894",
+      "priceCents": 3895,
+      "stock": "in_stock",
+      "sizes": [
+        "Small",
+        "Medium",
+        "Large",
+        "X-Large"
+      ],
+      "image": "https://cdn.shopify.com/s/files/1/0792/4950/6518/files/00742_full_1.jpg?v=1766602388",
+      "evidence": "California Costumes 00742 adult illusion bundle: vest with attached sleeves, lace ascot, cape and headpiece. Pants and shoes are not included. Lightweight shoulder supports create the missing-head illusion. Public merchant variant feed confirms this exact USD price and available variant on the research date."
+    },
+    {
+      "id": "exp-b-267320b305fd",
+      "url": "https://www.toynk.com/products/headless-horseman-costume-adult-1?variant=44178568839290",
+      "priceCents": 6099,
+      "stock": "in_stock",
+      "sizes": [
+        "Medium"
+      ],
+      "image": "https://cdn.shopify.com/s/files/1/1140/8354/files/CCC-00742-PA_c8b6a888-1536-46cf-9798-7487fda1bece.jpg?v=1790941402",
+      "evidence": "California Costumes adult illusion bundle: vest with sleeves, attached ascot and cape, headpiece and inflatable shoulders. Only Medium available in this feed; pants are not included. Public merchant variant feed confirms this exact USD price and available variant on the research date."
+    },
+    {
+      "id": "exp-b-44bfbd1d5745",
+      "url": "https://abracadabranyc.com/products/headless-horseman-1",
+      "priceCents": 4295,
+      "stock": "in_stock",
+      "sizes": [
+        "Small"
+      ],
+      "image": "https://abracadabranyc.com/cdn/shop/files/00742.jpg?v=1760732827",
+      "evidence": "Primary merchant page checked with built-in web: Small selected at $42.95 and four left. Bundle includes vest with sleeves, attached lace ascot and cape, headpiece and inflatable shoulder components. Pants and shoes not included. No arrival guarantee."
+    },
+    {
+      "id": "exp-b-a557291982f8",
+      "url": "https://camerareadycosmetics.com/products/ben-nye-clown-white-makeup?variant=22326378887",
+      "priceCents": 1000,
+      "stock": "in_stock",
+      "sizes": [
+        "1.75oz (CW-2)"
+      ],
+      "image": "https://cdn.shopify.com/s/files/1/1073/6222/products/8610_zoom_1433977502.jpg?v=1689635079",
+      "evidence": "Ben Nye white stage cream, 1.75 oz jar; base makeup only. Setting powder, applicators and black details are separate supplies. Follow manufacturer use/removal directions. Public merchant variant feed confirms this exact USD price and available variant on the research date."
+    },
+    {
+      "id": "exp-b-9dd26e08251d",
+      "url": "https://camerareadycosmetics.com/products/ben-nye-clown-white-makeup?variant=22326379015",
+      "priceCents": 1200,
+      "stock": "in_stock",
+      "sizes": [
+        "3.0oz (CW-3)"
+      ],
+      "image": "https://cdn.shopify.com/s/files/1/1073/6222/products/6129_zoom_1433979317.jpg?v=1689635087",
+      "evidence": "Ben Nye white stage cream, 3 oz jar of the same formula; more product rather than a different effect. Base only, no applicator or setting powder. Public merchant variant feed confirms this exact USD price and available variant on the research date."
+    },
+    {
+      "id": "exp-b-68a3dcfb87da",
+      "url": "https://camerareadycosmetics.com/products/ben-nye-clown-white-makeup?variant=22326379079",
+      "priceCents": 2400,
+      "stock": "in_stock",
+      "sizes": [
+        "8.0oz (CW-4)"
+      ],
+      "image": "https://cdn.shopify.com/s/files/1/1073/6222/products/ben-nye-CW-4-Clown-White-3168.jpg?v=1689635091",
+      "evidence": "Ben Nye white stage cream, large 8 oz jar of the same formula. Excess for one event; shared theatrical supply option, no extra tools. Public merchant variant feed confirms this exact USD price and available variant on the research date."
+    }
+  ],
+  "limits": [
+    "Merchant shipping and Halloween arrival are unconfirmed.",
+    "Reused base garments retain their original evidence and check dates.",
+    "Silent Film Star makeup tiers differ by jar volume; smallest available jar is sufficient.",
+    "Headless illusion bundle constrains visibility.",
+    "Some primary search excerpts had stale prices; current variant feeds take precedence."
+  ]
+}
