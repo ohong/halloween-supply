@@ -56,7 +56,7 @@ async function request<T>(endpoint: "search" | "scrape", body: object, timeoutMs
 
 /** Discover merchant URLs, then scrape only shortlisted product pages. */
 export async function searchWeb(query: string, opts: SearchOptions = {}): Promise<SearchResult[]> {
-  const body = { query: query.trim().replace(/\s+/g, " "), limit: opts.limit ?? 10, country: "US", location: "San Francisco,California,United States",
+  const body = { query: query.trim().replace(/\s+/g, " "), limit: opts.limit ?? 10, country: "US",
     ...(opts.images ? { sources: ["web", "images"] } : {}),
     ...(opts.highlights !== undefined ? { highlights: opts.highlights } : {}),
     ...(opts.excludeDomains ? { excludeDomains: [...opts.excludeDomains].sort() } : {}),

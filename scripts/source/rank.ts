@@ -1,4 +1,4 @@
-// Step 5: Claude scores candidates per piece, with a Bay Area boost; picks default + 2 alternatives.
+// Score candidates by product suitability; pick a default and two alternatives.
 import { z } from "zod";
 import { BAY_AREA_CITIES } from "../../lib/products/hints";
 import { registrableDomain } from "../../lib/sourcing/blocklist";
@@ -7,16 +7,14 @@ import type { Merchant, MerchantKind, Neighborhood, Piece } from "../../lib/type
 import type { PricedCandidate } from "./gather";
 import { slugify, type CostumeSource } from "./decompose";
 
-export const LOCAL_BOOST = 1.5;
-
-const KINDS = ["etsy", "vintage", "secondhand", "pawn", "dtc", "boutique"] as const;
+const KINDS = ["etsy", "vintage", "secondhand", "pawn", "dtc", "boutique", "retail", "marketplace"] as const;
 
 const rankSchema = z.object({
   candidates: z.array(
     z.object({
       index: z.number().describe("Index of the candidate as listed."),
       fit: z.number().describe("0-10: how well it matches the piece and the costume look."),
-      uniqueness: z.number().describe("0-10: distinctive, not generic mass-market."),
+      uniqueness: z.number().describe("0-10: distinctive details that suit the costume, regardless of retailer size."),
       quality: z.number().describe("0-10: apparent material and build quality, value for the price."),
       reason: z.string().describe("One factual sentence on why it suits the piece (material, era, look). Do not mention ranks or scores."),
       merchantName: z.string().describe("The shop or brand name as customers know it."),
@@ -100,7 +98,7 @@ export async function rankPiece(costume: CostumeSource, piece: Piece, candidates
     label: `rank:${costume.slug}:${piece.id}`,
     schema: rankSchema,
     instructions:
-      "You are the buyer for a curated Halloween costume store that sources from independent merchants. Score every candidate for the piece. " +
+      "You are the buyer for a curated Halloween costume store that sources from retailers and marketplaces, including Amazon.com and large chains. Score every candidate for the piece. " +
       "Be strict: a candidate that is the wrong item, a kids' version, or a costume-bag knockoff gets fit under 3. A compatible neutral color can fit a cowboy costume; explain color differences honestly. " +
       "Prefer real materials and distinctive listings. Identify the merchant and, only with evidence, its Bay Area location. Never guess materials or write likely/probably claims; omit facts not stated in the description.",
     prompt: `Costume: ${costume.name} (${costume.description})\nPiece: ${piece.name} (${piece.category})\nStyle notes: ${piece.styleNotes}\n\nCandidates:\n${listing}\n\nScore every candidate.`,
@@ -121,7 +119,7 @@ export async function rankPiece(costume: CostumeSource, piece: Piece, candidates
       const base = r.fit * 0.5 + r.uniqueness * 0.2 + r.quality * 0.3;
       const tags = [...new Set(r.tags.map(slugify).filter((t) => t && t !== "local"))].slice(0, 5);
       if (city) tags.push("local");
-      return { candidate: c, reason: r.reason.trim(), total: base + (city ? LOCAL_BOOST : 0), merchant, neighborhood, tagSlugs: tags, isLocal: !!city };
+      return { candidate: c, reason: r.reason.trim(), total: base, merchant, neighborhood, tagSlugs: tags, isLocal: !!city };
     })
     .sort((a, b) => b.total - a.total);
 
