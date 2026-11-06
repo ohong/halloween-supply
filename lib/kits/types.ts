@@ -22,6 +22,8 @@ export interface KitDefinition {
   /** The existing cart stores one item per piece. Multi-quantity kits are unsupported. */
   buy: { pieceId: string; productId: string; quantity?: 1 }[];
   owned: { pieceId: string; note: string }[];
+  /** Explicit owned basics outside this costume's catalog, such as underwear or shoes. */
+  ownedExtras?: string[];
   skipped: { pieceId: string; reason: string }[];
   extraSupplies: string[];
   assembly: { minutes: number; steps: string[]; tools: string[] };

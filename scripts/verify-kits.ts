@@ -1,5 +1,5 @@
 /** Read-only kit and price checks against the actual bundled catalogs.
- * bun scripts/verify-kits.ts
+ * bun scripts/verify-kits.ts [YYYY-MM-DD event date]
  * No merchant requests, database writes, checkout sessions, or model calls occur.
  */
 import assert from "node:assert/strict";
@@ -9,6 +9,7 @@ import { getKit, kitSelections, listKits, summarizeCostumes, validateKit } from 
 
 const summaries = summarizeCostumes(SNAPSHOTS);
 const kits = listKits(SNAPSHOTS);
+const eventDate = process.argv[2] ?? "2027-10-31";
 const failures: string[] = [];
 let checks = 0;
 
@@ -64,11 +65,19 @@ for (const definition of KITS) {
     for (const entry of selected.filter(({ status }) => status !== "selected")) assert(!("productId" in entry), "owned/skipped rows cannot enter the purchase list");
     assert.equal(kit.readiness.eventDate, null);
     assert.notEqual(kit.deliveryStatus, "known_too_late", "an absent event date never invents a deadline");
+    const eventKit = getKit(definition.slug, SNAPSHOTS, { eventDate })!;
+    assert.equal(eventKit.readiness.eventDate, eventDate, "readiness accepts any event year and date");
+    const expectedLateIds = [...new Set(definition.readiness.evidence.flatMap((evidence) => {
+      if (!evidence.earliestArrivalDate || evidence.earliestArrivalDate <= eventDate) return [];
+      return evidence.productId ? [evidence.productId] : purchased.map(({ id }) => id);
+    }))];
+    assert.deepEqual(eventKit.readiness.tooLateProductIds, expectedLateIds, "only explicit earliest-arrival evidence excludes purchases");
+    assert.equal(eventKit.eligible, !eventKit.outOfStockCount && !expectedLateIds.length);
     const summary = kits.find(({ slug }) => slug === kit.slug)!;
     assert.equal(summary.purchaseSubtotalCents, kit.purchaseSubtotalCents, "gallery and look use the same subtotal");
-    assert.deepEqual(summary.ownedBasics, kit.owned.map(({ note }) => note));
+    assert.deepEqual(summary.ownedBasics, [...kit.owned.map(({ piece }) => piece.name), ...(definition.ownedExtras ?? [])]);
     assert(!("buy" in summary), "gallery summaries do not send complete product records");
-    console.log(`${kit.slug}: $${(kit.purchaseSubtotalCents / 100).toFixed(2)} new pieces; ${kit.ownedCount} owned; ${kit.shopCount} shops; stock unknown ${kit.unknownStockCount}; ${kit.deliveryStatus}${kit.purchaseSubtotalCents > 10_000 ? "; ABOVE $100 TARGET" : ""}`);
+    console.log(`${kit.slug}: $${(kit.purchaseSubtotalCents / 100).toFixed(2)} new pieces; ${kit.ownedCount} owned catalog pieces + ${definition.ownedExtras?.length ?? 0} owned extras; ${kit.shopCount} shops; catalog stock unknown ${kit.unknownStockCount}; ${kit.deliveryStatus}${kit.purchaseSubtotalCents > 10_000 ? "; ABOVE $100 TARGET" : ""}`);
   });
 }
 

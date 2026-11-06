@@ -23,10 +23,7 @@
     ],
     "owned": [],
     "skipped": [],
-    "extraSupplies": [
-      "Already own: white sneakers for the reference look; roller skates are not included or required.",
-      "Already own: an opaque underlayer that works with the unlined romper. Its cost is excluded."
-    ],
+    "extraSupplies": [],
     "assembly": {
       "minutes": 10,
       "steps": [
@@ -105,7 +102,11 @@
         }
       ]
     },
-    "rationale": "The $95.57 catalog selection preserves the solid striped socks in the reference. The $88.57 crochet-sock alternative costs less but changes their texture and coverage. Both use the same defining romper and pink accessories."
+    "rationale": "The $95.57 catalog selection preserves the solid striped socks in the reference. The $88.57 crochet-sock alternative costs less but changes their texture and coverage. Both use the same defining romper and pink accessories.",
+    "ownedExtras": [
+      "White sneakers",
+      "Opaque underlayer for the unlined romper"
+    ]
   },
   {
     "slug": "queen-of-hearts-owned-boots-kit",
@@ -131,10 +132,7 @@
       }
     ],
     "skipped": [],
-    "extraSupplies": [
-      "Already own: suitable underwear and socks for the dress and boots. Their cost is excluded.",
-      "Optional and omitted: crown, fishnets, and makeup. None is included in the purchase subtotal."
-    ],
+    "extraSupplies": [],
     "assembly": {
       "minutes": 15,
       "steps": [
@@ -154,7 +152,8 @@
         "The merchant lists a dress and two sleeves. The red wig is a separate purchase. Neither selected listing includes a crown.",
         "Chicago Costume allows up to 24 hours to prepare orders on business days. Cart delivery estimates are not guaranteed.",
         "In-store pickup is an option to confirm with the merchant. Wait for the ready email; no local stock or pickup completion time was verified.",
-        "Arrival for any event date remains unconfirmed. Confirm your destination and event date with the merchant before purchase."
+        "Arrival for any event date remains unconfirmed. Confirm your destination and event date with the merchant before purchase.",
+        "Optional and omitted: crown, fishnets, and makeup. None is included in the purchase subtotal."
       ],
       "evidence": [
         {
@@ -200,6 +199,9 @@
         }
       ]
     },
-    "rationale": "Owned boots keep the red heart-shaped wig and dress at $59.98. Buying the cheapest catalog boots with these red pieces costs $115.95. A $97.95 all-new minimum uses a darker wig, which changes the reference. This kit is only suitable when size 18w–20w and owned boots fit."
+    "rationale": "Owned boots keep the red heart-shaped wig and dress at $59.98. Buying the cheapest catalog boots with these red pieces costs $115.95. A $97.95 all-new minimum uses a darker wig, which changes the reference. This kit is only suitable when size 18w–20w and owned boots fit.",
+    "ownedExtras": [
+      "Suitable underwear and socks"
+    ]
   }
 ]

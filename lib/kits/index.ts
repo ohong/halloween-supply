@@ -89,7 +89,8 @@ export function validateKit(definition: KitDefinition, snapshots: CostumeSnapsho
     if ((entry.quantity ?? 1) !== 1) fail("the cart supports exactly one product per piece");
   }
   if (!definition.buy.length) fail("kit must include a new piece");
-  if (!definition.owned.length) fail("kit must state its owned basics");
+  if (!definition.owned.length && !definition.ownedExtras?.length) fail("kit must state its owned basics");
+  for (const note of definition.ownedExtras ?? []) if (!note.trim()) fail("owned extras need an explicit note");
   for (const entry of definition.owned) if (!entry.note?.trim()) fail(`owned piece needs a note: ${entry.pieceId}`);
   for (const entry of definition.skipped) {
     if (pieces.get(entry.pieceId)?.required) fail(`required piece cannot be skipped: ${entry.pieceId}`);
@@ -159,7 +160,7 @@ export function resolveKit(definition: KitDefinition, snapshots: CostumeSnapshot
     outOfStockCount,
     oldestCheckedAt: checkDates[0] ?? null,
     assemblyMinutes: definition.assembly.minutes,
-    ownedBasics: owned.map(({ note }) => note),
+    ownedBasics: [...owned.map(({ piece }) => piece.name), ...(definition.ownedExtras ?? [])],
     supplies: [...definition.extraSupplies],
     deliveryStatus,
     pickupItemCount: pickupProductIds.length,
