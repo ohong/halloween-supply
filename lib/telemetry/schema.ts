@@ -6,7 +6,7 @@ export const eventNames = [
 ] as const;
 export const eventSources = ["discovery", "look", "screenshot", "custom", "mirror", "cart", "checkout", "assistant"] as const;
 export const eventStages = [
-  "request", "complete", "failure", "cancel", "rejected", "parse", "state_applied", "provider_send", "first_frame",
+  "request", "complete", "failure", "cancel", "rejected", "parse", "state_applied", "provider_connect", "provider_send", "first_frame",
   "catalog", "search", "reasoning", "image", "video", "render", "retry", "price_changed", "prices_accepted",
   "sold_out", "needs_sizes", "invalid_size", "unverified", "error", "redirect", "budget",
 ] as const;
