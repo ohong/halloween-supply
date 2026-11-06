@@ -95,40 +95,44 @@ async function noOverflow(page: Page) {
 
 async function browserSmoke(base: string) {
   const browser = await chromium.launch({ headless: true });
-  const page = await browser.newPage({ viewport: { width: 1440, height: 1000 } });
-  page.setDefaultTimeout(15_000);
   const runtimeErrors: string[] = [];
   const unexpectedRequests: string[] = [];
   let validatedEventRequests = 0;
   let stage = "gallery";
-  page.on("pageerror", (error) => {
-    // This context has only synthetic state and public pages. Keep the first message line,
-    // without stack traces or URL query values, so React error codes remain useful in CI.
-    const message = error.message.split("\n")[0].replace(/https?:\/\/[^\s<>"']+/g, (value) => {
-      try { const url = new URL(value); return `${url.origin}${url.pathname}`; }
-      catch { return "[URL]"; }
-    }).slice(0, 600);
-    runtimeErrors.push(`${stage}: ${error.name}: ${message}`);
-  });
-  await page.route("**/*", async (route) => {
-    const request = route.request();
-    const url = new URL(request.url());
-    if (["data:", "blob:"].includes(url.protocol)) return route.continue();
-    if (url.origin === base && url.pathname === "/api/events" && !url.search && request.method() === "POST") {
-      try {
-        if (parseTelemetryEvent(request.postDataJSON())) {
-          validatedEventRequests++;
-          return route.continue();
-        }
-      } catch { /* Invalid events follow the same failure path as other unexpected requests. */ }
-    }
-    if (url.origin !== base || !["GET", "HEAD"].includes(request.method())) {
-      // Record only the method and path. Never retain payloads, tokens, or query strings.
-      unexpectedRequests.push(`${request.method()} ${url.origin === base ? url.pathname : "external origin"}`);
-      return route.abort("blockedbyclient");
-    }
-    return route.continue();
-  });
+  async function freshPage() {
+    const page = await browser.newPage({ viewport: { width: 1440, height: 1000 } });
+    page.setDefaultTimeout(15_000);
+    page.on("pageerror", (error) => {
+      // This context has only synthetic state and public pages. Keep the first message line,
+      // without stack traces or URL query values, so React error codes remain useful in CI.
+      const message = error.message.split("\n")[0].replace(/https?:\/\/[^\s<>"']+/g, (value) => {
+        try { const url = new URL(value); return `${url.origin}${url.pathname}`; }
+        catch { return "[URL]"; }
+      }).slice(0, 600);
+      runtimeErrors.push(`${stage}: ${error.name}: ${message}`);
+    });
+    await page.route("**/*", async (route) => {
+      const request = route.request();
+      const url = new URL(request.url());
+      if (["data:", "blob:"].includes(url.protocol)) return route.continue();
+      if (url.origin === base && url.pathname === "/api/events" && !url.search && request.method() === "POST") {
+        try {
+          if (parseTelemetryEvent(request.postDataJSON())) {
+            validatedEventRequests++;
+            return route.continue();
+          }
+        } catch { /* Invalid events follow the same failure path as other unexpected requests. */ }
+      }
+      if (url.origin !== base || !["GET", "HEAD"].includes(request.method())) {
+        // Record only the method and path. Never retain payloads, tokens, or query strings.
+        unexpectedRequests.push(`${request.method()} ${url.origin === base ? url.pathname : "external origin"}`);
+        return route.abort("blockedbyclient");
+      }
+      return route.continue();
+    });
+    return page;
+  }
+  let page = await freshPage();
   try {
     await page.goto(base);
     assert.equal(await page.locator("#costume-results .tile-body").count(), costumes.length);
@@ -143,8 +147,10 @@ async function browserSmoke(base: string) {
     await page.getByRole("heading", { name: "Cosmic Cowboy", exact: true }).waitFor();
     pass("hydrated gallery, saved-look persistence, saved filter, and detail navigation");
 
-    // Gallery cards may apply a completion kit. Check the full catalog separately;
-    // the campaign verifier covers kit selection and owned/skipped cart agreement.
+    // A kit link persists owned pieces and selections. Use a fresh browser session
+    // for the full-costume cart so its expected pieces do not depend on that fixture.
+    await page.close();
+    page = await freshPage();
     await page.goto(new URL("/costumes/cosmic-cowboy", base).href);
     stage = "cart restoration";
     const addAll = page.getByRole("button", { name: "Add costume to cart", exact: true });
