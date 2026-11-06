@@ -8,9 +8,9 @@ The ten-item implementation and verification states are in the
 
 | Loop | Observed state | Disposition and remaining evidence |
 | --- | --- | --- |
-| 50 shoppable catalogs, PR #32 | Included in baseline `2062f16`. | Preserve all 50. Rerun catalog and critical shopping checks after integration. |
+| 50 shoppable catalogs, PR #32 | Included in baseline `2062f16`. Integrated local catalog and shopping checks passed. | Preserve all 50. After an authorized deployment, verify the deployed commit and rerun hosted shopping checks. |
 | Broad retailer policy | Accepted user decision; existing dirty patch is separate from the campaign branches. | Integrated by the coordinator in `09913e2`. Preserve safe URLs and current merchant checks. Deployment remains unverified. |
-| Saved/shared selection and personal preview | Backend state, signed synthetic persistence, and source validation passed. UI integration is tracked in items #2 and #4. | OpenAI credit exhaustion blocks generation and live missing-piece retry. Saved preview references are product names only; visual fidelity remains unverified. Sizes and photos stay out of public links. |
+| Saved/shared selection and personal preview | Backend state, signed synthetic persistence, fresh-browser restoration, exact cart pruning, and repair gates passed. | OpenAI credit exhaustion blocks generation and live missing-piece retry. Saved preview references are product names only; visual fidelity remains unverified. Sizes and photos stay out of public links. |
 | Phone relay and physical iPhone/Safari | Item #6 retains Metered and passed synthetic direct/recovery/cleanup checks, including incomplete-config fallback. Neither TURN provider has available credentials. | Forced relay, physical iPhone/Safari, separate networks, cellular handoff, and phone live inference remain unverified. Do not infer relay use from credential metadata. |
 | Mirror local-only commits | Item #7 selectively reconciles controls. Seven state fixtures and real Lucy synthetic transport passed. | OpenAI credit exhaustion blocks real command accuracy and latency. No paired baseline or garment/identity fidelity claim. Preserve newer fixes and removed hourly quotas. |
 | Gemini Live voice PR #25 | A separate provider migration from the existing voice path. | Defer default migration. Real microphone, interruption, long-session, camera, and Safari checks need their own evidence. |
@@ -20,6 +20,7 @@ The ten-item implementation and verification states are in the
 | Competition video | The user owns the separate video submission. | A missing report video URL is not an application defect or permission to submit. |
 | Agent-readable guides and metadata | Already present in the baseline with dated verification records. | Preserve and include relevant regressions in release checks. Do not claim an external score was rerun. |
 | Real-money fulfillment | Guest checkout and manual concierge fulfillment remain the product model. | Before real-money launch, define durable paid-order handoff, fulfillment visibility, stock repair/refunds, and shipping economics. |
+| Unpaid Stripe test session | The checkout lane confirmed test-key configuration and a real merchant invalid-size rejection. It created no Stripe session. | A successful unpaid session and exact expiry remain unverified. Browser response fixtures do not prove Stripe readiness. |
 | Hosted release verification | Campaign source work and local verification are separate from release. | After authorized deployment, confirm the exact commit and run hosted catalog and shopping checks. |
 
 ## Competition report reconciliation

@@ -11,6 +11,10 @@ merchant policy changes remain separate inputs to integration.
 Owner hashes below identify lane commits. Integration uses cherry-picks, which can
 have different hashes. No hash below is presented as a new deployed commit.
 
+The [review stack](pr-stack.md) groups the changes into foundation, shopping look
+continuity, and media/documentation layers. Kits, discovery, and destination
+restoration stay together so the intermediate product has working kit links.
+
 ## Status meanings
 
 - **Implemented:** the owner completed the source change. This alone does not
@@ -18,26 +22,25 @@ have different hashes. No hash below is presented as a new deployed commit.
 - **Verified:** a recorded check passed in the named runtime and scope.
 - **Blocked:** a named external dependency or failed check prevents the remaining
   success condition. A bounded source change can still be implemented.
-- **Pending:** the owner has not supplied final evidence yet.
 
 ## Ten-item ledger
 
 | # | Improvement | Implementation | Verification | Remaining condition |
 | --- | --- | --- | --- | --- |
-| 1 | Completion kits and price-aware discovery | Ten kit overlays and discovery implemented | 61 kit/catalog checks and real Chromium discovery checks passed for all 50 cards and 10 kits | Integrated destination/cart agreement pending. New-piece subtotals depend on owned basics. |
-| 2 | Complete saved/shared selections | Backend and UI implemented (`3cb7e68`, `823f58f`, `93edd6d`) | Backend state/validation and synthetic-record persistence verified; UI lint passed | Fresh-browser UI restoration and integrated cart checks remain pending. Public links exclude sizes and photos. |
+| 1 | Completion kits and price-aware discovery | Ten kit overlays and discovery implemented | 61 kit/catalog checks, all 50 discovery cards, and ten exact destination/cart totals passed | Prices remain stored catalog facts. New-piece subtotals depend on owned basics and exclude supplies, tax, and shipping. |
+| 2 | Complete saved/shared selections | Backend and UI implemented, with explicit repair purchase gate (`3f309bd`) | Fresh-browser restoration, exact cart pruning, repair gating, backend validation, and synthetic persistence passed | Public links exclude private sizes and photos. Live database and browser evidence have separate scopes below. |
 | 3 | Event and assembly readiness | Implemented with dated evidence for 28 purchase rows and general event dates | All ten kits resolve; default and 2026-12-31 event checks passed | Arrival unconfirmed for all ten; pickup inventory and physical assembly unverified. No sourced absolute late-arrival record exists. |
 | 4 | Saved-board personal preview | Backend and UI implemented, including signed autosave and per-row retry | Saved-record persistence and server resolution verified with a signed synthetic record; UI lint passed | Blocked on OpenAI credit for generation and missing-piece retry. References are product names only; visual fidelity remains unverified. |
 | 5 | Checkout recovery and freshness | Implemented (`7290881`) | Five local checks passed, including a real merchant invalid-size response; controlled browser failures are labeled | Unpaid/expired Stripe session and authorized refresh writes were not run. No production mutation occurred. |
-| 6 | Phone camera connection | Implemented (`4f51bd9`) with Metered diagnostics, direct fallback, bounded recovery, and cleanup | Three synthetic Chromium runs passed: 16 reliability, 11 delayed-candidate, and 17 fallback/permission-timeout checks | Blocked: no TURN credentials. Forced relay, physical iPhone/Safari, separate networks, cellular handoff, and phone live inference remain unverified. |
+| 6 | Phone camera connection | Implemented (`4f51bd9`, `d460168`) with Metered diagnostics, direct fallback, bounded recovery, source retention, and cleanup | Four synthetic Chromium runs passed; latest 16-check run confirms 11 decoded raw frames | Blocked: no TURN credentials. Forced relay, physical iPhone/Safari, separate networks, cellular handoff, and phone live inference remain unverified. |
 | 7 | Mirror controls and timing | Implemented; independent follow-ups run together and stale responses are rejected | Seven browser fixtures, source/reference guards, and real Lucy synthetic transport passed | Blocked on OpenAI credit for real commands. No before/after latency comparison or garment/identity fidelity result. |
-| 8 | Anonymous measurement | Implemented with allowlisted host logs and aggregate CLI | Real browser helper → endpoint → stdout sequence, privacy, bounds, deduplication, and summary passed | Complete UI clicks, production collection, host retention/export, provider usage, and billing were not verified. |
-| 9 | Release base and checks | Baseline selected; integration pending | Pending | Local release checks, intended preview commit, hosted shopping checks. |
+| 8 | Anonymous measurement | Implemented with allowlisted host logs and aggregate CLI | Helper/endpoint/stdout checks passed; integrated shopping clicks produced 53 valid events across 14 browser journeys | Actual preview/redirect funnel, production collection, host retention/export, provider usage, and billing remain unverified. |
+| 9 | Release base and checks | Three-layer stack prepared; quality workflow and production runner implemented | Production build, strict baseline, and all 12 integrated shopping QA groups passed locally | Hosted GitHub Actions, preview commit verification, and production deployment remain unverified. |
 | 10 | Gated clip input | Implemented, default off (`7243600`) | 24 route/input checks passed without provider calls; typecheck and focused lint passed | Blocked: video probes returned 503 busy, 404 unavailable, and 429 quota. No model qualified; full YouTube/upload sourcing remains unverified. |
 
-No campaign verification result is implied by this initial ledger. Owners add
-their evidence in separate files. The coordinator updates this table after reading
-those results and checking integration.
+The evidence below separates owner checks, the integrated local production
+runtime, and external dependencies. A source implementation can be complete while
+its provider or physical-device success condition remains blocked.
 
 ## Verification record
 
@@ -53,8 +56,59 @@ These checks confirmed the selected source baseline and the open competition-doc
 PR. They do not verify the shopping runtime or any provider. The app's health
 endpoint and historical evidence have separate scope.
 
-Final owner evidence and integration checks are pending. See
-[open loops](open-loops.md) for dependencies that require later action.
+The integrated shopping checks and strict production baseline passed. See
+[open loops](open-loops.md) for external dependencies and later release work.
+
+### Integrated production checks
+
+The [final shopping QA](qa.md) ran against the local production app at
+`ce8f4c4cace862b6aa34718eb349e739a3dbc7cb`, with bundled catalog fallback and
+no database or OpenAI keys:
+
+```sh
+SHOPPING_EVIDENCE_DIR=/tmp/halloween-shopping-campaign-patched-final bun scripts/verify-shopping-campaign.mjs http://localhost:3340
+```
+
+All 12 groups passed. All ten kit links charged only their listed new products,
+with exact subtotals from $13.50 to $98.39. A fresh browser restored the swapped,
+owned, skipped, mixed, presentation, and preview-note choices. It charged three
+selected products totaling $150.18. The existing-cart case removed two excluded
+lines, reducing five charged lines to three.
+
+Corrupt, retired, and incomplete snapshots blocked purchase until explicit
+repair. The incomplete snapshot also blocked piece, dialog, and inspector
+purchases. Cart response fixtures preserved four unrelated lines and required
+price acceptance. These fixtures created no Stripe session.
+
+The run observed 53 allowlisted events across 14 browser journeys, with no
+uncaught browser error. Seven invalid preview requests failed before providers;
+clip input remained disabled. Unsigned and unsafe saved products were rejected.
+A forged proof returned 503 because the test server lacked signing credentials;
+this proves a closed failure state, not configured signature validation. The
+backend's configured synthetic-record check is recorded separately below.
+
+The [strict release baseline](release-checks.md) then passed at source
+`6704bdedbbf1443256f59b4dca4c945b0026dcb7`, build
+`s6w_U3F5r-I9tuPR5ITlS`. Its own production server was started and stopped by the
+runner. The recorded summary covers all 50 catalogs, 242 components, 556 served
+images, 100 model assets, Saved navigation, cart reload/removal/swaps, and 1440px
+and 390px layouts. It recorded zero runtime errors, zero unexpected requests, and
+ten schema-valid anonymous event requests.
+
+The exact invocation used the CI owner's script at `ed4fee4`, with the integration
+checkout as its working directory:
+
+```sh
+bun --no-env-file /Users/ohong/.codex/worktrees/halloween-campaign/ci/scripts/verify-release.ts
+```
+
+This ran the existing root production build and managed its own temporary server.
+The normal package alias is `bun run verify:release`; that alias was not the
+literal invocation for this recorded pass.
+
+The application code is unchanged between those two checked commits; only the
+release verifier changed. No provider generation, payment session, hosted CI,
+deployment, physical-device check, or fulfilled order is implied by these passes.
 
 ### Completion kits and readiness
 
@@ -119,11 +173,19 @@ UI source in `93edd6d` adds exact saved/shared choices, repair states, exact-car
 pruning, kit date constraints, screenshot autosave/reload, saved-only preview,
 public saved links, and per-missing-row retry. Private sizes remain in browser
 storage. Scoped ESLint and diff checks passed. That lane ran no UI runtime,
-production build, or full TypeScript check; integrated QA supplies that evidence.
+production build, or full TypeScript check; the integrated QA above supplies
+the recorded runtime evidence.
 
 ```sh
 bunx eslint components/saved-looks.tsx components/store/costume-experience.tsx components/store/virtual-try-on.tsx components/store/custom-look.tsx components/store/screenshot-costume.tsx components/store/local-product-sizes.ts app/costumes/'[slug]'/page.tsx
 ```
+
+Follow-up `3f309bd` blocks whole-look and individual-piece purchases while restore
+is incomplete or a saved selection needs repair. The shopper must explicitly
+choose **Use available picks** before using a repaired selection. Assistant,
+photo, save, share, and kit controls also wait for restore readiness.
+`bunx eslint components/store/costume-experience.tsx components/store/costume-piece-inspector.tsx`
+and `git diff --check` passed. Integrated runtime verified these repair gates.
 
 ### Phone camera
 
@@ -148,6 +210,15 @@ raw streaming, repeated photos, seven-second candidate delay, lost-response
 recovery, injected disconnects, failed-lens restoration, a fresh QR reconnect,
 permission cancellation, the actual 30-second deadline, and late-track cleanup.
 Each results file has an empty error list. Static checks passed.
+
+Follow-up `d460168` preserves the connected source during transient recovery and
+corrects the verifier's asynchronous frame wait. Its latest run passed 16 checks
+and explicitly observed 11 decoded raw frames. Use that result for a decoded-frame
+claim; earlier video dimensions and photos establish a narrower media result.
+
+```sh
+PHONE_BASE_URL=http://localhost:3036 PHONE_TESTING_MODE=1 PHONE_RELIABILITY_E2E=1 PHONE_EXPECT_RELAY_STATUS=unavailable node scripts/verify-phone-camera.mjs
+```
 
 Local artifacts are under
 `/Users/ohong/.codex/visualizations/2026/11/06/halloween-camera-reliability/`.
@@ -196,8 +267,9 @@ and returned aggregates without journey IDs. Timing and usage values in that
 check were synthetic fixtures, not provider measurements.
 
 No analytics service, log drain, or event database was provisioned. Hosting
-retention and export remain unverified. The lane did not verify production
-collection, actual provider usage, billing, or the complete UI funnel. The event
+retention and export remain unverified. Integrated QA separately verified the
+shopping clicks listed above. Actual preview/redirect funnel completion,
+production collection, provider usage, and billing remain unverified. Event
 limits do not restrict shopping or repeated demonstrations.
 
 ### Checkout recovery and freshness
