@@ -3,6 +3,7 @@ import { readCatalogs } from "@/lib/catalog";
 import { getCostume } from "@/lib/catalog/queries";
 import { costumes, liveCostumeSlug } from "@/lib/costumes";
 import { isDatabaseConfigured } from "@/lib/db/client";
+import { catalogFacts } from "@/lib/checkout/catalog-facts";
 
 const set = (name: string) => Boolean(process.env[name]);
 
@@ -10,10 +11,12 @@ export async function GET() {
   await connection();
   const started = performance.now();
   const { source, snapshots } = await readCatalogs();
+  const evaluatedAt = Date.now();
   const catalogs = await Promise.all(costumes.map(async (costume) => {
     const view = await getCostume(snapshots, costume.slug);
     return {
       costumeSlug: costume.slug, source,
+      facts: catalogFacts(view?.pieces.flatMap(({ options }) => options.map(({ product }) => product)) ?? [], evaluatedAt),
       pieces: view?.pieces.length ?? 0,
       products: new Set(view?.pieces.flatMap((piece) => piece.options.map((option) => option.product.id))).size,
       complete: Boolean(view?.pieces.length) && (view?.pieces.every(({ options }) => options.length === 3 &&
@@ -25,7 +28,9 @@ export async function GET() {
   }));
   const missingCostumeSlugs = catalogs.filter((item) => !item.complete || !item.pricePointsComplete).map((item) => item.costumeSlug);
   const complete = catalogs.length === costumes.length && missingCostumeSlugs.length === 0;
-  const ok = source === "database" && complete;
+  const facts = catalogFacts(snapshots.filter((snapshot) => snapshot.costume.status === "live").flatMap((snapshot) => snapshot.products), evaluatedAt);
+  const factsCurrent = facts.status === "fresh" && facts.stock.unknown === 0;
+  const ok = source === "database" && complete && factsCurrent;
   const key = process.env.STRIPE_SECRET_KEY ?? "";
   return Response.json({
     status: ok ? "ok" : "degraded",
@@ -39,6 +44,8 @@ export async function GET() {
     database: { provider: "turso", configured: isDatabaseConfigured(), ok: source === "database", latencyMs: Math.round(performance.now() - started),
       costumes: snapshots.length, products: new Set(snapshots.flatMap((s) => s.products.map((p) => p.id))).size },
     coverage: { expectedCostumes: costumes.length, shoppableCostumes: catalogs.filter((item) => item.complete && item.pricePointsComplete).length, missingCostumeSlugs },
+    catalogFacts: facts,
+    refreshHistory: { persisted: false, lastRun: null },
     catalogSource: source, catalog: catalogs.find((item) => item.costumeSlug === liveCostumeSlug), catalogs,
   }, { status: complete ? 200 : 503, headers: { "Cache-Control": "no-store" } });
 }
