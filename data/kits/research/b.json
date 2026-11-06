@@ -1,0 +1,280 @@
+[
+  {
+    "slug": "starlight-witch-completion",
+    "costumeSlug": "starlight-witch",
+    "name": "Starlight Witch completion kit",
+    "description": "Add a pointed hat, silver-detail cape, and crescent necklace to your own dark dress and boots.",
+    "buy": [
+      { "pieceId": "starlight-witch-pointed-hat", "productId": "p-45bc046658", "quantity": 1 },
+      { "pieceId": "starlight-witch-celestial-cape", "productId": "p-1214815a11", "quantity": 1 },
+      { "pieceId": "starlight-witch-crescent-necklace", "productId": "p-2d77c3f04b", "quantity": 1 }
+    ],
+    "owned": [
+      { "pieceId": "starlight-witch-dark-dress", "note": "Use a black or midnight-blue dress you already own. Plain fabric works; velvet and a corset bodice are not needed." },
+      { "pieceId": "starlight-witch-lace-up-boots", "note": "Use comfortable black boots you already own. Plain dark shoes are a simpler substitute if you do not own lace-up boots." }
+    ],
+    "skipped": [],
+    "extraSupplies": [],
+    "assembly": {
+      "minutes": 10,
+      "steps": [
+        "Put on your own dark dress and black boots or dark shoes.",
+        "Place the sheer cape over your shoulders and tie its front closure comfortably.",
+        "Fasten the crescent necklace above the cape opening. Its supplied chain adjusts from 18 to 20 inches.",
+        "Put on the pointed hat and check its fit. The merchant gives a 22–23-inch head measurement.",
+        "Walk and sit in the complete outfit. Keep the cape hem clear of your shoes and the brim clear of your eyes."
+      ],
+      "tools": []
+    },
+    "readiness": {
+      "notes": [
+        "The stored purchase subtotal is $95.98 USD before shipping and tax. It assumes you already own the dress and footwear.",
+        "The hat is plain black velour. The cape is sheer black with silver detail, rather than the reference navy embroidered velvet.",
+        "Delivery remains unconfirmed for any event date. Check all three merchants before ordering; processing time does not establish arrival.",
+        "Wild Time Fashion currently states US shipping only. Check destination support before relying on this kit outside the United States.",
+        "Assembly time is a planning estimate, not a measured build time. No sewing or craft supplies are needed.",
+        "Merchant pages were checked on November 5, 2026 in Vancouver. Catalog prices and stock retain their existing check dates."
+      ],
+      "evidence": [
+        {
+          "url": "https://wildtimefashion.com/collections/kaleidoscope-fashion-fusion/products/black-magic-velvet-witch-hat",
+          "checkedAt": "2026-11-05T22:51:26-08:00",
+          "kind": "product",
+          "productId": "p-45bc046658",
+          "note": "Merchant page lists the black adult one-size hat at $25 and marks it in stock. Head measurement is 22–23 inches."
+        },
+        {
+          "url": "https://wildtimefashion.com/policies/shipping-policy",
+          "checkedAt": "2026-11-05T22:51:26-08:00",
+          "kind": "shipping",
+          "productId": "p-45bc046658",
+          "note": "Most orders before noon Mountain Time ship the same business day; otherwise 1–2 business days. US addresses only. Transit is separate."
+        },
+        {
+          "url": "https://www.gypsytreasure.com/product/celestial-cape-adult-costume/",
+          "checkedAt": "2026-11-05T22:51:26-08:00",
+          "kind": "product",
+          "productId": "p-1214815a11",
+          "note": "Merchant lists $28.98, one size, and Silver Detail or Gold Detail. Select Silver Detail. Exact variant stock was not independently refreshed."
+        },
+        {
+          "url": "https://www.gypsytreasure.com/product/celestial-cape-adult-costume/",
+          "checkedAt": "2026-11-05T22:51:26-08:00",
+          "kind": "assembly",
+          "productId": "p-1214815a11",
+          "note": "The included garment is a full-length sheer cape with a front tie. The dress is separate; no sewing is described."
+        },
+        {
+          "url": "https://www.gypsytreasure.com/product/celestial-cape-adult-costume/",
+          "checkedAt": "2026-11-05T22:51:26-08:00",
+          "kind": "shipping",
+          "productId": "p-1214815a11",
+          "note": "The accessible product page gives no processing or arrival date. Obtain a destination-specific estimate from the merchant before ordering."
+        },
+        {
+          "url": "https://creekandelm.com/products/silver-crescent-moon-necklace",
+          "checkedAt": "2026-11-05T22:51:26-08:00",
+          "kind": "product",
+          "productId": "p-2d77c3f04b",
+          "note": "Merchant lists $42 for the silver necklace with an included adjustable 18–20-inch chain. The crescent points downward."
+        },
+        {
+          "url": "https://creekandelm.com/pages/faq",
+          "checkedAt": "2026-11-05T22:51:26-08:00",
+          "kind": "shipping",
+          "productId": "p-2d77c3f04b",
+          "note": "FAQ allows up to five business days to complete an order before shipping. Faster shipping does not shorten making time. No arrival date."
+        }
+      ]
+    },
+    "rationale": "The hat establishes the witch shape; the ready-made cape and necklace add celestial detail. Reusing a dress and footwear keeps new pieces below $100. A handmade star cape can cost less if materials are already owned, but adds sewing and material uncertainty."
+  },
+  {
+    "slug": "autumn-scarecrow-completion",
+    "costumeSlug": "autumn-scarecrow",
+    "name": "Autumn Scarecrow completion kit",
+    "description": "Add a scarecrow hat and soft cotton fringe to your own plaid shirt, overalls, boots, and fabric scraps.",
+    "buy": [
+      { "pieceId": "autumn-scarecrow-patchwork-hat", "productId": "p-ab758b6f95", "quantity": 1 },
+      { "pieceId": "autumn-scarecrow-cotton-cuff-strips", "productId": "p-6f7050efd4", "quantity": 1 }
+    ],
+    "owned": [
+      { "pieceId": "autumn-scarecrow-plaid-shirt", "note": "Use an ochre, orange, brown, or other warm plaid shirt you already own. An exact yellow plaid match is unnecessary." },
+      { "pieceId": "autumn-scarecrow-denim-overalls", "note": "Use blue denim overalls you already own. Check their fit before cutting or attaching any decoration." },
+      { "pieceId": "autumn-scarecrow-patch-fabric", "note": "Use two or three palm-sized cotton scraps from an old garment or sewing basket. These become decorative bib and knee patches." },
+      { "pieceId": "autumn-scarecrow-brown-boots", "note": "Use comfortable brown boots you already own. Existing dark work shoes are a simpler substitute if needed." }
+    ],
+    "skipped": [],
+    "extraSupplies": [
+      "Owned sewing thread; not included in the fabric purchase or subtotal."
+    ],
+    "assembly": {
+      "minutes": 60,
+      "steps": [
+        "Prewash and dry the cotton as you plan to wash the finished trim. The assembly estimate excludes washing and drying.",
+        "Measure your sleeve and trouser cuffs. Cut four loose cotton bands with enough length to overlap each cuff.",
+        "Cut short fringe along one edge of each band. Leave the other edge intact for stitching.",
+        "Hand-stitch the intact edges inside the cuffs so a short fringe shows. Keep the bands loose and fringe above your shoes.",
+        "Cut two or three patches from your own cotton scraps. Hand-stitch around each patch on the overall bib or knees.",
+        "Remove any temporary pins. Put on the plaid shirt, overalls, boots, and hat, then walk and sit to check the trim."
+      ],
+      "tools": [
+        "Fabric scissors",
+        "Hand-sewing needle",
+        "Tape measure",
+        "Temporary sewing pins"
+      ]
+    },
+    "readiness": {
+      "notes": [
+        "The stored purchase subtotal is $24.99 USD before shipping and tax. It assumes all four owned items and sewing supplies are available.",
+        "One catalog unit of Kona cotton is one full 44-inch-wide yard. It supplies fabric, not completed cuff fringe.",
+        "The hat is tan rather than rust. Cotton fringe and existing fabric patches provide the handmade scarecrow details.",
+        "Chicago pickup applies only to the hat. The cotton comes from a separate Berkeley merchant; the full kit has no confirmed arrival date.",
+        "Assembly time is an unmeasured estimate for simple hand stitching. Allow extra time for learning stitches and washing the fabric.",
+        "Merchant pages were checked on November 5, 2026 in Vancouver. Catalog prices and stock retain their existing check dates."
+      ],
+      "evidence": [
+        {
+          "url": "https://chicagocostume.com/collections/hats-headbands/products/scarecrow-hat",
+          "checkedAt": "2026-11-05T22:51:26-08:00",
+          "kind": "product",
+          "productId": "p-ab758b6f95",
+          "note": "Merchant lists the scarecrow hat at $14.99 with the default variant available. The hat is sold separately from the model's other accessories."
+        },
+        {
+          "url": "https://chicagocostume.com/collections/hats-headbands/products/scarecrow-hat",
+          "checkedAt": "2026-11-05T22:51:26-08:00",
+          "kind": "shipping",
+          "productId": "p-ab758b6f95",
+          "note": "Chicago orders are prepared Monday–Friday and may take up to 24 hours. Cart delivery estimates are not guaranteed."
+        },
+        {
+          "url": "https://chicagocostume.com/collections/hats-headbands/products/scarecrow-hat",
+          "checkedAt": "2026-11-05T22:51:26-08:00",
+          "kind": "pickup",
+          "productId": "p-ab758b6f95",
+          "note": "Hat pickup is offered at Chicago's Fullerton and Montrose stores, usually ready within 24 hours. Wait for the ready email; fabric is separate."
+        },
+        {
+          "url": "https://stonemountainfabric.com/product-category/fabric/cotton-woven/https%3A/stonemountainfabric.com/product-category/fabric/page/98/?products_per_page=60",
+          "checkedAt": "2026-11-05T22:51:26-08:00",
+          "kind": "product",
+          "productId": "p-6f7050efd4",
+          "note": "Merchant category listings show Kona Cotton–Straw at $10 per yard. The individual product page could not be refreshed; exact yardage stock remains unconfirmed."
+        },
+        {
+          "url": "https://stonemountainfabric.com/",
+          "checkedAt": "2026-11-05T22:51:26-08:00",
+          "kind": "shipping",
+          "productId": "p-6f7050efd4",
+          "note": "The merchant homepage banner says orders ship in 2–3 days. This is dispatch guidance, not an arrival date."
+        },
+        {
+          "url": "https://stonemountainfabric.com/faq/",
+          "checkedAt": "2026-11-05T22:51:26-08:00",
+          "kind": "shipping",
+          "productId": "p-6f7050efd4",
+          "note": "FAQ says domestic parcels generally use USPS Priority and estimates 2–4 days after dispatch. It directs buyers to the homepage for processing."
+        },
+        {
+          "url": "https://www.dmc.com/US/en/video-embroidery-running-stitch",
+          "checkedAt": "2026-11-05T22:51:26-08:00",
+          "kind": "assembly",
+          "note": "DMC provides a beginner running-stitch tutorial for hand sewing. Our cuff and decorative-patch steps adapt that technique; their time is estimated."
+        },
+        {
+          "url": "https://www.sewing.org/files/guidelines/10_120_clothing_care_and_repair.pdf",
+          "checkedAt": "2026-11-05T22:51:26-08:00",
+          "kind": "assembly",
+          "note": "The Sewing and Craft Alliance guide describes contrasting fabric appliqués as decorative patches. The proposed kit reuses owned cotton scraps."
+        }
+      ]
+    },
+    "rationale": "A hat and straw-colored cotton establish the scarecrow detail while existing clothes and scraps provide the base. Buying patch bundles adds cost and another shipment. The cheaper quarter-yard muslin offers less cuff material; a full yard leaves room for fitting and mistakes."
+  },
+  {
+    "slug": "midnight-pirate-completion",
+    "costumeSlug": "midnight-pirate",
+    "name": "Midnight Pirate completion kit",
+    "description": "Add a black tricorn and burgundy sash to your own roomy shirt, dark long coat, black trousers, and boots.",
+    "buy": [
+      { "pieceId": "midnight-pirate-tricorn-hat", "productId": "p-2ff8a1c847", "quantity": 1 },
+      { "pieceId": "midnight-pirate-burgundy-sash", "productId": "p-5855695cc9", "quantity": 1 }
+    ],
+    "owned": [
+      { "pieceId": "midnight-pirate-ruffled-shirt", "note": "Use a roomy ivory or white shirt you already own. A plain button-down is a simpler substitute for the reference billowy shirt." },
+      { "pieceId": "midnight-pirate-brocade-coat", "note": "Use a dark long coat you already own. Plain navy or black fabric replaces the reference brocade; confirm you have this layer first." },
+      { "pieceId": "midnight-pirate-black-trousers", "note": "Use black trousers you already own. Their hem should work with your boots without bunching or dragging." },
+      { "pieceId": "midnight-pirate-buckled-boots", "note": "Use comfortable black boots you already own. Plain boots replace the reference buckled pair; added buckles are not included." }
+    ],
+    "skipped": [],
+    "extraSupplies": [],
+    "assembly": {
+      "minutes": 10,
+      "steps": [
+        "Put on your own roomy ivory or white shirt, black trousers, and boots. Tuck or arrange the trouser hems comfortably.",
+        "Fold the 10-inch-wide sash lengthwise to your preferred width. Wrap it around your waist over the shirt.",
+        "Tie the sash at one side and tuck its loose ends securely. Its 98-inch length must leave enough fabric for a knot.",
+        "Add your own plain dark long coat and the black tricorn. The hat includes gold trim and a white feather.",
+        "Walk, sit, and raise your arms. Keep the coat and sash clear of your shoes, and check the hat fit."
+      ],
+      "tools": []
+    },
+    "readiness": {
+      "notes": [
+        "The stored purchase subtotal is $29 USD before shipping and tax. Confirm you own all four listed clothing items before choosing this kit.",
+        "This uses a plain owned shirt, coat, and boots. It does not reproduce the reference brocade fabric, ruffles, or boot buckles.",
+        "The hat is one size; the merchant gives a 25.75-inch head circumference. Check fit before ordering.",
+        "The sash is 98 inches long. Measure your waist with enough length left for a secure knot; it is not size-free.",
+        "Neither purchased item has a verified arrival date. Do not treat an add-to-cart button or available stock as a delivery promise.",
+        "Assembly time is a planning estimate, not a timed dressing session. No sewing or extra craft supplies are needed.",
+        "Merchant pages were checked on November 5, 2026 in Vancouver. Catalog prices and stock retain their existing check dates."
+      ],
+      "evidence": [
+        {
+          "url": "https://www.medievalcollectibles.com/product/feathered-buccaneer-tricorn/",
+          "checkedAt": "2026-11-05T22:51:26-08:00",
+          "kind": "product",
+          "productId": "p-2ff8a1c847",
+          "note": "Merchant lists $14 and one size, with a 25.75-inch head circumference. The black fabric hat includes gold braid and a white feather."
+        },
+        {
+          "url": "https://www.medievalcollectibles.com/product/feathered-buccaneer-tricorn/",
+          "checkedAt": "2026-11-05T22:51:26-08:00",
+          "kind": "shipping",
+          "productId": "p-2ff8a1c847",
+          "note": "The accessible product page does not establish processing or destination arrival. Confirm stock and timing with this merchant before ordering."
+        },
+        {
+          "url": "https://lostislandtrading.com/products/pirate-sash",
+          "checkedAt": "2026-11-05T22:51:26-08:00",
+          "kind": "product",
+          "productId": "p-5855695cc9",
+          "note": "Merchant page lists $15. Its Burgundy variant 31872673153068 is marked available; cotton sash dimensions are 98 by 10 inches."
+        },
+        {
+          "url": "https://lostislandtrading.com/products/pirate-sash",
+          "checkedAt": "2026-11-05T22:51:26-08:00",
+          "kind": "shipping",
+          "productId": "p-5855695cc9",
+          "note": "The product page gives no dispatch or arrival estimate. Shipping charges and destination support need confirmation before ordering."
+        },
+        {
+          "url": "https://www.visitsealife.com/orlando/information/blog/diy-pirate-costume-ideas-halloween/",
+          "checkedAt": "2026-11-05T22:51:26-08:00",
+          "kind": "assembly",
+          "note": "SEA LIFE's costume guide combines a loose shirt, dark trousers, and scarf or sash from home. Our captain version adds the coat and tricorn."
+        },
+        {
+          "url": "https://lostislandtrading.com/products/pirate-sash",
+          "checkedAt": "2026-11-05T22:51:26-08:00",
+          "kind": "assembly",
+          "productId": "p-5855695cc9",
+          "note": "The merchant describes a long cotton sash. Folding and tying it over the shirt is our proposed styling step; no physical build was timed."
+        }
+      ]
+    },
+    "rationale": "The tricorn and burgundy sash provide the strongest pirate cues for $29. Existing plain layers replace costly period clothing. Buying the $12 catalog shirt restricts the kit to Small, while the cheapest brocade coat has unknown stock; neither is needed for this simpler version."
+  }
+]
