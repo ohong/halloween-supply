@@ -15,6 +15,7 @@ const phoneContext = await browser.newContext({ viewport: { width: 390, height: 
 const desktop = await desktopContext.newPage(), phone = await phoneContext.newPage();
 const checks = [], errors = [];
 let requests = 0, sockets = 0;
+let tokenFailure = null;
 let responses = [{ type: 'error', error: 'Temporary signaling failure' }, { type: 'error', error: { code: 'insufficient_credits', message: 'Insufficient account credit' } }];
 const log = check => { checks.push(check); console.log(`PASS ${check}`); };
 for (const page of [desktop, phone]) {
@@ -44,7 +45,11 @@ for (const page of [desktop, phone]) {
 }
 await desktop.route('**/api/live-mirror/video', async route => {
   if (route.request().method() === 'GET') await route.fulfill({ json: { videoAvailable: true, voiceAvailable: false } });
-  else { requests++; await route.fulfill({ json: { token: 'failure-test-token', model: 'decart/lucy-2-5/realtime', maxSessionSeconds: null } }); }
+  else {
+    requests++;
+    if (tokenFailure) await route.fulfill({ status: 502, json: { error: tokenFailure } });
+    else await route.fulfill({ json: { token: 'failure-test-token', model: 'decart/lucy-2-5/realtime', maxSessionSeconds: null } });
+  }
 });
 await desktop.routeWebSocket(/wss:\/\/fal\.run\/decart\/lucy-2-5\//, socket => {
   sockets++;
@@ -88,6 +93,21 @@ try {
   assert.equal(sockets, 2);
   await assertPhoneAlive();
   log('unknown-signaling-failure-retries-and-billing-stops-with-correct-reason');
+
+  // The token route maps an upstream HTTP 402 to this JSON error. Its message
+  // must remain terminal after readMirrorResponse converts it into an Error.
+  tokenFailure = 'The live video provider needs account credit. Use photo mode while credit is restored.';
+  const beforeTokenCredit = requests, beforeTokenSockets = sockets;
+  await mirror.getByRole('button', { name: 'Retry my mirror', exact: true }).click();
+  await mirror.getByRole('alert').filter({ hasText: 'needs account credit' }).waitFor();
+  await mirror.getByRole('alert').filter({ hasText: 'use photo mode' }).waitFor();
+  // A misclassified connection error would retry after three seconds.
+  await new Promise(resolve => setTimeout(resolve, 3500));
+  assert.equal(requests, beforeTokenCredit + 1);
+  assert.equal(sockets, beforeTokenSockets, 'A rejected token must not open provider signaling.');
+  await assertPhoneAlive();
+  tokenFailure = null;
+  log('token-route-credit-error-stops-after-one-request-with-actionable-copy');
 
   for (const [response, expected] of [
     [{ type: 'error', error: { code: 401, message: 'Unauthorized' } }, 'rejected access'],

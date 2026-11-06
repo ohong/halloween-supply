@@ -17,7 +17,7 @@ export function videoFailureFor(error: unknown): VideoFailure {
   };
   collect(error);
   const text = parts.join(" ").toLowerCase();
-  if (/insufficient.*(?:credit|balance)|billing|payment|credit.*exhaust|balance.*low/.test(text)) return {
+  if (/insufficient.*(?:credit|balance)|needs? account credit|billing|payment|credit.*exhaust|balance.*low/.test(text)) return {
     code: "billing", retryable: false, message: "The live video provider needs account credit. Your phone can stay connected; use photo mode for now.",
   };
   if (/unauthori[sz]ed|forbidden|rejected.*access|invalid.*(?:key|token)|\b401\b|\b403\b/.test(text)) return {
