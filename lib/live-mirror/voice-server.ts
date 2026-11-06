@@ -83,7 +83,13 @@ export async function voiceOpenAI(endpoint: "live/sessions" | "decisions" | "res
   if (!result.ok) {
     console.warn(`[live-mirror] OpenAI ${endpoint} returned ${result.status}`);
     if ([401, 403, 404].includes(result.status)) throw new VoiceError(503, "Voice styling is temporarily unavailable. Please choose pieces manually.");
-    if (result.status === 429) throw new VoiceError(429, "Voice styling is busy. Please try again shortly.");
+    if (result.status === 429) {
+      const failure = await result.json().catch(() => null) as { error?: { code?: string; type?: string } } | null;
+      if (failure?.error?.type === "insufficient_quota" || ["credit_balance_exhausted", "insufficient_quota"].includes(failure?.error?.code ?? "")) {
+        throw new VoiceError(503, "The voice provider needs account credit. You can still choose costume pieces manually.");
+      }
+      throw new VoiceError(429, "Voice styling is busy. Please try again shortly.");
+    }
     throw new VoiceError(502, "Voice styling could not connect. Please try again.");
   }
   return result.json() as Promise<unknown>;

@@ -34,7 +34,7 @@ describe("live video outfit references", () => {
     assert.ok(!resolved.selected.some(({ piece }) => [owned.id, optional.id].includes(piece.id)));
     assert.deepEqual(resolved.owned, [owned.name]);
     assert.deepEqual(resolved.skipped, [optional.name]);
-    assert.match(videoOutfitPrompt(resolved), /Keep the camera clothing for owned pieces/);
+    assert.match(videoOutfitPrompt(resolved), /Keep their own/);
   });
   it("rejects arbitrary products, unknown pieces, missing choices and skipped required items", () => {
     const request = videoOutfitRequest(costume, outfit);

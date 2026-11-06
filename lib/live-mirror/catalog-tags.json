@@ -1,0 +1,5775 @@
+{
+ "e-1ffb7f1e73": {
+  "colors": [
+   "silver"
+  ],
+  "materials": [
+   "plastic"
+  ],
+  "styles": [
+   "sci-fi",
+   "whimsical"
+  ]
+ },
+ "e-3b2851abbd": {
+  "colors": [
+   "gold",
+   "white",
+   "multicolor"
+  ],
+  "materials": [
+   "plastic"
+  ],
+  "styles": [
+   "fantasy",
+   "glam"
+  ]
+ },
+ "e-5493f9b30a": {
+  "colors": [
+   "black"
+  ],
+  "materials": [
+   "foam-latex"
+  ],
+  "styles": [
+   "fantasy"
+  ]
+ },
+ "e-5d2008e2c1": {
+  "colors": [
+   "red"
+  ],
+  "materials": [
+   "polyester",
+   "lace"
+  ],
+  "styles": [
+   "formal",
+   "vintage"
+  ]
+ },
+ "e-729c1587bc": {
+  "colors": [
+   "black"
+  ],
+  "materials": [
+   "foam-latex"
+  ],
+  "styles": [
+   "fantasy"
+  ]
+ },
+ "e-aa9e96ab7d": {
+  "colors": [
+   "blue",
+   "gold"
+  ],
+  "materials": [
+   "metal"
+  ],
+  "styles": [
+   "fantasy",
+   "whimsical"
+  ]
+ },
+ "e-b5e9fc5ddd": {
+  "colors": [
+   "gold"
+  ],
+  "materials": [
+   "plastic"
+  ],
+  "styles": [
+   "fantasy",
+   "glam"
+  ]
+ },
+ "e-b8d2d05059": {
+  "colors": [
+   "red",
+   "gold"
+  ],
+  "materials": [
+   "velvet",
+   "sequin"
+  ],
+  "styles": [
+   "glam",
+   "formal"
+  ]
+ },
+ "e-bf56d9c5b7": {
+  "colors": [
+   "other"
+  ],
+  "materials": [],
+  "styles": [
+   "fantasy",
+   "whimsical"
+  ]
+ },
+ "e-cce8046f9e": {
+  "colors": [
+   "gold"
+  ],
+  "materials": [
+   "plastic"
+  ],
+  "styles": [
+   "fantasy",
+   "glam"
+  ]
+ },
+ "e-d743aa9de3": {
+  "colors": [
+   "red"
+  ],
+  "materials": [
+   "other"
+  ],
+  "styles": [
+   "formal",
+   "vintage"
+  ]
+ },
+ "e-e752cfcae7": {
+  "colors": [
+   "black"
+  ],
+  "materials": [
+   "foam-latex"
+  ],
+  "styles": [
+   "fantasy"
+  ]
+ },
+ "e-f353260179": {
+  "colors": [
+   "blue",
+   "gold"
+  ],
+  "materials": [
+   "velvet",
+   "metal"
+  ],
+  "styles": [
+   "fantasy",
+   "glam"
+  ]
+ },
+ "exp-b-0ba42fbf7e60": {
+  "colors": [
+   "other"
+  ],
+  "materials": [],
+  "styles": [
+   "spooky",
+   "fantasy"
+  ]
+ },
+ "exp-b-0d14d3785c84": {
+  "colors": [
+   "silver"
+  ],
+  "materials": [
+   "plastic"
+  ],
+  "styles": [
+   "sci-fi"
+  ]
+ },
+ "exp-b-267320b305fd": {
+  "colors": [
+   "other"
+  ],
+  "materials": [],
+  "styles": [
+   "spooky",
+   "fantasy"
+  ]
+ },
+ "exp-b-33d0f585ef6e": {
+  "colors": [
+   "gold"
+  ],
+  "materials": [
+   "plastic"
+  ],
+  "styles": [
+   "sci-fi"
+  ]
+ },
+ "exp-b-44bfbd1d5745": {
+  "colors": [
+   "other"
+  ],
+  "materials": [
+   "lace"
+  ],
+  "styles": [
+   "spooky",
+   "fantasy"
+  ]
+ },
+ "exp-b-502d51419f05": {
+  "colors": [
+   "white",
+   "red"
+  ],
+  "materials": [
+   "satin"
+  ],
+  "styles": [
+   "spooky",
+   "formal"
+  ]
+ },
+ "exp-b-68a3dcfb87da": {
+  "colors": [
+   "white"
+  ],
+  "materials": [],
+  "styles": [
+   "formal",
+   "whimsical"
+  ]
+ },
+ "exp-b-9c735e7bf1fe": {
+  "colors": [
+   "white"
+  ],
+  "materials": [
+   "plastic"
+  ],
+  "styles": [
+   "gothic",
+   "fantasy"
+  ]
+ },
+ "exp-b-9dd26e08251d": {
+  "colors": [
+   "white"
+  ],
+  "materials": [],
+  "styles": [
+   "formal",
+   "whimsical"
+  ]
+ },
+ "exp-b-a557291982f8": {
+  "colors": [
+   "white"
+  ],
+  "materials": [],
+  "styles": [
+   "formal",
+   "whimsical"
+  ]
+ },
+ "exp-b-c66568ddba1e": {
+  "colors": [
+   "white"
+  ],
+  "materials": [
+   "plastic"
+  ],
+  "styles": [
+   "gothic",
+   "fantasy"
+  ]
+ },
+ "exp-b-c9e7c356f8ab": {
+  "colors": [
+   "brown"
+  ],
+  "materials": [
+   "plastic"
+  ],
+  "styles": [
+   "sci-fi"
+  ]
+ },
+ "exp-b-cf31bdc72612": {
+  "colors": [
+   "white"
+  ],
+  "materials": [],
+  "styles": [
+   "gothic",
+   "fantasy"
+  ]
+ },
+ "exp-b-f55bc94e7d4c": {
+  "colors": [
+   "white",
+   "gold"
+  ],
+  "materials": [
+   "satin"
+  ],
+  "styles": [
+   "formal",
+   "glam"
+  ]
+ },
+ "exp-b-fc56c9654a05": {
+  "colors": [
+   "white",
+   "gold"
+  ],
+  "materials": [
+   "satin"
+  ],
+  "styles": [
+   "formal",
+   "glam"
+  ]
+ },
+ "p-001ca783f4": {
+  "colors": [
+   "silver",
+   "black"
+  ],
+  "materials": [
+   "denim"
+  ],
+  "styles": [
+   "glam",
+   "vintage"
+  ]
+ },
+ "p-005fe33405": {
+  "colors": [
+   "black"
+  ],
+  "materials": [
+   "felt",
+   "cotton"
+  ],
+  "styles": [
+   "historical",
+   "formal"
+  ]
+ },
+ "p-0078853d2d": {
+  "colors": [
+   "black"
+  ],
+  "materials": [
+   "polyester",
+   "velvet"
+  ],
+  "styles": [
+   "gothic",
+   "glam"
+  ]
+ },
+ "p-0265935dc5": {
+  "colors": [
+   "silver"
+  ],
+  "materials": [
+   "metal"
+  ],
+  "styles": [
+   "fantasy"
+  ]
+ },
+ "p-02f0ef4ca3": {
+  "colors": [
+   "red"
+  ],
+  "materials": [
+   "cotton"
+  ],
+  "styles": [
+   "historical"
+  ]
+ },
+ "p-035b491978": {
+  "colors": [
+   "black"
+  ],
+  "materials": [
+   "cotton"
+  ],
+  "styles": [
+   "pirate",
+   "historical"
+  ]
+ },
+ "p-0439c06c0f": {
+  "colors": [
+   "black",
+   "gold"
+  ],
+  "materials": [
+   "mesh-tulle"
+  ],
+  "styles": [
+   "fantasy",
+   "spooky"
+  ]
+ },
+ "p-047c54caa0": {
+  "colors": [
+   "black"
+  ],
+  "materials": [
+   "polyester"
+  ],
+  "styles": [
+   "sporty"
+  ]
+ },
+ "p-0513bcd5bf": {
+  "colors": [
+   "brown"
+  ],
+  "materials": [
+   "other",
+   "polyester"
+  ],
+  "styles": [
+   "historical",
+   "vintage"
+  ]
+ },
+ "p-05ea3d6031": {
+  "colors": [
+   "pink"
+  ],
+  "materials": [
+   "polyester"
+  ],
+  "styles": [
+   "glam",
+   "whimsical"
+  ]
+ },
+ "p-06e47a9a80": {
+  "colors": [
+   "brown"
+  ],
+  "materials": [
+   "other"
+  ],
+  "styles": [
+   "historical",
+   "vintage"
+  ]
+ },
+ "p-06edb85a9c": {
+  "colors": [
+   "yellow"
+  ],
+  "materials": [
+   "plastic"
+  ],
+  "styles": [
+   "sporty"
+  ]
+ },
+ "p-0815fd0233": {
+  "colors": [
+   "gold"
+  ],
+  "materials": [
+   "metal"
+  ],
+  "styles": [
+   "glam",
+   "fantasy"
+  ]
+ },
+ "p-084f5fc7a0": {
+  "colors": [
+   "silver",
+   "white"
+  ],
+  "materials": [
+   "polyester",
+   "metal"
+  ],
+  "styles": [
+   "formal",
+   "glam"
+  ]
+ },
+ "p-09040c668b": {
+  "colors": [
+   "yellow",
+   "brown"
+  ],
+  "materials": [
+   "leather"
+  ],
+  "styles": [
+   "western"
+  ]
+ },
+ "p-0969c0dcdf": {
+  "colors": [
+   "black"
+  ],
+  "materials": [
+   "leather"
+  ],
+  "styles": [
+   "historical",
+   "western"
+  ]
+ },
+ "p-0a2d0b69cb": {
+  "colors": [
+   "black",
+   "gold"
+  ],
+  "materials": [
+   "faux-leather",
+   "metal"
+  ],
+  "styles": [
+   "pirate"
+  ]
+ },
+ "p-0a49fa4bf2": {
+  "colors": [
+   "blue"
+  ],
+  "materials": [
+   "satin"
+  ],
+  "styles": [
+   "western"
+  ]
+ },
+ "p-0cd4267b57": {
+  "colors": [
+   "pink"
+  ],
+  "materials": [
+   "mesh-tulle"
+  ],
+  "styles": [
+   "historical",
+   "formal"
+  ]
+ },
+ "p-0d13db86b9": {
+  "colors": [
+   "brown",
+   "yellow"
+  ],
+  "materials": [
+   "leather",
+   "cotton"
+  ],
+  "styles": [
+   "western"
+  ]
+ },
+ "p-0d1ce90587": {
+  "colors": [
+   "brown"
+  ],
+  "materials": [
+   "cotton",
+   "metal"
+  ],
+  "styles": [
+   "historical",
+   "western"
+  ]
+ },
+ "p-0d72275b4d": {
+  "colors": [
+   "white",
+   "clear"
+  ],
+  "materials": [
+   "plastic"
+  ],
+  "styles": [
+   "sci-fi"
+  ]
+ },
+ "p-0dab590d99": {
+  "colors": [
+   "white",
+   "silver"
+  ],
+  "materials": [
+   "cotton",
+   "metal"
+  ],
+  "styles": [
+   "western",
+   "historical"
+  ]
+ },
+ "p-0e46b18d9d": {
+  "colors": [
+   "silver"
+  ],
+  "materials": [
+   "metal"
+  ],
+  "styles": [
+   "fantasy"
+  ]
+ },
+ "p-1028d82446": {
+  "colors": [
+   "multicolor"
+  ],
+  "materials": [
+   "polyester"
+  ],
+  "styles": [
+   "fantasy",
+   "glam"
+  ]
+ },
+ "p-10914a6666": {
+  "colors": [
+   "black",
+   "red"
+  ],
+  "materials": [
+   "velvet",
+   "satin"
+  ],
+  "styles": [
+   "gothic",
+   "formal"
+  ]
+ },
+ "p-10ebd36f10": {
+  "colors": [
+   "brown",
+   "red"
+  ],
+  "materials": [
+   "leather"
+  ],
+  "styles": [
+   "western",
+   "historical"
+  ]
+ },
+ "p-1192c69a2d": {
+  "colors": [
+   "white"
+  ],
+  "materials": [
+   "other"
+  ],
+  "styles": [
+   "historical"
+  ]
+ },
+ "p-1214815a11": {
+  "colors": [
+   "black",
+   "silver"
+  ],
+  "materials": [
+   "mesh-tulle"
+  ],
+  "styles": [
+   "fantasy",
+   "spooky"
+  ]
+ },
+ "p-1270d65f15": {
+  "colors": [
+   "black"
+  ],
+  "materials": [
+   "leather"
+  ],
+  "styles": [
+   "historical",
+   "fantasy"
+  ]
+ },
+ "p-133d7800ad": {
+  "colors": [
+   "black"
+  ],
+  "materials": [
+   "velvet",
+   "lace"
+  ],
+  "styles": [
+   "gothic"
+  ]
+ },
+ "p-1344227532": {
+  "colors": [
+   "green",
+   "purple"
+  ],
+  "materials": [
+   "velvet",
+   "metal"
+  ],
+  "styles": [
+   "whimsical",
+   "fantasy"
+  ]
+ },
+ "p-1414e3a171": {
+  "colors": [
+   "purple"
+  ],
+  "materials": [
+   "velvet"
+  ],
+  "styles": [
+   "glam",
+   "fantasy"
+  ]
+ },
+ "p-14282b42ef": {
+  "colors": [
+   "orange"
+  ],
+  "materials": [
+   "felt"
+  ],
+  "styles": [
+   "whimsical"
+  ]
+ },
+ "p-1458aa2e28": {
+  "colors": [
+   "black"
+  ],
+  "materials": [
+   "faux-leather"
+  ],
+  "styles": [
+   "historical",
+   "fantasy"
+  ]
+ },
+ "p-14bc912ac2": {
+  "colors": [
+   "silver"
+  ],
+  "materials": [
+   "metal"
+  ],
+  "styles": [
+   "gothic",
+   "fantasy"
+  ]
+ },
+ "p-151c13bff4": {
+  "colors": [
+   "silver"
+  ],
+  "materials": [
+   "other"
+  ],
+  "styles": [
+   "glam"
+  ]
+ },
+ "p-15bf5b5e81": {
+  "colors": [
+   "multicolor"
+  ],
+  "materials": [
+   "cotton"
+  ],
+  "styles": [
+   "fantasy",
+   "whimsical"
+  ]
+ },
+ "p-17a73cb5b8": {
+  "colors": [
+   "multicolor"
+  ],
+  "materials": [
+   "cotton",
+   "felt",
+   "metal"
+  ],
+  "styles": [
+   "cute",
+   "whimsical"
+  ]
+ },
+ "p-1929078196": {
+  "colors": [
+   "black"
+  ],
+  "materials": [],
+  "styles": [
+   "formal"
+  ]
+ },
+ "p-1af93f8049": {
+  "colors": [
+   "brown"
+  ],
+  "materials": [
+   "leather"
+  ],
+  "styles": [
+   "western"
+  ]
+ },
+ "p-1b4eb91408": {
+  "colors": [
+   "orange"
+  ],
+  "materials": [
+   "felt"
+  ],
+  "styles": [
+   "whimsical"
+  ]
+ },
+ "p-1bb478cabf": {
+  "colors": [
+   "red",
+   "white",
+   "black"
+  ],
+  "materials": [
+   "velvet",
+   "polyester"
+  ],
+  "styles": [
+   "fantasy",
+   "whimsical"
+  ]
+ },
+ "p-1c40639e61": {
+  "colors": [
+   "brown"
+  ],
+  "materials": [
+   "other",
+   "polyester"
+  ],
+  "styles": [
+   "historical",
+   "vintage"
+  ]
+ },
+ "p-1c7d22a0b4": {
+  "colors": [
+   "red",
+   "white"
+  ],
+  "materials": [
+   "cotton"
+  ],
+  "styles": [
+   "fantasy",
+   "whimsical",
+   "cute"
+  ]
+ },
+ "p-1d269724fb": {
+  "colors": [
+   "silver"
+  ],
+  "materials": [
+   "mesh-tulle",
+   "sequin"
+  ],
+  "styles": [
+   "glam",
+   "whimsical"
+  ]
+ },
+ "p-1d94cf4517": {
+  "colors": [
+   "black"
+  ],
+  "materials": [
+   "leather"
+  ],
+  "styles": [
+   "historical",
+   "fantasy"
+  ]
+ },
+ "p-1dfad7ca74": {
+  "colors": [
+   "brown"
+  ],
+  "materials": [
+   "faux-leather",
+   "polyester",
+   "cotton"
+  ],
+  "styles": [
+   "vintage",
+   "historical"
+  ]
+ },
+ "p-1ec5fec4c5": {
+  "colors": [
+   "white"
+  ],
+  "materials": [
+   "cotton"
+  ],
+  "styles": [
+   "formal"
+  ]
+ },
+ "p-1f4b8a9dec": {
+  "colors": [
+   "brown"
+  ],
+  "materials": [
+   "leather"
+  ],
+  "styles": [
+   "historical",
+   "vintage"
+  ]
+ },
+ "p-1fc53fccf7": {
+  "colors": [
+   "silver"
+  ],
+  "materials": [
+   "metal"
+  ],
+  "styles": [
+   "fantasy"
+  ]
+ },
+ "p-1ff589970a": {
+  "colors": [
+   "black",
+   "gold"
+  ],
+  "materials": [
+   "polyester"
+  ],
+  "styles": [
+   "fantasy",
+   "spooky"
+  ]
+ },
+ "p-205b09ce3c": {
+  "colors": [
+   "white"
+  ],
+  "materials": [
+   "cotton"
+  ],
+  "styles": [
+   "historical",
+   "formal"
+  ]
+ },
+ "p-20f318e7bd": {
+  "colors": [
+   "black"
+  ],
+  "materials": [
+   "cotton"
+  ],
+  "styles": [
+   "historical",
+   "formal"
+  ]
+ },
+ "p-2172101b5e": {
+  "colors": [
+   "blue"
+  ],
+  "materials": [
+   "denim",
+   "cotton"
+  ],
+  "styles": [
+   "western"
+  ]
+ },
+ "p-21c87bfd80": {
+  "colors": [
+   "brown"
+  ],
+  "materials": [
+   "leather",
+   "metal"
+  ],
+  "styles": [
+   "western"
+  ]
+ },
+ "p-21e9dbc725": {
+  "colors": [
+   "silver"
+  ],
+  "materials": [
+   "faux-leather"
+  ],
+  "styles": [
+   "sci-fi",
+   "glam"
+  ]
+ },
+ "p-21f722ad43": {
+  "colors": [
+   "gold"
+  ],
+  "materials": [
+   "metal",
+   "velvet"
+  ],
+  "styles": [
+   "glam",
+   "fantasy"
+  ]
+ },
+ "p-22314038bb": {
+  "colors": [
+   "blue"
+  ],
+  "materials": [
+   "velvet"
+  ],
+  "styles": [
+   "fantasy",
+   "spooky"
+  ]
+ },
+ "p-2300e6e799": {
+  "colors": [
+   "purple",
+   "green",
+   "gold"
+  ],
+  "materials": [
+   "faux-leather"
+  ],
+  "styles": [
+   "whimsical",
+   "fantasy"
+  ]
+ },
+ "p-237279d8f1": {
+  "colors": [
+   "green"
+  ],
+  "materials": [
+   "velvet",
+   "lace"
+  ],
+  "styles": [
+   "fantasy",
+   "gothic"
+  ]
+ },
+ "p-241957ea87": {
+  "colors": [
+   "black"
+  ],
+  "materials": [
+   "velvet"
+  ],
+  "styles": [
+   "gothic"
+  ]
+ },
+ "p-2422efb613": {
+  "colors": [
+   "white"
+  ],
+  "materials": [
+   "polyester",
+   "mesh-tulle"
+  ],
+  "styles": [
+   "historical"
+  ]
+ },
+ "p-24fe47b5c4": {
+  "colors": [
+   "brown"
+  ],
+  "materials": [
+   "leather"
+  ],
+  "styles": [
+   "historical",
+   "vintage"
+  ]
+ },
+ "p-276861ac75": {
+  "colors": [
+   "blue",
+   "gold"
+  ],
+  "materials": [
+   "polyester",
+   "velvet",
+   "satin"
+  ],
+  "styles": [
+   "fantasy",
+   "glam"
+  ]
+ },
+ "p-2776c6bc82": {
+  "colors": [
+   "silver"
+  ],
+  "materials": [
+   "other"
+  ],
+  "styles": [
+   "western",
+   "glam"
+  ]
+ },
+ "p-279c4b8fdc": {
+  "colors": [
+   "green"
+  ],
+  "materials": [
+   "mesh-tulle",
+   "polyester"
+  ],
+  "styles": [
+   "fantasy",
+   "glam"
+  ]
+ },
+ "p-2841eb346e": {
+  "colors": [
+   "green",
+   "brown"
+  ],
+  "materials": [
+   "other"
+  ],
+  "styles": [
+   "fantasy",
+   "pirate"
+  ]
+ },
+ "p-2a4c410020": {
+  "colors": [
+   "brown"
+  ],
+  "materials": [
+   "leather",
+   "plastic"
+  ],
+  "styles": [
+   "fantasy",
+   "historical"
+  ]
+ },
+ "p-2a4e429bcf": {
+  "colors": [
+   "green"
+  ],
+  "materials": [
+   "satin"
+  ],
+  "styles": [
+   "fantasy",
+   "whimsical"
+  ]
+ },
+ "p-2b0dda0aae": {
+  "colors": [
+   "purple"
+  ],
+  "materials": [
+   "other"
+  ],
+  "styles": [
+   "historical",
+   "fantasy"
+  ]
+ },
+ "p-2b5518f3ab": {
+  "colors": [
+   "white"
+  ],
+  "materials": [
+   "cotton"
+  ],
+  "styles": [
+   "historical"
+  ]
+ },
+ "p-2ba1acc532": {
+  "colors": [
+   "orange",
+   "black"
+  ],
+  "materials": [
+   "cotton"
+  ],
+  "styles": [
+   "vintage",
+   "western"
+  ]
+ },
+ "p-2cd1a638ab": {
+  "colors": [
+   "black"
+  ],
+  "materials": [
+   "cotton"
+  ],
+  "styles": [
+   "spooky",
+   "gothic"
+  ]
+ },
+ "p-2d094f5f73": {
+  "colors": [
+   "white"
+  ],
+  "materials": [
+   "cotton"
+  ],
+  "styles": [
+   "historical",
+   "whimsical"
+  ]
+ },
+ "p-2d4b62e79e": {
+  "colors": [
+   "silver"
+  ],
+  "materials": [
+   "polyester"
+  ],
+  "styles": [
+   "glam",
+   "sci-fi"
+  ]
+ },
+ "p-2d77c3f04b": {
+  "colors": [
+   "silver"
+  ],
+  "materials": [
+   "metal"
+  ],
+  "styles": [
+   "gothic",
+   "fantasy"
+  ]
+ },
+ "p-2e68ffb9ca": {
+  "colors": [
+   "white"
+  ],
+  "materials": [
+   "other"
+  ],
+  "styles": [
+   "historical",
+   "whimsical"
+  ]
+ },
+ "p-2ef2d86b48": {
+  "colors": [
+   "green",
+   "silver"
+  ],
+  "materials": [
+   "metal"
+  ],
+  "styles": [
+   "fantasy",
+   "glam"
+  ]
+ },
+ "p-2ff8a1c847": {
+  "colors": [
+   "black",
+   "gold",
+   "white"
+  ],
+  "materials": [
+   "polyester"
+  ],
+  "styles": [
+   "pirate"
+  ]
+ },
+ "p-306614983d": {
+  "colors": [
+   "orange"
+  ],
+  "materials": [
+   "cotton"
+  ],
+  "styles": [
+   "sci-fi"
+  ]
+ },
+ "p-323d45aa7e": {
+  "colors": [
+   "brown"
+  ],
+  "materials": [
+   "cotton"
+  ],
+  "styles": [
+   "fantasy",
+   "historical"
+  ]
+ },
+ "p-336f983a8e": {
+  "colors": [
+   "black"
+  ],
+  "materials": [
+   "leather"
+  ],
+  "styles": [
+   "historical"
+  ]
+ },
+ "p-337bac49dd": {
+  "colors": [
+   "orange"
+  ],
+  "materials": [
+   "cotton"
+  ],
+  "styles": [
+   "whimsical"
+  ]
+ },
+ "p-33b6ab8042": {
+  "colors": [
+   "green"
+  ],
+  "materials": [
+   "velvet"
+  ],
+  "styles": [
+   "fantasy",
+   "historical"
+  ]
+ },
+ "p-33ba42bb05": {
+  "colors": [
+   "black"
+  ],
+  "materials": [
+   "cotton",
+   "polyester"
+  ],
+  "styles": [
+   "spooky",
+   "sci-fi"
+  ]
+ },
+ "p-348ad9a230": {
+  "colors": [
+   "gold"
+  ],
+  "materials": [
+   "metal"
+  ],
+  "styles": [
+   "historical"
+  ]
+ },
+ "p-34c9646f2d": {
+  "colors": [
+   "white",
+   "pink",
+   "purple"
+  ],
+  "materials": [
+   "cotton",
+   "satin"
+  ],
+  "styles": [
+   "whimsical",
+   "cute"
+  ]
+ },
+ "p-3591e88a5b": {
+  "colors": [
+   "brown"
+  ],
+  "materials": [
+   "leather"
+  ],
+  "styles": [
+   "historical"
+  ]
+ },
+ "p-368be886f2": {
+  "colors": [
+   "white"
+  ],
+  "materials": [
+   "cotton",
+   "other"
+  ],
+  "styles": [
+   "pirate",
+   "historical"
+  ]
+ },
+ "p-36fb3393ab": {
+  "colors": [
+   "white"
+  ],
+  "materials": [
+   "cotton"
+  ],
+  "styles": [
+   "historical"
+  ]
+ },
+ "p-3799a61906": {
+  "colors": [
+   "white"
+  ],
+  "materials": [
+   "cotton"
+  ],
+  "styles": [
+   "historical"
+  ]
+ },
+ "p-381cb7b30c": {
+  "colors": [
+   "blue",
+   "black",
+   "silver"
+  ],
+  "materials": [
+   "velvet",
+   "other"
+  ],
+  "styles": [
+   "gothic",
+   "historical",
+   "sci-fi"
+  ]
+ },
+ "p-38265fb512": {
+  "colors": [
+   "multicolor"
+  ],
+  "materials": [
+   "cotton"
+  ],
+  "styles": [
+   "fantasy",
+   "whimsical"
+  ]
+ },
+ "p-3850171d93": {
+  "colors": [
+   "brown",
+   "white"
+  ],
+  "materials": [
+   "fur",
+   "cotton",
+   "polyester"
+  ],
+  "styles": [
+   "whimsical",
+   "historical"
+  ]
+ },
+ "p-385addbedb": {
+  "colors": [
+   "white"
+  ],
+  "materials": [
+   "cotton"
+  ],
+  "styles": [
+   "whimsical",
+   "historical"
+  ]
+ },
+ "p-387c976a88": {
+  "colors": [
+   "black"
+  ],
+  "materials": [
+   "metal"
+  ],
+  "styles": [
+   "gothic"
+  ]
+ },
+ "p-38cb93ba57": {
+  "colors": [
+   "orange"
+  ],
+  "materials": [
+   "cotton"
+  ],
+  "styles": [
+   "historical",
+   "whimsical"
+  ]
+ },
+ "p-38d014a1bd": {
+  "colors": [
+   "silver"
+  ],
+  "materials": [
+   "polyester"
+  ],
+  "styles": [
+   "fantasy",
+   "glam"
+  ]
+ },
+ "p-38e9601da6": {
+  "colors": [
+   "white"
+  ],
+  "materials": [
+   "cotton",
+   "knit"
+  ],
+  "styles": [
+   "historical"
+  ]
+ },
+ "p-3917412b3f": {
+  "colors": [
+   "white"
+  ],
+  "materials": [
+   "cotton",
+   "polyester",
+   "lace"
+  ],
+  "styles": [
+   "historical",
+   "pirate"
+  ]
+ },
+ "p-39ce60e414": {
+  "colors": [
+   "white"
+  ],
+  "materials": [
+   "fur"
+  ],
+  "styles": [
+   "whimsical",
+   "historical"
+  ]
+ },
+ "p-3a45a0274b": {
+  "colors": [
+   "white"
+  ],
+  "materials": [
+   "polyester"
+  ],
+  "styles": [
+   "sci-fi",
+   "glam"
+  ]
+ },
+ "p-3afdfbc4a6": {
+  "colors": [
+   "white"
+  ],
+  "materials": [
+   "fur"
+  ],
+  "styles": [
+   "whimsical",
+   "historical"
+  ]
+ },
+ "p-3b0a976509": {
+  "colors": [
+   "brown"
+  ],
+  "materials": [
+   "leather"
+  ],
+  "styles": [
+   "western",
+   "historical"
+  ]
+ },
+ "p-3b1499c169": {
+  "colors": [
+   "black"
+  ],
+  "materials": [
+   "cotton"
+  ],
+  "styles": [
+   "historical"
+  ]
+ },
+ "p-3b8d18bfcb": {
+  "colors": [
+   "silver"
+  ],
+  "materials": [
+   "other"
+  ],
+  "styles": [
+   "sci-fi",
+   "glam"
+  ]
+ },
+ "p-3c7b273e7c": {
+  "colors": [
+   "black"
+  ],
+  "materials": [
+   "leather"
+  ],
+  "styles": [
+   "historical",
+   "formal"
+  ]
+ },
+ "p-3cde6c8afb": {
+  "colors": [
+   "green"
+  ],
+  "materials": [
+   "polyester",
+   "velvet"
+  ],
+  "styles": [
+   "fantasy",
+   "historical"
+  ]
+ },
+ "p-3d4198f4c0": {
+  "colors": [
+   "red"
+  ],
+  "materials": [
+   "velvet",
+   "other"
+  ],
+  "styles": [
+   "formal",
+   "vintage"
+  ]
+ },
+ "p-3d8701654f": {
+  "colors": [
+   "black"
+  ],
+  "materials": [
+   "velvet"
+  ],
+  "styles": [
+   "formal",
+   "vintage"
+  ]
+ },
+ "p-3e2283c539": {
+  "colors": [
+   "white"
+  ],
+  "materials": [
+   "felt"
+  ],
+  "styles": [
+   "fantasy"
+  ]
+ },
+ "p-3ef3180df0": {
+  "colors": [
+   "orange",
+   "green"
+  ],
+  "materials": [
+   "knit"
+  ],
+  "styles": [
+   "cute",
+   "whimsical"
+  ]
+ },
+ "p-3fba2f0088": {
+  "colors": [
+   "silver"
+  ],
+  "materials": [
+   "other"
+  ],
+  "styles": [
+   "glam",
+   "sci-fi"
+  ]
+ },
+ "p-411e91eed9": {
+  "colors": [
+   "red",
+   "gold"
+  ],
+  "materials": [
+   "polyester"
+  ],
+  "styles": [
+   "pirate",
+   "glam"
+  ]
+ },
+ "p-41918e3639": {
+  "colors": [
+   "clear"
+  ],
+  "materials": [
+   "plastic"
+  ],
+  "styles": [
+   "vintage"
+  ]
+ },
+ "p-41e32b9102": {
+  "colors": [
+   "white"
+  ],
+  "materials": [
+   "cotton"
+  ],
+  "styles": [
+   "historical"
+  ]
+ },
+ "p-4273ee2e39": {
+  "colors": [
+   "blue",
+   "white",
+   "red"
+  ],
+  "materials": [
+   "cotton",
+   "knit"
+  ],
+  "styles": [
+   "sporty"
+  ]
+ },
+ "p-43dbc8c569": {
+  "colors": [
+   "black"
+  ],
+  "materials": [
+   "cotton",
+   "polyester"
+  ],
+  "styles": [
+   "gothic",
+   "historical"
+  ]
+ },
+ "p-449c56afc5": {
+  "colors": [
+   "white"
+  ],
+  "materials": [
+   "other"
+  ],
+  "styles": [
+   "historical",
+   "formal"
+  ]
+ },
+ "p-45bc046658": {
+  "colors": [
+   "black"
+  ],
+  "materials": [
+   "polyester",
+   "velvet"
+  ],
+  "styles": [
+   "spooky",
+   "gothic"
+  ]
+ },
+ "p-4742df3a8a": {
+  "colors": [
+   "green",
+   "brown",
+   "multicolor"
+  ],
+  "materials": [
+   "plastic",
+   "other"
+  ],
+  "styles": [
+   "fantasy",
+   "whimsical"
+  ]
+ },
+ "p-47ca5a0d66": {
+  "colors": [
+   "silver"
+  ],
+  "materials": [
+   "other"
+  ],
+  "styles": [
+   "western",
+   "glam"
+  ]
+ },
+ "p-47e042be1b": {
+  "colors": [
+   "brown"
+  ],
+  "materials": [
+   "leather"
+  ],
+  "styles": [
+   "western",
+   "sporty"
+  ]
+ },
+ "p-4866b4cce6": {
+  "colors": [
+   "white"
+  ],
+  "materials": [
+   "fur"
+  ],
+  "styles": [
+   "formal",
+   "whimsical"
+  ]
+ },
+ "p-486eadad95": {
+  "colors": [
+   "silver"
+  ],
+  "materials": [
+   "metal"
+  ],
+  "styles": [
+   "historical"
+  ]
+ },
+ "p-4996c0f103": {
+  "colors": [
+   "red"
+  ],
+  "materials": [
+   "velvet"
+  ],
+  "styles": [
+   "glam",
+   "gothic"
+  ]
+ },
+ "p-4a2bda5a9b": {
+  "colors": [
+   "white"
+  ],
+  "materials": [
+   "cotton"
+  ],
+  "styles": [
+   "formal",
+   "vintage"
+  ]
+ },
+ "p-4b03068e6c": {
+  "colors": [
+   "orange",
+   "white",
+   "yellow"
+  ],
+  "materials": [
+   "polyester"
+  ],
+  "styles": [
+   "cute",
+   "whimsical"
+  ]
+ },
+ "p-4b2c550c26": {
+  "colors": [
+   "silver"
+  ],
+  "materials": [
+   "plastic"
+  ],
+  "styles": [
+   "western",
+   "glam"
+  ]
+ },
+ "p-4bcde5cbe8": {
+  "colors": [
+   "brown",
+   "white"
+  ],
+  "materials": [
+   "leather",
+   "fur"
+  ],
+  "styles": [
+   "vintage",
+   "historical"
+  ]
+ },
+ "p-4bdc0f3102": {
+  "colors": [
+   "pink"
+  ],
+  "materials": [
+   "velvet",
+   "polyester"
+  ],
+  "styles": [
+   "historical",
+   "glam"
+  ]
+ },
+ "p-4cf693131c": {
+  "colors": [
+   "red"
+  ],
+  "materials": [
+   "other"
+  ],
+  "styles": [
+   "whimsical",
+   "formal"
+  ]
+ },
+ "p-4d5ad424a6": {
+  "colors": [
+   "white"
+  ],
+  "materials": [
+   "polyester"
+  ],
+  "styles": [
+   "historical",
+   "formal"
+  ]
+ },
+ "p-4ffaf2c353": {
+  "colors": [
+   "silver"
+  ],
+  "materials": [
+   "metal"
+  ],
+  "styles": [
+   "historical",
+   "fantasy"
+  ]
+ },
+ "p-5120d7b88c": {
+  "colors": [
+   "white"
+  ],
+  "materials": [
+   "cotton"
+  ],
+  "styles": [
+   "western",
+   "sporty"
+  ]
+ },
+ "p-5168383708": {
+  "colors": [
+   "green"
+  ],
+  "materials": [
+   "felt",
+   "other"
+  ],
+  "styles": [
+   "fantasy",
+   "whimsical"
+  ]
+ },
+ "p-51a7e510e3": {
+  "colors": [
+   "gold",
+   "white"
+  ],
+  "materials": [
+   "metal",
+   "plastic"
+  ],
+  "styles": [
+   "fantasy",
+   "glam"
+  ]
+ },
+ "p-527214ceca": {
+  "colors": [
+   "orange"
+  ],
+  "materials": [
+   "felt"
+  ],
+  "styles": [
+   "whimsical"
+  ]
+ },
+ "p-52f0c3d91f": {
+  "colors": [
+   "silver"
+  ],
+  "materials": [
+   "satin"
+  ],
+  "styles": [
+   "glam",
+   "formal"
+  ]
+ },
+ "p-538a70ad48": {
+  "colors": [
+   "white"
+  ],
+  "materials": [
+   "cotton",
+   "mesh-tulle"
+  ],
+  "styles": [
+   "historical"
+  ]
+ },
+ "p-54214148a4": {
+  "colors": [
+   "white"
+  ],
+  "materials": [
+   "knit",
+   "polyester"
+  ],
+  "styles": [
+   "historical"
+  ]
+ },
+ "p-5434cb33bf": {
+  "colors": [
+   "brown"
+  ],
+  "materials": [
+   "other"
+  ],
+  "styles": [
+   "sporty",
+   "western"
+  ]
+ },
+ "p-549ba5fa65": {
+  "colors": [
+   "black",
+   "orange"
+  ],
+  "materials": [
+   "cotton"
+  ],
+  "styles": [
+   "whimsical",
+   "spooky"
+  ]
+ },
+ "p-54e2a4cf48": {
+  "colors": [
+   "black"
+  ],
+  "materials": [
+   "polyester",
+   "satin"
+  ],
+  "styles": [
+   "formal",
+   "vintage"
+  ]
+ },
+ "p-55485e7f87": {
+  "colors": [
+   "black"
+  ],
+  "materials": [],
+  "styles": [
+   "formal"
+  ]
+ },
+ "p-56a09e0ccf": {
+  "colors": [
+   "black",
+   "multicolor"
+  ],
+  "materials": [
+   "felt"
+  ],
+  "styles": [
+   "gothic",
+   "fantasy"
+  ]
+ },
+ "p-5855695cc9": {
+  "colors": [
+   "red"
+  ],
+  "materials": [
+   "cotton"
+  ],
+  "styles": [
+   "pirate"
+  ]
+ },
+ "p-58befb770e": {
+  "colors": [
+   "white"
+  ],
+  "materials": [
+   "cotton"
+  ],
+  "styles": [
+   "pirate",
+   "historical"
+  ]
+ },
+ "p-58c3835681": {
+  "colors": [
+   "brown"
+  ],
+  "materials": [
+   "cotton"
+  ],
+  "styles": [
+   "western",
+   "historical"
+  ]
+ },
+ "p-5976418d90": {
+  "colors": [
+   "white"
+  ],
+  "materials": [
+   "cotton"
+  ],
+  "styles": [
+   "historical"
+  ]
+ },
+ "p-5a30185c96": {
+  "colors": [
+   "white"
+  ],
+  "materials": [
+   "cotton",
+   "denim"
+  ],
+  "styles": [
+   "western",
+   "sporty"
+  ]
+ },
+ "p-5cc89b3687": {
+  "colors": [],
+  "materials": [
+   "polyester"
+  ],
+  "styles": [
+   "fantasy",
+   "whimsical"
+  ]
+ },
+ "p-5ddd0e0d87": {
+  "colors": [
+   "black",
+   "silver"
+  ],
+  "materials": [
+   "faux-leather"
+  ],
+  "styles": [
+   "gothic",
+   "punk"
+  ]
+ },
+ "p-5e504418f4": {
+  "colors": [
+   "black"
+  ],
+  "materials": [
+   "faux-leather"
+  ],
+  "styles": [
+   "vintage",
+   "gothic"
+  ]
+ },
+ "p-5e9b010877": {
+  "colors": [
+   "black"
+  ],
+  "materials": [
+   "velvet"
+  ],
+  "styles": [
+   "formal",
+   "gothic"
+  ]
+ },
+ "p-5eae316914": {
+  "colors": [
+   "blue",
+   "gold"
+  ],
+  "materials": [
+   "velvet"
+  ],
+  "styles": [
+   "fantasy",
+   "historical"
+  ]
+ },
+ "p-5f79113768": {
+  "colors": [
+   "yellow"
+  ],
+  "materials": [
+   "other",
+   "mesh-tulle"
+  ],
+  "styles": [
+   "sporty"
+  ]
+ },
+ "p-6082641ec6": {
+  "colors": [
+   "multicolor"
+  ],
+  "materials": [
+   "sequin"
+  ],
+  "styles": [
+   "cute",
+   "glam"
+  ]
+ },
+ "p-608f6c04fa": {
+  "colors": [
+   "brown",
+   "black",
+   "gold"
+  ],
+  "materials": [
+   "faux-leather",
+   "polyester",
+   "cotton"
+  ],
+  "styles": [
+   "pirate"
+  ]
+ },
+ "p-610c2db658": {
+  "colors": [
+   "black",
+   "red"
+  ],
+  "materials": [
+   "velvet",
+   "satin"
+  ],
+  "styles": [
+   "gothic",
+   "formal"
+  ]
+ },
+ "p-622ebb97c6": {
+  "colors": [
+   "clear",
+   "black",
+   "multicolor"
+  ],
+  "materials": [
+   "plastic"
+  ],
+  "styles": [
+   "vintage",
+   "glam"
+  ]
+ },
+ "p-62d40bcabe": {
+  "colors": [
+   "white"
+  ],
+  "materials": [
+   "cotton",
+   "mesh-tulle"
+  ],
+  "styles": [
+   "historical"
+  ]
+ },
+ "p-633c337525": {
+  "colors": [
+   "green"
+  ],
+  "materials": [
+   "felt"
+  ],
+  "styles": [
+   "fantasy",
+   "whimsical"
+  ]
+ },
+ "p-637281f86a": {
+  "colors": [
+   "silver"
+  ],
+  "materials": [
+   "satin"
+  ],
+  "styles": [
+   "glam",
+   "formal"
+  ]
+ },
+ "p-6490e8541e": {
+  "colors": [
+   "silver",
+   "black"
+  ],
+  "materials": [
+   "metal"
+  ],
+  "styles": [
+   "historical",
+   "gothic"
+  ]
+ },
+ "p-64f22fd467": {
+  "colors": [
+   "black"
+  ],
+  "materials": [
+   "velvet"
+  ],
+  "styles": [
+   "gothic",
+   "formal"
+  ]
+ },
+ "p-65839f8b3b": {
+  "colors": [
+   "green"
+  ],
+  "materials": [
+   "other"
+  ],
+  "styles": [
+   "fantasy",
+   "historical"
+  ]
+ },
+ "p-65bdda9af7": {
+  "colors": [
+   "black"
+  ],
+  "materials": [
+   "leather"
+  ],
+  "styles": [
+   "gothic",
+   "formal"
+  ]
+ },
+ "p-65edab9ec7": {
+  "colors": [
+   "white",
+   "silver"
+  ],
+  "materials": [
+   "fur",
+   "metal"
+  ],
+  "styles": [
+   "fantasy",
+   "whimsical"
+  ]
+ },
+ "p-670c3fec1d": {
+  "colors": [
+   "white"
+  ],
+  "materials": [
+   "lace",
+   "cotton"
+  ],
+  "styles": [
+   "pirate",
+   "historical"
+  ]
+ },
+ "p-6828df77b8": {
+  "colors": [
+   "white",
+   "brown"
+  ],
+  "materials": [
+   "cotton"
+  ],
+  "styles": [
+   "fantasy"
+  ]
+ },
+ "p-682cce6679": {
+  "colors": [
+   "orange",
+   "green"
+  ],
+  "materials": [
+   "knit"
+  ],
+  "styles": [
+   "cute",
+   "whimsical"
+  ]
+ },
+ "p-68dc4caa64": {
+  "colors": [
+   "silver"
+  ],
+  "materials": [
+   "leather"
+  ],
+  "styles": [
+   "western",
+   "glam"
+  ]
+ },
+ "p-691dccf66e": {
+  "colors": [
+   "black"
+  ],
+  "materials": [
+   "vinyl",
+   "foam-latex"
+  ],
+  "styles": [
+   "pirate",
+   "historical"
+  ]
+ },
+ "p-6969a5c537": {
+  "colors": [
+   "green",
+   "multicolor"
+  ],
+  "materials": [
+   "polyester"
+  ],
+  "styles": [
+   "fantasy",
+   "whimsical"
+  ]
+ },
+ "p-69dd734cad": {
+  "colors": [
+   "brown"
+  ],
+  "materials": [
+   "cotton"
+  ],
+  "styles": [
+   "historical"
+  ]
+ },
+ "p-6a6cdbf746": {
+  "colors": [
+   "silver",
+   "black"
+  ],
+  "materials": [
+   "polyester"
+  ],
+  "styles": [
+   "sci-fi",
+   "glam"
+  ]
+ },
+ "p-6aaa75c499": {
+  "colors": [
+   "white"
+  ],
+  "materials": [
+   "satin"
+  ],
+  "styles": [
+   "formal",
+   "glam"
+  ]
+ },
+ "p-6b969bd8b3": {
+  "colors": [
+   "black",
+   "silver"
+  ],
+  "materials": [
+   "velvet",
+   "satin",
+   "metal"
+  ],
+  "styles": [
+   "historical",
+   "formal"
+  ]
+ },
+ "p-6bde7543cf": {
+  "colors": [
+   "silver",
+   "white"
+  ],
+  "materials": [
+   "polyester"
+  ],
+  "styles": [
+   "fantasy",
+   "whimsical"
+  ]
+ },
+ "p-6c25477681": {
+  "colors": [
+   "black"
+  ],
+  "materials": [
+   "faux-leather",
+   "plastic"
+  ],
+  "styles": [
+   "gothic",
+   "punk"
+  ]
+ },
+ "p-6c366a858b": {
+  "colors": [
+   "black"
+  ],
+  "materials": [
+   "other"
+  ],
+  "styles": [
+   "gothic",
+   "spooky"
+  ]
+ },
+ "p-6c68216fba": {
+  "colors": [
+   "white"
+  ],
+  "materials": [
+   "other"
+  ],
+  "styles": [
+   "historical"
+  ]
+ },
+ "p-6e8b5f055f": {
+  "colors": [
+   "white",
+   "black"
+  ],
+  "materials": [
+   "other"
+  ],
+  "styles": [
+   "sci-fi"
+  ]
+ },
+ "p-6f7050efd4": {
+  "colors": [
+   "brown"
+  ],
+  "materials": [
+   "cotton"
+  ],
+  "styles": [
+   "fantasy"
+  ]
+ },
+ "p-702abbc0df": {
+  "colors": [
+   "green"
+  ],
+  "materials": [
+   "sequin"
+  ],
+  "styles": [
+   "fantasy",
+   "glam"
+  ]
+ },
+ "p-702ecbc4ae": {
+  "colors": [
+   "silver"
+  ],
+  "materials": [
+   "metal"
+  ],
+  "styles": [
+   "glam",
+   "sci-fi"
+  ]
+ },
+ "p-70b91ecda7": {
+  "colors": [
+   "white"
+  ],
+  "materials": [
+   "other"
+  ],
+  "styles": [
+   "historical"
+  ]
+ },
+ "p-719872898d": {
+  "colors": [
+   "brown"
+  ],
+  "materials": [
+   "leather",
+   "cotton"
+  ],
+  "styles": [
+   "western"
+  ]
+ },
+ "p-7208c46a92": {
+  "colors": [
+   "silver",
+   "black"
+  ],
+  "materials": [
+   "plastic"
+  ],
+  "styles": [
+   "sci-fi",
+   "whimsical"
+  ]
+ },
+ "p-721e93a574": {
+  "colors": [
+   "black",
+   "gold"
+  ],
+  "materials": [
+   "plastic"
+  ],
+  "styles": [
+   "pirate"
+  ]
+ },
+ "p-734febc080": {
+  "colors": [
+   "white"
+  ],
+  "materials": [
+   "other"
+  ],
+  "styles": [
+   "historical"
+  ]
+ },
+ "p-7420e8a31b": {
+  "colors": [
+   "white"
+  ],
+  "materials": [
+   "knit"
+  ],
+  "styles": [
+   "cute",
+   "whimsical"
+  ]
+ },
+ "p-7481a0935d": {
+  "colors": [
+   "brown",
+   "red"
+  ],
+  "materials": [
+   "cotton"
+  ],
+  "styles": [
+   "western",
+   "vintage"
+  ]
+ },
+ "p-75406e4fbe": {
+  "colors": [
+   "orange"
+  ],
+  "materials": [],
+  "styles": [
+   "formal"
+  ]
+ },
+ "p-754204b498": {
+  "colors": [
+   "silver"
+  ],
+  "materials": [
+   "faux-leather",
+   "plastic",
+   "metal"
+  ],
+  "styles": [
+   "fantasy"
+  ]
+ },
+ "p-7708586a9f": {
+  "colors": [
+   "pink",
+   "purple"
+  ],
+  "materials": [
+   "mesh-tulle",
+   "polyester"
+  ],
+  "styles": [
+   "fantasy",
+   "cute"
+  ]
+ },
+ "p-773a8bcca3": {
+  "colors": [
+   "brown"
+  ],
+  "materials": [
+   "cotton"
+  ],
+  "styles": [
+   "western",
+   "historical"
+  ]
+ },
+ "p-77c39948bb": {
+  "colors": [
+   "silver",
+   "black"
+  ],
+  "materials": [
+   "leather",
+   "metal"
+  ],
+  "styles": [
+   "punk",
+   "glam"
+  ]
+ },
+ "p-7947136834": {
+  "colors": [
+   "purple"
+  ],
+  "materials": [
+   "other"
+  ],
+  "styles": [
+   "historical",
+   "fantasy"
+  ]
+ },
+ "p-7a7693db8b": {
+  "colors": [
+   "black"
+  ],
+  "materials": [
+   "cotton"
+  ],
+  "styles": [
+   "historical",
+   "pirate"
+  ]
+ },
+ "p-7d0102ede0": {
+  "colors": [
+   "brown"
+  ],
+  "materials": [
+   "other",
+   "satin"
+  ],
+  "styles": [
+   "historical"
+  ]
+ },
+ "p-7d0611026f": {
+  "colors": [
+   "white"
+  ],
+  "materials": [
+   "fur"
+  ],
+  "styles": [
+   "fantasy",
+   "whimsical"
+  ]
+ },
+ "p-7e94b74c9b": {
+  "colors": [
+   "brown",
+   "gold"
+  ],
+  "materials": [
+   "leather",
+   "metal"
+  ],
+  "styles": [
+   "vintage",
+   "historical"
+  ]
+ },
+ "p-8058d66003": {
+  "colors": [
+   "orange",
+   "white",
+   "yellow"
+  ],
+  "materials": [
+   "polyester",
+   "lace"
+  ],
+  "styles": [
+   "cute",
+   "whimsical"
+  ]
+ },
+ "p-80bbc22276": {
+  "colors": [
+   "white"
+  ],
+  "materials": [
+   "cotton"
+  ],
+  "styles": [
+   "formal",
+   "vintage"
+  ]
+ },
+ "p-8248b874fa": {
+  "colors": [
+   "white"
+  ],
+  "materials": [
+   "other"
+  ],
+  "styles": [
+   "western"
+  ]
+ },
+ "p-8297550d17": {
+  "colors": [
+   "brown",
+   "gold",
+   "black"
+  ],
+  "materials": [
+   "faux-leather",
+   "plastic",
+   "polyester"
+  ],
+  "styles": [
+   "sci-fi",
+   "vintage"
+  ]
+ },
+ "p-8383cf6c76": {
+  "colors": [
+   "silver",
+   "white"
+  ],
+  "materials": [
+   "satin",
+   "metal"
+  ],
+  "styles": [
+   "formal",
+   "glam"
+  ]
+ },
+ "p-83eb78bcbc": {
+  "colors": [
+   "black"
+  ],
+  "materials": [
+   "other"
+  ],
+  "styles": [
+   "historical",
+   "gothic",
+   "fantasy"
+  ]
+ },
+ "p-84b3540997": {
+  "colors": [
+   "black",
+   "orange"
+  ],
+  "materials": [
+   "knit"
+  ],
+  "styles": [
+   "whimsical"
+  ]
+ },
+ "p-85d7ce7b3c": {
+  "colors": [
+   "silver",
+   "blue"
+  ],
+  "materials": [
+   "plastic"
+  ],
+  "styles": [
+   "sci-fi"
+  ]
+ },
+ "p-862b138943": {
+  "colors": [
+   "black"
+  ],
+  "materials": [
+   "leather"
+  ],
+  "styles": [
+   "gothic",
+   "formal"
+  ]
+ },
+ "p-865c630d73": {
+  "colors": [
+   "brown",
+   "gold"
+  ],
+  "materials": [
+   "leather",
+   "metal"
+  ],
+  "styles": [
+   "historical",
+   "fantasy"
+  ]
+ },
+ "p-871b38ba4c": {
+  "colors": [
+   "blue",
+   "silver"
+  ],
+  "materials": [
+   "metal"
+  ],
+  "styles": [
+   "fantasy",
+   "whimsical"
+  ]
+ },
+ "p-87734c54a0": {
+  "colors": [
+   "red",
+   "black",
+   "gold"
+  ],
+  "materials": [
+   "velvet"
+  ],
+  "styles": [
+   "glam",
+   "historical"
+  ]
+ },
+ "p-8819ec3e27": {
+  "colors": [
+   "green"
+  ],
+  "materials": [
+   "polyester"
+  ],
+  "styles": [
+   "fantasy",
+   "glam"
+  ]
+ },
+ "p-883971c192": {
+  "colors": [
+   "white"
+  ],
+  "materials": [
+   "cotton",
+   "knit"
+  ],
+  "styles": [
+   "historical"
+  ]
+ },
+ "p-8950bc281a": {
+  "colors": [
+   "white"
+  ],
+  "materials": [
+   "polyester",
+   "mesh-tulle"
+  ],
+  "styles": [
+   "whimsical",
+   "historical"
+  ]
+ },
+ "p-8992d54482": {
+  "colors": [
+   "green",
+   "brown",
+   "silver"
+  ],
+  "materials": [
+   "plastic",
+   "metal"
+  ],
+  "styles": [
+   "fantasy",
+   "whimsical"
+  ]
+ },
+ "p-8a1b8e3829": {
+  "colors": [
+   "brown"
+  ],
+  "materials": [
+   "cotton"
+  ],
+  "styles": [
+   "fantasy"
+  ]
+ },
+ "p-8a74067f2a": {
+  "colors": [
+   "white"
+  ],
+  "materials": [
+   "cotton"
+  ],
+  "styles": [
+   "western",
+   "sporty"
+  ]
+ },
+ "p-8b19a67cce": {
+  "colors": [
+   "silver"
+  ],
+  "materials": [
+   "metal"
+  ],
+  "styles": [
+   "fantasy"
+  ]
+ },
+ "p-8b2a001d45": {
+  "colors": [
+   "silver"
+  ],
+  "materials": [
+   "faux-leather"
+  ],
+  "styles": [
+   "glam",
+   "sci-fi"
+  ]
+ },
+ "p-8ba846da7a": {
+  "colors": [
+   "brown"
+  ],
+  "materials": [
+   "other"
+  ],
+  "styles": [
+   "historical",
+   "fantasy"
+  ]
+ },
+ "p-8c66b216fc": {
+  "colors": [
+   "white"
+  ],
+  "materials": [
+   "fur"
+  ],
+  "styles": [
+   "fantasy",
+   "whimsical"
+  ]
+ },
+ "p-8c95a056a9": {
+  "colors": [
+   "blue",
+   "white",
+   "black"
+  ],
+  "materials": [
+   "cotton"
+  ],
+  "styles": [
+   "western"
+  ]
+ },
+ "p-8c97008953": {
+  "colors": [
+   "red"
+  ],
+  "materials": [
+   "other"
+  ],
+  "styles": [
+   "whimsical",
+   "formal"
+  ]
+ },
+ "p-8d1bae85e1": {
+  "colors": [
+   "red",
+   "purple"
+  ],
+  "materials": [
+   "velvet",
+   "polyester",
+   "mesh-tulle"
+  ],
+  "styles": [
+   "formal",
+   "fantasy"
+  ]
+ },
+ "p-8e111682da": {
+  "colors": [
+   "white",
+   "blue"
+  ],
+  "materials": [
+   "knit",
+   "polyester"
+  ],
+  "styles": [
+   "sporty"
+  ]
+ },
+ "p-8e381289e9": {
+  "colors": [
+   "white"
+  ],
+  "materials": [
+   "cotton"
+  ],
+  "styles": [
+   "historical"
+  ]
+ },
+ "p-8f75c481a4": {
+  "colors": [
+   "brown"
+  ],
+  "materials": [
+   "leather"
+  ],
+  "styles": [
+   "fantasy",
+   "historical"
+  ]
+ },
+ "p-9015a38ad9": {
+  "colors": [
+   "brown"
+  ],
+  "materials": [
+   "leather",
+   "metal"
+  ],
+  "styles": [
+   "fantasy",
+   "historical"
+  ]
+ },
+ "p-9029f31e42": {
+  "colors": [
+   "brown"
+  ],
+  "materials": [
+   "cotton",
+   "other"
+  ],
+  "styles": [
+   "historical",
+   "vintage"
+  ]
+ },
+ "p-9057beddf0": {
+  "colors": [
+   "brown",
+   "green",
+   "black"
+  ],
+  "materials": [
+   "cotton"
+  ],
+  "styles": [
+   "western",
+   "vintage"
+  ]
+ },
+ "p-90ba76fee6": {
+  "colors": [
+   "black"
+  ],
+  "materials": [
+   "cotton"
+  ],
+  "styles": [
+   "historical",
+   "vintage"
+  ]
+ },
+ "p-91556ae8e5": {
+  "colors": [
+   "black"
+  ],
+  "materials": [
+   "faux-leather"
+  ],
+  "styles": [
+   "fantasy",
+   "punk"
+  ]
+ },
+ "p-920213a3e2": {
+  "colors": [
+   "black",
+   "silver"
+  ],
+  "materials": [
+   "leather",
+   "metal"
+  ],
+  "styles": [
+   "pirate"
+  ]
+ },
+ "p-9309900a8e": {
+  "colors": [
+   "black"
+  ],
+  "materials": [
+   "polyester"
+  ],
+  "styles": [
+   "gothic",
+   "historical"
+  ]
+ },
+ "p-9329628fc4": {
+  "colors": [
+   "blue",
+   "white"
+  ],
+  "materials": [
+   "knit"
+  ],
+  "styles": [
+   "sporty"
+  ]
+ },
+ "p-9437603696": {
+  "colors": [
+   "red",
+   "black",
+   "gold"
+  ],
+  "materials": [
+   "polyester",
+   "velvet",
+   "sequin"
+  ],
+  "styles": [
+   "glam",
+   "fantasy"
+  ]
+ },
+ "p-9480e15f4e": {
+  "colors": [
+   "white",
+   "black"
+  ],
+  "materials": [
+   "fur",
+   "polyester"
+  ],
+  "styles": [
+   "fantasy",
+   "whimsical"
+  ]
+ },
+ "p-96679a3aae": {
+  "colors": [
+   "red",
+   "purple"
+  ],
+  "materials": [
+   "polyester",
+   "velvet"
+  ],
+  "styles": [
+   "formal",
+   "fantasy"
+  ]
+ },
+ "p-9795db4936": {
+  "colors": [
+   "brown"
+  ],
+  "materials": [
+   "cotton",
+   "polyester"
+  ],
+  "styles": [
+   "western",
+   "historical"
+  ]
+ },
+ "p-982c5731f8": {
+  "colors": [
+   "black"
+  ],
+  "materials": [
+   "leather",
+   "metal"
+  ],
+  "styles": [
+   "punk",
+   "gothic"
+  ]
+ },
+ "p-987fdfb629": {
+  "colors": [
+   "white",
+   "black"
+  ],
+  "materials": [
+   "polyester"
+  ],
+  "styles": [
+   "sci-fi"
+  ]
+ },
+ "p-98f954feab": {
+  "colors": [
+   "orange",
+   "yellow",
+   "brown"
+  ],
+  "materials": [
+   "cotton",
+   "knit"
+  ],
+  "styles": [
+   "whimsical",
+   "cute"
+  ]
+ },
+ "p-99218bcec8": {
+  "colors": [
+   "black"
+  ],
+  "materials": [
+   "leather"
+  ],
+  "styles": [
+   "vintage"
+  ]
+ },
+ "p-99a22fc86e": {
+  "colors": [
+   "black"
+  ],
+  "materials": [
+   "faux-leather"
+  ],
+  "styles": [
+   "pirate",
+   "historical"
+  ]
+ },
+ "p-9a55a595ed": {
+  "colors": [
+   "silver",
+   "white"
+  ],
+  "materials": [
+   "sequin",
+   "plastic"
+  ],
+  "styles": [
+   "western",
+   "glam"
+  ]
+ },
+ "p-9afa19b53f": {
+  "colors": [
+   "silver"
+  ],
+  "materials": [
+   "metal"
+  ],
+  "styles": [
+   "glam",
+   "sci-fi"
+  ]
+ },
+ "p-9bbb0166a7": {
+  "colors": [
+   "silver"
+  ],
+  "materials": [
+   "polyester"
+  ],
+  "styles": [
+   "glam",
+   "vintage"
+  ]
+ },
+ "p-9c38b29014": {
+  "colors": [
+   "yellow"
+  ],
+  "materials": [
+   "other"
+  ],
+  "styles": [
+   "sporty"
+  ]
+ },
+ "p-9ceb60b1a5": {
+  "colors": [
+   "black"
+  ],
+  "materials": [
+   "leather",
+   "cotton"
+  ],
+  "styles": [
+   "vintage",
+   "gothic"
+  ]
+ },
+ "p-9e4f924e2b": {
+  "colors": [
+   "black"
+  ],
+  "materials": [
+   "leather"
+  ],
+  "styles": [
+   "pirate"
+  ]
+ },
+ "p-9f0ec3e56f": {
+  "colors": [
+   "brown"
+  ],
+  "materials": [
+   "faux-leather"
+  ],
+  "styles": [
+   "western",
+   "vintage"
+  ]
+ },
+ "p-9fa4c1cdef": {
+  "colors": [
+   "blue",
+   "gold"
+  ],
+  "materials": [
+   "other"
+  ],
+  "styles": [
+   "pirate",
+   "historical"
+  ]
+ },
+ "p-a0c1a6fdd2": {
+  "colors": [
+   "purple"
+  ],
+  "materials": [
+   "velvet",
+   "satin"
+  ],
+  "styles": [
+   "vintage",
+   "glam"
+  ]
+ },
+ "p-a0e3a2a0b4": {
+  "colors": [
+   "brown",
+   "gold"
+  ],
+  "materials": [
+   "cotton",
+   "metal"
+  ],
+  "styles": [
+   "western",
+   "historical"
+  ]
+ },
+ "p-a1d82748e7": {
+  "colors": [],
+  "materials": [
+   "polyester"
+  ],
+  "styles": [
+   "fantasy",
+   "whimsical"
+  ]
+ },
+ "p-a27c35cd61": {
+  "colors": [
+   "black",
+   "orange"
+  ],
+  "materials": [],
+  "styles": [
+   "whimsical",
+   "spooky"
+  ]
+ },
+ "p-a45f18ae26": {
+  "colors": [
+   "black"
+  ],
+  "materials": [
+   "lace"
+  ],
+  "styles": [
+   "gothic",
+   "vintage"
+  ]
+ },
+ "p-a4693ccb64": {
+  "colors": [
+   "green"
+  ],
+  "materials": [
+   "cotton"
+  ],
+  "styles": [
+   "fantasy",
+   "whimsical"
+  ]
+ },
+ "p-a4ff1ae678": {
+  "colors": [
+   "blue",
+   "gold"
+  ],
+  "materials": [
+   "cotton",
+   "velvet"
+  ],
+  "styles": [
+   "pirate",
+   "historical"
+  ]
+ },
+ "p-a50ff4050c": {
+  "colors": [
+   "black"
+  ],
+  "materials": [
+   "mesh-tulle"
+  ],
+  "styles": [
+   "gothic",
+   "spooky"
+  ]
+ },
+ "p-a5306831a3": {
+  "colors": [
+   "black"
+  ],
+  "materials": [
+   "felt",
+   "cotton",
+   "leather"
+  ],
+  "styles": [
+   "historical",
+   "formal"
+  ]
+ },
+ "p-a6adaaa2ea": {
+  "colors": [
+   "brown",
+   "white"
+  ],
+  "materials": [
+   "cotton"
+  ],
+  "styles": [
+   "vintage",
+   "western"
+  ]
+ },
+ "p-a6fa0ec463": {
+  "colors": [
+   "multicolor"
+  ],
+  "materials": [
+   "polyester"
+  ],
+  "styles": [
+   "fantasy",
+   "glam"
+  ]
+ },
+ "p-a74e609ee5": {
+  "colors": [
+   "green"
+  ],
+  "materials": [
+   "cotton",
+   "plastic",
+   "metal"
+  ],
+  "styles": [
+   "fantasy",
+   "whimsical"
+  ]
+ },
+ "p-a880ab278b": {
+  "colors": [
+   "brown",
+   "gold"
+  ],
+  "materials": [
+   "leather",
+   "metal"
+  ],
+  "styles": [
+   "western",
+   "historical"
+  ]
+ },
+ "p-a8d665b529": {
+  "colors": [
+   "white"
+  ],
+  "materials": [
+   "fur",
+   "plastic"
+  ],
+  "styles": [
+   "fantasy",
+   "whimsical"
+  ]
+ },
+ "p-a8d6d2b4b8": {
+  "colors": [
+   "green"
+  ],
+  "materials": [
+   "other"
+  ],
+  "styles": [
+   "fantasy",
+   "sporty"
+  ]
+ },
+ "p-a9bbe810b3": {
+  "colors": [
+   "yellow",
+   "black"
+  ],
+  "materials": [
+   "cotton"
+  ],
+  "styles": [
+   "western",
+   "vintage"
+  ]
+ },
+ "p-aa7634974a": {
+  "colors": [
+   "brown",
+   "black"
+  ],
+  "materials": [
+   "faux-leather"
+  ],
+  "styles": [
+   "spooky",
+   "whimsical"
+  ]
+ },
+ "p-ab758b6f95": {
+  "colors": [
+   "brown"
+  ],
+  "materials": [
+   "other"
+  ],
+  "styles": [
+   "spooky",
+   "fantasy"
+  ]
+ },
+ "p-ac55620f43": {
+  "colors": [
+   "brown"
+  ],
+  "materials": [
+   "other"
+  ],
+  "styles": [
+   "historical",
+   "vintage"
+  ]
+ },
+ "p-ac74ad26d9": {
+  "colors": [
+   "white",
+   "brown"
+  ],
+  "materials": [
+   "cotton",
+   "leather"
+  ],
+  "styles": [
+   "western"
+  ]
+ },
+ "p-adae4c0484": {
+  "colors": [
+   "brown"
+  ],
+  "materials": [
+   "cotton"
+  ],
+  "styles": [
+   "historical"
+  ]
+ },
+ "p-ade84082ca": {
+  "colors": [
+   "white"
+  ],
+  "materials": [
+   "other"
+  ],
+  "styles": [
+   "historical"
+  ]
+ },
+ "p-af9a50034c": {
+  "colors": [
+   "white"
+  ],
+  "materials": [
+   "felt"
+  ],
+  "styles": [
+   "fantasy"
+  ]
+ },
+ "p-b16ad9d630": {
+  "colors": [
+   "black",
+   "multicolor"
+  ],
+  "materials": [
+   "satin",
+   "velvet",
+   "other"
+  ],
+  "styles": [
+   "gothic",
+   "glam"
+  ]
+ },
+ "p-b2805cb758": {
+  "colors": [
+   "brown"
+  ],
+  "materials": [
+   "other",
+   "cotton"
+  ],
+  "styles": [
+   "historical"
+  ]
+ },
+ "p-b289a543a2": {
+  "colors": [
+   "brown"
+  ],
+  "materials": [
+   "faux-leather",
+   "plastic"
+  ],
+  "styles": [
+   "fantasy"
+  ]
+ },
+ "p-b2b40f4575": {
+  "colors": [
+   "black"
+  ],
+  "materials": [
+   "polyester"
+  ],
+  "styles": [
+   "spooky",
+   "sci-fi"
+  ]
+ },
+ "p-b399bab722": {
+  "colors": [
+   "silver"
+  ],
+  "materials": [
+   "other"
+  ],
+  "styles": [
+   "western",
+   "glam"
+  ]
+ },
+ "p-b3a38e3486": {
+  "colors": [
+   "yellow",
+   "black"
+  ],
+  "materials": [
+   "cotton"
+  ],
+  "styles": [
+   "vintage",
+   "western"
+  ]
+ },
+ "p-b495506efa": {
+  "colors": [
+   "brown"
+  ],
+  "materials": [
+   "polyester",
+   "plastic"
+  ],
+  "styles": [
+   "western",
+   "historical"
+  ]
+ },
+ "p-b51856d12a": {
+  "colors": [
+   "white"
+  ],
+  "materials": [
+   "cotton"
+  ],
+  "styles": [
+   "historical"
+  ]
+ },
+ "p-b51da633ea": {
+  "colors": [
+   "brown"
+  ],
+  "materials": [
+   "leather",
+   "plastic"
+  ],
+  "styles": [
+   "fantasy",
+   "historical"
+  ]
+ },
+ "p-b522c858a5": {
+  "colors": [
+   "black",
+   "red"
+  ],
+  "materials": [
+   "polyester"
+  ],
+  "styles": [
+   "whimsical",
+   "fantasy"
+  ]
+ },
+ "p-b5be675386": {
+  "colors": [
+   "multicolor"
+  ],
+  "materials": [
+   "metal"
+  ],
+  "styles": [
+   "fantasy",
+   "whimsical"
+  ]
+ },
+ "p-b7869f2049": {
+  "colors": [
+   "brown",
+   "gold"
+  ],
+  "materials": [
+   "leather",
+   "fur"
+  ],
+  "styles": [
+   "vintage",
+   "historical"
+  ]
+ },
+ "p-b8181df7a6": {
+  "colors": [
+   "black",
+   "brown"
+  ],
+  "materials": [
+   "other"
+  ],
+  "styles": [
+   "sporty"
+  ]
+ },
+ "p-b972e98eb6": {
+  "colors": [
+   "silver"
+  ],
+  "materials": [
+   "metal"
+  ],
+  "styles": [
+   "fantasy"
+  ]
+ },
+ "p-b9b3c5ba1f": {
+  "colors": [
+   "clear",
+   "white"
+  ],
+  "materials": [
+   "plastic"
+  ],
+  "styles": [
+   "formal",
+   "vintage"
+  ]
+ },
+ "p-ba0acbf53c": {
+  "colors": [
+   "brown"
+  ],
+  "materials": [
+   "leather",
+   "plastic"
+  ],
+  "styles": [
+   "western"
+  ]
+ },
+ "p-ba3ef9a46e": {
+  "colors": [
+   "silver"
+  ],
+  "materials": [
+   "polyester",
+   "satin"
+  ],
+  "styles": [
+   "glam",
+   "formal"
+  ]
+ },
+ "p-ba6ef8eafc": {
+  "colors": [
+   "white",
+   "black"
+  ],
+  "materials": [
+   "polyester"
+  ],
+  "styles": [
+   "sci-fi"
+  ]
+ },
+ "p-babffa879d": {
+  "colors": [
+   "black"
+  ],
+  "materials": [
+   "faux-leather"
+  ],
+  "styles": [
+   "historical",
+   "gothic"
+  ]
+ },
+ "p-bbb1483f81": {
+  "colors": [
+   "silver"
+  ],
+  "materials": [
+   "polyester"
+  ],
+  "styles": [
+   "western",
+   "glam"
+  ]
+ },
+ "p-bcdae78247": {
+  "colors": [
+   "black",
+   "purple",
+   "green"
+  ],
+  "materials": [
+   "velvet",
+   "metal"
+  ],
+  "styles": [
+   "whimsical",
+   "fantasy"
+  ]
+ },
+ "p-be96576442": {
+  "colors": [
+   "silver"
+  ],
+  "materials": [
+   "leather"
+  ],
+  "styles": [
+   "western",
+   "glam"
+  ]
+ },
+ "p-beb871f49a": {
+  "colors": [
+   "silver",
+   "white"
+  ],
+  "materials": [
+   "satin",
+   "metal"
+  ],
+  "styles": [
+   "formal",
+   "glam"
+  ]
+ },
+ "p-bec94708ca": {
+  "colors": [
+   "black"
+  ],
+  "materials": [
+   "velvet",
+   "satin"
+  ],
+  "styles": [
+   "gothic",
+   "formal"
+  ]
+ },
+ "p-bfb0395c79": {
+  "colors": [
+   "black"
+  ],
+  "materials": [
+   "leather"
+  ],
+  "styles": [
+   "historical",
+   "pirate"
+  ]
+ },
+ "p-bfd5ae5a6f": {
+  "colors": [
+   "red"
+  ],
+  "materials": [
+   "polyester"
+  ],
+  "styles": [
+   "whimsical",
+   "formal"
+  ]
+ },
+ "p-c0462857a9": {
+  "colors": [
+   "red",
+   "black"
+  ],
+  "materials": [
+   "other"
+  ],
+  "styles": [
+   "spooky",
+   "fantasy"
+  ]
+ },
+ "p-c05f6d75ce": {
+  "colors": [
+   "white"
+  ],
+  "materials": [
+   "satin"
+  ],
+  "styles": [
+   "formal",
+   "glam"
+  ]
+ },
+ "p-c1b881a1cf": {
+  "colors": [
+   "white"
+  ],
+  "materials": [
+   "other"
+  ],
+  "styles": [
+   "cute",
+   "whimsical"
+  ]
+ },
+ "p-c1bf560c38": {
+  "colors": [
+   "black"
+  ],
+  "materials": [
+   "velvet"
+  ],
+  "styles": [
+   "pirate",
+   "historical"
+  ]
+ },
+ "p-c1cd8ed99c": {
+  "colors": [
+   "silver"
+  ],
+  "materials": [
+   "sequin",
+   "metal"
+  ],
+  "styles": [
+   "glam",
+   "sci-fi"
+  ]
+ },
+ "p-c2362342ad": {
+  "colors": [
+   "white"
+  ],
+  "materials": [
+   "cotton"
+  ],
+  "styles": [
+   "historical",
+   "pirate"
+  ]
+ },
+ "p-c38ec884e6": {
+  "colors": [
+   "brown"
+  ],
+  "materials": [
+   "other"
+  ],
+  "styles": [
+   "historical",
+   "vintage"
+  ]
+ },
+ "p-c4e438465d": {
+  "colors": [
+   "black",
+   "orange"
+  ],
+  "materials": [],
+  "styles": [
+   "whimsical",
+   "spooky"
+  ]
+ },
+ "p-c647cdb853": {
+  "colors": [
+   "silver"
+  ],
+  "materials": [
+   "metal"
+  ],
+  "styles": [
+   "gothic",
+   "fantasy"
+  ]
+ },
+ "p-c715cedad3": {
+  "colors": [],
+  "materials": [
+   "polyester"
+  ],
+  "styles": [
+   "fantasy",
+   "whimsical"
+  ]
+ },
+ "p-c7a21e7a36": {
+  "colors": [
+   "brown"
+  ],
+  "materials": [
+   "other",
+   "metal"
+  ],
+  "styles": [
+   "vintage",
+   "western"
+  ]
+ },
+ "p-c8061d241c": {
+  "colors": [
+   "red"
+  ],
+  "materials": [
+   "velvet"
+  ],
+  "styles": [
+   "glam",
+   "gothic"
+  ]
+ },
+ "p-c8a1001a28": {
+  "colors": [
+   "white"
+  ],
+  "materials": [
+   "other"
+  ],
+  "styles": [
+   "western",
+   "whimsical"
+  ]
+ },
+ "p-c991fa53d8": {
+  "colors": [
+   "green"
+  ],
+  "materials": [
+   "cotton"
+  ],
+  "styles": [
+   "fantasy"
+  ]
+ },
+ "p-ca2db9e903": {
+  "colors": [
+   "white"
+  ],
+  "materials": [
+   "cotton",
+   "lace"
+  ],
+  "styles": [
+   "western",
+   "historical"
+  ]
+ },
+ "p-ca72e0b7ee": {
+  "colors": [
+   "green"
+  ],
+  "materials": [
+   "polyester"
+  ],
+  "styles": [
+   "fantasy",
+   "formal"
+  ]
+ },
+ "p-cb88a585bd": {
+  "colors": [
+   "white"
+  ],
+  "materials": [
+   "fur",
+   "other"
+  ],
+  "styles": [
+   "vintage",
+   "fantasy"
+  ]
+ },
+ "p-cd964a6995": {
+  "colors": [
+   "orange"
+  ],
+  "materials": [
+   "cotton"
+  ],
+  "styles": [
+   "vintage",
+   "whimsical"
+  ]
+ },
+ "p-cf22d6eba6": {
+  "colors": [
+   "white"
+  ],
+  "materials": [
+   "cotton",
+   "polyester"
+  ],
+  "styles": [
+   "sporty"
+  ]
+ },
+ "p-cf63a0b770": {
+  "colors": [
+   "blue"
+  ],
+  "materials": [
+   "denim"
+  ],
+  "styles": [
+   "western"
+  ]
+ },
+ "p-d-037c131f58": {
+  "colors": [
+   "brown"
+  ],
+  "materials": [
+   "faux-leather"
+  ],
+  "styles": [
+   "fantasy",
+   "historical"
+  ]
+ },
+ "p-d-2047c7b362": {
+  "colors": [
+   "gold"
+  ],
+  "materials": [
+   "foam-latex"
+  ],
+  "styles": [
+   "historical",
+   "sci-fi"
+  ]
+ },
+ "p-d-2e0e5d1f2e": {
+  "colors": [
+   "multicolor"
+  ],
+  "materials": [],
+  "styles": [
+   "fantasy"
+  ]
+ },
+ "p-d-511837eb8c": {
+  "colors": [
+   "silver"
+  ],
+  "materials": [
+   "metal"
+  ],
+  "styles": [
+   "glam",
+   "formal"
+  ]
+ },
+ "p-d-51cdc3fe1b": {
+  "colors": [
+   "silver"
+  ],
+  "materials": [
+   "metal"
+  ],
+  "styles": [
+   "western",
+   "glam"
+  ]
+ },
+ "p-d-6af821c5b5": {
+  "colors": [
+   "silver"
+  ],
+  "materials": [
+   "metal"
+  ],
+  "styles": [
+   "glam",
+   "formal"
+  ]
+ },
+ "p-d-7dce22951f": {
+  "colors": [
+   "brown"
+  ],
+  "materials": [
+   "faux-leather"
+  ],
+  "styles": [
+   "fantasy",
+   "historical"
+  ]
+ },
+ "p-d-87c89743a1": {
+  "colors": [
+   "other"
+  ],
+  "materials": [
+   "other"
+  ],
+  "styles": [
+   "fantasy",
+   "whimsical"
+  ]
+ },
+ "p-d-9285048708": {
+  "colors": [
+   "red",
+   "yellow"
+  ],
+  "materials": [],
+  "styles": [
+   "fantasy"
+  ]
+ },
+ "p-d-97df452f6c": {
+  "colors": [
+   "gold"
+  ],
+  "materials": [
+   "metal"
+  ],
+  "styles": [
+   "fantasy",
+   "glam"
+  ]
+ },
+ "p-d-982633dfe1": {
+  "colors": [],
+  "materials": [],
+  "styles": [
+   "spooky",
+   "fantasy"
+  ]
+ },
+ "p-d-9a8e5dd7cd": {
+  "colors": [
+   "gold"
+  ],
+  "materials": [
+   "foam-latex"
+  ],
+  "styles": [
+   "historical",
+   "sci-fi"
+  ]
+ },
+ "p-d-a869cd4e7d": {
+  "colors": [
+   "other"
+  ],
+  "materials": [
+   "other"
+  ],
+  "styles": [
+   "fantasy",
+   "spooky"
+  ]
+ },
+ "p-d-ae987bbc8c": {
+  "colors": [
+   "gold"
+  ],
+  "materials": [],
+  "styles": [
+   "fantasy",
+   "glam"
+  ]
+ },
+ "p-d-bcda5473fc": {
+  "colors": [
+   "gold"
+  ],
+  "materials": [
+   "cotton",
+   "polyester"
+  ],
+  "styles": [
+   "historical",
+   "sci-fi"
+  ]
+ },
+ "p-d-bea8b9dac2": {
+  "colors": [
+   "black"
+  ],
+  "materials": [],
+  "styles": [
+   "spooky",
+   "fantasy"
+  ]
+ },
+ "p-d-c89ffad312": {
+  "colors": [],
+  "materials": [
+   "other"
+  ],
+  "styles": [
+   "spooky",
+   "fantasy"
+  ]
+ },
+ "p-d-fc26edc6bb": {
+  "colors": [
+   "black"
+  ],
+  "materials": [
+   "foam-latex"
+  ],
+  "styles": [
+   "historical",
+   "fantasy"
+  ]
+ },
+ "p-d03db98829": {
+  "colors": [
+   "brown"
+  ],
+  "materials": [
+   "cotton",
+   "metal"
+  ],
+  "styles": [
+   "vintage",
+   "western"
+  ]
+ },
+ "p-d042dfcec1": {
+  "colors": [
+   "black"
+  ],
+  "materials": [
+   "velvet",
+   "lace"
+  ],
+  "styles": [
+   "gothic",
+   "formal"
+  ]
+ },
+ "p-d17b6f67bc": {
+  "colors": [
+   "brown"
+  ],
+  "materials": [
+   "leather"
+  ],
+  "styles": [
+   "historical"
+  ]
+ },
+ "p-d37d64fa7f": {
+  "colors": [
+   "white"
+  ],
+  "materials": [
+   "other"
+  ],
+  "styles": [
+   "pirate",
+   "historical"
+  ]
+ },
+ "p-d3dda3a622": {
+  "colors": [
+   "silver"
+  ],
+  "materials": [
+   "plastic"
+  ],
+  "styles": [
+   "western",
+   "glam"
+  ]
+ },
+ "p-d4973c208a": {
+  "colors": [
+   "brown"
+  ],
+  "materials": [
+   "cotton",
+   "metal"
+  ],
+  "styles": [
+   "vintage",
+   "western"
+  ]
+ },
+ "p-d5634fd561": {
+  "colors": [
+   "green"
+  ],
+  "materials": [
+   "knit"
+  ],
+  "styles": [
+   "fantasy",
+   "cute"
+  ]
+ },
+ "p-d618ba035e": {
+  "colors": [
+   "black"
+  ],
+  "materials": [
+   "cotton"
+  ],
+  "styles": [
+   "historical",
+   "vintage"
+  ]
+ },
+ "p-d691981350": {
+  "colors": [
+   "brown"
+  ],
+  "materials": [
+   "leather"
+  ],
+  "styles": [
+   "historical"
+  ]
+ },
+ "p-d752cbedb2": {
+  "colors": [
+   "red",
+   "black"
+  ],
+  "materials": [
+   "satin",
+   "cotton"
+  ],
+  "styles": [
+   "pirate",
+   "glam"
+  ]
+ },
+ "p-d8d59bd5f6": {
+  "colors": [
+   "multicolor"
+  ],
+  "materials": [
+   "cotton"
+  ],
+  "styles": [
+   "fantasy",
+   "whimsical"
+  ]
+ },
+ "p-d90af7f4b4": {
+  "colors": [
+   "brown"
+  ],
+  "materials": [
+   "cotton"
+  ],
+  "styles": [
+   "fantasy",
+   "historical"
+  ]
+ },
+ "p-da7d00ef0d": {
+  "colors": [
+   "black"
+  ],
+  "materials": [
+   "faux-leather"
+  ],
+  "styles": [
+   "gothic",
+   "formal"
+  ]
+ },
+ "p-dbe328ca8c": {
+  "colors": [
+   "silver"
+  ],
+  "materials": [
+   "satin"
+  ],
+  "styles": [
+   "glam",
+   "sci-fi"
+  ]
+ },
+ "p-dbf9a6582b": {
+  "colors": [
+   "gray"
+  ],
+  "materials": [
+   "polyester",
+   "satin"
+  ],
+  "styles": [
+   "formal",
+   "vintage"
+  ]
+ },
+ "p-dcfbb43556": {
+  "colors": [
+   "white"
+  ],
+  "materials": [
+   "felt"
+  ],
+  "styles": [
+   "fantasy"
+  ]
+ },
+ "p-dd19c6de45": {
+  "colors": [
+   "white"
+  ],
+  "materials": [
+   "satin"
+  ],
+  "styles": [
+   "historical",
+   "glam"
+  ]
+ },
+ "p-dd4f20779d": {
+  "colors": [
+   "white",
+   "black"
+  ],
+  "materials": [
+   "plastic"
+  ],
+  "styles": [
+   "sci-fi"
+  ]
+ },
+ "p-dd6cb1a575": {
+  "colors": [
+   "blue"
+  ],
+  "materials": [
+   "cotton"
+  ],
+  "styles": [
+   "western"
+  ]
+ },
+ "p-ddf8d6eac8": {
+  "colors": [
+   "blue",
+   "gold",
+   "silver"
+  ],
+  "materials": [
+   "polyester"
+  ],
+  "styles": [
+   "fantasy",
+   "whimsical"
+  ]
+ },
+ "p-dea55e9ca5": {
+  "colors": [
+   "white",
+   "orange"
+  ],
+  "materials": [
+   "polyester"
+  ],
+  "styles": [
+   "whimsical"
+  ]
+ },
+ "p-df1458eaa4": {
+  "colors": [
+   "silver"
+  ],
+  "materials": [
+   "satin"
+  ],
+  "styles": [
+   "formal",
+   "fantasy"
+  ]
+ },
+ "p-df8ef7c655": {
+  "colors": [
+   "red"
+  ],
+  "materials": [
+   "velvet"
+  ],
+  "styles": [
+   "formal",
+   "vintage"
+  ]
+ },
+ "p-e065f62c65": {
+  "colors": [
+   "multicolor"
+  ],
+  "materials": [
+   "polyester"
+  ],
+  "styles": [
+   "historical",
+   "whimsical"
+  ]
+ },
+ "p-e0d0f3e056": {
+  "colors": [
+   "brown",
+   "gold"
+  ],
+  "materials": [
+   "leather",
+   "metal"
+  ],
+  "styles": [
+   "historical",
+   "fantasy"
+  ]
+ },
+ "p-e0ed0303a2": {
+  "colors": [
+   "white"
+  ],
+  "materials": [
+   "other"
+  ],
+  "styles": [
+   "cute",
+   "whimsical"
+  ]
+ },
+ "p-e17742919a": {
+  "colors": [
+   "gold",
+   "green"
+  ],
+  "materials": [
+   "plastic",
+   "metal"
+  ],
+  "styles": [
+   "sci-fi",
+   "punk"
+  ]
+ },
+ "p-e32f721ffc": {
+  "colors": [
+   "brown",
+   "gold"
+  ],
+  "materials": [
+   "leather",
+   "metal"
+  ],
+  "styles": [
+   "fantasy",
+   "historical"
+  ]
+ },
+ "p-e3b8b7bce7": {
+  "colors": [
+   "green"
+  ],
+  "materials": [
+   "knit",
+   "polyester"
+  ],
+  "styles": [
+   "fantasy",
+   "historical"
+  ]
+ },
+ "p-e40879fa1e": {
+  "colors": [
+   "brown",
+   "white",
+   "silver"
+  ],
+  "materials": [
+   "faux-leather",
+   "fur"
+  ],
+  "styles": [
+   "vintage",
+   "historical"
+  ]
+ },
+ "p-e4fc530082": {
+  "colors": [
+   "green",
+   "brown",
+   "multicolor"
+  ],
+  "materials": [
+   "plastic",
+   "other"
+  ],
+  "styles": [
+   "fantasy",
+   "whimsical"
+  ]
+ },
+ "p-e630af10d4": {
+  "colors": [
+   "silver"
+  ],
+  "materials": [
+   "metal",
+   "plastic"
+  ],
+  "styles": [
+   "fantasy",
+   "punk"
+  ]
+ },
+ "p-e681c1ed42": {
+  "colors": [
+   "red"
+  ],
+  "materials": [
+   "velvet"
+  ],
+  "styles": [
+   "formal",
+   "gothic"
+  ]
+ },
+ "p-e7257a048c": {
+  "colors": [
+   "brown"
+  ],
+  "materials": [
+   "leather"
+  ],
+  "styles": [
+   "historical"
+  ]
+ },
+ "p-e8b6181e2a": {
+  "colors": [
+   "black"
+  ],
+  "materials": [
+   "other"
+  ],
+  "styles": [
+   "sporty"
+  ]
+ },
+ "p-e918d81b72": {
+  "colors": [
+   "silver"
+  ],
+  "materials": [
+   "metal"
+  ],
+  "styles": [
+   "historical"
+  ]
+ },
+ "p-e949eead8d": {
+  "colors": [
+   "black"
+  ],
+  "materials": [
+   "leather"
+  ],
+  "styles": [
+   "punk",
+   "gothic"
+  ]
+ },
+ "p-ec3e09029c": {
+  "colors": [
+   "black"
+  ],
+  "materials": [
+   "cotton"
+  ],
+  "styles": [
+   "historical",
+   "western"
+  ]
+ },
+ "p-ec7aa03da1": {
+  "colors": [
+   "blue"
+  ],
+  "materials": [
+   "polyester"
+  ],
+  "styles": [
+   "sporty"
+  ]
+ },
+ "p-ecabbd00d3": {
+  "colors": [
+   "gold"
+  ],
+  "materials": [
+   "metal"
+  ],
+  "styles": [
+   "glam",
+   "fantasy"
+  ]
+ },
+ "p-ecb232b3b4": {
+  "colors": [
+   "white"
+  ],
+  "materials": [
+   "polyester",
+   "cotton"
+  ],
+  "styles": [
+   "formal",
+   "historical"
+  ]
+ },
+ "p-ed0b6d3416": {
+  "colors": [
+   "black"
+  ],
+  "materials": [
+   "faux-leather",
+   "plastic"
+  ],
+  "styles": [
+   "punk",
+   "gothic"
+  ]
+ },
+ "p-edbb8e8e1f": {
+  "colors": [
+   "black"
+  ],
+  "materials": [
+   "polyester"
+  ],
+  "styles": [
+   "sporty"
+  ]
+ },
+ "p-ee29b61278": {
+  "colors": [
+   "green",
+   "gold",
+   "pink"
+  ],
+  "materials": [
+   "velvet",
+   "satin"
+  ],
+  "styles": [
+   "fantasy",
+   "whimsical"
+  ]
+ },
+ "p-ee8e61ddf8": {
+  "colors": [
+   "white",
+   "silver",
+   "gray"
+  ],
+  "materials": [
+   "plastic",
+   "metal"
+  ],
+  "styles": [
+   "fantasy",
+   "whimsical"
+  ]
+ },
+ "p-ee914940b0": {
+  "colors": [
+   "green"
+  ],
+  "materials": [
+   "felt"
+  ],
+  "styles": [
+   "fantasy",
+   "whimsical"
+  ]
+ },
+ "p-ef09ee8206": {
+  "colors": [
+   "brown"
+  ],
+  "materials": [
+   "faux-leather"
+  ],
+  "styles": [
+   "historical",
+   "vintage"
+  ]
+ },
+ "p-ef2d14a87e": {
+  "colors": [
+   "brown",
+   "gold"
+  ],
+  "materials": [
+   "plastic"
+  ],
+  "styles": [
+   "sci-fi",
+   "vintage"
+  ]
+ },
+ "p-efd5b81469": {
+  "colors": [
+   "black"
+  ],
+  "materials": [
+   "polyester"
+  ],
+  "styles": [
+   "spooky",
+   "sci-fi"
+  ]
+ },
+ "p-efd87e3ea9": {
+  "colors": [
+   "black",
+   "silver"
+  ],
+  "materials": [
+   "leather",
+   "plastic",
+   "metal"
+  ],
+  "styles": [
+   "fantasy",
+   "gothic"
+  ]
+ },
+ "p-exp-c-04a31f38d973": {
+  "colors": [
+   "red",
+   "black"
+  ],
+  "materials": [],
+  "styles": [
+   "historical",
+   "fantasy"
+  ]
+ },
+ "p-exp-c-0ac54a720391": {
+  "colors": [
+   "red"
+  ],
+  "materials": [
+   "polyester"
+  ],
+  "styles": [
+   "fantasy"
+  ]
+ },
+ "p-exp-c-110204c6a7cb": {
+  "colors": [
+   "multicolor"
+  ],
+  "materials": [],
+  "styles": [
+   "sporty",
+   "whimsical"
+  ]
+ },
+ "p-exp-c-1c11e7454563": {
+  "colors": [
+   "multicolor"
+  ],
+  "materials": [
+   "other"
+  ],
+  "styles": [
+   "punk",
+   "whimsical"
+  ]
+ },
+ "p-exp-c-27b8ddd01304": {
+  "colors": [
+   "green",
+   "purple",
+   "multicolor"
+  ],
+  "materials": [
+   "polyester"
+  ],
+  "styles": [
+   "whimsical",
+   "fantasy"
+  ]
+ },
+ "p-exp-c-5270c62a3195": {
+  "colors": [
+   "multicolor",
+   "red"
+  ],
+  "materials": [
+   "other"
+  ],
+  "styles": [
+   "whimsical"
+  ]
+ },
+ "p-exp-c-593fd401383f": {
+  "colors": [
+   "red"
+  ],
+  "materials": [],
+  "styles": [
+   "fantasy",
+   "whimsical"
+  ]
+ },
+ "p-exp-c-69f5c5c7ea4b": {
+  "colors": [
+   "multicolor"
+  ],
+  "materials": [
+   "polyester"
+  ],
+  "styles": [
+   "whimsical"
+  ]
+ },
+ "p-exp-c-6c11943c5e63": {
+  "colors": [
+   "multicolor"
+  ],
+  "materials": [
+   "other"
+  ],
+  "styles": [
+   "whimsical"
+  ]
+ },
+ "p-exp-c-7283ecc0cc80": {
+  "colors": [
+   "pink"
+  ],
+  "materials": [],
+  "styles": [
+   "sporty",
+   "vintage"
+  ]
+ },
+ "p-exp-c-7c97f015aca5": {
+  "colors": [
+   "multicolor"
+  ],
+  "materials": [],
+  "styles": [
+   "fantasy",
+   "whimsical"
+  ]
+ },
+ "p-exp-c-7decb56ddc8d": {
+  "colors": [
+   "black",
+   "white"
+  ],
+  "materials": [
+   "velvet",
+   "mesh-tulle",
+   "polyester"
+  ],
+  "styles": [
+   "whimsical",
+   "formal"
+  ]
+ },
+ "p-exp-c-84d751c02e94": {
+  "colors": [
+   "red",
+   "black",
+   "white"
+  ],
+  "materials": [],
+  "styles": [
+   "fantasy",
+   "whimsical"
+  ]
+ },
+ "p-exp-c-89e69030ed3c": {
+  "colors": [
+   "red",
+   "black"
+  ],
+  "materials": [],
+  "styles": [
+   "formal",
+   "fantasy"
+  ]
+ },
+ "p-exp-c-8cc5f549c6e0": {
+  "colors": [
+   "multicolor"
+  ],
+  "materials": [],
+  "styles": [
+   "cute",
+   "whimsical"
+  ]
+ },
+ "p-exp-c-910037cb849f": {
+  "colors": [
+   "multicolor"
+  ],
+  "materials": [],
+  "styles": [
+   "fantasy",
+   "whimsical"
+  ]
+ },
+ "p-exp-c-98ccf5f6e6a8": {
+  "colors": [
+   "multicolor"
+  ],
+  "materials": [
+   "other"
+  ],
+  "styles": [
+   "cute",
+   "whimsical"
+  ]
+ },
+ "p-exp-c-a4f285ce81e9": {
+  "colors": [
+   "multicolor"
+  ],
+  "materials": [],
+  "styles": [
+   "fantasy",
+   "whimsical"
+  ]
+ },
+ "p-exp-c-b5f112a65083": {
+  "colors": [
+   "black"
+  ],
+  "materials": [],
+  "styles": [
+   "spooky",
+   "fantasy"
+  ]
+ },
+ "p-exp-c-e5a7ca2603e4": {
+  "colors": [
+   "red",
+   "black",
+   "white"
+  ],
+  "materials": [
+   "velvet",
+   "polyester"
+  ],
+  "styles": [
+   "whimsical",
+   "glam"
+  ]
+ },
+ "p-exp-c-f2a15ce86482": {
+  "colors": [
+   "red",
+   "black",
+   "white"
+  ],
+  "materials": [
+   "velvet",
+   "mesh-tulle",
+   "polyester"
+  ],
+  "styles": [
+   "whimsical",
+   "glam"
+  ]
+ },
+ "p-exp-c-f82e1b54a274": {
+  "colors": [
+   "multicolor"
+  ],
+  "materials": [
+   "other"
+  ],
+  "styles": [
+   "whimsical"
+  ]
+ },
+ "p-f082a38e0a": {
+  "colors": [
+   "brown",
+   "white"
+  ],
+  "materials": [
+   "fur",
+   "leather"
+  ],
+  "styles": [
+   "historical",
+   "vintage"
+  ]
+ },
+ "p-f0f83c316a": {
+  "colors": [
+   "green"
+  ],
+  "materials": [
+   "felt",
+   "knit"
+  ],
+  "styles": [
+   "fantasy",
+   "whimsical"
+  ]
+ },
+ "p-f13b0f3bc7": {
+  "colors": [
+   "brown"
+  ],
+  "materials": [
+   "other"
+  ],
+  "styles": [
+   "historical",
+   "vintage"
+  ]
+ },
+ "p-f17ba5ec74": {
+  "colors": [
+   "brown"
+  ],
+  "materials": [
+   "leather",
+   "metal"
+  ],
+  "styles": [
+   "historical",
+   "fantasy"
+  ]
+ },
+ "p-f1dddd744e": {
+  "colors": [
+   "green"
+  ],
+  "materials": [
+   "satin"
+  ],
+  "styles": [
+   "fantasy",
+   "glam"
+  ]
+ },
+ "p-f22120f3bd": {
+  "colors": [
+   "white"
+  ],
+  "materials": [
+   "fur"
+  ],
+  "styles": [
+   "whimsical",
+   "fantasy"
+  ]
+ },
+ "p-f35c48b860": {
+  "colors": [
+   "white"
+  ],
+  "materials": [
+   "cotton"
+  ],
+  "styles": [
+   "historical"
+  ]
+ },
+ "p-f5308a536b": {
+  "colors": [
+   "white"
+  ],
+  "materials": [
+   "cotton"
+  ],
+  "styles": [
+   "formal",
+   "historical"
+  ]
+ },
+ "p-f54885650b": {
+  "colors": [
+   "red",
+   "white"
+  ],
+  "materials": [
+   "felt",
+   "foam-latex"
+  ],
+  "styles": [
+   "fantasy",
+   "whimsical",
+   "cute"
+  ]
+ },
+ "p-f623746353": {
+  "colors": [
+   "brown"
+  ],
+  "materials": [
+   "leather"
+  ],
+  "styles": [
+   "western",
+   "historical"
+  ]
+ },
+ "p-f674547482": {
+  "colors": [
+   "yellow",
+   "black"
+  ],
+  "materials": [
+   "felt"
+  ],
+  "styles": [
+   "cute",
+   "whimsical"
+  ]
+ },
+ "p-f6b66c527c": {
+  "colors": [
+   "silver"
+  ],
+  "materials": [
+   "metal"
+  ],
+  "styles": [
+   "fantasy",
+   "glam"
+  ]
+ },
+ "p-f7554aceb5": {
+  "colors": [
+   "orange",
+   "yellow",
+   "black"
+  ],
+  "materials": [
+   "polyester",
+   "lace"
+  ],
+  "styles": [
+   "cute",
+   "whimsical"
+  ]
+ },
+ "p-f825dd69d8": {
+  "colors": [
+   "black"
+  ],
+  "materials": [
+   "other"
+  ],
+  "styles": [
+   "sporty"
+  ]
+ },
+ "p-f84baae8a4": {
+  "colors": [
+   "red",
+   "purple"
+  ],
+  "materials": [
+   "velvet",
+   "mesh-tulle"
+  ],
+  "styles": [
+   "formal",
+   "fantasy"
+  ]
+ },
+ "p-f864d77aef": {
+  "colors": [
+   "brown"
+  ],
+  "materials": [
+   "cotton"
+  ],
+  "styles": [
+   "historical"
+  ]
+ },
+ "p-fa247ed9c8": {
+  "colors": [
+   "red"
+  ],
+  "materials": [
+   "felt",
+   "other"
+  ],
+  "styles": [
+   "fantasy",
+   "whimsical",
+   "cute"
+  ]
+ },
+ "p-fa88c71724": {
+  "colors": [
+   "black"
+  ],
+  "materials": [
+   "leather"
+  ],
+  "styles": [
+   "gothic",
+   "formal"
+  ]
+ },
+ "p-fae8356f54": {
+  "colors": [
+   "white"
+  ],
+  "materials": [
+   "other"
+  ],
+  "styles": [
+   "historical"
+  ]
+ },
+ "p-fb28757f77": {
+  "colors": [
+   "blue",
+   "silver"
+  ],
+  "materials": [
+   "polyester"
+  ],
+  "styles": [
+   "fantasy",
+   "sci-fi"
+  ]
+ },
+ "p-fb76982511": {
+  "colors": [
+   "orange",
+   "black"
+  ],
+  "materials": [
+   "felt"
+  ],
+  "styles": [
+   "cute",
+   "spooky"
+  ]
+ },
+ "p-fc5e6e9940": {
+  "colors": [
+   "green"
+  ],
+  "materials": [
+   "polyester"
+  ],
+  "styles": [
+   "fantasy",
+   "sporty"
+  ]
+ },
+ "p-fc714a0f46": {
+  "colors": [
+   "blue"
+  ],
+  "materials": [
+   "denim"
+  ],
+  "styles": [
+   "western"
+  ]
+ },
+ "p-fd0a416d23": {
+  "colors": [
+   "white",
+   "black"
+  ],
+  "materials": [
+   "cotton"
+  ],
+  "styles": [
+   "formal"
+  ]
+ },
+ "p-fe55964146": {
+  "colors": [
+   "brown"
+  ],
+  "materials": [
+   "other",
+   "polyester"
+  ],
+  "styles": [
+   "historical",
+   "vintage"
+  ]
+ }
+}
