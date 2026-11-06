@@ -25,6 +25,8 @@ The authorized persistence run used `SAVED_LOOK_PERSISTENCE_E2E=1` and existing 
 
 Cleanup deleted only the exact test primary key and its private request ID. A separate SELECT confirmed that record was absent. No catalog row or existing saved look was changed. The fixture supplied a signed synthetic sourcing result; this run does not establish live screenshot matching or merchant facts.
 
+`bun scripts/verify-try-on.mjs` also passed the existing curated-route regression checks. Those checks exercised actual image decoding and all catalog costumes while replacing only the provider HTTP response.
+
 `next typegen`, `tsc --noEmit`, focused ESLint and `git diff --check` passed. No full build was run in this lane; integration owns that check.
 
 ## Limits
