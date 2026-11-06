@@ -48,6 +48,11 @@ export const articles: Record<"about" | "contact" | "privacy", SiteArticle> = {
     sections: [
       { heading: "Browsing and browser storage", paragraphs: [
         "You can browse costume guides without sending a personal photograph. The site uses your browser’s local storage to remember saved looks, cart choices, size selections, and model preferences. Clearing site data in your browser removes these stored preferences. It may also clear your saved looks and cart. Operational requests can expose ordinary connection information, including an IP address, to hosting and service providers.",
+        "Public look links share shopping choices without private size selections, personal photos, or generated previews. Keep those links separate from private phone-camera links and checkout details.",
+      ] },
+      { heading: "Anonymous feature measurement", paragraphs: [
+        "The site records anonymous feature events to understand which shopping steps work and where requests fail. A random journey identifier stays in session storage for the current tab. It does not use an account, a tracking cookie, or a cross-site identity. Events use a fixed list of actions, feature categories, provider modes, durations, and usage units. They exclude photos, prompts, raw search text, private sizes, contact and shipping details, IP addresses, phone-pairing tokens, and raw error messages.",
+        "The application writes these events to its hosting logs. Hosting access logs are separate and may contain connection information. Event retention follows the host's settings; no universal retention period is promised. The event collector respects Do Not Track and Global Privacy Control signals. Clearing browser site data removes the local journey identifier but does not delete events already written to hosting logs.",
       ] },
       { heading: "Optional photos and camera features", paragraphs: [
         "Photo previews send the image you choose to the application and the image service needed to produce the result. Camera features require browser permission. A phone-camera link can connect a phone camera with your computer; keep its link and code private. Stop the session or revoke camera permission to end camera access.",
