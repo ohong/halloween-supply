@@ -44,6 +44,7 @@ async function livePage(url: string): Promise<string> {
   try {
     return await (await merchantFetch(url)).text();
   } catch {
+    // The direct merchant fetch is optional; fall back to the guarded product page fetch, which throws on failure.
     const page = await fetchProductPage(url, { timeoutMs: VERIFY_TIMEOUT_MS });
     if (!sameMerchant(page.finalUrl, url)) throw new Error("Merchant redirected to another shop.");
     return page.html;
@@ -68,10 +69,11 @@ async function shopifyProduct(url: URL): Promise<{ product: RecordValue; currenc
   try {
     const [value, currency] = await Promise.all([
       merchantFetch(endpoint.toString()).then((response) => response.json() as Promise<unknown>),
-      merchantFetch(cart.toString()).then((response) => response.json() as Promise<unknown>).then((value) => record(value) ? text(value.currency)?.toUpperCase() ?? null : null).catch(() => null),
+      merchantFetch(cart.toString()).then((response) => response.json() as Promise<unknown>).then((value) => record(value) ? text(value.currency)?.toUpperCase() ?? null : null).catch(() => null), // Currency is best-effort; a missing cart currency leaves it unverified.
     ]);
     return record(value) && Array.isArray(value.variants) ? { product: value, currency } : null;
   } catch {
+    // No structured Shopify product means the caller falls back to page parsing; not an error.
     return null;
   }
 }

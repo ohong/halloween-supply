@@ -126,7 +126,7 @@ export async function POST(request: Request) {
       const emit = (event: CustomLookEvent) => {
         if (!open) return;
         try { controller.enqueue(encoder.encode(JSON.stringify(event) + "\n")); }
-        catch { open = false; cancelled.abort(); }
+        catch { open = false; cancelled.abort(); /* The client disconnected; stop work. */ }
       };
       const log = (_kind: string, text: string) => emit({ t: "log", text });
       try {
@@ -141,7 +141,7 @@ export async function POST(request: Request) {
           if (!found) { emit({ t: "miss", i }); return; }
           let item;
           try { item = validateCustomItem(toCartItem(i, piece, found, `custom-${look.id}`)); }
-          catch { emit({ t: "miss", i }); return; }
+          catch { emit({ t: "miss", i }); return; /* An invalid item is reported to the client as a miss. */ }
           // A repeated bundle or garment is one charge, never two costume components.
           if (look.pieces.some((row) => row.item?.productId === item.productId)) { emit({ t: "miss", i }); return; }
           look.pieces[i] = { piece, item };
@@ -167,7 +167,7 @@ export async function POST(request: Request) {
         let terminalSaved = false;
         try {
           // A rejected progress write must not prevent a final recovery write.
-          await writes.catch(() => undefined);
+          await writes.catch(() => undefined); // The failed write already logged; this recovery write must still run.
           await saveCustomLook(look);
           terminalSaved = true;
           if (look.state === "partial" && !signal.aborted) { emit(doneEvent(look)); return; }

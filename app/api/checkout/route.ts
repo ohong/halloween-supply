@@ -226,6 +226,7 @@ export async function POST(request: Request) {
           if (!(isLocal && abs.origin === origin)) image = abs.toString();
         }
       } catch {
+        // An invalid image URL means the line item is sent without a picture.
         image = null;
       }
 

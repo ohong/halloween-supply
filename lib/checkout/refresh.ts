@@ -89,6 +89,7 @@ export async function refreshAllProducts(): Promise<RefreshSummary> {
       if (JSON.stringify(v.sizes) !== JSON.stringify(p.sizes ?? [])) summary.changes.push({ productId: p.id, field: "sizes", from: p.sizes ?? [], to: v.sizes });
       updates.push({ id: p.id, priceCents: v.priceCents, availability: v.availability, sizes: v.sizes, checkedAt: v.checkedAt });
     } catch {
+      console.warn(`[cron/refresh] verification failed for ${p.id}`);
       summary.unverified.push({ productId: p.id, reason: "The merchant verification could not finish." });
     }
   });

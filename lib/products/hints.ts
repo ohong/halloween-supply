@@ -46,6 +46,7 @@ export function extractMerchantHints(html: string, _url: string): MerchantHints 
       if (brand) break;
     }
   } catch {
+    // Brand hints are optional.
     brand = null;
   }
 

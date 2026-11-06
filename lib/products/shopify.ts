@@ -58,7 +58,7 @@ export async function readShopifyProduct(url: string, useCache = true, options: 
       if (!Array.isArray(data.variants) || !data.variants.every((v: ShopifyVariant) => Number.isInteger(v.price) && typeof v.available === "boolean") ||
         !Array.isArray(data.options) || !data.options.every((option: unknown) => typeof option === "string" || typeof option === "object" && option !== null && "name" in option && typeof option.name === "string")) return null;
       return data as ShopifyProduct;
-    } catch { return null; }
+    } catch { return null; /* A non-Shopify or malformed response falls back to page parsing. */ }
   };
   const key = { url: u.toString() };
   if (useCache) {

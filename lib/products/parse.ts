@@ -372,6 +372,7 @@ export function parseProduct(html: string, url: string): ParsedProduct {
   try {
     ld = fromJsonLd(html, url);
   } catch {
+    // Malformed JSON-LD falls back to meta-tag parsing.
     ld = null;
   }
   const og = fromMeta(html, url);
