@@ -3,7 +3,7 @@ export const site = {
   url: "https://halloween.supply",
   title: "Halloween Supply — Halloween costume ideas and shopping guides",
   description: "Discover Halloween costume ideas, see the individual clothing pieces, try on a look, and compare products from retailers and marketplaces.",
-  contentUpdated: "2026-10-27",
+  contentUpdated: "2026-11-06",
   catalogUpdated: "2026-10-26",
 };
 

@@ -24,7 +24,11 @@ export async function POST(request: Request) {
       signal: AbortSignal.any([request.signal, AbortSignal.timeout(15_000)]),
       cache: "no-store",
     });
-    if (!response.ok) throw new VideoError(response.status === 429 ? 429 : 502, "The live video service is unavailable. Please try again later.");
+    if (!response.ok) throw new VideoError(response.status === 429 ? 429 : 502,
+      response.status === 429 ? "The live video provider is rate limited. Retry the mirror shortly."
+        : response.status === 402 ? "The live video provider needs account credit. Use photo mode while credit is restored."
+        : [401, 403].includes(response.status) ? "The live video provider rejected account access. Use photo mode while access is restored."
+          : "The live video service is unavailable. Please try again later.");
     const result: unknown = await response.json();
     const token = z.string().min(1).parse(typeof result === "object" && result && "detail" in result ? result.detail : result);
     return videoResponse({ token, model: VIDEO_MODEL, maxSessionSeconds: mirrorSessionSeconds() });

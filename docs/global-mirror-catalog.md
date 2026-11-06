@@ -11,10 +11,12 @@ latency and exceed Live's 500-token append limit. Instead:
 
 1. Session creation reads the complete catalog once and supplies a costume/piece index.
 2. Native Decisions handles fast outfit controls and identifies catalog questions.
-3. Catalog questions reach a reasoning backend with **all** database inventory:
-   every piece, product description, merchant, price, size, stock fact, timestamp,
-   styling note, source evidence and price tier. There is no current-costume filter.
-4. The server resolves model-selected keys to real catalog records. The interface
+3. Decisions identifies catalog filters. The server ranks candidates across the
+   complete inventory and sends at most 40 new candidates, plus revalidated
+   previous results. Multi-item requests reserve coverage for each requested
+   category. Decisions chooses products; Responses handles free-form explanations.
+   The model does not receive every product for each request.
+4. The server resolves selected keys to real catalog records. The interface
    receives merchant photos, purchase links and associated costumes.
 5. Live receives concise verified results after the updated context is accepted.
 
@@ -38,6 +40,9 @@ composed outfit. Existing cart lines follow swaps as they already do for local e
 adding a piece to an outfit does not start checkout or place an order.
 Previous result references are revalidated against fresh catalog data.
 Outdated voice results are discarded after manual outfit or search changes.
+One request can add up to six distinct pieces. Every requested addition must
+resolve without conflicting targets; otherwise the server asks for clarification
+and applies no accompanying outfit edits.
 
 The costume picker also reads database metadata. If the database is unavailable,
 the existing bundled catalog fallback is labelled as the result source.

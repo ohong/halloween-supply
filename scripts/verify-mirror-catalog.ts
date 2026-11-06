@@ -101,8 +101,8 @@ if (process.argv.includes("--live")) {
     costumeSlug: base.costumeSlug, selection: withHat.body.outfit.selection, uses: withHat.body.outfit.uses, mixes: withHat.body.outfit.mixes,
   }) });
   assert.equal(reference.status, 200, `Mixed reference failed: ${reference.status}`);
-  const board = await reference.json() as { prompt: string; image: string };
-  assert.match(board.image, /^data:image\/jpeg;base64,/, "The mixed outfit must include its product board");
+  const board = await reference.json() as { prompt: string; image?: string };
+  assert.equal(board.image, undefined, "No reference image may reach Lucy: it acts as a character-swap source");
   assert(board.prompt.includes(withHat.body.costume.pieces.find(row => row.piece.id === hat.source.pieceId)!.piece.name));
-  console.log("PASS mixed outfit restores from references and produces its garment prompt and product board");
+  console.log("PASS mixed outfit restores from references and produces its garment prompt without a reference image");
 } else console.log("INFO --live enables the real inference checks; no provider calls made");

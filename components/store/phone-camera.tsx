@@ -3,14 +3,14 @@
 import { createContext, useCallback, useContext, useEffect, useRef, useState } from "react";
 import { preparePhoto } from "@/lib/photo/prepare";
 import { renderSVG } from "uqr";
-import { connectPeer, pairRequest, type Pair } from "@/lib/phone-camera/connection";
+import { connectionError, connectPeer, pairRequest, stageLabel, watchConnection, type ConnectionStage, type IceConfiguration, type Pair } from "@/lib/phone-camera/connection";
 import "./phone-camera.css";
 
 type Connection = { pair: Pair; peer: RTCPeerConnection; controller: AbortController; channel?: RTCDataChannel; heartbeat?: ReturnType<typeof setInterval>; expiry?: ReturnType<typeof setTimeout>; lastPing: number; incoming?: { id: string; size: number; received: number; chunks: ArrayBuffer[] }; pendingCapture?: { resolve: () => void; reject: (error: Error) => void; timer: ReturnType<typeof setTimeout> } };
 type Camera = {
   mode: "photo" | "live"; setMode: (mode: "photo" | "live") => void;
   stream: MediaStream | null; photo: { blob: Blob; id: string } | null;
-  status: "idle" | "waiting" | "connecting" | "connected"; relayAvailable: boolean; error: string; url: string;
+  status: "idle" | "waiting" | "connecting" | "connected"; stage: ConnectionStage; relayAvailable: boolean; relayWarning: string; error: string; url: string;
   connect: () => Promise<void>; disconnect: () => void; capture: () => Promise<void>;
 };
 const CameraContext = createContext<Camera | null>(null);
@@ -19,6 +19,8 @@ function release(session: Connection) {
   if (session.channel?.readyState === "open") session.channel.send(JSON.stringify({ type: "stop" }));
   if (session.pendingCapture) { clearTimeout(session.pendingCapture.timer); session.pendingCapture.reject(new Error("Phone disconnected.")); }
   session.controller.abort(); clearTimeout(session.expiry); clearInterval(session.heartbeat);
+  if (session.channel) { session.channel.onmessage = null; session.channel.onopen = null; session.channel.onclose = null; }
+  session.peer.ontrack = null; session.peer.ondatachannel = null;
   session.peer.getReceivers().forEach(receiver => receiver.track?.stop()); session.peer.close();
   void fetch(`/api/camera-pair/${session.pair.id}`, { method: "DELETE", headers: { Authorization: `Bearer ${session.pair.host}` }, keepalive: true }).catch(() => {});
 }
@@ -29,9 +31,12 @@ export function PhoneCameraProvider({ children }: { children: React.ReactNode })
   const [status, setStatus] = useState<Camera["status"]>("idle");
   const [error, setError] = useState("");
   const [relayAvailable, setRelayAvailable] = useState(false);
+  const [relayWarning, setRelayWarning] = useState("");
+  const [stage, setStage] = useState<ConnectionStage>("pairing");
   const [url, setUrl] = useState("");
   const sessionRef = useRef<Connection | null>(null);
   const generation = useRef(0);
+  const setupRef = useRef<{ controller: AbortController; pair?: Pair } | null>(null);
   const capture = useCallback(async () => {
     const session = sessionRef.current;
     if (session?.channel?.readyState !== "open") throw new Error("Connect your phone first.");
@@ -44,41 +49,57 @@ export function PhoneCameraProvider({ children }: { children: React.ReactNode })
   }, []);
   const disconnect = useCallback(() => {
     generation.current++;
+    const setup = setupRef.current; setupRef.current = null;
+    if (setup) {
+      setup.controller.abort();
+      if (setup.pair) void fetch(`/api/camera-pair/${setup.pair.id}`, { method: "DELETE", headers: { Authorization: `Bearer ${setup.pair.host}` }, keepalive: true }).catch(() => {});
+    }
     const session = sessionRef.current; sessionRef.current = null;
     if (session) release(session);
-    setStream(null); setStatus("idle"); setUrl("");
+    setStream(null); setStatus("idle"); setUrl(""); setRelayWarning("");
   }, []);
   const connect = useCallback(async () => {
-    disconnect(); setError(""); setStatus("connecting");
+    disconnect(); setError(""); setStatus("connecting"); setStage("pairing"); setRelayAvailable(false);
     const version = generation.current;
+    const controller = new AbortController();
+    const setup: { controller: AbortController; pair?: Pair } = { controller }; setupRef.current = setup;
+    let currentStage: ConnectionStage = "pairing";
     try {
-      const response = await fetch("/api/camera-pair", { method: "POST", signal: AbortSignal.timeout(12_000) });
+      const response = await fetch("/api/camera-pair", { method: "POST", signal: AbortSignal.any([controller.signal, AbortSignal.timeout(12_000)]) });
       if (!response.ok) throw new Error("Could not create a phone connection. Please try again.");
       const pair = await response.json() as Pair;
-      setRelayAvailable(pair.relayAvailable);
-      if (generation.current !== version) { void fetch(`/api/camera-pair/${pair.id}`, { method: "DELETE", headers: { Authorization: `Bearer ${pair.host}` } }); return; }
-      const controller = new AbortController();
-      const config = await pairRequest<{ iceServers: RTCIceServer[] }>(pair.id, pair.host, { action: "claim", claimant: crypto.randomUUID() }, controller.signal);
+      setup.pair = pair;
+      if (generation.current !== version) { void fetch(`/api/camera-pair/${pair.id}`, { method: "DELETE", headers: { Authorization: `Bearer ${pair.host}` } }).catch(() => {}); return; }
+      currentStage = "relay"; setStage(currentStage);
+      const config = await pairRequest<IceConfiguration>(pair.id, pair.host, { action: "claim", claimant: crypto.randomUUID() }, controller.signal);
       if (generation.current !== version) return;
+      setRelayAvailable(config.relayAvailable);
+      if (config.relayStatus === "unavailable") setRelayWarning("The network relay is unavailable. Trying a direct connection; keep both devices on the same Wi-Fi.");
       const peer = new RTCPeerConnection({ iceServers: config.iceServers });
       const session: Connection = { pair, peer, controller, lastPing: Date.now() }; sessionRef.current = session;
+      setupRef.current = null;
       const fail = (message: string) => { if (sessionRef.current !== session) return; disconnect(); setError(message); };
       session.expiry = setTimeout(() => fail("Your ten-minute phone connection ended. Connect again to continue."), pair.expires - Date.now());
       setUrl(`${location.origin}/capture#${pair.id}.${pair.phone}`); setStatus("waiting");
       const remote = new MediaStream();
-      peer.ontrack = event => { remote.addTrack(event.track); setStream(remote); };
-      peer.onconnectionstatechange = () => {
-        if (peer.connectionState !== "failed" && peer.connectionState !== "closed") return;
-        // No heartbeat yet means the phone never reached this computer, which is a network problem, not a dropped phone.
-        fail(session.heartbeat ? "Your phone disconnected. Connect it again to continue." : pair.relayAvailable ? "Your phone could not reach this computer. Try again, or switch the phone to Wi-Fi." : "Your phone could not reach this computer. Put both devices on the same Wi-Fi network and try again.");
-      };
+      peer.ontrack = event => { if (sessionRef.current !== session) { event.track.stop(); return; } remote.addTrack(event.track); setStream(remote); };
+      watchConnection(peer, { signal: controller.signal,
+        onRecovering: () => {
+          session.lastPing = Date.now(); setStage("reconnecting");
+          // Existing consumers use connected status to retain phone media during recovery.
+          if (session.channel?.readyState !== "open") setStatus("connecting");
+        },
+        onRecovered: () => { session.lastPing = Date.now(); if (session.channel?.readyState === "open") { setStage("connected"); setStatus("connected"); } },
+        onFailed: () => fail(session.heartbeat ? "Your phone disconnected. Use phone camera to create a new code." : config.relayAvailable ? "Your phone could not reach this computer. Try again, or switch the phone to Wi-Fi." : "Your phone could not reach this computer. Put both devices on the same Wi-Fi network and try again."),
+      });
       peer.ondatachannel = event => {
+        if (sessionRef.current !== session) { event.channel.close(); return; }
         const channel = event.channel; channel.binaryType = "arraybuffer"; session.channel = channel;
         channel.onopen = () => {
           if (sessionRef.current !== session) return;
           // The one-use link still expires; an established demo stream does not.
           if (pair.unlimitedSession) clearTimeout(session.expiry);
-          setStatus("connected"); setUrl(""); session.lastPing = Date.now();
+          setStatus("connected"); setStage("connected"); setUrl(""); session.lastPing = Date.now();
           session.heartbeat = setInterval(() => {
             if (Date.now() - session.lastPing > 12_000) { fail("Your phone stopped responding. Keep its camera page open and connect again."); return; }
             if (channel.readyState === "open") channel.send(JSON.stringify({ type: "ping" }));
@@ -115,16 +136,16 @@ export function PhoneCameraProvider({ children }: { children: React.ReactNode })
           }
         };
       };
-      void connectPeer(peer, { id: pair.id, token: pair.host, role: "host", signal: controller.signal, isReady: () => session.channel?.readyState === "open", onRemote: () => setStatus("connecting") })
-        .catch(error => { if (!controller.signal.aborted) fail(error instanceof Error ? error.message : "Connection failed."); });
-    } catch (error) { if (generation.current === version) { disconnect(); setError(error instanceof Error ? error.message : "Connection failed."); } }
+      void connectPeer(peer, { id: pair.id, token: pair.host, role: "host", signal: controller.signal, isReady: () => session.channel?.readyState === "open", onRemote: () => setStatus("connecting"), onStage: next => { currentStage = next; if (session.channel?.readyState !== "open") setStage(next); } })
+        .catch(error => { if (!controller.signal.aborted) fail(connectionError(error, currentStage)); });
+    } catch (error) { if (generation.current === version) { disconnect(); setError(connectionError(error, currentStage)); } }
   }, [disconnect]);
   useEffect(() => {
     const hidden = () => { if (document.hidden) disconnect(); };
     window.addEventListener("pagehide", disconnect); document.addEventListener("visibilitychange", hidden);
     return () => { window.removeEventListener("pagehide", disconnect); document.removeEventListener("visibilitychange", hidden); disconnect(); };
   }, [disconnect]);
-  return <CameraContext.Provider value={{ mode, setMode, stream, photo, status, relayAvailable, error, url, connect, disconnect, capture }}>{children}</CameraContext.Provider>;
+  return <CameraContext.Provider value={{ mode, setMode, stream, photo, status, stage, relayAvailable, relayWarning, error, url, connect, disconnect, capture }}>{children}</CameraContext.Provider>;
 }
 export function PhoneCameraControls({ compact = false, showPreview = true }: { compact?: boolean; showPreview?: boolean }) {
   const phone = usePhoneCamera();
@@ -135,10 +156,11 @@ export function PhoneCameraControls({ compact = false, showPreview = true }: { c
   if (!compact && phone.status === "idle" && !phone.error && !captureError) return null;
   return <section className={`phone-camera-controls${compact ? " is-compact" : ""}`} aria-label="Phone camera connection">
     {phone.stream && showPreview && <video ref={video} autoPlay playsInline muted aria-label="Phone camera preview" />}
-    {phone.status === "idle" ? <button type="button" className="btn btn-ghost" onClick={() => void phone.connect()}>Use phone camera</button> : <>
-      <p role="status">{phone.status === "connected" ? "Phone camera connected" : phone.status === "waiting" ? "Scan with your phone" : "Connecting phone…"}</p>
+    {phone.status === "idle" ? <button type="button" className="btn btn-ghost" onClick={() => { setCaptureError(""); void phone.connect(); }}>Use phone camera</button> : <>
+      <p role="status" data-connection-stage={phone.stage}>{phone.status === "waiting" ? "Scan with your phone" : stageLabel[phone.stage]}</p>
       {phone.url && <><div className="phone-camera-qr" dangerouslySetInnerHTML={{ __html: renderSVG(phone.url, { border: 2 }) }} /><a href={phone.url} target="_blank" rel="noreferrer">Open phone camera link</a><p className="try-on-fine">Keep this code private. It expires in ten minutes. Open your camera on the phone to share its view here. {!phone.relayAvailable && "Use the same Wi-Fi network on both devices. Some networks may block direct connections."}</p></>}
-      <div className="phone-camera-actions">{phone.status === "connected" && !compact && <button className="btn" onClick={() => void phone.capture().catch(error => setCaptureError(error.message))}>Take photo from phone</button>}<button className="btn btn-ghost" onClick={phone.disconnect}>{phone.status === "connected" ? "Disconnect phone" : "Cancel phone connection"}</button></div>
+      {phone.relayWarning && <p className="try-on-fine" role="status">{phone.relayWarning}</p>}
+      <div className="phone-camera-actions">{phone.status === "connected" && !compact && <button className="btn" onClick={() => void phone.capture().then(() => setCaptureError("")).catch(error => setCaptureError(error.message))}>Take photo from phone</button>}<button className="btn btn-ghost" onClick={phone.disconnect}>{phone.status === "connected" ? "Disconnect phone" : "Cancel phone connection"}</button></div>
     </>}
     {(phone.error || captureError) && <p role="alert" className="try-on-error">{phone.error || captureError}</p>}
   </section>;

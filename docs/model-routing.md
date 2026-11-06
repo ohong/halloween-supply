@@ -8,9 +8,10 @@ These are code defaults. Server environment variables can override some models. 
 | Independent screenshot search and Firecrawl outage recovery | `gpt-6-luna` | Responses with live `web_search` | `lib/sourcing/discovery.ts` |
 | Complete-outfit recommendation | `gpt-6-luna` | Decisions | `lib/stylist/decide.ts` |
 | Mirror command choices and voice delegation | `gpt-6-luna` | Decisions | `lib/live-mirror/voice-decisions.ts`, mirror command/voice routes |
-| Mirror catalog reasoning and numeric budget extraction | `gpt-6-luna` | Responses | `lib/live-mirror/catalog-server.ts`, mirror command route |
+| Mirror catalog filter and product choices | `gpt-6-luna` | Decisions | `lib/live-mirror/catalog-server.ts` |
+| Mirror catalog explanations and numeric budget extraction | `gpt-6-luna` | Responses | `lib/live-mirror/catalog-server.ts`, mirror command route |
 | Conversation and speech | `gpt-live-1` | Live sessions over WebRTC | `app/api/live-mirror/voice/route.ts` |
-| Personal-photo costume render | `gpt-image-2.5-sunburst` | Images edits | `app/api/try-on/route.ts` |
+| Personal-photo costume render | `gpt-image-2.5-flare` | Images edits | `app/api/try-on/route.ts` |
 | Shopping chat, semantic catalog search, custom-look plans and product extraction | `claude-sonnet-5-5` | Anthropic via AI SDK | `lib/ai/models.ts` and its callers |
 | Personal 3D generation | Meshy 7.1 / Hunyuan 3D 3.1 Pro / TRELLIS.2 | fal image-to-3D | `lib/try-on-3d/server.ts` |
 | Live video rendering | `decart/lucy-2-5/realtime` | fal streaming video | `lib/live-mirror/video-server.ts` |
@@ -22,7 +23,7 @@ Screenshot understanding, product-photo checks, and backup search are pinned to 
 The Decisions API answers bounded questions from supplied choices. The app supplies actual product IDs and action names, then validates answers before applying them. It cannot invent a SKU, create a Stripe charge, or order a merchant product.
 
 1. **Outfit recommendation:** the server first enumerates feasible complete outfits under size, budget, ownership, optional-piece and lock constraints. Decisions chooses among those complete combinations or returns `review_needed`. Large sets use groups and finalists. The entry point is `POST /api/outfits`.
-2. **Mirror commands:** `POST /api/live-mirror/command` asks whether to switch looks, search inventory, choose a known piece option, declare a piece owned, skip an optional item, lock/unlock, undo, save, freeze, resume, or optimize. Questions and comparisons do not authorize outfit changes. Catalog retrieval and free-form budget parsing use separate Responses requests when needed.
+2. **Mirror commands:** `POST /api/live-mirror/command` asks whether to switch looks, search inventory, choose a known piece option, declare a piece owned, skip an optional item, lock/unlock, undo, save, freeze, resume, or optimize. Questions and comparisons do not authorize outfit changes. Decisions identifies catalog filters and chooses products from a ranked shortlist of up to 40 new candidates, plus revalidated previous results. Responses handles free-form explanations and numeric budget extraction when needed.
 3. **Live voice:** `POST /api/live-mirror/voice` configures GPT-Live delegation to Decisions. Transcript-triggered focus questions highlight the discussed piece. Delegated action answers pass through the same catalog and state checks before an outfit changes.
 
 The earlier photo-suitability Decisions gate was removed from main to support casual try-on uploads. Photo rendering now goes directly to the image-edit path after file decoding and request checks. Screenshot analysis uses Responses and structured JSON rather than Decisions. Titles describe the visible outfit instead of guessing a real person or unverified fictional identity.

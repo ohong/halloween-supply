@@ -1,0 +1,191 @@
+{
+  "date": "2026-11-06",
+  "environment": "local Next.js dev, Chromium headless, synthetic media only",
+  "fixture": {
+    "checks": [
+      {
+        "check": "cheaper-jacket-preserves-other-pieces",
+        "intentMs": 63
+      },
+      {
+        "check": "preview-color-preserves-purchasable-products",
+        "intentMs": 49
+      },
+      {
+        "check": "owned-piece-keeps-other-slots-and-clears-old-preview-override",
+        "intentMs": 51
+      },
+      {
+        "check": "undo-restores-complete-previous-snapshot",
+        "intentMs": 33
+      },
+      {
+        "check": "full-look-switch-skips-old-look-search-and-undo-restores-color",
+        "intentMs": 33
+      },
+      {
+        "check": "interrupted-response-cannot-overwrite-newer-manual-state"
+      },
+      {
+        "check": "spoken-correction-aborts-older-delegation-before-new-state-commit"
+      }
+    ],
+    "timing": [
+      {
+        "stage": "parse",
+        "mode": "text",
+        "durationMs": 14.1
+      },
+      {
+        "stage": "state_applied",
+        "mode": "text",
+        "durationMs": 14.7
+      },
+      {
+        "stage": "parse",
+        "mode": "text",
+        "durationMs": 12.4
+      },
+      {
+        "stage": "state_applied",
+        "mode": "text",
+        "durationMs": 12.8
+      },
+      {
+        "stage": "parse",
+        "mode": "text",
+        "durationMs": 11.2
+      },
+      {
+        "stage": "state_applied",
+        "mode": "text",
+        "durationMs": 11.6
+      },
+      {
+        "stage": "parse",
+        "mode": "text",
+        "durationMs": 7.8
+      },
+      {
+        "stage": "state_applied",
+        "mode": "text",
+        "durationMs": 8.1
+      },
+      {
+        "stage": "parse",
+        "mode": "text",
+        "durationMs": 9.7
+      },
+      {
+        "stage": "state_applied",
+        "mode": "text",
+        "durationMs": 260.7
+      },
+      {
+        "stage": "parse",
+        "mode": "text",
+        "durationMs": 11.8
+      },
+      {
+        "stage": "parse",
+        "mode": "voice",
+        "durationMs": 0.2
+      },
+      {
+        "stage": "state_applied",
+        "mode": "voice",
+        "durationMs": 0.6
+      }
+    ],
+    "mode": "fixture",
+    "limits": "No video provider or voice transport was started. Fixture timing measures local state plumbing only; command timing is not rendered garment latency."
+  },
+  "videoProviderRuns": [
+    {
+      "checks": [
+        {
+          "status": "decoded"
+        }
+      ],
+      "timing": [
+        {
+          "stage": "provider_connect",
+          "mode": "video",
+          "durationMs": 524.7,
+          "originalStage": "provider_send"
+        },
+        {
+          "stage": "first_frame",
+          "mode": "video",
+          "durationMs": 1552.9
+        }
+      ],
+      "limits": "At most 60 seconds. Decoded transport frames are not garment correctness or identity proof."
+    },
+    {
+      "checks": [
+        {
+          "status": "decoded"
+        },
+        {
+          "status": "outfit-control-sent",
+          "garmentRenderingAcknowledged": false
+        }
+      ],
+      "timing": [
+        {
+          "stage": "provider_connect",
+          "mode": "video",
+          "durationMs": 1086.8,
+          "originalStage": "provider_send"
+        },
+        {
+          "stage": "first_frame",
+          "mode": "video",
+          "durationMs": 1728.7
+        },
+        {
+          "stage": "provider_send",
+          "mode": "video",
+          "durationMs": 519.3
+        }
+      ],
+      "limits": "At most 60 seconds. Decoded transport frames are not garment correctness or identity proof."
+    }
+  ],
+  "openAIProvider": {
+    "httpStatus": 429,
+    "errorType": "insufficient_quota",
+    "errorCode": "credit_balance_exhausted",
+    "limits": "Model command semantics and latency were not verified."
+  },
+  "referenceRoutes": {
+    "requests": 152,
+    "looks": 50,
+    "pieces": 242,
+    "products": 470,
+    "imagesReturned": 0
+  },
+  "limits": [
+    "Initial provider_send events are normalized to the final provider_connect stage; originalStage retains the captured value.",
+    "Video transport does not establish garment accuracy, identity preservation, speech-to-garment latency, or physical-device behavior.",
+    "Fixture timings cannot establish provider latency.",
+    "No production build or deployment verification ran."
+  ],
+  "syntheticRecovery": {
+    "checks": [
+      "original-phone-preview-visible-before-processing-consent",
+      "unknown-signaling-failure-retries-and-billing-stops-with-correct-reason",
+      "terminal-provider-error-does-not-retry: rejected access",
+      "terminal-provider-error-does-not-retry: could not accept this outfit",
+      "capacity-retries-stop-after-three-attempts-with-phone-still-streaming",
+      "revoking-processing-consent-cancels-retries-and-keeps-local-phone-preview",
+      "leaving-mirror-cancels-retry-and-retains-phone-for-photo-mode",
+      "closing-mirror-releases-phone-and-all-peers"
+    ],
+    "errors": [],
+    "requests": 9,
+    "sockets": 9,
+    "limits": "Real two-browser local WebRTC with synthetic media; provider WebSocket failures are injected, not paid provider error observations."
+  }
+}

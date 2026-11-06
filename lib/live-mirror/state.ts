@@ -47,7 +47,10 @@ export function applyActions(costume: CostumeView, previous: MirrorOutfit, actio
       const constrained: CostumeView = { ...costume, pieces: costume.pieces.map((view) => outfit.locked.includes(view.piece.id)
         ? { ...view, options: view.options.filter(({ product }) => product.id === outfit.selection[view.piece.id]) } : view) };
       const plan = compareOutfits(constrained, { ...emptyBrief, budget: outfit.budget }, outfit.uses)[0];
-      for (const { view, option } of plan.lines) if (option) outfit.selection[view.piece.id] = option.product.id;
+      for (const { view, option } of plan.lines) if (option) {
+        if (outfit.selection[view.piece.id] !== option.product.id && outfit.appearance) delete outfit.appearance[view.piece.id];
+        outfit.selection[view.piece.id] = option.product.id;
+      }
       if (plan.overBudget) messages.push("This is the lowest available subtotal with your kept pieces. It is still over budget.");
       continue;
     }
@@ -74,6 +77,7 @@ export function applyActions(costume: CostumeView, previous: MirrorOutfit, actio
     } else if (action.type === "use") {
       if (action.use === "skip" && view.piece.required) { messages.push(`${view.piece.name} is needed for this look. You can use your own instead.`); continue; }
       outfit.uses[action.pieceId] = action.use;
+      if (action.use !== "buy" && outfit.appearance) delete outfit.appearance[action.pieceId];
     }
   }
   return { outfit, ...(messages.length ? { message: [...new Set(messages)].join(" ") } : {}) };
