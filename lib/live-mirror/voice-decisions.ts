@@ -111,6 +111,7 @@ export function needsPreview(answers: DecisionAnswer[]) {
 
 /** A catalog recommendation must not overwrite an explicit current-piece edit. */
 export function mergeCatalogCommand(current: MirrorCommand, found: MirrorCommand): MirrorCommand {
+  if (found.requiresClarification) return { ...found, actions: [] };
   const edited = new Set(current.actions.flatMap(action => ["select", "use", "appearance"].includes(action.type) && "pieceId" in action ? [action.pieceId] : []));
   return { ...found, actions: [...current.actions, ...found.actions.filter(action => action.type !== "mix" || !edited.has(action.replacesPieceId ?? action.source.pieceId))] };
 }

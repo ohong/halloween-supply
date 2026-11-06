@@ -389,7 +389,7 @@ export function useLiveVoice(options: VoiceOptions) {
           }
           if (preview) command = { ...preview, actions: [...command.actions.filter(action => action.type !== "select" || !preview.actions.some(edit => "pieceId" in edit && edit.pieceId === action.pieceId)), ...preview.actions] };
           if (found) command = mergeCatalogCommand(command, found);
-          if (extra) command = { ...command, actions: [...command.actions.filter(action => action.type !== "cheapest"), ...extra.actions] };
+          if (extra && !command.requiresClarification) command = { ...command, actions: [...command.actions.filter(action => action.type !== "cheapest"), ...extra.actions] };
         }
         if (delegated) {
           recordMirrorTiming("parse", delegated.startedAt, "voice");

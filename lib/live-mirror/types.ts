@@ -39,6 +39,6 @@ export type MirrorCatalogResults = {
   matches: MirrorCatalogMatch[];
 };
 export type VisualFeedbackMode = "style" | "likeness";
-export type MirrorCommand = { timing?: { startedAt: number; mode: "voice" | "text" }; actions: MirrorAction[]; message?: string; catalogResults?: MirrorCatalogResults; visualFeedback?: VisualFeedbackMode };
+export type MirrorCommand = { requiresClarification?: true; timing?: { startedAt: number; mode: "voice" | "text" }; actions: MirrorAction[]; message?: string; catalogResults?: MirrorCatalogResults; visualFeedback?: VisualFeedbackMode };
 export type MirrorStatus = "idle" | "connecting" | "live" | "error";
 export type MirrorContext = { costume: CostumeView; outfit: MirrorOutfit };

@@ -33,6 +33,24 @@ invalidates older typed and spoken responses. Owned pieces clear earlier
 preview overrides. Product optimization clears stale preview overrides only
 for changed products. Undo restores the complete preceding outfit snapshot.
 
+Compound additions retain up to six requested products. Filter Decisions counts
+distinct requested items and identifies each category. The shortlist shares its
+40-product budget across those categories. Selection Decisions chooses one
+product and replacement target per item in the same call. Missing, weak,
+duplicate, or conflicting choices return clarification with zero edit actions.
+The actual command and mix route fixture contract check passes twelve scenarios:
+
+```sh
+bun scripts/verify-mirror-command-contract.mjs
+```
+
+The check covers two additions, six additions, single-result ordinals, untouched
+pieces, locked targets, incomplete resolution that cancels accompanying direct
+and budget edits, duplicate choices, target
+collisions, and products outside the bounded shortlist. Only the external
+OpenAI HTTP boundary is replaced. Language accuracy and provider latency remain
+unverified because the account has no API credits.
+
 ## Timing definitions
 
 The browser emits anonymous `mirror-timing` events and matching `source_timing`

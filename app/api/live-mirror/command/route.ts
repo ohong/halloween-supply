@@ -41,6 +41,7 @@ export async function POST(request: Request) {
     ]);
     if (preview) command = { ...preview, actions: [...command.actions.filter(action => action.type !== "select" || !preview.actions.some(edit => "pieceId" in edit && edit.pieceId === action.pieceId)), ...preview.actions] };
     if (found) command = mergeCatalogCommand(command, found);
+    if (command.requiresClarification) return voiceResponse(command);
     if (budgetResponse) {
       const result = responseSchema.parse(budgetResponse);
       const output = result.output.flatMap(item => item.content ?? []).find(part => part.type === "output_text")?.text;

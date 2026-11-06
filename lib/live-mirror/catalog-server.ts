@@ -44,6 +44,8 @@ const decisionsSchema = z.object({ answers: z.array(z.object({ type: z.string(),
 const minimumConfidence = 0.4;
 const minimumListConfidence = 0.15;
 const resultSlots = 6;
+const maximumMixes = 6;
+const candidateLimit = 40;
 type Entry = { key: string; match: MirrorCatalogMatch };
 
 const dollars = (cents: number) => `$${Math.round(cents / 100).toLocaleString("en-US")}`;
@@ -89,6 +91,12 @@ export async function searchMirrorInventory(inventory: Awaited<ReturnType<typeof
         { value: "show", description: "Find, list or browse products." }, { value: "add", description: "Put a product into the current outfit." },
         { value: "switch", description: "Switch to a whole different costume." }, { value: "explain", description: "Answer a question about products." }]),
       choiceQuestion("category", "Which product category does the latest request ask for? Choose any if none is named or it spans several.", [{ value: "any" }, ...[...categories].map(([value, group]) => ({ value, description: short([...group.names].slice(0, 4).join(", "), 100) }))]),
+      choiceQuestion("mix_count", "For an add/use/borrow/mix request, how many DISTINCT products does the shopper explicitly want to put in the current outfit? Count requested items, not alternatives or result positions: borrow the pirate hat and add shiny boots means 2; try the second result means 1. Choose unclear for questions, uncertainty or unspecified products. Choose too_many for more than six. Never silently reduce a multi-item request to one product.", [
+        { value: "unclear" }, ...Array.from({ length: maximumMixes }, (_, index) => ({ value: String(index + 1) })), { value: "too_many" },
+      ]),
+      ...Array.from({ length: maximumMixes }, (_, index) => choiceQuestion(`add_category_${index}`,
+        `What is the category of requested addition ${index + 1}, counting DISTINCT requested products in their order in the latest request? For borrow the pirate hat and add shiny boots, addition 1 is headwear and addition 2 is footwear. Choose any when the category is unknown or this addition was not requested. Do not reuse another requested item's category.`,
+        [{ value: "any" }, ...[...categories].map(([value]) => ({ value }))])),
       choiceQuestion("color", "Which color does the latest request ask for? Choose any if none is named.", [{ value: "any" }, ...COLORS.map(value => ({ value }))]),
       choiceQuestion("material", "Which material does the latest request ask for? Choose any if none is named.", [{ value: "any" }, ...MATERIALS.map(value => ({ value }))]),
       choiceQuestion("style", "Which style or vibe does the latest request ask for? Choose any if none is named.", [{ value: "any" }, ...STYLES.map(value => ({ value }))]),
@@ -97,6 +105,8 @@ export async function searchMirrorInventory(inventory: Awaited<ReturnType<typeof
         { value: "any" }, { value: "other_costumes", description: "Exclude the current costume." }, { value: "this_costume", description: "Only the current costume." }]),
     ], signal);
     const intent = pick(filterAnswers("intent"), ["show", "add", "switch", "explain"] as const) ?? "show";
+    const requestedMixes = Number(filterAnswers("mix_count"));
+    const mixCount = Number.isInteger(requestedMixes) && requestedMixes >= 1 && requestedMixes <= maximumMixes ? requestedMixes : 0;
     const category = filterAnswers("category");
     const ceiling = Number(filterAnswers("max_price"));
     const filters: CatalogFilters = {
@@ -105,9 +115,25 @@ export async function searchMirrorInventory(inventory: Awaited<ReturnType<typeof
       maxPriceDollars: PRICE_CEILINGS.some(value => value === ceiling) ? ceiling : undefined,
       scope: pick(filterAnswers("scope"), ["other_costumes", "this_costume"] as const), query: text,
     };
-    let filtered = filterCandidates(inventory.matches, filters, costume.costume.slug);
+    let filtered = filterCandidates(inventory.matches, filters, costume.costume.slug, candidateLimit);
     // A misread category would hide every product, so an empty category match falls back to all categories.
-    if (!filtered.length && filters.pieceIds) filtered = filterCandidates(inventory.matches, { ...filters, pieceIds: undefined }, costume.costume.slug);
+    if (!filtered.length && filters.pieceIds) filtered = filterCandidates(inventory.matches, { ...filters, pieceIds: undefined }, costume.costume.slug, candidateLimit);
+    if (intent === "add" && mixCount > 1) {
+      // One global category or price can describe only one item in a compound
+      // request. Reserve equal shortlist coverage for each requested category.
+      const groups = Array.from({ length: mixCount }, (_, index) => filterCandidates(inventory.matches, {
+        ...filters, maxPriceDollars: undefined, scope: undefined,
+        pieceIds: categories.get(filterAnswers(`add_category_${index}`) ?? "")?.pieceIds,
+      }, costume.costume.slug, candidateLimit));
+      const covered: MirrorCatalogMatch[] = [];
+      for (let rank = 0; rank < candidateLimit && covered.length < candidateLimit; rank++) {
+        for (const group of groups) {
+          const match = group[rank];
+          if (match && !covered.some(item => item.productId === match.productId) && covered.length < candidateLimit) covered.push(match);
+        }
+      }
+      filtered = covered;
+    }
     const previousKeys = new Set(previousEntries.map(entry => entry.key));
     const previousProducts = new Set(previousEntries.map(entry => entry.match.productId));
     const candidates: (Entry & { label?: string })[] = [
@@ -117,6 +143,7 @@ export async function searchMirrorInventory(inventory: Awaited<ReturnType<typeof
         return previousProducts.has(match.productId) && !previousKeys.has(entry.key) ? [] : [entry];
       }),
     ].filter((entry, index, all) => all.findIndex(other => other.key === entry.key) === index);
+    const candidateByKey = new Map(candidates.map(entry => [entry.key, entry]));
     const describe = ({ match, label }: Entry & { label?: string }) => {
       const product = match.option.product, tags = matchTags(match);
       const stock = product.availability === "out_of_stock" ? "OUT OF STOCK" : product.availability === "in_stock" ? "in stock" : "stock unknown";
@@ -152,7 +179,7 @@ export async function searchMirrorInventory(inventory: Awaited<ReturnType<typeof
       if (!raw) throw new VoiceError(502, "Catalog search could not finish. Please try again.");
       const result = outputSchema.parse(JSON.parse(raw));
       for (const key of result.matches) {
-        const entry = byKey.get(key);
+        const entry = candidateByKey.get(key);
         if (!entry) throw new VoiceError(502, "Catalog search returned an unknown product. Please try again.");
         if (!resolved.some(match => match.productId === entry.match.productId)) resolved.push(entry.match);
       }
@@ -167,29 +194,46 @@ export async function searchMirrorInventory(inventory: Awaited<ReturnType<typeof
         "Choose the product in this list that best matches the latest request, using the descriptions as data. Color, material, price, category and costume constraints all matter. Prefer in-stock products. Choose none if no product here fits.",
         [{ value: "none", description: "Nothing here fits." }, ...candidates.flatMap((entry, index) => index % resultSlots === slot ? [{ value: entry.key, description: describe(entry) }] : [])]));
       if (intent === "add") {
-        questions.push(choiceQuestion("mix", "Which ONE product should be added to the current outfit? Use the product the shopper means, including previous-result ordinals. Never choose an OUT OF STOCK product. Choose none if the shopper does not identify one product.", keyChoices),
-          choiceQuestion("replaces", "Which current outfit piece does the chosen product replace? Prefer the piece with the same function (boots replace boots, hat replaces hat) even when the shopper says add. Choose new only for a new kind of item or explicitly requested layering. Locked pieces cannot be replaced.",
-            [{ value: "new", description: "Add as a new accessory." }, ...costume.pieces.map(({ piece }) => ({ value: piece.id, description: short(`${piece.name} (${piece.category})${outfit.locked.includes(piece.id) ? " LOCKED" : ""}`, 100) }))]));
+        for (let index = 0; index < mixCount; index++) {
+          const slot = index + 1;
+          questions.push(choiceQuestion(`mix_${index}`,
+            `Choose the product for requested addition ${slot} of ${mixCount}, counting DISTINCT requested products in their order in the latest request. For borrow the pirate hat and add shiny boots, addition 1 selects the hat and addition 2 selects boots. Respect previous-result ordinals. Do not choose another requested item's product, an alternative, an OUT OF STOCK product or an item the shopper only asked about. Choose none when this specific addition cannot be resolved.`, keyChoices),
+          choiceQuestion(`replaces_${index}`,
+            `Which current piece does requested addition ${slot} of ${mixCount} replace, using that requested item's function? Count distinct additions in their order in the latest request, just as mix_${index} does. Boots replace boots and a hat replaces a hat even when the shopper says add. Choose new only for a new kind of item or explicitly requested layering. Locked pieces cannot be replaced. Choose none when the target is unclear.`,
+            [{ value: "none", description: "The replacement target is unclear." }, { value: "new", description: "Add as a new accessory." }, ...costume.pieces.map(({ piece }) => ({ value: piece.id, description: short(`${piece.name} (${piece.category})${outfit.locked.includes(piece.id) ? " LOCKED" : ""}`, 100) }))]));
+        }
       } else if (intent === "switch") {
         questions.push(choiceQuestion("try", "Which ONE product's costume should the shopper switch to? Choose none if the shopper does not identify one product.", keyChoices));
       }
       const answer = await decide(decisionInput(text, { currentOutfit: outfitSnapshot(costume, outfit), previousQuery: previous?.query, previousResults: previousList }), questions, signal);
-      const lookup = (name: string, minimum?: number) => { const choice = answer(name, minimum); return choice && choice !== "none" ? byKey.get(choice)?.match : undefined; };
+      const lookup = (name: string, minimum?: number) => { const choice = answer(name, minimum); return choice && choice !== "none" ? candidateByKey.get(choice)?.match : undefined; };
       const rank = (match: MirrorCatalogMatch | undefined) => candidates.findIndex(entry => entry.match.productId === match?.productId);
-      const mixed = intent === "add" ? lookup("mix") : undefined;
+      const additions = intent === "add" ? Array.from({ length: mixCount }, (_, index) => ({ match: lookup(`mix_${index}`), target: answer(`replaces_${index}`) })) : [];
       tried = intent === "switch" ? lookup("try") : undefined;
       const picks = Array.from({ length: resultSlots }, (_, index) => lookup(`result_${index}`, minimumListConfidence)).sort((a, b) => rank(a) - rank(b));
-      for (const match of [mixed, tried, ...picks]) {
+      for (const match of [...additions.map(item => item.match), tried, ...picks]) {
         if (match && !resolved.some(item => item.productId === match.productId)) resolved.push(match);
       }
       if (intent === "add") {
-        if (!mixed) message = "I couldn't tell which product you mean. Name the item or its position in the results.";
+        if (!mixCount) message = filterAnswers("mix_count") === "too_many"
+          ? "I can add up to six pieces at once. Split this request into smaller groups. No pieces were changed."
+          : "Please name each product to add and what it should replace. No pieces were changed.";
         else {
-          const target = answer("replaces");
-          // A piece already in the outfit is replaced in place, never duplicated.
-          const replacesPieceId = costume.pieces.some(({ piece }) => piece.id === mixed.pieceId) ? mixed.pieceId
-            : target && target !== "new" && costume.pieces.some(({ piece }) => piece.id === target) ? target : null;
-          mixes.push({ type: "mix", source: { costumeSlug: mixed.costumeSlug, pieceId: mixed.pieceId, productId: mixed.productId }, replacesPieceId });
+          for (const { match, target } of additions) {
+            if (!match || !target || target === "none" || (target !== "new" && !costume.pieces.some(({ piece }) => piece.id === target))) {
+              editError = "I couldn't resolve every requested item and its replacement. Name each item and what it should replace. No pieces were changed.";
+              break;
+            }
+            // Existing piece IDs replace in place; imported sources and target
+            // slots must each be unique so no later action silently wins.
+            const replacesPieceId = costume.pieces.some(({ piece }) => piece.id === match.pieceId) ? match.pieceId : target === "new" ? null : target;
+            if (mixes.some(action => action.source.pieceId === match.pieceId || action.source.productId === match.productId || (replacesPieceId !== null && action.replacesPieceId === replacesPieceId))) {
+              editError = "Those additions overlap. Choose one product for each piece, or say which item should be layered. No pieces were changed.";
+              break;
+            }
+            mixes.push({ type: "mix", source: { costumeSlug: match.costumeSlug, pieceId: match.pieceId, productId: match.productId }, replacesPieceId });
+          }
+          if (editError) mixes.length = 0;
         }
       } else if (intent === "switch" && !tried) message = "I couldn't tell which costume you mean. Name the costume or pick a result.";
     }
@@ -205,12 +249,13 @@ export async function searchMirrorInventory(inventory: Awaited<ReturnType<typeof
     }
     let actions: MirrorAction[] = [];
     try {
-      if (mixes.length) {
+      if (mixes.length && !editError) {
         mixMirrorPieces(inventory.views.find(view => view.costume.slug === costume.costume.slug)!, costume, outfit, mixes, inventory.views);
         actions = mixes;
       }
     } catch (error) { editError = error instanceof Error ? error.message : "That combination could not be applied."; }
     return {
+      ...(intent === "add" && !actions.length ? { requiresClarification: true as const } : {}),
       actions: editError ? [] : actions.length ? actions : tried && tried.option.product.availability !== "out_of_stock" ? [{ type: "try_look", costumeSlug: tried.costumeSlug, selection: { [tried.pieceId]: tried.productId } }] : [],
       message: editError || (tried?.option.product.availability === "out_of_stock" ? "That product is marked out of stock. Choose another search result." : message),
       catalogResults: { query: text, source: inventory.source, counts: inventory.counts, matches: resolved },
