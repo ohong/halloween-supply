@@ -19,7 +19,8 @@ export interface KitDefinition {
   costumeSlug: string;
   name: string;
   description: string;
-  buy: { pieceId: string; productId: string; quantity?: number }[];
+  /** The existing cart stores one item per piece. Multi-quantity kits are unsupported. */
+  buy: { pieceId: string; productId: string; quantity?: 1 }[];
   owned: { pieceId: string; note: string }[];
   skipped: { pieceId: string; reason: string }[];
   extraSupplies: string[];
@@ -67,6 +68,7 @@ export interface KitSummary {
   ownedBasics: string[];
   supplies: string[];
   deliveryStatus: KitDeliveryStatus;
+  pickupItemCount: number;
   /** Unknown delivery remains visible, but does not assert that the kit is too late. */
   eligible: boolean;
 }
@@ -80,6 +82,7 @@ export interface KitView extends KitSummary {
     status: KitDeliveryStatus;
     eventDate: string | null;
     tooLateProductIds: string[];
+    pickupProductIds: string[];
     notes: string[];
     evidence: KitEvidence[];
   };

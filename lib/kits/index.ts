@@ -86,7 +86,7 @@ export function validateKit(definition: KitDefinition, snapshots: CostumeSnapsho
       if (!merchants.has(product.merchantId)) fail(`merchant not found: ${entry.productId}`);
       if (!Number.isFinite(Date.parse(product.checkedAt))) fail(`missing product check date: ${entry.productId}`);
     }
-    if (!Number.isSafeInteger(entry.quantity ?? 1) || (entry.quantity ?? 1) < 1) fail("quantity must be a positive integer");
+    if ((entry.quantity ?? 1) !== 1) fail("the cart supports exactly one product per piece");
   }
   if (!definition.buy.length) fail("kit must include a new piece");
   if (!definition.owned.length) fail("kit must state its owned basics");
@@ -106,7 +106,12 @@ export function validateKit(definition: KitDefinition, snapshots: CostumeSnapsho
     if (!["product", "shipping", "pickup", "assembly"].includes(evidence.kind)) fail("unknown evidence kind");
     if (!evidence.note?.trim()) fail("evidence needs a factual note");
     if (evidence.productId && !definition.buy.some(({ productId }) => productId === evidence.productId)) fail("evidence references a product outside the purchased kit");
+    if (evidence.kind === "pickup" && !evidence.productId) fail("pickup evidence must identify the purchased product");
     if (evidence.earliestArrivalDate && (evidence.kind !== "shipping" || !validDate(evidence.earliestArrivalDate))) fail("arrival constraint requires a valid shipping date");
+  }
+  for (const { productId } of definition.buy) {
+    const product = products.get(productId);
+    if (!definition.readiness.evidence.some((evidence) => evidence.kind === "product" && (evidence.productId === productId || evidence.url === product?.url))) fail(`missing product evidence: ${productId}`);
   }
   return errors;
 }
@@ -129,7 +134,8 @@ export function resolveKit(definition: KitDefinition, snapshots: CostumeSnapshot
     if (!evidence.earliestArrivalDate || evidence.earliestArrivalDate <= options.eventDate!) return [];
     return evidence.productId ? [evidence.productId] : buy.map(({ product }) => product.id);
   }))] : [];
-  const deliveryStatus = tooLateProductIds.length ? "known_too_late" : definition.readiness.evidence.some(({ kind }) => kind === "pickup") ? "pickup_option_found" : "delivery_unconfirmed";
+  const pickupProductIds = [...new Set(definition.readiness.evidence.flatMap(({ kind, productId }) => kind === "pickup" && productId ? [productId] : []))];
+  const deliveryStatus = tooLateProductIds.length ? "known_too_late" : pickupProductIds.length ? "pickup_option_found" : "delivery_unconfirmed";
   const purchaseSubtotalCents = buy.reduce((sum, { product, quantity }) => sum + product.priceCents * quantity, 0);
   const pricing = priceSummary(snapshot);
   const outOfStockCount = buy.filter(({ product }) => product.availability === "out_of_stock").length;
@@ -156,12 +162,13 @@ export function resolveKit(definition: KitDefinition, snapshots: CostumeSnapshot
     ownedBasics: owned.map(({ note }) => note),
     supplies: [...definition.extraSupplies],
     deliveryStatus,
+    pickupItemCount: pickupProductIds.length,
     eligible: !outOfStockCount && !tooLateProductIds.length,
     definition,
     buy,
     owned,
     skipped,
-    readiness: { status: deliveryStatus, eventDate: options.eventDate ?? null, tooLateProductIds, notes: [...definition.readiness.notes], evidence: definition.readiness.evidence },
+    readiness: { status: deliveryStatus, eventDate: options.eventDate ?? null, tooLateProductIds, pickupProductIds, notes: [...definition.readiness.notes], evidence: definition.readiness.evidence },
   };
 }
 
@@ -183,7 +190,7 @@ export function listKits(snapshots: CostumeSnapshot[], options: KitOptions = {})
       shopCount: kit.shopCount, unknownStockCount: kit.unknownStockCount, outOfStockCount: kit.outOfStockCount,
       oldestCheckedAt: kit.oldestCheckedAt, assemblyMinutes: kit.assemblyMinutes,
       ownedBasics: kit.ownedBasics, supplies: kit.supplies,
-      deliveryStatus: kit.deliveryStatus, eligible: kit.eligible,
+      deliveryStatus: kit.deliveryStatus, pickupItemCount: kit.pickupItemCount, eligible: kit.eligible,
     };
     return [summary];
   });
