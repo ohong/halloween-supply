@@ -56,5 +56,9 @@ A two-second MP4 derived from the existing local assembly film produced:
 
 No model is qualified for enabling the feature. No subscription or account setting changed. No live merchant sourcing was run.
 
+Local verification passed: 24 checks against the real route functions, TypeScript generation and checking, focused ESLint, and whitespace validation.
+A local Next.js server returned GET 200 with `enabled:false`, disabled POST 503, and foreign-origin POST 403.
+These checks do not establish a successful video read, a complete sourced look, or enabled UI behavior.
+
 Official references checked on the same date: [video inputs](https://ai.google.dev/gemini-api/docs/video-understanding?hl=en), [generateContent REST](https://ai.google.dev/api/generate-content?hl=en), and [structured outputs](https://ai.google.dev/gemini-api/docs/generate-content/structured-output).
 The retained REST configuration reached model availability and quota checks. A successful video response remains unverified.
