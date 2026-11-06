@@ -6,7 +6,7 @@ import type { PieceView } from "@/lib/types";
 import { PieceInspectionPanel } from "./piece-inspection-panel";
 import "./costume-piece-inspector.css";
 
-export function CostumePieceInspector({ costumeSlug, view, index, size, onSizeChange, onAdd, onChoose, onClose }: { costumeSlug: string; view: PieceView; index: number; size: string | null; onSizeChange: (size: string) => void; onAdd: () => void; onChoose: (index: number) => void; onClose: () => void }) {
+export function CostumePieceInspector({ purchaseReady = true, costumeSlug, view, index, size, onSizeChange, onAdd, onChoose, onClose }: { purchaseReady?: boolean; costumeSlug: string; view: PieceView; index: number; size: string | null; onSizeChange: (size: string) => void; onAdd: () => void; onChoose: (index: number) => void; onClose: () => void }) {
   const cart = useCart();
   const option = view.options[index] ?? view.options[0];
   if (!option) return null;
@@ -20,10 +20,10 @@ export function CostumePieceInspector({ costumeSlug, view, index, size, onSizeCh
       item={item}
       size={item.size}
       inCart={inCart}
-      addDisabled={!cart.ready || option.product.availability === "out_of_stock"}
+      addDisabled={!purchaseReady || !cart.ready || option.product.availability === "out_of_stock"}
       onSizeChange={onSizeChange}
       onAdd={() => {
-        if (!cart.ready || option.product.availability === "out_of_stock") return;
+        if (!purchaseReady || !cart.ready || option.product.availability === "out_of_stock") return;
         if (!inCart) onAdd();
         cart.setOpen(true);
       }}

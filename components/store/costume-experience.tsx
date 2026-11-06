@@ -153,6 +153,7 @@ export function CostumeExperience({ costume: initialCostume, kit }: { costume: C
   }
 
   function addPiece(view: PieceView, option: ProductOption) {
+    if (restoreState !== "ready" || !cart.ready) return;
     const item = toCartItem(view.piece, option, sizeFor(view, option));
     cart.add(item, costumeSlug);
     // Preserve explicit clears while letting untouched products use saved preferences.
@@ -191,7 +192,7 @@ export function CostumeExperience({ costume: initialCostume, kit }: { costume: C
   const total = pickedOptions.reduce((sum, { option }) => sum + option.product.priceCents, 0);
   const shopCount = new Set(pickedOptions.map(({ option }) => option.merchant.id)).size;
   const lateSelected = pickedOptions.some(({ option }) => tooLateProductIds.includes(option.product.id));
-  const complete = !lateSelected && pickedOptions.length > 0 && pickedOptions.length === needed.length && pickedOptions.every(({ option }) => option.product.availability !== "out_of_stock");
+  const complete = restoreState === "ready" && !lateSelected && pickedOptions.length > 0 && pickedOptions.length === needed.length && pickedOptions.every(({ option }) => option.product.availability !== "out_of_stock");
   const snapshot: LookSelection = {
     version: 1, costumeSlug, model,
     selection: pickedOptions.map(({ view, option }) => ({ pieceId: view.piece.id, productId: option.product.id })),
@@ -208,6 +209,7 @@ export function CostumeExperience({ costume: initialCostume, kit }: { costume: C
   }, [snapshotKey, sizesKey, isSaved, restoreState]);
 
   async function copyLookLink() {
+    if (restoreState !== "ready") return;
     const url = lookUrl(location.origin, costumeSlug, snapshot.selection.map(row => row.productId), mixes, snapshot);
     try { await navigator.clipboard.writeText(url); setShareNote("Look link copied. Sizes and photos stay private."); }
     catch { setShareNote("The link could not be copied. Try again in your browser."); }
@@ -220,7 +222,7 @@ export function CostumeExperience({ costume: initialCostume, kit }: { costume: C
   }
 
   function applyKit() {
-    if (!kit?.eligible || tooLateProductIds.length > 0 || kit.buy.some(row => row.quantity !== 1)) return;
+    if (restoreState !== "ready" || !kit?.eligible || tooLateProductIds.length > 0 || kit.buy.some(row => row.quantity !== 1)) return;
     const next: Record<string, number> = {};
     for (const row of kit.buy) {
       const index = initialCostume.pieces.find(view => view.piece.id === row.piece.id)?.options.findIndex(option => option.product.id === row.product.id) ?? -1;
@@ -246,6 +248,7 @@ export function CostumeExperience({ costume: initialCostume, kit }: { costume: C
   }
 
   function addAll() {
+    if (restoreState !== "ready" || !cart.ready || !complete) return;
     const items = pickedOptions.map(({ view, option }) => toCartItem(view.piece, option, sizeFor(view, option)));
     if (ownsCart) for (const line of cart.items) if (!items.some(item => item.pieceId === line.pieceId)) cart.remove(line.pieceId);
     cart.addMany(items, costumeSlug);
@@ -257,6 +260,7 @@ export function CostumeExperience({ costume: initialCostume, kit }: { costume: C
   }
 
   function applyMirror(outfit: MirrorOutfit, nextCostume = costume) {
+    if (restoreState !== "ready") return;
     setMixedCostume(nextCostume);
     setMixes(outfit.mixes);
     const nextPieces = nextCostume.pieces;
@@ -287,10 +291,10 @@ export function CostumeExperience({ costume: initialCostume, kit }: { costume: C
       <Link href="/" className="back-link"><ArrowLeft size={14} aria-hidden="true" />All costumes</Link>
       <div className="costume-heading-title">
         <h1 className="costume-title">{costume.costume.name}</h1>
-        <SaveLook slug={costumeSlug} name={costume.costume.name} snapshot={snapshot} sizes={privateSizes} disabled={restoreState === "loading"} />
+        <SaveLook slug={costumeSlug} name={costume.costume.name} snapshot={snapshot} sizes={privateSizes} disabled={restoreState !== "ready"} />
       </div>
       <p className="costume-description">{costume.costume.description}</p>
-      <div className="look-share"><button type="button" className="text-btn" disabled={restoreState === "loading"} onClick={copyLookLink}>Copy look link</button>{shareNote && <p role="status">{shareNote}</p>}</div>
+      <div className="look-share"><button type="button" className="text-btn" disabled={restoreState !== "ready"} onClick={copyLookLink}>Copy look link</button>{shareNote && <p role="status">{shareNote}</p>}</div>
       {restoreState === "error" && <div className="notice" role="alert"><p>This look needs a repair. {restoreIssues.join(" ")}</p><button type="button" className="text-btn" onClick={() => { setRestoreState("ready"); setRestoreIssues([]); }}>Use available picks</button></div>}
       {previewEdits && Object.keys(previewEdits).length > 0 && <p className="meta">Visual edits are saved as preview notes. Merchant products remain the choices listed below.</p>}
     </header>
@@ -310,7 +314,7 @@ export function CostumeExperience({ costume: initialCostume, kit }: { costume: C
           if (pieceId === inspectedPieceId) document.getElementById("costume-piece-inspection")?.focus();
         },
       }} /></TabsContent>
-      <TabsContent value="try-on" forceMount>{restoreState === "loading" ? <p role="status">Restoring your look…</p> : <PhoneCameraProvider>
+      <TabsContent value="try-on" forceMount>{restoreState !== "ready" ? <p role="status">{restoreState === "loading" ? "Restoring your look…" : "Repair this saved look before creating a preview."}</p> : <PhoneCameraProvider>
         <VirtualTryOn previewEdits={previewEdits} mixes={mixes} costumeSlug={costumeSlug} pieces={pieces.map(({ piece }) => ({ id: piece.id, name: piece.name, category: piece.category }))} selection={snapshot.selection} ownedPieceIds={pieces.filter(({ piece }) => uses[piece.id] === "owned").map(({ piece }) => piece.id)} skippedPieceIds={pieces.filter(({ piece }) => uses[piece.id] === "skip").map(({ piece }) => piece.id)} totalCents={total} />
         <section className="try-on-more" aria-labelledby="try-on-more-title">
           <h3 id="try-on-more-title">More ways to try it on</h3>
@@ -325,7 +329,7 @@ export function CostumeExperience({ costume: initialCostume, kit }: { costume: C
     </Tabs>
 
     <div className="costume-info">
-      {inspectedPiece && inspectedOption && <CostumePieceInspector costumeSlug={costumeSlug} view={inspectedPiece} index={selectedIndex(inspectedPiece)} size={sizeFor(inspectedPiece, inspectedOption)} onSizeChange={(size) => changeSize(inspectedPiece, inspectedOption, size)} onAdd={() => addPiece(inspectedPiece, inspectedOption)} onChoose={(index) => choose(inspectedPiece, index)} onClose={() => {
+      {inspectedPiece && inspectedOption && <CostumePieceInspector purchaseReady={restoreState === "ready"} costumeSlug={costumeSlug} view={inspectedPiece} index={selectedIndex(inspectedPiece)} size={sizeFor(inspectedPiece, inspectedOption)} onSizeChange={(size) => changeSize(inspectedPiece, inspectedOption, size)} onAdd={() => addPiece(inspectedPiece, inspectedOption)} onChoose={(index) => choose(inspectedPiece, index)} onClose={() => {
         setInspectedPieceId(undefined);
         inspectionTrigger.current?.focus();
       }} />}
@@ -340,7 +344,7 @@ export function CostumeExperience({ costume: initialCostume, kit }: { costume: C
         <p>{tooLateProductIds.length > 0 || kit.readiness.status === "known_too_late" ? "Known too late for this event." : kit.readiness.status === "pickup_option_found" ? `Pickup option found for ${kit.pickupItemCount} ${kit.pickupItemCount === 1 ? "item" : "items"}. Confirm each shop; other delivery is unconfirmed.` : "Delivery is unconfirmed. Check the shop before buying."}</p>
         {kit.readiness.notes.map(note => <p key={note}>{note}</p>)}
         <details><summary>Shipping and assembly research snapshot</summary><ul>{kit.readiness.evidence.map((evidence, i) => <li key={i}><a href={evidence.url} target="_blank" rel="noopener noreferrer">{evidence.note}</a> · checked {evidence.checkedAt.slice(0, 10)}</li>)}</ul></details>
-        <Button variant="outline" disabled={!kit.eligible || tooLateProductIds.length > 0 || kit.buy.some(row => row.quantity !== 1)} onClick={applyKit}>{kitApplied ? "Reapply this kit" : "Use this kit"}</Button>
+        <Button variant="outline" disabled={restoreState !== "ready" || !kit.eligible || tooLateProductIds.length > 0 || kit.buy.some(row => row.quantity !== 1)} onClick={applyKit}>{kitApplied ? "Reapply this kit" : "Use this kit"}</Button>
       </section>}
       {pickedOptions.length > 0
         ? <div className="costume-purchase" id="selected-outfit">
@@ -356,31 +360,31 @@ export function CostumeExperience({ costume: initialCostume, kit }: { costume: C
       <ul className="outfit-pieces">
         {pieces.map((view) => {
           const option = picked.get(view.piece.id);
-          return <PieceRow key={view.piece.id} costumeSlug={costumeSlug} view={view} index={selectedIndex(view)} use={uses[view.piece.id] ?? "buy"} onUse={(use) => changeUse(view, use)} recoveryOpen={recoveryPieceId === view.piece.id} onRecoveryClose={() => setRecoveryPieceId(undefined)} onAdd={() => { if (option) addPiece(view, option); }} onChoose={(i) => choose(view, i)} />;
+          return <PieceRow purchaseReady={restoreState === "ready"} key={view.piece.id} costumeSlug={costumeSlug} view={view} index={selectedIndex(view)} use={uses[view.piece.id] ?? "buy"} onUse={(use) => changeUse(view, use)} recoveryOpen={recoveryPieceId === view.piece.id} onRecoveryClose={() => setRecoveryPieceId(undefined)} onAdd={() => { if (option) addPiece(view, option); }} onChoose={(i) => choose(view, i)} />;
         })}
       </ul>
 
       <div className="costume-help">
         <div><Sparkles size={18} aria-hidden="true" /><div><h2>Make it yours</h2><p>Set a budget, find local shops, or use what you own.</p></div></div>
-        <Button variant="outline" onClick={() => window.dispatchEvent(new Event("halloween:open-assistant"))}>Talk to your personal shopper<ArrowRight aria-hidden="true" /></Button>
+        <Button variant="outline" disabled={restoreState !== "ready"} onClick={() => window.dispatchEvent(new Event("halloween:open-assistant"))}>Talk to your personal shopper<ArrowRight aria-hidden="true" /></Button>
       </div>
       <details className="costume-sourcing">
         <summary>Find a lower-price outfit<ChevronDown size={16} aria-hidden="true" /></summary>
         <p>Compare the lowest-priced available picks in our catalog.</p>
-        <ShopForMe pieces={sourcingPieces} onComplete={(choices) => {
+        {restoreState === "ready" && <ShopForMe pieces={sourcingPieces} onComplete={(choices) => {
           for (const view of pieces) {
             const index = choices[view.piece.id];
             if (index !== undefined) choose(view, index);
           }
-        }} />
+        }} />}
       </details>
 
-      <AssistantPanel costume={costume} onChoose={(pieceId, productId) => {
+      {restoreState === "ready" && <AssistantPanel costume={costume} onChoose={(pieceId, productId) => {
         setUses((current) => ({ ...current, [pieceId]: "buy" }));
         const view = pieces.find(({ piece }) => piece.id === pieceId);
         const index = view?.options.findIndex(({ product }) => product.id === productId) ?? -1;
         if (index >= 0) setChosen((current) => ({ ...current, [pieceId]: index }));
-      }} />
+      }} />}
     </div>
   </div>;
 }
@@ -395,7 +399,7 @@ function openMerchant(event: MouseEvent<HTMLAnchorElement>) {
   event.preventDefault();
 }
 
-function PieceRow({ costumeSlug, view, index, use, onUse, recoveryOpen, onRecoveryClose, onAdd, onChoose }: { costumeSlug: string; view: PieceView; index: number; use: "buy" | "owned" | "skip"; onUse: (use: "buy" | "owned" | "skip") => void; recoveryOpen: boolean; onRecoveryClose: () => void; onAdd: () => void; onChoose: (index: number) => void }) {
+function PieceRow({ purchaseReady, costumeSlug, view, index, use, onUse, recoveryOpen, onRecoveryClose, onAdd, onChoose }: { purchaseReady: boolean; costumeSlug: string; view: PieceView; index: number; use: "buy" | "owned" | "skip"; onUse: (use: "buy" | "owned" | "skip") => void; recoveryOpen: boolean; onRecoveryClose: () => void; onAdd: () => void; onChoose: (index: number) => void }) {
   const cart = useCart();
   const [open, setOpen] = useState(false);
   const { piece, options } = view;
@@ -417,14 +421,14 @@ function PieceRow({ costumeSlug, view, index, use, onUse, recoveryOpen, onRecove
           </DialogTrigger>
         </div>
       </div>
-      <label className="piece-use">Use this piece<select aria-label={`Use ${piece.name}`} value={use} onChange={event => onUse(event.target.value as "buy" | "owned" | "skip")}><option value="buy">Buy this piece</option><option value="owned">Already own</option>{!piece.required && <option value="skip">Skip this piece</option>}</select></label>
+      <label className="piece-use">Use this piece<select aria-label={`Use ${piece.name}`} disabled={!purchaseReady} value={use} onChange={event => onUse(event.target.value as "buy" | "owned" | "skip")}><option value="buy">Buy this piece</option><option value="owned">Already own</option>{!piece.required && <option value="skip">Skip this piece</option>}</select></label>
       <DialogContent className="piece-dialog wardrobe-rail-dialog">
         <div className="piece-dialog-heading"><DialogTitle>{piece.name}</DialogTitle><DialogDescription>Choose the piece that suits your style and budget.</DialogDescription></div>
         <WardrobeRail view={view} selectedId={option.product.id} onChoose={onChoose} />
         <details className="piece-reason"><summary>Why this pick?</summary><p>{option.pick.reason}</p></details>
         <a className="piece-merchant-link" href={option.product.url} target="_blank" rel="noopener noreferrer" onClick={openMerchant}>View at {option.merchant.name}<ArrowRight size={14} aria-hidden="true" /></a>
         <div className="piece-dialog-footer">
-          <Button variant="outline" disabled={!cart.ready || inCart || use !== "buy" || option.product.availability === "out_of_stock"} onClick={onAdd}>{inCart ? <><Check aria-hidden="true" />In cart</> : "Add this piece"}</Button>
+          <Button variant="outline" disabled={!purchaseReady || !cart.ready || inCart || use !== "buy" || option.product.availability === "out_of_stock"} onClick={onAdd}>{inCart ? <><Check aria-hidden="true" />In cart</> : "Add this piece"}</Button>
           <DialogClose asChild><Button>Done</Button></DialogClose>
         </div>
       </DialogContent>
