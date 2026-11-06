@@ -29,7 +29,7 @@ export async function createPair() {
   const db = await database();
   const id = token(), host = token(), phone = token(), expires = Date.now() + lifetime;
   await db.execute({ sql: "INSERT INTO camera_pair (id, host, phone, expires) VALUES (?, ?, ?, ?)", args: [id, hash(host), hash(phone), expires] });
-  return { id, host, phone, expires, unlimitedSession: isTryOnTesting(), relayAvailable: Boolean(process.env.METERED_TURN_APP && process.env.METERED_TURN_API_KEY) };
+  return { id, host, phone, expires, unlimitedSession: isTryOnTesting() };
 }
 export class PairError extends Error { constructor(public status: number, message: string) { super(message); } }
 export function sameOrigin(request: Request) {
@@ -65,17 +65,26 @@ export function failure(error: unknown) {
   if (error instanceof z.ZodError || error instanceof SyntaxError) return reply({ error: "Invalid connection request." }, 400);
   return reply({ error: error instanceof PairError ? error.message : "The phone connection is unavailable. Please try again." }, error instanceof PairError ? error.status : 503);
 }
-export async function iceServers(): Promise<RTCIceServer[]> {
-  const app = process.env.METERED_TURN_APP, key = process.env.METERED_TURN_API_KEY;
-  if (!app || !key) return [{ urls: "stun:stun.relay.metered.ca:80" }];
-  const response = await fetch(`https://${app}.metered.live/api/v1/turn/credentials?apiKey=${encodeURIComponent(key)}`, { signal: AbortSignal.timeout(8000), cache: "no-store" });
-  if (!response.ok) throw new PairError(503, "The phone relay is unavailable. Please try again.");
-  const parsed = z.array(z.object({
-    urls: z.union([z.string(), z.array(z.string())]),
-    username: z.string().optional(), credential: z.string().optional(),
-  })).safeParse(await response.json());
-  if (!parsed.success || !parsed.data.some(server => server.credential && [server.urls].flat().some(url => /^turns?:/.test(url)))) {
-    throw new PairError(503, "The phone relay is unavailable. Please try again.");
+export async function iceConfiguration() {
+  const direct = { iceServers: [{ urls: "stun:stun.relay.metered.ca:80" }] as RTCIceServer[], relayAvailable: false, relayProvider: null };
+  const app = process.env.METERED_TURN_APP?.trim(), key = process.env.METERED_TURN_API_KEY?.trim();
+  if (!app && !key) return { ...direct, relayStatus: "unconfigured" as const };
+  // A relay outage must not prevent two devices on a reachable network from pairing.
+  if (!app || !key || !/^[a-z0-9](?:[a-z0-9-]{0,61}[a-z0-9])?$/i.test(app)) return { ...direct, relayStatus: "unavailable" as const };
+  try {
+    const response = await fetch(`https://${app}.metered.live/api/v1/turn/credentials?apiKey=${encodeURIComponent(key)}`, { signal: AbortSignal.timeout(8000), cache: "no-store" });
+    if (!response.ok) throw new Error("Relay credentials unavailable.");
+    const url = z.string().max(2048).regex(/^(?:stun|turn|turns):[^\s]+$/);
+    const parsed = z.array(z.object({
+      urls: z.union([url, z.array(url).min(1).max(8)]),
+      username: z.string().max(2048).optional(), credential: z.string().max(2048).optional(),
+    })).min(1).max(20).safeParse(await response.json());
+    if (!parsed.success) throw new Error("Invalid relay credentials.");
+    const relays = parsed.data.filter(server => [server.urls].flat().some(value => /^turns?:/.test(value)));
+    if (!relays.length || relays.some(server => !server.username || !server.credential)) throw new Error("Invalid relay credentials.");
+    return { iceServers: parsed.data, relayAvailable: true, relayProvider: "metered" as const, relayStatus: "ready" as const };
+  } catch {
+    // Never include the credential URL, provider response, or API key in diagnostics.
+    return { ...direct, relayStatus: "unavailable" as const };
   }
-  return parsed.data;
 }
