@@ -115,6 +115,22 @@ update events. The final code names initial events `provider_connect`. Final fix
 The reviewed measurements are retained in
 [`mirror-controls-2026-11-06.json`](./evidence/mirror-controls-2026-11-06.json).
 
+## Integrated recovery check
+
+After integrating phone commit `4f51bd9`, this check passed with real two-browser
+local WebRTC and synthetic camera tracks:
+
+```sh
+PHONE_BASE_URL=http://localhost:3437 node scripts/verify-mirror-recovery.mjs
+```
+
+All eight scenarios passed. The original phone preview stays visible before
+processing consent and during retries. A transient error retries; billing,
+authentication, and invalid-input errors stop. Capacity retries stop after
+three attempts. Consent withdrawal and leaving cancel the backoff. Closing
+releases phone tracks and peers. Provider failures are injected at the
+WebSocket boundary; they are not observations of paid provider failures.
+
 ## Rehearsal limits
 
 The change retains unlimited demo behavior from `TRY_ON_TESTING_MODE=1` and

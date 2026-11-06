@@ -171,5 +171,21 @@
     "Video transport does not establish garment accuracy, identity preservation, speech-to-garment latency, or physical-device behavior.",
     "Fixture timings cannot establish provider latency.",
     "No production build or deployment verification ran."
-  ]
+  ],
+  "syntheticRecovery": {
+    "checks": [
+      "original-phone-preview-visible-before-processing-consent",
+      "unknown-signaling-failure-retries-and-billing-stops-with-correct-reason",
+      "terminal-provider-error-does-not-retry: rejected access",
+      "terminal-provider-error-does-not-retry: could not accept this outfit",
+      "capacity-retries-stop-after-three-attempts-with-phone-still-streaming",
+      "revoking-processing-consent-cancels-retries-and-keeps-local-phone-preview",
+      "leaving-mirror-cancels-retry-and-retains-phone-for-photo-mode",
+      "closing-mirror-releases-phone-and-all-peers"
+    ],
+    "errors": [],
+    "requests": 9,
+    "sockets": 9,
+    "limits": "Real two-browser local WebRTC with synthetic media; provider WebSocket failures are injected, not paid provider error observations."
+  }
 }
