@@ -8,7 +8,7 @@ Two approaches were considered. Accounts and cloud photo storage could synchroni
 
 The existing curated preview route accepts its original fields. A saved board supplies `savedLookId` instead of `costumeSlug`. The server reads the saved record and rejects client product IDs that differ. Saved boards currently supply product names as text references. They do not fetch merchant images or upload source screenshots. These previews remain approximate; visual product fidelity has not been demonstrated.
 
-Screenshot and clip item events carry an HMAC receipt. The save route verifies each receipt before accepting product fields. The receipt key derives from `SAVED_LOOK_SIGNING_SECRET`, or the existing server-only Turso credential. Development without a stable credential uses a process key; its receipts expire when that process restarts. Production requires a stable secret. Receipt payloads always normalize private sizes to `null`.
+Screenshot and clip item events carry an HMAC receipt. The save route verifies each receipt before accepting product fields. The receipt key derives from `SAVED_LOOK_SIGNING_SECRET`, or the existing server-only Turso credential. Development without a stable credential uses a process key; its receipts expire when that process restarts. Production saving requires a stable secret. Without one, screenshot and clip streams still emit candidates and product items, with no receipt field. Saving returns a clear HTTP 503 while found pieces remain on the board. Receipt payloads always normalize private sizes to `null`.
 
 The private random `requestId` lets the browser update its screenshot board while keeping the public look ID stable. Public GET responses omit this edit capability. A missing-piece retry creates a separate saved copy and retains all other rows. Repeating the retry request ID reopens its saved result rather than repeating paid work.
 
@@ -36,3 +36,10 @@ Cleanup deleted only the exact test primary key and its private request ID. A se
 No paid sourcing or image generation ran. Another campaign lane confirmed that the existing OpenAI account returns HTTP 429 for exhausted credit. This lane did not repeat that request. Missing-piece retry provider success and visual preview fidelity remain unverified. Browser interaction and integrated cart continuity belong to the UI and independent QA lanes.
 
 Next Turbopack could not resolve the shared `node_modules` symlink outside this isolated worktree. The scoped server used `next dev --webpack`, and its real routes worked. No framework configuration was changed for that workaround.
+
+
+## Production signing availability regression
+
+`bun scripts/verify-sourced-event-availability.mjs --clip` passed five checks against the actual route stream implementations. The clip route was taken from campaign clip commit `592c47d` for the isolated check; those temporary files were removed afterward. Only paid vision and product sourcing boundaries used fixtures. Real image decoding, event construction, receipt behavior and save-route handling ran.
+
+With `NODE_ENV=production` and both signing credentials absent, the default screenshot path emitted both candidate and product events. The OpenCV path retained its product and human-approval events. The clip path also emitted its products. Every stream completed, and no event contained an invented receipt. The save route returned HTTP 503 with a clear availability message. Providing a stable test signing key produced a valid, verifiable receipt. No database or external request ran.

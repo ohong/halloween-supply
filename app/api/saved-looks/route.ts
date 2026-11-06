@@ -2,7 +2,7 @@ import { z } from "zod";
 import { PreviewError } from "@/lib/ai/openai";
 import { isDatabaseConfigured } from "@/lib/db/client";
 import { customPieceSchema, validateCustomItem } from "@/lib/custom-looks/validate";
-import { verifySourcedItem } from "@/lib/custom-looks/item-proof";
+import { isSourcedItemSigningAvailable, verifySourcedItem } from "@/lib/custom-looks/item-proof";
 import { saveScreenshotLook } from "@/lib/custom-looks/store";
 import { savedLookBody, savedLookFailure, savedLookReply } from "@/lib/custom-looks/http";
 
@@ -14,6 +14,7 @@ const schema = z.object({
 export async function POST(request: Request) {
   try {
     const body = await savedLookBody(request, schema);
+    if (!isSourcedItemSigningAvailable()) throw new PreviewError(503, "Saving this look is unavailable right now. Your found pieces remain on this board.");
     const pieces = body.pieces.map(({ piece, item, proof }) => {
       if (item === null) return { piece, item: null };
       const validated = validateCustomItem({ ...(item as object), size: null });
