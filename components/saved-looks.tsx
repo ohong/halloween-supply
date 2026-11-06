@@ -2,6 +2,7 @@
 
 import { useSyncExternalStore } from "react";
 import { Heart } from "./icons";
+import { removeLocalLook, saveLocalLook, type LookSelection } from "@/lib/look-selection";
 
 const storageKey = "halloween-supply-saved";
 let fallback = "[]";
@@ -38,8 +39,12 @@ export function useSavedLooks() {
   return { saved, toggle };
 }
 
-export function SaveLook({ slug, name, showLabel = false }: { slug: string; name: string; showLabel?: boolean }) {
+export function SaveLook({ slug, name, showLabel = false, snapshot, sizes, disabled = false }: { slug: string; name: string; showLabel?: boolean; snapshot?: LookSelection; sizes?: Record<string, string | null>; disabled?: boolean }) {
   const { saved, toggle } = useSavedLooks();
   const isSaved = saved.includes(slug);
-  return <button type="button" className={`save-look ${showLabel ? "save-look-labeled" : ""} ${isSaved ? "is-saved" : ""}`} aria-label={`${isSaved ? "Unsave" : "Save"} ${name}`} aria-pressed={isSaved} onClick={() => toggle(slug)}><Heart filled={isSaved} />{showLabel && (isSaved ? "Look saved" : "Save this look")}</button>;
+  return <button type="button" className={`save-look ${showLabel ? "save-look-labeled" : ""} ${isSaved ? "is-saved" : ""}`} aria-label={`${isSaved ? "Unsave" : "Save"} ${name}`} aria-pressed={isSaved} disabled={disabled} onClick={() => {
+    if (isSaved) removeLocalLook(slug);
+    else if (snapshot) saveLocalLook(snapshot, sizes);
+    toggle(slug);
+  }}><Heart filled={isSaved} />{showLabel && (isSaved ? "Look saved" : "Save this look")}</button>;
 }
