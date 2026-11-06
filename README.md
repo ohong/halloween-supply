@@ -10,7 +10,10 @@ Updated November 6, 2026, for the campaign that started November 5. Halloween ha
 Event readiness uses the shopper's event date; it does not promise an October 31
 arrival. The [campaign ledger](docs/swarm/2026-11-05/README.md) records implementation,
 verification, and remaining dependencies for the ten approved improvements.
-It does not establish a new production release.
+PRs #33, #34, and #35 merged in order. Production application commit `311a8f7`
+passed hosted shopping and catalog checks. The
+[production report](docs/verification/production-2026-11-06.md) records provider
+failures, stock limits, and the remaining unverified paths.
 
 ## Shopping paths
 
@@ -33,6 +36,7 @@ Read the ledger before claiming that a campaign path passed runtime checks.
 Ten completion kits select defining pieces and state owned basics. Their stored
 new-piece subtotals range from $13.50 to $98.39 before supplies, tax, and shipping.
 Owned items are prerequisites. Delivery remains unconfirmed for all ten kits.
+On November 6, nine kits are eligible; Linen Ghost blocks its sold-out sheet.
 See [kit evidence](docs/swarm/2026-11-05/kits.md) for fit, assembly, and stock limits.
 
 Clip input is off unless `CLIP_COSTUME_ENABLED=1` and an explicit
@@ -49,8 +53,8 @@ Publication and refresh must preserve all 50 catalogs and unrelated product fact
 Sourcing permits retailers and marketplaces, including larger merchants.
 Products still need direct merchant evidence and valid product URLs. URL safety,
 short-link rules, relevance checks, and checkout verification remain in force.
-The broader accepted policy is reconciled in the campaign; a local patch alone
-does not establish deployment.
+The accepted broader policy is deployed through #33. Each offer still needs its
+own merchant verification.
 
 Checkout rechecks current merchant price, stock, and size. Shoppers must accept
 price changes. The total is the sum of merchant prices: no markup, concierge fee,

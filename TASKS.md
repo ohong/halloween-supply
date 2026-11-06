@@ -26,7 +26,9 @@ Preserve guest checkout, merchandise-price totals without a shipping line,
 private sizes, broad retailer sourcing, and unrestricted repeated demonstrations.
 Do not replace the 50-look catalog with an old bundled snapshot.
 
-The campaign has not established a new deployment, completed payment,
-fulfilled order, physical iPhone pass, or COOL speed advantage. Record only
-commands actually run in the evidence ledger. Halloween has passed; use general
-event dates and show uncertain arrival.
+The [production report](docs/verification/production-2026-11-06.md) records the
+authorized release, 12/12 hosted browser groups, all 50 catalogs, and one verified,
+expired unpaid Stripe TEST session. Nine kits are eligible; Linen Ghost blocks
+its sold-out sheet. Provider, saved-board persistence, physical phone, relay, and
+fidelity limits remain open. No completed payment, fulfilled order, or COOL speed
+advantage is established. Use general event dates and show uncertain arrival.

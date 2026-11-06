@@ -1,8 +1,10 @@
 # Campaign review stack
 
-The campaign has three open, dependent PRs. Each layer addresses one reviewable
-product boundary. Merge order is **#33 → #34 → #35**. No PR has been merged and no
-production release is claimed.
+The campaign's three dependent PRs merged on November 6, 2026, in order:
+**#33 → #34 → #35**. Both children were retargeted to main before merging.
+Production serves combined application commit `311a8f7`.
+See the [production results and remaining blockers](../../verification/production-2026-11-06.md).
+The layer descriptions below retain the original review boundaries and evidence.
 
 ```text
 main
@@ -19,7 +21,7 @@ The foundation was also built and smoke-tested independently. GitHub Actions
 checks each PR's own source and base. A combined local pass alone does not prove
 that every reconstructed layer works independently.
 
-| Layer | Branch | PR base | PR URL |
+| Layer | Branch | Original PR base | PR URL |
 | --- | --- | --- | --- |
 | Foundation | `codex/shopping-foundation` | `main` | [#33](https://github.com/ohong/halloween-supply/pull/33) |
 | Shopping look continuity | `codex/shopping-look-continuity` | `codex/shopping-foundation` | [#34](https://github.com/ohong/halloween-supply/pull/34) |
@@ -28,8 +30,8 @@ that every reconstructed layer works independently.
 Recorded source heads are `8f3645bc161e5b8b45f59f81bb6fa6df30ed1475`,
 `44ef9575b764035fe60678748585e2663643f480`, and
 `33fde0500b39d0ad93380a8ba78be596e5ea5d7d`, respectively. The last layer also
-contains the final documentation and QA-evidence update. Its PR shows the current
-tip and checks.
+contains the final documentation and QA-evidence update. Its merged PR retains
+that reviewed tip and its checks.
 
 At closeout, [foundation Actions](https://github.com/ohong/halloween-supply/actions/runs/42180233603)
 and [shopping Actions](https://github.com/ohong/halloween-supply/actions/runs/42180591631)
@@ -122,11 +124,11 @@ all-50-catalog smoke checks, and all 12 integrated shopping QA groups passed at
 the media source head above. The final QA update records a missing signing
 configuration guard separately from configured product validation.
 
-Merge #33 first. Then retarget #34 to main, verify its resulting diff and checks,
-and merge it. Retarget #35 to main after #34, verify again, then merge it. These
-are handoff instructions, not authorization to merge. Do not squash a parent
-without checking that the child diff contains only its intended layer.
+The authorized release followed the planned order. #33 merged as `f6d40e3`, #34
+as `57c699a`, and #35 as `311a8f7`. Each calculated child merge tree matched its
+reviewed source tree. Merge commits preserved the expected ancestry.
 
-New production deployment, payment, fulfillment, physical-device, and
-provider-success claims require their own evidence. The original dirty checkout
-is preserved. [Open loops](open-loops.md) lists the remaining release conditions.
+The [production report](../../verification/production-2026-11-06.md) records hosted
+shopping, one unpaid and expired Stripe TEST session, real video transport, and
+provider failures. Physical-device and fidelity limits remain open. The original
+dirty checkout is preserved. [Open loops](open-loops.md) lists the remaining conditions.

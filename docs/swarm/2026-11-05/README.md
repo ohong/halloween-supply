@@ -15,6 +15,14 @@ The [review stack](pr-stack.md) groups the changes into foundation, shopping loo
 continuity, and media/documentation layers. Kits, discovery, and destination
 restoration stay together so the intermediate product has working kit links.
 
+Release follow-up, November 6: #33, #34, and #35 merged in order. Production
+serves `311a8f7`. Hosted shopping passed 12/12 groups; catalog checks passed 55.
+Nine kits are ready; Linen Ghost correctly blocks a sold-out sheet. One real
+unpaid Stripe TEST session was verified and expired. Read the
+[production report](../../verification/production-2026-11-06.md) for current
+provider failures, exact evidence scopes, and remaining blockers. The records
+below describe the earlier implementation and local verification campaign.
+
 ## Status meanings
 
 - **Implemented:** the owner completed the source change. This alone does not
@@ -35,7 +43,7 @@ restoration stay together so the intermediate product has working kit links.
 | 6 | Phone camera connection | Implemented (`4f51bd9`, `d460168`) with Metered diagnostics, direct fallback, bounded recovery, source retention, and cleanup | Four synthetic Chromium runs passed; latest 16-check run confirms 11 decoded raw frames | Blocked: no TURN credentials. Forced relay, physical iPhone/Safari, separate networks, cellular handoff, and phone live inference remain unverified. |
 | 7 | Mirror controls and timing | Implemented; independent follow-ups run together and stale responses are rejected | Seven browser fixtures, source/reference guards, and real Lucy synthetic transport passed | Blocked on OpenAI credit for real commands. No before/after latency comparison or garment/identity fidelity result. |
 | 8 | Anonymous measurement | Implemented with allowlisted host logs and aggregate CLI | Helper/endpoint/stdout checks passed; integrated shopping clicks produced 53 valid events across 14 browser journeys | Actual preview/redirect funnel, production collection, host retention/export, provider usage, and billing remain unverified. |
-| 9 | Release base and checks | Three dependent PRs open; quality workflow and production runner implemented | Production build, strict baseline, and all 12 integrated shopping QA groups passed locally; foundation and shopping hosted CI and all three preview builds passed | The stack page links each final head's checks. Production deployment remains unverified. |
+| 9 | Release base and checks | Three dependent PRs merged; quality workflow and production runner implemented | Local and hosted CI passed. Production source `311a8f7` passed 55 catalog groups and 12 browser groups; all 100 model assets passed. | Provider and physical-device boundaries remain separate in the production report. |
 | 10 | Gated clip input | Implemented, default off (`7243600`) | 24 route/input checks passed without provider calls; typecheck and focused lint passed | Blocked: video probes returned 503 busy, 404 unavailable, and 429 quota. No model qualified; full YouTube/upload sourcing remains unverified. |
 
 The evidence below separates owner checks, the integrated local production
@@ -110,10 +118,10 @@ physical-device result, or fulfilled order.
 
 ### Stack review and hosted checks
 
-All three PRs are open in [merge order](pr-stack.md): #33 foundation, #34 shopping,
+All three PRs were prepared in [merge order](pr-stack.md): #33 foundation, #34 shopping,
 and #35 media. The first two source heads passed GitHub Actions and Vercel previews.
 The media preview also passed; its PR links checks for the final evidence-only
-tip. No PR has been merged, and no production release is claimed.
+tip. These were pre-merge checks. The later production release is recorded above.
 
 Structured Codex review inspected each layer against its actual parent branch.
 All three final reviews returned no actionable finding. Earlier accepted findings

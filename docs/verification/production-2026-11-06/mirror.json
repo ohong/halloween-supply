@@ -1,0 +1,132 @@
+{
+  "expectedCommit": "311a8f7355d6f3b7fe6c61a3fae6bc129879bbd1",
+  "startedAt": "2026-11-06T08:39:02.438Z",
+  "configuration": {
+    "healthStatus": 200,
+    "deployedCommit": "311a8f7355d6f3b7fe6c61a3fae6bc129879bbd1",
+    "health": {
+      "status": "degraded",
+      "database": {
+        "provider": "turso",
+        "configured": true,
+        "ok": true,
+        "latencyMs": 278,
+        "costumes": 50,
+        "products": 470
+      },
+      "catalog": {
+        "costumeSlug": "cosmic-cowboy",
+        "source": "database",
+        "facts": {
+          "status": "fresh",
+          "evaluatedAt": "2026-11-06T08:39:03.463Z",
+          "maxAgeHours": 36,
+          "products": 15,
+          "fresh": 15,
+          "stale": 0,
+          "missingOrInvalidCheckedAt": 0,
+          "oldestCheckedAt": "2026-11-05T10:00:41.128Z",
+          "newestCheckedAt": "2026-11-05T10:01:02.412Z",
+          "stock": {
+            "inStock": 15,
+            "outOfStock": 0,
+            "unknown": 0
+          }
+        },
+        "pieces": 5,
+        "products": 15,
+        "complete": true,
+        "pricePointsComplete": true
+      }
+    },
+    "videoStatus": 200,
+    "video": {
+      "videoAvailable": true,
+      "voiceAvailable": true,
+      "provider": "fal",
+      "model": "decart/lucy-2-5/realtime",
+      "maxSessionSeconds": null
+    },
+    "commitVerifiedAt": "2026-11-06T08:39:44.804Z",
+    "exactExpectedCommit": true
+  },
+  "video": {
+    "tokenRoute": {
+      "status": 200,
+      "credentialIssued": true,
+      "configuredModel": "decart/lucy-2-5/realtime"
+    },
+    "result": {
+      "status": "decoded",
+      "width": 1280,
+      "height": 720
+    },
+    "transport": {
+      "streams": [
+        {
+          "connectionState": "connected",
+          "inbound": [
+            {
+              "framesDecoded": 2,
+              "bytesReceived": 22797
+            }
+          ]
+        }
+      ],
+      "states": [
+        "connecting",
+        "connected"
+      ]
+    }
+  },
+  "command": {
+    "status": 503,
+    "responseMs": 3006,
+    "actionTypes": [],
+    "error": "The voice provider needs account credit. You can still choose costume pieces manually.",
+    "result": "provider_or_route_rejected_single_attempt"
+  },
+  "limits": [
+    "Synthetic Chromium test pattern, no personal camera or microphone.",
+    "No garment accuracy, identity preservation or physical-device claim.",
+    "Browser-only voice isolation follows the existing video helper; no server configuration or quota was changed."
+  ],
+  "cleanup": {
+    "tracks": [
+      {
+        "kind": "video",
+        "readyState": "ended"
+      }
+    ],
+    "peers": [
+      "closed"
+    ],
+    "cameraRequests": 1,
+    "microphoneRequests": 0,
+    "timings": [
+      {
+        "stage": "provider_connect",
+        "mode": "video",
+        "durationMs": 2828.2
+      },
+      {
+        "stage": "first_frame",
+        "mode": "video",
+        "durationMs": 1772.2
+      }
+    ]
+  },
+  "finishedAt": "2026-11-06T08:39:13.873Z",
+  "elapsedMs": 10969,
+  "counts": {
+    "tokenRequests": 1,
+    "blockedTokenRequests": 0,
+    "commandRequests": 1
+  },
+  "pageErrors": [],
+  "visualReview": {
+    "source": "Chromium synthetic test-pattern camera",
+    "observed": "Generated costume-wearing figure over the test pattern; original inset remains the synthetic pattern.",
+    "limits": "No real person was the input. This is not evidence of garment fidelity or identity preservation."
+  }
+}

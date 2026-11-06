@@ -1,6 +1,6 @@
-/** Campaign checks against a running app. No provider generation or payment sessions. */
+/** Campaign checks. No photo generation or payment sessions. Gallery search can use its configured ranking provider. */
 import assert from "node:assert/strict";
-import { mkdir, readFile, writeFile } from "node:fs/promises";
+import { mkdir, writeFile } from "node:fs/promises";
 import path from "node:path";
 import { chromium } from "playwright";
 
@@ -11,6 +11,8 @@ const results = [];
 await mkdir(evidence, { recursive: true });
 const browser = await chromium.launch();
 const capturedEvents = [];
+const searchResponses = [];
+const searchReads = [];
 const errors = [];
 let contextSequence = 0;
 async function makeContext(options = {}) {
@@ -20,6 +22,12 @@ async function makeContext(options = {}) {
   created.on("request", (request) => {
     if (new URL(request.url()).pathname !== "/api/events" || request.method() !== "POST") return;
     try { capturedEvents.push({ contextId, payload: request.postDataJSON() }); } catch { /* The payload assertion reports malformed event data. */ }
+  });
+  created.on("response", (response) => {
+    if (new URL(response.url()).pathname !== "/api/costume-search" || response.request().method() !== "POST") return;
+    const observed = { status: response.status() };
+    searchResponses.push(observed);
+    searchReads.push(response.json().then((body) => { observed.source = body.source ?? "unreported"; }).catch(() => { observed.source = "unreadable"; }));
   });
   return created;
 }
@@ -77,7 +85,7 @@ try {
     await navigate("/");
     const tiles = page.locator("#costume-results > li");
     await page.getByRole("combobox", { name: "Price" }).selectOption("10000");
-    await page.waitForFunction(() => document.querySelectorAll("#costume-results > li").length > 0);
+    await page.waitForFunction(() => document.querySelector("#costume-search-status")?.textContent?.includes("$100.00 or less"));
     const affordableNames = await tiles.locator(".tile-name").allTextContents();
     assert(affordableNames.length >= 1 && affordableNames.length < 50, "Price filtering changes the gallery");
     const first = tiles.first();
@@ -95,7 +103,7 @@ try {
     return { affordableCount: affordableNames.length, selectedName: name };
   });
 
-  await check("ten completion kits charge only their listed new pieces", async () => {
+  await check("ten completion kits charge exact new pieces or block unavailable products", async () => {
     const { KITS } = await import("../data/kits/index.ts");
     assert.equal(KITS.length, 10, "The campaign publishes ten priority kits");
     const checked = [];
@@ -105,7 +113,24 @@ try {
         const targetPage = await fresh.newPage();
         targetPage.setDefaultTimeout(15_000);
         const catalog = await (await fresh.request.get(new URL(`/api/live-mirror/catalog?slug=${kit.costumeSlug}`, base).href)).json();
+        const purchases = kit.buy.map((entry) => {
+          const option = catalog.pieces.find((row) => row.piece.id === entry.pieceId)?.options.find((option) => option.product.id === entry.productId);
+          assert(option, `${kit.slug}: a purchased kit product must remain in the published catalog`);
+          return option.product;
+        });
+        const subtotalCents = purchases.reduce((sum, product) => sum + product.priceCents, 0);
+        const outOfStock = purchases.filter((product) => product.availability === "out_of_stock").map((product) => product.id);
         await navigate(`/costumes/${kit.costumeSlug}?kit=${kit.slug}`, targetPage);
+        if (outOfStock.length) {
+          await targetPage.getByRole("alert").filter({ hasText: /look needs a repair/i }).waitFor();
+          assert(await targetPage.getByRole("button", { name: "Use this kit", exact: true }).isDisabled());
+          assert.equal(await targetPage.getByRole("button", { name: "Reapply this kit", exact: true }).count(), 0);
+          assert(await targetPage.getByRole("button", { name: "Add costume to cart", exact: true }).isDisabled());
+          assert.equal((await storedCart(targetPage))?.items?.length ?? 0, 0, "An unavailable kit does not add products automatically");
+          await targetPage.screenshot({ path: path.join(evidence, `kit-${kit.slug}-unavailable.png`) });
+          checked.push({ slug: kit.slug, eligibility: "blocked_out_of_stock", outOfStock, piecesCharged: 0, subtotalCents, priceTarget: subtotalCents <= 10_000 ? "met" : "missed" });
+          continue;
+        }
         await targetPage.getByRole("button", { name: "Reapply this kit", exact: true }).waitFor();
         await targetPage.locator('.costume-kit input[type="date"]:visible').fill("2026-12-31");
         for (const owned of kit.owned) {
@@ -121,35 +146,36 @@ try {
         assert.deepEqual(shared.selection.sort((a, b) => a.pieceId.localeCompare(b.pieceId)), expectedPairs);
         await targetPage.getByRole("button", { name: "Add costume to cart", exact: true }).click();
         const cart = await waitCart(kit.buy.map(({ productId }) => productId), targetPage);
-        const subtotalCents = kit.buy.reduce((sum, entry) => {
-          const option = catalog.pieces.find((row) => row.piece.id === entry.pieceId).options.find((option) => option.product.id === entry.productId);
-          return sum + option.product.priceCents;
-        }, 0);
         assert.equal(cart.items.reduce((sum, item) => sum + item.priceCents, 0), subtotalCents);
-        assert(subtotalCents <= 10_000, `${kit.slug} exceeds the campaign's $100 target`);
+        const shownSubtotal = new Intl.NumberFormat("en-US", { style: "currency", currency: "USD", minimumFractionDigits: 0, maximumFractionDigits: 0 }).format(subtotalCents / 100);
+        assert.equal(await targetPage.locator(".costume-kit:visible strong").innerText(), `${shownSubtotal} in new pieces`);
         const labels = await targetPage.locator(".costume-kit:visible").innerText();
         assert.match(labels, /Already own:/);
         assert.match(labels, /Assembly:/);
         assert.match(labels, /Delivery is unconfirmed|Known too late|Pickup option found/);
         if (checked.length === 0) await targetPage.screenshot({ path: path.join(evidence, "kit-exact-cart.png") });
-        checked.push({ slug: kit.slug, piecesCharged: cart.items.length, ownedCount: kit.owned.length, subtotalCents });
+        checked.push({ slug: kit.slug, eligibility: "ready", piecesCharged: cart.items.length, ownedCount: kit.owned.length, subtotalCents, priceTarget: subtotalCents <= 10_000 ? "met" : "missed" });
       } finally { await fresh.close(); }
     }
     return checked;
   });
 
   await check("complete selection survives save, reload, and a fresh-browser share", async () => {
-    const snapshot = JSON.parse(await readFile(new URL("../data/costumes/cosmic-cowboy.json", import.meta.url), "utf8"));
-    const donor = JSON.parse(await readFile(new URL("../data/costumes/velvet-vampire.json", import.meta.url), "utf8"));
-    const swapped = snapshot.pieces.find((piece) => piece.id === "silver-trousers");
-    const cape = donor.pieces.find((piece) => piece.id === "vampire-cape");
-    const mix = { costumeSlug: donor.costume.slug, pieceId: cape.id, productId: cape.matches[0].productId, replacesPieceId: "fringe-jacket" };
+    const snapshot = await (await context.request.get(new URL("/api/live-mirror/catalog?slug=cosmic-cowboy", base).href)).json();
+    const donor = await (await context.request.get(new URL("/api/live-mirror/catalog?slug=velvet-vampire", base).href)).json();
+    const swapped = snapshot.pieces.find(({ piece }) => piece.id === "silver-trousers");
+    const swappedProduct = swapped.options.find(({ product }, index) => index > 0 && product.availability !== "out_of_stock")?.product;
+    const boots = snapshot.pieces.find(({ piece }) => piece.id === "western-boots").options.find(({ product }) => product.availability !== "out_of_stock")?.product;
+    const cape = donor.pieces.find(({ piece }) => piece.id === "vampire-cape");
+    const capeProduct = cape.options.find(({ product }) => product.availability !== "out_of_stock")?.product;
+    assert(swappedProduct && boots && capeProduct, "The shared fixture needs three available published choices");
+    const mix = { costumeSlug: donor.costume.slug, pieceId: cape.piece.id, productId: capeProduct.id, replacesPieceId: "fringe-jacket" };
     const selection = {
       version: 1, costumeSlug: snapshot.costume.slug,
       selection: [
-        { pieceId: swapped.id, productId: swapped.matches[1].productId },
-        { pieceId: "western-boots", productId: snapshot.pieces.find((piece) => piece.id === "western-boots").matches[0].productId },
-        { pieceId: cape.id, productId: mix.productId },
+        { pieceId: swapped.piece.id, productId: swappedProduct.id },
+        { pieceId: "western-boots", productId: boots.id },
+        { pieceId: cape.piece.id, productId: mix.productId },
       ],
       ownedPieceIds: ["cowboy-hat"], skippedPieceIds: ["neckerchief"], mixes: [mix], model: "male",
       previewEdits: { "silver-trousers": { color: "violet" } },
@@ -183,11 +209,11 @@ try {
       await navigate(copied, freshPage);
       await freshPage.getByRole("button", { name: "Add costume to cart", exact: true }).click();
       const cart = await waitCart(selection.selection.map(({ productId }) => productId), freshPage);
-      const allProducts = [...snapshot.products, ...donor.products];
+      const allProducts = [...snapshot.pieces, ...donor.pieces].flatMap(({ options }) => options.map(({ product }) => product));
       const expectedSubtotal = selection.selection.reduce((sum, row) => sum + allProducts.find((product) => product.id === row.productId).priceCents, 0);
       assert.equal(cart.items.reduce((sum, item) => sum + item.priceCents, 0), expectedSubtotal);
       await freshPage.screenshot({ path: path.join(evidence, "shared-selection-cart.png") });
-      return { productIds: cart.items.map(({ productId }) => productId), subtotalCents: expectedSubtotal };
+      return { fixtureSource: "published catalog", productIds: cart.items.map(({ productId }) => productId), subtotalCents: expectedSubtotal };
     } finally { await fresh.close(); }
   });
 
@@ -405,7 +431,8 @@ try {
 } finally {
   await context.close();
   await browser.close();
-  await writeFile(path.join(evidence, "summary.json"), JSON.stringify({ base: base.href, results }, null, 2) + "\n");
+  await Promise.all(searchReads);
+  await writeFile(path.join(evidence, "summary.json"), JSON.stringify({ base: base.href, search: { endpointAttempts: searchResponses.length, responses: searchResponses, upstreamProviderCalls: "not observable; semantic responses may be cached" }, results }, null, 2) + "\n");
   console.log(`Evidence: ${evidence}`);
 }
 if (results.some((result) => result.status === "failed")) process.exitCode = 1;

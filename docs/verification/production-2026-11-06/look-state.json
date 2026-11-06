@@ -1,0 +1,126 @@
+{
+  "checkedAt": "2026-11-06T08:40:14.821Z",
+  "expectedCommit": "311a8f7355d6f3b7fe6c61a3fae6bc129879bbd1",
+  "identityEstablished": false,
+  "persistenceAttempted": false,
+  "persistedRecords": 0,
+  "providerCallsRequested": 0,
+  "checks": [
+    {
+      "label": "deployed_commit_and_database_config",
+      "status": 200,
+      "passed": true
+    },
+    {
+      "label": "curated_catalog_server_references",
+      "status": 200,
+      "passed": true
+    },
+    {
+      "label": "live_catalog_swap_owned_and_incomplete_snapshot_reference_checks",
+      "passed": true
+    },
+    {
+      "label": "configured_unsigned_save_guard",
+      "status": 400,
+      "passed": true
+    },
+    {
+      "label": "tampered_receipt_guard",
+      "status": 400,
+      "passed": true
+    },
+    {
+      "label": "unsafe_image_url_guard",
+      "status": 400,
+      "passed": true
+    },
+    {
+      "label": "signed_duplicate_stops_before_database_write",
+      "status": 400,
+      "passed": true
+    },
+    {
+      "label": "oversized_save_body_guard",
+      "status": 413,
+      "passed": true
+    },
+    {
+      "label": "cross_origin_save_guard",
+      "status": 403,
+      "passed": true
+    },
+    {
+      "label": "invalid_saved_lookup_guard",
+      "status": 404,
+      "passed": true
+    },
+    {
+      "label": "invalid_saved_retry_guard",
+      "status": 404,
+      "passed": true
+    },
+    {
+      "label": "incomplete_curated_photo_reference_guard",
+      "status": 400,
+      "passed": true
+    },
+    {
+      "label": "invented_curated_product_reference_guard",
+      "status": 400,
+      "passed": true
+    },
+    {
+      "label": "required_piece_skip_guard",
+      "status": 400,
+      "passed": true
+    },
+    {
+      "label": "mutually_exclusive_saved_and_curated_sources",
+      "status": 400,
+      "passed": true
+    },
+    {
+      "label": "invalid_saved_photo_id_guard",
+      "status": 400,
+      "passed": true
+    },
+    {
+      "label": "photo_consent_guard",
+      "status": 400,
+      "passed": true
+    }
+  ],
+  "actualCommit": "311a8f7355d6f3b7fe6c61a3fae6bc129879bbd1",
+  "configuredAvailability": {
+    "databaseConfigured": true,
+    "databaseReadsHealthy": true,
+    "openaiKeyPresent": true,
+    "signingConfiguredObserved": true
+  },
+  "localReceiptAcceptedBeforeDuplicateGuard": true,
+  "localReceiptMismatch": false,
+  "ok": true,
+  "passedChecks": 17,
+  "failedChecks": 0,
+  "persistenceLimit": "Not attempted: no confirmed production database identity mapping. Catalog parity and matching receipt credentials do not establish database identity.",
+  "paidInferenceLimit": "No image generation or product sourcing requested. Saved-product success, missing-piece retry and visual fidelity are not newly established.",
+  "priorUnconfiguredGuard": {
+    "scope": "Earlier local production-mode fixture, not a fresh hosted observation",
+    "saveStatus": 503,
+    "streamProductsPreserved": true
+  },
+  "hostedSignatureBoundary": {
+    "unsignedSaveStatus": 400,
+    "signedDuplicateStatus": 400,
+    "existingLocalCredentialReceiptAccepted": true,
+    "provesDatabaseIdentity": false
+  },
+  "freshPersistenceValidation": {
+    "attempted": false,
+    "recordsCreated": 0,
+    "recordsDeleted": 0,
+    "reason": "No confirmed mapping from original local database connection to production. No production secrets retrieved."
+  },
+  "browserContinuityChecked": false
+}

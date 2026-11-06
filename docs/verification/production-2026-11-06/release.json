@@ -1,0 +1,51 @@
+{
+  "productionUrl": "https://halloween.supply",
+  "productionCommit": "311a8f7355d6f3b7fe6c61a3fae6bc129879bbd1",
+  "deploymentId": "dpl_ozRQdicD289XT39sDBxFjTQ9uCSL",
+  "state": "READY",
+  "framework": "Next.js 16.4.3",
+  "mergeOrder": [
+    33,
+    34,
+    35
+  ],
+  "merges": {
+    "33": {
+      "head": "8f3645bc161e5b8b45f59f81bb6fa6df30ed1475",
+      "merge": "f6d40e3a2d6eee2a10eaa768dc95f98a40e7cade"
+    },
+    "34": {
+      "head": "44ef9575b764035fe60678748585e2663643f480",
+      "merge": "57c699a0d19c5e58c74f93a27e598781ec98a923"
+    },
+    "35": {
+      "head": "49736a3baeeffcb17f5d0cd133826ecfa4260301",
+      "merge": "311a8f7355d6f3b7fe6c61a3fae6bc129879bbd1"
+    }
+  },
+  "mainCi": {
+    "status": "success",
+    "url": "https://github.com/ohong/halloween-supply/actions/runs/42188502734"
+  },
+  "review": {
+    "standardsReleaseBlockers": 0,
+    "specReleaseBlockers": 0,
+    "openReviewThreads": 0
+  },
+  "observability": {
+    "windowStart": "2026-11-06T08:35:00Z",
+    "windowEnd": "2026-11-06T08:46:59Z",
+    "scopedErrorLogsReturned": 0,
+    "runtimeErrorsReturned": 0,
+    "drainInspection": "API returned404; export and retention not verified",
+    "telemetryLogEntriesAtEventsRoute": 103,
+    "telemetryScope": "Deployment-scoped verification window; includes earlier run and diagnostics, not only the final 53 browser events."
+  },
+  "modelGallery": {
+    "exitCode": 0,
+    "checkGroups": 3,
+    "modelAssets": 100,
+    "costumePages": 50,
+    "reviewedHashesAndServedBytesMatch": true
+  }
+}
