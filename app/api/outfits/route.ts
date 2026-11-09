@@ -2,15 +2,18 @@ import { z } from "zod";
 import { getCostume } from "@/lib/catalog";
 import { outfitRequestSchema, StylistError } from "@/lib/stylist/contracts";
 import { styleOutfit } from "@/lib/stylist/decide";
+import { guardProvider, UNAVAILABLE, type Release } from "@/lib/guard";
 
 export const maxDuration = 300;
 const MAX_BODY = 16_000;
 // Bound simultaneous provider work without limiting repeated demo attempts.
-let active = 0;
+const guard = guardProvider("outfits", { maxActive: 4 });
 
 function reserve() {
-  if (active >= 4) throw new StylistError(429, "The personal stylist is busy. Please try again shortly.", "busy");
-  active++;
+  const release = guard.acquire();
+  if (release === "disabled") throw new StylistError(503, UNAVAILABLE, "provider_unavailable");
+  if (release === "busy") throw new StylistError(429, "The personal stylist is busy. Please try again shortly.", "busy");
+  return release;
 }
 
 async function readBody(request: Request): Promise<unknown> {
@@ -31,7 +34,7 @@ async function readBody(request: Request): Promise<unknown> {
 }
 
 export async function POST(request: Request) {
-  let reserved = false;
+  let release: Release | undefined;
   const respond = (status: number, body: object) => Response.json(body, { status, headers: { "Cache-Control": "private, no-store", "X-Content-Type-Options": "nosniff" } });
   try {
     const origin = request.headers.get("origin");
@@ -39,7 +42,7 @@ export async function POST(request: Request) {
     const body = outfitRequestSchema.parse(await readBody(request));
     const costume = await getCostume(body.costumeSlug);
     if (!costume) throw new StylistError(404, "That costume is not in the catalog.", "invalid_request");
-    reserve(); reserved = true;
+    release = reserve();
     const result = await styleOutfit(costume, body, request.signal);
     return respond(200, result);
   } catch (error) {
@@ -48,5 +51,5 @@ export async function POST(request: Request) {
     if (error instanceof Error && ["AbortError", "TimeoutError"].includes(error.name)) return respond(504, { error: "The personal stylist took too long. Please try again later.", code: "provider_unavailable" });
     console.warn("[stylist] Outfit comparison failed", error instanceof Error ? error.name : "UnknownError");
     return respond(502, { error: "The personal stylist could not finish. Please try again later.", code: "provider_unavailable" });
-  } finally { if (reserved) active--; }
+  } finally { release?.(); }
 }

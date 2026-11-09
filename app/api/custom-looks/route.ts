@@ -5,6 +5,7 @@ import { sourcePiece, toCartItem } from "@/lib/custom-looks/source";
 import { claimCustomLook, readCustomLookRequest, saveCustomLook } from "@/lib/custom-looks/store";
 import { validateCustomItem } from "@/lib/custom-looks/validate";
 import type { CustomLook, CustomLookEvent } from "@/lib/custom-looks/types";
+import { guardProvider, UNAVAILABLE, type Release } from "@/lib/guard";
 
 export const maxDuration = 180;
 
@@ -16,7 +17,7 @@ const bodySchema = z.object({
 }).strict();
 const headers = { "Cache-Control": "private, no-store", "X-Content-Type-Options": "nosniff" };
 const reply = (status: number, body: object) => Response.json(body, { status, headers });
-let active = 0;
+const guard = guardProvider("custom-looks", { maxActive: 3 });
 
 class RequestError extends Error {
   constructor(public status: number, message: string) { super(message); }
@@ -24,8 +25,10 @@ class RequestError extends Error {
 
 // This bounds one process. The durable request claim prevents duplicate work across processes.
 function reserve() {
-  if (active >= 3) throw new RequestError(429, "Costume creation is busy. Please try again shortly.");
-  active++;
+  const release = guard.acquire();
+  if (release === "disabled") throw new RequestError(503, UNAVAILABLE);
+  if (release === "busy") throw new RequestError(429, "Costume creation is busy. Please try again shortly.");
+  return release;
 }
 
 async function readBody(request: Request) {
@@ -81,7 +84,7 @@ async function untilAborted<T>(work: Promise<T>, signal: AbortSignal): Promise<T
 
 export async function POST(request: Request) {
   let claimed: CustomLook;
-  let reserved = false;
+  let release: Release | undefined;
   try {
     const origin = request.headers.get("origin");
     if ((origin && origin !== new URL(request.url).origin) || request.headers.get("sec-fetch-site") === "cross-site") {
@@ -95,15 +98,15 @@ export async function POST(request: Request) {
     if (!process.env.ANTHROPIC_API_KEY || !process.env.FIRECRAWL_API_KEY) {
       throw new RequestError(503, "Costume creation is unavailable right now. Please try again later.");
     }
-    reserve(); reserved = true;
+    release = reserve();
     const result = await claimCustomLook(body);
     if (!result.claimed) {
-      active--; reserved = false;
+      release(); release = undefined;
       return duplicate(result.look, body);
     }
     claimed = result.look;
   } catch (error) {
-    if (reserved) active--;
+    release?.();
     if (error instanceof RequestError) return reply(error.status, { error: error.message });
     if (error instanceof z.ZodError || error instanceof SyntaxError) return reply(400, { error: "Enter a costume idea between 3 and 160 characters and choose a model." });
     console.warn("[custom-look] Request could not start", error instanceof Error ? error.name : "UnknownError");
@@ -174,7 +177,7 @@ export async function POST(request: Request) {
         } catch { console.warn("[custom-look] Could not save terminal state"); }
         emit({ t: "error", text: message, ...(terminalSaved ? { retryWithNewRequestId: true } : {}) });
       } finally {
-        active--;
+        release?.();
         if (open) { open = false; controller.close(); }
       }
     },
