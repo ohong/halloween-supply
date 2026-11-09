@@ -22,7 +22,7 @@ const pieces = [
 ];
 const look = { character: "Silver and black western outfit", summary: "Fixture outfit.", pieces };
 const seen = pieces.map((piece, id) => ({ id, slot: piece.slot, region: {}, crop_b64: "", colors: [], garment_types: [], area_frac: 0.5, pattern: "solid", query: piece.query, alternate: piece.alternate, outline: [] }));
-mock.module("../lib/sourcing/screenshot-vision", () => ({ SCREENSHOT_VISION_MODEL: "fixture-analysis", decomposeScreenshot: async () => look, labelSegments: async () => ({ pieces: [] }) }));
+mock.module("../lib/sourcing/screenshot-vision", () => ({ decomposeScreenshot: async () => look, labelSegments: async () => ({ pieces: [] }) }));
 mock.module("../lib/sourcing/vision-client", () => ({
   visionMode: () => mode, visionModel: async () => "fixture-opencv", analyze: async () => ({ person: { found: true, confidence: 1 }, timings_ms: {}, pieces: seen }), applyLabels: () => ({ seen, look }),
 }));
