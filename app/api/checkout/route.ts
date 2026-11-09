@@ -11,6 +11,7 @@ import { liveStripeWithoutWebhook } from "@/lib/env";
 import { verifyProduct, type Verification } from "@/lib/checkout/verify";
 import { isBlockedDomain, isNoiseDomain, registrableDomain } from "@/lib/sourcing/blocklist";
 import type { SizeKind } from "@/lib/types";
+import { captureError } from "@/lib/errors";
 
 export const maxDuration = 60;
 
@@ -281,6 +282,7 @@ export async function POST(request: Request) {
     return reply({ status: "ok", url: session.url, sessionId: session.id, priceChanges });
   } catch (e) {
     console.error("[checkout] session creation failed", e instanceof Error ? e.name : "UnknownError");
+    await captureError(e, { source: "checkout" });
     return fail("Checkout could not start. Please try again.", 500);
   }
 }

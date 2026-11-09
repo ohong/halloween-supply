@@ -3,6 +3,7 @@ import { getCostume } from "@/lib/catalog";
 import { outfitRequestSchema, StylistError } from "@/lib/stylist/contracts";
 import { styleOutfit } from "@/lib/stylist/decide";
 import { guardProvider, UNAVAILABLE, type Release } from "@/lib/guard";
+import { captureError } from "@/lib/errors";
 
 export const maxDuration = 300;
 const MAX_BODY = 16_000;
@@ -50,6 +51,7 @@ export async function POST(request: Request) {
     if (error instanceof z.ZodError || error instanceof SyntaxError) return respond(400, { error: "Choose a valid costume, dollar budget, sizes, and preferences.", code: "invalid_request" });
     if (error instanceof Error && ["AbortError", "TimeoutError"].includes(error.name)) return respond(504, { error: "The personal stylist took too long. Please try again later.", code: "provider_unavailable" });
     console.warn("[stylist] Outfit comparison failed", error instanceof Error ? error.name : "UnknownError");
+    await captureError(error, { source: "outfits" });
     return respond(502, { error: "The personal stylist could not finish. Please try again later.", code: "provider_unavailable" });
   } finally { release?.(); }
 }

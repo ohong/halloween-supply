@@ -1,6 +1,7 @@
 import { z } from "zod";
 import { normalizeSearchQuery } from "@/lib/costume-search";
 import { semanticSearch } from "@/lib/costume-search/server";
+import { captureError } from "@/lib/errors";
 
 export const maxDuration = 20;
 
@@ -44,6 +45,7 @@ export async function POST(request: Request) {
   } catch (error) {
     if (error instanceof z.ZodError || error instanceof SyntaxError) return respond({ error: "Enter a search of at most 160 characters." }, 400);
     if (request.signal.aborted) return new Response(null, { status: 499 });
+    await captureError(error, { source: "costume-search" });
     return respond({ error: "Search could not finish. Please try again." }, 502);
   }
 }

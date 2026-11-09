@@ -6,6 +6,7 @@ import { claimCustomLook, readCustomLookRequest, saveCustomLook } from "@/lib/cu
 import { validateCustomItem } from "@/lib/custom-looks/validate";
 import type { CustomLook, CustomLookEvent } from "@/lib/custom-looks/types";
 import { guardProvider, UNAVAILABLE, type Release } from "@/lib/guard";
+import { captureError } from "@/lib/errors";
 
 export const maxDuration = 180;
 
@@ -110,6 +111,7 @@ export async function POST(request: Request) {
     if (error instanceof RequestError) return reply(error.status, { error: error.message });
     if (error instanceof z.ZodError || error instanceof SyntaxError) return reply(400, { error: "Enter a costume idea between 3 and 160 characters and choose a model." });
     console.warn("[custom-look] Request could not start", error instanceof Error ? error.name : "UnknownError");
+    await captureError(error, { source: "custom-looks" });
     return reply(503, { error: "Your costume could not be saved. Please try again later." });
   }
 

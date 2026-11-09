@@ -9,6 +9,7 @@ import { openaiRequest, PreviewError } from "@/lib/ai/openai";
 import { isTryOnTesting } from "@/lib/try-on-policy";
 import { openaiImageModel } from "@/lib/ai/models";
 import { guardProvider, UNAVAILABLE, type Release } from "@/lib/guard";
+import { captureError } from "@/lib/errors";
 
 export const maxDuration = 240;
 
@@ -126,6 +127,7 @@ export async function POST(request: Request) {
     if (error instanceof z.ZodError || error instanceof SyntaxError) return respond(400, { error: "The outfit request is invalid. Refresh the page and try again." });
     if (error instanceof Error && ["AbortError", "TimeoutError"].includes(error.name)) return respond(504, { error: "The preview took too long. Please try again later." });
     console.warn("[try-on] Preview failed", error instanceof Error ? error.name : "UnknownError");
+    await captureError(error, { source: "try-on" });
     return respond(502, { error: "The preview could not be created. Please try again later." });
   } finally { release?.(); }
 }

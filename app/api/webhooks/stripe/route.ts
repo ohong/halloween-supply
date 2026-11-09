@@ -1,5 +1,6 @@
 import { getStripe } from "@/lib/checkout/stripe";
 import { recordPaidOrder } from "@/lib/orders/store";
+import { captureError } from "@/lib/errors";
 
 const json = (body: Record<string, unknown>, status: number) =>
   Response.json(body, { status, headers: { "Cache-Control": "no-store" } });
@@ -32,6 +33,7 @@ export async function POST(request: Request) {
     await recordPaidOrder(session);
   } catch (error) {
     console.error("[stripe-webhook] order recording failed", event.id, session.id, error instanceof Error ? error.message : "UnknownError");
+    await captureError(error, { source: "stripe-webhook", eventId: event.id, sessionId: session.id });
     return json({ error: "order_recording_failed" }, 500);
   }
   return json({ received: true }, 200);
