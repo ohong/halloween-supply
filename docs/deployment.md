@@ -17,6 +17,7 @@ Production needs these variables:
 - `TURSO_DATABASE_URL`
 - `TURSO_AUTH_TOKEN`
 - `STRIPE_SECRET_KEY`
+- `STRIPE_WEBHOOK_SECRET`
 - `CRON_SECRET`
 
 `FAL_KEY` enables live video and personal 3D previews. Phone relay needs the
@@ -39,6 +40,18 @@ vercel env ls --environment production --scope ohong-projects --project hallowee
 
 Do not pull environment files over `.env.local` or print credentials.
 Stripe remains in test mode for the 50-costume storefront. Do not replace the production credential with a live key without a new user instruction.
+
+## Stripe webhook
+
+Paid orders are recorded by `POST /api/webhooks/stripe`. In the Stripe dashboard (Developers, Webhooks), add an
+endpoint at `https://halloween.supply/api/webhooks/stripe` for `checkout.session.completed` and
+`checkout.session.async_payment_succeeded`, then save its signing secret as `STRIPE_WEBHOOK_SECRET`.
+Test and live mode have separate endpoints and secrets.
+
+Each paid session becomes one row in the Turso `orders` table, and rows with `fulfillment_status = 'pending'`
+are the fulfillment queue. Redelivery is a no-op. The route sets `receipt_email` on the payment intent, which
+makes Stripe email the receipt in live mode (test mode sends no email). A database or Stripe failure answers
+500 so Stripe retries. For local testing use `stripe listen`; see `e2e/verify-stripe-webhook.ts`.
 
 ## Demo sizes
 
