@@ -46,7 +46,7 @@ refresh. Successful cron writes still expire the catalog cache immediately.
 Run a local app, then run:
 
 ```sh
-node scripts/verify-checkout-recovery.mjs http://127.0.0.1:3415 --merchant
+node e2e/verify-checkout-recovery.mjs http://127.0.0.1:3415 --merchant
 ```
 
 The browser portion controls checkout responses to exercise uncommon failure

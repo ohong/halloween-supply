@@ -49,7 +49,7 @@ the existing bundled catalog fallback is labelled as the result source.
 
 ## Verification
 
-`bun scripts/verify-mirror-catalog.ts http://localhost:3412` checks the real
+`bun e2e/verify-mirror-catalog.ts http://localhost:3412` checks the real
 database index, origin validation and forged-reference rejection.
 
 Add `--live` to run real Decisions and reasoning requests. It checks that a

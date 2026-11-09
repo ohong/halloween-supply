@@ -74,7 +74,7 @@ Never place the secret in the URL or paste it into logs.
 2. Run `bun run typecheck`.
 3. Run `bun run build`.
 4. Run `bun run verify:release` for all 50 catalogs, images, model assets, and browser shopping checks.
-5. Run `SHOPPING_EVIDENCE_DIR=/tmp/shopping-evidence bun scripts/verify-shopping-campaign.mjs LOCAL_URL` against a separate local production server.
+5. Run `SHOPPING_EVIDENCE_DIR=/tmp/shopping-evidence bun e2e/verify-shopping-campaign.mjs LOCAL_URL` against a separate local production server.
 6. Confirm the exact PR heads pass hosted checks in the [stack order](swarm/2026-11-05/pr-stack.md).
 7. Merge reviewed commits only after the user authorizes the release.
 8. Confirm the resulting Vercel deployment's exact commit and `READY` state.

@@ -42,5 +42,5 @@ Prepare reviewed research, cache its photos, deploy the assets, and only then se
 bun scripts/source/import-price-tier-research.ts /path/to/research
 bun scripts/source/cache-price-tier-images.ts /path/to/research
 bun --env-file=.env.local scripts/seed.ts --all
-bun --env-file=.env.local scripts/verify-full-catalog.ts https://halloween.supply
+bun --env-file=.env.local e2e/verify-full-catalog.ts https://halloween.supply
 ```

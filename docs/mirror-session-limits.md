@@ -18,7 +18,7 @@ and provider-side limits can still occur and are reported separately.
 Origin checks, consent, upload limits, request timeouts, and bounds on
 simultaneous work remain. These do not limit repeated sessions per hour.
 
-Run `LIVE_MIRROR_E2E=1 MIRROR_BASE_URL=https://halloween.supply node scripts/verify-live-mirror.mjs`
+Run `LIVE_MIRROR_E2E=1 MIRROR_BASE_URL=https://halloween.supply node e2e/verify-live-mirror.mjs`
 to verify real voice/video, mute, freeze/resume, saving, look changes, media
 release, restored shopping choices, and responsive navigation. The test uses
 synthetic media and consumes provider credits.
