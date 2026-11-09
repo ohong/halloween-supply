@@ -17,9 +17,9 @@ One source of truth per concern. Add to these files. Do not make a second one.
 | --- | --- |
 | Model ids and provider model options | `lib/ai/models.ts` |
 | Concurrency cap and provider kill switch (`PROVIDERS_DISABLED`) | `lib/guard.ts` |
-| Bot check for paid routes | `lib/bot-guard.ts` |
-| Environment variables | `lib/env.ts` |
-| Error reporting | `lib/errors.ts` |
+| Bot check for paid routes | `lib/bot-guard.ts`; the protected route list is in `instrumentation-client.ts` |
+| Required production environment variables, checked at boot | `lib/env.ts` |
+| Error reporting (PostHog) | `lib/errors.ts` (server), `instrumentation-client.ts` (browser) |
 | Look copy (names, pieces, tips) | `lib/costumes.ts`, hand-written, and the input to `bun run source` |
 | Sourced catalog snapshots, generated | `data/costumes/*.json` |
 | Catalog access | `lib/catalog.ts`, `lib/db/catalog.ts` |

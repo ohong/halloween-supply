@@ -41,6 +41,34 @@ vercel env ls --environment production --scope ohong-projects --project hallowee
 Do not pull environment files over `.env.local` or print credentials.
 Stripe remains in test mode for the 50-costume storefront. Do not replace the production credential with a live key without a new user instruction.
 
+## Launch guards
+
+Three guards protect the site before it takes real traffic.
+
+**Environment check.** On boot in production, `instrumentation.ts` calls `lib/env.ts` and logs one
+`[env] Missing required production environment variables: ...` line with names only. It reports the same
+to PostHog and does not throw, so pages that do not need the variable keep working. The required list is the
+one under Environment above. Separately, if `STRIPE_SECRET_KEY` starts with `sk_live` and
+`STRIPE_WEBHOOK_SECRET` is unset, `POST /api/checkout` answers 503, so no real payment can go unrecorded.
+
+**BotID.** Paid POST routes call `rejectBot()` from `lib/bot-guard.ts` first and answer 403 to bots. The
+routes are listed in `instrumentation-client.ts`. Enable BotID for the Vercel project (Firewall tab; Deep
+Analysis is recommended). Outside Vercel and in `next dev` BotID reports a human, so enforcement only exists
+on a deployment. If the BotID check itself errors, the request is allowed and the error goes to PostHog.
+`BOT_CHECK_DISABLED=1` turns the check off. Hosted Playwright and curl `e2e/` scripts count as bots: set
+`BOT_CHECK_DISABLED=1` on the preview they target, or use Vercel's protection bypass for automation.
+Local runs against `next start` are not blocked (the check errors and fails open).
+
+**PostHog error tracking.** Set `NEXT_PUBLIC_POSTHOG_PROJECT_TOKEN` and `NEXT_PUBLIC_POSTHOG_HOST` (your
+region's ingestion host; there is no default). With either unset PostHog stays off and the app runs normally.
+Only exceptions are captured: no session recording, autocapture, pageviews, cookies or storage. Server errors
+come from `onRequestError`, plus `captureError()` in the Stripe webhook and the paid routes' catch blocks.
+After deploying, create an error tracking alert in PostHog (Error tracking, Alerts) that notifies you on new
+issues, and confirm one test error appears.
+
+Open items: source maps are not uploaded, so production stack traces are minified. Set that up with the
+PostHog source map upload for Next.js when needed.
+
 ## Stripe webhook
 
 Paid orders are recorded by `POST /api/webhooks/stripe`. In the Stripe dashboard (Developers, Webhooks), add an
