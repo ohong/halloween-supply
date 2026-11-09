@@ -5,7 +5,9 @@ restart voice, change pieces, pair a phone camera, and repeat the demo without
 using a shared hourly allowance.
 
 The project firewall has no hourly rate-limit rules. The four former rules for
-photo try-on, live video, voice, and mirror commands were removed. App-side
+photo try-on, live video, voice, and mirror commands were removed. Per-minute
+firewall rules on paid POST routes record heavy use in log mode and block nothing
+until someone changes their action. App-side
 IP counters were removed from these flows and from screenshot sourcing, custom
 looks, outfit styling, and costume search.
 

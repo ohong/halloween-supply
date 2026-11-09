@@ -1,3 +1,66 @@
+# halloween.supply
+
+An AI costume stylist with live try-on and one-cart checkout across retailers. Next.js 16, React 19, Bun, Turso, Stripe, Vercel. Production builds from `origin/main`, so start work from `origin/main`, because local `main` can be behind it.
+
+## Commands
+
+- `bun run check` runs typecheck, lint, and `bun test`. It must pass before you call work done. CI runs it too.
+- `bun run build` needs no secrets. `bun run verify:release` is the release smoke test.
+- `e2e/` holds scripts that use real browsers and providers. Read `e2e/README.md` for the cost of each script before you run it.
+- Use Bun only. Tests are `bun:test`, against real behavior, with no mocks.
+
+## Where things live
+
+One source of truth per concern. Add to these files. Do not make a second one.
+
+| Concern | File |
+| --- | --- |
+| Model ids and provider model options | `lib/ai/models.ts` |
+| Concurrency cap and provider kill switch (`PROVIDERS_DISABLED`) | `lib/guard.ts` |
+| Bot check for paid routes | `lib/bot-guard.ts` |
+| Environment variables | `lib/env.ts` |
+| Error reporting | `lib/errors.ts` |
+| Look copy (names, pieces, tips) | `lib/costumes.ts`, hand-written, and the input to `bun run source` |
+| Sourced catalog snapshots, generated | `data/costumes/*.json` |
+| Catalog access | `lib/catalog.ts`, `lib/db/catalog.ts` |
+| Checkout sessions | `app/api/checkout/route.ts`, `lib/checkout/` |
+| Paid orders and the fulfillment queue | `app/api/webhooks/stripe/route.ts`, `lib/orders/` |
+| Anonymous product events | `lib/telemetry/` |
+| Feature behavior | `docs/*.md`, one file per feature |
+| Dated records, do not edit | `docs/verification/`, `docs/swarm/`, `docs/evidence/` |
+
+## Invariants
+
+Lint enforces the first four. Review enforces the rest.
+
+- Model ids appear only in `lib/ai/models.ts`.
+- Direct provider URLs appear only in provider modules.
+- No module-level `active*` counters. Use `guardProvider`.
+- No empty `catch`. A catch that ignores an error has a comment that says why this is safe.
+- Every route that spends provider money calls `guardProvider` and the bot check.
+- The Stripe webhook verifies the signature, writes idempotently, and returns 500 on failure so that Stripe retries.
+- Keep guest checkout, merchandise-price totals with no shipping line, private sizes, and broad retailer sourcing.
+- Removed hourly quotas stay removed. Concurrency caps and per-minute abuse limits are the tools for cost control.
+- Do not replace the 50-look catalog with an old bundled snapshot.
+
+## Never
+
+- Never read secrets into chat, logs, or commits.
+- Never run a paid `e2e/` script without a reason. Never point a test at the production database.
+- Never switch Stripe to live keys. Oscar does that.
+- Never edit a dated record to match new code.
+
+## Never twice
+
+When an agent makes a mistake that a future agent could repeat, fix the cause in the same change. Use the strongest tool that fits, in this order: a type or API that makes the mistake impossible, a lint rule, a test, then one line in Lessons. The PR template asks for this.
+
+## Lessons
+
+- Local `main` diverged from `origin/main` by 74 commits, and agents built on the wrong base. Run `git fetch` and compare before you branch.
+- Agents that share a worktree also share the git index, so one agent's staged files went into another agent's commit. Commit with `git commit --only <paths>`, or give each agent its own worktree.
+- A lint run from the repo root also scanned `.claude/worktrees/`. Those paths are ignored now. Keep them ignored.
+- Item metadata on a Stripe session is clipped to 500 characters. Read line items from Stripe, not from that metadata.
+
 <!-- BEGIN:nextjs-agent-rules -->
 
 ## This is NOT the Next.js you know
