@@ -2,6 +2,7 @@ import { z } from "zod";
 import { normalizeSearchQuery } from "@/lib/costume-search";
 import { semanticSearch } from "@/lib/costume-search/server";
 import { captureError } from "@/lib/errors";
+import { rejectBot } from "@/lib/bot-guard";
 
 export const maxDuration = 20;
 
@@ -27,6 +28,8 @@ async function readBody(request: Request) {
 }
 
 export async function POST(request: Request) {
+  const blocked = await rejectBot();
+  if (blocked) return blocked;
   const origin = request.headers.get("origin");
   const host = request.headers.get("host") ?? new URL(request.url).host;
   if (request.headers.get("sec-fetch-site") === "cross-site") return respond({ error: "Search from this site." }, 403);

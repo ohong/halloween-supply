@@ -3,11 +3,14 @@ import { composeMirrorCostume } from "@/lib/live-mirror/mixed-outfit";
 import { readVideoJson, VideoError, videoFailure, videoResponse } from "@/lib/live-mirror/video-server";
 import { resolveVideoOutfit, videoOutfitPrompt, videoOutfitSchema } from "@/lib/live-mirror/video-outfit";
 import { guardProvider, UNAVAILABLE, type Release } from "@/lib/guard";
+import { rejectBot } from "@/lib/bot-guard";
 
 export const maxDuration = 30;
 const guard = guardProvider("live-mirror-reference", { maxActive: 3 });
 
 export async function POST(request: Request) {
+  const blocked = await rejectBot();
+  if (blocked) return blocked;
   let release: Release | undefined;
   try {
     const input = videoOutfitSchema.parse(await readVideoJson(request));

@@ -10,6 +10,7 @@ import { isTryOnTesting } from "@/lib/try-on-policy";
 import { openaiImageModel } from "@/lib/ai/models";
 import { guardProvider, UNAVAILABLE, type Release } from "@/lib/guard";
 import { captureError } from "@/lib/errors";
+import { rejectBot } from "@/lib/bot-guard";
 
 export const maxDuration = 240;
 
@@ -69,6 +70,8 @@ async function localReference(src: string) {
 }
 
 export async function POST(request: Request) {
+  const blocked = await rejectBot();
+  if (blocked) return blocked;
   const started = performance.now();
   let release: Release | undefined;
   const respond = (status: number, body: object, timing?: { prepare: number; generate: number; model: string }) => Response.json(body, { status, headers: {

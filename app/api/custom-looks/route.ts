@@ -7,6 +7,7 @@ import { validateCustomItem } from "@/lib/custom-looks/validate";
 import type { CustomLook, CustomLookEvent } from "@/lib/custom-looks/types";
 import { guardProvider, UNAVAILABLE, type Release } from "@/lib/guard";
 import { captureError } from "@/lib/errors";
+import { rejectBot } from "@/lib/bot-guard";
 
 export const maxDuration = 180;
 
@@ -84,6 +85,8 @@ async function untilAborted<T>(work: Promise<T>, signal: AbortSignal): Promise<T
 }
 
 export async function POST(request: Request) {
+  const blocked = await rejectBot();
+  if (blocked) return blocked;
   let claimed: CustomLook;
   let release: Release | undefined;
   try {

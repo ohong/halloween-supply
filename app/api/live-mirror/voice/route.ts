@@ -4,12 +4,15 @@ import { inventoryOverview, readMirrorInventory } from "@/lib/live-mirror/catalo
 import { focusQuestion, outfitQuestions, outfitSnapshot } from "@/lib/live-mirror/voice-decisions";
 import { readVoiceRequest, requestBase, validatedCostume, voiceFailure, voiceOpenAI, voiceResponse, VoiceError } from "@/lib/live-mirror/voice-server";
 import { openaiDecisionModel, openaiLiveVoiceModel } from "@/lib/ai/models";
+import { rejectBot } from "@/lib/bot-guard";
 
 export const maxDuration = 40;
 const schema = requestBase.extend({ sdp: z.string().min(1).max(55000) }).strict();
 const resultSchema = z.object({ session: z.object({ id: z.string() }), transport: z.object({ type: z.literal("webrtc"), sdp: z.string().min(1) }) });
 
 export async function POST(request: Request) {
+  const blocked = await rejectBot();
+  if (blocked) return blocked;
   try {
     const { costumeSlug, outfit, sdp } = schema.parse(await readVoiceRequest(request));
     const inventory = await readMirrorInventory();

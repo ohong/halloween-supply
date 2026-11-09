@@ -4,6 +4,7 @@ import { outfitRequestSchema, StylistError } from "@/lib/stylist/contracts";
 import { styleOutfit } from "@/lib/stylist/decide";
 import { guardProvider, UNAVAILABLE, type Release } from "@/lib/guard";
 import { captureError } from "@/lib/errors";
+import { rejectBot } from "@/lib/bot-guard";
 
 export const maxDuration = 300;
 const MAX_BODY = 16_000;
@@ -35,6 +36,8 @@ async function readBody(request: Request): Promise<unknown> {
 }
 
 export async function POST(request: Request) {
+  const blocked = await rejectBot();
+  if (blocked) return blocked;
   let release: Release | undefined;
   const respond = (status: number, body: object) => Response.json(body, { status, headers: { "Cache-Control": "private, no-store", "X-Content-Type-Options": "nosniff" } });
   try {

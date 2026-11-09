@@ -5,6 +5,7 @@ import { screenshotSourcing, type SourcingLog } from "@/lib/sourcing/screenshot"
 import { toCartItem } from "@/lib/custom-looks/source";
 import { signSourcedItem } from "@/lib/custom-looks/item-proof";
 import { guardProvider, UNAVAILABLE, type Release } from "@/lib/guard";
+import { rejectBot } from "@/lib/bot-guard";
 
 export const maxDuration = 150;
 const ANALYSIS_MS = 90_000;
@@ -71,6 +72,8 @@ async function readInput(request: Request): Promise<{ source: ClipSource; image:
 }
 
 export async function POST(request: Request) {
+  const blocked = await rejectBot();
+  if (blocked) return blocked;
   const respond = (status: number, error: string) => Response.json({ error }, { status, headers: headers() });
   let input: Awaited<ReturnType<typeof readInput>>;
   let release: Release | undefined;

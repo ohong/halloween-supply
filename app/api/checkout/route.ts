@@ -12,6 +12,7 @@ import { verifyProduct, type Verification } from "@/lib/checkout/verify";
 import { isBlockedDomain, isNoiseDomain, registrableDomain } from "@/lib/sourcing/blocklist";
 import type { SizeKind } from "@/lib/types";
 import { captureError } from "@/lib/errors";
+import { rejectBot } from "@/lib/bot-guard";
 
 export const maxDuration = 60;
 
@@ -75,6 +76,8 @@ function parseBody(raw: unknown): CheckoutRequest | null {
 }
 
 export async function POST(request: Request) {
+  const blocked = await rejectBot();
+  if (blocked) return blocked;
   // Never take real money for an order the webhook cannot record. Test keys are unaffected.
   if (liveStripeWithoutWebhook()) return fail("Checkout is temporarily unavailable.", 503);
   try {

@@ -5,10 +5,13 @@ import { validateCustomItem } from "@/lib/custom-looks/validate";
 import { claimCustomLook, readCustomLook, readCustomLookRequest, saveCustomLook } from "@/lib/custom-looks/store";
 import { savedLookBody, savedLookFailure, savedLookReply } from "@/lib/custom-looks/http";
 import { guardProvider, UNAVAILABLE, type Release } from "@/lib/guard";
+import { rejectBot } from "@/lib/bot-guard";
 export const maxDuration = 60;
 const schema = z.object({ requestId: z.uuid(), pieceIndex: z.number().int().min(0).max(7) }).strict();
 const guard = guardProvider("saved-look-retry", { maxActive: 3 });
 export async function POST(request: Request, { params }: { params: Promise<{ id: string }> }) {
+  const blocked = await rejectBot();
+  if (blocked) return blocked;
   let release: Release | undefined;
   try {
     const body = await savedLookBody(request, schema, 1000);

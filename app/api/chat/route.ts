@@ -7,6 +7,7 @@ import { chatContextSchema, type ChatContext } from "@/lib/ai/chat-context";
 import { addToCartSchema, recordSizesSchema } from "@/lib/ai/client-tools";
 import { sizeMatches } from "@/lib/outfits";
 import type { CostumeView } from "@/lib/types";
+import { rejectBot } from "@/lib/bot-guard";
 
 export const maxDuration = 300;
 
@@ -114,6 +115,8 @@ function groundHistory(messages: UIMessage[], view: CostumeView, context: ChatCo
 }
 
 export async function POST(req: Request) {
+  const blocked = await rejectBot();
+  if (blocked) return blocked;
   const origin = req.headers.get("origin");
   if (origin && origin !== new URL(req.url).origin) return fail(403, "Send the message from this site's assistant.");
   if (Number(req.headers.get("content-length") || 0) > MAX_REQUEST_BYTES) return fail(413, "This conversation is too long. Start a new conversation.");

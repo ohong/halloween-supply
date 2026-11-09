@@ -1,6 +1,7 @@
 import { z } from "zod";
 import { readVideoJson, VIDEO_MODEL, VideoError, videoFailure, videoResponse } from "@/lib/live-mirror/video-server";
 import { mirrorSessionSeconds } from "@/lib/try-on-policy";
+import { rejectBot } from "@/lib/bot-guard";
 
 export const maxDuration = 30;
 
@@ -12,6 +13,8 @@ export async function GET() {
 }
 
 export async function POST(request: Request) {
+  const blocked = await rejectBot();
+  if (blocked) return blocked;
   try {
     z.object({ consent: z.literal(true) }).strict().parse(await readVideoJson(request));
     if (!videoEnabled()) throw new VideoError(503, "Live video try-on is unavailable. You can still build your outfit and use photo try-on.");

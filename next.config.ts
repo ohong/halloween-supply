@@ -1,4 +1,5 @@
 import type { NextConfig } from "next";
+import { withBotId } from "botid/next/config";
 
 const nextConfig: NextConfig = {
   /* config options here */
@@ -23,4 +24,5 @@ const nextConfig: NextConfig = {
   },
 };
 
-export default nextConfig;
+// BotID proxy rewrites; the protected route list is in instrumentation-client.ts.
+export default withBotId(nextConfig);

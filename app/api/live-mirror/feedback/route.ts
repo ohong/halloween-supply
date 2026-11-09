@@ -3,6 +3,7 @@ import { z } from "zod";
 import { readVoiceRequest, voiceFailure, voiceOpenAI, voiceResponse, VoiceError } from "@/lib/live-mirror/voice-server";
 import { analyze, type VisionAnalysis } from "@/lib/sourcing/vision-client";
 import { openaiMirrorVisionModel } from "@/lib/ai/models";
+import { rejectBot } from "@/lib/bot-guard";
 
 export const maxDuration = 40;
 const frame = z.string().max(700_000).regex(/^data:image\/jpeg;base64,[A-Za-z0-9+/]+={0,2}$/);
@@ -59,6 +60,8 @@ async function measure(preview: string, selected: z.infer<typeof outfit>, signal
 
 /** Read-only image analysis. No image persistence, image generation or outfit edits. */
 export async function POST(request: Request) {
+  const blocked = await rejectBot();
+  if (blocked) return blocked;
   try {
     const input = schema.parse(await readVoiceRequest(request, 1_500_000));
     const images = await Promise.all([checkedFrame(input.preview), ...(input.mode === "likeness" ? [checkedFrame(input.original)] : [])]);

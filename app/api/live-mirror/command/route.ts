@@ -4,6 +4,7 @@ import { previewCommand } from "@/lib/live-mirror/preview-server";
 import { readMirrorInventory, searchMirrorInventory } from "@/lib/live-mirror/catalog-server";
 import { readVoiceRequest, requestBase, validatedCostume, voiceFailure, voiceOpenAI, voiceResponse, VoiceError } from "@/lib/live-mirror/voice-server";
 import { openaiDecisionModel, openaiMirrorReasoningModel } from "@/lib/ai/models";
+import { rejectBot } from "@/lib/bot-guard";
 
 export const maxDuration = 120;
 const schema = requestBase.extend({ text: z.string().trim().min(1).max(2000), budgetOnly: z.boolean().optional(), catalogOnly: z.boolean().optional(), previewOnly: z.boolean().optional() }).strict();
@@ -12,6 +13,8 @@ const budgetSchema = z.object({ amount: z.number().min(0).max(1000000).nullable(
 const responseSchema = z.object({ output: z.array(z.object({ type: z.string(), content: z.array(z.object({ type: z.string(), text: z.string().optional() })).optional() })) });
 
 export async function POST(request: Request) {
+  const blocked = await rejectBot();
+  if (blocked) return blocked;
   try {
     const { costumeSlug, outfit, text, budgetOnly, catalogOnly, previewOnly, catalogContext } = schema.parse(await readVoiceRequest(request));
     const inventory = await readMirrorInventory();

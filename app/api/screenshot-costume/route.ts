@@ -7,6 +7,7 @@ import { screenshotSourcing, type SourcingLog as Log } from "@/lib/sourcing/scre
 import { signSourcedItem } from "@/lib/custom-looks/item-proof";
 import { toCartItem } from "@/lib/custom-looks/source";
 import { guardProvider, UNAVAILABLE, type Release } from "@/lib/guard";
+import { rejectBot } from "@/lib/bot-guard";
 
 export const maxDuration = 40;
 const SEARCH_BUDGET_MS = 30_000;
@@ -54,6 +55,8 @@ async function readPhoto(request: Request) {
 
 
 export async function POST(request: Request) {
+  const blocked = await rejectBot();
+  if (blocked) return blocked;
   let model = "unconfigured";
   const respond = (status: number, body: object) => Response.json(body, { status, headers: { "Cache-Control": "private, no-store", "X-Content-Type-Options": "nosniff", "X-Vision-Model": model } });
   let release: Release | undefined;
