@@ -13,10 +13,10 @@ const productionEnv = z.object({
   STRIPE_WEBHOOK_SECRET: present,
   OPENAI_API_KEY: present,
   ANTHROPIC_API_KEY: present,
-  FAL_KEY: present,
   FIRECRAWL_API_KEY: present,
   CRON_SECRET: present,
   // Optional
+  FAL_KEY: optional, // live video and 3D previews switch off without it
   SAVED_LOOK_SIGNING_SECRET: optional,
   TRY_ON_3D_SIGNING_SECRET: optional,
   METERED_TURN_APP: optional,
