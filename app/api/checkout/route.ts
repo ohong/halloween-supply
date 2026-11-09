@@ -7,6 +7,7 @@ import { DEMO_DEFAULT_SIZE, SCREENSHOT_SLUG, customLookId, type CheckoutRecovery
 import { toCartItem } from "@/lib/cart/item";
 import { readCustomLook } from "@/lib/custom-looks/store";
 import { usesDemoSizes } from "@/lib/checkout/mode";
+import { liveStripeWithoutWebhook } from "@/lib/env";
 import { verifyProduct, type Verification } from "@/lib/checkout/verify";
 import { isBlockedDomain, isNoiseDomain, registrableDomain } from "@/lib/sourcing/blocklist";
 import type { SizeKind } from "@/lib/types";
@@ -73,6 +74,8 @@ function parseBody(raw: unknown): CheckoutRequest | null {
 }
 
 export async function POST(request: Request) {
+  // Never take real money for an order the webhook cannot record. Test keys are unaffected.
+  if (liveStripeWithoutWebhook()) return fail("Checkout is temporarily unavailable.", 503);
   try {
     let raw: unknown;
     try {
