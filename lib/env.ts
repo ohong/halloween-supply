@@ -4,6 +4,7 @@ import { z } from "zod";
 // degrades or turns off (search falls back to local, clips stay off, signing falls back to another secret).
 // Every name is read directly from process.env elsewhere; this file only checks presence at boot.
 const present = z.string().trim().min(1);
+const optional = z.string().optional(); // any value, including blank, is acceptable
 const productionEnv = z.object({
   // Required
   TURSO_DATABASE_URL: present,
@@ -16,15 +17,15 @@ const productionEnv = z.object({
   FIRECRAWL_API_KEY: present,
   CRON_SECRET: present,
   // Optional
-  SAVED_LOOK_SIGNING_SECRET: present.optional(),
-  TRY_ON_3D_SIGNING_SECRET: present.optional(),
-  METERED_TURN_APP: present.optional(),
-  METERED_TURN_API_KEY: present.optional(),
-  GEMINI_API_KEY: present.optional(),
-  VISION_SERVICE_URL: present.optional(),
-  VISION_SERVICE_TOKEN: present.optional(),
-  NEXT_PUBLIC_POSTHOG_PROJECT_TOKEN: present.optional(),
-  NEXT_PUBLIC_POSTHOG_HOST: present.optional(),
+  SAVED_LOOK_SIGNING_SECRET: optional,
+  TRY_ON_3D_SIGNING_SECRET: optional,
+  METERED_TURN_APP: optional,
+  METERED_TURN_API_KEY: optional,
+  GEMINI_API_KEY: optional,
+  VISION_SERVICE_URL: optional,
+  VISION_SERVICE_TOKEN: optional,
+  NEXT_PUBLIC_POSTHOG_PROJECT_TOKEN: optional,
+  NEXT_PUBLIC_POSTHOG_HOST: optional,
 });
 
 /** Names of required production variables that are unset or blank. Never returns values. */
