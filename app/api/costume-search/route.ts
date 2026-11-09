@@ -3,6 +3,9 @@ import { normalizeSearchQuery } from "@/lib/costume-search";
 import { semanticSearch } from "@/lib/costume-search/server";
 import { captureError } from "@/lib/errors";
 import { rejectBot } from "@/lib/bot-guard";
+import { guardProvider, UNAVAILABLE, type Release } from "@/lib/guard";
+
+const guard = guardProvider("costume-search", { maxActive: 16 });
 
 export const maxDuration = 20;
 
@@ -40,6 +43,10 @@ export async function POST(request: Request) {
     } catch { return respond({ error: "Search from this site." }, 403); }
   }
   if (!request.headers.get("content-type")?.toLowerCase().startsWith("application/json")) return respond({ error: "Send the search as JSON." }, 415);
+  const slot = guard.acquire();
+  if (slot === "disabled") return respond({ error: UNAVAILABLE }, 503);
+  if (slot === "busy") return respond({ error: "Search is busy. Please try again shortly." }, 429);
+  const release: Release = slot;
   try {
     const raw = await readBody(request);
     if (raw === BODY_TOO_LARGE) return respond({ error: "The search request is too large." }, 413);
@@ -50,5 +57,7 @@ export async function POST(request: Request) {
     if (request.signal.aborted) return new Response(null, { status: 499 });
     await captureError(error, { source: "costume-search" });
     return respond({ error: "Search could not finish. Please try again." }, 502);
+  } finally {
+    release();
   }
 }

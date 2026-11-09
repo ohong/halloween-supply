@@ -7,7 +7,7 @@ import { captureError } from "@/lib/errors";
 //   if (blocked) return blocked;
 // The routes it protects are listed in instrumentation-client.ts (initBotId); keep the two lists in step.
 // On by default. BOT_CHECK_DISABLED=1 turns it off (hosted e2e scripts are bots; see docs/deployment.md).
-// In development, and outside Vercel, BotID reports a human, so enforcement is only real on a Vercel deployment.
+// In development BotID reports a human; elsewhere off Vercel the check throws and fails open, so enforcement is only real on a Vercel deployment.
 
 /** Null when the request may proceed, otherwise the 403 response to return. */
 export async function rejectBot(): Promise<Response | null> {

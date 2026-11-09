@@ -2,9 +2,12 @@ import { z } from "zod";
 import { commandFromAnswers, mergeCatalogCommand, needsBudget, needsCatalog, needsPreview, requestedVisualFeedback, outfitQuestions, outfitSnapshot } from "@/lib/live-mirror/voice-decisions";
 import { previewCommand } from "@/lib/live-mirror/preview-server";
 import { readMirrorInventory, searchMirrorInventory } from "@/lib/live-mirror/catalog-server";
-import { readVoiceRequest, requestBase, validatedCostume, voiceFailure, voiceOpenAI, voiceResponse, VoiceError } from "@/lib/live-mirror/voice-server";
+import { readVoiceRequest, requestBase, validatedCostume, takeVoiceSlot, voiceFailure, voiceOpenAI, voiceResponse, VoiceError } from "@/lib/live-mirror/voice-server";
 import { openaiDecisionModel, openaiMirrorReasoningModel } from "@/lib/ai/models";
 import { rejectBot } from "@/lib/bot-guard";
+import { guardProvider, type Release } from "@/lib/guard";
+
+const guard = guardProvider("live-mirror-command", { maxActive: 8 });
 
 export const maxDuration = 120;
 const schema = requestBase.extend({ text: z.string().trim().min(1).max(2000), budgetOnly: z.boolean().optional(), catalogOnly: z.boolean().optional(), previewOnly: z.boolean().optional() }).strict();
@@ -15,7 +18,9 @@ const responseSchema = z.object({ output: z.array(z.object({ type: z.string(), c
 export async function POST(request: Request) {
   const blocked = await rejectBot();
   if (blocked) return blocked;
+  let release: Release | undefined;
   try {
+    release = takeVoiceSlot(guard);
     const { costumeSlug, outfit, text, budgetOnly, catalogOnly, previewOnly, catalogContext } = schema.parse(await readVoiceRequest(request));
     const inventory = await readMirrorInventory();
     const costume = await validatedCostume(costumeSlug, outfit, inventory.views);
@@ -62,5 +67,5 @@ export async function POST(request: Request) {
     }
     if (!command.actions.length && !command.catalogResults && !command.message) command.message = "Try naming a piece and what you'd like to change, or search the full costume catalog.";
     return voiceResponse(command);
-  } catch (error) { return voiceFailure(error); }
+  } catch (error) { return voiceFailure(error); } finally { release?.(); }
 }

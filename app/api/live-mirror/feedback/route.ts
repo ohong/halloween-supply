@@ -1,9 +1,12 @@
 import sharp from "sharp";
 import { z } from "zod";
-import { readVoiceRequest, voiceFailure, voiceOpenAI, voiceResponse, VoiceError } from "@/lib/live-mirror/voice-server";
+import { readVoiceRequest, takeVoiceSlot, voiceFailure, voiceOpenAI, voiceResponse, VoiceError } from "@/lib/live-mirror/voice-server";
 import { analyze, type VisionAnalysis } from "@/lib/sourcing/vision-client";
 import { openaiMirrorVisionModel } from "@/lib/ai/models";
 import { rejectBot } from "@/lib/bot-guard";
+import { guardProvider, type Release } from "@/lib/guard";
+
+const guard = guardProvider("live-mirror-feedback", { maxActive: 6 });
 
 export const maxDuration = 40;
 const frame = z.string().max(700_000).regex(/^data:image\/jpeg;base64,[A-Za-z0-9+/]+={0,2}$/);
@@ -62,7 +65,9 @@ async function measure(preview: string, selected: z.infer<typeof outfit>, signal
 export async function POST(request: Request) {
   const blocked = await rejectBot();
   if (blocked) return blocked;
+  let release: Release | undefined;
   try {
+    release = takeVoiceSlot(guard);
     const input = schema.parse(await readVoiceRequest(request, 1_500_000));
     const images = await Promise.all([checkedFrame(input.preview), ...(input.mode === "likeness" ? [checkedFrame(input.original)] : [])]);
     const measured = await measure(images[0], input.outfit ?? [], request.signal);
@@ -83,5 +88,5 @@ export async function POST(request: Request) {
     if (!output) throw new VoiceError(502, "The preview could not be assessed. Please ask again.");
     const { message } = resultSchema.parse(JSON.parse(output));
     return voiceResponse({ actions: [], message });
-  } catch (error) { return voiceFailure(error); }
+  } catch (error) { return voiceFailure(error); } finally { release?.(); }
 }

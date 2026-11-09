@@ -47,6 +47,7 @@ async function readLines(stripe: Stripe, sessionId: string) {
       product_url: meta.product_url ?? null,
       piece_id: meta.piece_id ?? null,
       size: meta.size ?? null,
+      size_defaulted_for_demo: meta.size_defaulted_for_demo === "true",
       variant_id: meta.variant_id ?? null,
       verified_at: meta.verified_at ?? null,
     };

@@ -1,4 +1,5 @@
 import "server-only";
+import { guardProvider, UNAVAILABLE, type Release } from "@/lib/guard";
 import { z } from "zod";
 import { mixSchema } from "./mix-schema";
 import { getCostume } from "@/lib/catalog";
@@ -6,6 +7,14 @@ import type { CostumeView } from "@/lib/types";
 import { composeMirrorCostume } from "./mixed-outfit";
 import type { MirrorOutfit } from "./types";
 import { appearanceSchema } from "./appearance-schema";
+
+/** Takes a provider slot, or throws the VoiceError that voiceFailure turns into the 429 or 503 response. */
+export function takeVoiceSlot(guard: ReturnType<typeof guardProvider>): Release {
+  const release = guard.acquire();
+  if (release === "disabled") throw new VoiceError(503, UNAVAILABLE);
+  if (release === "busy") throw new VoiceError(429, "The mirror is busy. Please try again shortly.");
+  return release;
+}
 
 export class VoiceError extends Error {
   constructor(public status: number, message: string) { super(message); }

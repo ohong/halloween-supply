@@ -2,9 +2,12 @@ import { z } from "zod";
 import { mirrorSessionSeconds } from "@/lib/try-on-policy";
 import { inventoryOverview, readMirrorInventory } from "@/lib/live-mirror/catalog-server";
 import { focusQuestion, outfitQuestions, outfitSnapshot } from "@/lib/live-mirror/voice-decisions";
-import { readVoiceRequest, requestBase, validatedCostume, voiceFailure, voiceOpenAI, voiceResponse, VoiceError } from "@/lib/live-mirror/voice-server";
+import { readVoiceRequest, requestBase, validatedCostume, takeVoiceSlot, voiceFailure, voiceOpenAI, voiceResponse, VoiceError } from "@/lib/live-mirror/voice-server";
 import { openaiDecisionModel, openaiLiveVoiceModel } from "@/lib/ai/models";
 import { rejectBot } from "@/lib/bot-guard";
+import { guardProvider, type Release } from "@/lib/guard";
+
+const guard = guardProvider("live-mirror-voice", { maxActive: 12 });
 
 export const maxDuration = 40;
 const schema = requestBase.extend({ sdp: z.string().min(1).max(55000) }).strict();
@@ -13,7 +16,9 @@ const resultSchema = z.object({ session: z.object({ id: z.string() }), transport
 export async function POST(request: Request) {
   const blocked = await rejectBot();
   if (blocked) return blocked;
+  let release: Release | undefined;
   try {
+    release = takeVoiceSlot(guard);
     const { costumeSlug, outfit, sdp } = schema.parse(await readVoiceRequest(request));
     const inventory = await readMirrorInventory();
     const costume = await validatedCostume(costumeSlug, outfit, inventory.views);
@@ -38,5 +43,5 @@ Screen context reports the selected costume, pieces, preview appearance, and whe
     }, request.signal));
     if (!result.success) throw new VoiceError(502, "The voice connection returned an invalid answer. Please try again.");
     return voiceResponse({ ...result.data, catalog: inventory.looks, maxSessionSeconds: mirrorSessionSeconds() }, 201);
-  } catch (error) { return voiceFailure(error); }
+  } catch (error) { return voiceFailure(error); } finally { release?.(); }
 }
