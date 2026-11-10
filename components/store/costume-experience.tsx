@@ -37,7 +37,7 @@ function kitTooLateProducts(kit: KitView | null | undefined, eventDate: string) 
     ? evidence.productId ? [evidence.productId] : kit.buy.map(row => row.product.id) : []))];
 }
 
-export function CostumeExperience({ costume: initialCostume, kit }: { costume: CostumeView; kit?: KitView | null }) {
+export function CostumeExperience({ costume: initialCostume, kit, voiceProvider }: { costume: CostumeView; kit?: KitView | null; voiceProvider?: "openai" | "gemini" }) {
   const [mixedCostume, setMixedCostume] = useState<CostumeView | null>(null);
   const [mixes, setMixes] = useState<MirrorOutfit["mixes"]>();
   const costume = mixedCostume ?? initialCostume;
@@ -321,7 +321,7 @@ export function CostumeExperience({ costume: initialCostume, kit }: { costume: C
           <div className="try-on-option">
             <span className="try-on-option-icon" aria-hidden="true"><Camera size={18} /></span>
             <div><p>Live mirror</p><p className="try-on-option-hint">See the look on your camera in real time.</p></div>
-            <LiveMirror costume={costume} initialOutfit={{ appearance: previewEdits, mixes, selection: Object.fromEntries(pieces.flatMap((view) => { const option = picked.get(view.piece.id); return option ? [[view.piece.id, option.product.id]] : []; })), uses, locked: [], budget: mirrorBudget }} onApply={applyMirror} />
+            <LiveMirror costume={costume} voiceProvider={voiceProvider} initialOutfit={{ appearance: previewEdits, mixes, selection: Object.fromEntries(pieces.flatMap((view) => { const option = picked.get(view.piece.id); return option ? [[view.piece.id, option.product.id]] : []; })), uses, locked: [], budget: mirrorBudget }} onApply={applyMirror} />
           </div>
           <PhotoVoiceStylist costume={costume} outfit={{ appearance: previewEdits, mixes, selection: Object.fromEntries(pieces.flatMap((view) => { const option = picked.get(view.piece.id); return option ? [[view.piece.id, option.product.id]] : []; })), uses, locked: [], budget: mirrorBudget }} onApply={applyMirror} />
         </section>
