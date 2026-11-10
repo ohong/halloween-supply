@@ -6,13 +6,14 @@ import type { CostumeView } from "@/lib/types";
 import { enumerateOutfits, type Candidate } from "./candidates";
 import { StylistError, type OutfitRequest, type StylistResult } from "./contracts";
 import { stylistPhotoEvidence, type PhotoEvidence } from "./images";
+import { STYLIST_COMPARE_MODEL } from "@/lib/ai/models";
 
 export const comparisonLimits = {
   outfitsPerDecision: 254, jsonValues: 10_000, jsonBytes: 256 * 1024, jsonDepth: 32,
   batches: 24, concurrency: 3, timeoutMs: 270_000,
 } as const;
 const responseSchema = z.object({
-  model: z.literal("gpt-6-luna"),
+  model: z.literal(STYLIST_COMPARE_MODEL),
   answers: z.array(z.discriminatedUnion("type", [
     z.object({ type: z.literal("choice"), name: z.literal("best_outfit"), choice: z.string().min(1) }),
     z.object({ type: z.literal("refusal"), name: z.string().nullable().optional() }),
@@ -102,7 +103,7 @@ async function compare(batch: ComparisonBatch, photos: PhotoEvidence, signal: Ab
   let raw: unknown;
   try {
     raw = await openaiRequest("decisions", {
-      model: "gpt-6-luna",
+      model: STYLIST_COMPARE_MODEL,
       input: [
         { role: "developer", content: developerInstructions },
         { role: "user", content: [{ type: "input_json", data: batch.evidence }, ...photos.content] },

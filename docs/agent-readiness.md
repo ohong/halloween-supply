@@ -9,8 +9,8 @@ Markdown responses include `Content-Type: text/markdown; charset=utf-8`, `Vary: 
 1. Run `bun install --frozen-lockfile`.
 2. Run `bun run typecheck` and `bun run build`.
 3. Run `bun run start --port 3100`.
-4. Run `bun scripts/verify-agent-readiness.ts http://localhost:3100`.
-5. After deployment, run `bun scripts/verify-agent-readiness.ts https://halloween.supply`.
+4. Run `bun e2e/verify-agent-readiness.ts http://localhost:3100`.
+5. After deployment, run `bun e2e/verify-agent-readiness.ts https://halloween.supply`.
 
 The HTTP/browser checks cover negotiated types and q-values, 404 and 406 status, HEAD, static/API bypasses, all sitemap pages, JSON-LD, canonical URLs, Open Graph images, llms.txt, robots.txt, native guide disclosure without JavaScript, and hydrated gallery/footer navigation. Set `AGENT_VERIFICATION_OUTPUT` to save the result as JSON. Playwright Chromium must be installed to run browser checks.
 

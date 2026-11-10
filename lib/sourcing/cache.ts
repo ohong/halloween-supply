@@ -23,6 +23,7 @@ export async function readCache<T>(namespace: string, key: unknown): Promise<T |
     const raw = await readFile(file, "utf8");
     return JSON.parse(raw) as T;
   } catch {
+    // A missing or corrupt cache file is a cache miss.
     return undefined;
   }
 }

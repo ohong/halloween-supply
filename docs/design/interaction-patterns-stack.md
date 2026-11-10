@@ -51,8 +51,8 @@ bun run lint
 bun run build
 bun run start --port 3122
 # In another terminal:
-node scripts/verify-interaction-patterns.mjs http://localhost:3122
-VOICE_STATE_BASE_URL=http://localhost:3122 node scripts/verify-voice-state.mjs
+node e2e/verify-interaction-patterns.mjs http://localhost:3122
+VOICE_STATE_BASE_URL=http://localhost:3122 node e2e/verify-voice-state.mjs
 ```
 
 The shopping check serves controlled streaming sourcing events through a local proxy and blocks other non-read API calls. The voice check uses real loopback WebRTC with synthetic audio and intercepted provider signaling. Both use the actual app UI and write screenshots and results to a temporary evidence folder.

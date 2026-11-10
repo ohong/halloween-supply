@@ -171,7 +171,7 @@ export function screenshotSourcing(signal: AbortSignal, log: SourcingLog, refere
     if (!pending) {
       pending = fetch(`${origin}/cart.js?currency=USD`, { cache: "no-store", redirect: "error",
         signal: AbortSignal.any([readSignal, AbortSignal.timeout(2_000)]), headers: { Accept: "application/json" } })
-        .then(async response => response.ok ? (await response.json() as { currency?: string }).currency ?? null : null).catch(() => null);
+        .then(async response => response.ok ? (await response.json() as { currency?: string }).currency ?? null : null).catch(() => null); // Best-effort currency probe.
       currencies.set(origin, pending);
       void pending.then(value => { if (!value) currencies.delete(origin); });
     }
@@ -183,7 +183,7 @@ export function screenshotSourcing(signal: AbortSignal, log: SourcingLog, refere
     if (!url) return null;
     if (SHOPIFY.test(url.pathname)) {
       const pageCurrency = fetch(url, { cache: "no-store", redirect: "error", signal: AbortSignal.any([readSignal, AbortSignal.timeout(2_500)]) })
-        .then(async response => response.ok ? parseProduct((await response.text()).slice(0, 2_000_000), url.toString()).currency : null).catch(() => null);
+        .then(async response => response.ok ? parseProduct((await response.text()).slice(0, 2_000_000), url.toString()).currency : null).catch(() => null); // Best-effort currency probe.
       const [raw, money, declared] = await Promise.all([
         readShopifyProduct(url.toString(), false, { signal: readSignal, timeoutMs: 2_500 }), currency(url.origin, readSignal), pageCurrency,
       ]);
@@ -218,7 +218,7 @@ export function screenshotSourcing(signal: AbortSignal, log: SourcingLog, refere
         const facts = parseProduct(html, url.toString());
         if (!facts.title || !facts.priceCents || !facts.images.length) throw new Error("Rendered facts needed");
         page = { url: url.toString(), finalUrl: url.toString(), status: response.status, html };
-      } catch { page = await fetchProductPage(url.toString(), { cache: false, timeoutMs: 3_500, signal: readSignal }); }
+      } catch { /* Rendered facts are optional; fall back to the plain page fetch, which throws on failure. */ page = await fetchProductPage(url.toString(), { cache: false, timeoutMs: 3_500, signal: readSignal }); }
       if (!publicUrl(page.finalUrl) || registrableDomain(page.finalUrl) !== registrableDomain(url.toString())) return null;
       const product = parseProduct(page.html, page.finalUrl);
       if (!product.title || !matchesScreenshotPiece(piece, product.title, product.description ?? product.title)) return null;
@@ -229,7 +229,7 @@ export function screenshotSourcing(signal: AbortSignal, log: SourcingLog, refere
       return { match: { ...matchFor(result, piece), title: product.title, url: page.finalUrl, merchant: registrableDomain(page.finalUrl)!,
         image, priceCents: product.currency ? product.priceCents : null, currency: product.currency, availability: product.availability, kind },
         sizes, cartReady: !!(kind === "product" && image && product.priceCents && product.priceCents > 0 && product.currency === "USD" && product.availability === "in_stock") };
-    } catch { return null; }
+    } catch { return null; /* An unreachable product page drops this candidate only. */ }
   }
   function shortlist(results: SearchResult[], piece: ScreenshotPiece) {
     const seen = new Set<string>();

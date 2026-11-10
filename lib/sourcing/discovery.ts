@@ -1,5 +1,6 @@
 import { FirecrawlError, searchWeb, type SearchResult } from "../firecrawl/client";
 import { workQueue } from "./work-queue";
+import { SOURCING_DISCOVERY_MODEL } from "../ai/models";
 
 // Independent piece searches need not inherit Firecrawl's smaller browser-job limit.
 const backupSlot = workQueue(4);
@@ -33,7 +34,7 @@ export async function discoverScreenshotWeb(query: string, options: Options): Pr
         headers: { Authorization: `Bearer ${process.env.OPENAI_API_KEY}`, "Content-Type": "application/json" },
         signal: AbortSignal.any([options.signal, AbortSignal.timeout(12_000)]),
         body: JSON.stringify({
-          model: "gpt-6-luna", store: false, max_tool_calls: 1, max_output_tokens: 600,
+          model: SOURCING_DISCOVERY_MODEL, store: false, max_tool_calls: 1, max_output_tokens: 600,
           reasoning: { effort: "none" }, tool_choice: "required", include: ["web_search_call.action.sources"],
           tools: [{ type: "web_search", external_web_access: true, search_context_size: "low",
             ...(options.excludeDomains?.length ? { filters: { blocked_domains: options.excludeDomains } } : {}),

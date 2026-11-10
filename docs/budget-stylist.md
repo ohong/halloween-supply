@@ -74,10 +74,10 @@ bun run lint
 bun run typecheck
 bun run build
 bun run start --port 3401
-bun --env-file=.env.local scripts/verify-stylist.ts http://localhost:3401
-bun --env-file=.env.local scripts/verify-stylist-chat.ts http://localhost:3401
-bun --env-file=.env.local scripts/verify-full-catalog.ts http://localhost:3401
-bun --env-file=.env.local scripts/verify-stylist.ts http://localhost:3401 --costume=desert-alchemist --require-piece-count=7
+bun --env-file=.env.local e2e/verify-stylist.ts http://localhost:3401
+bun --env-file=.env.local e2e/verify-stylist-chat.ts http://localhost:3401
+bun --env-file=.env.local e2e/verify-full-catalog.ts http://localhost:3401
+bun --env-file=.env.local e2e/verify-stylist.ts http://localhost:3401 --costume=desert-alchemist --require-piece-count=7
 ```
 
 For local catalog QA before publication, build and run with `TURSO_DATABASE_URL=''`

@@ -5,6 +5,7 @@ import { customPieceSchema, validateCustomItem } from "@/lib/custom-looks/valida
 import { isSourcedItemSigningAvailable, verifySourcedItem } from "@/lib/custom-looks/item-proof";
 import { saveScreenshotLook } from "@/lib/custom-looks/store";
 import { savedLookBody, savedLookFailure, savedLookReply } from "@/lib/custom-looks/http";
+import { rejectBot } from "@/lib/bot-guard";
 
 const schema = z.object({
   requestId: z.uuid(), name: z.string().trim().min(1).max(160), summary: z.string().max(240).default(""),
@@ -12,6 +13,8 @@ const schema = z.object({
   pieces: z.array(z.object({ piece: customPieceSchema, item: z.unknown().nullable(), proof: z.string().max(64).optional() }).strict()).min(1).max(8),
 }).strict();
 export async function POST(request: Request) {
+  const blocked = await rejectBot();
+  if (blocked) return blocked;
   try {
     const body = await savedLookBody(request, schema);
     if (!isSourcedItemSigningAvailable()) throw new PreviewError(503, "Saving this look is unavailable right now. Your found pieces remain on this board.");

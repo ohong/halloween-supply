@@ -1,8 +1,11 @@
 import { z } from "zod";
 import { readVideoJson, VIDEO_MODEL, VideoError, videoFailure, videoResponse } from "@/lib/live-mirror/video-server";
 import { mirrorSessionSeconds } from "@/lib/try-on-policy";
+import { rejectBot } from "@/lib/bot-guard";
+import { guardProvider, UNAVAILABLE, type Release } from "@/lib/guard";
 
 export const maxDuration = 30;
+const guard = guardProvider("live-mirror-video", { maxActive: 12 });
 
 // LIVE_MIRROR_VIDEO_DISABLED=1 stops new fal sessions without removing the key; open sessions run until their tab closes.
 const videoEnabled = () => Boolean(process.env.FAL_KEY) && process.env.LIVE_MIRROR_VIDEO_DISABLED !== "1";
@@ -12,7 +15,14 @@ export async function GET() {
 }
 
 export async function POST(request: Request) {
+  const blocked = await rejectBot();
+  if (blocked) return blocked;
+  let release: Release | undefined;
   try {
+    const slot = guard.acquire();
+    if (slot === "disabled") throw new VideoError(503, UNAVAILABLE);
+    if (slot === "busy") throw new VideoError(429, "The mirror is busy. Please try again shortly.");
+    release = slot;
     z.object({ consent: z.literal(true) }).strict().parse(await readVideoJson(request));
     if (!videoEnabled()) throw new VideoError(503, "Live video try-on is unavailable. You can still build your outfit and use photo try-on.");
     // fal scopes tokens to the app alias (owner/model), not its /realtime path.
@@ -32,5 +42,5 @@ export async function POST(request: Request) {
     const result: unknown = await response.json();
     const token = z.string().min(1).parse(typeof result === "object" && result && "detail" in result ? result.detail : result);
     return videoResponse({ token, model: VIDEO_MODEL, maxSessionSeconds: mirrorSessionSeconds() });
-  } catch (error) { return videoFailure(error); }
+  } catch (error) { return videoFailure(error); } finally { release?.(); }
 }

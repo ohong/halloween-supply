@@ -5,6 +5,9 @@ import { sourcePiece, toCartItem } from "@/lib/custom-looks/source";
 import { claimCustomLook, readCustomLookRequest, saveCustomLook } from "@/lib/custom-looks/store";
 import { validateCustomItem } from "@/lib/custom-looks/validate";
 import type { CustomLook, CustomLookEvent } from "@/lib/custom-looks/types";
+import { guardProvider, UNAVAILABLE, type Release } from "@/lib/guard";
+import { captureError } from "@/lib/errors";
+import { rejectBot } from "@/lib/bot-guard";
 
 export const maxDuration = 180;
 
@@ -16,7 +19,7 @@ const bodySchema = z.object({
 }).strict();
 const headers = { "Cache-Control": "private, no-store", "X-Content-Type-Options": "nosniff" };
 const reply = (status: number, body: object) => Response.json(body, { status, headers });
-let active = 0;
+const guard = guardProvider("custom-looks", { maxActive: 3 });
 
 class RequestError extends Error {
   constructor(public status: number, message: string) { super(message); }
@@ -24,8 +27,10 @@ class RequestError extends Error {
 
 // This bounds one process. The durable request claim prevents duplicate work across processes.
 function reserve() {
-  if (active >= 3) throw new RequestError(429, "Costume creation is busy. Please try again shortly.");
-  active++;
+  const release = guard.acquire();
+  if (release === "disabled") throw new RequestError(503, UNAVAILABLE);
+  if (release === "busy") throw new RequestError(429, "Costume creation is busy. Please try again shortly.");
+  return release;
 }
 
 async function readBody(request: Request) {
@@ -80,8 +85,10 @@ async function untilAborted<T>(work: Promise<T>, signal: AbortSignal): Promise<T
 }
 
 export async function POST(request: Request) {
+  const blocked = await rejectBot();
+  if (blocked) return blocked;
   let claimed: CustomLook;
-  let reserved = false;
+  let release: Release | undefined;
   try {
     const origin = request.headers.get("origin");
     if ((origin && origin !== new URL(request.url).origin) || request.headers.get("sec-fetch-site") === "cross-site") {
@@ -95,18 +102,19 @@ export async function POST(request: Request) {
     if (!process.env.ANTHROPIC_API_KEY || !process.env.FIRECRAWL_API_KEY) {
       throw new RequestError(503, "Costume creation is unavailable right now. Please try again later.");
     }
-    reserve(); reserved = true;
+    release = reserve();
     const result = await claimCustomLook(body);
     if (!result.claimed) {
-      active--; reserved = false;
+      release(); release = undefined;
       return duplicate(result.look, body);
     }
     claimed = result.look;
   } catch (error) {
-    if (reserved) active--;
+    release?.();
     if (error instanceof RequestError) return reply(error.status, { error: error.message });
     if (error instanceof z.ZodError || error instanceof SyntaxError) return reply(400, { error: "Enter a costume idea between 3 and 160 characters and choose a model." });
     console.warn("[custom-look] Request could not start", error instanceof Error ? error.name : "UnknownError");
+    await captureError(error, { source: "custom-looks" });
     return reply(503, { error: "Your costume could not be saved. Please try again later." });
   }
 
@@ -126,7 +134,7 @@ export async function POST(request: Request) {
       const emit = (event: CustomLookEvent) => {
         if (!open) return;
         try { controller.enqueue(encoder.encode(JSON.stringify(event) + "\n")); }
-        catch { open = false; cancelled.abort(); }
+        catch { open = false; cancelled.abort(); /* The client disconnected; stop work. */ }
       };
       const log = (_kind: string, text: string) => emit({ t: "log", text });
       try {
@@ -141,7 +149,7 @@ export async function POST(request: Request) {
           if (!found) { emit({ t: "miss", i }); return; }
           let item;
           try { item = validateCustomItem(toCartItem(i, piece, found, `custom-${look.id}`)); }
-          catch { emit({ t: "miss", i }); return; }
+          catch { emit({ t: "miss", i }); return; /* An invalid item is reported to the client as a miss. */ }
           // A repeated bundle or garment is one charge, never two costume components.
           if (look.pieces.some((row) => row.item?.productId === item.productId)) { emit({ t: "miss", i }); return; }
           look.pieces[i] = { piece, item };
@@ -167,14 +175,14 @@ export async function POST(request: Request) {
         let terminalSaved = false;
         try {
           // A rejected progress write must not prevent a final recovery write.
-          await writes.catch(() => undefined);
+          await writes.catch(() => undefined); // The failed write already logged; this recovery write must still run.
           await saveCustomLook(look);
           terminalSaved = true;
           if (look.state === "partial" && !signal.aborted) { emit(doneEvent(look)); return; }
         } catch { console.warn("[custom-look] Could not save terminal state"); }
         emit({ t: "error", text: message, ...(terminalSaved ? { retryWithNewRequestId: true } : {}) });
       } finally {
-        active--;
+        release?.();
         if (open) { open = false; controller.close(); }
       }
     },

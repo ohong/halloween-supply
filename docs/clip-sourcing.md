@@ -27,15 +27,15 @@ Signing proofs use the shared saved-look helper for priced pieces.
 Run input checks without provider work:
 
 ```sh
-bun scripts/verify-clip-sourcing.ts
+bun e2e/verify-clip-sourcing.ts
 bun run typecheck
-bunx eslint app/api/clip-costume/route.ts lib/sourcing/clip-vision.ts components/store/clip-input.tsx scripts/verify-clip-sourcing.ts
+bunx eslint app/api/clip-costume/route.ts lib/sourcing/clip-vision.ts components/store/clip-input.tsx e2e/verify-clip-sourcing.ts
 ```
 
 Run video analysis only after choosing a model explicitly:
 
 ```sh
-GEMINI_CLIP_MODEL=<verified-model> bun scripts/verify-clip-sourcing.ts --provider --upload /absolute/path/to/short.mp4
+GEMINI_CLIP_MODEL=<verified-model> bun e2e/verify-clip-sourcing.ts --provider --upload /absolute/path/to/short.mp4
 ```
 
 The optional `--youtube` check accepts a public YouTube URL instead. Neither provider check performs shop sourcing.

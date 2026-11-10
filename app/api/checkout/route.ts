@@ -7,9 +7,12 @@ import { DEMO_DEFAULT_SIZE, SCREENSHOT_SLUG, customLookId, type CheckoutRecovery
 import { toCartItem } from "@/lib/cart/item";
 import { readCustomLook } from "@/lib/custom-looks/store";
 import { usesDemoSizes } from "@/lib/checkout/mode";
+import { liveStripeWithoutWebhook } from "@/lib/env";
 import { verifyProduct, type Verification } from "@/lib/checkout/verify";
 import { isBlockedDomain, isNoiseDomain, registrableDomain } from "@/lib/sourcing/blocklist";
 import type { SizeKind } from "@/lib/types";
+import { captureError } from "@/lib/errors";
+import { rejectBot } from "@/lib/bot-guard";
 
 export const maxDuration = 60;
 
@@ -73,6 +76,10 @@ function parseBody(raw: unknown): CheckoutRequest | null {
 }
 
 export async function POST(request: Request) {
+  const blocked = await rejectBot();
+  if (blocked) return blocked;
+  // Never take real money for an order the webhook cannot record. Test keys are unaffected.
+  if (liveStripeWithoutWebhook()) return fail("Checkout is temporarily unavailable.", 503);
   try {
     let raw: unknown;
     try {
@@ -226,6 +233,7 @@ export async function POST(request: Request) {
           if (!(isLocal && abs.origin === origin)) image = abs.toString();
         }
       } catch {
+        // An invalid image URL means the line item is sent without a picture.
         image = null;
       }
 
@@ -277,6 +285,7 @@ export async function POST(request: Request) {
     return reply({ status: "ok", url: session.url, sessionId: session.id, priceChanges });
   } catch (e) {
     console.error("[checkout] session creation failed", e instanceof Error ? e.name : "UnknownError");
+    await captureError(e, { source: "checkout" });
     return fail("Checkout could not start. Please try again.", 500);
   }
 }

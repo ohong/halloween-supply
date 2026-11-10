@@ -34,9 +34,9 @@ can select another deployment for another database. Per-costume database writes
 are atomic. Incomplete drafts stay outside the bundled catalog.
 
 ```sh
-bun --env-file=.env.local scripts/verify-full-catalog.ts https://halloween.supply
+bun --env-file=.env.local e2e/verify-full-catalog.ts https://halloween.supply
 bun --env-file=.env.local scripts/catalog-check.ts
-bun scripts/verify-publication.ts
+bun e2e/verify-publication.ts
 ```
 
 The full verifier checks every gallery look, rendered component and merchant

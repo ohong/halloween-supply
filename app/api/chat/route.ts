@@ -7,6 +7,8 @@ import { chatContextSchema, type ChatContext } from "@/lib/ai/chat-context";
 import { addToCartSchema, recordSizesSchema } from "@/lib/ai/client-tools";
 import { sizeMatches } from "@/lib/outfits";
 import type { CostumeView } from "@/lib/types";
+import { rejectBot } from "@/lib/bot-guard";
+import { guardProvider, UNAVAILABLE, type Release } from "@/lib/guard";
 
 export const maxDuration = 300;
 
@@ -113,7 +115,11 @@ function groundHistory(messages: UIMessage[], view: CostumeView, context: ChatCo
   }).filter((message) => message.parts.length > 0);
 }
 
+const guard = guardProvider("chat", { maxActive: 16 });
+
 export async function POST(req: Request) {
+  const blocked = await rejectBot();
+  if (blocked) return blocked;
   const origin = req.headers.get("origin");
   if (origin && origin !== new URL(req.url).origin) return fail(403, "Send the message from this site's assistant.");
   if (Number(req.headers.get("content-length") || 0) > MAX_REQUEST_BYTES) return fail(413, "This conversation is too long. Start a new conversation.");
@@ -142,9 +148,17 @@ export async function POST(req: Request) {
   const validated = await safeValidateUIMessages({ messages, tools });
   if (!validated.success) return fail(400, "The conversation contains an invalid message or cart action.");
 
+  let release: Release = () => {};
   try {
     const history = groundHistory(validated.data, view, ctx);
     if (history.length === 0) return fail(400, "Send a message to the assistant.");
+    const slot = guard.acquire();
+    if (slot === "disabled") return fail(503, UNAVAILABLE);
+    if (slot === "busy") return fail(429, "The assistant is busy. Please try again shortly.");
+    release = slot;
+    // The slot lives as long as the stream: released on finish, error, disconnect or timeout, whichever comes first.
+    const stop = AbortSignal.any([req.signal, AbortSignal.timeout(270_000)]);
+    stop.addEventListener("abort", release, { once: true });
     const result = streamText({
       model: sonnet(),
       instructions: buildSystemPrompt(view, ctx),
@@ -153,17 +167,20 @@ export async function POST(req: Request) {
       stopWhen: isStepCount(6),
       maxOutputTokens: 1800,
       maxRetries: 1,
-      abortSignal: AbortSignal.any([req.signal, AbortSignal.timeout(270_000)]),
+      abortSignal: stop,
     });
 
     return result.toUIMessageStreamResponse({
+      onFinish: () => release(),
       onError: (error) => {
+        release();
         // Provider errors can contain request details. Keep them out of the UI and logs.
         console.error("[chat] stream failed", error instanceof Error ? error.name : "UnknownError");
         return "The assistant could not finish. Please try again.";
       },
     });
   } catch {
+    release();
     return fail(400, "The conversation contains an invalid or repeated cart action. Start a new conversation.");
   }
 }

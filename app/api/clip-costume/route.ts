@@ -4,6 +4,8 @@ import { analyzeClip, clipEnabled, clipModel, parseYouTubeId, type ClipSource } 
 import { screenshotSourcing, type SourcingLog } from "@/lib/sourcing/screenshot";
 import { toCartItem } from "@/lib/custom-looks/source";
 import { signSourcedItem } from "@/lib/custom-looks/item-proof";
+import { guardProvider, UNAVAILABLE, type Release } from "@/lib/guard";
+import { rejectBot } from "@/lib/bot-guard";
 
 export const maxDuration = 150;
 const ANALYSIS_MS = 90_000;
@@ -12,7 +14,7 @@ const MAX_VIDEO = 4 * 1024 * 1024;
 const MAX_FRAME = 200 * 1024;
 // Include multipart overhead while staying below the deployed function's 4.5 MB body cap.
 const MAX_BODY = 4_500_000;
-let active = 0;
+const guard = guardProvider("clip-costume", { maxActive: 4 });
 
 const headers = () => ({ "Cache-Control": "private, no-store", "X-Content-Type-Options": "nosniff", "X-Vision-Model": clipModel() ?? "unconfigured" });
 
@@ -70,16 +72,21 @@ async function readInput(request: Request): Promise<{ source: ClipSource; image:
 }
 
 export async function POST(request: Request) {
+  const blocked = await rejectBot();
+  if (blocked) return blocked;
   const respond = (status: number, error: string) => Response.json({ error }, { status, headers: headers() });
   let input: Awaited<ReturnType<typeof readInput>>;
+  let release: Release | undefined;
   try {
     const origin = request.headers.get("origin");
     if (origin && origin !== new URL(request.url).origin) throw new PreviewError(403, "Open the clip stylist from this site.");
     if (!clipEnabled()) throw new PreviewError(503, "The clip stylist is not available yet.");
-    if (active >= 4) throw new PreviewError(429, "The clip stylist is busy. Please try again shortly.");
     // Reserve before reading a potentially slow upload, and release on every exit.
-    active++;
-    try { input = await readInput(request); } catch (error) { active--; throw error; }
+    const lease = guard.acquire();
+    if (lease === "disabled") throw new PreviewError(503, UNAVAILABLE);
+    if (lease === "busy") throw new PreviewError(429, "The clip stylist is busy. Please try again shortly.");
+    release = lease;
+    try { input = await readInput(request); } catch (error) { release(); throw error; }
   } catch (error) {
     return error instanceof PreviewError ? respond(error.status, error.message) : respond(400, "The upload could not be read. Please try again.");
   }
@@ -129,7 +136,7 @@ export async function POST(request: Request) {
           : analysisDeadline.aborted ? "We couldn’t finish this clip in time. Try a shorter clip."
           : "The clip stylist could not finish. Matches already found stay on your board." });
       } finally {
-        clearTimeout(timer); deadline.abort(); active--;
+        clearTimeout(timer); deadline.abort(); release?.();
         if (open) { open = false; controller.close(); }
       }
     },

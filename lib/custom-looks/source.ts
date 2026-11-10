@@ -64,7 +64,7 @@ async function readShopify(url: string, color: string | undefined): Promise<Foun
     // Checkout charges only USD presentment, so drop overseas shops now rather than at payment.
     fetch(`${origin}/cart.js`, { signal: AbortSignal.timeout(5_000), headers: { Accept: "application/json" } })
       .then((response) => response.ok ? response.json() as Promise<{ currency?: string }> : null)
-      .then((cart) => cart?.currency ?? null).catch(() => null),
+      .then((cart) => cart?.currency ?? null).catch(() => null), // Currency is best-effort; a missing cart currency leaves it unverified.
   ]);
   if (!product || currency !== "USD") return null;
   // A green skirt query must not sell a black skirt: take the color variant, or a title that names the color.
@@ -97,6 +97,7 @@ async function scrape(url: string, color: string | undefined): Promise<Found | n
     return { title: product.title, image, url: finalUrl, priceCents: product.priceCents, merchant: registrableDomain(host) ?? host,
       sizes: product.sizes, description: product.description?.slice(0, 1800) };
   } catch {
+    // An unreachable or unparsable product page drops this candidate; other candidates still compete.
     return null;
   }
 }

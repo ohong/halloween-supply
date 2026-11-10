@@ -2,12 +2,15 @@ import { z } from "zod";
 import { readMirrorInventory } from "@/lib/live-mirror/catalog-server";
 import { mixMirrorPieces } from "@/lib/live-mirror/mixed-outfit";
 import { mixSchema, readVoiceRequest, requestBase, validatedCostume, voiceFailure, voiceResponse, VoiceError } from "@/lib/live-mirror/voice-server";
+import { rejectBot } from "@/lib/bot-guard";
 
 const action = z.object({ type: z.literal("mix"), source: mixSchema.omit({ replacesPieceId: true }), replacesPieceId: mixSchema.shape.replacesPieceId }).strict();
 const schema = requestBase.extend({ actions: z.array(action).min(1).max(6) }).strict();
 
 /** Resolve source IDs again at application time; never accept client product data or prices. */
 export async function POST(request: Request) {
+  const blocked = await rejectBot();
+  if (blocked) return blocked;
   try {
     const { costumeSlug, outfit, actions } = schema.parse(await readVoiceRequest(request));
     const inventory = await readMirrorInventory();

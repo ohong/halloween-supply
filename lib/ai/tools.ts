@@ -10,8 +10,9 @@ import type { PieceUse } from "../outfits";
 import { outfitRequestSchema, StylistError } from "../stylist/contracts";
 import { styleOutfit } from "../stylist/decide";
 import type { ChatContext } from "./chat-context";
+import { guardProvider, UNAVAILABLE } from "../guard";
 
-let activeStylistCalls = 0;
+const stylistGuard = guardProvider("stylist-tool", { maxActive: 4 });
 
 /** Server tools: thin wrappers over lib/catalog.ts, so every answer comes from the catalog. */
 export function createTools(view: CostumeView, context?: ChatContext) {
@@ -72,7 +73,7 @@ export function createTools(view: CostumeView, context?: ChatContext) {
       execute: async ({ budgetCents, notes, eventDate, preference, sizes, pieceSizes, ownedPieceIds = [], skippedPieceIds = [] }, { abortSignal }) => {
         const changedPieces = [...ownedPieceIds, ...skippedPieceIds];
         if (changedPieces.some((pieceId) => !pieceIds.has(pieceId)) || new Set(changedPieces).size !== changedPieces.length) return { error: "Choose owned and skipped pieces once each from this costume.", code: "invalid_request", products: [] };
-        if (stylingCalls >= 1 || activeStylistCalls >= 4) return { error: "The personal stylist is busy. Send a new message to compare another budget.", code: "busy", products: [] };
+        if (stylingCalls >= 1) return { error: "The personal stylist is busy. Send a new message to compare another budget.", code: "busy", products: [] };
         const uses: Record<string, PieceUse> = Object.fromEntries([
           ...ownedPieceIds.map((pieceId) => [pieceId, "owned"] as const),
           ...skippedPieceIds.map((pieceId) => [pieceId, "skip"] as const),
@@ -87,7 +88,10 @@ export function createTools(view: CostumeView, context?: ChatContext) {
           uses,
         });
         if (!parsed.success) return { error: "The styling budget, sizes, or preferences are invalid.", code: "invalid_request", products: [] };
-        stylingCalls++; activeStylistCalls++;
+        const lease = stylistGuard.acquire();
+        if (lease === "disabled") return { error: UNAVAILABLE, code: "provider_unavailable", products: [] };
+        if (lease === "busy") return { error: "The personal stylist is busy. Send a new message to compare another budget.", code: "busy", products: [] };
+        stylingCalls++;
         try {
           const result = await styleOutfit(view, parsed.data, abortSignal);
           return {
@@ -102,7 +106,7 @@ export function createTools(view: CostumeView, context?: ChatContext) {
           return { error: error instanceof Error && ["AbortError", "TimeoutError"].includes(error.name)
             ? "The personal stylist took too long. Please try again later."
             : "The personal stylist could not finish. Please try again later.", code: "provider_unavailable", products: [], cartChanged: false };
-        } finally { activeStylistCalls--; }
+        } finally { lease(); }
       },
     }),
     getMerchantCatalog: tool({

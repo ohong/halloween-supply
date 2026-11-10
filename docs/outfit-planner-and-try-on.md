@@ -91,8 +91,8 @@ return a busy response.
 - `bun run typecheck`
 - `bun run lint`
 - `bun run build`
-- `bun scripts/verify-try-on.mjs`
-- `bun scripts/verify-try-on.mjs http://localhost:3102` also checks storefront wiring.
+- `bun e2e/verify-try-on.mjs`
+- `bun e2e/verify-try-on.mjs http://localhost:3102` also checks storefront wiring.
 
 The last command runs the actual route, catalog lookup, file reads, and image
 decoding. It replaces only the OpenAI HTTP boundary and the Next.js server-only
@@ -228,7 +228,7 @@ Before/after comparison, download, reset and browser error checks passed.
 Reproduce the paid synthetic comparison with:
 
 ```sh
-BENCHMARK_IMAGE_EDITS=1 bun --env-file=.env.local scripts/benchmark-try-on.mjs /tmp/photo-benchmark
+BENCHMARK_IMAGE_EDITS=1 bun --env-file=.env.local e2e/benchmark-try-on.mjs /tmp/photo-benchmark
 ```
 
 The script captures the current real route's prepared input using a simulated

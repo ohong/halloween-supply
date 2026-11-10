@@ -1,6 +1,6 @@
 /** The firewall can return HTML; application errors carry more specific JSON. */
 export async function readMirrorResponse<T>(response: Response): Promise<T> {
-  const body = await response.json().catch(() => null);
+  const body = await response.json().catch(() => null); // A non-JSON body (such as a firewall HTML page) is handled by the checks below.
   if (!response.ok) {
     if (typeof body?.error === "string") throw new Error(body.error);
     if (response.status === 429) throw new Error("Too many mirror requests from this network. Please try again later.");

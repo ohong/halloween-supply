@@ -1,6 +1,11 @@
 import { z } from "zod";
 import { normalizeSearchQuery } from "@/lib/costume-search";
 import { semanticSearch } from "@/lib/costume-search/server";
+import { captureError } from "@/lib/errors";
+import { rejectBot } from "@/lib/bot-guard";
+import { guardProvider, UNAVAILABLE, type Release } from "@/lib/guard";
+
+const guard = guardProvider("costume-search", { maxActive: 16 });
 
 export const maxDuration = 20;
 
@@ -26,6 +31,8 @@ async function readBody(request: Request) {
 }
 
 export async function POST(request: Request) {
+  const blocked = await rejectBot();
+  if (blocked) return blocked;
   const origin = request.headers.get("origin");
   const host = request.headers.get("host") ?? new URL(request.url).host;
   if (request.headers.get("sec-fetch-site") === "cross-site") return respond({ error: "Search from this site." }, 403);
@@ -36,6 +43,10 @@ export async function POST(request: Request) {
     } catch { return respond({ error: "Search from this site." }, 403); }
   }
   if (!request.headers.get("content-type")?.toLowerCase().startsWith("application/json")) return respond({ error: "Send the search as JSON." }, 415);
+  const slot = guard.acquire();
+  if (slot === "disabled") return respond({ error: UNAVAILABLE }, 503);
+  if (slot === "busy") return respond({ error: "Search is busy. Please try again shortly." }, 429);
+  const release: Release = slot;
   try {
     const raw = await readBody(request);
     if (raw === BODY_TOO_LARGE) return respond({ error: "The search request is too large." }, 413);
@@ -44,6 +55,9 @@ export async function POST(request: Request) {
   } catch (error) {
     if (error instanceof z.ZodError || error instanceof SyntaxError) return respond({ error: "Enter a search of at most 160 characters." }, 400);
     if (request.signal.aborted) return new Response(null, { status: 499 });
+    await captureError(error, { source: "costume-search" });
     return respond({ error: "Search could not finish. Please try again." }, 502);
+  } finally {
+    release();
   }
 }

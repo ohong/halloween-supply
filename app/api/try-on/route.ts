@@ -7,6 +7,10 @@ import { resolvePreviewReferences } from "@/lib/try-on/references";
 import { mixSchema } from "@/lib/live-mirror/mix-schema";
 import { openaiRequest, PreviewError } from "@/lib/ai/openai";
 import { isTryOnTesting } from "@/lib/try-on-policy";
+import { openaiImageModel } from "@/lib/ai/models";
+import { guardProvider, UNAVAILABLE, type Release } from "@/lib/guard";
+import { captureError } from "@/lib/errors";
+import { rejectBot } from "@/lib/bot-guard";
 
 export const maxDuration = 240;
 
@@ -17,12 +21,13 @@ const idsSchema = z.array(z.string().max(150)).max(20);
 const imageSchema = z.object({ data: z.array(z.object({ b64_json: z.string().min(1) })).min(1) });
 
 // Bound simultaneous provider work without limiting repeated demo attempts.
-let active = 0;
-function reserve() {
-  if (isTryOnTesting()) return false;
-  if (active >= 2) throw new PreviewError(429, "The fitting room is busy. Please try again shortly.");
-  active++;
-  return true;
+const guard = guardProvider("try-on", { maxActive: 2 });
+function reserve(): Release | undefined {
+  if (isTryOnTesting()) return undefined;
+  const release = guard.acquire();
+  if (release === "disabled") throw new PreviewError(503, UNAVAILABLE);
+  if (release === "busy") throw new PreviewError(429, "The fitting room is busy. Please try again shortly.");
+  return release;
 }
 
 async function readForm(request: Request) {
@@ -65,8 +70,10 @@ async function localReference(src: string) {
 }
 
 export async function POST(request: Request) {
+  const blocked = await rejectBot();
+  if (blocked) return blocked;
   const started = performance.now();
-  let reserved = false;
+  let release: Release | undefined;
   const respond = (status: number, body: object, timing?: { prepare: number; generate: number; model: string }) => Response.json(body, { status, headers: {
     "Cache-Control": "private, no-store", "X-Content-Type-Options": "nosniff",
     ...(timing ? { "Server-Timing": `prepare;dur=${timing.prepare.toFixed(1)}, generate;dur=${timing.generate.toFixed(1)}`, "X-Try-On-Model": timing.model } : {}),
@@ -98,11 +105,11 @@ export async function POST(request: Request) {
       person = await input.rotate().resize({ width: 1536, height: 2048, fit: "inside", withoutEnlargement: true }).jpeg({ quality: 90 }).toBuffer();
     } catch { throw new PreviewError(400, "This photo could not be opened. Try another JPEG, PNG or WebP photo."); }
 
-    reserved = reserve();
+    release = reserve();
     // Promise.all preserves image numbering while decoding independent assets together.
     const references = await Promise.all(referenceSources.map(localReference));
     const edit = new FormData();
-    const model = process.env.OPENAI_IMAGE_MODEL || "gpt-image-2.5-flare";
+    const model = openaiImageModel();
     edit.set("model", model);
     // Smallest supported 2:3 portrait, for a fast on-screen try-on preview.
     edit.set("size", "672x1008");
@@ -123,6 +130,7 @@ export async function POST(request: Request) {
     if (error instanceof z.ZodError || error instanceof SyntaxError) return respond(400, { error: "The outfit request is invalid. Refresh the page and try again." });
     if (error instanceof Error && ["AbortError", "TimeoutError"].includes(error.name)) return respond(504, { error: "The preview took too long. Please try again later." });
     console.warn("[try-on] Preview failed", error instanceof Error ? error.name : "UnknownError");
+    await captureError(error, { source: "try-on" });
     return respond(502, { error: "The preview could not be created. Please try again later." });
-  } finally { if (reserved) active--; }
+  } finally { release?.(); }
 }

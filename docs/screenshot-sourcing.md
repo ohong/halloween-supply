@@ -70,9 +70,9 @@ An uncertain best result becomes an `approval` event, and the shopper confirms i
 Verify against a running app with the service configured. This calls the real route, the real service and real search:
 
 ```sh
-bun scripts/verify-screenshot-agent.ts http://localhost:3000
+bun e2e/verify-screenshot-agent.ts http://localhost:3000
 # Samples can be slugs from public/costumes or PNG paths; --require-retry needs one improving color/type retry:
-SCREENSHOT_SAMPLES=eval/traces/moon-moth-upper.png,eval/traces/cosmic-cowboy-upper.png bun scripts/verify-screenshot-agent.ts http://localhost:3000 --require-retry
+SCREENSHOT_SAMPLES=eval/traces/moon-moth-upper.png,eval/traces/cosmic-cowboy-upper.png bun e2e/verify-screenshot-agent.ts http://localhost:3000 --require-retry
 ```
 
 Each run saves its trace to `eval/traces/`. Examples saved there:
@@ -102,12 +102,12 @@ Measured with a real cosmic-cowboy frame: 9.4 s for the whole answer against the
 bun run typecheck
 bun run build
 # Against a running local app or production; these use real provider credits:
-node scripts/verify-screenshot-speed.mjs http://localhost:3031
-bun scripts/verify-screenshot-sourcing.ts http://localhost:3031
+node e2e/verify-screenshot-speed.mjs http://localhost:3031
+bun e2e/verify-screenshot-sourcing.ts http://localhost:3031
 # Optional cardigan/harness regression images, kept outside Git:
-bun scripts/verify-screenshot-references.ts http://localhost:3031 /path/cardigan.jpg /path/harness.jpg
+bun e2e/verify-screenshot-references.ts http://localhost:3031 /path/cardigan.jpg /path/harness.jpg
 # Three supplied examples, kept outside Git:
-bun scripts/verify-screenshot-examples.ts http://localhost:3031 /path/football.jpg /path/pilot.jpg /path/adventurer.jpg
+bun e2e/verify-screenshot-examples.ts http://localhost:3031 /path/football.jpg /path/pilot.jpg /path/adventurer.jpg
 ```
 
 The browser check measures actual first paint and event arrival, requires a visible match before search completion, checks the 30-second ceiling, and captures desktop/mobile results. The broader sourcing check accepts useful discoveries without requiring every merchant to expose complete checkout facts. `--checkout` additionally checks priced items through Stripe test checkout and expires the unpaid session. No payment is made.

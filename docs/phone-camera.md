@@ -60,7 +60,7 @@ Brief WebRTC disconnections retain the existing stream for up to twelve seconds.
 
 ## Verification
 
-Run `node scripts/verify-phone-camera.mjs` against a development server on port 3026. Set `PHONE_BASE_URL` for another deployment. The script creates synthetic fixtures using `ffmpeg` and macOS `say`. Alternatively, supply fixtures through `MIRROR_TEST_VIDEO` (Y4M) and `MIRROR_TEST_AUDIO` (WAV).
+Run `node e2e/verify-phone-camera.mjs` against a development server on port 3026. Set `PHONE_BASE_URL` for another deployment. The script creates synthetic fixtures using `ffmpeg` and macOS `say`. Alternatively, supply fixtures through `MIRROR_TEST_VIDEO` (Y4M) and `MIRROR_TEST_AUDIO` (WAV).
 
 Set `PHONE_PROVIDER_E2E=1` to additionally run real OpenAI photo generation, GPT Live, and Lucy. This consumes provider credits. Tests use two independent browser sessions and never open personal hardware. Evidence goes to a temporary `phone-camera-e2e-*` folder.
 

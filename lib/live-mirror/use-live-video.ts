@@ -44,7 +44,7 @@ async function closeAttempt(session: VideoSession) {
   session.attemptController?.abort();
   clearTimeout(session.firstFrameTimer);
   clearTimeout(session.disconnectedTimer);
-  await session.client?.close().catch(() => {});
+  await session.client?.close().catch(() => {}); // Teardown is best-effort; the client is dropped regardless.
   session.client = undefined;
   session.remote?.getTracks().forEach(track => track.stop());
   session.remote = undefined;
@@ -110,7 +110,7 @@ export function useLiveVideo({ costume, outfit }: MirrorContext, externalCamera?
     }, { once: true });
     if (!session.external) void navigator.mediaDevices.enumerateDevices().then(devices => {
       if (sessionRef.current === session) setCanSwitchCamera(devices.filter(device => device.kind === "videoinput").length > 1);
-    }).catch(() => {});
+    }).catch(() => {}); // Device listing is optional; the switch-camera button just stays hidden.
   }, [fail]);
 
   const switchCamera = useCallback(async () => {
@@ -225,7 +225,7 @@ export function useLiveVideo({ costume, outfit }: MirrorContext, externalCamera?
         let rejectAttempt!: (reason: unknown) => void;
         const failure = new Promise<never>((_, reject) => { rejectAttempt = reject; });
         // Errors may arrive while reference/token requests are still pending.
-        void failure.catch(() => {});
+        void failure.catch(() => {}); // Only marks the rejection handled; the awaited attempt reports it.
         const cancel = () => rejectAttempt(session.controller.signal.reason);
         session.controller.signal.addEventListener("abort", cancel, { once: true });
         const active = () => current() && session.attempt === attempt;

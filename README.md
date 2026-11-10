@@ -144,11 +144,11 @@ bun run verify:release
 # For separate real-service checks, start the production server:
 bun run start
 # With the production server running:
-bun scripts/verify-full-catalog.ts http://localhost:3000
-bun scripts/verify-model-gallery.ts http://localhost:3000
-bun scripts/verify-v1.ts http://localhost:3000 --checkout
-bun scripts/verify-chat.ts http://localhost:3000
-bun scripts/verify-costume-search.ts http://localhost:3000 --require-semantic
+bun e2e/verify-full-catalog.ts http://localhost:3000
+bun e2e/verify-model-gallery.ts http://localhost:3000
+bun e2e/verify-v1.ts http://localhost:3000 --checkout
+bun e2e/verify-chat.ts http://localhost:3000
+bun e2e/verify-costume-search.ts http://localhost:3000 --require-semantic
 ```
 
 Some checks call real services and consume credits. The checkout check creates

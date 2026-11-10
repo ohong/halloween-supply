@@ -17,6 +17,7 @@ Production needs these variables:
 - `TURSO_DATABASE_URL`
 - `TURSO_AUTH_TOKEN`
 - `STRIPE_SECRET_KEY`
+- `STRIPE_WEBHOOK_SECRET`
 - `CRON_SECRET`
 
 `FAL_KEY` enables live video and personal 3D previews. Phone relay needs the
@@ -39,6 +40,46 @@ vercel env ls --environment production --scope ohong-projects --project hallowee
 
 Do not pull environment files over `.env.local` or print credentials.
 Stripe remains in test mode for the 50-costume storefront. Do not replace the production credential with a live key without a new user instruction.
+
+## Launch guards
+
+Three guards protect the site before it takes real traffic.
+
+**Environment check.** On boot in production, `instrumentation.ts` calls `lib/env.ts` and logs one
+`[env] Missing required production environment variables: ...` line with names only. It reports the same
+to PostHog and does not throw, so pages that do not need the variable keep working. The required list is the
+one under Environment above. Separately, if `STRIPE_SECRET_KEY` starts with `sk_live` and
+`STRIPE_WEBHOOK_SECRET` is unset, `POST /api/checkout` answers 503, so no real payment can go unrecorded.
+
+**BotID.** Paid POST routes call `rejectBot()` from `lib/bot-guard.ts` first and answer 403 to bots. The
+routes are listed in `instrumentation-client.ts`. Enable BotID for the Vercel project (Firewall tab; Deep
+Analysis is recommended). Outside Vercel and in `next dev` BotID reports a human, so enforcement only exists
+on a deployment. If the BotID check itself errors, the request is allowed and the error goes to PostHog.
+`BOT_CHECK_DISABLED=1` turns the check off. Hosted Playwright and curl `e2e/` scripts count as bots: set
+`BOT_CHECK_DISABLED=1` on the preview they target, or use Vercel's protection bypass for automation.
+Local runs against `next start` are not blocked (the check errors and fails open).
+
+**PostHog error tracking.** Set `NEXT_PUBLIC_POSTHOG_PROJECT_TOKEN` and `NEXT_PUBLIC_POSTHOG_HOST` (your
+region's ingestion host; there is no default). With either unset PostHog stays off and the app runs normally.
+Only exceptions are captured: no session recording, autocapture, pageviews, cookies or storage. Server errors
+come from `onRequestError`, plus `captureError()` in the Stripe webhook and the paid routes' catch blocks.
+After deploying, create an error tracking alert in PostHog (Error tracking, Alerts) that notifies you on new
+issues, and confirm one test error appears.
+
+Open items: source maps are not uploaded, so production stack traces are minified. Set that up with the
+PostHog source map upload for Next.js when needed.
+
+## Stripe webhook
+
+Paid orders are recorded by `POST /api/webhooks/stripe`. In the Stripe dashboard (Developers, Webhooks), add an
+endpoint at `https://halloween.supply/api/webhooks/stripe` for `checkout.session.completed` and
+`checkout.session.async_payment_succeeded`, then save its signing secret as `STRIPE_WEBHOOK_SECRET`.
+Test and live mode have separate endpoints and secrets.
+
+Each paid session becomes one row in the Turso `orders` table, and rows with `fulfillment_status = 'pending'`
+are the fulfillment queue. Redelivery is a no-op. The route sets `receipt_email` on the payment intent, which
+makes Stripe email the receipt in live mode (test mode sends no email). A database or Stripe failure answers
+500 so Stripe retries. For local testing use `stripe listen`; see `e2e/verify-stripe-webhook.ts`.
 
 ## Demo sizes
 
@@ -74,7 +115,7 @@ Never place the secret in the URL or paste it into logs.
 2. Run `bun run typecheck`.
 3. Run `bun run build`.
 4. Run `bun run verify:release` for all 50 catalogs, images, model assets, and browser shopping checks.
-5. Run `SHOPPING_EVIDENCE_DIR=/tmp/shopping-evidence bun scripts/verify-shopping-campaign.mjs LOCAL_URL` against a separate local production server.
+5. Run `SHOPPING_EVIDENCE_DIR=/tmp/shopping-evidence bun e2e/verify-shopping-campaign.mjs LOCAL_URL` against a separate local production server.
 6. Confirm the exact PR heads pass hosted checks in the [stack order](swarm/2026-11-05/pr-stack.md).
 7. Merge reviewed commits only after the user authorizes the release.
 8. Confirm the resulting Vercel deployment's exact commit and `READY` state.

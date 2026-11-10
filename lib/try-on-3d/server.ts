@@ -2,13 +2,10 @@ import "server-only";
 import { createHash, createHmac, timingSafeEqual } from "node:crypto";
 import { z } from "zod";
 import { PreviewError } from "@/lib/ai/openai";
+import { FAL_3D_MODELS } from "@/lib/ai/models";
 import type { RenderOffer, RenderProvider, RenderStatus } from "./types";
 
-export const FAL_MODELS = {
-  meshy: { endpoint: "meshy/v7.1/image-to-3d", queue: "https://queue.fal.run/meshy/v7.1/requests", label: "fal / Meshy 7.1" },
-  hunyuan: { endpoint: "fal-ai/hunyuan-3d/v3.1/pro/image-to-3d", queue: "https://queue.fal.run/fal-ai/hunyuan-3d/requests", label: "fal / Hunyuan 3D 3.1 Pro" },
-  trellis: { endpoint: "fal-ai/trellis-2", queue: "https://queue.fal.run/fal-ai/trellis-2/requests", label: "fal / TRELLIS.2" },
-} as const;
+const queueUrl = (provider: RenderProvider) => `https://queue.fal.run/${FAL_3D_MODELS[provider].queue}/requests`;
 const providerSchema = z.enum(["trellis", "meshy", "hunyuan"]);
 const previewSchema = z.object({ kind: z.literal("preview"), digest: z.string(), provider: providerSchema, expires: z.number() });
 const jobSchema = z.object({ kind: z.literal("job"), id: z.string().regex(/^[a-zA-Z0-9_-]{1,150}$/), provider: providerSchema, expires: z.number() });
@@ -39,7 +36,7 @@ function verify(token: string): unknown {
 export function offer3d(image: string): RenderOffer | null {
   const provider = configuredProvider();
   if (!provider) return null;
-  return { provider, label: FAL_MODELS[provider].label, ticket: sign({ kind: "preview", digest: createHash("sha256").update(image).digest("hex"), provider, expires: Date.now() + 60 * 60_000 }) };
+  return { provider, label: FAL_3D_MODELS[provider].label, ticket: sign({ kind: "preview", digest: createHash("sha256").update(image).digest("hex"), provider, expires: Date.now() + 60 * 60_000 }) };
 }
 export function validatePreview(image: string, ticket: string) {
   const parsed = previewSchema.safeParse(verify(ticket));
@@ -85,7 +82,7 @@ export async function submit3d(image: string, ticket: string) {
       meshy: { image_url: image, model_type: "standard", geometry_resolution: "standard", should_texture: true, enable_pbr: false, should_remesh: true, target_polycount: 40000, enable_safety_checker: true },
       hunyuan: { input_image_url: image, generate_type: "Normal", enable_pbr: false, face_count: 40000 },
     }[preview.provider];
-    const result = await upstream(`https://queue.fal.run/${FAL_MODELS[preview.provider].endpoint}`, input);
+    const result = await upstream(`https://queue.fal.run/${FAL_3D_MODELS[preview.provider].endpoint}`, input);
     const id = z.string().regex(/^[a-zA-Z0-9_-]{1,150}$/).parse(result.request_id);
     return sign({ kind: "job", id, provider: preview.provider, expires: now + 24 * 60 * 60_000 });
   })();
@@ -100,7 +97,7 @@ function modelUrl(value: unknown) {
 }
 export async function status3d(token: string): Promise<RenderStatus> {
   const job = readJob(token);
-  const queue = FAL_MODELS[job.provider].queue;
+  const queue = queueUrl(job.provider);
   const result = await upstream(`${queue}/${job.id}/status`);
   if (result.status === "COMPLETED") {
     const failed = { status: "failed", error: "The 3D model could not be created. Try a new photo preview." } as const;

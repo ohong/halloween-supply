@@ -26,5 +26,5 @@ export function proxy(request: NextRequest) {
 }
 
 export const config = {
-  matcher: ["/((?!api(?:/|$)|_next(?:/|$)|create(?:/|$)|success(?:/|$)|.*\\.[^/]+$).*)"],
+  matcher: ["/((?!api(?:/|$)|_next(?:/|$)|149e9513-01fa-4fb0-aad4-566afd725d1b(?:/|$)|create(?:/|$)|success(?:/|$)|.*\\.[^/]+$).*)"],
 };

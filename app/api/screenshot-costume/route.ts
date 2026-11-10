@@ -1,10 +1,13 @@
 import sharp from "sharp";
-import { SCREENSHOT_VISION_MODEL as LUNA, decomposeScreenshot as decompose, labelSegments } from "@/lib/sourcing/screenshot-vision";
+import { SCREENSHOT_VISION_MODEL as LUNA } from "@/lib/ai/models";
+import { decomposeScreenshot as decompose, labelSegments } from "@/lib/sourcing/screenshot-vision";
 import { analyze, applyLabels, visionMode, visionModel, type TraceEntry, type VisionPiece } from "@/lib/sourcing/vision-client";
 import { PreviewError } from "@/lib/ai/openai";
 import { screenshotSourcing, type SourcingLog as Log } from "@/lib/sourcing/screenshot";
 import { signSourcedItem } from "@/lib/custom-looks/item-proof";
 import { toCartItem } from "@/lib/custom-looks/source";
+import { guardProvider, UNAVAILABLE, type Release } from "@/lib/guard";
+import { rejectBot } from "@/lib/bot-guard";
 
 export const maxDuration = 40;
 const SEARCH_BUDGET_MS = 30_000;
@@ -13,10 +16,12 @@ const MIN_PERSON_CONFIDENCE = 0.5;
 const MAX_BODY = 4 * 1024 * 1024;
 const FORMATS = ["jpeg", "png", "webp", "gif", "heif", "avif"];
 // Bound simultaneous provider work without limiting repeated demo attempts.
-let active = 0;
+const guard = guardProvider("screenshot-costume", { maxActive: 4 });
 function reserve() {
-  if (active >= 4) throw new PreviewError(429, "The stylist is busy. Please try again shortly.");
-  active++;
+  const release = guard.acquire();
+  if (release === "disabled") throw new PreviewError(503, UNAVAILABLE);
+  if (release === "busy") throw new PreviewError(429, "The stylist is busy. Please try again shortly.");
+  return release;
 }
 
 async function readPhoto(request: Request) {
@@ -50,9 +55,11 @@ async function readPhoto(request: Request) {
 
 
 export async function POST(request: Request) {
+  const blocked = await rejectBot();
+  if (blocked) return blocked;
   let model = "unconfigured";
   const respond = (status: number, body: object) => Response.json(body, { status, headers: { "Cache-Control": "private, no-store", "X-Content-Type-Options": "nosniff", "X-Vision-Model": model } });
-  let reserved = false;
+  let release: Release | undefined;
   let image: Buffer;
   let mode: "opencv" | "luna";
   try {
@@ -67,9 +74,9 @@ export async function POST(request: Request) {
       mode = "luna";
     });
     image = await readPhoto(request);
-    reserve(); reserved = true;
+    release = reserve();
   } catch (error) {
-    if (reserved) active--;
+    release?.();
     if (error instanceof PreviewError) return respond(error.status, { error: error.message });
     return respond(400, { error: "The upload could not be read. Please try again." });
   }
@@ -168,7 +175,7 @@ export async function POST(request: Request) {
         if (mode === "opencv") console.log(JSON.stringify({ event: "screenshot_agent_trace", model, ms: Math.round(performance.now() - t0), trace }));
         clearTimeout(timer);
         deadline.abort();
-        active--;
+        release?.();
         if (open) { open = false; controller.close(); }
       }
     },

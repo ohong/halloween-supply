@@ -72,8 +72,8 @@ Checked locally:
 
 - Production `bun run build`: passed, including both new API routes.
 - TypeScript and ESLint on the changed feature files.
-- `bun scripts/verify-try-on.mjs`: existing photo path, costume/product validation, rejection handling, quota, and missing-key behavior. OpenAI HTTP is simulated.
-- `bun scripts/verify-try-on-3d.mjs`: real route handlers with simulated provider HTTP; tests consent, origin, signed image binding, token tampering/purpose/expiry, body limits, concurrent deduplication, provider settings, progress, completion, failures, and transient errors.
+- `bun e2e/verify-try-on.mjs`: existing photo path, costume/product validation, rejection handling, quota, and missing-key behavior. OpenAI HTTP is simulated.
+- `bun e2e/verify-try-on-3d.mjs`: real route handlers with simulated provider HTTP; tests consent, origin, signed image binding, token tampering/purpose/expiry, body limits, concurrent deduplication, provider settings, progress, completion, failures, and transient errors.
 - Real end-to-end run through the local dev server with a synthetic photo (no personal photo): photo try-on (17 s), TRELLIS.2 submit, status ready after 27 s, 2.3 MB GLB.
 - The same flow in the local browser on Velvet Vampire: the TRELLIS GLB renders in the viewer, selecting the waistcoat moves the camera and draws its focus box, and the console has no errors.
 

@@ -134,7 +134,7 @@ See [current session behavior](./mirror-session-limits.md).
 Check the actual reference routes without paid inference or camera access:
 
 ```sh
-MIRROR_BASE_URL=http://localhost:3028 node scripts/verify-mirror-identity.mjs
+MIRROR_BASE_URL=http://localhost:3028 node e2e/verify-mirror-identity.mjs
 ```
 
 This checks every published look at three available product tiers, plus color
@@ -147,7 +147,7 @@ command checks, cancellation checks, timings, and provider limits.
 bun install
 bun run dev --port 3025
 # In another terminal; this spends fal/OpenAI credits:
-LIVE_MIRROR_E2E=1 node scripts/verify-live-mirror.mjs
+LIVE_MIRROR_E2E=1 node e2e/verify-live-mirror.mjs
 ```
 
 The test uses Playwright Chromium, `ffmpeg`, and macOS `say`. Install Chromium with
@@ -166,7 +166,7 @@ and Decisions calls are real. This test does not use a sleeping user's devices.
 For voice-only interaction coverage, run:
 
 ```sh
-LIVE_MIRROR_E2E=1 MIRROR_BASE_URL=http://localhost:3025 node scripts/verify-voice-mirror.mjs
+LIVE_MIRROR_E2E=1 MIRROR_BASE_URL=http://localhost:3025 node e2e/verify-voice-mirror.mjs
 ```
 
 This uses synthetic speech and a catalog mannequin with real GPT Live,
@@ -255,7 +255,7 @@ proof of identity changes. Small, blurred or covered faces limit comparison.
 Run the real-provider check with synthetic camera and speech input:
 
 ```sh
-LIVE_MIRROR_E2E=1 MIRROR_BASE_URL=http://localhost:3028 node scripts/verify-mirror-feedback.mjs
+LIVE_MIRROR_E2E=1 MIRROR_BASE_URL=http://localhost:3028 node e2e/verify-mirror-feedback.mjs
 ```
 
 This checks the actual browser, Lucy, GPT Live, Decisions and vision route.
